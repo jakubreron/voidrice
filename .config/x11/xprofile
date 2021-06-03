@@ -4,7 +4,7 @@
 # If you use startx/xinit like a Chad, this file will also be sourced.
 
 setbg &			# set the background with the `setbg` script
-#xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources &	# Uncomment to use Xresources colors/settings on startup
+xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources &	# Uncomment to use Xresources colors/settings on startup
 mpd &			# music player daemon-you might prefer it as a service though
 remaps &		# run the remaps script, switching caps/esc and more; check it for more info
 xcompmgr &		# xcompmgr for transparency
@@ -18,3 +18,5 @@ unclutter &		# Remove mouse when idle
 pidof -s runit &&
 	! pidof -s pulseaudio >/dev/null 2>&1 &&
 	setsid -f pulseaudio --start --exit-idle-time=-1 >/dev/null 2>&1
+
+xrandr --output DP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1 --mode 1920x1080 --pos 3840x0 --rotate normal --output DVI-I-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-D-1 --off
