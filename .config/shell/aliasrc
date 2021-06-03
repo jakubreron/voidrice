@@ -60,18 +60,6 @@ alias \
     y="yarn" \
     yf="yarn info --verbose --no-emoji" \
 
-# configs
-alias \
-    cdu="cd ~/.config/personal/universal"  \
-    cdg="cd ~/.config/personal/gnome" \
-
-# valet
-alias \
-    cdv="cd ~/.valet/" \
-    cdvs="cd ~/.valet/Sites" \
-    cdvsz="cd ~/.valet/Sites/zen" \
-    cdvsa="cd ~/.valet/Sites/api.zen" \
-
 # php
 alias \
     paws="php artisan websockets:serve" \

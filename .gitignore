@@ -28,6 +28,7 @@
 !.config/zsh/.zshrc
 
 !.local/bin/*
+!.local/share/fonts
 !.local/share/applications
 !.local/share/larbs
 !.local/share/bg
