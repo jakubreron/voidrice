@@ -63,14 +63,13 @@ alias \
 # php
 alias \
     paws="php artisan websockets:serve" \
-    mailhog="$GOPATH/bin/MailHog" \
 
 alias \
     ca="cd ~/.config/personal/arch && ls -a"  \
     cg="cd ~/.config/personal/gnome && ls -a" \
     cu="cd ~/.config/personal/universal && ls -a"  \
-    cv="cd ~/.config/personal/voidrice && ls -a"  \
-    cvl="cd ~/.valet/ && ls -a" \
-    cvls="cd ~/.valet/Sites && ls -a" \
-    cvlsz="cd ~/.valet/Sites/zen && ls -a" \
-    cvlsa="cd ~/.valet/Sites/api.zen && ls -a" \
+    cr="cd ~/.config/personal/voidrice && ls -a"  \
+    cv="cd ~/.valet/ && ls -a" \
+    cvs="cd ~/.valet/Sites && ls -a" \
+    cvsz="cd ~/.valet/Sites/zen && ls -a" \
+    cvsa="cd ~/.valet/Sites/api.zen && ls -a" \
