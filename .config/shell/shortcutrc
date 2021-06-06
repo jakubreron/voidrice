@@ -7,7 +7,6 @@ dt="cd /home/jakub/.local/share && ls -a" \
 rr="cd /home/jakub/.local/share && ls -a" \
 h="cd /home/jakub && ls -a" \
 m="cd /home/jakub/Music && ls -a" \
-mn="cd /mnt && ls -a" \
 pp="cd /home/jakub/Pictures && ls -a" \
 sc="cd /home/jakub/.local/bin && ls -a" \
 src="cd /home/jakub/.local/src && ls -a" \
