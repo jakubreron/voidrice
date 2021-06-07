@@ -17,6 +17,7 @@ bf="$EDITOR /home/jakub/.config/shell/bm-files" \
 bd="$EDITOR /home/jakub/.config/shell/bm-dirs" \
 cfx="$EDITOR /home/jakub/.config/x11/xresources" \
 cfb="$EDITOR ~/.local/src/dwmblocks/config.h" \
+cfd="$EDITOR ~/.local/src/dw/config.h" \
 cfv="$EDITOR /home/jakub/.config/nvim/init.vim" \
 cfz="$EDITOR /home/jakub/.config/zsh/.zshrc" \
 cfa="$EDITOR /home/jakub/.config/shell/aliasrc" \
