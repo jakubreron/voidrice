@@ -3,6 +3,7 @@ cac ${XDG_CACHE_HOME:-$HOME/.cache}
 cf  ${XDG_CONFIG_HOME:-$HOME/.config}
 D   ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
 dr   ${XDG_DOWNLOAD_DIR:-$HOME/Dropbox}
+dra   ${XDG_DOWNLOAD_DIR:-$HOME/Dropbox/Anki}
 d   ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
 dt  ${XDG_DATA_HOME:-$HOME/.local/share}
 rr  ${XDG_DATA_HOME:-$HOME/.local/src}
