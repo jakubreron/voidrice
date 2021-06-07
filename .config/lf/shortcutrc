@@ -1,6 +1,7 @@
 map Ccac cd "/home/jakub/.cache" 
 map Ccf cd "/home/jakub/.config" 
 map CD cd "/home/jakub/Downloads" 
+map Cdr cd "/home/jakub/Dropbox" 
 map Cd cd "/home/jakub/Documents" 
 map Cdt cd "/home/jakub/.local/share" 
 map Crr cd "/home/jakub/.local/share" 

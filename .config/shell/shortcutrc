@@ -2,6 +2,7 @@
 alias cac="cd /home/jakub/.cache && ls -a" \
 cf="cd /home/jakub/.config && ls -a" \
 D="cd /home/jakub/Downloads && ls -a" \
+dr="cd /home/jakub/Dropbox && ls -a" \
 d="cd /home/jakub/Documents && ls -a" \
 dt="cd /home/jakub/.local/share && ls -a" \
 rr="cd /home/jakub/.local/share && ls -a" \
@@ -17,7 +18,6 @@ bf="$EDITOR /home/jakub/.config/shell/bm-files" \
 bd="$EDITOR /home/jakub/.config/shell/bm-dirs" \
 cfx="$EDITOR /home/jakub/.config/x11/xresources" \
 cfb="$EDITOR ~/.local/src/dwmblocks/config.h" \
-cfd="$EDITOR ~/.local/src/dwm/config.h" \
 cfv="$EDITOR /home/jakub/.config/nvim/init.vim" \
 cfz="$EDITOR /home/jakub/.config/zsh/.zshrc" \
 cfa="$EDITOR /home/jakub/.config/shell/aliasrc" \
