@@ -1,16 +1,13 @@
 #define FONT MesloLGS NF-10
+#define FONT2 Source Han Sans JP-10
 
 !! Transparency (0-1):
 st.alpha: 0.80
 st.alphaOffset: 0.0
 
-!! Sxiv img viewer
-/* Sxiv.foreground: #666 */
-/* Sxiv.background: #fff */
-Sxiv.font: FONT
-
 !! Set a default font and font size as below:
-*.font: FONT
+!! *.font: FONT
+!! *.font2: FONT2
 
 /* name		dark	light */
 /* black	0	8 */
