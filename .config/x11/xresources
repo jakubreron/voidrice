@@ -1,9 +1,9 @@
-#define FONT MesloLGS NF-10
-#define FONT2 Source Han Sans JP-10
+#define FONT SFMono Nerd Font Mono
+#define FONT2 Stick
 
 !! Transparency (0-1):
-st.alpha: 0.80
-st.alphaOffset: 0.0
+/* st.alpha: 0.80 */
+/* st.alphaOffset: 0.0 */
 
 !! Set a default font and font size as below:
 !! *.font: FONT
@@ -137,49 +137,49 @@ st.alphaOffset: 0.0
 /* *.background:   #000000 */
 
 /* ! Dracula Xresources palette */
-/* *.foreground: #F8F8F2 */
-/* *.background: #282A36 */
-/* *.color0:     #000000 */
+*.foreground: #F8F8F2
+*.background: #282A36
+*.color0:     #000000
 
-/* !! border */
-/* *.color8:     #FF92D0 */
+!! border
+*.color8:     #FF92D0
 
-/* *.color1:     #FF5555 */
-/* *.color9:     #FF6E67 */
-/* *.color2:     #50FA7B */
-/* *.color10:    #5AF78E */
-/* *.color3:     #F1FA8C */
-/* *.color11:    #F4F99D */
-/* *.color4:     #BD93F9 */
-/* *.color12:    #CAA9FA */
-/* *.color5:     #FF79C6 */
-/* *.color13:    #FF92D0 */
-/* *.color6:     #8BE9FD */
-/* *.color14:    #9AEDFE */
-/* *.color7:     #BFBFBF */
-/* *.color15:    #E6E6E6 */
+*.color1:     #FF5555
+*.color9:     #FF6E67
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+*.color4:     #BD93F9
+*.color12:    #CAA9FA
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
 
-/* *.background: .color0 */
-/* *.color256: 0#1d2021 */
-/* *.color257: 15#ebdbb2 */
+*.background: .color0
+*.color256: 0#1d2021
+*.color257: 15#ebdbb2
 
 !* Everforest
-*.color0: #2f383e
-*.color8: #868d80
-*.color1: #e68183
-*.color9: #e68183
-*.color2: #a7c080
-*.color10: #a7c080
-*.color3: #dbbc7f
-*.color11: #dbbc7f
-*.color4: #7fbbb3
-*.color12: #7fbbb3
-*.color5: #d699b6
-*.color13: #d699b6
-*.color6: #83c092
-*.color14: #83c092
-*.color7: #d3c6aa
-*.color15: #d3c6aa
-*.foreground: #d3c6aa
-*.background: #2f383e
-*.cursorColor: #d3c6aa
+/* *.color0: #2f383e */
+/* *.color8: #868d80 */
+/* *.color1: #e68183 */
+/* *.color9: #e68183 */
+/* *.color2: #a7c080 */
+/* *.color10: #a7c080 */
+/* *.color3: #dbbc7f */
+/* *.color11: #dbbc7f */
+/* *.color4: #7fbbb3 */
+/* *.color12: #7fbbb3 */
+/* *.color5: #d699b6 */
+/* *.color13: #d699b6 */
+/* *.color6: #83c092 */
+/* *.color14: #83c092 */
+/* *.color7: #d3c6aa */
+/* *.color15: #d3c6aa */
+/* *.foreground: #d3c6aa */
+/* *.background: #2f383e */
+/* *.cursorColor: #d3c6aa */
