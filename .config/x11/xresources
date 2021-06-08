@@ -159,9 +159,9 @@
 *.color7:     #BFBFBF
 *.color15:    #E6E6E6
 
-*.background: .color0
-*.color256: 0#1d2021
-*.color257: 15#ebdbb2
+/* *.background: .color0 */
+/* *.color256: 0#1d2021 */
+/* *.color257: 15#ebdbb2 */
 
 !* Everforest
 /* *.color0: #2f383e */
