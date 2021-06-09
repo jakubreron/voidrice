@@ -59,3 +59,10 @@ alias \
 # php
 alias \
     paws="php artisan websockets:serve" \
+
+# valet
+alias \
+    va="valet" \
+    vas="valet secure" \
+    var="valet restart" \
+    vad="valet domain" \
