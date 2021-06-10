@@ -21,6 +21,7 @@ mtd $HOME/Mount/Download
 vw  $HOME/vimwiki
 vl  $HOME/.valet
 vls $HOME/.valet/Sites
+vln $HOME/.valet/Nginx
 ca  $HOME/.config/personal/arch
 cg  $HOME/.config/personal/gnome
 cu  $HOME/.config/personal/universal

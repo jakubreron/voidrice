@@ -29,9 +29,6 @@ export PATH=~/.config/composer/vendor/bin:$PATH
 
 
 
-
-
-
 # Luke's config for the Zoomer Shell
 
 # Enable colors and change prompt:

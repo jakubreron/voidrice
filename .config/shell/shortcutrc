@@ -21,6 +21,7 @@ mtd="cd /home/jakub/Mount/Download && ls -a" \
 vw="cd /home/jakub/vimwiki && ls -a" \
 vl="cd /home/jakub/.valet && ls -a" \
 vls="cd /home/jakub/.valet/Sites && ls -a" \
+vln="cd /home/jakub/.valet/Nginx && ls -a" \
 ca="cd /home/jakub/.config/personal/arch && ls -a" \
 cg="cd /home/jakub/.config/personal/gnome && ls -a" \
 cu="cd /home/jakub/.config/personal/universal && ls -a" \

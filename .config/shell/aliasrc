@@ -70,6 +70,6 @@ alias \
 # youtube
 alias \
   ytd="yt -x -f bestaudio/best --download-archive playlist.txt" \
-  ytdg="ma; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
+  ytdg="mg; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
   ytdl="ml; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
   ytdo="mo; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
