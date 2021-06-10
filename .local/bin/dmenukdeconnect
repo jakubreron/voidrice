@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # dmenu_kdeconnect.sh is a script based off of these scripts
-# [polybar-kdeconnect] https://github.com/HackeSta/polybar-kdeconnect 
+# [polybar-kdeconnect] https://github.com/HackeSta/polybar-kdeconnect
 # [polybar-kdeconnect-scripts] https://github.com/witty91/polybar-kdeconnect-scripts
 # Added features
 # - Removed polybar as a Dependencies (since I use dwm)
@@ -27,7 +27,7 @@
 # ranger
 Picker='zenity'
 
-# Color Settings of dmenu 
+# Color Settings of dmenu
 COLOR_DISCONNECTED='#000'       # Device Disconnected
 COLOR_NEWDEVICE='#ff0'          # New Device
 COLOR_BATTERY_90='#fff'         # Battery >= 90
@@ -59,16 +59,16 @@ show_devices (){
 	istrust="$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$deviceid org.kde.kdeconnect.device.isTrusted)"
 	if [ "$isreach" = "true" ] && [ "$istrust" = "true" ];then
 	    #is connected
-	    battery="$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$deviceid org.kde.kdeconnect.device.battery.charge)%"
+	    battery="$(qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$deviceid/battery org.kde.kdeconnect.device.battery.charge)%"
 	    icon=$(get_icon $battery $devicetype)
 	    # colors="$(get_colors $battery)"
 	    # echo "$colors"
-	    show_menu "$devicename | $battery $icon" $deviceid $battery 
+	    show_menu "$devicename | $battery $icon" $deviceid $battery
 	    devices+="$devicename $battery $icon $SEPERATOR"
 	elif [ "$isreach" = "false" ] && [ "$istrust" = "true" ];then
 	    #nothing is found
 	    devices+="$(get_icon -1 $devicetype)$SEPERATOR"
-	else 
+	else
 	    #found but not yet paired
 	    icon=$(get_icon -2 $devicetype)
 	    show_pmenu $devicename $deviceid
@@ -93,7 +93,7 @@ Notification_menu () {
     replyable=`qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$2/notifications/$1 org.kde.kdeconnect.device.notifications.notification.replyId`
     echo $replyable
     options=$(printf "View\\nDissmiss")
-    if [ "$replyable" ]; then 
+    if [ "$replyable" ]; then
 	options+=$(printf "\\nReply")
 	optionNum=$((optionNum+1))
     fi
@@ -101,12 +101,12 @@ Notification_menu () {
     prompt=$(echo $ticker1 | cut -c 1-100)
     menu=$(echo $options | dmenu -i -p "$prompt" -l $optionNum )
     case "$menu" in
-	*'View' ) 
+	*'View' )
 	    ticker1=`qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$2/notifications/$1 org.kde.kdeconnect.device.notifications.notification.ticker`
 	    notify-send "$ticker1";;
 	*'Dissmiss')
 	    qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$2/notifications/$1 org.kde.kdeconnect.device.notifications.notification.dismiss;;
-	*'Reply' ) 
+	*'Reply' )
 	    qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$2/notifications/$1 org.kde.kdeconnect.device.notifications.notification.reply;;
     esac
 }
@@ -123,27 +123,27 @@ show_menu () {
     options+=$(printf "\\nRefresh\\n")
     menu=$(echo $options | dmenu -i -p $1 -l $optionNum )
     case "$menu" in
-	*'Ping') 
+	*'Ping')
 	    message=$(echo 'Ping' | dmenu -i -p "Msg to send")
 	    kdeconnect-cli --ping-msg "$message" -d $2;;
 	*'Find Device') kdeconnect-cli --ring -d $2 ;;
-	*'Send File') 
+	*'Send File')
 	    [ $Picker == 'nnn' ] && kdeconnect-cli --share "file://$($TERMINAL nnn -p -)" -d $2 ;
 	    [ $Picker == 'zenity' ] && kdeconnect-cli --share "file://$(zenity --file-selection)" -d $2 ;
 	    if [ $Picker == 'ranger' ]; then
 		mkdir -p /tmp/ranger/ && touch /tmp/ranger/sentfile
-		kdeconnect-cli --share "file://$($TERMINAL ranger --choosefile=/tmp/ranger/sentfile)" -d $2 
+		kdeconnect-cli --share "file://$($TERMINAL ranger --choosefile=/tmp/ranger/sentfile)" -d $2
 	    fi;;
 	*'Unpair' ) kdeconnect-cli --unpair -d $2 ;;
-	*'Send SMS' ) 
+	*'Send SMS' )
 	    message=$(echo 'OTW' | dmenu -i -p "Msg to send")
 	    recipient=$(echo '14039199518' | dmenu -i -p "Recipient's phone #")
 	    kdeconnect-cli --send-sms "$message" --destination "$recipient" -d $2 ;;
-	*'Refresh' ) 
+	*'Refresh' )
 	    kdeconnect-cli --refresh;;
-	*'Notification' ) 
+	*'Notification' )
 	    Notification_menu $notification1 $2;;
-	*'keys' ) 
+	*'keys' )
 	    SendKeys "$2";;
     esac
 }
@@ -157,13 +157,13 @@ show_pmenu () {
 #still a work in progress
 # get_colors () {
 # 	case $1 in
-# 	"-1")     colors="-nb \"$COLOR_DISCONNECTED\" -nf \"#000\" " ;;   
-# 	"-2")     colors="-nb \"$COLOR_NEWDEVICE\"	-nf \"#000\" ";;   
+# 	"-1")     colors="-nb \"$COLOR_DISCONNECTED\" -nf \"#000\" " ;;
+# 	"-2")     colors="-nb \"$COLOR_NEWDEVICE\"	-nf \"#000\" ";;
 # 	5*)     	colors="-nb \"$COLOR_BATTERY_50\"	-nf \"#000\" ";;
 # 	6*)		colors="-nb \"$COLOR_BATTERY_60\"	-nf \"#000\" ";;
 # 	7*)    	colors="-nb \"$COLOR_BATTERY_70\"	-nf \"#000\" ";;
 # 	8*)     	colors="-nb \"$COLOR_BATTERY_80\"	-nf \"#000\" ";;
-# 	*)      	colors="-nb \"$COLOR_BATTERY_LOW\" -nf \"#000\" ";; 
+# 	*)      	colors="-nb \"$COLOR_BATTERY_LOW\" -nf \"#000\" ";;
 # 	9*|100) 	colors="-nb \"$COLOR_BATTERY_90\"	-nf \"#000\" ";;
 # 	esac
 # 	echo $colors
