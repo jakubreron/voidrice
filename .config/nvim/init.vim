@@ -50,7 +50,7 @@ set noshowcmd
 	set splitbelow splitright
 
 " Nerd tree
-	map <leader>n :NERDTreeToggle<CR>
+	map <leader>e :NERDTreeToggle<CR>
 	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
     if has('nvim')
         let NERDTreeBookmarksFile = stdpath('data') . '/NERDTreeBookmarks'
@@ -114,25 +114,6 @@ if &diff
     highlight! link DiffText MatchParen
 endif
 
-" Function for toggling the bottom statusbar:
-" let s:hidden_all = 1
-" function! ToggleHiddenAll()
-"     if s:hidden_all  == 0
-"         let s:hidden_all = 1
-"         set noshowmode
-"         set noruler
-"         set laststatus=0
-"         set noshowcmd
-"     else
-"         let s:hidden_all = 0
-"         set showmode
-"         set ruler
-"         set laststatus=2
-"         set showcmd
-"     endif
-" endfunction
-" nnoremap <leader>h :call ToggleHiddenAll()<CR>
-
 " LukeSmith copied end
 
 
@@ -162,12 +143,6 @@ nmap <leader>w :w!<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 5 lines to the cursor - when moving vertically using j/k
 set so=5
-
-" Avoid garbled characters in Chinese language windows OS
-let $LANG='en'
-set langmenu=en
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
 
 " Turn on the Wild menu
 set wildmenu
@@ -208,17 +183,8 @@ set lazyredraw
 " For regular expressions turn magic on
 set magic
 
-" Show matching brackets when text indicator is over them
-set showmatch
-
 " How many tenths of a second to blink when matching brackets
 set mat=2
-
-" No annoying sound on errors
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
 
 " Use Unix as the standard file type
 set ffs=unix,dos,mac
@@ -268,7 +234,7 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 map <silent> <cr> :noh<cr>
 
 " Close the current buffer
-map <leader>bd :Bclose<cr>:tabclose<cr>gT
+map <leader>bc :Bclose<cr>:tabclose<cr>gT
 
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
