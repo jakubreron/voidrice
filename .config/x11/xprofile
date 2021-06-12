@@ -14,7 +14,8 @@ unclutter &		         # Remove mouse when idle
 fcitx -d &             # Keyboard
 pulseeffects &         # Music
 redshift &             # Night light
-/usr/lib/kdeconnectd & #KDE connect daemon
+/usr/lib/kdeconnectd & # KDE connect daemon
+dropbox &              # Dropbox
 
 # This line autostarts an instance of Pulseaudio that does not exit on idle.
 # This is "necessary" on Artix due to a current bug between PA and
