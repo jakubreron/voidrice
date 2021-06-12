@@ -12,7 +12,7 @@ localBROWSER="$BROWSER "
 [ -z "${DISPLAY}" ] && localBROWSER="xdg-open "
 
 if [ -f ~/.config/bookmarks ]; then
-	choice=$( (echo "❔" && cat ~/.config/bookmarks) | $LAUNCER"Search:") || exit 1
+	choice=$( (cat ~/.config/bookmarks) | $LAUNCER"Search:") || exit 1
 else
 	choice=$(echo "❔" | $LAUNCER -i -p "Search Google:") || exit 1
 fi
