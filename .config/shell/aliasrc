@@ -78,3 +78,4 @@ alias \
 # misc
 alias \
   gcl="dmenu-github" \
+  cmp="sudo make && sudo make install" \
