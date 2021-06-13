@@ -33,7 +33,6 @@ alias \
 alias \
 	ka="killall" \
 	g="git" \
-	YT="youtube-viewer" \
 	sdn="sudo shutdown -h now" \
 	e="$EDITOR" \
 	v="$EDITOR" \
@@ -43,7 +42,7 @@ alias \
 alias \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
-	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+	wth="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
 
 
 
@@ -65,8 +64,11 @@ alias \
 alias \
     va="valet" \
     vas="valet secure" \
+    vau="valet unsecure" \
     var="valet restart" \
     vad="valet domain" \
+    val="valet link" \
+    vaf="valet forget" \
 
 # youtube
 alias \
