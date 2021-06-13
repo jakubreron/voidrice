@@ -81,6 +81,12 @@ alias \
   ytdl="ml; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
   ytdo="mo; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
 
+# sync
+alias \
+  ssr="sdw && g pl && cmp; sdb && g pl && cmp; sdm && g pl && cmp; sst && g pl && cmp" \
+  sco="ca && g pl; cg && g pl; cu && g pl; cv && g pl" \
+  spr="pz && g pl; pa && g pl;" \
+
 # misc
 alias \
   gcl="dmenu-github" \
