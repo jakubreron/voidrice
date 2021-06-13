@@ -83,9 +83,9 @@ alias \
 
 # sync
 alias \
-  ssr="sdw && g pl && cmp; sdb && g pl && cmp; sdm && g pl && cmp; sst && g pl && cmp" \
-  sco="ca && g pl; cg && g pl; cu && g pl; cv && g pl" \
-  spr="pz && g pl; pa && g pl;" \
+  ssrc="sdw && g pl && cmp; sdb && g pl && cmp; sdm && g pl && cmp; sst && g pl && cmp" \
+  sconf="ca && g pl; cg && g pl; cu && g pl; cv && g pl" \
+  sproj="pz && g pl; pa && g pl;" \
 
 # misc
 alias \
