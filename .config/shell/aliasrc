@@ -54,6 +54,10 @@ alias \
 # yarn
 alias \
     yr="yarn" \
+    yrd="yarn dev" \
+    yrb="yarn build" \
+    yrs="yarn start" \
+    yrt="yarn test" \
     yrf="yarn info --verbose --no-emoji" \
 
 # php
