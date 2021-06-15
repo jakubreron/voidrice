@@ -35,7 +35,7 @@ alias \
 	ka="killall" \
 	g="git" \
 	sdn="sudo shutdown -h now" \
-	e="$EDITOR" \
+	e="sudoedit" \
 	v="$EDITOR" \
 	p="sudo pacman" \
 	z="zathura"
