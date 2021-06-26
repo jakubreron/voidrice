@@ -84,11 +84,11 @@ alias \
 
 # sync
 alias \
-  ssrc="sdw && g pl && cmp; sdb && g pl && cmp; sdm && g pl && cmp; sst && g pl && cmp" \
+  ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmp" \
   sconf="ca && g pl; cg && g pl; cu && g pl; cv && g pl" \
   sproj="pz && g pl; pza && g pl;" \
 
 # misc
 alias \
   gcl="dmenu-github" \
-  cmp="sudo make && sudo make install" \
+  cmpl="sudo make && sudo make install" \
