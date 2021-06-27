@@ -6,12 +6,12 @@
 
 case $BLOCK_BUTTON in
 	1) "$TERMINAL" -e nmtui; pkill -RTMIN+4 dwmblocks ;;
-	3) notify-send "🌐 Internet module" "\- Click to connect
-📡: no wifi connection
-📶: wifi connection with quality
-❎: no ethernet
-🌐: ethernet working
-🔒: vpn is active
+	3) notify-send "Internet module" "\- Click to connect
+睊no wifi connection
+ wifi connection with quality
+ no ethernet
+ ethernet working
+ vpn is active
 " ;;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
