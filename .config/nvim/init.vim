@@ -97,15 +97,17 @@ set noshowcmd
 	autocmd BufRead,BufNewFile /tmp/neomutt* map ZQ :Goyo\|q!<CR>
 
 " Automatically deletes all trailing whitespace and newlines at end of file on save.
-	" autocmd BufWritePre * %s/\s\+$//e
-	" autocmd BufWritePre * %s/\n\+\%$//e
-	" autocmd BufWritePre *.[ch] %s/\%$/\r/e
+	autocmd BufWritePre * %s/\s\+$//e
+	autocmd BufWritePre * %s/\n\+\%$//e
+	autocmd BufWritePre *.[ch] %s/\%$/\r/e
 
 " When shortcut files are updated, renew bash and ranger configs with new material:
 	autocmd BufWritePost bm-files,bm-dirs !shortcuts
+
 " Run xrdb whenever Xdefaults or Xresources are updated.
 	autocmd BufRead,BufNewFile Xresources,Xdefaults,xresources,xdefaults set filetype=xdefaults
 	autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults !xrdb %
+
 " Recompile suckless scripts on save
 	autocmd BufWritePost ~/.local/src/st/config.h !cd ~/.local/src/st/; sudo make install 
 	autocmd BufWritePost ~/.local/src/dmenu/config.h !cd ~/.local/src/dmenu/; sudo make install 
