@@ -9,7 +9,7 @@
     separator_height = 2
     padding = 0
     horizontal_padding = 8
-    frame_width = 3
+    frame_width = 2
     frame_color = "#C2B65F"
 
     # Define a color for the separator.
