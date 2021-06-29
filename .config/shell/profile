@@ -16,23 +16,10 @@ export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
 unsetopt PROMPT_SP
 
-# Scaling
-export QT_AUTO_SCREEN_SCALE_FACTOR=0
-export QT_SCALE_FACTOR=1
-export QT_SCREEN_SCALE_FACTORS="1;1;1"
-export GDK_SCALE=1
-export GDK_DPI_SCALE=1
-
 # Default programs:
 export EDITOR="nvim"
-export READER="zathura"
-export VISUAL="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
-export VIDEO="mpv"
-export IMAGE="sxiv"
-export OPENER="xdg-open"
-export PAGER = "less"
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
