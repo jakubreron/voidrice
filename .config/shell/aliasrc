@@ -64,6 +64,9 @@ alias \
 # php
 alias \
     paws="php artisan websockets:serve" \
+    cs="composer" \
+    csr="composer refresh" \
+    csi="composer install" \
 
 # valet
 alias \
