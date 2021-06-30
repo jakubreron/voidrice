@@ -64,6 +64,9 @@ alias \
 # php
 alias \
     paws="php artisan websockets:serve" \
+    cs="composer" \
+    csr="composer refresh" \
+    csi="composer install" \
 
 # valet
 alias \
@@ -74,6 +77,7 @@ alias \
     vad="valet domain" \
     val="valet link" \
     vaf="valet forget" \
+    vau="valet use" \
 
 # youtube
 alias \

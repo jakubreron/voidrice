@@ -1,7 +1,7 @@
 # Luke's lf settings
 
 # Basic vars
-set shell zsh
+set shell bash
 set shellopts '-eu'
 set ifs "\n"
 set scrolloff 10
@@ -93,9 +93,6 @@ map x $$f
 map X !$f
 map o &mimeopen $f
 map O $mimeopen --ask $f
-
-map H top
-map L bottom
 
 map A rename # at the very end
 map c push A<c-u> # new rename
