@@ -43,6 +43,7 @@ cfv="$EDITOR /home/jakub/.config/nvim/init.vim" \
 cfz="$EDITOR /home/jakub/.config/zsh/.zshrc" \
 cfa="$EDITOR /home/jakub/.config/shell/aliasrc" \
 cfp="$EDITOR /home/jakub/.config/shell/profile" \
+cfi="$EDITOR /home/jakub/.config/x11/xprofile" \
 cfm="$EDITOR /home/jakub/.config/mutt/muttrc" \
 cfn="$EDITOR /home/jakub/.config/newsboat/config" \
 cfu="$EDITOR /home/jakub/.config/newsboat/urls" \
