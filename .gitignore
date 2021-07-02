@@ -12,3 +12,4 @@
 .config/shell/zshnameddirrc
 
 *.log
+.idea

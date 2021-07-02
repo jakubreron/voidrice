@@ -1,1 +1,35 @@
-/home/jakub/.cache/wal/zathurarc
+set sandbox none
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 1
+set selection-clipboard clipboard
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+map r reload
+map R rotate
+map K zoom in
+map J zoom out
+map i recolor
+map p print
+
+set default-bg                     "#090B16"
+set default-fg                     "#c8e2ed"
+set statusbar-bg                   "#090B16"
+set statusbar-fg                   "#c8e2ed"
+set inputbar-bg                    "#090B16"
+set inputbar-fg                    "#c8e2ed"
+set notification-bg                "#090B16"
+set notification-fg                "#c8e2ed"
+set notification-error-bg          "#090B16"
+set notification-error-fg          "#c8e2ed"
+set notification-warning-bg        "#090B16"
+set notification-warning-fg        "#c8e2ed"
+set highlight-color                "#B362AB"
+set highlight-active-color         "#55A5CD"
+set completion-bg                  "#B362AB"
+set completion-fg                  "#55A5CD"
+set completion-highlight-bg        "#B362AB"
+set completion-highlight-fg        "#55A5CD"
+set recolor-lightcolor             "#090B16"
+set recolor-darkcolor              "#c8e2ed"

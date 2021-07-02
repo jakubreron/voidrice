@@ -14,6 +14,7 @@ video/x-matroska=video.desktop
 x-scheme-handler/lbry=lbry.desktop
 inode/directory=file.desktop
 x-scheme-handler/msteams=teams.desktop
+x-scheme-handler/postman=Postman.desktop
 
 [Added Associations]
 video/mp4=org.kde.kdeconnect.handler.desktop;mpv.desktop;
