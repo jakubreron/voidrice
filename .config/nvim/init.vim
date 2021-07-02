@@ -141,9 +141,6 @@ set history=100
 set autoread
 au FocusGained,BufEnter * checktime
 
-" Fast saving
-nmap <leader>w :w!<cr>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
