@@ -51,3 +51,4 @@ cfmc="$EDITOR /home/jakub/.config/ncmpcpp/config" \
 cfl="$EDITOR /home/jakub/.config/lf/lfrc" \
 cfL="$EDITOR /home/jakub/.config/lf/scope" \
 cfX="$EDITOR /home/jakub/.config/sxiv/exec/key-handler" \
+cfB="$EDITOR /home/jakub/.config/personal/universal/.config/bookmarks" \
