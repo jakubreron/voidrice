@@ -5,7 +5,7 @@
 
 setbg &			           # set the background with the `setbg` script
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources &	# Uncomment to use Xresources colors/settings on startup
-mpd &			           # music player daemon-you might prefer it as a service though
+mpd &			             # music player daemon-you might prefer it as a service though
 remaps &		           # run the remaps script, switching caps/esc and more; check it for more info
 # xcompmgr &		       # xcompmgr for transparency
 picom --experimental-backend &		             # picom for transparency and blur
@@ -17,5 +17,3 @@ fcitx -d &             # Keyboard
 redshift &             # Night light
 /usr/lib/kdeconnectd & # KDE connect daemon
 # dropbox &            # Dropbox
-
-# xrandr --output DP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --rate 144.00 --output HDMI-1 --mode 1920x1080 --pos 3840x0 --rotate normal --output DVI-I-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-D-1 --off
