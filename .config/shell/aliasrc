@@ -55,6 +55,8 @@ alias \
 # yarn
 alias \
     yr="yarn" \
+    yra="yarn add" \
+    yrr="yarn remove" \
     yrd="yarn dev" \
     yrb="yarn build" \
     yrs="yarn start" \
