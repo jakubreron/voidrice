@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# Gives a dmenu prompt to search DuckDuckGo.
-# Without input, will open DuckDuckGo.com.
-# Anything else, it search it.
-
 LAUNCER="dmenu -l 5 -i -p "
 [ -z "${DISPLAY}" ] && LAUNCER="fzf --prompt "
 
