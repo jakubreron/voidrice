@@ -25,3 +25,4 @@ cfX	${XDG_CONFIG_HOME:-$HOME/.config}/sxiv/exec/key-handler	# sxiv (image viewer
 
 
 cfB	${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/.config/bookmarks # website bookmarks
+cfg	${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/.gitconfig # gitconfig
