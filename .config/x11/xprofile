@@ -13,7 +13,7 @@ dunst &			           # dunst for notifications
 xset r rate 250 50 &	 # Speed xrate up
 unclutter &		         # Remove mouse when idle
 fcitx -d &             # Keyboard
-# pulseeffects &         # Music
+# pulseeffects --gapplication-service &         # Equalizer
 redshift &             # Night light
 /usr/lib/kdeconnectd & # KDE connect daemon
 # dropbox &            # Dropbox
