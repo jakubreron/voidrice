@@ -3,7 +3,7 @@ cac ${XDG_CACHE_HOME:-$HOME/.cache}
 cf  ${XDG_CONFIG_HOME:-$HOME/.config}
 D   ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
 dr  $HOME/Dropbox
-dra $HOME/Dropbox/Anki
+drj $HOME/Dropbox/Japanese
 drp $HOME/Dropbox/Programming
 dri $HOME/Dropbox/Images
 drw $HOME/Dropbox/Images/Wallpapers
