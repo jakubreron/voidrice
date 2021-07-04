@@ -58,6 +58,6 @@ cfl="$EDITOR /home/jakub/.config/lf/lfrc" \
 cfL="$EDITOR /home/jakub/.config/lf/scope" \
 cfX="$EDITOR /home/jakub/.config/sxiv/exec/key-handler" \
 cfB="$EDITOR /home/jakub/.config/personal/universal/.config/bookmarks" \
-cfgc="$EDITOR /home/jakub/.config/personal/universal/.gitconfig" \
+cfg="$EDITOR /home/jakub/.config/personal/universal/.gitconfig" \
 dca="$EDITOR /home/jakub/.config/personal/arch/README.md" \
 dcu="$EDITOR /home/jakub/.config/personal/universal/README.md" \
