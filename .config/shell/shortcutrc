@@ -4,6 +4,7 @@ cf="cd /home/jakub/.config && ls -a" \
 D="cd /home/jakub/Downloads && ls -a" \
 dr="cd /home/jakub/Dropbox && ls -a" \
 drj="cd /home/jakub/Dropbox/Japanese && ls -a" \
+dra="cd /home/jakub/Dropbox/Japanese/Anki && ls -a" \
 drp="cd /home/jakub/Dropbox/Programming && ls -a" \
 dri="cd /home/jakub/Dropbox/Images && ls -a" \
 drw="cd /home/jakub/Dropbox/Images/Wallpapers && ls -a" \

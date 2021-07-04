@@ -39,8 +39,8 @@ setopt autocd		# Automatically cd into typed directory.
 setopt interactive_comments
 
 # History in cache directory:
-HISTSIZE=10000000
-SAVEHIST=10000000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=~/.cache/zsh/history
 
 # Load aliases and shortcuts if existent.
@@ -53,7 +53,7 @@ autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots)		# Include hidden files.
+# _comp_options+=(globdots)		# Include hidden files.
 
 # vi mode
 bindkey -v

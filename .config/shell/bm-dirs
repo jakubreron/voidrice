@@ -4,6 +4,7 @@ cf  ${XDG_CONFIG_HOME:-$HOME/.config}
 D   ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
 dr  $HOME/Dropbox
 drj $HOME/Dropbox/Japanese
+dra $HOME/Dropbox/Japanese/Anki
 drp $HOME/Dropbox/Programming
 dri $HOME/Dropbox/Images
 drw $HOME/Dropbox/Images/Wallpapers
