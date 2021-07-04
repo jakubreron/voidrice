@@ -1,14 +1,15 @@
 # These files automatically update when edited/saved in vim:
-
 # keys	filename				description
 bf	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-files	# This file, a list of bookmarked files
 bd	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs		# A list of bookmarked directories similar to this file
 cfx	${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources	# Colors, themes and variables for X11
-cfb	~/.local/src/dwmblocks/config.h				# dwmblocks: the status bar for dwm
+cfdb	~/.local/src/dwmblocks/config.h
+cfdw	~/.local/src/dwm/config.h
+cfdm	~/.local/src/dmenu/config.h
+cfst	~/.local/src/st/config.h
 
 
 # These do not update automatically, but on the next new instance of a program:
-
 cfv	${XDG_CONFIG_HOME:-$HOME/.config}/nvim/init.vim		# vim/neovim config
 cfz	$ZDOTDIR/.zshrc						# zsh (shell) config
 cfa	${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc		# aliases used by zsh (and potentially other shells)
@@ -23,6 +24,9 @@ cfl	${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc		# lf (file browser) config
 cfL	${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope		# lf's scope/preview file
 cfX	${XDG_CONFIG_HOME:-$HOME/.config}/sxiv/exec/key-handler	# sxiv (image viewer) key/script handler
 
-
+## Some personal configs
 cfB	${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/.config/bookmarks # website bookmarks
-cfg	${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/.gitconfig # gitconfig
+cfgc	${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/.gitconfig # gitconfig
+
+dca ${XDG_CONFIG_HOME:-$HOME/.config}/personal/arch/README.md
+dcu ${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/README.md
