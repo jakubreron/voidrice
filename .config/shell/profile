@@ -19,8 +19,8 @@ unsetopt PROMPT_SP
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="firefox"
-export BACKUP_BROWSER="brave"
+export BROWSER="brave"
+export BACKUP_BROWSER="firefox"
 
 # Performance fix
 export vblank_mode=0
