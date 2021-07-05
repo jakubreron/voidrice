@@ -17,3 +17,6 @@ fcitx -d &             # Keyboard
 redshift &             # Night light
 /usr/lib/kdeconnectd & # KDE connect daemon
 # dropbox &            # Dropbox
+
+# Performance fix
+export vblank_mode=0
