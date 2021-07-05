@@ -10,7 +10,7 @@
     padding = 0
     horizontal_padding = 8
     frame_width = 2
-    frame_color = "#55A5CD"
+    frame_color = "#85B9CA"
 
     # Define a color for the separator.
     # possible values are:
@@ -75,20 +75,20 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#090B16"
-    foreground = "#c8e2ed"
+    background = "#0A103A"
+    foreground = "#ddebe9"
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#090B16"
-    foreground = "#c8e2ed"
+    background = "#0A103A"
+    foreground = "#ddebe9"
     timeout = 5
 
 [urgency_critical]
-    background = "#090B16"
-    foreground = "#c8e2ed"
+    background = "#0A103A"
+    foreground = "#ddebe9"
     frame_color = "#fabd2f"
     timeout = 0
 
