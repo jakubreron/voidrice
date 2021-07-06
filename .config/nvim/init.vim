@@ -1,5 +1,8 @@
 let mapleader = "\<Space>"
 
+map j gj
+map k gk
+
 " vimwiki
 let g:vimwiki_list = [{'auto_diary_index': 1}]
 
