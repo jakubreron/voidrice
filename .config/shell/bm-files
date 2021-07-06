@@ -26,7 +26,7 @@ cfL	${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope		# lf's scope/preview file
 cfX	${XDG_CONFIG_HOME:-$HOME/.config}/sxiv/exec/key-handler	# sxiv (image viewer) key/script handler
 
 ## Some personal configs
-cfB	${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/.config/bookmarks # website bookmarks
+cfb	${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/.config/bookmarks # website bookmarks
 cfg	${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/.gitconfig # gitconfig
 
 dca ${XDG_CONFIG_HOME:-$HOME/.config}/personal/arch/README.md
