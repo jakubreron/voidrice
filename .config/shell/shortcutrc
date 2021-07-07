@@ -16,6 +16,7 @@ m="cd /home/jakub/Music && ls -a" \
 mg="cd /home/jakub/Music/gen && ls -a" \
 ml="cd /home/jakub/Music/live && ls -a" \
 mo="cd /home/jakub/Music/osts && ls -a" \
+ma="cd /home/jakub/Music/albums && ls -a" \
 pp="cd /home/jakub/Pictures && ls -a" \
 sc="cd /home/jakub/.local/bin && ls -a" \
 src="cd /home/jakub/.local/src && ls -a" \
