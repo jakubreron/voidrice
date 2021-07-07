@@ -91,7 +91,7 @@ alias \
 
 # sync
 alias \
-  ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmp" \
+  ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl" \
   sconf="ca && g pl; cg && g pl; cu && g pl; cv && g pl" \
   sproj="pz && g pl; pza && g pl;" \
 
