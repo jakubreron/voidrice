@@ -69,6 +69,7 @@ alias \
     paws="php artisan websockets:serve" \
     cs="composer" \
     csr="composer refresh" \
+    csb="composer rebuild" \
     csi="composer install" \
 
 # valet
