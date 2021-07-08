@@ -7,7 +7,7 @@
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
 # sudo not required for some system commands
-for command in mount umount sv pacman updatedb su ; do
+for command in mount umount sv pacman yay updatedb su ; do
 	alias $command="sudo $command"
 done; unset command
 
@@ -90,6 +90,7 @@ alias \
   ytdl="ml; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
   ytdo="mo; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
   ytda="ma; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
+  ytdall="ytdg; ytdl; ytdo; ytda" \
   rkrl="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash" \
 
 # sync
@@ -97,6 +98,7 @@ alias \
   ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl" \
   sconf="ca && g pl; cg && g pl; cu && g pl; cv && g pl" \
   sproj="pz && g pl; pza && g pl;" \
+  sall="ssrc; sconf; sproj" \
 
 # misc
 alias \
