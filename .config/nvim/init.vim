@@ -295,8 +295,8 @@ set laststatus=2
 " Shortcuts using <leader>
 map <leader>sn ]s
 map <leader>sp [s
-map <leader>sa zg
-map <leader>s? z=
+" map <leader>sa zg
+" map <leader>s? z=
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
