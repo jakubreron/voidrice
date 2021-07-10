@@ -37,6 +37,7 @@ cu="cd /home/jakub/.config/personal/universal && ls -a" \
 cv="cd /home/jakub/.config/personal/voidrice && ls -a" \
 pz="cd /home/jakub/.valet/Sites/zen && ls -a" \
 pza="cd /home/jakub/.valet/Sites/api.zen && ls -a" \
+aw="cd /usr/share/doc/arch-wiki/html/en && ls -a" \
 bf="$EDITOR /home/jakub/.config/shell/bm-files" \
 bd="$EDITOR /home/jakub/.config/shell/bm-dirs" \
 cfx="$EDITOR /home/jakub/.config/x11/xresources" \
