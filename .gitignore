@@ -6,6 +6,9 @@
 .config/zsh/.zcompdump*
 .config/zsh/.oh-my-zsh
 
+.config/dunst/dunstrc
+.config/dunst/zathurarc
+
 .config/x11/xprofile
 
 .local/bin/ticker
