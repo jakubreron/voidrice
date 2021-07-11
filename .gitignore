@@ -11,6 +11,9 @@
 .local/bin/ticker
 .local/bin/redshift
 
+.local/bin/statusbar/sb-cpu
+.local/bin/statusbar/sb-gpu
+
 .config/shell/zshnameddirrc
 
 *.log
