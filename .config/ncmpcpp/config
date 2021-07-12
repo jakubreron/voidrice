@@ -11,6 +11,8 @@ visualizer_type = "spectrum"
 [header]
 alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
 alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
+header_visibility = "no"
+titles_visibility = "no"
 
 [playlist]
 playlist_display_mode = columns
@@ -26,7 +28,16 @@ statusbar_color = red
 statusbar_time_color = cyan:b
 progressbar_color = black:b
 progressbar_elapsed_color = blue:b
-progressbar_look = ->
+# progressbar_look = ->
+#progressbar_look = "⠒⠒⠐"
+#progressbar_look = "•••"
+#progressbar_look = "---"
+#progressbar_look = "▀▀ "
+# progressbar_look = "╼·"
+progressbar_look = "━━━"
+#progressbar_look = "━━─"
+#progressbar_look = "◾◾◽"
+#progressbar_look = "─╼─"
 
 [library]
 song_library_format = {%n - }{%t}|{%f}
