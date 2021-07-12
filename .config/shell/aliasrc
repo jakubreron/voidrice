@@ -25,10 +25,10 @@ alias \
 
 # Colorize commands when possible.
 alias \
-	ls="exa -la -h -F --time-style=iso --icons --group-directories-first --git" \
+  cat="bat" \
+	ls="exa -la -F --time-style=iso --icons --group-directories-first --git" \
 	grep="grep --color=auto" \
-	diff="diff --color=auto" \
-	ccat="highlight --out-format=ansi"
+	diff="diff --color=auto"
 
 # These common commands are just too long! Abbreviate them.
 alias \
@@ -43,7 +43,7 @@ alias \
 alias \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
-	wth="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+	wth="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
 
 
 
@@ -62,7 +62,7 @@ alias \
     yrb="yarn build" \
     yrs="yarn start" \
     yrt="yarn test" \
-    yrf="yarn info --verbose --no-emoji" \
+    yrf="yarn info --verbose --no-emoji"
 
 # php
 alias \
@@ -70,7 +70,7 @@ alias \
     cs="composer" \
     csr="composer refresh" \
     csb="composer rebuild" \
-    csi="composer install" \
+    csi="composer install"
 
 # valet
 alias \
@@ -81,7 +81,7 @@ alias \
     vad="valet domain" \
     val="valet link" \
     vaf="valet forget" \
-    vau="valet use" \
+    vau="valet use"
 
 # youtube
 alias \
@@ -91,16 +91,16 @@ alias \
   ytdo="mo; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
   ytda="ma; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
   ytdall="ytdg; ytdl; ytdo; ytda" \
-  rkrl="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash" \
+  rkrl="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
 
 # sync
 alias \
   ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl" \
   sconf="ca && g pl; cg && g pl; cu && g pl; cv && g pl" \
   sproj="pz && g pl; pza && g pl;" \
-  sall="ssrc; sconf; sproj" \
+  sall="ssrc; sconf; sproj"
 
 # misc
 alias \
   gcl="dmenu-github" \
-  cmpl="sudo make && sudo make install" \
+  cmpl="sudo make && sudo make install"
