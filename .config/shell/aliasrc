@@ -82,7 +82,8 @@ alias \
     vad="valet domain" \
     val="valet link" \
     vaf="valet forget" \
-    vau="valet use"
+    vau="valet use" \
+    vast="valet status"
 
 # systemctl
 alias \
