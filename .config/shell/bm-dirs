@@ -35,6 +35,8 @@ ca  $HOME/.config/personal/arch
 cg  $HOME/.config/personal/gnome
 cu  $HOME/.config/personal/universal
 cv  $HOME/.config/personal/voidrice
+P   $HOME/Documents/Projects
+pzd $HOME/Documents/Projects/dockerized-env
 pz  $HOME/.valet/Sites/zen
 pza $HOME/.valet/Sites/api.zen
 aw  /usr/share/doc/arch-wiki/html/en
