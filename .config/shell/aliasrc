@@ -70,7 +70,8 @@ alias \
     cs="composer" \
     csr="composer refresh" \
     csb="composer rebuild" \
-    csi="composer install"
+    csi="composer install" \
+    sail="~/.config/composer/vendor/bin/sail"
 
 # valet
 alias \
@@ -82,6 +83,16 @@ alias \
     val="valet link" \
     vaf="valet forget" \
     vau="valet use"
+
+# systemctl
+alias \
+  sctl="sudo systemctl" \
+  sstatus="sudo systemctl status" \
+  sstart="sudo systemctl start" \
+  sstop="sudo systemctl stop" \
+  senable="sudo systemctl enable" \
+  sdisable="sudo systemctl disable" \
+  srestart="sudo systemctl restart"
 
 # youtube
 alias \
