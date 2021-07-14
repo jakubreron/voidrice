@@ -88,12 +88,13 @@ alias \
 # systemctl
 alias \
   sctl="sudo systemctl" \
-  sstatus="sudo systemctl status" \
-  sstart="sudo systemctl start" \
-  sstop="sudo systemctl stop" \
-  senable="sudo systemctl enable" \
-  sdisable="sudo systemctl disable" \
-  srestart="sudo systemctl restart"
+  sctle="sudo systemctl enable" \
+  sctld="sudo systemctl disable" \
+  sctlr="sudo systemctl restart"
+  sctlst="sudo systemctl status" \
+  sctlsr="sudo systemctl start" \
+  sctlsp="sudo systemctl stop" \
+  sctlfl="sudo systemctl --failed
 
 # youtube
 alias \
