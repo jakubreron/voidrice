@@ -94,7 +94,7 @@ alias \
   sctlst="sudo systemctl status" \
   sctlsr="sudo systemctl start" \
   sctlsp="sudo systemctl stop" \
-  sctlfl="sudo systemctl --failed
+  sctlfl="sudo systemctl --failed"
 
 # youtube
 alias \
