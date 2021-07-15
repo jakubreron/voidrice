@@ -117,4 +117,5 @@ alias \
 alias \
   gcl="dmenu-github" \
   cmpl="sudo make && sudo make install" \
-  ff="cd $HOME/.mozilla/firefox/*.dev-edition-default"
+  ff="cd $HOME/.mozilla/firefox/*.dev-edition-default" \
+  ffc="cd $HOME/.mozilla/firefox/*.dev-edition-default/chrome"
