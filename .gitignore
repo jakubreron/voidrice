@@ -7,7 +7,7 @@
 .config/zsh/.oh-my-zsh
 
 .config/dunst/dunstrc
-.config/dunst/zathurarc
+.config/zathura/zathurarc
 
 .config/x11/xprofile
 
