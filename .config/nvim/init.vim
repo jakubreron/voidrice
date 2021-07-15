@@ -128,10 +128,10 @@ set noshowcmd
     autocmd BufWritePost ~/.config/personal/universal/vimwiki/* !cd ~/vimwiki; git add *; git commit -m "docs(vimwiki)"; git push;
   " README
     autocmd BufWritePost ~/.config/personal/arch/README.md !cd ~/.config/personal/arch; git add *; git commit -m "docs(readme)"; git push;
-    autocmd BufWritePost ~/.config/personal/universal/README.md !cd ~/.config/personal/universal; git add *; git commit -m "docs(readme)"; git push;
-    autocmd BufWritePost ~/.config/personal/universal/.gitconfig !cd ~/.config/personal/universal; git add *; git commit -m "feat(gitconfig)"; git push;
-    autocmd BufWritePost ~/.config/personal/universal/.ticker.yaml !cd ~/.config/personal/universal; git add *; git commit -m "docs(ticker)"; git push;
-    autocmd BufWritePost ~/.config/personal/universal/.config/bookmarks !cd ~/.config/personal/universal; git add *; git commit -m "docs(bookmarks)"; git push;
+    autocmd BufWritePost ~/.config/personal/universal/README.md !cd ~/.config/personal/universal; git add .; git commit -m "docs(readme)"; git push;
+    autocmd BufWritePost ~/.config/personal/universal/.gitconfig !cd ~/.config/personal/universal; git add .; git commit -m "feat(gitconfig)"; git push;
+    autocmd BufWritePost ~/.config/personal/universal/.ticker.yaml !cd ~/.config/personal/universal; git add .; git commit -m "docs(ticker)"; git push;
+    autocmd BufWritePost ~/.config/personal/universal/.config/bookmarks !cd ~/.config/personal/universal; git add .; git commit -m "docs(bookmarks)"; git push;
 
 " Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
 if &diff
