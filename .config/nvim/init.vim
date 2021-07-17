@@ -3,10 +3,8 @@ let mapleader = "\<Space>"
 map j gj
 map k gk
 
-" vimwiki
 let g:vimwiki_list = [{'auto_diary_index': 1}]
 
-" LukeSmith copied start
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
 	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
@@ -124,29 +122,23 @@ set noshowcmd
 	autocmd BufWritePost ~/.local/bin/statusbar/* !{ killall -q dwmblocks;setsid -f dwmblocks }
 
 " Auto commit on
-  " vimwiki save
+  " vimwiki
     autocmd BufWritePost ~/.config/personal/universal/vimwiki/* !cd ~/vimwiki; git add *; git commit -m "docs(vimwiki)"; git push;
   " README
     autocmd BufWritePost ~/.config/personal/arch/README.md !cd ~/.config/personal/arch; git add *; git commit -m "docs(readme)"; git push;
     autocmd BufWritePost ~/.config/personal/universal/README.md !cd ~/.config/personal/universal; git add .; git commit -m "docs(readme)"; git push;
-    autocmd BufWritePost ~/.config/personal/universal/.gitconfig !cd ~/.config/personal/universal; git add .; git commit -m "feat(gitconfig)"; git push;
-    autocmd BufWritePost ~/.config/personal/universal/.ticker.yaml !cd ~/.config/personal/universal; git add .; git commit -m "docs(ticker)"; git push;
-    autocmd BufWritePost ~/.config/personal/universal/.config/bookmarks !cd ~/.config/personal/universal; git add .; git commit -m "docs(bookmarks)"; git push;
+    autocmd BufWritePost ~/.gitconfig !cd ~/.config/personal/universal; git add .; git commit -m "feat(gitconfig)"; git push;
+    autocmd BufWritePost ~/.ticker.yaml !cd ~/.config/personal/universal; git add .; git commit -m "docs(ticker)"; git push;
+    autocmd BufWritePost ~/.config/bookmarks !cd ~/.config/personal/universal; git add .; git commit -m "docs(bookmarks)"; git push;
+    " Setup
+    autocmd BufWritePost ~/.config/shell/aliasrc !cd ~/.config/personal/voidrice; git add .; git commit -m "feat(aliases)"; git push;
+    autocmd BufWritePost ~/.config/nvim/init.vim !cd ~/.config/personal/voidrice; git add .; git commit -m "feat(nvim)"; git push;
+
 
 " Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
 if &diff
     highlight! link DiffText MatchParen
 endif
-
-" LukeSmith copied end
-
-
-
-
-
-
-
-
 
 " Ultimate vim config copied start
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

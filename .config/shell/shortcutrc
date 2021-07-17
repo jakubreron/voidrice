@@ -35,6 +35,7 @@ ca="cd /home/jakub/.config/personal/arch && ls -a" \
 cg="cd /home/jakub/.config/personal/gnome && ls -a" \
 cu="cd /home/jakub/.config/personal/universal && ls -a" \
 cv="cd /home/jakub/.config/personal/voidrice && ls -a" \
+S="cd /home/jakub/Documents/Software && ls -a" \
 P="cd /home/jakub/Documents/Projects && ls -a" \
 pd="cd /home/jakub/Documents/Projects/dockerized-env && ls -a" \
 pz="cd /home/jakub/Documents/Projects/dockerized-env/app/web && ls -a" \
