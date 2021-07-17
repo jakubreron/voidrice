@@ -127,12 +127,12 @@ set noshowcmd
   " README
     autocmd BufWritePost ~/.config/personal/arch/README.md !cd ~/.config/personal/arch; git add *; git commit -m "docs(readme)"; git push;
     autocmd BufWritePost ~/.config/personal/universal/README.md !cd ~/.config/personal/universal; git add .; git commit -m "docs(readme)"; git push;
-    autocmd BufWritePost ~/.gitconfig !cd ~/.config/personal/universal; git add .; git commit -m "feat(gitconfig)"; git push;
-    autocmd BufWritePost ~/.ticker.yaml !cd ~/.config/personal/universal; git add .; git commit -m "docs(ticker)"; git push;
-    autocmd BufWritePost ~/.config/bookmarks !cd ~/.config/personal/universal; git add .; git commit -m "docs(bookmarks)"; git push;
+    autocmd BufWritePost ~.config/personal/universal//.gitconfig !cd ~/.config/personal/universal; git add .; git commit -m "feat(gitconfig)"; git push;
+    autocmd BufWritePost ~/.config/personal/universal/.ticker.yaml !cd ~/.config/personal/universal; git add .; git commit -m "docs(ticker)"; git push;
+    autocmd BufWritePost ~/.config/personal/universal/.config/bookmarks !cd ~/.config/personal/universal; git add .; git commit -m "docs(bookmarks)"; git push;
     " Setup
-    autocmd BufWritePost ~/.config/shell/aliasrc !cd ~/.config/personal/voidrice; git add .; git commit -m "feat(aliases)"; git push;
-    autocmd BufWritePost ~/.config/nvim/init.vim !cd ~/.config/personal/voidrice; git add .; git commit -m "feat(nvim)"; git push;
+    autocmd BufWritePost ~/.config/personal/voidrice/.config/shell/aliasrc !cd ~/.config/personal/voidrice; git add .; git commit -m "feat(aliases)"; git push;
+    autocmd BufWritePost ~/.config/personal/voidrice/.config/nvim/init.vim !cd ~/.config/personal/voidrice; git add .; git commit -m "feat(nvim)"; git push;
 
 
 " Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.

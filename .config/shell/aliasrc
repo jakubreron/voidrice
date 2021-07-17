@@ -120,4 +120,5 @@ alias \
   cmpl="sudo make && sudo make install" \
   ff="cd $HOME/.mozilla/firefox/*.dev-edition-default" \
   ffc="cd $HOME/.mozilla/firefox/*.dev-edition-default/chrome" \
-  ggl="tuxi"
+  ggl="tuxi" \
+  myip="curl ifconfig.co"
