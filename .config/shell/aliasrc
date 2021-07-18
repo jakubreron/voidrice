@@ -91,7 +91,7 @@ alias \
   sctl="sudo systemctl" \
   sctle="sudo systemctl enable" \
   sctld="sudo systemctl disable" \
-  sctlr="sudo systemctl restart"
+  sctlr="sudo systemctl restart" \
   sctlst="sudo systemctl status" \
   sctlsr="sudo systemctl start" \
   sctlsp="sudo systemctl stop" \
