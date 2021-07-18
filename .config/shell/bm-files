@@ -26,6 +26,7 @@ cfL	${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope		# lf's scope/preview file
 cfX	${XDG_CONFIG_HOME:-$HOME/.config}/sxiv/exec/key-handler	# sxiv (image viewer) key/script handler
 
 ## Some personal configs
+cft	~/.ticker.yaml # stonks
 cfb	${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/.config/bookmarks # website bookmarks
 cfg	${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/.gitconfig # gitconfig
 
