@@ -13,10 +13,12 @@ dunst &			           # dunst for notifications
 xset r rate 250 50 &	 # Speed xrate up
 unclutter &		         # Remove mouse when idle
 fcitx -d &             # Keyboard
-# pulseeffects --gapplication-service &         # Equalizer
+# easyeffects --gapplication-service &         # Equalizer
 redshift &             # Night light
 /usr/lib/kdeconnectd & # KDE connect daemon
 # dropbox &            # Dropbox
+
+# xrandr --output DP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --rate 144.00 --output HDMI-1 --mode 1920x1080 --pos 3840x0 --rotate normal --output DVI-I-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-D-1 --off
 
 # Performance fix
 export vblank_mode=0
