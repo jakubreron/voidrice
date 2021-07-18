@@ -133,6 +133,7 @@ set noshowcmd
     " Setup
     autocmd BufWritePost ~/.config/personal/voidrice/.config/shell/aliasrc !cd ~/.config/personal/voidrice; git add .; git commit -m "feat(aliases)"; git push;
     autocmd BufWritePost ~/.config/personal/voidrice/.config/nvim/init.vim !cd ~/.config/personal/voidrice; git add .; git commit -m "feat(nvim)"; git push;
+    autocmd BufWritePost ~/.config/personal/voidrice/.config/newsboat/urls !cd ~/.config/personal/voidrice; git add .; git commit -m "docs(newsboat)"; git push;
 
 
 " Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
