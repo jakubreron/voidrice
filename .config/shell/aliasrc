@@ -121,4 +121,5 @@ alias \
   ff="cd $HOME/.mozilla/firefox/*.dev-edition-default" \
   ffc="cd $HOME/.mozilla/firefox/*.dev-edition-default/chrome" \
   ggl="tuxi" \
-  myip="curl ifconfig.co"
+  myip="curl ifconfig.co" \
+  update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
