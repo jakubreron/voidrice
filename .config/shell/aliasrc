@@ -122,4 +122,5 @@ alias \
   ffc="cd $HOME/.mozilla/firefox/*.dev-edition-default/chrome" \
   ggl="tuxi" \
   myip="curl ifconfig.co" \
-  update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+  update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
+  encrypt="gpg -c --no-symkey-cache --cipher-algo AES256"
