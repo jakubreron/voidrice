@@ -20,6 +20,7 @@ mo="cd /home/jakub/Music/osts && ls -a" \
 ma="cd /home/jakub/Music/albums && ls -a" \
 pp="cd /home/jakub/Pictures && ls -a" \
 sc="cd /home/jakub/.local/bin && ls -a" \
+scs="cd /home/jakub/.local/bin/statusbar && ls -a" \
 src="cd /home/jakub/.local/src && ls -a" \
 sdw="cd /home/jakub/.local/src/dwm && ls -a" \
 sdb="cd /home/jakub/.local/src/dwmblocks && ls -a" \
