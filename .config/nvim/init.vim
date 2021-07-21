@@ -1,8 +1,5 @@
 let mapleader = "\<Space>"
 
-map j gj
-map k gk
-
 let g:vimwiki_list = [{'auto_diary_index': 1}]
 
 if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
