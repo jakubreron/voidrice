@@ -63,6 +63,7 @@ alias \
     yrb="yarn build" \
     yrs="yarn start" \
     yrt="yarn test" \
+    yrp="yarn prod" \
     yrf="yarn info --verbose --no-emoji"
 
 # php
