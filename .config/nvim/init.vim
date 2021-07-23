@@ -130,7 +130,6 @@ set noshowcmd
     autocmd BufWritePost ~/.config/personal/universal/.config/bookmarks !cd ~/.config/personal/universal; git add .; git commit -m "docs(bookmarks)"; git push;
     " Setup
     autocmd BufWritePost ~/.config/personal/voidrice/.config/shell/aliasrc !cd ~/.config/personal/voidrice; git add .; git commit -m "feat(aliases)"; git push;
-    autocmd BufWritePost ~/.config/personal/voidrice/.config/nvim/init.vim !cd ~/.config/personal/voidrice; git add .; git commit -m "feat(nvim)"; git push;
     autocmd BufWritePost ~/.config/personal/voidrice/.config/newsboat/urls !cd ~/.config/personal/voidrice; git add .; git commit -m "docs(newsboat)"; git push;
 
 
@@ -139,7 +138,18 @@ if &diff
     highlight! link DiffText MatchParen
 endif
 
-let g:Hexokinase_highlighters = ['backgroundfull']
+" Neovim default
+let g:Hexokinase_highlighters = [ 'virtual' ]
+
+" All possible highlighters
+" let g:Hexokinase_highlighters = [
+" \   'virtual',
+" \   'sign_column',
+" \   'background',
+" \   'backgroundfull',
+" \   'foreground',
+" \   'foregroundfull'
+" \ ]
 
 " Ultimate vim config copied start
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
