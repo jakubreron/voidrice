@@ -43,3 +43,4 @@ pd  $HOME/Documents/Projects/dockerized-env
 pz  $HOME/Documents/Projects/dockerized-env/app/web
 pza $HOME/Documents/Projects/dockerized-env/app/api
 aw  /usr/share/doc/arch-wiki/html/en
+php /etc/php/
