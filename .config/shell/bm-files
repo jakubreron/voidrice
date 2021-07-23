@@ -32,3 +32,4 @@ cfg	${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/.gitconfig # gitconfig
 
 dca ${XDG_CONFIG_HOME:-$HOME/.config}/personal/arch/README.md
 dcu ${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/README.md
+cfg /etc/default/grub

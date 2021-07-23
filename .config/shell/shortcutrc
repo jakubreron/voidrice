@@ -71,3 +71,4 @@ cfb="$EDITOR /home/jakub/.config/personal/universal/.config/bookmarks" \
 cfg="$EDITOR /home/jakub/.config/personal/universal/.gitconfig" \
 dca="$EDITOR /home/jakub/.config/personal/arch/README.md" \
 dcu="$EDITOR /home/jakub/.config/personal/universal/README.md" \
+cfg="$EDITOR /etc/default/grub" \
