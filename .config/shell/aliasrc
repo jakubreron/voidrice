@@ -38,7 +38,7 @@ alias \
 	e="sudoedit" \
 	v="$EDITOR" \
 	p="sudo pacman" \
-	z="zathura" \
+	# z="zathura" \
   pkgs="pkgstats search"
 
 alias \
