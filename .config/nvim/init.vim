@@ -139,6 +139,8 @@ if &diff
     highlight! link DiffText MatchParen
 endif
 
+let g:Hexokinase_highlighters = ['backgroundfull']
+
 " Ultimate vim config copied start
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
