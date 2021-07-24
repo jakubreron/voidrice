@@ -80,6 +80,8 @@ websearch[archwiki]="https://wiki.archlinux.org/index.php?search="
 websearch[github]="https://github.com/search?q="
 websearch[gitlab]="https://gitlab.com/search?search="
 websearch[stackoverflow]="https://stackoverflow.com/search?q="
+# Japanese
+websearch[jisho]="https://jisho.org/search/"
 # Etc
 
 # dm-translate
