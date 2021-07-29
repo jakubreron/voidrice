@@ -70,9 +70,9 @@ alias \
 alias \
     paws="sudo php artisan websockets:serve --host=0.0.0.0 --port=444" \
     cs="composer" \
+    csi="composer install" \
     csr="composer refresh" \
     csb="composer rebuild" \
-    csi="composer install" \
     csd="composer deploy" \
     csa="csi; csr; csb; csd;" \
     sail="~/.config/composer/vendor/bin/sail"
