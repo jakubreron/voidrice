@@ -74,6 +74,7 @@ alias \
     csb="composer rebuild" \
     csi="composer install" \
     csd="composer deploy" \
+    csa="csi; csr; csb; csd;" \
     sail="~/.config/composer/vendor/bin/sail"
 
 # valet
