@@ -25,7 +25,7 @@ alias \
 
 # Colorize commands when possible.
 alias \
-  cat="bat" \
+  # cat="bat" \
 	ls="exa -F --time-style=iso --icons --group-directories-first --git" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
