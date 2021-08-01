@@ -127,9 +127,10 @@ alias \
   " \
   replace-all="replace-basic; replace-needed" \
   ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl" \
-  sconf="ca && g pl; cg && g pl; cu && g pl; cv && g pl" \
+  sdots="ca && g pl; cg && g pl; cu && g pl; cv && g pl" \
   sproj="pd && g pl; pz && g pl; pza && g pl;" \
-  sall="ssrc; sconf; sproj; replace-all"
+  sconf="ssrc; sdots; replace-needed" \
+  sall="ssrc; sdots; sproj; replace-all"
 
 # misc
 alias \
