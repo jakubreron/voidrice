@@ -123,7 +123,8 @@ alias \
     rm -rf ~/.local/bin/{cron,statusbar} &&
     mkdir ~/.local/bin/{statusbar,cron} &&
     ln -n ~/.config/personal/voidrice/.local/bin/statusbar/* ~/.local/bin/statusbar/ &&
-    ln -n ~/.config/personal/voidrice/.local/bin/cron/* ~/.local/bin/cron/
+    ln -n ~/.config/personal/voidrice/.local/bin/cron/* ~/.local/bin/cron/ &&
+    cd ~/.config/personal && stow --adopt --target=/home/jakub universal
   " \
   replace-all="replace-basic; replace-needed" \
   ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl" \
