@@ -38,6 +38,7 @@ alias \
 alias \
 	ka="killall" \
 	g="git" \
+  dv="git checkout develop" \
 	sdn="sudo shutdown -h now" \
 	e="sudoedit" \
 	v="$EDITOR" \
