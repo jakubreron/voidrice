@@ -41,7 +41,7 @@ alias \
 	sdn="sudo shutdown -h now" \
 	e="sudoedit" \
 	v="$EDITOR" \
-	p="sudo pacman" \
+	p="paru" \
   pkgs="pkgstats search"
 
 alias \
