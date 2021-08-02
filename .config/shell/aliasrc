@@ -21,7 +21,7 @@ alias \
 	mv="mv -iv" \
 	bc="bc -ql" \
   df="df -h" \
-  free='free -m'
+  free='free -m' \
 	mkd="mkdir -pv" \
 	yt="youtube-dl --add-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
