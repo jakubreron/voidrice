@@ -60,27 +60,20 @@ declare -A websearch
 # Syntax:
 # websearch[name]="https://www.example.com/search?q="
 
-# Search Engines
-websearch[google]="https://www.google.com/search?q="
-websearch[yandex]="https://yandex.com/search/?text="
-websearch[duckduckgo]="https://duckduckgo.com/?q="
 # Information/News
 websearch[wikipedia]="https://en.wikipedia.org/w/index.php?search="
 websearch[wiktionary]="https://en.wiktionary.org/w/index.php?search="
 # Social Media
 websearch[reddit]="https://www.reddit.com/search/?q="
 websearch[youtube]="https://www.youtube.com/results?search_query="
-# Online Shopping
-# websearch[amazon]="https://www.amazon.com/s?k="
 # Linux
-websearch[archaur]="https://aur.archlinux.org/packages/?O=0&K="
-websearch[archpkg]="https://archlinux.org/packages/?sort=&q="
 websearch[archwiki]="https://wiki.archlinux.org/index.php?search="
 # Development
 websearch[github]="https://github.com/search?q="
-websearch[gitlab]="https://gitlab.com/search?search="
 websearch[stackoverflow]="https://stackoverflow.com/search?q="
+websearch[caniuse]="https://caniuse.com/?search="
 # Japanese
+websearch[kanji]="https://jisho.org/search/%23kanji"
 websearch[jisho]="https://jisho.org/search/"
 # Etc
 
