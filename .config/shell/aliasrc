@@ -40,6 +40,7 @@ alias \
   pkgs="pkgstats search"
 
 alias \
+  sctl="sudo systemctl" \
 	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
 	wth="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport"
@@ -87,16 +88,11 @@ alias \
     vau="valet use" \
     vast="valet status"
 
-# systemctl
-alias \
-  sctl="sudo systemctl" \
-  sctle="sudo systemctl enable" \
-  sctld="sudo systemctl disable" \
-  sctlr="sudo systemctl restart" \
-  sctlst="sudo systemctl status" \
-  sctlsr="sudo systemctl start" \
-  sctlsp="sudo systemctl stop" \
-  sctlfl="sudo systemctl --failed"
+# get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4 | head -5'
+
+# get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 
 # youtube
 alias \
