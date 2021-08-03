@@ -49,6 +49,7 @@ alias \
 	g="git" \
   dv="git checkout develop" \
   ms="git checkout master" \
+  mn="git checkout main" \
 
 alias \
   sctl="sudo systemctl" \
