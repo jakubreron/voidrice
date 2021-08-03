@@ -38,13 +38,17 @@ alias \
 # These common commands are just too long! Abbreviate them.
 alias \
 	ka="killall" \
-	g="git" \
-  dv="git checkout develop" \
 	sdn="sudo shutdown -h now" \
 	e="sudoedit" \
 	v="$EDITOR" \
 	p="paru" \
   pkgs="pkgstats search"
+
+# Git
+alias \
+	g="git" \
+  dv="git checkout develop" \
+  ms="git checkout master" \
 
 alias \
   sctl="sudo systemctl" \
