@@ -33,7 +33,7 @@ alias \
   ll="ls -la" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
-  t="tree"
+  t="ls -T"
 
 # These common commands are just too long! Abbreviate them.
 alias \
