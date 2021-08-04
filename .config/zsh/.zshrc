@@ -56,6 +56,10 @@ bindkey '^e' edit-command-line
 # Useful Functions
 source "$ZDOTDIR/zsh-functions"
 
+chpwd() {
+  ls
+}
+
 # Normal files to source
 zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-exports"
