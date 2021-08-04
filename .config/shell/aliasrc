@@ -17,7 +17,6 @@ done; unset command
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
-  cd="cd '@$' && ls" \
 	cp="cp -iv" \
 	mv="mv -iv" \
 	bc="bc -ql" \
