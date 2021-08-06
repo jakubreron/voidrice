@@ -93,6 +93,7 @@ alias \
 # php
 alias \
     paws="sudo php artisan websockets:serve --host=0.0.0.0 --port=444" \
+    pawd="php artisan workspace:dump" \
     cs="composer" \
     csi="composer install" \
     csr="composer refresh" \
