@@ -34,6 +34,7 @@ vls="cd /home/jakub/.valet/Sites && ls -a" \
 vln="cd /home/jakub/.valet/Nginx && ls -a" \
 vlC="cd /home/jakub/.valet/Certificates && ls -a" \
 ca="cd /home/jakub/.config/personal/arch && ls -a" \
+cap="cd /home/jakub/.config/personal/arch/pkglist && ls -a" \
 cg="cd /home/jakub/.config/personal/gnome && ls -a" \
 cu="cd /home/jakub/.config/personal/universal && ls -a" \
 cv="cd /home/jakub/.config/personal/voidrice && ls -a" \
