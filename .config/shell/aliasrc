@@ -29,7 +29,6 @@ alias \
 
 # Colorize commands when possible.
 alias \
-	# ls="exa -F --time-style=iso --icons --group-directories-first --git" \
   ll="ls -la" \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
