@@ -90,7 +90,7 @@ alias \
     ynt="yarn test" \
     ynp="yarn prod" \
     ynf="yarn info --verbose --no-emoji" \
-    ynua="yarn yarn-upgrade-all"
+    ynua="yarn-upgrade-all"
 
 # php
 alias \
