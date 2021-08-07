@@ -10,6 +10,8 @@
 .config/dunst/dunstrc
 .config/zathura/zathurarc
 
+.config/scripts/nohup.out
+
 .config/x11/xprofile
 
 .local/bin/ticker

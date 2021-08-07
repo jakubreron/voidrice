@@ -2,8 +2,8 @@
 
 msg="$1($2)"
 
-git add *
-git commit -m "$msg"
-git push
+git add * && \
+git commit -m "$msg" && \
+git push origin HEAD && \
 
 notify-send "Successfully pushed the commit: $msg"
