@@ -3,3 +3,7 @@
  rewrite .config/scripts/nohup.out (100%)
 To github.com:jakubreron/voidrice.git
    5dd03d0..979caf4  HEAD -> master
+[master f6bb0c3] docs(pkglist)
+ 1 file changed, 5 insertions(+)
+To github.com:jakubreron/voidrice.git
+   979caf4..f6bb0c3  HEAD -> master
