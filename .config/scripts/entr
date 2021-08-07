@@ -1,3 +1,3 @@
 #!/bin/sh
 
-echo ~/.config/personal/arch/pkglist/*.txt | entr git-update docs pkglist
+echo ~/.config/personal/arch/pkglist/* | entr git-update docs pkglist
