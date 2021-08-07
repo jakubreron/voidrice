@@ -1,0 +1,5 @@
+[master 979caf4] docs(pkglist)
+ 1 file changed, 14 deletions(-)
+ rewrite .config/scripts/nohup.out (100%)
+To github.com:jakubreron/voidrice.git
+   5dd03d0..979caf4  HEAD -> master
