@@ -1,2 +1,2 @@
 #!/bin/sh
-\ls ~/.config/personal/arch/pkglist/*.txt | entr git-update docs pkglist
+\ls ~/.config/personal/arch/pkglist/*.txt | entr -np git-update docs pkglist
