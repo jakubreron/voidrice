@@ -79,16 +79,18 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 
 # yarn
 alias \
-    yr="yarn" \
-    yra="yarn add" \
-    yrr="yarn remove" \
-    yri="yarn install" \
-    yrd="yarn dev" \
-    yrb="yarn build" \
-    yrs="yarn start" \
-    yrt="yarn test" \
-    yrp="yarn prod" \
-    yrf="yarn info --verbose --no-emoji"
+    yn="yarn" \
+    yna="yarn add" \
+    ynga="yarn global add" \
+    ynru="yarn run" \
+    ynr="yarn remove" \
+    ynd="yarn dev" \
+    ynb="yarn build" \
+    yns="yarn start" \
+    ynt="yarn test" \
+    ynp="yarn prod" \
+    ynf="yarn info --verbose --no-emoji" \
+    ynua="yarn yarn-upgrade-all"
 
 # php
 alias \
