@@ -40,10 +40,11 @@ cu  $HOME/.config/personal/universal
 cv  $HOME/.config/personal/voidrice
 S   $HOME/Documents/Software
 P   $HOME/Documents/Projects
-pd  $HOME/Documents/Projects/dockerized-env
-pz  $HOME/Documents/Projects/dockerized-env/app/web
-pl  $HOME/Documents/Projects/dockerized-env/app/landlord-web
-pza $HOME/Documents/Projects/dockerized-env/app/api
+Pp  $HOME/Documents/Projects/portfolio
+Pd  $HOME/Documents/Projects/dockerized-env
+Pz  $HOME/Documents/Projects/dockerized-env/app/web
+Pl  $HOME/Documents/Projects/dockerized-env/app/landlord-web
+Pza $HOME/Documents/Projects/dockerized-env/app/api
 aw  /usr/share/doc/arch-wiki/html/en
 ph  /etc/php/
 phc /etc/php/conf.d
