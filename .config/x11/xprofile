@@ -18,6 +18,9 @@ redshift &                                                   # Night light
 /usr/lib/kdeconnectd &                                       # KDE connect daemon
 # dropbox &                                                  # Dropbox
 
+# Scripts
+${XDG_CONFIG_HOME:-$HOME/.config}/scripts/entr &
+
 # Screen layouts
 # ${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/home.sh &
 # ${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/work.sh &
