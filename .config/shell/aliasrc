@@ -141,10 +141,10 @@ alias \
     cd ~/.config/personal && stow --adopt --target=/home/jakub universal
   " \
   ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl" \
-  sdots="ca && g pl; cg && g pl; cu && g pl; cv && g pl" \
+  sdots="ca && g pl; cg && g pl; cu && g pl; cv && g pl; replace-all" \
   sproj="pd && g pl; pz && g pl; pza && g pl;" \
-  sall="ssrc; sdots; sproj; replace-all" \
-  snc="ssrc; sdots; replace-all"
+  sall="ssrc; sdots; sproj" \
+  snc="ssrc; sdots"
 
 # misc
 alias \
