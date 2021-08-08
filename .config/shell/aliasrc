@@ -53,6 +53,7 @@ alias \
   dv="git checkout develop" \
   ms="git checkout master" \
   mn="git checkout main" \
+  gup="git-update"
 
 alias \
   sctl="sudo systemctl" \

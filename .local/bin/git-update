@@ -1,9 +1,15 @@
 #!/bin/sh
 
-msg="$1($2)"
+head="${1:-head}"
+scope="${2:-scope}"
+body="${3:-body}"
 
-git add * && \
-git commit -m "$msg" && \
-git push origin HEAD && \
+msg="$head($scope): $body"
 
-notify-send "Successfully pushed the commit: $msg"
+if command -v git &> /dev/null; then
+  git add *
+  git commit -m "$msg"
+  git push origin HEAD
+
+  notify-send "Commited and pushed: \"$msg\""
+fi
