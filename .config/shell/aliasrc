@@ -43,9 +43,9 @@ alias \
 	v="$EDITOR" \
 	p="paru" \
   pkgs="pkgstats search" \
-  pkggen-desktop="cap; pkggen desktop.txt && cd -" \
-  pkggen-thinkpad="cap; pkggen thinkpad.txt && cd -" \
-  pkggen-ideapad="cap; pkggen ideapad.txt && cd -"
+  pkggen-main="cap; pkggen main.txt && cd -" \
+  pkggen-secondary="cap; pkggen secondary.txt && cd -" \
+  pkggen-work="cap; pkggen work.txt && cd -"
 
 # Git
 alias \
