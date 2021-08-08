@@ -1,0 +1,21 @@
+#!/bin/sh
+
+file="${1:-pkglist.txt}"
+commit="${2:-true}"
+
+if command -v paru &> /dev/null; then
+  manager=paru
+elif command -v yay &> /dev/null; then
+  manager=yay
+else
+  manager=pacman
+fi
+
+$manager -Qqe > $file
+
+
+if $commit && command -v git &> /dev/null; then
+  git add * 
+  git commit -m "docs(pkglist): $file"
+  git push origin HEAD
+fi

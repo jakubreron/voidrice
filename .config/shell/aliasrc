@@ -42,7 +42,10 @@ alias \
 	e="sudoedit" \
 	v="$EDITOR" \
 	p="paru" \
-  pkgs="pkgstats search"
+  pkgs="pkgstats search" \
+  pkggen-desktop="cap; pkggen desktop.txt" \
+  pkggen-thinkpad="cap; pkggen thinkpad.txt" \
+  pkggen-ideapad="cap; pkggen ideapad.txt"
 
 # Git
 alias \
