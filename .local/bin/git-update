@@ -7,7 +7,7 @@ body="${3:-body}"
 msg="$head($scope): $body"
 
 if command -v git &> /dev/null; then
-  git add *
+  git add .
   git commit -m "$msg"
   git push origin HEAD
 
