@@ -18,7 +18,7 @@ mg  ${XDG_MUSIC_DIR:-$HOME/Music/gen}
 ml  ${XDG_MUSIC_DIR:-$HOME/Music/live}
 mo  ${XDG_MUSIC_DIR:-$HOME/Music/osts}
 ma  ${XDG_MUSIC_DIR:-$HOME/Music/albums}
-pp  ${XDG_PICTURES_DIR:-$HOME/Pictures}
+P  ${XDG_PICTURES_DIR:-$HOME/Pictures}
 sc  $HOME/.local/bin
 scs $HOME/.local/bin/statusbar
 src $HOME/.local/src
@@ -39,12 +39,12 @@ cg  $HOME/.config/personal/gnome
 cu  $HOME/.config/personal/universal
 cv  $HOME/.config/personal/voidrice
 S   $HOME/Documents/Software
-P   $HOME/Documents/Projects
-Pp  $HOME/Documents/Projects/portfolio
-Pd  $HOME/Documents/Projects/dockerized-env
-Pz  $HOME/Documents/Projects/dockerized-env/app/web
-Pl  $HOME/Documents/Projects/dockerized-env/app/landlord-web
-Pza $HOME/Documents/Projects/dockerized-env/app/api
+p   $HOME/Documents/Projects
+pp  $HOME/Documents/Projects/portfolio
+pd  $HOME/Documents/Projects/dockerized-env
+pz  $HOME/Documents/Projects/dockerized-env/app/web
+pl  $HOME/Documents/Projects/dockerized-env/app/landlord-web
+pza $HOME/Documents/Projects/dockerized-env/app/api
 aw  /usr/share/doc/arch-wiki/html/en
 ph  /etc/php/
 phc /etc/php/conf.d
