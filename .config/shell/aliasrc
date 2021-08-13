@@ -42,6 +42,7 @@ alias \
 	e="sudoedit" \
 	v="$EDITOR" \
 	p="paru" \
+  lg="lazygit" \
   pkgs="pkgstats search" \
   pkggen-main="cap; pkggen main.txt && cd -" \
   pkggen-work="cap; pkggen work.txt && cd -" \
