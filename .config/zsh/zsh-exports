@@ -10,7 +10,7 @@ export PATH="$(yarn global bin):$PATH"
 
 eval "$(mcfly init zsh)"
 # eval "$(fnm env)"
-# eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)"
 # eval "`pip completion --zsh`"
 
 # >>> conda initialize >>>
