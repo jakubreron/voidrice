@@ -1,50 +1,60 @@
-# You can add comments to these files with #
-cac ${XDG_CACHE_HOME:-$HOME/.cache}
-cf  ${XDG_CONFIG_HOME:-$HOME/.config}
-D   ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
-dr  $HOME/Dropbox
-drl $HOME/Dropbox/Linux
-drb $HOME/Dropbox/Books
-drj $HOME/Dropbox/Books/Japanese
-drp $HOME/Dropbox/Programming
-dri $HOME/Dropbox/Images
-drw $HOME/Dropbox/Images/Wallpapers
-d   ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
-dt  ${XDG_DATA_HOME:-$HOME/.local/share}
-rr  ${XDG_DATA_HOME:-$HOME/.local/src}
-h   $HOME
-m   ${XDG_MUSIC_DIR:-$HOME/Music}
-mg  ${XDG_MUSIC_DIR:-$HOME/Music/gen}
-ml  ${XDG_MUSIC_DIR:-$HOME/Music/live}
-mo  ${XDG_MUSIC_DIR:-$HOME/Music/osts}
-ma  ${XDG_MUSIC_DIR:-$HOME/Music/albums}
-P  ${XDG_PICTURES_DIR:-$HOME/Pictures}
-sc  $HOME/.local/bin
-scs $HOME/.local/bin/statusbar
-src $HOME/.local/src
-sdw $HOME/.local/src/dwm
-sdb $HOME/.local/src/dwmblocks
-sdm $HOME/.local/src/dmenu
-sst $HOME/.local/src/st
-vv  ${XDG_VIDEOS_DIR:-$HOME/Videos}
-mt  $HOME/Mount
-vw  $HOME/vimwiki
-vl  $HOME/.valet
-vls $HOME/.valet/Sites
-vln $HOME/.valet/Nginx
-vlC $HOME/.valet/Certificates
-ca  $HOME/.config/personal/arch
-cap  $HOME/.config/personal/arch/pkglist
-cg  $HOME/.config/personal/gnome
-cu  $HOME/.config/personal/universal
-cv  $HOME/.config/personal/voidrice
-S   $HOME/Documents/Software
-pa  $HOME/Documents/Projects
-pp  $HOME/Documents/Projects/portfolio
-pd  $HOME/Documents/Projects/dockerized-env
-pz  $HOME/Documents/Projects/dockerized-env/app/web
-pl  $HOME/Documents/Projects/dockerized-env/app/landlord-web
-pza $HOME/Documents/Projects/dockerized-env/app/api
-aw  /usr/share/doc/arch-wiki/html/en
-ph  /etc/php/
-phc /etc/php/conf.d
+#  You  can  add  comments  to  these  files  with  #
+ch    ${XDG_CACHE_HOME:-$HOME/.cache}
+
+h     $HOME
+D     ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
+C     ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
+
+M     ${XDG_MUSIC_DIR:-$HOME/Music}
+Mg    ${XDG_MUSIC_DIR:-$HOME/Music/gen}
+Ml    ${XDG_MUSIC_DIR:-$HOME/Music/live}
+Mo    ${XDG_MUSIC_DIR:-$HOME/Music/osts}
+Ma    ${XDG_MUSIC_DIR:-$HOME/Music/albums}
+
+P     ${XDG_PICTURES_DIR:-$HOME/Pictures}
+V     ${XDG_VIDEOS_DIR:-$HOME/Videos}
+
+mt    $HOME/Mount
+vw    $HOME/vimwiki
+
+d     $HOME/Dropbox
+dl    $HOME/Dropbox/Linux
+db    $HOME/Dropbox/Books
+dj    $HOME/Dropbox/Books/Japanese
+dp    $HOME/Dropbox/Programming
+di    $HOME/Dropbox/Images
+dw    $HOME/Dropbox/Images/Wallpapers
+
+shr    ${XDG_DATA_HOME:-$HOME/.local/share}
+
+sc    $HOME/.local/bin
+scs   $HOME/.local/bin/statusbar
+src   $HOME/.local/src
+sdw   $HOME/.local/src/dwm
+sdb   $HOME/.local/src/dwmblocks
+sdm   $HOME/.local/src/dmenu
+sst   $HOME/.local/src/st
+
+vl    $HOME/.valet
+vls   $HOME/.valet/Sites
+vln   $HOME/.valet/Nginx
+vlc   $HOME/.valet/Certificates
+
+c     ${XDG_CONFIG_HOME:-$HOME/.config}
+ca    $HOME/.config/personal/arch
+cap   $HOME/.config/personal/arch/pkglist
+cg    $HOME/.config/personal/gnome
+cu    $HOME/.config/personal/universal
+cv    $HOME/.config/personal/voidrice
+
+S     $HOME/Documents/Software
+
+pa    $HOME/Documents/Projects
+pp    $HOME/Documents/Projects/portfolio
+pz    $HOME/Documents/Projects/dockerized-env
+pzw   $HOME/Documents/Projects/dockerized-env/app/web
+pzl   $HOME/Documents/Projects/dockerized-env/app/landlord-web
+pza   $HOME/Documents/Projects/dockerized-env/app/api
+
+ph   /etc/php/
+phc  /etc/php/conf.d
