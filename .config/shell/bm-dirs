@@ -50,6 +50,7 @@ cv    $HOME/.config/personal/voidrice
 S     $HOME/Documents/Software
 
 pa    $HOME/Documents/Projects
+pc    $HOME/Documents/Projects/chatio
 pp    $HOME/Documents/Projects/portfolio
 pz    $HOME/Documents/Projects/dockerized-env
 pzw   $HOME/Documents/Projects/dockerized-env/app/web

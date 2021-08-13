@@ -39,6 +39,7 @@ cu="cd /home/jakub/.config/personal/universal" \
 cv="cd /home/jakub/.config/personal/voidrice" \
 S="cd /home/jakub/Documents/Software" \
 pa="cd /home/jakub/Documents/Projects" \
+pc="cd /home/jakub/Documents/Projects/chatio" \
 pp="cd /home/jakub/Documents/Projects/portfolio" \
 pz="cd /home/jakub/Documents/Projects/dockerized-env" \
 pzw="cd /home/jakub/Documents/Projects/dockerized-env/app/web" \
