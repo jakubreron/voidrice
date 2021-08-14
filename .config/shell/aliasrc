@@ -93,7 +93,8 @@ alias \
     ynr="yarn remove" \
     ynd="yarn dev" \
     ynb="yarn build" \
-    yns="yarn start" \
+    yns="yarn serve" \
+    ynsw="yarn serve --watch" \
     ynt="yarn test" \
     ynp="yarn prod" \
     ynf="yarn info --verbose --no-emoji" \
