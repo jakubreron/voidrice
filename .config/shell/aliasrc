@@ -47,7 +47,8 @@ alias \
   pkgs="pkgstats search" \
   pkggen-main="cap; pkggen main.txt && cd -" \
   pkggen-work="cap; pkggen work.txt && cd -" \
-  pkggen-secondary="cap; pkggen secondary.txt && cd -"
+  pkggen-secondary="cap; pkggen secondary.txt && cd -" \
+  ud="updatedb"
 
 # Git
 alias \

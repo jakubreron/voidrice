@@ -25,7 +25,8 @@ dp    $HOME/Dropbox/Programming
 di    $HOME/Dropbox/Images
 dw    $HOME/Dropbox/Images/Wallpapers
 
-shr    ${XDG_DATA_HOME:-$HOME/.local/share}
+shr   ${XDG_DATA_HOME:-$HOME/.local/share}
+shrl  ${XDG_DATA_HOME:-$HOME/.local/share/lunarvim/lvim}
 
 sc    $HOME/.local/bin
 scs   $HOME/.local/bin/statusbar
