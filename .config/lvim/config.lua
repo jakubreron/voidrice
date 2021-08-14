@@ -3,12 +3,20 @@
 -- general
 lvim.format_on_save = true
 lvim.lint_on_save = true
-lvim.colorscheme = "spacegray"
+lvim.colorscheme = "tokyonight"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
+
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+
+lvim.keys.normal_mode["Y"] = "y$"
+lvim.keys.normal_mode["c"] = "\"_c"
+
+lvim.keys.insert_mode["<C-j>"] = "<esc>:m .+1<CR>== i"
+lvim.keys.insert_mode["<C-k>"] = "<esc>:m .-2<CR>== i"
+
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = ""
 -- edit a default keymapping
@@ -65,15 +73,49 @@ end
 -- }
 
 -- Additional Plugins
--- lvim.plugins = {
---     {"folke/tokyonight.nvim"}, {
---         "ray-x/lsp_signature.nvim",
---         config = function() require"lsp_signature".on_attach() end,
---         event = "InsertEnter"
---     }
--- }
+lvim.plugins = {
+    {"folke/tokyonight.nvim"}, {
+        "ray-x/lsp_signature.nvim",
+        config = function() require"lsp_signature".on_attach() end,
+        event = "InsertEnter"
+    },
+    {"vimwiki/vimwiki"}, {
+      config = function()
+        vim.g.vimwiki_list = {
+          {
+            path = '~/vimwiki',
+            syntax = 'markdown',
+            ext = '.md',
+            auto_diary_index = 1
+          }
+        }
+      end
+    },
+    {"tpope/vim-surround"}, {
+      config = function()
+        require "surround".setup {}
+      end
+    },
+    {"norcalli/nvim-colorizer.lua"}, {
+      config = function()
+        -- Use the `default_options` as the second parameter, which uses
+        -- `foreground` for every mode. This is the inverse of the previous
+        -- setup configuration.
+        require 'colorizer'.setup({
+          'css';
+          'scss';
+          'sass';
+          'vue';
+          'javascript';
+          html = { mode = 'background' };
+        }, { mode = 'foreground' })
+      end
+    },
+}
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
---   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
--- }
+lvim.autocommands.custom_groups = {
+  { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
+}
+
+-- vim.cmd [[ autocmd FileType * :norm '" ]]
