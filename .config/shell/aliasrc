@@ -128,10 +128,10 @@ alias \
 # youtube
 alias \
   ytd="yt -x -f bestaudio/best --download-archive playlist.txt" \
-  ytdg="mg; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
-  ytdl="ml; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
-  ytdo="mo; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
-  ytda="ma; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
+  ytdg="Mg; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
+  ytdl="Ml; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
+  ytdo="Mo; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
+  ytda="Ma; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
   ytdall="ytdg; ytdl; ytdo; ytda" \
   rkrl="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
 
