@@ -38,8 +38,11 @@ lvim.keys.insert_mode["<C-k>"] = "<esc>:m .-2<CR>== i"
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
+
 lvim.builtin.nvimtree.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
+lvim.builtin.nvimtree.hide_dotfiles = false
+lvim.builtin.nvimtree.ignore = {".git", ".idea", ".vscode"}
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {}
