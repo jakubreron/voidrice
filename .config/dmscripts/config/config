@@ -63,6 +63,7 @@ declare -A websearch
 # Information/News
 websearch[wikipedia]="https://en.wikipedia.org/w/index.php?search="
 websearch[wiktionary]="https://en.wiktionary.org/w/index.php?search="
+websearch[maps]="https://www.google.com/maps/search/"
 # Social Media
 websearch[reddit]="https://www.reddit.com/search/?q="
 websearch[youtube]="https://www.youtube.com/results?search_query="
@@ -72,6 +73,8 @@ websearch[archwiki]="https://wiki.archlinux.org/index.php?search="
 websearch[github]="https://github.com/search?q="
 websearch[stackoverflow]="https://stackoverflow.com/search?q="
 websearch[caniuse]="https://caniuse.com/?search="
+websearch[npmjs]="https://www.npmjs.com/search?q=vue"
+websearch[bundlephobia]="https://bundlephobia.com/package/"
 # Japanese
 websearch[kanji]="https://jisho.org/search/%23kanji"
 websearch[jisho]="https://jisho.org/search/"
