@@ -152,7 +152,7 @@ alias \
   " \
   ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl" \
   sdots="ca && g pl; cu && g pl; cv && g pl; replace-all" \
-  sproj="pzd && g pl; pzw && g pl; pza && g pl; pzl && g pl;" \
+  sproj="pz && g pl; pzw && g pl; pza && g pl; pzl && g pl;" \
   sall="ssrc; sdots; sproj" \
   snc="ssrc; sdots"
 
