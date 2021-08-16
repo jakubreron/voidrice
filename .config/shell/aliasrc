@@ -151,8 +151,8 @@ alias \
     ln -n ~/.config/personal/voidrice/.local/bin/cron/* ~/.local/bin/cron/
   " \
   ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl" \
-  sdots="ca && g pl; cu && g pl; cv && g pl; replace-all" \
-  sproj="pzw && g pl; pza && g pl; pzl && g pl;" \
+  sdots="ca && g pl; cu && g pl; cv && g pl; shrl && g pl; replace-all" \
+  sproj="pzw && g pl; pza && g pl; pzl && g pl; pp && g pl" \
   sall="ssrc; sdots; sproj" \
   snc="ssrc; sdots"
 
