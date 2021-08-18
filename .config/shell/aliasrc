@@ -42,13 +42,20 @@ alias \
 	e="sudoedit" \
 	v="$EDITOR" \
 	p="paru" \
-  lzg="lazygit" \
-  lzd="lazydocker" \
   pkgs="pkgstats search" \
+  ud="updatedb" 
+
+# Some software
+alias \
+  lzg="lazygit" \
+  lzd="lazydocker" 
+
+# Generate packages
+alias \
   pkggen-main="cap; pkggen main.txt && cd -" \
   pkggen-work="cap; pkggen work.txt && cd -" \
   pkggen-secondary="cap; pkggen secondary.txt && cd -" \
-  ud="updatedb"
+  pkggen-yarn="cap; yngl | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt && cd -" 
 
 # Git
 alias \
@@ -60,7 +67,6 @@ alias \
 
 alias \
   sctl="sudo systemctl" \
-	magit="nvim -c MagitOnly" \
 	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
 	wth="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
   rates="curl rate.sx | less -S"
