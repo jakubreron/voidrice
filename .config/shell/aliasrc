@@ -90,25 +90,18 @@ alias \
     yn="yarn" \
     yna="yarn add" \
 m   ynr="yarn remove" \
-
     yng="yarn global" \
     yngl="yarn global list" \
     ynga="yarn global add" \
     yngr="yarn global remove" \
-
     yngn="yarn generate" \
-
     ynd="yarn dev" \
     yndw="yarn dev --watch" \
-
     ynb="yarn build" \
-
     yns="yarn serve" \
     ynsw="yarn serve --watch" \
-
     ynt="yarn test" \
     ynp="yarn prod" \
-
     ynf="yarn info --verbose --no-emoji" \
     ynu="yarn-upgrade-all"
 
