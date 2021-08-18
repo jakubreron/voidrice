@@ -33,3 +33,6 @@ cfg	${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/.gitconfig # gitconfig
 dca ${XDG_CONFIG_HOME:-$HOME/.config}/personal/arch/README.md
 dcu ${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/README.md
 cfG /etc/default/grub
+
+# lvim
+cflv ${XDG_CONFIG_HOME:-$HOME/.config}/lvim/config.lua

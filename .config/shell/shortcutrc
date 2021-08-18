@@ -75,3 +75,4 @@ cfg="$EDITOR /home/jakub/.config/personal/universal/.gitconfig" \
 dca="$EDITOR /home/jakub/.config/personal/arch/README.md" \
 dcu="$EDITOR /home/jakub/.config/personal/universal/README.md" \
 cfG="$EDITOR /etc/default/grub" \
+cflv="$EDITOR /home/jakub/.config/lvim/config.lua" \
