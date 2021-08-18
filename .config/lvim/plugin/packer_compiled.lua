@@ -121,10 +121,6 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/home/jakub/.local/share/lunarvim/site/pack/packer/opt/nvim-autopairs"
   },
-  ["nvim-colorizer.lua"] = {
-    loaded = true,
-    path = "/home/jakub/.local/share/lunarvim/site/pack/packer/start/nvim-colorizer.lua"
-  },
   ["nvim-comment"] = {
     config = { "\27LJ\1\2–\1\0\0\3\0\a\0\0204\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\0014\0\3\0007\0\4\0007\0\5\0007\0\6\0\15\0\0\0T\1\b€4\0\3\0007\0\4\0007\0\5\0007\0\6\0004\1\0\0%\2\1\0>\1\2\0=\0\0\1G\0\1\0\19on_config_done\fcomment\fbuiltin\tlvim\nsetup\17nvim_comment\frequire\0" },
     loaded = false,
@@ -204,10 +200,6 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/home/jakub/.local/share/lunarvim/site/pack/packer/opt/vim-vsnip"
   },
-  vimwiki = {
-    loaded = true,
-    path = "/home/jakub/.local/share/lunarvim/site/pack/packer/start/vimwiki"
-  },
   ["which-key.nvim"] = {
     config = { "\27LJ\1\2¤\1\0\0\3\0\b\0\0204\0\0\0%\1\1\0>\0\2\0027\0\2\0>\0\1\0014\0\3\0007\0\4\0007\0\5\0007\0\6\0\15\0\0\0T\1\b€4\0\3\0007\0\4\0007\0\5\0007\0\6\0004\1\0\0%\2\a\0>\1\2\0=\0\0\1G\0\1\0\14which-key\19on_config_done\14which_key\fbuiltin\tlvim\nsetup\19core.which-key\frequire\0" },
     loaded = false,
@@ -238,7 +230,7 @@ vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
 vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-comment', 'gitsigns.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
-vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'which-key.nvim', 'barbar.nvim', 'galaxyline.nvim', 'nvim-toggleterm.lua', 'dashboard-nvim'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au BufWinEnter * ++once lua require("packer.load")({'which-key.nvim', 'barbar.nvim', 'dashboard-nvim', 'galaxyline.nvim', 'nvim-toggleterm.lua'}, { event = "BufWinEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au InsertCharPre * ++once lua require("packer.load")({'friendly-snippets'}, { event = "InsertCharPre *" }, _G.packer_plugins)]]
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'lsp_signature.nvim', 'nvim-compe', 'vim-vsnip'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au VimEnter * ++once lua require("packer.load")({'nvim-lspinstall'}, { event = "VimEnter *" }, _G.packer_plugins)]]

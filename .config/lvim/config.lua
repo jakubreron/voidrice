@@ -1,12 +1,12 @@
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
-
 -- general
+
 lvim.format_on_save = true
 lvim.lint_on_save = true
 lvim.colorscheme = "tokyonight"
 
 -- custom
-vim.opt.smartindent = false
+-- vim.opt.smartindent = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -86,38 +86,38 @@ lvim.plugins = {
         config = function() require"lsp_signature".on_attach() end,
         event = "InsertEnter"
     },
-    {"vimwiki/vimwiki"}, {
-      config = function()
-        vim.g.vimwiki_list = {
-          {
-            path = '~/vimwiki',
-            syntax = 'markdown',
-            ext = '.md',
-            auto_diary_index = 1
-          }
-        }
-      end
-    },
+    -- {"vimwiki/vimwiki"}, {
+    --   config = function()
+    --     vim.g.vimwiki_list = {
+    --       {
+    --         path = '~/vimwiki',
+    --         syntax = 'markdown',
+    --         ext = '.md',
+    --         auto_diary_index = 1
+    --       }
+    --     }
+    --   end
+    -- },
     {"tpope/vim-surround"}, {
       config = function()
         require "surround".setup {}
       end
     },
-    {"norcalli/nvim-colorizer.lua"}, {
-      config = function()
-        -- Use the `default_options` as the second parameter, which uses
-        -- `foreground` for every mode. This is the inverse of the previous
-        -- setup configuration.
-        require 'colorizer'.setup({
-          'css';
-          'scss';
-          'sass';
-          'vue';
-          'javascript';
-          html = { mode = 'background' };
-        }, { mode = 'foreground' })
-      end
-    },
+    -- {"norcalli/nvim-colorizer.lua"}, {
+    --   config = function()
+    --     -- Use the `default_options` as the second parameter, which uses
+    --     -- `foreground` for every mode. This is the inverse of the previous
+    --     -- setup configuration.
+    --     require 'colorizer'.setup({
+    --       'css';
+    --       'scss';
+    --       'sass';
+    --       'vue';
+    --       'javascript';
+    --       html = { mode = 'background' };
+    --     }, { mode = 'foreground' })
+    --   end
+    -- },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
@@ -126,3 +126,31 @@ lvim.autocommands.custom_groups = {
 }
 
 -- vim.cmd [[ autocmd FileType * :norm '" ]]
+
+local lspconfig = require "lspconfig"
+local configs = require "lspconfig/configs"
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+if not lspconfig.emmet_ls then
+  configs.emmet_ls = {
+    default_config = {
+      cmd = { "emmet-ls", "--stdio" },
+      filetypes = {
+        "html",
+        "css",
+        "svelte",
+        "typescriptreact",
+        "javascriptreact",
+        "vue",
+      },
+      root_dir = function(_)
+        return vim.loop.cwd()
+      end,
+      settings = {},
+    },
+  }
+end
+
+lspconfig.emmet_ls.setup { capabilities = capabilities }
