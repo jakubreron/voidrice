@@ -91,6 +91,7 @@ alias \
     yna="yarn add" \
     ynr="yarn remove" \
     ynga="yarn global add" \
+    yngr="yarn global remove" \
     yng="yarn generate" \
     ynru="yarn run" \
     ynd="yarn dev" \

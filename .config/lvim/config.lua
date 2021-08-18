@@ -5,6 +5,9 @@ lvim.format_on_save = true
 lvim.lint_on_save = true
 lvim.colorscheme = "tokyonight"
 
+-- custom
+vim.opt.smartindent = false
+
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 
@@ -41,6 +44,7 @@ lvim.builtin.terminal.active = true
 
 lvim.builtin.nvimtree.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
+
 lvim.builtin.nvimtree.hide_dotfiles = false
 lvim.builtin.nvimtree.ignore = {".git", ".idea", ".vscode"}
 
