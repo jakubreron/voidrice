@@ -80,7 +80,7 @@ end
 -- }
 
 -- Formatters
-lvim.lang.javascript.formatters = { { exe = "eslint_d", "prettier" } }
+lvim.lang.javascript.formatters = { { exe = "eslint_d" }, { exe = "prettier" } }
 lvim.lang.javascriptreact.formatters = lvim.lang.javascript.formatters
 
 lvim.lang.typescript.formatters = lvim.lang.javascript.formatters
