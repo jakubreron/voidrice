@@ -79,6 +79,24 @@ end
 --   }
 -- }
 
+-- Formatters
+lvim.lang.javascript.formatters = { { exe = "eslint_d", "prettier" } }
+lvim.lang.javascriptreact.formatters = lvim.lang.javascript.formatters
+
+lvim.lang.typescript.formatters = lvim.lang.javascript.formatters
+lvim.lang.typescriptreact.formatters = lvim.lang.typescript.formatters
+
+lvim.lang.vue.formatters = lvim.lang.javascript.formatters
+
+-- Linters
+lvim.lang.javascript.linters = { { exe = "eslint_d" } }
+lvim.lang.javascriptreact.formatters = lvim.lang.javascript.linters
+
+lvim.lang.typescript.linters = lvim.lang.javascript.linters
+lvim.lang.typescriptreact.formatters = lvim.lang.javascript.linters
+
+lvim.lang.vue.formatters = lvim.lang.javascript.linters
+
 -- Additional Plugins
 lvim.plugins = {
     {"folke/tokyonight.nvim"}, {
