@@ -78,7 +78,7 @@ alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/p
 alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
 
 # For when keys break
-alias archlinx-fix-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
+alias fix-pkg-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
 
 # get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4 | head -5'
@@ -93,25 +93,44 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 
 # yarn
 alias \
-    yn="yarn" \
-    yna="yarn add" \
-m   ynr="yarn remove" \
-    yng="yarn global" \
-    yngl="yarn global list" \
-    ynga="yarn global add" \
-    yngr="yarn global remove" \
-    yngn="yarn generate" \
-    ynd="yarn dev" \
-    yndw="yarn dev --watch" \
-    ynb="yarn build" \
-    yns="yarn serve" \
-    ynl="yarn lint" \
-    ynlf="yarn lint:fix" \
-    ynsw="yarn serve --watch" \
-    ynt="yarn test" \
-    ynp="yarn prod" \
-    ynf="yarn info --verbose --no-emoji" \
-    ynu="yarn-upgrade-all"
+    y="yarn" \
+    yi="yarn init -y" \
+    yrun="yarn run" 
+# add & remove
+alias \
+    ya="yarn add" \
+    yad="yarn add -D" \
+    yr="yarn remove" 
+# global
+alias \
+    yg="yarn global" \
+    yglist="yarn global list --depth=0" \
+    yga="yarn global add" \
+    ygr="yarn global remove" 
+# dev
+alias \
+    yd="yarn dev" \
+    ydw="yarn dev --watch" \
+    ys="yarn serve" \
+    ysw="yarn serve --watch" \
+    yp="yarn prod" \
+    yb="yarn build" \
+# lints
+alias \
+    yl="yarn lint" \
+    ylf="yarn lint:fix" \
+    yt="yarn test" \
+    ytd="yarn test:dev" \
+# storybook
+alias \
+    yst="yarn storybook" \
+    ystb="yarn storybook:build" 
+# misc
+alias \
+    ycc="yarn cache clean" \
+    ylist="yarn list --depth=0" \
+    yf="yarn info --verbose --no-emoji" \
+    yu="yarn-upgrade-all"
 
 # php
 alias \
