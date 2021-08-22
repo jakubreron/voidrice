@@ -24,7 +24,8 @@ redshift &                                                   # Night light
 # ${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/temporary.sh &
 
 # Scripts
-nohup ${XDG_CONFIG_HOME:-$HOME/.config}/scripts/entr.sh &
+# nohup ${XDG_CONFIG_HOME:-$HOME/.config}/scripts/entr.sh &
 
 # Performance fix
 export vblank_mode=0
+export PATH="$(yarn global bin):$PATH"
