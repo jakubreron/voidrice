@@ -42,6 +42,9 @@ lvim.keys.insert_mode["<C-k>"] = "<esc>:m .-2<CR>== i"
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
 
+-- lvim.builtin.project.detection_methods = { "pattern" }
+-- lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile" }
+
 lvim.builtin.nvimtree.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
 
@@ -88,14 +91,15 @@ lvim.lang.typescriptreact.formatters = lvim.lang.typescript.formatters
 
 lvim.lang.vue.formatters = lvim.lang.javascript.formatters
 
+
 -- Linters
 lvim.lang.javascript.linters = { { exe = "eslint_d" } }
-lvim.lang.javascriptreact.formatters = lvim.lang.javascript.linters
+lvim.lang.javascriptreact.linters = lvim.lang.javascript.linters
 
 lvim.lang.typescript.linters = lvim.lang.javascript.linters
-lvim.lang.typescriptreact.formatters = lvim.lang.javascript.linters
+lvim.lang.typescriptreact.linters = lvim.lang.javascript.linters
 
-lvim.lang.vue.formatters = lvim.lang.javascript.linters
+lvim.lang.vue.linters = lvim.lang.javascript.linters
 
 -- Additional Plugins
 lvim.plugins = {
