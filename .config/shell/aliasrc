@@ -127,6 +127,7 @@ alias \
     ystb="yarn storybook:build" 
 # misc
 alias \
+    yo="yarn outdated" \
     ycc="yarn cache clean" \
     ylist="yarn list --depth=0" \
     yf="yarn info --verbose --no-emoji" \
