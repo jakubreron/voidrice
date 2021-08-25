@@ -42,8 +42,8 @@ lvim.keys.insert_mode["<C-k>"] = "<esc>:m .-2<CR>== i"
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
 
--- lvim.builtin.project.detection_methods = { "pattern" }
--- lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile" }
+lvim.builtin.project.detection_methods = { "pattern" }
+lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile" }
 
 lvim.builtin.nvimtree.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
