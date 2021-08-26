@@ -83,7 +83,7 @@ websearch[jisho]="https://jisho.org/search/"
 # dm-translate
 declare -A translate_list
 translate_list[english]="en"
-translate_list[japanese]="ja"
 translate_list[polish]="pl"
+translate_list[japanese]="ja"
 
 _revision=13
