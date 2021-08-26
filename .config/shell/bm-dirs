@@ -18,12 +18,15 @@ mt    $HOME/Mount
 vw    $HOME/vimwiki
 
 d     $HOME/Dropbox
-dl    $HOME/Dropbox/Linux
 db    $HOME/Dropbox/Books
-dj    $HOME/Dropbox/Books/Japanese
-dp    $HOME/Dropbox/Programming
+dbj   $HOME/Dropbox/Books/Japanese
+dbp   $HOME/Dropbox/Books/Programming
+dbf   $HOME/Dropbox/Books/Finished
 di    $HOME/Dropbox/Images
 dw    $HOME/Dropbox/Images/Wallpapers
+dl    $HOME/Dropbox/Linux
+do    $HOME/Dropbox/Others
+dp    $HOME/Dropbox/Programming
 
 shr   ${XDG_DATA_HOME:-$HOME/.local/share}
 shrl  ${XDG_DATA_HOME:-$HOME/.local/share}/lunarvim/lvim
