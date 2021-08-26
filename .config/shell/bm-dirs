@@ -23,17 +23,20 @@ dbj   $HOME/Dropbox/Books/Japanese
 dbp   $HOME/Dropbox/Books/Programming
 dbf   $HOME/Dropbox/Books/Finished
 di    $HOME/Dropbox/Images
-dw    $HOME/Dropbox/Images/Wallpapers
+diw   $HOME/Dropbox/Images/Wallpapers
 dl    $HOME/Dropbox/Linux
-do    $HOME/Dropbox/Others
+dm    $HOME/Dropbox/Misc
 dp    $HOME/Dropbox/Programming
 
 shr   ${XDG_DATA_HOME:-$HOME/.local/share}
 shrl  ${XDG_DATA_HOME:-$HOME/.local/share}/lunarvim/lvim
 
-sc    $HOME/.local/bin
-scs   $HOME/.local/bin/statusbar
-src   $HOME/.local/src
+l     $HOME/.local
+
+lb    $HOME/.local/bin
+lbs   $HOME/.local/bin/statusbar
+
+s     $HOME/.local/src
 sdw   $HOME/.local/src/dwm
 sdb   $HOME/.local/src/dwmblocks
 sdm   $HOME/.local/src/dmenu
