@@ -119,8 +119,8 @@ alias \
 alias \
     yl="yarn lint" \
     ylf="yarn lint:fix" \
-    yt="yarn test" \
-    ytd="yarn test:dev" \
+    yts="yarn test" \
+    ytsd="yarn test:dev" \
 # storybook
 alias \
     yst="yarn storybook" \
