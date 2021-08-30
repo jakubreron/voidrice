@@ -3,7 +3,7 @@
 
 lvim.format_on_save = true
 lvim.lint_on_save = true
-lvim.colorscheme = "tokyonight"
+lvim.colorscheme = "onedarker"
 lvim.transparent_window = true
 
 -- custom
@@ -68,21 +68,6 @@ lvim.lsp.on_attach_callback = function(client, bufnr)
   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 end
 
--- set a formatter if you want to override the default lsp one (if it exists)
--- lvim.lang.python.formatters = {
---   {
---     exe = "black",
---     args = {}
---   }
--- }
--- set an additional linter
--- lvim.lang.python.linters = {
---   {
---     exe = "flake8",
---     args = {}
---   }
--- }
-
 -- Formatters
 lvim.lang.javascript.formatters = { { exe = "eslint_d" } }
 lvim.lang.javascriptreact.formatters = lvim.lang.javascript.formatters
@@ -91,7 +76,6 @@ lvim.lang.typescript.formatters = lvim.lang.javascript.formatters
 lvim.lang.typescriptreact.formatters = lvim.lang.typescript.formatters
 
 lvim.lang.vue.formatters = lvim.lang.javascript.formatters
-
 
 -- Linters
 lvim.lang.javascript.linters = { { exe = "eslint_d" } }
@@ -104,11 +88,11 @@ lvim.lang.vue.linters = lvim.lang.javascript.linters
 
 -- Additional Plugins
 lvim.plugins = {
-    {"folke/tokyonight.nvim"}, {
-        "ray-x/lsp_signature.nvim",
-        config = function() require"lsp_signature".on_attach() end,
-        event = "InsertEnter"
-    },
+    -- {"folke/tokyonight.nvim"}, {
+    --     "ray-x/lsp_signature.nvim",
+    --     config = function() require"lsp_signature".on_attach() end,
+    --     event = "InsertEnter"
+    -- },
     -- {"vimwiki/vimwiki"}, {
     --   config = function()
     --     vim.g.vimwiki_list = {
@@ -126,54 +110,9 @@ lvim.plugins = {
         require "surround".setup {}
       end
     },
-    -- {"norcalli/nvim-colorizer.lua"}, {
-    --   config = function()
-    --     -- Use the `default_options` as the second parameter, which uses
-    --     -- `foreground` for every mode. This is the inverse of the previous
-    --     -- setup configuration.
-    --     require 'colorizer'.setup({
-    --       'css';
-    --       'scss';
-    --       'sass';
-    --       'vue';
-    --       'javascript';
-    --       html = { mode = 'background' };
-    --     }, { mode = 'foreground' })
-    --   end
-    -- },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 lvim.autocommands.custom_groups = {
   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 }
-
--- vim.cmd [[ autocmd FileType * :norm '" ]]
-
-local lspconfig = require "lspconfig"
-local configs = require "lspconfig/configs"
-
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-if not lspconfig.emmet_ls then
-  configs.emmet_ls = {
-    default_config = {
-      cmd = { "emmet-ls", "--stdio" },
-      filetypes = {
-        "html",
-        "css",
-        "svelte",
-        "typescriptreact",
-        "javascriptreact",
-        "vue",
-      },
-      root_dir = function(_)
-        return vim.loop.cwd()
-      end,
-      settings = {},
-    },
-  }
-end
-
-lspconfig.emmet_ls.setup { capabilities = capabilities }
