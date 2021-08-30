@@ -1,10 +1,16 @@
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 -- general
 
-lvim.format_on_save = true
 lvim.lint_on_save = true
+lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
 lvim.transparent_window = true
+
+lvim.builtin.autopairs.active = true
+lvim.builtin.comment.active = true
+lvim.builtin.gitsigns.active = true
+
+vim.g.vimwiki_list = { {path = '~/vimwiki/', syntax = 'markdown', ext = '.md'} }
 
 -- custom
 -- vim.opt.smartindent = false
@@ -47,7 +53,7 @@ lvim.builtin.project.detection_methods = { "pattern" }
 lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile" }
 
 lvim.builtin.nvimtree.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
+lvim.builtin.nvimtree.show_icons.git = 1
 
 lvim.builtin.nvimtree.hide_dotfiles = false
 lvim.builtin.nvimtree.ignore = {".git", ".idea", ".vscode"}
@@ -93,18 +99,7 @@ lvim.plugins = {
     --     config = function() require"lsp_signature".on_attach() end,
     --     event = "InsertEnter"
     -- },
-    -- {"vimwiki/vimwiki"}, {
-    --   config = function()
-    --     vim.g.vimwiki_list = {
-    --       {
-    --         path = '~/vimwiki',
-    --         syntax = 'markdown',
-    --         ext = '.md',
-    --         auto_diary_index = 1
-    --       }
-    --     }
-    --   end
-    -- },
+    {"vimwiki/vimwiki"}, {},
     {"tpope/vim-surround"}, {
       config = function()
         require "surround".setup {}
