@@ -5,6 +5,7 @@ lvim.format_on_save = true
 lvim.lint_on_save = true
 lvim.colorscheme = "tokyonight"
 lvim.transparent_window = true
+lvim.treesitter.cursorline = false
 
 -- custom
 -- vim.opt.smartindent = false
