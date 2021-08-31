@@ -13,6 +13,12 @@ lvim.builtin.autopairs.active = true
 lvim.builtin.comment.active = true
 lvim.builtin.gitsigns.active = true
 
+vim.opt.smarttab = true
+vim.opt.relativenumber = true
+vim.opt.incsearch = true
+vim.opt.lazyredraw = true
+vim.opt.magic = true
+
 vim.g.vimwiki_list = { {path = '~/vimwiki/', syntax = 'markdown', ext = '.md'} }
 
 -- custom
@@ -36,15 +42,17 @@ lvim.keys.insert_mode["<C-k>"] = "<esc>:m .-2<CR>== i"
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
 -- Use which-key to add extra bindings with the leader-key prefix
+lvim.builtin.which_key.mappings["o"] = { ":setlocal spell! spelllang=en_us<CR>", "Set English spelling" }
+lvim.builtin.which_key.mappings["/"] = { ":%s//g<Left><Left>", "Find and replace" }
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>lua require'telescope'.extensions.project.project{}<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+Trouble",
---   r = { "<cmd>Trouble lsp_references<cr>", "References" },
---   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnosticss" },
---   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
---   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnosticss" },
+-- lvim.builtin.which_key.mappings = {
+  -- name = "+Trouble",
+  -- r = { "<cmd>Trouble lsp_references<cr>", "References" },
+  -- f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
+  -- d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnosticss" },
+  -- q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
+  -- l = { "<cmd>Trouble loclist<cr>", "LocationList" },
+  -- w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnosticss" },
 -- }
 
 -- TODO: User Config for predefined plugins
