@@ -75,6 +75,7 @@ websearch[stackoverflow]="https://stackoverflow.com/search?q="
 websearch[caniuse]="https://caniuse.com/?search="
 websearch[npmjs]="https://www.npmjs.com/search?q=vue"
 websearch[bundlephobia]="https://bundlephobia.com/package/"
+websearch[fontawesome]="https://fontawesome.com/v5.15/icons?d=gallery&p=2&q="
 # Japanese
 websearch[kanji]="https://jisho.org/search/%23kanji"
 websearch[jisho]="https://jisho.org/search/"
