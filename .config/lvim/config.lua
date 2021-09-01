@@ -1,31 +1,30 @@
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 -- general
 
+lvim.colorscheme = "onedarker"
 lvim.lint_on_save = true
 lvim.format_on_save = true
-lvim.colorscheme = "onedarker"
 lvim.transparent_window = true
+lvim.debug = false
 
 lvim.lang.emmet.active = true
 lvim.lang.tailwindcss.active = true
 
-lvim.builtin.autopairs.active = true
-lvim.builtin.comment.active = true
-lvim.builtin.gitsigns.active = true
+vim.g.vimwiki_list = { {path = '~/vimwiki/', syntax = 'markdown', ext = '.md'} }
 
+-- custom
+vim.opt.wrap = false
 vim.opt.smarttab = true
 vim.opt.relativenumber = true
 vim.opt.incsearch = true
 vim.opt.lazyredraw = true
 vim.opt.magic = true
 
-vim.g.vimwiki_list = { {path = '~/vimwiki/', syntax = 'markdown', ext = '.md'} }
-
--- custom
--- vim.opt.smartindent = false
-
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
+
+-- LSP
+lvim.lsp.diagnostics.virtual_text = false
 
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
@@ -42,8 +41,18 @@ lvim.keys.insert_mode["<C-k>"] = "<esc>:m .-2<CR>== i"
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
 -- Use which-key to add extra bindings with the leader-key prefix
+lvim.builtin.which_key.mappings.l.d = { "<cmd>TroubleToggle<cr>", "Diagnostics" }
+lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
+lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
+
+lvim.builtin.which_key.mappings["z"] = { "<cmd>ZenMode<cr>", "Zen" }
 lvim.builtin.which_key.mappings["o"] = { ":setlocal spell! spelllang=en_us<CR>", "Set English spelling" }
-lvim.builtin.which_key.mappings["/"] = { ":%s//g<Left><Left>", "Find and replace" }
+lvim.builtin.which_key.mappings["r"] = {
+  name = "Replace",
+  r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
+  w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
+  f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
+}
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>lua require'telescope'.extensions.project.project{}<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings = {
   -- name = "+Trouble",
@@ -59,6 +68,9 @@ lvim.builtin.which_key.mappings["/"] = { ":%s//g<Left><Left>", "Find and replace
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
+lvim.builtin.autopairs.active = true
+lvim.builtin.comment.active = true
+lvim.builtin.gitsigns.active = true
 
 lvim.builtin.project.detection_methods = { "pattern" }
 lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile" }
@@ -70,7 +82,8 @@ lvim.builtin.nvimtree.hide_dotfiles = false
 lvim.builtin.nvimtree.ignore = {".git", ".idea", ".vscode"}
 
 -- if you don't want all the parsers change this to a table of the ones you want
-lvim.builtin.treesitter.ensure_installed = {}
+lvim.builtin.treesitter.ensure_installed = "maintained"
+lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 
@@ -105,17 +118,102 @@ lvim.lang.vue.linters = lvim.lang.javascript.linters
 
 -- Additional Plugins
 lvim.plugins = {
-    -- {"folke/tokyonight.nvim"}, {
-    --     "ray-x/lsp_signature.nvim",
-    --     config = function() require"lsp_signature".on_attach() end,
-    --     event = "InsertEnter"
-    -- },
-    {"vimwiki/vimwiki"}, {},
-    {"tpope/vim-surround"}, {
-      config = function()
-        require "surround".setup {}
-      end
-    },
+        {"vimwiki/vimwiki"},
+        {"tpope/vim-surround"}, {
+                config = function()
+                        require "surround".setup {}
+                end
+        },
+        {
+                "unblevable/quick-scope",
+                config = function()
+                        require "user.quickscope"
+                end,
+        },
+        {
+                "ruifm/gitlinker.nvim",
+                event = "BufRead",
+                config = function()
+                        require("user.gitlinker").config()
+                end,
+        },
+        {
+                "andymass/vim-matchup",
+                event = "CursorMoved",
+                config = function()
+                        require "user.matchup"
+                end,
+        },
+        {
+                "nacro90/numb.nvim",
+                event = "BufRead",
+                config = function()
+                        require("user.numb").config()
+                end,
+        },
+        {
+                "monaqa/dial.nvim",
+                event = "BufRead",
+                config = function()
+                        require("user.dial").config()
+                end,
+        },
+        {
+                "norcalli/nvim-colorizer.lua",
+                config = function()
+                        require("user.colorizer").config()
+                end,
+        },
+        {
+                "windwp/nvim-spectre",
+                event = "BufRead",
+                config = function()
+                        require("user.spectre").config()
+                end,
+        },
+        {
+                "folke/zen-mode.nvim",
+                config = function()
+                        require("user.zen").config()
+                end,
+        },
+        {
+                "karb94/neoscroll.nvim",
+                config = function()
+                        require("user.neoscroll").config()
+                end,
+        },
+        {
+                "vuki656/package-info.nvim",
+                config = function()
+                        require "user.package-info"
+                end,
+                ft = "json",
+        },
+        {
+                "simrat39/symbols-outline.nvim",
+                -- cmd = "SymbolsOutline",
+                config = function()
+                        require("user.outline").config()
+                end,
+        },
+        {
+                "folke/trouble.nvim",
+                cmd = "TroubleToggle",
+        },
+        {
+                "kevinhwang91/nvim-bqf",
+                event = "BufRead",
+        },
+        {
+                "iamcco/markdown-preview.nvim",
+                run = "cd app && yarn install",
+                ft = "markdown",
+        },
+        {
+                "windwp/nvim-ts-autotag",
+                event = "InsertEnter",
+        },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
