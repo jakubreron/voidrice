@@ -44,9 +44,9 @@ lvim.keys.insert_mode["<C-k>"] = "<esc>:m .-2<CR>== i"
 lvim.builtin.which_key.mappings.l.d = { "<cmd>TroubleToggle<cr>", "Diagnostics" }
 lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
 lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
+lvim.builtin.which_key.mappings.l.e = { ":setlocal spell! spelllang=en_us<CR>", "Set English spelling" }
 
 lvim.builtin.which_key.mappings["z"] = { "<cmd>ZenMode<cr>", "Zen" }
-lvim.builtin.which_key.mappings["o"] = { ":setlocal spell! spelllang=en_us<CR>", "Set English spelling" }
 lvim.builtin.which_key.mappings["r"] = {
   name = "Replace",
   r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
@@ -128,6 +128,13 @@ lvim.plugins = {
                 "unblevable/quick-scope",
                 config = function()
                         require "user.quickscope"
+                end,
+        },
+        {
+                "lukas-reineke/indent-blankline.nvim",
+                -- event = "BufReadPre",
+                config = function()
+                        require "user.blankline"
                 end,
         },
         {
