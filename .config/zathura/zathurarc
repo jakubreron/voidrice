@@ -3,7 +3,6 @@ set statusbar-h-padding 0
 set statusbar-v-padding 0
 set page-padding 1
 set selection-clipboard clipboard
-set adjust-open width
 map u scroll half-up
 map d scroll half-down
 map D toggle_page_mode
@@ -14,23 +13,23 @@ map J zoom out
 map i recolor
 map p print
 
-set default-bg                     "#090B16"
-set default-fg                     "#c8e2ed"
-set statusbar-bg                   "#090B16"
-set statusbar-fg                   "#c8e2ed"
-set inputbar-bg                    "#090B16"
-set inputbar-fg                    "#c8e2ed"
-set notification-bg                "#090B16"
-set notification-fg                "#c8e2ed"
-set notification-error-bg          "#090B16"
-set notification-error-fg          "#c8e2ed"
-set notification-warning-bg        "#090B16"
-set notification-warning-fg        "#c8e2ed"
-set highlight-color                "#B362AB"
-set highlight-active-color         "#55A5CD"
-set completion-bg                  "#B362AB"
-set completion-fg                  "#55A5CD"
-set completion-highlight-bg        "#B362AB"
-set completion-highlight-fg        "#55A5CD"
-set recolor-lightcolor             "#090B16"
-set recolor-darkcolor              "#c8e2ed"
+set default-bg                     "#121013"
+set default-fg                     "#a8c2e9"
+set statusbar-bg                   "#121013"
+set statusbar-fg                   "#a8c2e9"
+set inputbar-bg                    "#121013"
+set inputbar-fg                    "#a8c2e9"
+set notification-bg                "#121013"
+set notification-fg                "#a8c2e9"
+set notification-error-bg          "#121013"
+set notification-error-fg          "#a8c2e9"
+set notification-warning-bg        "#121013"
+set notification-warning-fg        "#a8c2e9"
+set highlight-color                "#546AA5"
+set highlight-active-color         "#3D6BD2"
+set completion-bg                  "#546AA5"
+set completion-fg                  "#3D6BD2"
+set completion-highlight-bg        "#546AA5"
+set completion-highlight-fg        "#3D6BD2"
+set recolor-lightcolor             "#121013"
+set recolor-darkcolor              "#a8c2e9"
