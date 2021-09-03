@@ -23,7 +23,7 @@ vim.opt.magic = true
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 
--- LSP
+-- Disable virtual text
 lvim.lsp.diagnostics.virtual_text = false
 
 -- add your own keymapping
@@ -54,19 +54,8 @@ lvim.builtin.which_key.mappings["r"] = {
   f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
   s = { ":%s//g<Left><Left>", "Find and replace" }
 }
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>lua require'telescope'.extensions.project.project{}<CR>", "Projects" }
--- lvim.builtin.which_key.mappings = {
-  -- name = "+Trouble",
-  -- r = { "<cmd>Trouble lsp_references<cr>", "References" },
-  -- f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
-  -- d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnosticss" },
-  -- q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
-  -- l = { "<cmd>Trouble loclist<cr>", "LocationList" },
-  -- w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnosticss" },
--- }
 
--- TODO: User Config for predefined plugins
--- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
+-- Configure builtin plugins
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.autopairs.active = true
@@ -86,7 +75,6 @@ lvim.builtin.nvimtree.ignore = {".git", ".idea", ".vscode"}
 lvim.builtin.treesitter.ensure_installed = "maintained"
 lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.treesitter.ignore_install = { "haskell" }
-lvim.builtin.treesitter.highlight.enabled = true
 
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers
