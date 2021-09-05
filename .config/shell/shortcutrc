@@ -42,6 +42,7 @@ cap="cd /home/jakub/.config/personal/arch/pkglist" \
 cg="cd /home/jakub/.config/personal/gnome" \
 cu="cd /home/jakub/.config/personal/universal" \
 cv="cd /home/jakub/.config/personal/voidrice" \
+cl="cd /home/jakub/.config/lvim" \
 S="cd /home/jakub/Documents/Software" \
 pa="cd /home/jakub/Documents/Projects" \
 pc="cd /home/jakub/Documents/Projects/chatio" \

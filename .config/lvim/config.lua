@@ -2,8 +2,8 @@
 -- general
 
 lvim.colorscheme = "onedarker"
-lvim.lint_on_save = true
 lvim.format_on_save = true
+-- lvim.lint_on_save = true
 lvim.transparent_window = true
 lvim.debug = false
 
