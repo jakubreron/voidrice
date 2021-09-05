@@ -19,9 +19,11 @@ vw    $HOME/vimwiki
 
 d     $HOME/Dropbox
 db    $HOME/Dropbox/Books
-dbj   $HOME/Dropbox/Books/Japanese
-dbp   $HOME/Dropbox/Books/Programming
 dbf   $HOME/Dropbox/Books/Finished
+dbj   $HOME/Dropbox/Books/Japanese
+dbm   $HOME/Dropbox/Books/monkaS
+dbp   $HOME/Dropbox/Books/Programming
+dbs   $HOME/Dropbox/Books/Self-improvement
 di    $HOME/Dropbox/Images
 diw   $HOME/Dropbox/Images/Wallpapers
 dl    $HOME/Dropbox/Linux
