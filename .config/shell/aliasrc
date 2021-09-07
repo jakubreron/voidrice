@@ -55,7 +55,7 @@ alias \
   pkggen-main="cap; pkggen main.txt && cd -" \
   pkggen-work="cap; pkggen work.txt && cd -" \
   pkggen-secondary="cap; pkggen secondary.txt && cd -" \
-  pkggen-yarn="cap; yngl | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt && cd -" 
+  pkggen-yarn="cap; ygl | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt && cd -" 
 
 # Git
 alias \
