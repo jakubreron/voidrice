@@ -42,6 +42,7 @@ vlc="cd /home/jakub/.valet/Certificates" \
 c="cd /home/jakub/.config" \
 ca="cd /home/jakub/.config/personal/arch" \
 cap="cd /home/jakub/.config/personal/arch/pkglist" \
+cb="cd /home/jakub/.config/personal/bento" \
 cg="cd /home/jakub/.config/personal/gnome" \
 cu="cd /home/jakub/.config/personal/universal" \
 cv="cd /home/jakub/.config/personal/voidrice" \
