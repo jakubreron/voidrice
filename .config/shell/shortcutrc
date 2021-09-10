@@ -24,6 +24,7 @@ diw="cd /home/jakub/Dropbox/Images/Wallpapers" \
 dl="cd /home/jakub/Dropbox/Linux" \
 dm="cd /home/jakub/Dropbox/Misc" \
 dp="cd /home/jakub/Dropbox/Programming" \
+ds="cd /home/jakub/Dropbox/Studies" \
 shr="cd /home/jakub/.local/share" \
 shrl="cd /home/jakub/.local/share/lunarvim/lvim" \
 l="cd /home/jakub/.local" \

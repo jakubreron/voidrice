@@ -29,6 +29,7 @@ diw   $HOME/Dropbox/Images/Wallpapers
 dl    $HOME/Dropbox/Linux
 dm    $HOME/Dropbox/Misc
 dp    $HOME/Dropbox/Programming
+ds    $HOME/Dropbox/Studies
 
 shr   ${XDG_DATA_HOME:-$HOME/.local/share}
 shrl  ${XDG_DATA_HOME:-$HOME/.local/share}/lunarvim/lvim
