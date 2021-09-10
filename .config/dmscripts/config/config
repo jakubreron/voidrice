@@ -61,14 +61,12 @@ declare -A websearch
 # websearch[name]="https://www.example.com/search?q="
 
 # Information/News
+websearch[maps]="https://www.google.com/maps/search/"
 websearch[wikipedia]="https://en.wikipedia.org/w/index.php?search="
 websearch[wiktionary]="https://en.wiktionary.org/w/index.php?search="
-websearch[maps]="https://www.google.com/maps/search/"
 # Social Media
 websearch[reddit]="https://www.reddit.com/search/?q="
 websearch[youtube]="https://www.youtube.com/results?search_query="
-# Linux
-websearch[archwiki]="https://wiki.archlinux.org/index.php?search="
 # Development
 websearch[github]="https://github.com/search?q="
 websearch[stackoverflow]="https://stackoverflow.com/search?q="
@@ -77,14 +75,12 @@ websearch[npmjs]="https://www.npmjs.com/search?q="
 websearch[bundlephobia]="https://bundlephobia.com/package/"
 websearch[fontawesome]="https://fontawesome.com/v5.15/icons?d=gallery&p=2&q="
 # Japanese
-websearch[kanji]="https://jisho.org/search/%23kanji"
 websearch[jisho]="https://jisho.org/search/"
+websearch[kanji]="https://jisho.org/search/%23kanji "
 # Etc
 
 # dm-translate
 declare -A translate_list
 translate_list[english]="en"
-translate_list[polish]="pl"
 translate_list[japanese]="ja"
-
-_revision=13
+translate_list[polish]="pl"
