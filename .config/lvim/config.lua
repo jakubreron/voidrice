@@ -1,6 +1,7 @@
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 -- general
 
+lvim.log.level = "warn"
 lvim.colorscheme = "onedarker"
 lvim.format_on_save = true
 -- lvim.lint_on_save = true
@@ -76,8 +77,8 @@ lvim.builtin.nvimtree.ignore = {".git", ".idea", ".vscode"}
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = "maintained"
-lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.treesitter.ignore_install = { "haskell" }
+lvim.builtin.treesitter.autotag.enable = true
 
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers
@@ -231,16 +232,16 @@ lvim.autocommands.custom_groups = {
 }
 
 -- Tailwind setup (try to delete it later)
-local lspcommon = require "lsp"
-require("lspconfig").tailwindcss.setup {
-  cmd = {
-    "node",
-    DATA_PATH .. "/lspinstall/tailwindcss/tailwindcss-intellisense/extension/dist/server/tailwindServer.js",
-    "--stdio",
-  },
-  on_attach = lspcommon.common_on_attach,
-  on_init = lspcommon.common_on_init,
-}
-require("lspconfig").sorbet.setup({
-    cmd = { "srb", "tc", "--lsp", "--enable-all-beta-lsp-features" },
-})
+-- local lspcommon = require "lsp"
+-- require("lspconfig").tailwindcss.setup {
+--   cmd = {
+--     "node",
+--     DATA_PATH .. "/lspinstall/tailwindcss/tailwindcss-intellisense/extension/dist/server/tailwindServer.js",
+--     "--stdio",
+--   },
+--   on_attach = lspcommon.common_on_attach,
+--   on_init = lspcommon.common_on_init,
+-- }
+-- require("lspconfig").sorbet.setup({
+--     cmd = { "srb", "tc", "--lsp", "--enable-all-beta-lsp-features" },
+-- })
