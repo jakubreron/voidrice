@@ -43,19 +43,19 @@ alias \
 	v="$EDITOR" \
 	p="paru" \
   pkgs="pkgstats search" \
-  ud="updatedb" 
+  ud="updatedb"
 
 # Some software
 alias \
   lzg="lazygit" \
-  lzd="lazydocker" 
+  lzd="lazydocker"
 
 # Generate packages
 alias \
   pkg-main="cap; pkggen main.txt && cd -" \
   pkg-work="cap; pkggen work.txt && cd -" \
   pkg-secondary="cap; pkggen secondary.txt && cd -" \
-  pkg-yarn="cap; yglist | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt && cd -" 
+  pkg-yarn="cap; yglist | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt && cd -"
 
 # Git
 alias \
@@ -95,17 +95,17 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 # yarn
 alias \
     y="yarn" \
-    yi="yarn init -y" 
+    yi="yarn init -y"
 # add & remove
 alias \
     ya="yarn add" \
-    yr="yarn remove" 
+    yr="yarn remove"
 # global
 alias \
     yg="yarn global" \
     yglist="yarn global list --depth=0" \
     yga="yarn global add" \
-    ygr="yarn global remove" 
+    ygr="yarn global remove"
 # dev
 alias \
     yd="yarn dev" \
@@ -123,7 +123,7 @@ alias \
 # storybook
 alias \
     yst="yarn storybook" \
-    ystb="yarn storybook:build" 
+    ystb="yarn storybook:build"
 # misc
 alias \
     yo="yarn outdated" \
@@ -135,7 +135,7 @@ alias \
 # php
 alias \
     paws="sudo php artisan websockets:serve --host=0.0.0.0 --port=444" \
-    pawd="php artisan workspace:dump" 
+    pawd="php artisan workspace:dump"
 
 # composer
 alias \
@@ -144,7 +144,7 @@ alias \
     csr="composer refresh" \
     csb="composer rebuild" \
     csd="composer deploy" \
-    csa="csi; csr; csb; csd;" 
+    csa="csi; csr; csb; csd;"
 
 # valet
 alias \
@@ -176,7 +176,9 @@ alias \
     rm ~/.config/{mimeapps.list,user-dirs.dirs} &&
     rm -rf ~/.local/share/{applications,larbs} &&
     rm -rf ~/.local/bin/{cron,statusbar} &&
+    mv ~/.local/bin/lvim ~/.local &&
     rm ~/.local/bin/* | echo 'y' &&
+    mv ~/.local/lvim ~/.local/bin &&
     cd ~/.config/personal && stow --adopt --target=/home/jakub arch voidrice universal &&
     rm -rf ~/.local/bin/{cron,statusbar} &&
     mkdir ~/.local/bin/{statusbar,cron} &&
