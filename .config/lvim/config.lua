@@ -1,113 +1,247 @@
---[[
-lvim is the global options object
-
-Linters should be
-filled in as strings with either
-a global executable or a path to
-an executable
-]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
-
 -- general
+
 lvim.log.level = "warn"
-lvim.format_on_save = true
 lvim.colorscheme = "onedarker"
+lvim.format_on_save = true
+-- lvim.lint_on_save = true
+lvim.transparent_window = true
+lvim.debug = false
+
+lvim.lang.emmet.active = true
+lvim.lang.tailwindcss.active = true
+
+vim.g.vimwiki_list = { {path = '~/vimwiki/', syntax = 'markdown', ext = '.md'} }
+
+-- custom
+vim.opt.wrap = false
+vim.opt.smarttab = true
+vim.opt.relativenumber = true
+vim.opt.incsearch = true
+vim.opt.lazyredraw = true
+vim.opt.magic = true
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
+
+-- Disable virtual text
+lvim.lsp.diagnostics.virtual_text = false
+
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+
+lvim.keys.normal_mode["Y"] = "y$"
+lvim.keys.normal_mode["c"] = "\"_c"
+
+lvim.keys.insert_mode["<C-j>"] = "<esc>:m .+1<CR>== i"
+lvim.keys.insert_mode["<C-k>"] = "<esc>:m .-2<CR>== i"
+
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = ""
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
--- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
--- lvim.builtin.telescope.on_config_done = function()
---   local actions = require "telescope.actions"
---   -- for input mode
---   lvim.builtin.telescope.defaults.mappings.i["<C-j>"] = actions.move_selection_next
---   lvim.builtin.telescope.defaults.mappings.i["<C-k>"] = actions.move_selection_previous
---   lvim.builtin.telescope.defaults.mappings.i["<C-n>"] = actions.cycle_history_next
---   lvim.builtin.telescope.defaults.mappings.i["<C-p>"] = actions.cycle_history_prev
---   -- for normal mode
---   lvim.builtin.telescope.defaults.mappings.n["<C-j>"] = actions.move_selection_next
---   lvim.builtin.telescope.defaults.mappings.n["<C-k>"] = actions.move_selection_previous
--- end
-
 -- Use which-key to add extra bindings with the leader-key prefix
--- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
--- lvim.builtin.which_key.mappings["t"] = {
---   name = "+Trouble",
---   r = { "<cmd>Trouble lsp_references<cr>", "References" },
---   f = { "<cmd>Trouble lsp_definitions<cr>", "Definitions" },
---   d = { "<cmd>Trouble lsp_document_diagnostics<cr>", "Diagnostics" },
---   q = { "<cmd>Trouble quickfix<cr>", "QuickFix" },
---   l = { "<cmd>Trouble loclist<cr>", "LocationList" },
---   w = { "<cmd>Trouble lsp_workspace_diagnostics<cr>", "Diagnostics" },
--- }
+lvim.builtin.which_key.mappings.l.d = { "<cmd>TroubleToggle<cr>", "Diagnostics" }
+lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
+lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
+lvim.builtin.which_key.mappings.l.e = { ":setlocal spell! spelllang=en_us<CR>", "Set English spelling" }
 
--- TODO: User Config for predefined plugins
--- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
+lvim.builtin.which_key.mappings.o = { "o<Esc>", "Insert below" }
+lvim.builtin.which_key.mappings.O = { "O<Esc>", "Insert above" }
+
+lvim.builtin.which_key.mappings["z"] = { "<cmd>ZenMode<cr>", "Zen" }
+lvim.builtin.which_key.mappings["r"] = {
+  name = "Replace",
+  r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
+  w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
+  f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
+  s = { ":%s//g<Left><Left>", "Find and replace" }
+}
+
+-- Configure builtin plugins
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
+lvim.builtin.autopairs.active = true
+lvim.builtin.comment.active = true
+lvim.builtin.gitsigns.active = true
+
+lvim.builtin.project.detection_methods = { "pattern" }
+lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile" }
+
 lvim.builtin.nvimtree.side = "left"
-lvim.builtin.nvimtree.show_icons.git = 0
+lvim.builtin.nvimtree.show_icons.git = 1
+
+lvim.builtin.nvimtree.hide_dotfiles = false
+lvim.builtin.nvimtree.ignore = {".git", ".idea", ".vscode"}
 
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = "maintained"
 lvim.builtin.treesitter.ignore_install = { "haskell" }
-lvim.builtin.treesitter.highlight.enabled = true
+lvim.builtin.treesitter.autotag.enable = true
 
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers
 -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
--- lvim.lsp.on_attach_callback = function(client, bufnr)
---   local function buf_set_option(...)
---     vim.api.nvim_buf_set_option(bufnr, ...)
---   end
---   --Enable completion triggered by <c-x><c-o>
---   buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
--- end
--- you can overwrite the null_ls setup table (useful for setting the root_dir function)
--- lvim.lsp.null_ls.setup = {
---   root_dir = require("lspconfig").util.root_pattern("Makefile", ".git", "node_modules"),
--- }
--- or if you need something more advanced
--- lvim.lsp.null_ls.setup.root_dir = function(fname)
---   if vim.bo.filetype == "javascript" then
---     return require("lspconfig/util").root_pattern("Makefile", ".git", "node_modules")(fname)
---       or require("lspconfig/util").path.dirname(fname)
---   elseif vim.bo.filetype == "php" then
---     return require("lspconfig/util").root_pattern("Makefile", ".git", "composer.json")(fname) or vim.fn.getcwd()
---   else
---     return require("lspconfig/util").root_pattern("Makefile", ".git")(fname) or require("lspconfig/util").path.dirname(fname)
---   end
--- end
+lvim.lsp.on_attach_callback = function(client, bufnr)
+  local function buf_set_option(...)
+    vim.api.nvim_buf_set_option(bufnr, ...)
+  end
+  --Enable completion triggered by <c-x><c-o>
+  buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+end
 
--- set a formatter if you want to override the default lsp one (if it exists)
--- lvim.lang.python.formatters = {
---   {
---     exe = "black",
---   }
--- }
--- set an additional linter
--- lvim.lang.python.linters = {
---   {
---     exe = "flake8",
---   }
--- }
+-- Formatters
+lvim.lang.javascript.formatters = { { exe = "eslint_d" } }
+lvim.lang.javascriptreact.formatters = lvim.lang.javascript.formatters
+
+lvim.lang.typescript.formatters = lvim.lang.javascript.formatters
+lvim.lang.typescriptreact.formatters = lvim.lang.typescript.formatters
+
+lvim.lang.vue.formatters = lvim.lang.javascript.formatters
+
+-- Linters
+lvim.lang.javascript.linters = { { exe = "eslint_d" } }
+lvim.lang.javascriptreact.linters = lvim.lang.javascript.linters
+
+lvim.lang.typescript.linters = lvim.lang.javascript.linters
+lvim.lang.typescriptreact.linters = lvim.lang.javascript.linters
+
+lvim.lang.vue.linters = lvim.lang.javascript.linters
 
 -- Additional Plugins
--- lvim.plugins = {
---     {"folke/tokyonight.nvim"},
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
--- }
+lvim.plugins = {
+        {"vimwiki/vimwiki"},
+        {"tpope/vim-surround"}, {
+                config = function()
+                        require "surround".setup {}
+                end
+        },
+        {
+                "unblevable/quick-scope",
+                config = function()
+                        require "user.quickscope"
+                end,
+        },
+        {
+                "lukas-reineke/indent-blankline.nvim",
+                -- event = "BufReadPre",
+                config = function()
+                        require "user.blankline"
+                end,
+        },
+        {
+                "ruifm/gitlinker.nvim",
+                event = "BufRead",
+                config = function()
+                        require("user.gitlinker").config()
+                end,
+        },
+        {
+                "andymass/vim-matchup",
+                event = "CursorMoved",
+                config = function()
+                        require "user.matchup"
+                end,
+        },
+        {
+                "nacro90/numb.nvim",
+                event = "BufRead",
+                config = function()
+                        require("user.numb").config()
+                end,
+        },
+        {
+                "monaqa/dial.nvim",
+                event = "BufRead",
+                config = function()
+                        require("user.dial").config()
+                end,
+        },
+        {
+                "norcalli/nvim-colorizer.lua",
+                config = function()
+                        require("user.colorizer").config()
+                end,
+        },
+        {
+                "windwp/nvim-spectre",
+                event = "BufRead",
+                config = function()
+                        require("user.spectre").config()
+                end,
+        },
+        {
+                "folke/zen-mode.nvim",
+                config = function()
+                        require("user.zen").config()
+                end,
+        },
+        {
+                "vuki656/package-info.nvim",
+                config = function()
+                        require "user.package-info"
+                end,
+                ft = "json",
+        },
+        {
+                "simrat39/symbols-outline.nvim",
+                -- cmd = "SymbolsOutline",
+                config = function()
+                        require("user.outline").config()
+                end,
+        },
+        {
+                "folke/trouble.nvim",
+                cmd = "TroubleToggle",
+        },
+        {
+                "kevinhwang91/nvim-bqf",
+                event = "BufRead",
+        },
+        {
+                "iamcco/markdown-preview.nvim",
+                run = "cd app && yarn install",
+                ft = "markdown",
+        },
+        {
+                "windwp/nvim-ts-autotag",
+                event = "InsertEnter",
+        },
+}
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
--- lvim.autocommands.custom_groups = {
---   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
+lvim.autocommands.custom_groups = {
+  { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
+  { "BufWritePost", "bm-files,bm-dirs", "!shortcuts" },
+  { "BufRead,BufNewFile", "Xresources,Xdefaults,xresources,xdefaults", "set filetype=xdefaults" },
+  { "BufWritePost", "Xresources,Xdefaults,xresources,xdefaults", "!xrdb %" },
+  { "BufWritePost", "~/.local/src/st/config.h", "!cd ~/.local/src/st/; sudo make install" },
+  { "BufWritePost", "~/.local/src/dmenu/config.h", "!cd ~/.local/src/dmenu/; sudo make install" },
+  { "BufWritePost", "~/.local/src/dwm/config.h", "!cd ~/.local/src/dwm/; sudo make install && kill -HUP $(pgrep -u $USER 'dwm$')" },
+  { "BufWritePost", "~/.local/src/dwmblocks/config.h", "!cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }" },
+  { "BufWritePost", "~/.local/bin/statusbar/* ", "!{ killall -q dwmblocks;setsid -f dwmblocks }" },
+  { "BufWritePost", "~/.config/personal/universal/vimwiki/*", "!cd ~/vimwiki; git add *; git commit -m 'docs(vimwiki)'; git push;" },
+  { "BufWritePost", "~/.config/personal/arch/README.md", "!cd ~/.config/personal/arch; git add *; git commit -m 'docs(readme)'; git push;" },
+  { "BufWritePost", "~/.config/personal/universal/README.md", "!cd ~/.config/personal/universal; git add .; git commit -m 'docs(readme)'; git push;" },
+  { "BufWritePost", "~.config/personal/universal//.gitconfig", "!cd ~/.config/personal/universal; git add .; git commit -m 'feat(gitconfig)'; git push;" },
+  { "BufWritePost", "~/.config/personal/universal/.ticker.yaml", "!cd ~/.config/personal/universal; git add .; git commit -m 'docs(ticker)'; git push;" },
+  { "BufWritePost", "~/.config/personal/universal/.config/bookmarks", "!cd ~/.config/personal/universal; git add .; git commit -m 'docs(bookmarks)'; git push;" },
+  { "BufWritePost", "~/.config/personal/voidrice/.config/shell/aliasrc", "!cd ~/.config/personal/voidrice; git add .; git commit -m 'feat(aliases)'; git push;" },
+  { "BufWritePost", "~/.config/personal/voidrice/.config/newsboat/urls", "!cd ~/.config/personal/voidrice; git add .; git commit -m 'docs(newsboat)'; git push;" },
+}
+
+-- Tailwind setup (try to delete it later)
+-- local lspcommon = require "lsp"
+-- require("lspconfig").tailwindcss.setup {
+--   cmd = {
+--     "node",
+--     DATA_PATH .. "/lspinstall/tailwindcss/tailwindcss-intellisense/extension/dist/server/tailwindServer.js",
+--     "--stdio",
+--   },
+--   on_attach = lspcommon.common_on_attach,
+--   on_init = lspcommon.common_on_init,
 -- }
+-- require("lspconfig").sorbet.setup({
+--     cmd = { "srb", "tc", "--lsp", "--enable-all-beta-lsp-features" },
+-- })
