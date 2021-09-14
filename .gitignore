@@ -16,7 +16,7 @@
 
 .config/x11/xprofile
 
-.config/lvim/plugin/packer_compiled.lua
+.config/lvim/plugin
 
 .local/bin/ticker
 .local/bin/redshift
