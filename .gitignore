@@ -7,8 +7,8 @@
 .config/zsh/.zcompdump*
 .config/zsh/.oh-my-zsh
 
-.config/dunst/dunstrc
-.config/zathura/zathurarc
+.config/dunst
+.config/zathura
 
 .config/scripts/nohup.out
 

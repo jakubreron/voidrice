@@ -57,7 +57,6 @@ cb    $HOME/.config/personal/bento
 cg    $HOME/.config/personal/gnome
 cu    $HOME/.config/personal/universal
 cv    $HOME/.config/personal/voidrice
-cl    $HOME/.config/lvim
 
 S     $HOME/Documents/Software
 
