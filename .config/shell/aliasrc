@@ -176,9 +176,7 @@ alias \
     rm ~/.config/{mimeapps.list,user-dirs.dirs} &&
     rm -rf ~/.local/share/{applications,larbs} &&
     rm -rf ~/.local/bin/{cron,statusbar} &&
-    mv ~/.local/bin/lvim ~/.local &&
     rm ~/.local/bin/* | echo 'y' &&
-    mv ~/.local/lvim ~/.local/bin &&
     cd ~/.config/personal && stow --adopt --target=/home/jakub arch voidrice universal &&
     rm -rf ~/.local/bin/{cron,statusbar} &&
     mkdir ~/.local/bin/{statusbar,cron} &&

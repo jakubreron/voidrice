@@ -1,5 +1,8 @@
-# Luke's lf settings
+set ratios 1:2:3
+set previewer ~/.config/lf/preview
+set cleaner ~/.config/lf/cleaner
 
+# Luke's lf settings
 # Basic vars
 set shell bash
 set shellopts '-eu'
@@ -14,7 +17,7 @@ set ignorecase true
 set info size
 
 # Vars that depend on environmental variables
-$lf -remote "send $id set previewer ${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope"
+# $lf -remote "send $id set previewer ${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope"
 
 # cmds/functions
 cmd open ${{
