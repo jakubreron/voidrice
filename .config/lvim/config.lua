@@ -13,6 +13,11 @@ lvim.lang.tailwindcss.active = true
 
 vim.g.vimwiki_list = { {path = '~/vimwiki/', syntax = 'markdown', ext = '.md'} }
 
+-- lf
+vim.g.lf_map_keys = 0
+-- vim.g.lf_width = 250
+-- vim.g.lf_height = 50
+
 -- custom
 vim.opt.wrap = false
 vim.opt.smarttab = true
@@ -47,17 +52,16 @@ lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>",
 lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
 lvim.builtin.which_key.mappings.l.e = { ":setlocal spell! spelllang=en_us<CR>", "Set English spelling" }
 
-lvim.builtin.which_key.mappings.o = { "o<Esc>", "Insert below" }
-lvim.builtin.which_key.mappings.O = { "O<Esc>", "Insert above" }
-
-lvim.builtin.which_key.mappings["z"] = { "<cmd>ZenMode<cr>", "Zen" }
-lvim.builtin.which_key.mappings["r"] = {
+lvim.builtin.which_key.mappings.z = { "<cmd>ZenMode<cr>", "Zen" }
+lvim.builtin.which_key.mappings.r = {
   name = "Replace",
   r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
   w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
   f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
   s = { ":%s//g<Left><Left>", "Find and replace" }
 }
+
+lvim.builtin.which_key.mappings.n = { "<cmd>Lf<cr>", "File manager" }
 
 -- Configure builtin plugins
 lvim.builtin.dashboard.active = true
@@ -207,6 +211,12 @@ lvim.plugins = {
         {
                 "windwp/nvim-ts-autotag",
                 event = "InsertEnter",
+        },
+        {
+                "ptzz/lf.vim",
+        },
+        {
+                "voldikss/vim-floaterm",
         },
 }
 
