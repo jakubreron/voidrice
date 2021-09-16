@@ -60,10 +60,10 @@ alias \
 # Git
 alias \
 	g="git" \
-  dv="git checkout develop" \
-  ms="git checkout master" \
-  es="git checkout env/staging" \
-  mn="git checkout main" \
+  dv="git checkout develop && git pull" \
+  ms="git checkout master && git pull" \
+  es="git checkout env/staging && git pull" \
+  mn="git checkout main && git pull" \
   gup="git-update"
 
 alias \
