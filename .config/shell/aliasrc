@@ -183,11 +183,11 @@ alias \
     ln -n ~/.config/personal/voidrice/.local/bin/statusbar/* ~/.local/bin/statusbar/ &&
     ln -n ~/.config/personal/voidrice/.local/bin/cron/* ~/.local/bin/cron/
   " \
-  slvim="cd ~/.local/share/lunarvim/lvim && git pull && lvim +LvimCacheReset +PackerUpdate" \
   ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl" \
   sdots="ca && g pl; cu && g pl; cv && g pl; replace-all" \
+  slvim="cd ~/.local/share/lunarvim/lvim && git pull && lvim +LvimCacheReset +PackerUpdate" \
+  snc="ssrc; sdots; slvim" \
   sproj="pzw && g pl; pza && g pl; pzl && g pl; pp && g pl" \
-  snc="slvim; ssrc; sdots" \
   sall="snc; sproj" 
 
 # misc
