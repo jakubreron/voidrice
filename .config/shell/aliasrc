@@ -185,12 +185,12 @@ alias \
     ln -n ~/.config/personal/voidrice/.local/bin/statusbar/* ~/.local/bin/statusbar/ &&
     ln -n ~/.config/personal/voidrice/.local/bin/cron/* ~/.local/bin/cron/
   " \
-  lvupdate="cd ~/.local/share/lunarvim/lvim && git pull && lvim +LvimCacheReset +PackerUpdate" \
+  slvim="cd ~/.local/share/lunarvim/lvim && git pull && lvim +LvimCacheReset +PackerUpdate" \
   ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl" \
-  sdots="ca && g pl; cu && g pl; cv && g pl; shrl && g pl; replace-all" \
+  sdots="ca && g pl; cu && g pl; cv && g pl; replace-all" \
   sproj="pzw && g pl; pza && g pl; pzl && g pl; pp && g pl" \
-  sall="ssrc; sdots; sproj" \
-  snc="ssrc; sdots"
+  snc="slvim; ssrc; sdots" \
+  sall="snc; sproj" 
 
 # misc
 alias \
