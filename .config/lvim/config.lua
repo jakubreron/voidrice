@@ -14,7 +14,7 @@ lvim.lang.tailwindcss.active = true
 vim.g.vimwiki_list = { {path = '~/vimwiki/', syntax = 'markdown', ext = '.md'} }
 
 -- lf
-vim.g.lf_map_keys = 0
+-- vim.g.lf_map_keys = 0
 -- vim.g.lf_width = 250
 -- vim.g.lf_height = 50
 
@@ -212,12 +212,12 @@ lvim.plugins = {
                 "windwp/nvim-ts-autotag",
                 event = "InsertEnter",
         },
-        {
-                "ptzz/lf.vim",
-        },
-        {
-                "voldikss/vim-floaterm",
-        },
+        -- {
+        --         "ptzz/lf.vim",
+        -- },
+        -- {
+        --         "voldikss/vim-floaterm",
+        -- },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
