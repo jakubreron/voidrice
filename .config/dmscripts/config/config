@@ -68,6 +68,7 @@ websearch[wiktionary]="https://en.wiktionary.org/w/index.php?search="
 websearch[reddit]="https://www.reddit.com/search/?q="
 websearch[youtube]="https://www.youtube.com/results?search_query="
 # Development
+websearch[mdn]="https://developer.mozilla.org/en-US/search?q="
 websearch[github]="https://github.com/search?q="
 websearch[stackoverflow]="https://stackoverflow.com/search?q="
 websearch[caniuse]="https://caniuse.com/?search="
