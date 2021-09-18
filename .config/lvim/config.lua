@@ -9,7 +9,7 @@ lvim.transparent_window = true
 lvim.debug = false
 
 lvim.lang.emmet.active = true
-lvim.lang.tailwindcss.active = true
+lvim.lang.tailwindcss.lsp.active = true
 
 vim.g.vimwiki_list = { {path = '~/vimwiki/', syntax = 'markdown', ext = '.md'} }
 
@@ -240,18 +240,3 @@ lvim.autocommands.custom_groups = {
   { "BufWritePost", "~/.config/personal/voidrice/.config/shell/aliasrc", "!cd ~/.config/personal/voidrice; git add .; git commit -m 'feat(aliases)'; git push;" },
   { "BufWritePost", "~/.config/personal/voidrice/.config/newsboat/urls", "!cd ~/.config/personal/voidrice; git add .; git commit -m 'docs(newsboat)'; git push;" },
 }
-
--- Tailwind setup (try to delete it later)
--- local lspcommon = require "lsp"
--- require("lspconfig").tailwindcss.setup {
---   cmd = {
---     "node",
---     DATA_PATH .. "/lspinstall/tailwindcss/tailwindcss-intellisense/extension/dist/server/tailwindServer.js",
---     "--stdio",
---   },
---   on_attach = lspcommon.common_on_attach,
---   on_init = lspcommon.common_on_init,
--- }
--- require("lspconfig").sorbet.setup({
---     cmd = { "srb", "tc", "--lsp", "--enable-all-beta-lsp-features" },
--- })
