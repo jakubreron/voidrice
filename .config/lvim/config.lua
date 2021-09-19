@@ -52,6 +52,8 @@ lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>",
 lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
 lvim.builtin.which_key.mappings.l.e = { ":setlocal spell! spelllang=en_us<CR>", "Set English spelling" }
 
+lvim.builtin.which_key.mappings.m = { "<cmd>MarkdownPreviewToggle<cr>", "Markdown preview" }
+
 lvim.builtin.which_key.mappings.z = { "<cmd>ZenMode<cr>", "Zen" }
 lvim.builtin.which_key.mappings.r = {
   name = "Replace",

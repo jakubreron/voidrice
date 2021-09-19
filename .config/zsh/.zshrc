@@ -73,6 +73,8 @@ zsh_add_completion "esc/conda-zsh-completion" false
 
 # Key bindings
 bindkey -s '^o' 'lfrun\n'
+bindkey -s '^g' 'lzg\n'
+bindkey -s '^d' 'lzd\n'
 bindkey -s '^a' 'bc -lq\n'
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 bindkey '^[[P' delete-char
