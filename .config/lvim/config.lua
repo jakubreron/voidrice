@@ -101,41 +101,29 @@ end
 -- js
 lvim.lang.javascript.formatters = { { exe = "eslint_d" } }
 lvim.lang.javascriptreact.formatters = lvim.lang.javascript.formatters
-
--- ts
-lvim.lang.typescript.formatters = lvim.lang.javascript.formatters
-lvim.lang.typescriptreact.formatters = lvim.lang.typescript.formatters
-
--- frameworks
 lvim.lang.vue.formatters = lvim.lang.javascript.formatters
 
+-- ts
+lvim.lang.typescript.formatters = { { exe = "eslint_d" } }
+lvim.lang.typescriptreact.formatters = lvim.lang.typescript.formatters
+
 -- html & css
-lvim.lang.html.formatters = { { exe = "prettier_d_slim" } }
-lvim.lang.css.formatters = lvim.lang.html.formatters
-lvim.lang.json.formatters = lvim.lang.html.formatters
+lvim.lang.html.formatters = { { exe = "prettierd" } }
+lvim.lang.css.formatters = { { exe = "prettierd" } }
 
 -- misc
-lvim.lang.lua.formatters = { { exe = "stylua" } }
+lvim.lang.vim.formatters = { { exe = "prettierd" } }
+lvim.lang.json.formatters = { { exe = "prettierd" } }
 
 -- Linters
 -- js
 lvim.lang.javascript.linters = { { exe = "eslint_d" } }
 lvim.lang.javascriptreact.linters = lvim.lang.javascript.linters
-
--- ts
-lvim.lang.typescript.linters = lvim.lang.javascript.linters
-lvim.lang.typescriptreact.linters = lvim.lang.javascript.linters
-
--- frameworks
 lvim.lang.vue.linters = lvim.lang.javascript.linters
 
--- html & css
-lvim.lang.html.linters = { { exe = "prettier_d_slim" } }
-lvim.lang.css.linters = lvim.lang.html.linters
-lvim.lang.json.linters = lvim.lang.html.linters
-
--- misc
-lvim.lang.lua.linters = { { exe = "stylua" } }
+-- ts
+lvim.lang.typescript.linters = { { exe = "eslint_d" } }
+lvim.lang.typescriptreact.linters = lvim.lang.javascript.linters
 
 -- Additional Plugins
 lvim.plugins = {
