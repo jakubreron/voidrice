@@ -91,6 +91,8 @@ cmd sendto ${{
 cmd setbg "$1"
 cmd bulkrename $vidir
 
+cmd dragon %dragon-drag-and-drop -a -x $fx
+
 # Bindings
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map J $lf -remote "send $id cd $(awk '{ gsub(/#.*/, ""); } !/^$/ { print $2 }' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed "s/\${.*-// ; s/}//" | envsubst)"
@@ -109,6 +111,8 @@ map x $$f
 map X !$f
 map o &mimeopen $f
 map O $mimeopen --ask $f
+
+map L dragon
 
 map A rename # at the very end
 map c push A<c-u> # new rename
