@@ -103,7 +103,7 @@ alias \
 # global
 alias \
     yg="yarn global" \
-    yglist="yarn global list --depth=0" \
+    ygli="yarn global list --depth=0" \
     yga="yarn global add" \
     ygr="yarn global remove"
 # dev
@@ -128,7 +128,7 @@ alias \
 alias \
     yo="yarn outdated" \
     ycc="yarn cache clean" \
-    ylist="yarn list --depth=0" \
+    yli="yarn list --depth=0" \
     yf="yarn info --verbose --no-emoji" \
     yua="yarn-upgrade-all"
 

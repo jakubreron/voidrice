@@ -98,22 +98,36 @@ lvim.lsp.on_attach_callback = function(client, bufnr)
 end
 
 -- Formatters
+-- js
 lvim.lang.javascript.formatters = { { exe = "eslint_d" } }
 lvim.lang.javascriptreact.formatters = lvim.lang.javascript.formatters
 
+-- ts
 lvim.lang.typescript.formatters = lvim.lang.javascript.formatters
 lvim.lang.typescriptreact.formatters = lvim.lang.typescript.formatters
 
+-- frameworks
 lvim.lang.vue.formatters = lvim.lang.javascript.formatters
 
+-- html & css
+lvim.lang.html.formatters = { { exe = "prettier" } }
+lvim.lang.css.formatters = { { exe = "stylelint" } }
+
 -- Linters
+-- js
 lvim.lang.javascript.linters = { { exe = "eslint_d" } }
 lvim.lang.javascriptreact.linters = lvim.lang.javascript.linters
 
+-- ts
 lvim.lang.typescript.linters = lvim.lang.javascript.linters
 lvim.lang.typescriptreact.linters = lvim.lang.javascript.linters
 
+-- frameworks
 lvim.lang.vue.linters = lvim.lang.javascript.linters
+
+-- html & css
+lvim.lang.html.linters = { { exe = "prettier" } }
+lvim.lang.css.formatters = { { exe = "stylelint" } }
 
 -- Additional Plugins
 lvim.plugins = {
