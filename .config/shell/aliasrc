@@ -55,7 +55,7 @@ alias \
   pkg-main="cap; pkggen main.txt && cd -" \
   pkg-work="cap; pkggen work.txt && cd -" \
   pkg-secondary="cap; pkggen secondary.txt && cd -" \
-  pkg-yarn="cap; yglist | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt && cd -"
+  pkg-yarn="cap; ygli | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt && cd -"
 
 # Git
 alias \
