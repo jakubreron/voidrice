@@ -93,37 +93,60 @@ cmd bulkrename $vidir
 
 cmd dragon %dragon-drag-and-drop -a -x $fx
 
+cmd zip %zip -r "$fx" "$fx"
+cmd tar %tar cvf "$f.tar" "$f"
+cmd targz %tar cvzf "$f.tar.gz" "$f"
+
 # Bindings
 map <c-f> $lf -remote "send $id select '$(fzf)'"
+
 map J $lf -remote "send $id cd $(awk '{ gsub(/#.*/, ""); } !/^$/ { print $2 }' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed "s/\${.*-// ; s/}//" | envsubst)"
+
 map gh
 map g top
+
 map D delete
 map E extract
 map C copyto
 map M moveto
 map S sendto
+
 map <c-n> push :mkdir<space>
+
 map <c-r> reload
 map <c-s> set hidden!
+
 map <enter> shell
+
 map x $$f
 map X !$f
+
 map o &mimeopen $f
 map O $mimeopen --ask $f
 
-map L dragon
+map R dragon
+
+# Pack
+map Pz zip
+map Pt tar
+map Pg targz
+
+# Renames
+map c push A<c-u> # new rename
 
 map A rename # at the very end
-map c push A<c-u> # new rename
 map I push A<c-a> # at the very beginning
+
 map i push A<a-b><a-b><a-f> # before extention
 map a push A<a-b> # after extention
+
 map B bulkrename
+
 map b $setbg $f
 
 map <c-e> down
 map <c-y> up
+
 map V push :!$EDITOR<space>
 
 # Source Bookmarks
