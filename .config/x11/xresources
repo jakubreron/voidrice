@@ -1,10 +1,7 @@
 #include "/home/jakub/.cache/wal/colors.Xresources"
 
-#define FONT SFMono Nerd Font Mono
-#define FONT2 Stick
-
 !! Transparency (0-1):
-/* st.alpha: 0.80 */
+st.alpha: 0.90
 /* st.alphaOffset: 0.0 */
 
 !! Set a default font and font size as below:
