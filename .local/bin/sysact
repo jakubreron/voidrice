@@ -1,22 +1,18 @@
 #!/bin/sh
-
 # A dmenu wrapper script for system functions.
-
-# For non-systemd init systems.
 case "$(readlink -f /sbin/init)" in
-	*runit*) hib="sudo -A zzz" ;;
-	*openrc*) reb="sudo -A openrc-shutdown -r"; shut="sudo -A openrc-shutdown -p 0" ;;
+	*systemd*) ctl='systemctl' ;;
+	*) ctl='loginctl' ;;
 esac
 
-cmds="\
-  lock		slock
-  leave dwm	kill -TERM $(pgrep -u $USER "\bdwm$")
-  renew dwm	kill -HUP $(pgrep -u $USER "\bdwm$")
-  hibernate	slock ${hib:-systemctl suspend-then-hibernate -i}
-  reboot	${reb:-sudo -A reboot}
-  shutdown	${shut:-sudo -A shutdown -h now}
-  display off 	 xset dpms force off"
-
-choice="$(echo "$cmds" | cut -d'	' -f 1 | dmenu)" || exit 1
-
-eval "$(echo "$cmds" | grep "^$choice	" | cut -d '	' -f2-)"
+case "$(printf " lock\n leave dwm\n️ renew dwm\n hibernate\n💤 sleep\n reboot\n️shutdown\n display off" | dmenu -i -p 'Action: ')" in
+	' lock') slock ;;
+	' leave dwm') kill -TERM "$(pgrep -u "$USER" "\bdwm$")" ;;
+	'️ renew dwm') kill -HUP "$(pgrep -u "$USER" "\bdwm$")" ;;
+	' hibernate') slock $ctl hibernate ;;
+	'💤 sleep') slock $ctl suspend ;;
+	' reboot') $ctl reboot ;;
+	'️shutdown') $ctl poweroff ;;
+	'📺 display off') xset dpms force off ;;
+	*) exit 1 ;;
+esac

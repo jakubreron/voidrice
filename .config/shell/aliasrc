@@ -38,7 +38,7 @@ alias \
 # These common commands are just too long! Abbreviate them.
 alias \
 	ka="killall" \
-	sdn="sudo shutdown -h now" \
+	sdn="shutdown -h now" \
 	e="sudoedit" \
 	v="$EDITOR" \
 	p="paru" \
@@ -188,7 +188,7 @@ alias \
   slvim="cd ~/.local/share/lunarvim/lvim && git pull && lvim +LvimCacheReset +PackerUpdate" \
   snc="ssrc; sdots; slvim" \
   sproj="pzw && g pl; pza && g pl; pzl && g pl; pp && g pl" \
-  sall="snc; sproj" 
+  sall="snc; sproj"
 
 # misc
 alias \
