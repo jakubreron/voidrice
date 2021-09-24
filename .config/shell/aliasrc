@@ -111,7 +111,7 @@ alias \
     yd="yarn dev" \
     ydw="yarn dev --watch" \
     ys="yarn start" \
-    ys="yarn start --watch" \
+    ysw="yarn start --watch" \
     ysr="yarn serve" \
     ysrw="yarn serve --watch" \
     yp="yarn prod" \
