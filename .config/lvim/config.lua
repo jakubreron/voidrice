@@ -1,6 +1,6 @@
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
--- general
 
+-- general
 lvim.log.level = "warn"
 lvim.colorscheme = "onedarker"
 lvim.format_on_save = true
