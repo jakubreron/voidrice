@@ -5,14 +5,14 @@ case "$(readlink -f /sbin/init)" in
 	*) ctl='loginctl' ;;
 esac
 
-case "$(printf " lock\n leave dwm\n️ renew dwm\n hibernate\n💤 sleep\n reboot\n️shutdown\n display off" | dmenu -i -p 'Action: ')" in
-	' lock') slock ;;
-	' leave dwm') kill -TERM "$(pgrep -u "$USER" "\bdwm$")" ;;
-	'️ renew dwm') kill -HUP "$(pgrep -u "$USER" "\bdwm$")" ;;
-	' hibernate') slock $ctl hibernate ;;
-	'💤 sleep') slock $ctl suspend ;;
+case "$(printf " lock\n leave dwm\n renew dwm\n hibernate\n sleep\n reboot\n️ shutdown\n display off" | dmenu -i -p 'Action: ')" in
+	' lock') slock ;;
+  ' leave dwm') kill -TERM "$(pgrep -u "$USER" "\bdwm$")" ;;
+  ' renew dwm') kill -HUP "$(pgrep -u "$USER" "\bdwm$")" ;;
+	' hibernate') slock $ctl hibernate ;;
+	' sleep') slock $ctl suspend ;;
 	' reboot') $ctl reboot ;;
-	'️shutdown') $ctl poweroff ;;
-	'📺 display off') xset dpms force off ;;
+	'️ shutdown') $ctl poweroff ;;
+	' display off') xset dpms force off ;;
 	*) exit 1 ;;
 esac
