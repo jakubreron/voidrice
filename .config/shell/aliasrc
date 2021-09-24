@@ -110,8 +110,10 @@ alias \
 alias \
     yd="yarn dev" \
     ydw="yarn dev --watch" \
-    ys="yarn serve" \
-    ysw="yarn serve --watch" \
+    yst="yarn start" \
+    yst="yarn start --watch" \
+    ysr="yarn serve" \
+    ysrw="yarn serve --watch" \
     yp="yarn prod" \
     yb="yarn build" \
 # lints
