@@ -152,5 +152,7 @@ map V push :!$EDITOR<space>
 
 map W $setsid -f $TERMINAL >/dev/null 2>&1
 
+map W $setsid -f $TERMINAL >/dev/null 2>&1
+
 # Source Bookmarks
 source "~/.config/lf/shortcutrc"
