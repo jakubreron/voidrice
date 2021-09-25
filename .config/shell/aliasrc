@@ -99,6 +99,7 @@ alias \
 # add & remove
 alias \
     ya="yarn add" \
+    yad="yarn add -D" \
     yr="yarn remove"
 # global
 alias \
