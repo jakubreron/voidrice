@@ -110,8 +110,8 @@ alias \
 alias \
     yd="yarn dev" \
     ydw="yarn dev --watch" \
-    ys="yarn start" \
-    ysw="yarn start --watch" \
+    yst="yarn start" \
+    ystw="yarn start --watch" \
     ysr="yarn serve" \
     ysrw="yarn serve --watch" \
     yp="yarn prod" \
@@ -124,8 +124,8 @@ alias \
     ytsd="yarn test:dev" \
 # storybook
 alias \
-    yst="yarn storybook" \
-    ystb="yarn storybook:build"
+    ysb="yarn storybook" \
+    ysbb="yarn storybook:build"
 # misc
 alias \
     yo="yarn outdated" \
