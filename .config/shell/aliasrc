@@ -206,4 +206,5 @@ alias \
   ports="netstat -ntlup" \
   restart-hosts="/bin/systemctl restart systemd-hostnamed" \
   clp="colorpicker --short --one-shot --preview | xsel -b" \
-  rs="redis-server"
+  rs="redis-server" \
+  n="nautilus"
