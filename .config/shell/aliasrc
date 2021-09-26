@@ -50,7 +50,7 @@ alias \
   pkg-main="cap; pkggen main.txt && cd -" \
   pkg-work="cap; pkggen work.txt && cd -" \
   pkg-secondary="cap; pkggen secondary.txt && cd -" \
-  pkg-yarn="cap; ygli | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt && cd -"
+  pkg-yarn="cap; ygli | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt && cd -" 
 
 # Git
 alias \
@@ -182,6 +182,7 @@ alias \
     ln -n ~/.config/personal/voidrice/.local/bin/statusbar/* ~/.local/bin/statusbar/ &&
     ln -n ~/.config/personal/voidrice/.local/bin/cron/* ~/.local/bin/cron/
       " \
+        sy="cap; cat yarn.txt | xargs -t yarn global add; cd -" \
         ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl" \
         sdots="ca && g pl; cu && g pl; cv && g pl; replace-all" \
         slvim="cd ~/.local/share/lunarvim/lvim && git pull && lvim +LvimCacheReset +PackerUpdate" \
