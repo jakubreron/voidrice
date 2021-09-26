@@ -67,94 +67,95 @@ alias \
   rates="curl rate.sx | less -S"
 
 # get fastest mirrors
-alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
-alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
-alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
-alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
+alias \
+  mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" \
+  mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist" \
+  mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist" \
+  mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
 
 # For when keys break
 alias fix-pkg-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
 
 # get top process eating memory
-alias psmem='ps auxf | sort -nr -k 4 | head -5'
-
 # get top process eating cpu ##
-alias pscpu='ps auxf | sort -nr -k 3 | head -5'
+alias \
+  psmem='ps auxf | sort -nr -k 4 | head -5' \
+  pscpu='ps auxf | sort -nr -k 3 | head -5'
 
 # screenlayouts
 alias \
-    layout-main="${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/main.sh" \
-    layout-work="${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/work.sh" \
-    layout-temporary="${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/temporary.sh" 
+  layout-main="${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/main.sh" \
+  layout-work="${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/work.sh" \
+  layout-temporary="${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/temporary.sh" 
 
 # yarn
 alias \
-    y="yarn" \
-    yi="yarn init -y"
+  y="yarn" \
+  yi="yarn init -y"
 # add & remove
 alias \
-    ya="yarn add" \
-    yad="yarn add -D" \
-    yr="yarn remove"
+  ya="yarn add" \
+  yad="yarn add -D" \
+  yr="yarn remove"
 # global
 alias \
-    yg="yarn global" \
-    ygli="yarn global list --depth=0" \
-    yga="yarn global add" \
-    ygr="yarn global remove"
+  yg="yarn global" \
+  ygli="yarn global list --depth=0" \
+  yga="yarn global add" \
+  ygr="yarn global remove"
 # dev
 alias \
-    yd="yarn dev" \
-    ydw="yarn dev --watch" \
-    yst="yarn start" \
-    ystw="yarn start --watch" \
-    ysr="yarn serve" \
-    ysrw="yarn serve --watch" \
-    yp="yarn prod" \
-    yb="yarn build" \
+  yd="yarn dev" \
+  ydw="yarn dev --watch" \
+  yst="yarn start" \
+  ystw="yarn start --watch" \
+  ysr="yarn serve" \
+  ysrw="yarn serve --watch" \
+  yp="yarn prod" \
+  yb="yarn build" 
 # lints
 alias \
-    yl="yarn lint" \
-    ylf="yarn lint:fix" \
-    yts="yarn test" \
-    ytsd="yarn test:dev" \
+  yl="yarn lint" \
+  ylf="yarn lint:fix" \
+  yts="yarn test" \
+  ytsd="yarn test:dev" 
 # storybook
 alias \
-    ysb="yarn storybook" \
-    ysbb="yarn storybook:build"
+  ysb="yarn storybook" \
+  ysbb="yarn storybook:build"
 # misc
 alias \
-    yo="yarn outdated" \
-    ycc="yarn cache clean" \
-    yli="yarn list --depth=0" \
-    yf="yarn info --verbose --no-emoji" \
-    yua="yarn-upgrade-all"
+  yo="yarn outdated" \
+  ycc="yarn cache clean" \
+  yli="yarn list --depth=0" \
+  yf="yarn info --verbose --no-emoji" \
+  yua="yarn-upgrade-all"
 
 # php
 alias \
-    paws="sudo php artisan websockets:serve --host=0.0.0.0 --port=444" \
-    pawd="php artisan workspace:dump"
+  paws="sudo php artisan websockets:serve --host=0.0.0.0 --port=444" \
+  pawd="php artisan workspace:dump"
 
 # composer
 alias \
-    cs="composer" \
-    csi="composer install" \
-    csr="composer refresh" \
-    csb="composer rebuild" \
-    csd="composer deploy" \
-    csa="csi; csr; csb; csd;"
+  cs="composer" \
+  csi="composer install" \
+  csr="composer refresh" \
+  csb="composer rebuild" \
+  csd="composer deploy" \
+  csa="csi; csr; csb; csd;"
 
 # valet
 alias \
-    va="valet" \
-    vas="valet secure" \
-    vau="valet unsecure" \
-    var="valet restart" \
-    vad="valet domain" \
-    val="valet link" \
-    vaf="valet forget" \
-    vau="valet use" \
-    vast="valet status"
+  va="valet" \
+  vas="valet secure" \
+  vau="valet unsecure" \
+  var="valet restart" \
+  vad="valet domain" \
+  val="valet link" \
+  vaf="valet forget" \
+  vau="valet use" \
+  vast="valet status"
 
 # youtube
 alias \
@@ -169,7 +170,7 @@ alias \
 # sync
 alias \
   replace-all="
-    rm ~/{.zprofile,.xprofile} &&
+  rm ~/{.zprofile,.xprofile} &&
     rm -rf ~/.config/{dunst,fontconfig,gtk-3.0,gtk-2.0,lf,mpd,mpv,ncmpcpp,newsboat,nvim,pulse,shell,sxiv,wal,wget,x11,zathura,zsh,neofetch} &&
     rm ~/.config/{mimeapps.list,user-dirs.dirs} &&
     rm -rf ~/.local/share/{applications,larbs} &&
@@ -180,13 +181,13 @@ alias \
     mkdir ~/.local/bin/{statusbar,cron} &&
     ln -n ~/.config/personal/voidrice/.local/bin/statusbar/* ~/.local/bin/statusbar/ &&
     ln -n ~/.config/personal/voidrice/.local/bin/cron/* ~/.local/bin/cron/
-  " \
-  ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl" \
-  sdots="ca && g pl; cu && g pl; cv && g pl; replace-all" \
-  slvim="cd ~/.local/share/lunarvim/lvim && git pull && lvim +LvimCacheReset +PackerUpdate" \
-  snc="ssrc; sdots; slvim" \
-  sproj="pzw && g pl; pza && g pl; pzl && g pl; pp && g pl" \
-  sall="snc; sproj"
+      " \
+        ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl" \
+        sdots="ca && g pl; cu && g pl; cv && g pl; replace-all" \
+        slvim="cd ~/.local/share/lunarvim/lvim && git pull && lvim +LvimCacheReset +PackerUpdate" \
+        snc="ssrc; sdots; slvim" \
+        sproj="pzw && g pl; pza && g pl; pzl && g pl; pp && g pl" \
+        sall="snc; sproj"
 
 # some programs
 alias \
@@ -198,16 +199,22 @@ alias \
   clp="colorpicker --short --one-shot --preview | xsel -b" \
   sck="killall screenkey || screenkey &"
 
+# network
+alias \
+  myip="curl ifconfig.co" \
+  ports="netstat -ntlup" \
+  restart-hosts="/bin/systemctl restart systemd-hostnamed" 
+
+# dynamic folders
+alias \
+  ff="cd $HOME/.mozilla/firefox/*.dev-edition-default" \
+  ffc="cd $HOME/.mozilla/firefox/*.dev-edition-default/chrome" 
+
 # misc
 alias \
   gcl="dmenu-github" \
   cmpl="sudo make && sudo make install" \
-  ff="cd $HOME/.mozilla/firefox/*.dev-edition-default" \
-  ffc="cd $HOME/.mozilla/firefox/*.dev-edition-default/chrome" \
   ggl="tuxi" \
-  myip="curl ifconfig.co" \
   update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
-  encrypt="gpg -c --no-symkey-cache --cipher-algo AES256" \
-  ports="netstat -ntlup" \
-  restart-hosts="/bin/systemctl restart systemd-hostnamed" \
+  encrypt="gpg -c --no-symkey-cache --cipher-algo AES256" 
 
