@@ -83,8 +83,7 @@ alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 
 # scripts
 alias \
-    layout-main="${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/main.sh" \ 
-    layout-work="${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/work.sh" \ 
+    layout-main="${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/main.sh" 
 
 # yarn
 alias \
