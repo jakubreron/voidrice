@@ -45,11 +45,6 @@ alias \
   pkgs="pkgstats search" \
   ud="updatedb"
 
-# Some software
-alias \
-  lzg="lazygit" \
-  lzd="lazydocker"
-
 # Generate packages
 alias \
   pkg-main="cap; pkggen main.txt && cd -" \
@@ -63,8 +58,7 @@ alias \
   dv="git checkout develop && git pull" \
   ms="git checkout master && git pull" \
   es="git checkout env/staging && git pull" \
-  mn="git checkout main && git pull" \
-  gup="git-update"
+  mn="git checkout main && git pull"
 
 alias \
   sctl="sudo systemctl" \
@@ -193,6 +187,15 @@ alias \
   sproj="pzw && g pl; pza && g pl; pzl && g pl; pp && g pl" \
   sall="snc; sproj"
 
+# some programs
+alias \
+  n="nautilus" \
+  rs="redis-server" \
+  lzg="lazygit" \
+  lzd="lazydocker" \
+  ee="easyeffects --gapplication-service" \
+  clp="colorpicker --short --one-shot --preview | xsel -b" 
+
 # misc
 alias \
   gcl="dmenu-github" \
@@ -205,6 +208,4 @@ alias \
   encrypt="gpg -c --no-symkey-cache --cipher-algo AES256" \
   ports="netstat -ntlup" \
   restart-hosts="/bin/systemctl restart systemd-hostnamed" \
-  clp="colorpicker --short --one-shot --preview | xsel -b" \
-  rs="redis-server" \
-  n="nautilus"
+
