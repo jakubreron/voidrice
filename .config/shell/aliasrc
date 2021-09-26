@@ -195,7 +195,8 @@ alias \
   lzg="lazygit" \
   lzd="lazydocker" \
   ee="easyeffects --gapplication-service" \
-  clp="colorpicker --short --one-shot --preview | xsel -b" 
+  clp="colorpicker --short --one-shot --preview | xsel -b" \
+  scrk="killall screenkey || screenkey &"
 
 # misc
 alias \
