@@ -182,7 +182,8 @@ alias \
     ln -n ~/.config/personal/voidrice/.local/bin/statusbar/* ~/.local/bin/statusbar/ &&
     ln -n ~/.config/personal/voidrice/.local/bin/cron/* ~/.local/bin/cron/
       " \
-        sy="cap; cat yarn.txt | xargs -t yarn global add; cd -" \
+        sy="cap; cat yarn.txt | xargs -t yarn global add" \
+        sp="cap; cat main.txt | xargs -t paru -S --needed" \
         ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl" \
         sdots="ca && g pl; cu && g pl; cv && g pl; replace-all" \
         slvim="cd ~/.local/share/lunarvim/lvim && git pull && lvim +LvimCacheReset +PackerUpdate" \
