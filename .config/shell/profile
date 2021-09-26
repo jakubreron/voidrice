@@ -21,6 +21,7 @@ export EDITOR="lvim"
 export TERMINAL="st"
 export BROWSER="firefox-developer-edition"
 export BACKUP_BROWSER="brave"
+export GUI_FILE_EXPLORER="nautilus"
 
 # Performance fix
 export vblank_mode=0
