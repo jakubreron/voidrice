@@ -13,15 +13,15 @@ dunst &			                                                 # Dunst for notificat
 xset r rate 250 50 &	                                       # Speed xrate up
 unclutter &		                                               # Remove mouse when idle
 fcitx -d &                                                   # Keyboard
-easyeffects --gapplication-service &                         # Equalizer
+# easyeffects --gapplication-service &                         # Equalizer
 redshift &                                                   # Night light
 /usr/lib/kdeconnectd &                                       # KDE connect daemon
 # dropbox &                                                  # Dropbox
 
 # Screen layouts
-# ${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/home.sh &
-# ${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/work.sh &
-# ${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/temporary.sh &
+# layout-primary &
+# layout-secondary &
+# layout-temporary &
 
 # Scripts
 # nohup ${XDG_CONFIG_HOME:-$HOME/.config}/scripts/entr.sh &
