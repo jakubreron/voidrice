@@ -178,7 +178,7 @@ alias \
       " \
         sy="cap; cat yarn.txt | xargs -t yarn global add" \
         sp="cap; paru -S --needed - < main.txt" \
-        ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl; ssx && g pl && sudo rm {config,patches}.h cmpl;" \
+        ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl; ssx && g pl && sudo rm {config,patches}.h && cmpl;" \
         sdots="ca && g pl; cu && g pl; cv && g pl; replace-all" \
         slvim="cd ~/.local/share/lunarvim/lvim && git pull && lvim +LvimCacheReset +PackerUpdate" \
         snc="ssrc; sdots; slvim" \
