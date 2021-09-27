@@ -82,12 +82,6 @@ alias \
   psmem='ps auxf | sort -nr -k 4 | head -5' \
   pscpu='ps auxf | sort -nr -k 3 | head -5'
 
-# screenlayouts
-alias \
-  layout-main="${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/main.sh" \
-  layout-work="${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/work.sh" \
-  layout-temporary="${XDG_CONFIG_HOME:-$HOME/.config}/x11/screenlayout/temporary.sh" 
-
 # yarn
 alias \
   y="yarn" \
