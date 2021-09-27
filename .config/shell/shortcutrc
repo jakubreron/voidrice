@@ -35,6 +35,7 @@ sdw="cd /home/jakub/.local/src/dwm" \
 sdb="cd /home/jakub/.local/src/dwmblocks" \
 sdm="cd /home/jakub/.local/src/dmenu" \
 sst="cd /home/jakub/.local/src/st" \
+ssx="cd /home/jakub/.local/src/sxiv-flexipatch/" \
 vl="cd /home/jakub/.valet" \
 vls="cd /home/jakub/.valet/Sites" \
 vln="cd /home/jakub/.valet/Nginx" \

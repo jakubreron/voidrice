@@ -44,6 +44,7 @@ sdw   $HOME/.local/src/dwm
 sdb   $HOME/.local/src/dwmblocks
 sdm   $HOME/.local/src/dmenu
 sst   $HOME/.local/src/st
+ssx   $HOME/.local/src/sxiv-flexipatch/
 
 vl    $HOME/.valet
 vls   $HOME/.valet/Sites
