@@ -251,7 +251,16 @@ lvim.autocommands.custom_groups = {
 		"~/.local/src/dwmblocks/config.h",
 		"!cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }",
 	},
-	{ "BufWritePost", "~/.local/bin/statusbar/* ", "!{ killall -q dwmblocks;setsid -f dwmblocks }" },
+	{
+		"BufWritePost",
+		"~/.local/src/sxiv-flexipatch/{config.def,patches.def}.h",
+		"!cd ~/.local/src/sxiv-flexipatch/; sudo rm {config,patches}.h && sudo make install",
+	},
+	{
+                "BufWritePost",
+                "~/.local/bin/statusbar/*",
+                "!{ killall -q dwmblocks;setsid -f dwmblocks }",
+        },
 	{
 		"BufWritePost",
 		"~/.config/personal/universal/vimwiki/*",
