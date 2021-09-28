@@ -26,6 +26,8 @@
 
 .config/shell/zshnameddirrc
 
+./config/BetterDiscord/themes/*.css
+
 *.log
 .idea
 *.asar
