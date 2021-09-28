@@ -106,6 +106,7 @@ alias \
   ysr="yarn serve" \
   ysrw="yarn serve --watch" \
   yp="yarn prod" \
+  ypr="yarn production" \
   yb="yarn build" 
 # lints
 alias \
