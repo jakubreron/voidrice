@@ -3,9 +3,9 @@
 -- general
 lvim.log.level = "warn"
 lvim.colorscheme = "onedarker"
-lvim.format_on_save = false
+lvim.format_on_save = true
 -- lvim.lint_on_save = true
-lvim.transparent_window = true
+lvim.transparent_window = false
 lvim.debug = false
 
 lvim.lang.emmet.active = true
