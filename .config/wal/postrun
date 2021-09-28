@@ -27,3 +27,4 @@ done
 fix_sequences <"${HOME}/.cache/wal/sequences"
 
 pkill dunst; dunst &
+pywal-discord &
