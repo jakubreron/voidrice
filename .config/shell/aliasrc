@@ -56,8 +56,9 @@ alias \
 alias \
 	g="git" \
   dv="git checkout develop && git pull" \
-  ms="git checkout master && git pull" \
   es="git checkout env/staging && git pull" \
+  ep="git checkout env/production && git pull" \
+  ms="git checkout master && git pull" \
   mn="git checkout main && git pull"
 
 alias \
