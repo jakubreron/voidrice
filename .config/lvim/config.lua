@@ -86,6 +86,9 @@ lvim.builtin.treesitter.ensure_installed = "maintained"
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.autotag.enable = true
 
+-- custom treesitter config
+lvim.builtin.treesitter.context_commentstring.enable = true
+
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers
 -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
@@ -225,6 +228,9 @@ lvim.plugins = {
 		"windwp/nvim-ts-autotag",
 		event = "InsertEnter",
 	},
+        {
+                "JoosepAlviste/nvim-ts-context-commentstring" ,
+        },
 	-- {
 	--         "ptzz/lf.vim",
 	-- },
