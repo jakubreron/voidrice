@@ -186,7 +186,7 @@ alias \
     sdots="ca && g pl; cu && g pl; cv && g pl; replace-all" \
     slvim="cd ~/.local/share/lunarvim/lvim && git pull && lvim +LvimCacheReset +PackerUpdate" \
     snc="ssrc; sdots; slvim" \
-    sproj="pzw && g pl; pza && g pl; pzl && g pl; pp && g pl" \
+    sproj="pzw && g pl; pza && g pl; pzl && g pl" \
     sall="snc; sproj"
 
 # some programs
