@@ -50,7 +50,12 @@ lvim.keys.insert_mode["<C-k>"] = "<esc>:m .-2<CR>== i"
 lvim.builtin.which_key.mappings.l.d = { "<cmd>TroubleToggle<cr>", "Diagnostics" }
 lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
 lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
-lvim.builtin.which_key.mappings.l.e = { ":setlocal spell! spelllang=en_us<CR>", "Set English spelling" }
+
+lvim.builtin.which_key.mappings.l.l = {
+  e = { ":setlocal spell! spelllang=en<CR>", "English" },
+  p = { ":setlocal spell! spelllang=pl<CR>", "Polish" },
+  j = { ":setlocal spell! spelllang=ja<CR>", "Japanese" }
+}
 
 lvim.builtin.which_key.mappings.m = { "<cmd>MarkdownPreviewToggle<cr>", "Markdown preview" }
 
