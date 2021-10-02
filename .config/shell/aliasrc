@@ -126,7 +126,8 @@ alias \
   ycc="yarn cache clean" \
   yli="yarn list --depth=0" \
   yf="yarn info --verbose --no-emoji" \
-  yua="yarn-upgrade-all"
+  yua="yarn-upgrade-all" \
+  ycv="yarn create vite"
 
 # php
 alias \

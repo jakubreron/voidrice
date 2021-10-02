@@ -76,6 +76,7 @@ bindkey -s '^o' 'lfrun\n'
 bindkey -s '^g' 'lazygit\n'
 bindkey -s '^d' 'lazydocker\n'
 bindkey -s '^n' 'nautilus .\n'
+bindkey -s '^v' 'lvim .\n'
 bindkey -s '^a' 'bc -lq\n'
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 bindkey '^[[P' delete-char
