@@ -195,7 +195,7 @@ alias \
   rs="redis-server" \
   lzg="lazygit" \
   lzd="lazydocker" \
-  ee="nohup easyeffects --gapplication-service &; rm nohup.out; notify-send EasyEffects activated" \
+  ee="nohup easyeffects --gapplication-service &; rm nohup.out; notify-send 'EasyEffects activated'" \
   clp="colorpicker --short --one-shot --preview | xsel -b" \
   sck="killall screenkey || screenkey &"
 
