@@ -2,21 +2,21 @@
     "general": {
         "emotes": true,
         "publicServers": true,
-        "voiceDisconnect": false,
+        "voiceDisconnect": true,
         "showToasts": true,
-        "mediaKeys": false
+        "mediaKeys": true
     },
     "appearance": {
-        "twentyFourHour": false,
-        "hideGiftButton": false,
-        "hideGIFButton": false,
-        "minimalMode": false,
+        "twentyFourHour": true,
+        "hideGiftButton": true,
+        "hideGIFButton": true,
+        "minimalMode": true,
         "coloredText": false
     },
     "addons": {
         "addonErrors": true,
         "autoReload": true,
-        "editAction": "detached"
+        "editAction": "system"
     },
     "customcss": {
         "customcss": true,
@@ -31,8 +31,8 @@
         "debugLogs": false
     },
     "window": {
-        "transparency": false,
-        "removeMinimumSize": false,
+        "transparency": true,
+        "removeMinimumSize": true,
         "frame": false
     }
 }
