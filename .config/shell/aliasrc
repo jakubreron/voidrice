@@ -59,7 +59,8 @@ alias \
   es="git checkout env/staging && git pull" \
   ep="git checkout env/production && git pull" \
   ms="git checkout master && git pull" \
-  mn="git checkout main && git pull"
+  mn="git checkout main && git pull" \
+  husky-init="npx husky-init && yarn"
 
 alias \
   sctl="sudo systemctl" \
