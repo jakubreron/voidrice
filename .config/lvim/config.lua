@@ -8,9 +8,6 @@ lvim.format_on_save = true
 lvim.transparent_window = false
 lvim.debug = false
 
-lvim.lang.emmet.active = true
-lvim.lang.tailwindcss.lsp.active = true
-
 vim.g.vimwiki_list = { { path = "~/vimwiki/", syntax = "markdown", ext = ".md" } }
 
 -- lf
@@ -61,11 +58,11 @@ lvim.builtin.which_key.mappings.m = { "<cmd>MarkdownPreviewToggle<cr>", "Markdow
 
 lvim.builtin.which_key.mappings.z = { "<cmd>ZenMode<cr>", "Zen" }
 lvim.builtin.which_key.mappings.r = {
-	name = "Replace",
-	r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
-	w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
-	f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
-	s = { ":%s//g<Left><Left>", "Find and replace" },
+        name = "Replace",
+        r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
+        w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
+        f = { "<cmd>lua require('spectre').open_file_search()<cr>", "Replace Buffer" },
+        s = { ":%s//g<Left><Left>", "Find and replace" },
 }
 
 lvim.builtin.which_key.mappings.n = { "<cmd>Lf<cr>", "File manager" }
@@ -118,6 +115,10 @@ lvim.lsp.on_attach_callback = function(client, bufnr)
 	--Enable completion triggered by <c-x><c-o>
 	buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 end
+
+-- Langs
+lvim.lang.emmet.active = true
+lvim.lang.tailwindcss.active = true
 
 -- Formatters
 -- js
@@ -247,9 +248,9 @@ lvim.plugins = {
 		"windwp/nvim-ts-autotag",
 		event = "InsertEnter",
 	},
-        {
-                "JoosepAlviste/nvim-ts-context-commentstring" ,
-        },
+  {
+    "JoosepAlviste/nvim-ts-context-commentstring" ,
+  },
 	-- {
 	--         "ptzz/lf.vim",
 	-- },
@@ -281,7 +282,7 @@ lvim.autocommands.custom_groups = {
 		"~/.local/src/sxiv-flexipatch/{config.def,patches.def}.h",
 		"!cd ~/.local/src/sxiv-flexipatch/; sudo rm {config,patches}.h && sudo make install",
 	},
-	{
+        {
                 "BufWritePost",
                 "~/.local/bin/statusbar/*",
                 "!{ killall -q dwmblocks;setsid -f dwmblocks }",
