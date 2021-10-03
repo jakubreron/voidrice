@@ -50,8 +50,8 @@ lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
 
 lvim.builtin.which_key.mappings.l.l = {
   e = { ":setlocal spell! spelllang=en<CR>", "English" },
-  p = { ":setlocal spell! spelllang=pl<CR>", "Polish" },
-  j = { ":setlocal spell! spelllang=ja<CR>", "Japanese" }
+  -- p = { ":setlocal spell! spelllang=pl<CR>", "Polish" },
+  -- j = { ":setlocal spell! spelllang=ja<CR>", "Japanese" }
 }
 
 lvim.builtin.which_key.mappings.m = { "<cmd>MarkdownPreviewToggle<cr>", "Markdown preview" }
@@ -137,7 +137,6 @@ lvim.lang.typescript = {
         linters = { { exe = "eslint_d" } },
 }
 
--- html & css
 -- lvim.lang.html = {
 --         formatters = { { exe = "prettierd" } },
 -- }
@@ -152,7 +151,6 @@ lvim.lang.scss = {
         linters = { { exe = "stylelint" } },
 }
 
--- misc
 -- lvim.lang.vim = {
 --         formatters = { { exe = "prettierd" } },
 -- }
