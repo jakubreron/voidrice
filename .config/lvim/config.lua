@@ -120,33 +120,38 @@ end
 lvim.lang.emmet.active = true
 lvim.lang.tailwindcss.active = true
 
--- Formatters
--- js
-lvim.lang.javascript.formatters = { { exe = "eslint_d" } }
-lvim.lang.javascriptreact.formatters = lvim.lang.javascript.formatters
-lvim.lang.vue.formatters = lvim.lang.javascript.formatters
+lvim.lang.javascript = {
+        formatters = { { exe = "eslint_d" } },
+        linters = { { exe = "eslint_d" } },
+}
 
--- ts
-lvim.lang.typescript.formatters = { { exe = "eslint_d" } }
-lvim.lang.typescriptreact.formatters = lvim.lang.typescript.formatters
+lvim.lang.javascriptreact = {
+        formatters = { { exe = "eslint_d" } },
+        linters = { { exe = "eslint_d" } },
+}
+
+lvim.lang.vue = {
+        formatters = { { exe = "eslint_d" } },
+        linters = { { exe = "eslint_d" } },
+}
+
+lvim.lang.typescript = {
+        formatters = { { exe = "eslint_d" } },
+        linters = { { exe = "eslint_d" } },
+}
+
+lvim.lang.typescriptreact = {
+        formatters = { { exe = "eslint_d" } },
+        linters = { { exe = "eslint_d" } },
+}
 
 -- html & css
-lvim.lang.html.formatters = { { exe = "prettierd" } }
-lvim.lang.css.formatters = { { exe = "prettierd" } }
+-- lvim.lang.html.formatters = { { exe = "prettierd" } }
+-- lvim.lang.css.formatters = { { exe = "prettierd" } }
 
 -- misc
-lvim.lang.vim.formatters = { { exe = "prettierd" } }
-lvim.lang.json.formatters = { { exe = "prettierd" } }
-
--- Linters
--- js
-lvim.lang.javascript.linters = { { exe = "eslint_d" } }
-lvim.lang.javascriptreact.linters = lvim.lang.javascript.linters
-lvim.lang.vue.linters = lvim.lang.javascript.linters
-
--- ts
-lvim.lang.typescript.linters = { { exe = "eslint_d" } }
-lvim.lang.typescriptreact.linters = lvim.lang.javascript.linters
+-- lvim.lang.vim.formatters = { { exe = "prettierd" } }
+-- lvim.lang.json.formatters = { { exe = "prettierd" } }
 
 -- Additional Plugins
 lvim.plugins = {
@@ -248,9 +253,9 @@ lvim.plugins = {
 		"windwp/nvim-ts-autotag",
 		event = "InsertEnter",
 	},
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring" ,
-  },
+        {
+                "JoosepAlviste/nvim-ts-context-commentstring" ,
+        },
 	-- {
 	--         "ptzz/lf.vim",
 	-- },
