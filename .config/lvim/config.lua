@@ -125,11 +125,6 @@ lvim.lang.javascript = {
         linters = { { exe = "eslint_d" } },
 }
 
-lvim.lang.javascriptreact = {
-        formatters = { { exe = "eslint_d" } },
-        linters = { { exe = "eslint_d" } },
-}
-
 lvim.lang.vue = {
         formatters = { { exe = "eslint_d" } },
         linters = { { exe = "eslint_d" } },
@@ -140,18 +135,29 @@ lvim.lang.typescript = {
         linters = { { exe = "eslint_d" } },
 }
 
-lvim.lang.typescriptreact = {
-        formatters = { { exe = "eslint_d" } },
-        linters = { { exe = "eslint_d" } },
+-- html & css
+-- lvim.lang.html = {
+--         formatters = { { exe = "prettierd" } },
+-- }
+
+lvim.lang.css = {
+        formatters = { { exe = "stylelint" } },
+        linters = { { exe = "stylelint" } },
 }
 
--- html & css
--- lvim.lang.html.formatters = { { exe = "prettierd" } }
--- lvim.lang.css.formatters = { { exe = "prettierd" } }
+lvim.lang.scss = {
+        formatters = { { exe = "stylelint" } },
+        linters = { { exe = "stylelint" } },
+}
 
 -- misc
--- lvim.lang.vim.formatters = { { exe = "prettierd" } }
--- lvim.lang.json.formatters = { { exe = "prettierd" } }
+-- lvim.lang.vim = {
+--         formatters = { { exe = "prettierd" } },
+-- }
+
+-- lvim.lang.json = {
+--         formatters = { { exe = "prettierd" } },
+-- }
 
 -- Additional Plugins
 lvim.plugins = {
