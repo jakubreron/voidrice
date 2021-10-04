@@ -5,7 +5,7 @@ lvim.log.level = "warn"
 lvim.colorscheme = "onedarker"
 lvim.format_on_save = true
 -- lvim.lint_on_save = true
-lvim.transparent_window = false
+lvim.transparent_window = true
 lvim.debug = false
 
 vim.g.vimwiki_list = { { path = "~/vimwiki/", syntax = "markdown", ext = ".md" } }
