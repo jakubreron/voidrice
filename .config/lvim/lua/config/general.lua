@@ -20,3 +20,4 @@ vim.opt.relativenumber = true
 vim.opt.incsearch = true
 vim.opt.lazyredraw = true
 vim.opt.magic = true
+

@@ -1,4 +1,8 @@
+-- vimwiki
 vim.g.vimwiki_list = { { path = "~/vimwiki/", syntax = "markdown", ext = ".md" } }
+
+-- dashboard
+vim.g.dashboard_disable_statusline = 1
 
 lvim.plugins = {
 	{ "vimwiki/vimwiki" },
