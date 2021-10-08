@@ -7,6 +7,7 @@ vim.g.dashboard_disable_statusline = 1
 lvim.plugins = {
 	{ "vimwiki/vimwiki" },
 	{ "tpope/vim-surround" },
+	{ "tpope/vim-repeat" },
 	{
 		config = function()
 			require("surround").setup({})
@@ -18,13 +19,13 @@ lvim.plugins = {
 			require("plugin.quickscope")
 		end,
 	},
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		-- event = "BufReadPre",
-		config = function()
-			require("plugin.blankline")
-		end,
-	},
+	-- {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	event = "BufReadPre",
+	-- 	config = function()
+	-- 		require("plugin.blankline")
+	-- 	end,
+	-- },
 	{
 		"ruifm/gitlinker.nvim",
 		event = "BufRead",
@@ -103,18 +104,29 @@ lvim.plugins = {
 		"windwp/nvim-ts-autotag",
 		event = "InsertEnter",
 	},
-        {
-                "JoosepAlviste/nvim-ts-context-commentstring",
-        },
-        {
-                "kshenoy/vim-signature",
-        },
+        { "JoosepAlviste/nvim-ts-context-commentstring" },
+        { "kshenoy/vim-signature" },
+        { "christoomey/vim-titlecase" },
         {
                 'phaazon/hop.nvim',
                 event = "BufRead",
                 config = function()
                         require("plugin.hop").config()
                 end,
+        },
+        {
+                "tzachar/cmp-tabnine",
+                config = function()
+                        local tabnine = require "cmp_tabnine.config"
+                        tabnine:setup {
+                                max_lines = 1000,
+                                max_num_results = 20,
+                                sort = true,
+                        }
+                end,
+
+                run = "./install.sh",
+                requires = "hrsh7th/nvim-cmp",
         },
 	-- {
 	--         "ptzz/lf.vim",
