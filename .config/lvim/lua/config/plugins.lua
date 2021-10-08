@@ -108,7 +108,14 @@ lvim.plugins = {
         },
         {
                 "kshenoy/vim-signature",
-        }
+        },
+        {
+                'phaazon/hop.nvim',
+                event = "BufRead",
+                config = function()
+                        require("plugin.hop").config()
+                end,
+        },
 	-- {
 	--         "ptzz/lf.vim",
 	-- },
