@@ -104,8 +104,11 @@ lvim.plugins = {
 		event = "InsertEnter",
 	},
         {
-                "JoosepAlviste/nvim-ts-context-commentstring" ,
+                "JoosepAlviste/nvim-ts-context-commentstring",
         },
+        {
+                "kshenoy/vim-signature",
+        }
 	-- {
 	--         "ptzz/lf.vim",
 	-- },
