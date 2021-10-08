@@ -20,6 +20,7 @@ call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"
     Plug 'ap/vim-css-color'
 call plug#end()
 
+set path+=**
 set title
 set bg=dark
 set go=a

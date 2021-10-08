@@ -229,4 +229,5 @@ alias \
     LVBRANCH=rolling bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/rolling/utils/installer/install.sh) &&
     cv; git restore .config/lvim/config.lua &&
     replace-all
-  "
+  " \
+  init-ctags="ctags -R --exclude=.git --exclude=node_modules"

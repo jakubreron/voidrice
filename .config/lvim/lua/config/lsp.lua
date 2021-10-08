@@ -31,7 +31,7 @@ lvim.lang.typescript = {
         linters = { { exe = "eslint_d" } },
 }
 
-lvim.lang.html.formatters = { { exe = "prettierd" } }
+-- lvim.lang.html.formatters = { { exe = "prettierd" } }
 
 lvim.lang.css = {
         formatters = { { exe = "stylelint" } },
@@ -43,5 +43,5 @@ lvim.lang.scss = {
         linters = { { exe = "stylelint" } },
 }
 
-lvim.lang.json.formatters = { { exe = "prettierd" } }
+-- lvim.lang.json.formatters = { { exe = "prettierd" } }
 

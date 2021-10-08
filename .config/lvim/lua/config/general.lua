@@ -21,3 +21,5 @@ vim.opt.incsearch = true
 vim.opt.lazyredraw = true
 vim.opt.magic = true
 
+vim.opt.path = "**"
+vim.opt.wildmenu = true
