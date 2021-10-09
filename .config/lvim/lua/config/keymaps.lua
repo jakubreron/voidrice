@@ -12,6 +12,7 @@ lvim.keys.normal_mode["Q"] = "@@"
 
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = ""
+-- lvim.builtin.terminal.open_mapping = "<>"
 
 -- trouble diagnostics
 lvim.builtin.which_key.mappings.l.d = { "<cmd>TroubleToggle<cr>", "Diagnostics" }
@@ -19,9 +20,10 @@ lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>",
 
 -- symbols outline
 lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
+lvim.builtin.which_key.mappings.l.l = { ":LspRestart <CR>", "Restart LSP" }
 
 -- langs
-lvim.builtin.which_key.mappings.l.l = {
+lvim.builtin.which_key.mappings.o = {
   e = { ":setlocal spell! spelllang=en<CR>", "English" },
   -- p = { ":setlocal spell! spelllang=pl<CR>", "Polish" },
   -- j = { ":setlocal spell! spelllang=ja<CR>", "Japanese" }

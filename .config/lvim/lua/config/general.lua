@@ -21,3 +21,7 @@ vim.opt.incsearch = true
 vim.opt.lazyredraw = true
 vim.opt.magic = true
 
+vim.opt.path = "**"
+vim.opt.wildmenu = true
+vim.opt.dictionary = "/usr/share/dict/words"
+vim.opt.thesaurus = "~/.config/lvim/mthesaur.txt"
