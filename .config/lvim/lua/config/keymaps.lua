@@ -1,11 +1,14 @@
 -- save
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
--- yank to end
+-- yank to the end
 lvim.keys.normal_mode["Y"] = "y$"
 
--- idk
-lvim.keys.normal_mode["c"] = '"_c'
+-- repeat last macro used
+lvim.keys.normal_mode["Q"] = "@@"
+
+-- don't store "c" to the register
+-- lvim.keys.normal_mode["c"] = '"_c'
 
 -- unmap a default keymapping
 -- lvim.keys.normal_mode["<C-Up>"] = ""
