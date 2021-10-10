@@ -16,32 +16,68 @@ end
 lvim.lang.emmet.active = true
 lvim.lang.tailwindcss.active = true
 
-lvim.lang.javascript = {
-        formatters = { { exe = "eslint_d" } },
-        linters = { { exe = "eslint_d" } },
-}
+-- lvim.lang.javascript = {
+--         formatters = { { exe = "eslint_d" } },
+--         linters = { { exe = "eslint_d" } },
+-- }
 
-lvim.lang.vue = {
-        formatters = { { exe = "eslint_d" } },
-        linters = { { exe = "eslint_d" } },
-}
+-- lvim.lang.vue = {
+--         formatters = { { exe = "eslint_d" } },
+--         linters = { { exe = "eslint_d" } },
+-- }
 
-lvim.lang.typescript = {
-        formatters = { { exe = "eslint_d" } },
-        linters = { { exe = "eslint_d" } },
-}
+-- lvim.lang.typescript = {
+--         formatters = { { exe = "eslint_d" } },
+--         linters = { { exe = "eslint_d" } },
+-- }
 
 -- lvim.lang.html.formatters = { { exe = "prettierd" } }
 
-lvim.lang.css = {
-        formatters = { { exe = "stylelint" } },
-        linters = { { exe = "stylelint" } },
-}
+-- lvim.lang.css = {
+--         formatters = { { exe = "stylelint" } },
+--         linters = { { exe = "stylelint" } },
+-- }
 
-lvim.lang.scss = {
-        formatters = { { exe = "stylelint" } },
-        linters = { { exe = "stylelint" } },
-}
+-- lvim.lang.scss = {
+--         formatters = { { exe = "stylelint" } },
+--         linters = { { exe = "stylelint" } },
+-- }
 
 -- lvim.lang.json.formatters = { { exe = "prettierd" } }
 
+require('lsp.null-ls.formatters').setup({
+        {
+                exe = "eslint_d",
+                filetypes = {
+                        "javascript", "vue", "typescript", "javascriptreact", "typescriptreact", "json"
+                }
+        },
+        {
+                exe = "stylelint",
+                filetypes = {
+                       "css", "scss"
+                }
+        },
+        -- {
+        --         exe = "prettierd",
+        --         filetypes = {
+        --                 "html",
+        --         }
+        -- }
+})
+
+
+require('lsp.null-ls.linters').setup({
+        {
+                exe = "eslint_d",
+                filetypes = {
+                        "javascript", "vue", "typescript", "javascriptreact", "typescriptreact", "json"
+                }
+        },
+        {
+                exe = "stylelint",
+                filetypes = {
+                       "css", "scss"
+                }
+        },
+})
