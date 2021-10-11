@@ -5,6 +5,7 @@ vim.g.vimwiki_list = { { path = "~/vimwiki/", syntax = "markdown", ext = ".md" }
 vim.g.dashboard_disable_statusline = 1
 
 lvim.plugins = {
+	{ "folke/tokyonight.nvim" },
 	{ "vimwiki/vimwiki" },
 	{ "tpope/vim-surround" },
 	{ "tpope/vim-repeat" },
@@ -107,13 +108,13 @@ lvim.plugins = {
         { "JoosepAlviste/nvim-ts-context-commentstring" },
         { "kshenoy/vim-signature" },
         { "christoomey/vim-titlecase" },
-        {
-                'phaazon/hop.nvim',
-                event = "BufRead",
-                config = function()
-                        require("plugin.hop").config()
-                end,
-        },
+        -- {
+        --         'phaazon/hop.nvim',
+        --         event = "BufRead",
+        --         config = function()
+        --                 require("plugin.hop").config()
+        --         end,
+        -- },
 --         {
 --                 "tzachar/cmp-tabnine",
 --                 config = function()
