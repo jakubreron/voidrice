@@ -45,7 +45,7 @@ lvim.lang.tailwindcss.active = true
 
 -- lvim.lang.json.formatters = { { exe = "prettierd" } }
 
-require('lsp.null-ls.formatters').setup({
+require('lvim.lsp.null-ls.formatters').setup({
         {
                 exe = "eslint_d",
                 filetypes = {
@@ -67,7 +67,7 @@ require('lsp.null-ls.formatters').setup({
 })
 
 
-require('lsp.null-ls.linters').setup({
+require('lvim.lsp.null-ls.linters').setup({
         {
                 exe = "eslint_d",
                 filetypes = {
