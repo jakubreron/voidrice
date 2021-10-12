@@ -1,6 +1,7 @@
 -- Disable virtual text
 lvim.lsp.diagnostics.virtual_text = false
-lvim.lsp.automatic_servers_installation=false
+-- lvim.lsp.automatic_servers_installation = false
+lvim.lsp.override = { "volar" }
 
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers

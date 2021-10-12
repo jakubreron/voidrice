@@ -5,6 +5,24 @@ lvim.builtin.autopairs.active = true
 lvim.builtin.comment.active = true
 lvim.builtin.gitsigns.active = true
 
+-- lvim.builtin.cmp.sources = {
+--   { name = "nvim_lsp" },
+--   { name = "path" },
+--   { name = "luasnip" },
+--   { name = "cmp_tabnine" },
+--   { name = "nvim_lua" },
+--   { name = "buffer" },
+--   { name = "calc" },
+--   { name = "emoji" },
+--   { name = "treesitter" },
+--   { name = "crates" },
+-- }
+
+-- lvim.builtin.lualine.options = {
+--   section_separators = {'', ''},
+--   component_separators = {'', ''}
+-- }
+
 -- detection patterns (custom nuxt modules fix)
 -- lvim.builtin.project.active = false
 lvim.builtin.project.detection_methods = { "pattern" }
