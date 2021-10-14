@@ -47,10 +47,10 @@ alias \
 
 # Generate packages
 alias \
-  pkg-main="cap; pkggen main.txt && cd -" \
-  pkg-work="cap; pkggen work.txt && cd -" \
-  pkg-secondary="cap; pkggen secondary.txt && cd -" \
-  pkg-yarn="cap; ygli | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt && cd -" 
+  pkg-main="cpap; pkggen main.txt && cd -" \
+  pkg-work="cpap; pkggen work.txt && cd -" \
+  pkg-secondary="cpap; pkggen secondary.txt && cd -" \
+  pkg-yarn="cpap; ygli | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt && cd -" 
 
 # Git
 alias \
@@ -183,8 +183,8 @@ alias \
       ln -n ~/.config/personal/voidrice/.local/bin/statusbar/* ~/.local/bin/statusbar/ &&
       ln -n ~/.config/personal/voidrice/.local/bin/cron/* ~/.local/bin/cron/
     " \
-    sy="cap; cat yarn.txt | xargs -t yarn global add" \
-    sp="cap; paru -S --needed - < main.txt" \
+    sy="cd ~/.config/personal/arch/pkglist; cat yarn.txt | xargs -t yarn global add" \
+    sp="cpap; paru -S --needed - < main.txt" \
     ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl; ssx && g pl && sudo rm {config,patches}.h && cmpl;" \
     sdots="ca && g pl; cu && g pl; cv && g pl; replace-all" \
     slvim="cd ~/.local/share/lunarvim/lvim && git checkout rolling && git pull && lvim +LvimUpdate" \

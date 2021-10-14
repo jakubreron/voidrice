@@ -1,5 +1,5 @@
 #  You  can  add  comments  to  these  files  with  #
-ch    ${XDG_CACHE_HOME:-$HOME/.cache}
+ce    ${XDG_CACHE_HOME:-$HOME/.cache}
 
 h     $HOME
 D     ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
@@ -32,20 +32,20 @@ dm    $HOME/Dropbox/Misc
 dp    $HOME/Dropbox/Programming
 ds    $HOME/Dropbox/Studies
 
+lc     $HOME/.local
+
+bin    $HOME/.local/bin
+bins   $HOME/.local/bin/statusbar
+
 shr   ${XDG_DATA_HOME:-$HOME/.local/share}
 shrl  ${XDG_DATA_HOME:-$HOME/.local/share}/lunarvim/lvim
 
-lc     $HOME/.local
-
-lcb    $HOME/.local/bin
-lcbs   $HOME/.local/bin/statusbar
-
-s     $HOME/.local/src
-sdw   $HOME/.local/src/dwm
-sdb   $HOME/.local/src/dwmblocks
-sdm   $HOME/.local/src/dmenu
-sst   $HOME/.local/src/st
-ssx   $HOME/.local/src/sxiv-flexipatch/
+src     $HOME/.local/src
+srcdw   $HOME/.local/src/dwm
+srcdb   $HOME/.local/src/dwmblocks
+srcdm   $HOME/.local/src/dmenu
+srcst   $HOME/.local/src/st
+srcsx   $HOME/.local/src/sxiv-flexipatch/
 
 vl    $HOME/.valet
 vls   $HOME/.valet/Sites
@@ -53,17 +53,19 @@ vln   $HOME/.valet/Nginx
 vlc   $HOME/.valet/Certificates
 
 c     ${XDG_CONFIG_HOME:-$HOME/.config}
-ca    $HOME/.config/personal/arch
-cap   $HOME/.config/personal/arch/pkglist
-cb    $HOME/.config/personal/bento
-cg    $HOME/.config/personal/gnome
-cu    $HOME/.config/personal/universal
-cv    $HOME/.config/personal/voidrice
+
+cl     $HOME/.config/lvim
+
+cpa    $HOME/.config/personal/arch
+cpap   $HOME/.config/personal/arch/pkglist
+cpb    $HOME/.config/personal/bento
+cpg    $HOME/.config/personal/gnome
+cpu    $HOME/.config/personal/universal
+cpv    $HOME/.config/personal/voidrice
 
 S     $HOME/Documents/Software
 
 pa    $HOME/Documents/Projects
-pc    $HOME/Documents/Projects/chatio
 pp    $HOME/Documents/Projects/portfolio
 pz    $HOME/Documents/Projects/dockerized-env
 pzw   $HOME/Documents/Projects/dockerized-env/app/web
