@@ -35,10 +35,10 @@ ds    $HOME/Dropbox/Studies
 shr   ${XDG_DATA_HOME:-$HOME/.local/share}
 shrl  ${XDG_DATA_HOME:-$HOME/.local/share}/lunarvim/lvim
 
-l     $HOME/.local
+lc     $HOME/.local
 
-lb    $HOME/.local/bin
-lbs   $HOME/.local/bin/statusbar
+lcb    $HOME/.local/bin
+lcbs   $HOME/.local/bin/statusbar
 
 s     $HOME/.local/src
 sdw   $HOME/.local/src/dwm
