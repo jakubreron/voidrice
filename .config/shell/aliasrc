@@ -183,11 +183,15 @@ alias \
       ln -n ~/.config/personal/voidrice/.local/bin/statusbar/* ~/.local/bin/statusbar/ &&
       ln -n ~/.config/personal/voidrice/.local/bin/cron/* ~/.local/bin/cron/
     " \
-    sy="cd ~/.config/personal/arch/pkglist; cat yarn.txt | xargs -t yarn global add" \
     sp="cpap; paru -S --needed - < main.txt" \
-    ssrc="sdw && g pl && cmpl; sdb && g pl && cmpl; sdm && g pl && cmpl; sst && g pl && cmpl; ssx && g pl && sudo rm {config,patches}.h && cmpl;" \
-    sdots="ca && g pl; cu && g pl; cv && g pl; replace-all" \
-    slvim="cd ~/.local/share/lunarvim/lvim && git checkout rolling && git pull && lvim +LvimUpdate" \
+    sy="cpap; cat yarn.txt | xargs -t yarn global add" \
+    spy="sp; sy" \
+
+    ssrc="srcdw && g pl && cmpl; srcdb && g pl && cmpl; srcdm && g pl && cmpl; srcst && g pl && cmpl; srcsx && g pl && sudo rm {config,patches}.h && cmpl;" \
+    sdots="cpa && g pl; cpu && g pl; cpv && g pl; replace-all" \
+
+    slvim="cl; git checkout rolling && git pull && lvim +LvimUpdate" \
+
     snc="ssrc; sdots; slvim" \
     sproj="pzw && g pl; pza && g pl; pzl && g pl" \
     sall="snc; sproj"
