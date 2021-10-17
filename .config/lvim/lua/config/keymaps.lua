@@ -5,7 +5,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["Y"] = "y$"
 
 -- repeat last macro used
-lvim.keys.normal_mode["Q"] = "@@"
+-- lvim.keys.normal_mode["Q"] = "@@"
 
 -- don't store "c" to the register
 -- lvim.keys.normal_mode["c"] = '"_c'
