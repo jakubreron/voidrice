@@ -5,7 +5,8 @@ vim.g.vimwiki_list = { { path = "~/vimwiki/", syntax = "markdown", ext = ".md" }
 vim.g.dashboard_disable_statusline = 1
 
 lvim.plugins = {
-  { "folke/tokyonight.nvim" },
+  -- { "folke/tokyonight.nvim" },
+  { "morhetz/gruvbox" },
   { "vimwiki/vimwiki" },
   { "tpope/vim-surround" },
   { "tpope/vim-repeat" },
