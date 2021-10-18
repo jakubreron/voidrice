@@ -23,8 +23,8 @@ end
 -- here's an example to disable formatting in "tsserver" and "jsonls"
 
 -- Langs
-lvim.lang.emmet.active = true
-lvim.lang.tailwindcss.active = true
+-- lvim.lang.emmet.active = true
+-- lvim.lang.tailwindcss.active = true
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 local linters = require "lvim.lsp.null-ls.linters"

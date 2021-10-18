@@ -1,6 +1,6 @@
 -- general
 lvim.format_on_save = true
-lvim.lint_on_save = true
+-- lvim.lint_on_save = true
 
 -- appearance
 -- lvim.colorscheme = "onedarker"
@@ -15,14 +15,16 @@ lvim.log.level = "warn"
 lvim.leader = "space"
 
 -- vim
-vim.opt.wrap = false
 vim.opt.smarttab = true
+vim.opt.softtabstop = 2
 vim.opt.relativenumber = true
+vim.opt.hlsearch = false
+vim.opt.colorcolumn = "80"
 vim.opt.incsearch = true
 vim.opt.lazyredraw = true
 vim.opt.magic = true
 
-vim.opt.path = "**"
+vim.opt.path:append("**")
 vim.opt.wildmenu = true
 vim.opt.dictionary = "/usr/share/dict/words"
 vim.opt.thesaurus = "~/.config/lvim/mthesaur.txt"
