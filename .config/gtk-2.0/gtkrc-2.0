@@ -2,7 +2,7 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/jakub/.gtkrc-2.0.mine"
-gtk-theme-name="Gruvbox-Material-Dark"
+gtk-theme-name="Arc-Dark"
 gtk-icon-theme-name="gruvbox-dark-icons-gtk"
 gtk-font-name="GoogleSans-Regular 10"
 gtk-cursor-theme-name="Adwaita"
