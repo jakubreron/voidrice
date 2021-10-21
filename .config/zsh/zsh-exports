@@ -9,6 +9,9 @@ export MCFLY_RESULTS=30
 export MCFLY_KEY_SCHEME=vim
 export PATH="$(yarn global bin):$PATH"
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" in each ne
+
 eval "$(mcfly init zsh)"
 # eval "$(fnm env)"
 # eval "$(zoxide init zsh)"
