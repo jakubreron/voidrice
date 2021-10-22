@@ -2,6 +2,7 @@
 lvim.format_on_save = true
 -- lvim.lint_on_save = true
 
+
 -- appearance
 -- lvim.colorscheme = "onedarker"
 lvim.colorscheme = "tokyonight"
@@ -29,3 +30,6 @@ vim.opt.path:append("**")
 vim.opt.wildmenu = true
 vim.opt.dictionary = "/usr/share/dict/words"
 vim.opt.thesaurus = "~/.config/lvim/mthesaur.txt"
+
+-- whichkey timeout
+vim.opt.timeoutlen = 100

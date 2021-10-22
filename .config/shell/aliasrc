@@ -226,6 +226,7 @@ alias \
     rm ~/.local/bin/lvim && 
     rm -rf ~/.config/lvim/plugin &&
     LVBRANCH=rolling bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/rolling/utils/installer/install.sh) &&
+  bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/rolling/utils/installer/install-neovim-from-release) &&
     cpv; git restore .config/lvim/config.lua &&
     replace-all
   " \
