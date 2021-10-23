@@ -18,11 +18,6 @@ lvim.builtin.gitsigns.active = true
 --   { name = "crates" },
 -- }
 
--- lvim.builtin.lualine.options = {
---   section_separators = {'', ''},
---   component_separators = {'', ''}
--- }
-
 -- detection patterns (custom nuxt modules fix)
 -- lvim.builtin.project.active = false
 lvim.builtin.project.detection_methods = { "pattern" }

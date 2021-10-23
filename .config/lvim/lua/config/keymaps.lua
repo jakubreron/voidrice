@@ -24,9 +24,9 @@ lvim.builtin.which_key.mappings.l.l = { ":LspRestart <CR>", "Restart LSP" }
 
 -- langs
 lvim.builtin.which_key.mappings.o = {
-  e = { ":setlocal spell! spelllang=en<CR>", "English" },
-  -- p = { ":setlocal spell! spelllang=pl<CR>", "Polish" },
-  -- j = { ":setlocal spell! spelllang=ja<CR>", "Japanese" }
+        e = { ":setlocal spell! spelllang=en<CR>", "English" },
+        -- p = { ":setlocal spell! spelllang=pl<CR>", "Polish" },
+        -- j = { ":setlocal spell! spelllang=ja<CR>", "Japanese" }
 }
 
 -- markdown preview
@@ -45,8 +45,15 @@ lvim.builtin.which_key.mappings.r = {
 
 -- lvim.builtin.which_key.mappings.n = { "<cmd>Lf<cr>", "File manager" }
 
+lvim.builtin.which_key.mappings["S"] = {
+        name = "Session",
+        c = { "<cmd>lua require('persistence').load()<cr>", "Restore last session for current dir" },
+        l = { "<cmd>lua require('persistence').load({ last = true })<cr>", "Restore last session" },
+}
+
 lvim.builtin.which_key.mappings["t"] = {
-  name = "+Terminal",
-  b = { "<cmd>split term://zsh<cr>", "Terminal to below" },
-  r = { "<cmd>vsplit term://zsh<cr>", "Terminal to right" },
+        name = "Todo",
+        q = { "<cmd>TodoQuickFix<cr>", "Todo Quick Fix" },
+        t = { "<cmd>TodoTrouble<cr>", "Todo Trouble" },
+        s = { "<cmd>TodoTelescope<cr>", "Todo Search" }
 }
