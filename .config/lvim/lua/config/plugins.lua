@@ -113,12 +113,12 @@ lvim.plugins = {
                 "JoosepAlviste/nvim-ts-context-commentstring",
                 event = "BufRead",
         },
-        {
-                "Pocco81/AutoSave.nvim",
-                config = function()
-                        require("autosave").setup()
-                end,
-        },
+        -- {
+        --         "Pocco81/AutoSave.nvim",
+        --         config = function()
+        --                 require("autosave").setup()
+        --         end,
+        -- },
         { "kshenoy/vim-signature" },
         { "christoomey/vim-titlecase" },
         {

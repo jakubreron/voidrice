@@ -4,6 +4,9 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- yank to the end
 lvim.keys.normal_mode["Y"] = "y$"
 
+-- inverted ctrl + h (del)
+lvim.keys.insert_mode["<C-l>"] = "<Del>"
+
 -- repeat last macro used
 -- lvim.keys.normal_mode["Q"] = "@@"
 
