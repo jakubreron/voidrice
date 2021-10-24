@@ -1,7 +1,12 @@
 -- Disable virtual text
 lvim.lsp.diagnostics.virtual_text = false
 -- lvim.lsp.automatic_servers_installation = false
-lvim.lsp.override = { "volar" }
+
+-- volar = experimental vue 3
+-- ember = idk,
+-- denols = javascript + typescript runtime
+lvim.lsp.override = { "volar", "ember", "denols" }
+
 -- lvim.lsp.override = { "vuels" }
 
 -- generic LSP settings
