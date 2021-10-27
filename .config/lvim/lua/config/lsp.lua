@@ -5,7 +5,7 @@ lvim.lsp.diagnostics.virtual_text = false
 -- volar = experimental vue 3
 -- ember = idk,
 -- denols = javascript + typescript runtime
-lvim.lsp.override = { "volar", "ember", "denols" }
+lvim.lsp.override = { "volar", "ember", "denols", "eslint", "stylelint_lsp" }
 
 -- lvim.lsp.override = { "vuels" }
 
@@ -25,7 +25,7 @@ lvim.lsp.on_attach_callback = function(client, bufnr)
   end
 end
 
-require("lvim.lsp.manager").setup "tailwindcss"
+-- require("lvim.lsp.manager").setup "tailwindcss"
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 local linters = require "lvim.lsp.null-ls.linters"

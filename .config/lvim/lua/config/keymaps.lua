@@ -21,21 +21,17 @@ lvim.keys.insert_mode["<C-l>"] = "<Del>"
 lvim.builtin.which_key.mappings.l.d = { "<cmd>TroubleToggle<cr>", "Diagnostics" }
 lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
 
--- symbols outline
-lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
+-- lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
 lvim.builtin.which_key.mappings.l.l = { ":LspRestart <CR>", "Restart LSP" }
 
 -- langs
 lvim.builtin.which_key.mappings.o = {
         e = { ":setlocal spell! spelllang=en<CR>", "English" },
-        -- p = { ":setlocal spell! spelllang=pl<CR>", "Polish" },
-        -- j = { ":setlocal spell! spelllang=ja<CR>", "Japanese" }
+        p = { ":setlocal spell! spelllang=pl<CR>", "Polish" },
+        j = { ":setlocal spell! spelllang=ja<CR>", "Japanese" }
 }
 
--- markdown preview
-lvim.builtin.which_key.mappings.m = { "<cmd>MarkdownPreviewToggle<cr>", "Markdown preview" }
-
--- zendon't
+lvim.builtin.which_key.mappings.b.m = { "<cmd>MarkdownPreviewToggle<cr>", "Markdown preview" }
 lvim.builtin.which_key.mappings.z = { "<cmd>ZenMode<cr>", "Zen" }
 
 -- search & replace
