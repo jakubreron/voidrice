@@ -1,17 +1,15 @@
 [global]
     monitor = 0
-    follow = keyboard
-    geometry = "370x5-6+24"
+    offset = 22x40
     indicate_hidden = yes
-    shrink = yes
     transparency = 25
     notification_height = 0
-    separator_height = 3
     padding = 8
     horizontal_padding = 8
     frame_width = 3
     frame_color = "{color4}"
-    follow = mouse
+    follow = keyboard
+    progress_bar = true
 
     # Define a color for the separator.
     # possible values are:
@@ -67,11 +65,11 @@
 [experimental]
     per_monitor_dpi = false
 
-[shortcuts]
-    close = ctrl+space
-    close_all = ctrl+shift+space
-    history = ctrl+grave
-    context = ctrl+shift+period
+# [shortcuts]
+#     close = ctrl+space
+#     close_all = ctrl+shift+space
+#     history = ctrl+grave
+#     context = ctrl+shift+period
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
