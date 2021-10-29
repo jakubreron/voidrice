@@ -1,6 +1,7 @@
 [global]
     monitor = 0
     offset = 22x40
+    width = (0, 400)
     indicate_hidden = yes
     transparency = 25
     notification_height = 0
