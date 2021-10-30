@@ -21,11 +21,11 @@ lvim.builtin.gitsigns.active = true
 
 -- detection patterns (custom nuxt modules fix)
 -- lvim.builtin.project.active = false
-lvim.builtin.project.detection_methods = { "pattern" }
-lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile" }
+-- lvim.builtin.project.detection_methods = { "pattern" }
+-- lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile" }
 
--- nvimtree
-require("plugin.nvimtree").config()
+lvim.builtin.nvimtree.ignore = {}
+lvim.builtin.nvimtree.hide_dotfiles = 0
 
 -- treesitter
 -- if you don't want all the parsers change this to a table of the ones you want
