@@ -102,6 +102,7 @@ alias \
 # tests
 alias \
   yts="yarn test" \
+  ytsu="yarn test:unit" \
 # dev
 alias \
   ydv="yarn dev" \

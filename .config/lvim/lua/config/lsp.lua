@@ -5,7 +5,7 @@ lvim.lsp.diagnostics.virtual_text = false
 -- volar = experimental vue 3
 -- ember = idk,
 -- denols = javascript + typescript runtime
-lvim.lsp.override = { "volar", "ember", "denols", "eslint", "stylelint_lsp" }
+lvim.lsp.override = { "vuels", "ember", "denols", "eslint", "stylelint_lsp" }
 
 -- lvim.lsp.override = { "vuels" }
 
