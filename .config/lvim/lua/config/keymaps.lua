@@ -21,8 +21,8 @@ lvim.keys.insert_mode["<C-l>"] = "<Del>"
 lvim.builtin.which_key.mappings.l.d = { "<cmd>TroubleToggle<cr>", "Diagnostics" }
 lvim.builtin.which_key.mappings.l.R = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
 
--- lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
 lvim.builtin.which_key.mappings.l.l = { ":LspRestart <CR>", "Restart LSP" }
+-- lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
 
 -- langs
 lvim.builtin.which_key.mappings.o = {

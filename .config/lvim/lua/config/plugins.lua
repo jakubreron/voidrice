@@ -7,8 +7,11 @@ vim.g.dashboard_disable_statusline = 1
 lvim.plugins = {
         -- { "folke/tokyonight.nvim" },
         -- { "morhetz/gruvbox" },
-        { "vimwiki/vimwiki" },
-        { "tpope/vim-repeat" },
+        { "vimwiki/vimwiki" }, -- note taking plugin
+        { "tpope/vim-repeat" }, -- better "."
+        -- { "tpope/vim-vinegar" }, -- better "netrw"
+        { "tpope/vim-sleuth" }, -- detect the relevant tabs / shifts
+        { "tpope/vim-jdaddy" }, -- additional json movements
         { "tpope/vim-surround" },
         {
                 "unblevable/quick-scope", -- highlight the scope after using "t" or "f"
@@ -34,9 +37,13 @@ lvim.plugins = {
                 "andymass/vim-matchup", -- better "%"
                 event = "CursorMoved",
                 config = function()
-                        require("plugin.matchup")
+                        vim.g.matchup_matchparen_offscreen = { method = "popup" }
                 end,
         },
+        -- {
+        --         "sindrets/diffview.nvim", -- single tab diffview
+        --         event = "BufRead",
+        -- },
         {
                 "nacro90/numb.nvim", -- peek the lines (when typing :12 for example)
                 event = "BufRead",
@@ -79,7 +86,7 @@ lvim.plugins = {
         -- 	ft = "json",
         -- },
         -- {
-        --         "simrat39/symbols-outline.nvim",
+        --         "simrat39/symbols-outline.nvim", -- outline the buffer
         --         -- cmd = "SymbolsOutline",
         --         config = function()
         --                 require("plugin.outline").config()
@@ -91,7 +98,29 @@ lvim.plugins = {
         },
         {
                 "kevinhwang91/nvim-bqf", -- better quickfix window (preview, search & replace, etc...)
-                event = "BufRead",
+                event = { "BufRead", "BufNew" },
+                config = function()
+                        require("bqf").setup({
+                                auto_enable = true,
+                                preview = {
+                                        win_height = 12,
+                                        win_vheight = 12,
+                                        delay_syntax = 80,
+                                        border_chars = { "┃", "┃", "━", "━", "┏", "┓", "┗", "┛", "█" },
+                                },
+                                func_map = {
+                                        vsplit = "",
+                                        ptogglemode = "z,",
+                                        stoggleup = "",
+                                },
+                                filter = {
+                                        fzf = {
+                                                action_for = { ["ctrl-s"] = "split" },
+                                                extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
+                                        },
+                                },
+                        })
+                end,
         },
         {
                 "iamcco/markdown-preview.nvim", -- localhost markdown server
@@ -154,6 +183,10 @@ lvim.plugins = {
                 config = function()
                         require("todo-comments").setup()
                 end,
+        },
+        {
+                "felipec/vim-sanegx", -- go to the url using gX
+                event = "BufRead",
         },
         --         {
         --                 "tzachar/cmp-tabnine",
