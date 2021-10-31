@@ -95,15 +95,18 @@ alias \
   yr="yarn remove"
 # global
 alias \
-  yg="yarn global" \
-  ygli="yarn global list --depth=0" \
+  ygl="yarn global" \
+  ygll="yarn global list --depth=0" \
   yga="yarn global add" \
   ygr="yarn global remove"
+# tests
+alias \
+  yts="yarn test" \
 # dev
 alias \
-  yd="yarn dev" \
-  ydw="yarn dev --watch" \
-  yw="yarn watch" \
+  ydv="yarn dev" \
+  ydvw="yarn dev --watch" \
+  ywt="yarn watch" \
   yst="yarn start" \
   ystw="yarn start --watch" \
   ysr="yarn serve" \
@@ -113,8 +116,8 @@ alias \
   yb="yarn build" 
 # lints
 alias \
-  yl="yarn lint" \
-  ylf="yarn lint:fix" \
+  yln="yarn lint" \
+  ylnf="yarn lint:fix" \
 # storybook
 alias \
   ysb="yarn storybook" \
@@ -124,7 +127,7 @@ alias \
   yod="yarn outdated" \
   ycc="yarn cache clean" \
   yli="yarn list --depth=0" \
-  yf="yarn info --verbose --no-emoji" \
+  yif="yarn info --verbose --no-emoji" \
   yua="yarn-upgrade-all" \
   ycv="yarn create vite"
 
