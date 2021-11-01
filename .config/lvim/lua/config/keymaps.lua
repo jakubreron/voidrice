@@ -31,7 +31,17 @@ lvim.builtin.which_key.mappings.o = {
         j = { ":setlocal spell! spelllang=ja<CR>", "Japanese" }
 }
 
+-- buffer
 lvim.builtin.which_key.mappings.b.m = { "<cmd>MarkdownPreviewToggle<cr>", "Markdown preview" }
+
+-- buffer / server
+lvim.builtin.which_key.mappings.b.s = {
+        s = { "<cmd>Bracey<cr>", "Start" },
+        k = { "<cmd>BraceyStop<cr>", "Kill" },
+        r = { "<cmd>BraceyReload<cr>", "Reload" },
+        f = { "<cmd>BraceyEval<cr>", "Force Reload" },
+}
+
 lvim.builtin.which_key.mappings.z = { "<cmd>ZenMode<cr>", "Zen" }
 
 -- search & replace
