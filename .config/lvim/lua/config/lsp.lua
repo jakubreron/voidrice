@@ -1,13 +1,11 @@
 -- Disable virtual text
 lvim.lsp.diagnostics.virtual_text = false
--- lvim.lsp.automatic_servers_installation = false
 
--- volar = experimental vue 3
--- ember = idk,
--- denols = javascript + typescript runtime
-lvim.lsp.override = { "vuels", "ember", "denols", "eslint", "stylelint_lsp" }
-
--- lvim.lsp.override = { "vuels" }
+-- NOTE: volar: vue 3 support
+-- NOTE: vuels: vue 2 support
+-- NOTE: ember: idk
+-- NOTE: denols: javascript + typescript runtime
+-- vim.list_extend(lvim.lsp.override, { "vuels", "ember", "denols", "eslint", "stylelint_lsp" })
 
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers

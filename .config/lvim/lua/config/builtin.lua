@@ -6,6 +6,7 @@ lvim.builtin.comment.active = true
 lvim.builtin.gitsigns.active = true
 -- lvim.builtin.notify.active = true
 
+-- NOTE: autocompletion
 -- lvim.builtin.cmp.sources = {
 --   { name = "nvim_lsp" },
 --   { name = "path" },
@@ -30,6 +31,8 @@ lvim.builtin.nvimtree.hide_dotfiles = 0
 -- treesitter
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
+  "dockerfile",
+  "latex",
   "bash",
   "javascript",
   "json",
