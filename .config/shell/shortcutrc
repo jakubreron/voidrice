@@ -53,6 +53,7 @@ cpv="cd /home/jakub/.config/personal/voidrice" \
 S="cd /home/jakub/Documents/Software" \
 pa="cd /home/jakub/Documents/Projects" \
 pp="cd /home/jakub/Documents/Projects/portfolio" \
+pb="cd /home/jakub/Documents/Projects/boilerplate" \
 pz="cd /home/jakub/Documents/Projects/dockerized-env" \
 pzw="cd /home/jakub/Documents/Projects/dockerized-env/app/web" \
 pzl="cd /home/jakub/Documents/Projects/dockerized-env/app/landlord-web" \

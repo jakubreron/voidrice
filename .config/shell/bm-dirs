@@ -68,6 +68,7 @@ S     $HOME/Documents/Software
 
 pa    $HOME/Documents/Projects
 pp    $HOME/Documents/Projects/portfolio
+pb    $HOME/Documents/Projects/boilerplate
 pz    $HOME/Documents/Projects/dockerized-env
 pzw   $HOME/Documents/Projects/dockerized-env/app/web
 pzl   $HOME/Documents/Projects/dockerized-env/app/landlord-web
