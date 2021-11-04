@@ -1,6 +1,6 @@
 -- general
--- lvim.format_on_save = true
--- lvim.lint_on_save = true
+lvim.format_on_save = false
+lvim.lint_on_save = false
 
 -- appearance
 -- lvim.colorscheme = "onedarker"
