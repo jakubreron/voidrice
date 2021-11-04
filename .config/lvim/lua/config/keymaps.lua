@@ -1,5 +1,5 @@
 -- save
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+-- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
 -- yank to the end
 lvim.keys.normal_mode["Y"] = "y$"
