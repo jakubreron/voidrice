@@ -7,7 +7,6 @@ localBROWSER="$BROWSER "
 
 if [ -f ~/.config/bookmarks ]; then
 	choice=$( (cat ~/.config/bookmarks) | $LAUNCER"Search:") || exit 1
-	pretty_choice=$( (cat ~/.config/bookmarks) | $LAUNCER"Search:") || exit 1
 fi
 
 case "$choice" in *❔*)
