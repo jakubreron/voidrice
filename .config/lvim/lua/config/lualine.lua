@@ -13,20 +13,20 @@ lvim.builtin.lualine.sections.lualine_z = {
 }
 
 lvim.builtin.lualine.sections.lualine_b = {
-        components.branch,
-        {
-                "filename",
-                file_status = true, -- displays file status (readonly status, modified status)
-                path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
-        },
+  components.branch,
+  {
+    "filename",
+    file_status = true, -- displays file status (readonly status, modified status)
+    path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
+  },
 }
 
 lvim.builtin.lualine.inactive_sections.lualine_a = {
-        {
-                "filename",
-                file_status = true, -- displays file status (readonly status, modified status)
-                path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
-        },
+  {
+    "filename",
+    file_status = true, -- displays file status (readonly status, modified status)
+    path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
+  },
 }
 
 -- Remove bold from lsp info and set foreground color to dimmer one

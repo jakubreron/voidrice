@@ -7,18 +7,18 @@ lvim.builtin.gitsigns.active = true
 -- lvim.builtin.notify.active = true
 
 -- NOTE: autocompletion
--- lvim.builtin.cmp.sources = {
---   { name = "nvim_lsp" },
---   { name = "path" },
---   { name = "luasnip" },
---   { name = "cmp_tabnine" },
---   { name = "nvim_lua" },
---   { name = "buffer" },
---   { name = "calc" },
---   { name = "emoji" },
---   { name = "treesitter" },
---   { name = "crates" },
--- }
+lvim.builtin.cmp.sources = {
+  { name = "nvim_lsp" },
+  { name = "path" },
+  { name = "luasnip" },
+  { name = "cmp_tabnine" },
+  { name = "nvim_lua" },
+  -- { name = "buffer" },
+  { name = "calc" },
+  { name = "emoji" },
+  { name = "treesitter" },
+  { name = "crates" },
+}
 
 -- detection patterns (custom nuxt modules fix)
 -- lvim.builtin.project.active = false

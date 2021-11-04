@@ -11,14 +11,14 @@ M.config = function()
 		{ key = "h", cb = tree_cb("close_node") },
 		{ key = "v", cb = tree_cb("vsplit") },
 		{ key = "s", cb = tree_cb("split") },
-		{ key = "<C-x>", cb = tree_cb("system_open") },
+		{ key = "<C-t>", cb = tree_cb("system_open") },
 	}
 
-        lvim.builtin.nvimtree.side = "left"
-        lvim.builtin.nvimtree.hide_dotfiles = false
-        lvim.builtin.nvimtree.setup.auto_close = true
-        lvim.builtin.nvimtree.show_icons.git = 1
-        -- lvim.builtin.nvimtree.ignore = { ".git", ".idea", ".vscode" }
+	lvim.builtin.nvimtree.side = "left"
+	lvim.builtin.nvimtree.hide_dotfiles = false
+	lvim.builtin.nvimtree.setup.auto_close = true
+	lvim.builtin.nvimtree.show_icons.git = 1
+	-- lvim.builtin.nvimtree.ignore = { ".git", ".idea", ".vscode" }
 end
 
 return M

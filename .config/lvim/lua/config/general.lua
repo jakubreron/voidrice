@@ -8,7 +8,7 @@
 -- lvim.colorscheme = "gruvbox"
 lvim.transparent_window = true
 
- -- debug
+-- debug
 lvim.debug = false
 lvim.log.level = "warn"
 
