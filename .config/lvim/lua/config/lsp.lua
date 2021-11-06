@@ -5,7 +5,8 @@ lvim.lsp.diagnostics.virtual_text = false
 -- NOTE: vuels: vue 2 support
 -- NOTE: ember: idk
 -- NOTE: denols: javascript + typescript runtime
--- vim.list_extend(lvim.lsp.override, { "vuels", "ember", "denols", "eslint", "stylelint_lsp" })
+-- vim.list_extend(lvim.lsp.override, { "vuels", "ember", "denols", "eslintls", "stylelint_lsp" })
+vim.list_extend(lvim.lsp.override, { "eslintls" })
 
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers
@@ -42,7 +43,7 @@ formatters.setup({
   {
     exe = "stylelint",
     filetypes = {
-      "css", "scss", "less"
+      "css", "scss", "less", "sass"
     }
   },
   {
@@ -68,7 +69,7 @@ linters.setup({
   {
     exe = "stylelint",
     filetypes = {
-      "css", "scss", "less"
+      "css", "scss", "less", "sass"
     }
   },
 })

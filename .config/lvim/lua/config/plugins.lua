@@ -13,7 +13,13 @@ lvim.plugins = {
   -- { "tpope/vim-vinegar" }, -- better "netrw"
   { "tpope/vim-sleuth" }, -- detect the relevant tabs / shifts
   { "tpope/vim-jdaddy" }, -- additional json movements
-  { "tpope/vim-surround" },
+  { "tpope/vim-surround" }, -- surround movement
+  {
+    "ThePrimeagen/git-worktree.nvim",
+    config = function ()
+      require("telescope").load_extension("git_worktree")
+    end
+  }, -- git worktree integration
   {
     "unblevable/quick-scope", -- highlight the scope after using "t" or "f"
     config = function()
@@ -135,10 +141,10 @@ lvim.plugins = {
       require("nvim-ts-autotag").setup()
     end,
   },
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring", -- comment based on the context
-    event = "BufRead",
-  },
+  -- {
+  --   "JoosepAlviste/nvim-ts-context-commentstring", -- comment based on the context
+  --   event = "BufRead",
+  -- },
   {
     "Pocco81/AutoSave.nvim",
     config = function()
