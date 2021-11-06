@@ -9,8 +9,7 @@ lvim.keys.normal_mode["0"] = "^"
 lvim.keys.insert_mode["<C-l>"] = "<Del>"
 
 
--- repeat last macro used
--- lvim.keys.normal_mode["Q"] = "@@"
+lvim.keys.normal_mode["Q"] = "<cmd>BufferClose!<cr>"
 
 -- don't store "c" to the register
 -- lvim.keys.normal_mode["c"] = '"_c'
@@ -18,8 +17,8 @@ lvim.keys.insert_mode["<C-l>"] = "<Del>"
 -- unmap a default keymapping
 lvim.builtin.which_key.mappings["T"] = nil
 
--- file explorer
-lvim.builtin.which_key.mappings["e"] = { "<cmd>Ex<cr>", "File explorer" }
+-- netrw
+-- lvim.builtin.which_key.mappings["e"] = { "<cmd>Ex<cr>", "File explorer" }
 
 -- git worktrees
 -- <Enter> - switches to that worktree
@@ -30,6 +29,14 @@ lvim.builtin.which_key.mappings["gw"] = {
   s = { "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<cr>", "Search the worktrees" },
   c = { "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>", "Create a worktree" }
 }
+
+lvim.builtin.telescope.on_config_done = function()
+  local actions = require "telescope.actions"
+  lvim.builtin.telescope.defaults.mappings.i["<C-j>"] = actions.move_selection_next
+  lvim.builtin.telescope.defaults.mappings.i["<C-k>"] = actions.move_selection_previous
+  lvim.builtin.telescope.defaults.mappings.i["<C-n>"] = actions.cycle_history_next
+  lvim.builtin.telescope.defaults.mappings.i["<C-p>"] = actions.cycle_history_prev
+end
 
 -- trouble diagnostics
 lvim.builtin.which_key.mappings["ld"] = { "<cmd>TroubleToggle<cr>", "Diagnostics" }

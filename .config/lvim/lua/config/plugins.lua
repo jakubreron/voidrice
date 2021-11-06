@@ -6,11 +6,12 @@ vim.g.dashboard_disable_statusline = 1
 
 lvim.plugins = {
   { "andweeb/presence.nvim" }, -- flex with VIM on the discord
-  { "folke/tokyonight.nvim" }, -- theme
+  -- { "lunarvim/colorschemes" }, -- a lot of themes
+  -- { "folke/tokyonight.nvim" }, -- nice theme
   -- { "morhetz/gruvbox" },
   { "vimwiki/vimwiki" }, -- note taking plugin
   { "tpope/vim-repeat" }, -- better "."
-  { "tpope/vim-vinegar" }, -- better "netrw"
+  -- { "tpope/vim-vinegar" }, -- better "netrw"
   { "tpope/vim-sleuth" }, -- detect the relevant tabs / shifts
   { "tpope/vim-jdaddy" }, -- additional json movements
   { "tpope/vim-surround" }, -- surround movement

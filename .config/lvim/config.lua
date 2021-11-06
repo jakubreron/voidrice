@@ -8,6 +8,4 @@ require "config.lsp"
 
 require "config.autocommands"
 
-require "config.lualine"
-
 require "config.plugins"

@@ -4,8 +4,9 @@ lvim.builtin.terminal.active = true
 lvim.builtin.autopairs.active = true
 lvim.builtin.comment.active = true
 lvim.builtin.gitsigns.active = true
-lvim.builtin.nvimtree.active = false
 -- lvim.builtin.notify.active = true
+
+lvim.builtin.cmp.experimental.ghost_text = true
 
 -- NOTE: autocompletion
 lvim.builtin.cmp.sources = {
@@ -52,7 +53,7 @@ lvim.builtin.treesitter.ensure_installed = {
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.autotag.enable = true
-lvim.builtin.treesitter.context_commentstring.enable = true
+-- lvim.builtin.treesitter.context_commentstring.enable = true
 
 -- telescope
 lvim.builtin.telescope.defaults.layout_strategy = "horizontal"
