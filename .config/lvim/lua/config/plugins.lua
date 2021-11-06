@@ -10,16 +10,16 @@ lvim.plugins = {
   -- { "morhetz/gruvbox" },
   { "vimwiki/vimwiki" }, -- note taking plugin
   { "tpope/vim-repeat" }, -- better "."
-  -- { "tpope/vim-vinegar" }, -- better "netrw"
+  { "tpope/vim-vinegar" }, -- better "netrw"
   { "tpope/vim-sleuth" }, -- detect the relevant tabs / shifts
   { "tpope/vim-jdaddy" }, -- additional json movements
   { "tpope/vim-surround" }, -- surround movement
   {
-    "ThePrimeagen/git-worktree.nvim",
+    "ThePrimeagen/git-worktree.nvim", -- git worktree integration
     config = function ()
       require("telescope").load_extension("git_worktree")
     end
-  }, -- git worktree integration
+  },
   {
     "unblevable/quick-scope", -- highlight the scope after using "t" or "f"
     config = function()
@@ -86,7 +86,7 @@ lvim.plugins = {
   },
   -- {
   -- 	"vuki656/package-info.nvim", -- check if the package info is up to date
-  --         requires = "MunifTanjim/nui.nvim",
+  --  requires = "MunifTanjim/nui.nvim",
   -- 	config = function()
   -- 		require("plugin.package-info")
   -- 	end,

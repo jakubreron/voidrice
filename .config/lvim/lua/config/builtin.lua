@@ -4,6 +4,7 @@ lvim.builtin.terminal.active = true
 lvim.builtin.autopairs.active = true
 lvim.builtin.comment.active = true
 lvim.builtin.gitsigns.active = true
+lvim.builtin.nvimtree.active = false
 -- lvim.builtin.notify.active = true
 
 -- NOTE: autocompletion

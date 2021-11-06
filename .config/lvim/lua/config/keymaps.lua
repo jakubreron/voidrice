@@ -8,6 +8,7 @@ lvim.keys.normal_mode["0"] = "^"
 -- inverted ctrl + h (del)
 lvim.keys.insert_mode["<C-l>"] = "<Del>"
 
+
 -- repeat last macro used
 -- lvim.keys.normal_mode["Q"] = "@@"
 
@@ -15,7 +16,10 @@ lvim.keys.insert_mode["<C-l>"] = "<Del>"
 -- lvim.keys.normal_mode["c"] = '"_c'
 
 -- unmap a default keymapping
-lvim.builtin.which_key.mappings["T"] = ""
+lvim.builtin.which_key.mappings["T"] = nil
+
+-- file explorer
+lvim.builtin.which_key.mappings["e"] = { "<cmd>Ex<cr>", "File explorer" }
 
 -- git worktrees
 -- <Enter> - switches to that worktree
