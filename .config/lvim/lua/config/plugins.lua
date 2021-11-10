@@ -34,13 +34,13 @@ lvim.plugins = {
       require("plugin.blankline")
     end,
   },
-  {
-    "ruifm/gitlinker.nvim", -- quick link to the git snippet
-    event = "BufRead",
-    config = function()
-      require("plugin.gitlinker").config()
-    end,
-  },
+  -- {
+  --   "ruifm/gitlinker.nvim", -- quick link to the git snippet
+  --   event = "BufRead",
+  --   config = function()
+  --     require("plugin.gitlinker").config()
+  --   end,
+  -- },
   {
     "andymass/vim-matchup", -- better "%"
     event = "CursorMoved",
@@ -130,11 +130,11 @@ lvim.plugins = {
       })
     end,
   },
-  {
-    "iamcco/markdown-preview.nvim", -- localhost markdown server
-    run = "cd app && yarn install",
-    ft = "markdown",
-  },
+  -- {
+  --   "iamcco/markdown-preview.nvim", -- localhost markdown server
+  --   run = "cd app && yarn install",
+  --   ft = "markdown",
+  -- },
   {
     "windwp/nvim-ts-autotag", -- complete or replace the open & closing tags
     event = "InsertEnter",
@@ -196,12 +196,11 @@ lvim.plugins = {
     "felipec/vim-sanegx", -- go to the url using gX
     event = "BufRead",
   },
-
-  {
-    "turbio/bracey.vim",
-    cmd = {"Bracey", "BracyStop", "BraceyReload", "BraceyEval"},
-    run = "npm install --prefix server",
-  },
+  -- {
+  --   "turbio/bracey.vim",
+  --   cmd = {"Bracey", "BracyStop", "BraceyReload", "BraceyEval"},
+  --   run = "npm install --prefix server",
+  -- },
   --         {
   --                 "tzachar/cmp-tabnine",
   --                 config = function()
