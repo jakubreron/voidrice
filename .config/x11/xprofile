@@ -11,9 +11,10 @@ remaps &		                                                 # Run the remaps scri
 picom --experimental-backend &		                           # Picom for transparency and blur
 dunst &			                                                 # Dunst for notifications
 xset r rate 250 50 &	                                       # Speed xrate up
+xrandr --dpi 96 &	                                           # Speed xrate up
 unclutter &		                                               # Remove mouse when idle
 fcitx -d &                                                   # Keyboard
-# easyeffects --gapplication-service &                         # Equalizer
+easyeffects --gapplication-service &                         # Equalizer
 redshift &                                                   # Night light
 /usr/lib/kdeconnectd &                                       # KDE connect daemon
 # dropbox &                                                  # Dropbox
