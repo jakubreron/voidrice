@@ -28,7 +28,7 @@ cfX	${XDG_CONFIG_HOME:-$HOME/.config}/sxiv/exec/key-handler	# sxiv (image viewer
 ## Some personal configs
 cft	~/.ticker.yaml # stonks
 cfb	${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/.config/bookmarks # website bookmarks
-cfg	${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/.gitconfig # gitconfig
+cfg	${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/.config/git/config # gitconfig
 
 dca ${XDG_CONFIG_HOME:-$HOME/.config}/personal/arch/README.md
 dcu ${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/README.md

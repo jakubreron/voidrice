@@ -1,24 +1,28 @@
 -- save
 -- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
--- yank to the end
-lvim.keys.normal_mode["Y"] = "y$"
-lvim.keys.normal_mode["0"] = "^"
+lvim.keys = {
+  insert_mode = {
+    -- inverted ctrl + h (del)
+    ["<C-l>"] = "<Del>",
+  },
 
--- inverted ctrl + h (del)
-lvim.keys.insert_mode["<C-l>"] = "<Del>"
+  normal_mode = {
+    ["Y"] = "y$",
+    ["0"] = "^",
+    ["Q"] = "<cmd>BufferClose!<cr>",
 
+    -- don't store "c" to the register
+    -- ["c"] = '"_c'
 
-lvim.keys.normal_mode["Q"] = "<cmd>BufferClose!<cr>"
+    -- ["<C-p>"] = "<cmd>Telescope find_files theme=get_ivy<CR>",
+  },
+}
 
--- don't store "c" to the register
--- lvim.keys.normal_mode["c"] = '"_c'
-
+-- TODO: move which_key bindings into 1 object
 -- unmap a default keymapping
 lvim.builtin.which_key.mappings["T"] = nil
-
--- netrw
--- lvim.builtin.which_key.mappings["e"] = { "<cmd>Ex<cr>", "File explorer" }
+lvim.builtin.which_key.mappings["h"] = nil
 
 -- git worktrees
 -- <Enter> - switches to that worktree
@@ -71,9 +75,9 @@ lvim.builtin.which_key.mappings["bz"] = { "<cmd>ZenMode<cr>", "Zen" }
 -- search & replace
 lvim.builtin.which_key.mappings["r"] = {
   name = "Replace",
-  r = { "<cmd>lua require('spectre').open()<cr>", "Replace" },
+  r = { ":%s@<c-r><c-w>@<c-r><c-w>@gc<c-f>$F@i", "Find and replace" },
   w = { "<cmd>lua require('spectre').open_visual({select_word=true})<cr>", "Replace Word" },
-  f = { ":%s//g<Left><Left>", "Find and replace" },
+  a = { "<cmd>lua require('spectre').open()<cr>", "Replace anything" },
 }
 
 -- lvim.builtin.which_key.mappings.n = { "<cmd>Lf<cr>", "File manager" }
