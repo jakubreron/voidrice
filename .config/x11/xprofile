@@ -19,7 +19,7 @@ for program in $autostart; do
 done >/dev/null 2>&1
 
 # Screen layouts
-layout-primary &
+# layout-primary &
 # layout-secondary &
 # layout-temporary &
 
