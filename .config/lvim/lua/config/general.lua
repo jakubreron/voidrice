@@ -1,5 +1,9 @@
 -- general
-lvim.format_on_save = false
+-- lvim.format_on_save = {
+--   pattern = "*",
+--   timeout = 1000
+-- }
+
 lvim.lint_on_save = true
 
 -- appearance
