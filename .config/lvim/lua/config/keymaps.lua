@@ -24,6 +24,9 @@ lvim.keys = {
 lvim.builtin.which_key.mappings["T"] = nil
 lvim.builtin.which_key.mappings["h"] = nil
 
+lvim.builtin.which_key.mappings["f"] = { "zz<cmd>Telescope find_files theme=get_ivy<cr>", "Find File" }
+lvim.builtin.which_key.mappings["st"] = { "zz<cmd>Telescope live_grep theme=get_ivy<cr>", "Text" }
+
 -- git worktrees
 -- <Enter> - switches to that worktree
 -- <c-d> - deletes that worktree

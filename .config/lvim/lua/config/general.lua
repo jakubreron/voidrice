@@ -1,10 +1,11 @@
 -- general
-lvim.format_on_save = {
-  pattern = "*",
-  timeout = 2000
-}
+-- lvim.format_on_save = {
+--   pattern = "*",
+--   timeout = 2000
+-- }
 
-lvim.lint_on_save = true
+lvim.format_on_save = false
+lvim.lint_on_save = false
 
 -- appearance
 -- lvim.colorscheme = "onedarker"

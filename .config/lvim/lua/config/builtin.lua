@@ -22,6 +22,7 @@ lvim.builtin.cmp.sources = {
   { name = "crates" },
 }
 
+-- TODO: enable these lines only for certain projects
 -- detection patterns (custom nuxt modules fix)
 -- lvim.builtin.project.active = false
 -- lvim.builtin.project.detection_methods = { "pattern" }
