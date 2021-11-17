@@ -54,18 +54,18 @@ alias \
 
 # Git
 alias \
-	g="git" \
-  dv="git checkout develop && git pull" \
-  es="git checkout env/staging && git pull" \
-  ep="git checkout env/production && git pull" \
-  ms="git checkout master && git pull" \
-  mn="git checkout main && git pull" \
-  husky-init="npx husky-init && yarn"
+  g="git" \
+  gdv="git checkout develop && git pull" \
+  ges="git checkout env/staging && git pull" \
+  gep="git checkout env/production && git pull" \
+  gms="git checkout master && git pull" \
+  gmn="git checkout main && git pull" \
+  ghusky-init="npx husky-init && yarn"
 
 alias \
   sctl="sudo systemctl" \
-	ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
-	wth="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+  ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
+  wth="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
   rates="curl rate.sx | less -S"
 
 # get fastest mirrors
