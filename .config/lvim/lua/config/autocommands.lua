@@ -42,7 +42,7 @@ lvim.autocommands.custom_groups = {
   },
   {
     "VimLeave",
-    "~.config/personal/universal/.gitconfig",
+    "~/.config/personal/universal/.config/git/config",
     "!cd ~/.config/personal/universal; git add .; git commit -m 'feat(gitconfig)'; git push;",
   },
   {
