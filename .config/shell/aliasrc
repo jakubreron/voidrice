@@ -55,12 +55,6 @@ alias \
 # Git
 alias \
   g="git" \
-  gdv="git checkout develop && git pull" \
-  ges="git checkout env/staging && git pull" \
-  gep="git checkout env/production && git pull" \
-  gms="git checkout master && git pull" \
-  gmn="git checkout main && git pull" \
-  ghusky-init="npx husky-init && yarn"
 
 alias \
   sctl="sudo systemctl" \
