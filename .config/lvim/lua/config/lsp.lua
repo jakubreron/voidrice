@@ -6,7 +6,7 @@ lvim.lsp.diagnostics.virtual_text = false
 -- NOTE: ember: idk
 -- NOTE: denols: javascript + typescript runtime
 -- vim.list_extend(lvim.lsp.override, { "vuels", "ember", "denols", "eslintls", "stylelint_lsp" })
-vim.list_extend(lvim.lsp.override, { "eslintls" })
+-- vim.list_extend(lvim.lsp.override, { "eslintls" })
 
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers
