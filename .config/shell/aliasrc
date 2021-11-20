@@ -166,7 +166,7 @@ alias \
 alias \
   replace-all="
       rm ~/{.zprofile,.xprofile} &&
-      rm -rf ~/.config/{dunst,fontconfig,gtk-4.0,gtk-3.0,gtk-2.0,lf,mpd,mpv,ncmpcpp,newsboat,nvim,pulse,shell,sxiv,wal,wget,x11,zathura,zsh,neofetch} &&
+      rm -rf ~/.config/{dunst,fontconfig,gtk-4.0,gtk-3.0,gtk-2.0,lf,mpd,mpv,ncmpcpp,newsboat,nvim,pulse,shell,sxiv,wal,wget,x11,zathura,zsh,neofetch,pinentry,pipewire} &&
       rm ~/.config/{mimeapps.list,user-dirs.dirs} &&
       rm -rf ~/.local/share/{applications,larbs} &&
       rm -rf ~/.local/bin/{cron,statusbar} &&
