@@ -50,8 +50,6 @@ clv   $HOME/.config/lvim
 
 cpa   $HOME/.config/personal/arch
 cpap  $HOME/.config/personal/arch/pkglist
-cpb   $HOME/.config/personal/bento
-cpg   $HOME/.config/personal/gnome
 cpu   $HOME/.config/personal/universal
 cpv   $HOME/.config/personal/voidrice
 
