@@ -1,10 +1,10 @@
 # hidden general
-local    $HOME/.local
-cache    $HOME/.cache
-config   $HOME/.config
+# local    $HOME/.local
+# cache    $HOME/.cache
+# config   $HOME/.config
 
 # general
-D     ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
+DD     ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
 C     ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
 P     ${XDG_PICTURES_DIR:-$HOME/Pictures}
 V     ${XDG_VIDEOS_DIR:-$HOME/Videos}
