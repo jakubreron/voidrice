@@ -5,6 +5,15 @@ C    ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
 P    ${XDG_PICTURES_DIR:-$HOME/Pictures}
 V    ${XDG_VIDEOS_DIR:-$HOME/Videos}
 
+# documents/projects
+Cp    $HOME/Documents/Projects
+Cpj    $HOME/Documents/Projects/jakubreron.me
+Cpb    $HOME/Documents/Projects/boilerplate
+Cpz    $HOME/Documents/Projects/dockerized-env
+Cpzw   $HOME/Documents/Projects/dockerized-env/app/web
+Cpzl   $HOME/Documents/Projects/dockerized-env/app/landlord-web
+Cpza   $HOME/Documents/Projects/dockerized-env/app/api
+
 # music
 M     ${XDG_MUSIC_DIR:-$HOME/Music}
 Mg    ${XDG_MUSIC_DIR:-$HOME/Music/general}
@@ -52,15 +61,6 @@ Vl    $HOME/.valet
 Vls   $HOME/.valet/Sites
 Vln   $HOME/.valet/Nginx
 Vlc   $HOME/.valet/Certificates
-
-# projects
-Pp    $HOME/Documents/Projects
-Pj    $HOME/Documents/Projects/jakubreron.me
-Pb    $HOME/Documents/Projects/boilerplate
-Pz    $HOME/Documents/Projects/dockerized-env
-Pzw   $HOME/Documents/Projects/dockerized-env/app/web
-Pzl   $HOME/Documents/Projects/dockerized-env/app/landlord-web
-Pza   $HOME/Documents/Projects/dockerized-env/app/api
 
 # php
 Ph   /etc/php/
