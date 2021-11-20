@@ -1,20 +1,22 @@
-ce    ${XDG_CACHE_HOME:-$HOME/.cache}
+# hidden general
+local    $HOME/.local
+cache    $HOME/.cache
+config   $HOME/.config
 
-h     $HOME
+# general
 D     ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
 C     ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
+P     ${XDG_PICTURES_DIR:-$HOME/Pictures}
+V     ${XDG_VIDEOS_DIR:-$HOME/Videos}
 
+# music
 M     ${XDG_MUSIC_DIR:-$HOME/Music}
 Mg    ${XDG_MUSIC_DIR:-$HOME/Music/general}
 Ml    ${XDG_MUSIC_DIR:-$HOME/Music/live}
 Mo    ${XDG_MUSIC_DIR:-$HOME/Music/osts}
 Ma    ${XDG_MUSIC_DIR:-$HOME/Music/albums}
 
-P     ${XDG_PICTURES_DIR:-$HOME/Pictures}
-V     ${XDG_VIDEOS_DIR:-$HOME/Videos}
-
-mt    $HOME/Mount
-
+# dropbox
 d     $HOME/Dropbox
 db    $HOME/Dropbox/Books
 di    $HOME/Dropbox/Images
@@ -24,14 +26,15 @@ dp    $HOME/Dropbox/Programming
 dw    $HOME/Dropbox/Work/
 ds    $HOME/Dropbox/Studies
 
-lc    $HOME/.local
-
+# local bin
 bin   $HOME/.local/bin
 bins  $HOME/.local/bin/statusbar
 
+# local share
 shr   ${XDG_DATA_HOME:-$HOME/.local/share}
-shrl  ${XDG_DATA_HOME:-$HOME/.local/share}/lunarvim/lvim
+shrlv  ${XDG_DATA_HOME:-$HOME/.local/share}/lunarvim/lvim
 
+# local src
 src   $HOME/.local/src
 srcdw $HOME/.local/src/dwm
 srcdb $HOME/.local/src/dwmblocks
@@ -39,20 +42,23 @@ srcdm $HOME/.local/src/dmenu
 srcst $HOME/.local/src/st
 srcsx $HOME/.local/src/sxiv-flexipatch/
 
+# valet
 vl    $HOME/.valet
 vls   $HOME/.valet/Sites
 vln   $HOME/.valet/Nginx
 vlc   $HOME/.valet/Certificates
 
-c     ${XDG_CONFIG_HOME:-$HOME/.config}
-
+# configs
 clv   $HOME/.config/lvim
 
+# personal
 cpa   $HOME/.config/personal/arch
 cpap  $HOME/.config/personal/arch/pkglist
+
 cpu   $HOME/.config/personal/universal
 cpv   $HOME/.config/personal/voidrice
 
+# projects
 pp    $HOME/Documents/Projects
 pj    $HOME/Documents/Projects/jakubreron.me
 pb    $HOME/Documents/Projects/boilerplate
@@ -61,5 +67,9 @@ pzw   $HOME/Documents/Projects/dockerized-env/app/web
 pzl   $HOME/Documents/Projects/dockerized-env/app/landlord-web
 pza   $HOME/Documents/Projects/dockerized-env/app/api
 
+# php
 ph   /etc/php/
 phc  /etc/php/conf.d
+
+# misc
+mt    $HOME/Mount

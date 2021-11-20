@@ -2,10 +2,10 @@
 cfbf	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-files	# This file, a list of bookmarked files
 cfbd	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs		# A list of bookmarked directories similar to this file
 
-cfsrcdb	~/.local/src/dwmblocks/config.h
-cfsrcdw	~/.local/src/dwm/config.h
-cfsrcdm	~/.local/src/dmenu/config.h
-cfsrcst	~/.local/src/st/config.h
+cfdb	~/.local/src/dwmblocks/config.h
+cfdw	~/.local/src/dwm/config.h
+cfdm	~/.local/src/dmenu/config.h
+cfst	~/.local/src/st/config.h
 
 # system
 cfz	$ZDOTDIR/.zshrc						                        # zsh (shell) config

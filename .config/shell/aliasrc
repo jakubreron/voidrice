@@ -184,7 +184,7 @@ alias \
     spy="sp; sy" \
     ssrc="srcdw && g pl && cmpl; srcdb && g pl && cmpl; srcdm && g pl && cmpl; srcst && g pl && cmpl; srcsx && g pl && sudo rm {config,patches}.h && cmpl;" \
     sdots="cpa && g pl; cpu && g pl; cpv && g pl; replace-all" \
-    slvim="shrl; git checkout rolling && git pull && lvim +LuaCacheClear +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
+    slvim="shrlv; git checkout rolling && git pull && lvim +LuaCacheClear +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
     snc="ssrc; sdots; slvim" \
     sproj="pzw && g pl; pza && g pl; pzl && g pl" \
     sall="snc; sproj"
