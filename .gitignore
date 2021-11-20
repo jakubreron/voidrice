@@ -30,7 +30,7 @@
 
 .config/shell/zshnameddirrc
 
-./config/BetterDiscord/themes/*.css
+.config/BetterDiscord/themes/*.css
 
 *.log
 .idea
