@@ -1,13 +1,9 @@
-# hidden general
-# local    $HOME/.local
-# cache    $HOME/.cache
-# config   $HOME/.config
-
 # general
-DD     ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
-C     ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
-P     ${XDG_PICTURES_DIR:-$HOME/Pictures}
-V     ${XDG_VIDEOS_DIR:-$HOME/Videos}
+D    ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
+G    ${XDG_DOWNLOAD_DIR:-$HOME/Games}
+C    ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
+P    ${XDG_PICTURES_DIR:-$HOME/Pictures}
+V    ${XDG_VIDEOS_DIR:-$HOME/Videos}
 
 # music
 M     ${XDG_MUSIC_DIR:-$HOME/Music}
@@ -17,59 +13,59 @@ Mo    ${XDG_MUSIC_DIR:-$HOME/Music/osts}
 Ma    ${XDG_MUSIC_DIR:-$HOME/Music/albums}
 
 # dropbox
-d     $HOME/Dropbox
-db    $HOME/Dropbox/Books
-di    $HOME/Dropbox/Images
-diw   $HOME/Dropbox/Images/Wallpapers
-dia   $HOME/Dropbox/Images/Avatars
-dp    $HOME/Dropbox/Programming
-dw    $HOME/Dropbox/Work/
-ds    $HOME/Dropbox/Studies
+Dr     $HOME/Dropbox
+Drb    $HOME/Dropbox/Books
+Dri    $HOME/Dropbox/Images
+Driw   $HOME/Dropbox/Images/Wallpapers
+Dria   $HOME/Dropbox/Images/Avatars
+Drp    $HOME/Dropbox/Programming
+Drw    $HOME/Dropbox/Work
+Drs    $HOME/Dropbox/Studies
 
+# config
+C     $HOME/.config
+Clv   $HOME/.config/lvim
+# config personal
+Cpa   $HOME/.config/personal/arch
+Cpap  $HOME/.config/personal/arch/pkglist
+Cpu   $HOME/.config/personal/universal
+Cpv   $HOME/.config/personal/voidrice
+
+# local
+L      $HOME/.local
 # local bin
-bin   $HOME/.local/bin
-bins  $HOME/.local/bin/statusbar
-
+Lbin   $HOME/.local/bin
+Lbins  $HOME/.local/bin/statusbar
 # local share
-shr   ${XDG_DATA_HOME:-$HOME/.local/share}
-shrlv  ${XDG_DATA_HOME:-$HOME/.local/share}/lunarvim/lvim
-
+Lshr    ${XDG_DATA_HOME:-$HOME/.local/share}
+Lshrlv  ${XDG_DATA_HOME:-$HOME/.local/share}/lunarvim/lvim
 # local src
-src   $HOME/.local/src
-srcdw $HOME/.local/src/dwm
-srcdb $HOME/.local/src/dwmblocks
-srcdm $HOME/.local/src/dmenu
-srcst $HOME/.local/src/st
-srcsx $HOME/.local/src/sxiv-flexipatch/
+Lsrc   $HOME/.local/src
+Lsrcdw $HOME/.local/src/dwm
+Lsrcdb $HOME/.local/src/dwmblocks
+Lsrcdm $HOME/.local/src/dmenu
+Lsrcst $HOME/.local/src/st
+Lsrcsx $HOME/.local/src/sxiv-flexipatch/
 
 # valet
-vl    $HOME/.valet
-vls   $HOME/.valet/Sites
-vln   $HOME/.valet/Nginx
-vlc   $HOME/.valet/Certificates
-
-# configs
-clv   $HOME/.config/lvim
-
-# personal
-cpa   $HOME/.config/personal/arch
-cpap  $HOME/.config/personal/arch/pkglist
-
-cpu   $HOME/.config/personal/universal
-cpv   $HOME/.config/personal/voidrice
+Vl    $HOME/.valet
+Vls   $HOME/.valet/Sites
+Vln   $HOME/.valet/Nginx
+Vlc   $HOME/.valet/Certificates
 
 # projects
-pp    $HOME/Documents/Projects
-pj    $HOME/Documents/Projects/jakubreron.me
-pb    $HOME/Documents/Projects/boilerplate
-pz    $HOME/Documents/Projects/dockerized-env
-pzw   $HOME/Documents/Projects/dockerized-env/app/web
-pzl   $HOME/Documents/Projects/dockerized-env/app/landlord-web
-pza   $HOME/Documents/Projects/dockerized-env/app/api
+Pp    $HOME/Documents/Projects
+Pj    $HOME/Documents/Projects/jakubreron.me
+Pb    $HOME/Documents/Projects/boilerplate
+Pz    $HOME/Documents/Projects/dockerized-env
+Pzw   $HOME/Documents/Projects/dockerized-env/app/web
+Pzl   $HOME/Documents/Projects/dockerized-env/app/landlord-web
+Pza   $HOME/Documents/Projects/dockerized-env/app/api
 
 # php
-ph   /etc/php/
-phc  /etc/php/conf.d
+Ph   /etc/php/
+Phc  /etc/php/conf.d
 
 # misc
-mt    $HOME/Mount
+Mt    $HOME/Mount
+Ca    $HOME/.cache
