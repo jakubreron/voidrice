@@ -1,18 +1,18 @@
 # general
-D    ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
+Dw   ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
 G    ${XDG_DOWNLOAD_DIR:-$HOME/Games}
-C    ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
 P    ${XDG_PICTURES_DIR:-$HOME/Pictures}
 V    ${XDG_VIDEOS_DIR:-$HOME/Videos}
 
-# documents/projects
-Cp    $HOME/Documents/Projects
-Cpj    $HOME/Documents/Projects/jakubreron.me
-Cpb    $HOME/Documents/Projects/boilerplate
-Cpz    $HOME/Documents/Projects/dockerized-env
-Cpzw   $HOME/Documents/Projects/dockerized-env/app/web
-Cpzl   $HOME/Documents/Projects/dockerized-env/app/landlord-web
-Cpza   $HOME/Documents/Projects/dockerized-env/app/api
+# documents
+D      ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
+Dp     $HOME/Documents/Projects
+Dpj    $HOME/Documents/Projects/jakubreron.me
+Dpb    $HOME/Documents/Projects/boilerplate
+Dpz    $HOME/Documents/Projects/dockerized-env
+Dpzw   $HOME/Documents/Projects/dockerized-env/app/web
+Dpzl   $HOME/Documents/Projects/dockerized-env/app/landlord-web
+Dpza   $HOME/Documents/Projects/dockerized-env/app/api
 
 # music
 M     ${XDG_MUSIC_DIR:-$HOME/Music}
@@ -35,6 +35,7 @@ Drs    $HOME/Dropbox/Studies
 C     $HOME/.config
 Clv   $HOME/.config/lvim
 # config personal
+Cp    $HOME/.config/personal
 Cpa   $HOME/.config/personal/arch
 Cpap  $HOME/.config/personal/arch/pkglist
 Cpu   $HOME/.config/personal/universal
@@ -43,28 +44,28 @@ Cpv   $HOME/.config/personal/voidrice
 # local
 L      $HOME/.local
 # local bin
-Lbin   $HOME/.local/bin
-Lbins  $HOME/.local/bin/statusbar
+Lbn   $HOME/.local/bin
+Lbns  $HOME/.local/bin/statusbar
 # local share
-Lshr    ${XDG_DATA_HOME:-$HOME/.local/share}
-Lshrlv  ${XDG_DATA_HOME:-$HOME/.local/share}/lunarvim/lvim
+Lsh    ${XDG_DATA_HOME:-$HOME/.local/share}
+Lshlv  ${XDG_DATA_HOME:-$HOME/.local/share}/lunarvim/lvim
 # local src
-Lsrc   $HOME/.local/src
-Lsrcdw $HOME/.local/src/dwm
-Lsrcdb $HOME/.local/src/dwmblocks
-Lsrcdm $HOME/.local/src/dmenu
-Lsrcst $HOME/.local/src/st
-Lsrcsx $HOME/.local/src/sxiv-flexipatch/
+Lsr   $HOME/.local/src
+Lsrdw $HOME/.local/src/dwm
+Lsrdb $HOME/.local/src/dwmblocks
+Lsrdm $HOME/.local/src/dmenu
+Lsrst $HOME/.local/src/st
+Lsrsx $HOME/.local/src/sxiv-flexipatch/
 
 # valet
-Vl    $HOME/.valet
-Vls   $HOME/.valet/Sites
-Vln   $HOME/.valet/Nginx
-Vlc   $HOME/.valet/Certificates
+Va    $HOME/.valet
+Vas   $HOME/.valet/Sites
+Van   $HOME/.valet/Nginx
+Vac   $HOME/.valet/Certificates
 
 # php
-Ph   /etc/php/
-Phc  /etc/php/conf.d
+Php   /etc/php/
+Phpc  /etc/php/conf.d
 
 # misc
 Mt    $HOME/Mount
