@@ -59,6 +59,7 @@ alias \
 alias \
   ssctl="sudo systemctl" \
   sctl="systemctl" \
+  sctlu="systemctl --user" \
   ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
   wth="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
   rates="curl rate.sx | less -S"
