@@ -12,6 +12,11 @@ lvim.keys = {
     ["0"] = "^",
     ["Q"] = "<cmd>BufferClose!<cr>",
 
+    -- DWM ftw
+    ["<C-h>"] = ":vertical resize +2<CR>",
+    ["<C-j>"] = "<C-w>w",
+    ["<C-k>"] = "<C-w>W",
+    ["<C-l>"] = ":vertical resize -2<CR>",
     -- don't store "c" to the register
     -- ["c"] = '"_c'
 

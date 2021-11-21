@@ -5,8 +5,9 @@ vim.g.vimwiki_list = { { path = "~/vimwiki/", syntax = "markdown", ext = ".md" }
 vim.g.dashboard_disable_statusline = 1
 
 lvim.plugins = {
-  { "andweeb/presence.nvim" }, -- flex with VIM on the discord
+  -- { "kshenoy/vim-signature" }, -- show the marks
   -- { "folke/tokyonight.nvim" }, -- nice theme
+  { "andweeb/presence.nvim" }, -- flex with VIM on the discord
   { "vimwiki/vimwiki" }, -- note taking plugin
   { "tpope/vim-repeat" }, -- better "."
   -- { "tpope/vim-vinegar" }, -- better "netrw"
@@ -47,8 +48,8 @@ lvim.plugins = {
     end,
   },
   -- {
-  --         "sindrets/diffview.nvim", -- single tab diffview
-  --         event = "BufRead",
+  --   "sindrets/diffview.nvim", -- single tab diffview
+  --   event = "BufRead",
   -- },
   {
     "nacro90/numb.nvim", -- peek the lines (when typing :12 for example)
@@ -84,19 +85,19 @@ lvim.plugins = {
     end,
   },
   {
-  	"vuki656/package-info.nvim", -- check if the package info is up to date
-   requires = "MunifTanjim/nui.nvim",
-  	config = function()
-  		require("plugin.package-info")
-  	end,
-  	ft = "json",
+    "vuki656/package-info.nvim", -- check if the package info is up to date
+    requires = "MunifTanjim/nui.nvim",
+    config = function()
+      require("plugin.package-info")
+    end,
+    ft = "json",
   },
   -- {
-  --         "simrat39/symbols-outline.nvim", -- outline the buffer
-  --         -- cmd = "SymbolsOutline",
-  --         config = function()
-  --                 require("plugin.outline").config()
-  --         end,
+  --   "simrat39/symbols-outline.nvim", -- outline the buffer
+  --   -- cmd = "SymbolsOutline",
+  --   config = function()
+  --     require("plugin.outline").config()
+  --   end,
   -- },
   {
     "folke/trouble.nvim", -- diagnostics
@@ -146,7 +147,6 @@ lvim.plugins = {
       require("autosave").setup()
     end,
   },
-  -- { "kshenoy/vim-signature" }, -- show the marks
   { "christoomey/vim-titlecase" }, -- "gz" movement to toggle the words case
   {
     "phaazon/hop.nvim", -- quickly go to any line
@@ -156,17 +156,17 @@ lvim.plugins = {
     end,
   },
   -- {
-  --         "ethanholz/nvim-lastplace", -- open the file at the place where it was closed
-  --         event = "BufRead",
-  --         config = function()
-  --                 require("nvim-lastplace").setup({
-  --                         lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
-  --                         lastplace_ignore_filetype = {
-  --                                 "gitcommit", "gitrebase", "svn", "hgcommit",
-  --                         },
-  --                         lastplace_open_folds = true,
-  --                 })
-  --         end,
+  --   "ethanholz/nvim-lastplace", -- open the file at the place where it was closed
+  --   event = "BufRead",
+  --   config = function()
+  --     require("nvim-lastplace").setup({
+  --       lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+  --       lastplace_ignore_filetype = {
+  --         "gitcommit", "gitrebase", "svn", "hgcommit",
+  --       },
+  --       lastplace_open_folds = true,
+  --     })
+  --   end,
   -- },
   {
     "folke/persistence.nvim", -- save the last session
