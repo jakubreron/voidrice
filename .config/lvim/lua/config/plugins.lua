@@ -6,7 +6,6 @@ vim.g.dashboard_disable_statusline = 1
 
 lvim.plugins = {
   { "andweeb/presence.nvim" }, -- flex with VIM on the discord
-  -- { "lunarvim/colorschemes" }, -- a lot of themes
   -- { "folke/tokyonight.nvim" }, -- nice theme
   { "vimwiki/vimwiki" }, -- note taking plugin
   { "tpope/vim-repeat" }, -- better "."
@@ -196,20 +195,20 @@ lvim.plugins = {
     cmd = {"Bracey", "BracyStop", "BraceyReload", "BraceyEval"},
     run = "npm install --prefix server",
   },
-  --         {
-  --                 "tzachar/cmp-tabnine",
-  --                 config = function()
-  --                         local tabnine = require "cmp_tabnine.config"
-  --                         tabnine:setup {
-  --                                 max_lines = 1000,
-  --                                 max_num_results = 20,
-  --                                 sort = true,
-  --                         }
-  --                 end,
+  -- {
+  --   "tzachar/cmp-tabnine",
+  --   config = function()
+  --     local tabnine = require "cmp_tabnine.config"
+  --     tabnine:setup {
+  --       max_lines = 1000,
+  --       max_num_results = 20,
+  --       sort = true,
+  --     }
+  --   end,
 
-  --                 run = "./install.sh",
-  --                 requires = "hrsh7th/nvim-cmp",
-  --         },
+  --   run = "./install.sh",
+  --   requires = "hrsh7th/nvim-cmp",
+  -- },
 }
 
 
