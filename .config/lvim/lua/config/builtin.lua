@@ -1,3 +1,11 @@
+local components = require "lvim.core.lualine.components"
+components.filename = {
+  "filename",
+  path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
+  color = {},
+  cond = nil,
+}
+
 -- Configure builtin plugins
 lvim.builtin.dashboard.active = true
 lvim.builtin.terminal.active = true
@@ -5,6 +13,17 @@ lvim.builtin.autopairs.active = true
 lvim.builtin.comment.active = true
 lvim.builtin.gitsigns.active = true
 -- lvim.builtin.notify.active = true
+
+lvim.builtin.lualine.sections = {
+  lualine_c = {
+    components.diff,
+    components.python_env,
+    provider = function ()
+      return require('package-info').get_status()
+    end
+  },
+}
+lvim.builtin.lualine.inactive_sections.lualine_a = { components.filename }
 
 lvim.builtin.cmp.experimental.ghost_text = true
 
@@ -52,9 +71,7 @@ lvim.builtin.treesitter.ensure_installed = {
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
-lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.treesitter.autotag.enable = true
--- lvim.builtin.treesitter.context_commentstring.enable = true
 
 -- telescope
 lvim.builtin.telescope.defaults.layout_strategy = "horizontal"

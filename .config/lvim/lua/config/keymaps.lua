@@ -19,7 +19,6 @@ lvim.keys = {
   },
 }
 
--- TODO: move which_key bindings into 1 object
 -- unmap a default keymapping
 lvim.builtin.which_key.mappings["T"] = nil
 lvim.builtin.which_key.mappings["h"] = nil
@@ -27,9 +26,9 @@ lvim.builtin.which_key.mappings["h"] = nil
 -- lvim.builtin.which_key.mappings["f"] = { "zt<cmd>Telescope find_files theme=get_ivy<cr>", "Find File" }
 
 -- git worktrees
--- <Enter> - switches to that worktree
--- <c-d> - deletes that worktree
--- <c-D> - force deletes that worktree
+-- NOTE: <Enter> - switches to that worktree
+-- NOTE: <c-d> - deletes that worktree
+-- NOTE: <c-D> - force deletes that worktree
 lvim.builtin.which_key.mappings["gw"] = {
   name = "Worktrees",
   s = { "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<cr>", "Search the worktrees" },
@@ -95,4 +94,15 @@ lvim.builtin.which_key.mappings["t"] = {
   q = { "<cmd>TodoQuickFix<cr>", "Todo Quick Fix" },
   t = { "<cmd>TodoTrouble<cr>", "Todo Trouble" },
   s = { "<cmd>TodoTelescope<cr>", "Todo Search" }
+}
+
+lvim.builtin.which_key.mappings["n"] = {
+  name = "Package Info",
+  f = { "<cmd>lua require('package-info').show({ force = true })<cr>", "Fetch" },
+  h = { "<cmd>lua require('package-info').hide()<cr>", "Hide" },
+  d = { "<cmd>lua require('package-info').delete()<cr>", "Delete" },
+  u = { "<cmd>lua require('package-info').update()<cr>", "Update" },
+  i = { "<cmd>lua require('package-info').install()<cr>", "Install" },
+  r = { "<cmd>lua require('package-info').reinstall()<cr>", "Reinstall all" },
+  c = { "<cmd>lua require('package-info').change_version()<cr>", "Change version" },
 }

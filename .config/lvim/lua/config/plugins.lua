@@ -8,7 +8,6 @@ lvim.plugins = {
   { "andweeb/presence.nvim" }, -- flex with VIM on the discord
   -- { "lunarvim/colorschemes" }, -- a lot of themes
   -- { "folke/tokyonight.nvim" }, -- nice theme
-  -- { "morhetz/gruvbox" },
   { "vimwiki/vimwiki" }, -- note taking plugin
   { "tpope/vim-repeat" }, -- better "."
   -- { "tpope/vim-vinegar" }, -- better "netrw"
@@ -85,14 +84,14 @@ lvim.plugins = {
       require("plugin.zen").config()
     end,
   },
-  -- {
-  -- 	"vuki656/package-info.nvim", -- check if the package info is up to date
-  --  requires = "MunifTanjim/nui.nvim",
-  -- 	config = function()
-  -- 		require("plugin.package-info")
-  -- 	end,
-  -- 	ft = "json",
-  -- },
+  {
+  	"vuki656/package-info.nvim", -- check if the package info is up to date
+   requires = "MunifTanjim/nui.nvim",
+  	config = function()
+  		require("plugin.package-info")
+  	end,
+  	ft = "json",
+  },
   -- {
   --         "simrat39/symbols-outline.nvim", -- outline the buffer
   --         -- cmd = "SymbolsOutline",
@@ -142,10 +141,6 @@ lvim.plugins = {
       require("nvim-ts-autotag").setup()
     end,
   },
-  -- {
-  --   "JoosepAlviste/nvim-ts-context-commentstring", -- comment based on the context
-  --   event = "BufRead",
-  -- },
   {
     "Pocco81/AutoSave.nvim",
     config = function()
@@ -196,11 +191,11 @@ lvim.plugins = {
     "felipec/vim-sanegx", -- go to the url using gX
     event = "BufRead",
   },
-  -- {
-  --   "turbio/bracey.vim",
-  --   cmd = {"Bracey", "BracyStop", "BraceyReload", "BraceyEval"},
-  --   run = "npm install --prefix server",
-  -- },
+  {
+    "turbio/bracey.vim",
+    cmd = {"Bracey", "BracyStop", "BraceyReload", "BraceyEval"},
+    run = "npm install --prefix server",
+  },
   --         {
   --                 "tzachar/cmp-tabnine",
   --                 config = function()
