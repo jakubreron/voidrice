@@ -78,7 +78,7 @@ cmd copyto ${{
 	notify-send " File(s) copied." "File(s) copies to $dest."
 }}
 
-cmd sendto ${{
+cmd sendtodevice ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	clear; echo "Send to which device?"
@@ -86,36 +86,36 @@ cmd sendto ${{
 	for x in $fx; do
 		eval kdeconnect-cli --share=\"$x\" --name=\"$dest\"
 	done &&
-	notify-send " File(s) sent." "File(s) send to $dest."
+	notify-send " Sending file(s)" "Sending file(s) to $dest."
 }}
+
+cmd dragon %dragon-drag-and-drop -a -x $fx
+cmd share $curl -F"file=@$fx" https://0x0.st | xclip -selection c
 
 cmd setbg "$1"
 cmd bulkrename $vidir
-
-cmd dragon %dragon-drag-and-drop -a -x $fx
 
 cmd zip %zip -r "$fx" "$fx"
 cmd tar %tar cvf "$f.tar" "$f"
 cmd targz %tar cvzf "$f.tar.gz" "$f"
 
 # Bindings
-map <c-f> $lf -remote "send $id select '$(fzf)'"
 map J $lf -remote "send $id cd $(awk '{ gsub(/#.*/, ""); } !/^$/ { print $2 }' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed "s/\${.*-// ; s/}//" | envsubst)"
-map gh
-map g top
-
+map V push :!$EDITOR<space>
 map D delete
 map E extract
 map C copyto
 map M moveto
-map S sendto
+map K sendtodevice
+map S share
 
+map <c-f> $lf -remote "send $id select '$(fzf)'"
 map <c-n> push :mkdir<space>
-
 map <c-r> reload
 map <c-s> set hidden!
-
 map <enter> shell
+
+map g top
 
 map x $$f
 map X !$f
@@ -131,26 +131,17 @@ map Pt tar
 map Pg targz
 
 # Renames
-map c push A<c-u> # new rename
-
-map A rename # at the very end
+map r push A<c-u> # new rename
 map I push A<c-a> # at the very beginning
-
+map A rename # at the very end
 map i push A<a-b><a-b><a-f> # before extention
 map a push A<a-b> # after extention
 
-map B bulkrename
-
 map b $setbg $f
 
-map <c-e> down
-map <c-y> up
+map B bulkrename
 
-map V push :!$EDITOR<space>
-
-map W $setsid -f $TERMINAL >/dev/null 2>&1
-
-map W $setsid -f $TERMINAL >/dev/null 2>&1
+map W $setsid -f $TERMINAL >/dev/null 2>&1 # open in new terminal
 
 # Source Bookmarks
 source "~/.config/lf/shortcutrc"
