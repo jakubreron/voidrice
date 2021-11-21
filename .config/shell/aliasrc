@@ -188,7 +188,7 @@ alias \
 alias \
     ssrc="Lsrdw && g pl && cmpl; Lsrdb && g pl && cmpl; Lsrdm && g pl && cmpl; Lsrst && g pl && cmpl; Lsrsx && g pl && sudo rm {config,patches}.h && cmpl;" \
     sdots="Cpa && g pl; Cpu && g pl; Cpv && g pl; replace-all" \
-    slvim="Lshrv; git pull && lvim +LuaCacheClear +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
+    slvim="Lshlv; git pull && lvim +LuaCacheClear +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
     snc="ssrc; sdots; slvim" \
     sproj="Dpzw && g pl; Dpza && g pl; Dpzl && g pl" \
     sall="snc; sproj"
