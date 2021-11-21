@@ -187,10 +187,10 @@ alias \
 # sync config files
 alias \
     ssrc="Lsrdw && g pl && cmpl; Lsrdb && g pl && cmpl; Lsrdm && g pl && cmpl; Lsrst && g pl && cmpl; Lsrsx && g pl && sudo rm {config,patches}.h && cmpl;" \
-    sdots="cpa && g pl; cpu && g pl; cpv && g pl; replace-all" \
-    slvim="lshrlv; git checkout rolling && git pull && lvim +LuaCacheClear +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
+    sdots="Cpa && g pl; Cpu && g pl; Cpv && g pl; replace-all" \
+    slvim="Lshrv; git pull && lvim +LuaCacheClear +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
     snc="ssrc; sdots; slvim" \
-    sproj="pzw && g pl; pza && g pl; pzl && g pl" \
+    sproj="Dpzw && g pl; Dpza && g pl; Dpzl && g pl" \
     sall="snc; sproj"
 
 # some programs
