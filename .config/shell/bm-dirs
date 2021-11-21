@@ -1,6 +1,6 @@
 # general
 Dw   ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
-G    ${XDG_DOWNLOAD_DIR:-$HOME/Games}
+G    $HOME/Games
 P    ${XDG_PICTURES_DIR:-$HOME/Pictures}
 V    ${XDG_VIDEOS_DIR:-$HOME/Videos}
 
@@ -47,8 +47,8 @@ L      $HOME/.local
 Lbn   $HOME/.local/bin
 Lbns  $HOME/.local/bin/statusbar
 # local share
-Lsh    ${XDG_DATA_HOME:-$HOME/.local/share}
-Lshlv  ${XDG_DATA_HOME:-$HOME/.local/share}/lunarvim/lvim
+Lsh    $HOME/.local/share
+Lshlv  $HOME/.local/share/lunarvim/lvim
 # local src
 Lsr   $HOME/.local/src
 Lsrdw $HOME/.local/src/dwm
