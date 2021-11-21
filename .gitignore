@@ -2,6 +2,9 @@
 .config/nvim/plugged
 .config/nvim/session
 
+.config/mpd/mpdstate
+.config/mpd/database
+
 .config/pulse/cookie
 
 .config/zsh/plugins
