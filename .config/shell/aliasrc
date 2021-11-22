@@ -131,6 +131,7 @@ alias \
 # php
 alias \
   paws="sudo php artisan websockets:serve --host=0.0.0.0 --port=444" \
+  padw="php artisan deploy:workspaces" \
   pawd="php artisan workspace:dump" \
   pacc="php artisan cache:clear"
 
