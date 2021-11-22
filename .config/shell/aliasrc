@@ -233,6 +233,7 @@ alias \
 
 # misc
 alias \
+  ndi="nodemon index.js" \
   gcl="dmenu-github" \
   cmpl="sudo make && sudo make install" \
   encrypt="gpg -c --no-symkey-cache --cipher-algo AES256" \
