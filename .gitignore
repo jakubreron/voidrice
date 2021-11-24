@@ -19,8 +19,6 @@
 
 .config/scripts/nohup.out
 
-.config/pipewire/media-session.d
-
 .config/x11/xprofile
 
 .config/lvim/plugin
