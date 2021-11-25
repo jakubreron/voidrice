@@ -144,7 +144,9 @@ lvim.plugins = {
   {
     "Pocco81/AutoSave.nvim",
     config = function()
-      require("autosave").setup()
+      require("autosave").setup({
+        debounce_delay = 250
+      })
     end,
   },
   { "christoomey/vim-titlecase" }, -- "gz" movement to toggle the words case
@@ -195,20 +197,20 @@ lvim.plugins = {
     cmd = {"Bracey", "BracyStop", "BraceyReload", "BraceyEval"},
     run = "npm install --prefix server",
   },
-  -- {
-  --   "tzachar/cmp-tabnine",
-  --   config = function()
-  --     local tabnine = require "cmp_tabnine.config"
-  --     tabnine:setup {
-  --       max_lines = 1000,
-  --       max_num_results = 20,
-  --       sort = true,
-  --     }
-  --   end,
+  {
+    "tzachar/cmp-tabnine",
+    config = function()
+      local tabnine = require "cmp_tabnine.config"
+      tabnine:setup {
+        max_lines = 1000,
+        max_num_results = 20,
+        sort = true,
+      }
+    end,
 
-  --   run = "./install.sh",
-  --   requires = "hrsh7th/nvim-cmp",
-  -- },
+    run = "./install.sh",
+    requires = "hrsh7th/nvim-cmp",
+  },
 }
 
 

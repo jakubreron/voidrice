@@ -28,18 +28,18 @@ lvim.builtin.lualine.inactive_sections.lualine_a = { components.filename }
 lvim.builtin.cmp.experimental.ghost_text = true
 
 -- NOTE: autocompletion
--- lvim.builtin.cmp.sources = {
---   { name = "nvim_lsp" },
---   { name = "path" },
---   { name = "luasnip" },
---   { name = "cmp_tabnine" },
---   { name = "nvim_lua" },
---   { name = "buffer" },
---   { name = "calc" },
---   { name = "emoji" },
---   { name = "treesitter" },
---   { name = "crates" },
--- }
+lvim.builtin.cmp.sources = {
+  { name = "nvim_lsp" },
+  { name = "cmp_tabnine" },
+  { name = "path" },
+  { name = "luasnip" },
+  { name = "nvim_lua" },
+  { name = "buffer" },
+  { name = "calc" },
+  { name = "emoji" },
+  { name = "treesitter" },
+  { name = "crates" },
+}
 
 -- TODO: enable these lines only for certain projects
 -- detection patterns (custom nuxt modules fix)
