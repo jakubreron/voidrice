@@ -49,6 +49,7 @@ lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Make
 
 lvim.builtin.nvimtree.ignore = {}
 lvim.builtin.nvimtree.hide_dotfiles = 0
+vim.g.nvim_tree_indent_markers = 1
 
 -- treesitter
 -- if you don't want all the parsers change this to a table of the ones you want
