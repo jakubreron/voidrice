@@ -129,11 +129,11 @@ lvim.plugins = {
       })
     end,
   },
-  -- {
-  --   "iamcco/markdown-preview.nvim", -- localhost markdown server
-  --   run = "cd app && yarn install",
-  --   ft = "markdown",
-  -- },
+  {
+    "iamcco/markdown-preview.nvim", -- localhost markdown server
+    run = "cd app && yarn install",
+    ft = "markdown",
+  },
   {
     "windwp/nvim-ts-autotag", -- complete or replace the open & closing tags
     event = "InsertEnter",
