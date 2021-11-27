@@ -10,7 +10,7 @@
     frame_width = 3
     frame_color = "{color4}"
     progress_bar = true
-    font = MesloLGS NF 12
+    font = JetBrainsMono Nerd Font 13
 
     format = "<b>%s</b>\n%b"
 
