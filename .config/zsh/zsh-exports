@@ -7,9 +7,9 @@ export MANPAGER='lvim +Man!'
 export MANWIDTH=999
 export MCFLY_RESULTS=30
 export MCFLY_KEY_SCHEME=vim
-export PATH="$(yarn global bin):$PATH"
+# export PATH="$(yarn global bin):$PATH"
 
-source /usr/share/nvm/init-nvm.sh
+# source /usr/share/nvm/init-nvm.sh
 
 eval "$(mcfly init zsh)"
 # eval "$(fnm env)"
