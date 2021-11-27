@@ -28,10 +28,10 @@ picom --experimental-backend &
 # Scripts
 # nohup ${XDG_CONFIG_HOME:-$HOME/.config}/scripts/entr.sh &
 
-# Performance fix
-export vblank_mode=0
+# HACK: Performance fix (might not be necessary in some cases)
+# export vblank_mode=0
 
-# Some apps are not picking the global path correctly from the zsh
+# NOTE: Some apps(lvim) are not picking the global path correctly from the zsh
 export PATH="$(yarn global bin):$PATH"
 
 # Ensure that xrdb has finished running before moving on to start the WM/DE.
