@@ -27,6 +27,8 @@ lvim.keys = {
 -- unmap a default keymapping
 lvim.builtin.which_key.mappings["T"] = nil
 lvim.builtin.which_key.mappings["h"] = nil
+lvim.builtin.which_key.mappings["/"] = nil
+lvim.builtin.which_key.mappings["q"] = nil
 
 -- lvim.builtin.which_key.mappings["f"] = { "zt<cmd>Telescope find_files theme=get_ivy<cr>", "Find File" }
 
