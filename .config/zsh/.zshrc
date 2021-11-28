@@ -18,8 +18,6 @@ setopt interactive_comments
 # Path to oh-my-zsh installation.
 # source $ZDOTDIR/.oh-my-zsh/oh-my-zsh.sh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
 # To customize prompt, run `p10k configure` or edit ~/.config/personal/universal/shell/.p10k.zsh.
 # [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
 
