@@ -1,5 +1,5 @@
 -- save
--- lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 
 lvim.keys = {
   insert_mode = {

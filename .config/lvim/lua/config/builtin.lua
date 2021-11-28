@@ -14,6 +14,9 @@ lvim.builtin.comment.active = true
 lvim.builtin.gitsigns.active = true
 -- lvim.builtin.notify.active = true
 
+-- lvim.builtin.lualine.options.section_separators = {left = '', right = ''}
+-- lvim.builtin.lualine.options.component_separators = {left = '', right = ''}
+
 lvim.builtin.lualine.sections = {
   lualine_c = {
     components.diff,
@@ -22,7 +25,9 @@ lvim.builtin.lualine.sections = {
       return require('package-info').get_status()
     end
   },
+  -- lualine_z = { "location" }
 }
+
 lvim.builtin.lualine.inactive_sections.lualine_a = { components.filename }
 
 lvim.builtin.cmp.experimental.ghost_text = true
