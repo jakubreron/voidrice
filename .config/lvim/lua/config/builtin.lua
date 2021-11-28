@@ -32,6 +32,12 @@ lvim.builtin.lualine.inactive_sections.lualine_a = { components.filename }
 
 lvim.builtin.cmp.experimental.ghost_text = true
 
+vim.g.bufferline = {
+  auto_hide = true,
+  clickable = false,
+  icons = 'both'
+}
+
 -- NOTE: autocompletion
 -- lvim.builtin.cmp.sources = {
 --   { name = "nvim_lsp" },
@@ -54,6 +60,7 @@ lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Make
 
 lvim.builtin.nvimtree.ignore = {}
 lvim.builtin.nvimtree.hide_dotfiles = 0
+
 vim.g.nvim_tree_indent_markers = 1
 
 -- treesitter
@@ -83,4 +90,3 @@ lvim.builtin.treesitter.autotag.enable = true
 lvim.builtin.telescope.defaults.layout_strategy = "horizontal"
 lvim.builtin.telescope.defaults.layout_config.preview_cutoff = 80
 -- lvim.builtin.telescope.defaults.layout_config.width = 0.95
-
