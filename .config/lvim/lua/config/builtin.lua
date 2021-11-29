@@ -1,10 +1,10 @@
--- local components = require "lvim.core.lualine.components"
--- components.filename = {
---   "filename",
---   path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
---   color = {},
---   cond = nil,
--- }
+local components = require "lvim.core.lualine.components"
+components.filename = {
+  "filename",
+  path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
+  color = {},
+  cond = nil,
+}
 
 -- Configure builtin plugins
 lvim.builtin.dashboard.active = true
@@ -17,18 +17,18 @@ lvim.builtin.gitsigns.active = true
 -- lvim.builtin.lualine.options.section_separators = {left = '', right = ''}
 -- lvim.builtin.lualine.options.component_separators = {left = '', right = ''}
 
--- lvim.builtin.lualine.sections = {
---   lualine_c = {
---     components.diff,
---     components.python_env,
---     provider = function ()
---       return require('package-info').get_status()
---     end
---   },
---   -- lualine_z = { "location" }
--- }
+lvim.builtin.lualine.sections = {
+  lualine_c = {
+    components.diff,
+    components.python_env,
+    provider = function ()
+      return require('package-info').get_status()
+    end
+  },
+  -- lualine_z = { "location" }
+}
 
--- lvim.builtin.lualine.inactive_sections.lualine_a = { components.filename }
+lvim.builtin.lualine.inactive_sections.lualine_a = { components.filename }
 
 lvim.builtin.cmp.experimental.ghost_text = true
 
@@ -58,8 +58,8 @@ vim.g.bufferline = {
 lvim.builtin.project.detection_methods = { "pattern" }
 lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile" }
 
--- lvim.builtin.nvimtree.ignore = {}
--- lvim.builtin.nvimtree.hide_dotfiles = 0
+lvim.builtin.nvimtree.ignore = {}
+lvim.builtin.nvimtree.hide_dotfiles = 0
 
 vim.g.nvim_tree_indent_markers = 1
 
