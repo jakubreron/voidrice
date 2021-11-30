@@ -8,6 +8,7 @@ lvim.plugins = {
   -- { "kshenoy/vim-signature" }, -- show the marks
   -- { "folke/tokyonight.nvim" }, -- nice theme
   -- { "rose-pine/neovim" }, -- nice theme
+  { "editorconfig/editorconfig-vim" }, -- .editorconfig support
   { "andweeb/presence.nvim" }, -- flex with VIM on the discord
   { "vimwiki/vimwiki" }, -- note taking plugin
   { "tpope/vim-repeat" }, -- better "."
