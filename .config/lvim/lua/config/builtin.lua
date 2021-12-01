@@ -30,12 +30,12 @@ lvim.builtin.lualine.sections = {
 
 lvim.builtin.lualine.inactive_sections.lualine_a = { components.filename }
 
-lvim.builtin.cmp.experimental.ghost_text = true
+-- lvim.builtin.cmp.experimental.ghost_text = true
 
 vim.g.bufferline = {
   auto_hide = true,
   clickable = false,
-  icons = 'both'
+  animation = false,
 }
 
 -- NOTE: autocompletion
