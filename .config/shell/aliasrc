@@ -50,7 +50,7 @@ alias \
   pkg-main="Cpap; pkggen main.txt && cd -" \
   pkg-work="Cpap; pkggen work.txt && cd -" \
   pkg-secondary="Cpap; pkggen secondary.txt && cd -" \
-  pkg-yarn="Cpap; ygli | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt && cd -" 
+  pkg-yarn="Cpap; ygli | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt && cd -"
 
 # Git
 alias \
@@ -110,7 +110,7 @@ alias \
   ysrw="yarn serve --watch" \
   yp="yarn prod" \
   ypr="yarn production" \
-  yb="yarn build" 
+  yb="yarn build"
 # lints
 alias \
   yln="yarn lint" \
@@ -174,7 +174,7 @@ alias \
       rm -rf ~/.local/share/{applications,larbs} &&
       rm -rf ~/.local/bin/{cron,statusbar} &&
       rm ~/.local/bin/* | echo 'y' &&
-      cd ~/.config/personal && 
+      cd ~/.config/personal &&
       stow --adopt --target=/home/jakub arch voidrice universal &&
       rm -rf ~/.local/bin/{cron,statusbar} &&
       mkdir ~/.local/bin/{statusbar,cron} &&
@@ -214,22 +214,20 @@ alias \
 alias \
   myip="curl ifconfig.co" \
   ports="netstat -ntlup" \
-  restart-hosts="/bin/systemctl restart systemd-hostnamed" 
+  restart-hosts="/bin/systemctl restart systemd-hostnamed"
 
 # dynamic folders
 alias \
   ff="cd $HOME/.mozilla/firefox/*.dev-edition-default" \
-  ffc="cd $HOME/.mozilla/firefox/*.dev-edition-default/chrome" 
+  ffc="cd $HOME/.mozilla/firefox/*.dev-edition-default/chrome"
 
 # reinstall
 alias \
   reinstall-lvim="
-    rm -rf ~/.local/share/lunarvim &&
-    rm ~/.local/bin/lvim && 
-    rm -rf ~/.config/lvim/plugin &&
-    LVBRANCH=rolling bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/rolling/utils/installer/install.sh) &&
-  bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/rolling/utils/installer/install-neovim-from-release) &&
-    cpv; git restore .config/lvim/config.lua &&
+    bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/uninstall.sh) &&
+    LV_BRANCH=rolling bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/rolling/utils/installer/install.sh) &&
+    bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/rolling/utils/installer/install-neovim-from-release) &&
+    Cpv; git restore .config/lvim/config.lua &&
     replace-all
   " \
 
