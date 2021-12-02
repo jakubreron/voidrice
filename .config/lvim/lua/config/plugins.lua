@@ -13,7 +13,7 @@ lvim.plugins = {
   { "vimwiki/vimwiki" }, -- note taking plugin
   { "tpope/vim-repeat" }, -- better "."
   -- { "tpope/vim-vinegar" }, -- better "netrw"
-  -- { "tpope/vim-sleuth" }, -- detect the relevant tabs / shifts
+  { "tpope/vim-sleuth" }, -- detect the relevant tabs / shifts
   { "tpope/vim-jdaddy" }, -- additional json movements
   { "tpope/vim-surround" }, -- surround movement
   {
