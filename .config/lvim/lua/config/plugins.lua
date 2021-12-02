@@ -16,12 +16,12 @@ lvim.plugins = {
   { "tpope/vim-sleuth" }, -- detect the relevant tabs / shifts
   { "tpope/vim-jdaddy" }, -- additional json movements
   { "tpope/vim-surround" }, -- surround movement
-  {
-    "ThePrimeagen/git-worktree.nvim", -- git worktree integration
-    config = function ()
-      require("telescope").load_extension("git_worktree")
-    end
-  },
+  -- {
+  --   "ThePrimeagen/git-worktree.nvim", -- git worktree integration
+  --   config = function ()
+  --     require("telescope").load_extension("git_worktree")
+  --   end
+  -- },
   {
     "unblevable/quick-scope", -- highlight the scope after using "t" or "f"
     config = function()
@@ -199,20 +199,20 @@ lvim.plugins = {
     cmd = {"Bracey", "BracyStop", "BraceyReload", "BraceyEval"},
     run = "npm install --prefix server",
   },
-  -- {
-  --   "tzachar/cmp-tabnine",
-  --   config = function()
-  --     local tabnine = require "cmp_tabnine.config"
-  --     tabnine:setup {
-  --       max_lines = 1000,
-  --       max_num_results = 20,
-  --       sort = true,
-  --     }
-  --   end,
+  {
+    "tzachar/cmp-tabnine",
+    config = function()
+      local tabnine = require "cmp_tabnine.config"
+      tabnine:setup {
+        max_lines = 1000,
+        max_num_results = 20,
+        sort = true,
+      }
+    end,
 
-  --   run = "./install.sh",
-  --   requires = "hrsh7th/nvim-cmp",
-  -- },
+    run = "./install.sh",
+    requires = "hrsh7th/nvim-cmp",
+  },
 }
 
 
