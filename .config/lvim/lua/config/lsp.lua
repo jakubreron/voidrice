@@ -1,5 +1,28 @@
 -- Disable virtual text
 lvim.lsp.diagnostics.virtual_text = false
+lvim.lsp.override = {
+  -- "angularls",
+  "ansiblels",
+  "denols",
+  "ember",
+  -- "eslint",
+  "eslintls",
+  "graphql",
+  "jedi_language_server",
+  -- "phpactor",
+  "pylsp",
+  "rome",
+  "sorbet",
+  "sqlls",
+  "sqls",
+  -- "stylelint_lsp",
+  "tflint",
+  -- "ltex",
+  -- "vuels", -- NOTE: vue 2
+  -- "volar", -- NOTE: vue 3
+  -- "tailwindcss",
+  -- "emmet_ls",
+}
 
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers

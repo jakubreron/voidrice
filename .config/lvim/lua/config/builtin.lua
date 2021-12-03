@@ -17,13 +17,15 @@ lvim.builtin.gitsigns.active = true
 -- lvim.builtin.lualine.options.section_separators = {left = '', right = ''}
 -- lvim.builtin.lualine.options.component_separators = {left = '', right = ''}
 
+local function packageinfo()
+  return require('package-info').get_status()
+end
+
 lvim.builtin.lualine.sections = {
   lualine_c = {
     components.diff,
     components.python_env,
-    provider = function ()
-      return require('package-info').get_status()
-    end
+    packageinfo,
   },
   -- lualine_z = { "location" }
 }
