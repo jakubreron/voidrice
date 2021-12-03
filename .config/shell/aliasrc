@@ -50,7 +50,7 @@ alias \
   pkg-main="Cpap; pkggen main.txt && cd -" \
   pkg-work="Cpap; pkggen work.txt && cd -" \
   pkg-secondary="Cpap; pkggen secondary.txt && cd -" \
-  pkg-yarn="Cpap; ygli | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt && cd -"
+  pkg-yarn="Cpap; ygll | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt && cd -"
 
 # Git
 alias \
