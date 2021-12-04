@@ -12,15 +12,13 @@ lvim.keys = {
     ["0"] = "^",
     ["Q"] = "<cmd>BufferClose!<cr>",
 
-    -- DWM ftw
-    -- ["<C-h>"] = ":vertical resize +2<CR>",
-    -- ["<C-j>"] = "<C-w>w",
-    -- ["<C-k>"] = "<C-w>W",
-    -- ["<C-l>"] = ":vertical resize -2<CR>",
-    -- don't store "c" to the register
-    -- ["c"] = '"_c'
+    -- ["c"] = '"_c' -- don't store "c" to the register
 
-    -- ["<C-p>"] = "<cmd>Telescope find_files theme=get_ivy<CR>",
+    ["<C-p>"] = "zt<cmd>Telescope find_files theme=get_ivy<cr>",
+    ["]e"] = "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>",
+    ["[e"] = "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+    ["]c"] = "<cmd>lua require'gitsigns'.next_hunk()<cr>",
+    ["[c"] = "<cmd>lua require'gitsigns'.prev_hunk()<cr>",
   },
 }
 
@@ -29,8 +27,32 @@ lvim.builtin.which_key.mappings["T"] = nil
 lvim.builtin.which_key.mappings["h"] = nil
 lvim.builtin.which_key.mappings["/"] = nil
 lvim.builtin.which_key.mappings["q"] = nil
+lvim.builtin.which_key.mappings["f"] = nil
+lvim.builtin.which_key.mappings["c"] = nil
+lvim.builtin.which_key.mappings["w"] = nil
 
--- lvim.builtin.which_key.mappings["f"] = { "zt<cmd>Telescope find_files theme=get_ivy<cr>", "Find File" }
+lvim.builtin.which_key.mappings.g.j = nil
+lvim.builtin.which_key.mappings.g.k = nil
+lvim.builtin.which_key.mappings.g.d = nil
+
+lvim.builtin.which_key.mappings.b.b = nil
+lvim.builtin.which_key.mappings.b.h = nil
+lvim.builtin.which_key.mappings.b.l = nil
+lvim.builtin.which_key.mappings.b.w = nil
+
+lvim.builtin.which_key.mappings.l.j = nil
+lvim.builtin.which_key.mappings.l.k = nil
+lvim.builtin.which_key.mappings.l.s = nil
+lvim.builtin.which_key.mappings.l.S = nil
+
+lvim.builtin.which_key.mappings.s.c = {
+  "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<cr>",
+  "Colorscheme with Preview",
+}
+lvim.builtin.which_key.mappings.s.b = nil
+lvim.builtin.which_key.mappings.s.M = nil
+lvim.builtin.which_key.mappings.s.C = nil
+lvim.builtin.which_key.mappings.s.p = { "<cmd>Telescope projects<CR>", "Projects" }
 
 -- git worktrees
 -- NOTE: <Enter> - switches to that worktree
