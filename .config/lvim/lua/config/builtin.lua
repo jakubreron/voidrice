@@ -62,6 +62,7 @@ lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Make
 
 lvim.builtin.nvimtree.ignore = {}
 lvim.builtin.nvimtree.hide_dotfiles = 0
+-- lvim.builtin.nvimtree.setup.filters.custom = {}
 
 vim.g.nvim_tree_indent_markers = 1
 

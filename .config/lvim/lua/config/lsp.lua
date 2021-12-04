@@ -1,23 +1,23 @@
 -- Disable virtual text
 lvim.lsp.diagnostics.virtual_text = false
 lvim.lsp.override = {
-  -- "angularls",
+  "angularls",
   "ansiblels",
   "denols",
   "ember",
-  -- "eslint",
+  "eslint",
   "eslintls",
   "graphql",
   "jedi_language_server",
-  -- "phpactor",
+  "phpactor",
   "pylsp",
   "rome",
   "sorbet",
   "sqlls",
   "sqls",
-  -- "stylelint_lsp",
+  "stylelint_lsp",
   "tflint",
-  -- "ltex",
+  "ltex",
   -- "vuels", -- NOTE: vue 2
   -- "volar", -- NOTE: vue 3
   -- "tailwindcss",
@@ -39,8 +39,6 @@ lvim.lsp.on_attach_callback = function(client, bufnr)
     client.resolved_capabilities.document_range_formatting = false
   end
 end
-
--- require("lvim.lsp.manager").setup "tailwindcss"
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 local linters = require "lvim.lsp.null-ls.linters"
