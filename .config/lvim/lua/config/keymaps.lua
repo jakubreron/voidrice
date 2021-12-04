@@ -1,6 +1,3 @@
--- save
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-
 lvim.keys = {
   insert_mode = {
     -- inverted ctrl + h (del)
@@ -14,7 +11,7 @@ lvim.keys = {
 
     -- ["c"] = '"_c' -- don't store "c" to the register
 
-    ["<C-p>"] = "zt<cmd>Telescope find_files theme=get_ivy<cr>",
+    ["<C-p>"] = "<cmd>Telescope find_files<cr>",
     ["]e"] = "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>",
     ["[e"] = "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
     ["]c"] = "<cmd>lua require'gitsigns'.next_hunk()<cr>",

@@ -1,5 +1,8 @@
 -- Disable virtual text
 lvim.lsp.diagnostics.virtual_text = false
+lvim.lsp.document_highlight = true
+lvim.lsp.code_lens_refresh = true
+
 lvim.lsp.override = {
   "angularls",
   "ansiblels",
