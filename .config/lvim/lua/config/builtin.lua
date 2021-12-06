@@ -59,8 +59,8 @@ lvim.builtin.cmp.sources = {
 -- TODO: enable these lines only for certain projects
 -- detection patterns (custom nuxt modules fix)
 -- lvim.builtin.project.active = false
--- lvim.builtin.project.detection_methods = { "pattern" }
--- lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile" }
+lvim.builtin.project.detection_methods = { "pattern" }
+lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile" }
 
 
 lvim.builtin.nvimtree.setup.filters.custom = {}
