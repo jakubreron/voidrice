@@ -6,9 +6,8 @@ vim.g.dashboard_disable_statusline = 1
 
 lvim.plugins = {
   -- { "kshenoy/vim-signature" }, -- show the marks
-  -- { "folke/tokyonight.nvim" }, -- nice theme
-  -- { "rose-pine/neovim" }, -- nice theme
-  -- { "mattn/emmet-vim" },
+  { "folke/tokyonight.nvim" }, -- theme
+  { "rose-pine/neovim" }, -- theme
   { "editorconfig/editorconfig-vim" }, -- .editorconfig support
   { "andweeb/presence.nvim" }, -- flex with VIM on the discord
   { "vimwiki/vimwiki" }, -- note taking plugin

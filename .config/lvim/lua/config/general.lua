@@ -5,7 +5,7 @@ lvim.lint_on_save = true
 
 -- appearance
 -- lvim.colorscheme = "tokyonight"
-lvim.transparent_window = true
+-- lvim.transparent_window = true
 
 -- debug
 lvim.debug = false
