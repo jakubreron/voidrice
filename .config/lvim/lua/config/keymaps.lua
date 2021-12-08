@@ -6,7 +6,7 @@ lvim.keys = {
 
   normal_mode = {
     ["Y"] = "y$",
-    ["0"] = "^",
+    -- ["0"] = "^",
     ["Q"] = "<cmd>BufferClose!<cr>",
 
     -- ["c"] = '"_c' -- don't store "c" to the register
@@ -20,13 +20,13 @@ lvim.keys = {
 }
 
 -- unmap a default keymapping
-lvim.builtin.which_key.mappings["T"] = nil
-lvim.builtin.which_key.mappings["h"] = nil
-lvim.builtin.which_key.mappings["/"] = nil
-lvim.builtin.which_key.mappings["q"] = nil
-lvim.builtin.which_key.mappings["f"] = nil
-lvim.builtin.which_key.mappings["c"] = nil
-lvim.builtin.which_key.mappings["w"] = nil
+lvim.builtin.which_key.mappings["T"] = nil -- treesitter
+lvim.builtin.which_key.mappings["h"] = nil -- highlight
+lvim.builtin.which_key.mappings["/"] = nil -- comment
+lvim.builtin.which_key.mappings["q"] = nil -- quit
+lvim.builtin.which_key.mappings["f"] = nil -- find files
+lvim.builtin.which_key.mappings["c"] = nil -- close buffer
+lvim.builtin.which_key.mappings["w"] = nil -- save
 
 lvim.builtin.which_key.mappings.g.j = nil
 lvim.builtin.which_key.mappings.g.k = nil
