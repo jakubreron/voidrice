@@ -69,5 +69,5 @@ Php   /etc/php/
 Phpc  /etc/php/conf.d
 
 # misc
-Mt    $HOME/Mount
+Mn    $HOME/Mount
 Ca    $HOME/.cache
