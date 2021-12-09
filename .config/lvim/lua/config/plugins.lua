@@ -145,11 +145,9 @@ lvim.plugins = {
   },
   {
     "Pocco81/AutoSave.nvim",
-    -- config = function()
-    --   require("autosave").setup({
-    --     debounce_delay = 250
-    --   })
-    -- end,
+    config = function()
+      require("autosave").setup()
+    end,
   },
   { "christoomey/vim-titlecase" }, -- "gz" movement to toggle the words case
   {

@@ -16,12 +16,14 @@ for command in mount umount sv pacman updatedb su shutdown poweroff reboot ; do
 done; unset command
 
 # Verbosity and settings that you pretty much just always are going to want.
+# df="df -h" \
 alias \
 	cp="cp -iv" \
 	mv="mv -iv" \
 	bc="bc -ql" \
-  df="df -h" \
-  free='free -m' \
+	df="duf" \
+	du="dust" \
+	free='free -m' \
 	mkd="mkdir -pv" \
 	yt="youtube-dl --add-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
