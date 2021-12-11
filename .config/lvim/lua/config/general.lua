@@ -23,6 +23,7 @@ vim.opt.colorcolumn = "100"
 vim.opt.incsearch = true
 vim.opt.lazyredraw = true
 vim.opt.magic = true
+vim.opt.spelllang:append("cjk") -- NOTE: disable spellchecking for asian characters
 
 vim.opt.path:append("**")
 vim.opt.wildmenu = true

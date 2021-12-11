@@ -81,7 +81,7 @@ lvim.builtin.which_key.mappings["o"] = {
   name = "Ortography",
   e = { ":setlocal spell! spelllang=en<CR>", "English" },
   p = { ":setlocal spell! spelllang=pl<CR>", "Polish" },
-  j = { ":setlocal spell! spelllang=ja<CR>", "Japanese" }
+  -- j = { ":setlocal spell! spelllang=ja<CR>", "Japanese" } -- NOTE: probably not supported
 }
 
 -- buffer / markdown
