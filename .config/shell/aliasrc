@@ -162,7 +162,7 @@ alias \
 alias \
   yt="yt-dlp --add-metadata -i --cookies-from-browser chrome" \
   yta="yt -x -f bestaudio/best --download-archive playlist.txt" \
-  yta-archive="cat playlist.txt | sed -e 's/youtube//g' | xargs -t yt-dlp --add-metadata -i --cookies-from-browser chrome -x -f bestaudio/best --download-archive playlist.txt"
+  ytap="yta -a $(cat playlist.txt | sed -e 's/youtube//g')"
 alias \
   yta-general="cd ~/Music/general; yta  'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
   yta-live="cd ~/Music/live; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
