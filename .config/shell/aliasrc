@@ -25,8 +25,6 @@ alias \
   du="dust" \
   free='free -m' \
   mkd="mkdir -pv" \
-  yt="yt-dlp --add-metadata -i" \
-  yta="yt -x -f bestaudio/best" \
   ffmpeg="ffmpeg -hide_banner"
 
 # Colorize commands when possible.
@@ -160,13 +158,18 @@ alias \
 
 # youtube
 alias \
+  yt="yt-dlp --add-metadata -i" \
+  yta="yt -x -f bestaudio/best" \
   ytap="yta --download-archive playlist.txt" \
-  ytapg="cd ~/Music/general; ytd  'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
-  ytapl="cd ~/Music/live; ytd 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
-  ytapo="cd ~/Music/osts; ytd 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
-  ytapa="cd ~/Music/albums; ytd 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
-  ytapt="cd ~/Music/touhou; ytd 'https://www.youtube.com/playlist?list=PLJL0SL186iqzQq2o7Ss4pCYyL37JeqSEb'" \
-  ytapall="ytapg; ytapl; ytapo; ytapa; ytapt" \
+  ytapc="ytap --cookies-from-browser 'firefox:6poew6a4.dev-edition-default'" 
+alias \
+  ytapg="cd ~/Music/general; ytap  'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
+  ytapl="cd ~/Music/live; ytap 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
+  ytapo="cd ~/Music/osts; ytap 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
+  ytapa="cd ~/Music/albums; ytap 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
+  ytapt="cd ~/Music/touhou; ytap 'https://www.youtube.com/playlist?list=PLJL0SL186iqzQq2o7Ss4pCYyL37JeqSEb'" \
+  ytapp="cd ~/Music/provided; ytapc" \
+  ytapall="ytapg; ytapl; ytapo; ytapa; ytapt; ytapp"
 
 # sync replace every config file
 alias \
