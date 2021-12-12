@@ -21,7 +21,7 @@ Ml    ${XDG_MUSIC_DIR:-$HOME/Music/live}
 Mo    ${XDG_MUSIC_DIR:-$HOME/Music/osts}
 Ma    ${XDG_MUSIC_DIR:-$HOME/Music/albums}
 Mt    ${XDG_MUSIC_DIR:-$HOME/Music/touhou}
-Mp    ${XDG_MUSIC_DIR:-$HOME/Music/provided}
+Mar    ${XDG_MUSIC_DIR:-$HOME/Music/akatsuki-records}
 
 # dropbox
 Dr     $HOME/Dropbox
