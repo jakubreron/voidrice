@@ -169,7 +169,7 @@ alias \
   yta-osts="cd ~/Music/osts; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
   yta-albums="cd ~/Music/albums; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
   yta-touhou="cd ~/Music/touhou; yta 'https://www.youtube.com/playlist?list=PLJL0SL186iqzQq2o7Ss4pCYyL37JeqSEb'" \
-  yta-akatsuki-records="cd ~/Music/akatsuki-records; yta-archive" \
+  yta-akatsuki-records="cd ~/Music/akatsuki-records; ytap" \
   yta-all="yta-general; yta-live; yta-osts; yta-albums; yta-touhou; yta-akatsuki-records"
 
 # sync replace every config file
