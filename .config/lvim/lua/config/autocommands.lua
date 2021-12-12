@@ -67,6 +67,11 @@ lvim.autocommands.custom_groups = {
   },
   {
     "VimLeave",
+    "~/.config/personal/voidrice/.config/lf/lfrc",
+    "!cd ~/.config/personal/voidrice; git add .; git commit -m 'feat(lfrc)'; git push;",
+  },
+  {
+    "VimLeave",
     "~/.config/personal/voidrice/.config/shell/profile",
     "!cd ~/.config/personal/voidrice; git add .; git commit -m 'feat(profile)'; git push;",
   },
