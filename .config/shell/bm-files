@@ -1,6 +1,6 @@
 # cf = "config" prefix
-cff	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-files	# This file, a list of bookmarked files
-cfd	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs		# A list of bookmarked directories similar to this file
+cff	~/.config/shell/bm-files	# This file, a list of bookmarked files
+cfd	~/.config/shell/bm-dirs		# A list of bookmarked directories similar to this file
 
 cfdb	~/.local/src/dwmblocks/config.h
 cfdw	~/.local/src/dwm/config.h
@@ -9,22 +9,29 @@ cfst	~/.local/src/st/config.h
 
 # system
 cfz	$ZDOTDIR/.zshrc						                       
-cfa	${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc	
-cfp	${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile		
-cfc	${XDG_CONFIG_HOME:-$HOME/.config}/picom.conf  
-cfx	${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile	
-cfl	${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc	      	
+cfa	~/.config/shell/aliasrc	
+cfp	~/.config/shell/profile		
+cfc	~/.config/picom.conf  
+cfx	~/.config/x11/xprofile	
+cfl	~/.config/lf/lfrc	      	
 cfG /etc/default/grub
 
 # apps
-cflv ${XDG_CONFIG_HOME:-$HOME/.config}/lvim/config.lua 
-cfnbu	${XDG_CONFIG_HOME:-$HOME/.config}/newsboat/urls	
+cflv ~/.config/lvim/config.lua 
+cflva ~/.config/lvim/lua/config/autocommands.lua
+cflvb ~/.config/lvim/lua/config/builtin.lua
+cflvg ~/.config/lvim/lua/config/general.lua
+cflvk ~/.config/lvim/lua/config/keymaps.lua
+cflvl ~/.config/lvim/lua/config/lsp
+cflvp ~/.config/lvim/lua/config/plugins.lua
+
+cfnbu	~/.config/newsboat/urls	
 
 ## personal configs
-cft	~/.ticker.yaml # stonks
-cfb	${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/.config/bookmarks 
-cfg	${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/.config/git/config
+cft	~/.ticker.yaml 
+cfb	~/.config/personal/universal/.config/bookmarks 
+cfg	~/.config/personal/universal/.config/git/config
 
 # documentation
-cfpar ${XDG_CONFIG_HOME:-$HOME/.config}/personal/arch/README.md 
-cfpur ${XDG_CONFIG_HOME:-$HOME/.config}/personal/universal/README.md
+cfpar ~/.config/personal/arch/README.md 
+cfpur ~/.config/personal/universal/README.md
