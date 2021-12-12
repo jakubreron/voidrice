@@ -161,14 +161,15 @@ alias \
 # NOTE: x = extract, -f = format
 alias \
   yt="yt-dlp --add-metadata -i --cookies-from-browser chrome" \
-  yta="yt -x -f bestaudio/best --download-archive playlist.txt" 
+  yta="yt -x -f bestaudio/best --download-archive playlist.txt" \
+  yta-archive="cat playlist.txt | tr -d 'youtube' | xargs -t yt-dlp --add-metadata -i --cookies-from-browser chrome -x -f bestaudio/best --download-archive playlist.txt"
 alias \
   yta-general="cd ~/Music/general; yta  'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
   yta-live="cd ~/Music/live; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
   yta-osts="cd ~/Music/osts; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
   yta-albums="cd ~/Music/albums; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
   yta-touhou="cd ~/Music/touhou; yta 'https://www.youtube.com/playlist?list=PLJL0SL186iqzQq2o7Ss4pCYyL37JeqSEb'" \
-  yta-akatsuki-records="cd ~/Music/akatsuki-records; yta" \
+  yta-akatsuki-records="cd ~/Music/akatsuki-records; yta-archive" \
   yta-all="yta-general; yta-live; yta-osts; yta-albums; yta-touhou; yta-akatsuki-records"
 
 # sync replace every config file
