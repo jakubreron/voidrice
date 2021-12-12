@@ -159,17 +159,16 @@ alias \
 # youtube
 alias \
   yt="yt-dlp --add-metadata -i" \
-  yta="yt -x -f bestaudio/best" \
-  ytap="yta --download-archive playlist.txt" \
-  ytapc="ytap --cookies-from-browser 'firefox:6poew6a4.dev-edition-default'" 
+  yta="yt -x -f bestaudio/best --download-archive playlist.txt" \
+  ytac="yta --cookies-from-browser 'firefox:6poew6a4.dev-edition-default'" 
 alias \
-  ytapg="cd ~/Music/general; ytap  'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
-  ytapl="cd ~/Music/live; ytap 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
-  ytapo="cd ~/Music/osts; ytap 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
-  ytapa="cd ~/Music/albums; ytap 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
-  ytapt="cd ~/Music/touhou; ytap 'https://www.youtube.com/playlist?list=PLJL0SL186iqzQq2o7Ss4pCYyL37JeqSEb'" \
-  ytapp="cd ~/Music/provided; ytapc" \
-  ytapall="ytapg; ytapl; ytapo; ytapa; ytapt; ytapp"
+  yta-g="cd ~/Music/general; yta  'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
+  yta-l="cd ~/Music/live; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
+  yta-o="cd ~/Music/osts; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
+  yta-a="cd ~/Music/albums; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
+  yta-t="cd ~/Music/touhou; yta 'https://www.youtube.com/playlist?list=PLJL0SL186iqzQq2o7Ss4pCYyL37JeqSEb'" \
+  yta-p="cd ~/Music/provided; ytac" \
+  yta-all="yta-g; yta-l; yta-o; yta-a; yta-t; yta-p"
 
 # sync replace every config file
 alias \
