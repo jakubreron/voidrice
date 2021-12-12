@@ -76,6 +76,12 @@ formatters.setup({
     filetypes = {
       "html", "markdown", "yaml", "json"
     }
+  },
+  {
+    exe = "stylua",
+    filetypes = {
+      "lua"
+    }
   }
 })
 
@@ -97,6 +103,12 @@ linters.setup({
       "css", "scss", "less", "sass"
     }
   },
+  {
+    exe = "luacheck",
+    filetypes = {
+      "lua"
+    }
+  }
 })
 
 
