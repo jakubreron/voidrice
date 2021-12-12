@@ -18,32 +18,32 @@ done; unset command
 # Verbosity and settings that you pretty much just always are going to want.
 # df="df -h" \
 alias \
-	cp="cp -iv" \
-	mv="mv -iv" \
-	bc="bc -ql" \
-	df="duf" \
-	du="dust" \
-	free='free -m' \
-	mkd="mkdir -pv" \
-	yt="youtube-dl --add-metadata -i" \
-	yta="yt -x -f bestaudio/best" \
-	ffmpeg="ffmpeg -hide_banner"
+  cp="cp -iv" \
+  mv="mv -iv" \
+  bc="bc -ql" \
+  df="duf" \
+  du="dust" \
+  free='free -m' \
+  mkd="mkdir -pv" \
+  yt="youtube-dl --add-metadata -i" \
+  yta="yt a" \
+  ffmpeg="ffmpeg -hide_banner"
 
 # Colorize commands when possible.
 alias \
-	ls="exa -F --time-style=iso --icons --group-directories-first --git" \
+  ls="exa -F --time-style=iso --icons --group-directories-first --git" \
   ll="ls -la" \
-	grep="grep --color=auto" \
-	diff="diff --color=auto" \
+  grep="grep --color=auto" \
+  diff="diff --color=auto" \
   t="ls -T"
 
 # These common commands are just too long! Abbreviate them.
 alias \
-	ka="killall" \
-	sdn="shutdown -h now" \
-	e="sudoedit" \
-	v="$EDITOR" \
-	p="paru" \
+  ka="killall" \
+  sdn="shutdown -h now" \
+  e="sudoedit" \
+  v="$EDITOR" \
+  p="paru" \
   pkgs="pkgstats search" \
   ud="updatedb"
 
@@ -160,12 +160,12 @@ alias \
 
 # youtube
 alias \
-  ytd="yt -x -f bestaudio/best --download-archive playlist.txt" \
-  ytdg="cd ~/Music/general; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
-  ytdl="cd ~/Music/live; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
-  ytdo="cd ~/Music/osts; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
-  ytda="cd ~/Music/albums; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
-  ytdt="cd ~/Music/touhou; yt -x -f bestaudio/best --download-archive playlist.txt 'https://www.youtube.com/playlist?list=PLJL0SL186iqzQq2o7Ss4pCYyL37JeqSEb'" \
+  ytd="yta --download-archive playlist.txt" \
+  ytdg="cd ~/Music/general; ytd  'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
+  ytdl="cd ~/Music/live; ytd 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
+  ytdo="cd ~/Music/osts; ytd 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
+  ytda="cd ~/Music/albums; ytd 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
+  ytdt="cd ~/Music/touhou; ytd 'https://www.youtube.com/playlist?list=PLJL0SL186iqzQq2o7Ss4pCYyL37JeqSEb'" \
   ytdall="ytdg; ytdl; ytdo; ytda; ytdt" \
 
 # sync replace every config file

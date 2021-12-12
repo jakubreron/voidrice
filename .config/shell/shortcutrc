@@ -17,6 +17,7 @@ Ml="cd /home/jakub/Music/live" \
 Mo="cd /home/jakub/Music/osts" \
 Ma="cd /home/jakub/Music/albums" \
 Mt="cd /home/jakub/Music/touhou" \
+Mp="cd /home/jakub/Music/provided" \
 Dr="cd /home/jakub/Dropbox" \
 Drb="cd /home/jakub/Dropbox/Books" \
 Dri="cd /home/jakub/Dropbox/Images" \
