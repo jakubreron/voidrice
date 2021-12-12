@@ -20,7 +20,7 @@ unsetopt PROMPT_SP
 export EDITOR="lvim"
 export TERMINAL="st"
 export BROWSER="firefox-developer-edition"
-export BACKUP_BROWSER="brave"
+export BACKUP_BROWSER="google-chrome"
 export GUI_FILE_EXPLORER="nautilus"
 
 # Performance fix

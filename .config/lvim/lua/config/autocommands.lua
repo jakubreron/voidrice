@@ -11,7 +11,7 @@ lvim.autocommands.custom_groups = {
     "!cd ~/.local/src/dwm/; sudo make install && kill -HUP $(pgrep -u $USER 'dwm$')",
   },
   {
-    "BufWritePost",
+    "VimLeave",
     "~/.local/src/dwmblocks/config.h",
     "!cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }",
   },
@@ -59,6 +59,11 @@ lvim.autocommands.custom_groups = {
     "VimLeave",
     "~/.config/personal/voidrice/.config/shell/aliasrc",
     "!cd ~/.config/personal/voidrice; git add .; git commit -m 'feat(aliases)'; git push;",
+  },
+  {
+    "VimLeave",
+    "~/.config/personal/voidrice/.config/shell/profile",
+    "!cd ~/.config/personal/voidrice; git add .; git commit -m 'feat(profile)'; git push;",
   },
   {
     "VimLeave",
