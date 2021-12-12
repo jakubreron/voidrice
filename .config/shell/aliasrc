@@ -160,13 +160,13 @@ alias \
 
 # youtube
 alias \
-  ytd="yta --download-archive playlist.txt" \
-  ytdg="cd ~/Music/general; ytd  'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
-  ytdl="cd ~/Music/live; ytd 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
-  ytdo="cd ~/Music/osts; ytd 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
-  ytda="cd ~/Music/albums; ytd 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
-  ytdt="cd ~/Music/touhou; ytd 'https://www.youtube.com/playlist?list=PLJL0SL186iqzQq2o7Ss4pCYyL37JeqSEb'" \
-  ytdall="ytdg; ytdl; ytdo; ytda; ytdt" \
+  ytap="yta --download-archive playlist.txt" \
+  ytapg="cd ~/Music/general; ytd  'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
+  ytapl="cd ~/Music/live; ytd 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
+  ytapo="cd ~/Music/osts; ytd 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
+  ytapa="cd ~/Music/albums; ytd 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
+  ytapt="cd ~/Music/touhou; ytd 'https://www.youtube.com/playlist?list=PLJL0SL186iqzQq2o7Ss4pCYyL37JeqSEb'" \
+  ytapall="ytapg; ytapl; ytapo; ytapa; ytapt" \
 
 # sync replace every config file
 alias \
