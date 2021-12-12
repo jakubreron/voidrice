@@ -51,6 +51,7 @@ lvim.lsp.on_attach_callback = function(client, bufnr)
 end
 
 
+
 local formatters = require "lvim.lsp.null-ls.formatters"
 local linters = require "lvim.lsp.null-ls.linters"
 
@@ -77,12 +78,6 @@ formatters.setup({
       "html", "markdown", "yaml", "json"
     }
   },
-  {
-    exe = "stylua",
-    filetypes = {
-      "lua"
-    }
-  }
 })
 
 
