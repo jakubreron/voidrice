@@ -1,7 +1,11 @@
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 lvim.autocommands.custom_groups = {
   { "BufWritePost", "bm-files,bm-dirs", "!shortcuts" },
-  { "VimLeave", "bm-files,bm-dirs", "!cd ~/.config/personal/voidrice; ; git add .; git commit -m 'feat(bm-dirs/files)'; git push;" },
+  {
+    "VimLeave",
+    "bm-files,bm-dirs",
+    "!cd ~/.config/personal/voidrice; ; git add .; git commit -m 'feat(bm-dirs/files)'; git push;"
+  },
   { "BufRead,BufNewFile", "Xresources,Xdefaults,xresources,xdefaults", "set filetype=xdefaults" },
   { "BufWritePost", "Xresources,Xdefaults,xresources,xdefaults", "!xrdb %" },
   { "VimLeave", "~/.local/src/st/config.h", "!cd ~/.local/src/st/; sudo make install" },
