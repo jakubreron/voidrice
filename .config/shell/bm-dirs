@@ -6,13 +6,12 @@ V    ${XDG_VIDEOS_DIR:-$HOME/Videos}
 
 # documents
 D      ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
+# documents projects
 Dp     $HOME/Documents/Projects
 Dpj    $HOME/Documents/Projects/jakubreron.me
 Dpb    $HOME/Documents/Projects/boilerplate
-Dpz    $HOME/Documents/Projects/dockerized-env
-Dpzw   $HOME/Documents/Projects/dockerized-env/app/web
-Dpzl   $HOME/Documents/Projects/dockerized-env/app/landlord-web
-Dpza   $HOME/Documents/Projects/dockerized-env/app/api
+# documents software
+Ds    $HOME/Documents/Software
 
 # music
 M     ${XDG_MUSIC_DIR:-$HOME/Music}
