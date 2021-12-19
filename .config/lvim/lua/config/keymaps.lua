@@ -14,8 +14,8 @@ lvim.keys = {
     ["<C-p>"] = "<cmd>Telescope find_files<cr>",
     ["]e"] = "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>",
     ["[e"] = "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-    ["]c"] = "<cmd>lua require'gitsigns'.next_hunk().preview_hunk()<cr>",
-    ["[c"] = "<cmd>lua require'gitsigns'.prev_hunk().preview_hunk()<cr>",
+    ["]c"] = "<cmd>lua require'gitsigns'.next_hunk()<cr><cmd>lua require 'gitsigns'.preview_hunk()<cr>",
+    ["[c"] = "<cmd>lua require'gitsigns'.prev_hunk()<cr><cmd>lua require 'gitsigns'.preview_hunk()<cr>",
   },
 }
 
@@ -31,6 +31,7 @@ lvim.builtin.which_key.mappings["w"] = nil -- save
 lvim.builtin.which_key.mappings.g.j = nil
 lvim.builtin.which_key.mappings.g.k = nil
 lvim.builtin.which_key.mappings.g.d = nil
+lvim.builtin.which_key.mappings.g.p = nil
 
 lvim.builtin.which_key.mappings.b.b = nil
 lvim.builtin.which_key.mappings.b.h = nil

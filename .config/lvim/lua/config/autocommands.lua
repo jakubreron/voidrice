@@ -85,4 +85,9 @@ lvim.autocommands.custom_groups = {
     "~/.config/personal/voidrice/.config/newsboat/urls",
     "!cd ~/.config/personal/voidrice; git add .; git commit -m 'docs(newsboat)'; git push;",
   },
+  {
+    "VimLeave",
+    "~/.config/personal/voidrice/.config/lvim/lua/config/keymaps.lua",
+    "!cd ~/.config/personal/voidrice; git add .; git commit -m 'feat(lvim): keymaps'; git push;",
+  },
 }
