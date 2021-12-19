@@ -11,6 +11,7 @@ fcitx -d &																													# Keyboard
 easyeffects --gapplication-service &																# Equalizer
 redshift &																													# Night light
 /usr/lib/kdeconnectd &																							# KDE connect daemon
+maestral start &
 
 # Autostart
 autostart="dunst unclutter" # use "xcompmgr" instead of "picom" for the unbloated transparency
