@@ -23,12 +23,12 @@ export BROWSER="firefox-developer-edition"
 export BACKUP_BROWSER="google-chrome-stable"
 export GUI_FILE_EXPLORER="nautilus"
 
-# Performance fix
-export vblank_mode=0
-
 export PROJECTS_DIR="$HOME/Documents/Projects"
 export CONFIG_DIR="$HOME/.config/personal"
 export VALET_SITES_DIR="$HOME/.config/personal"
+
+# Performance fix
+export vblank_mode=0
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
