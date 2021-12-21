@@ -198,12 +198,10 @@ alias \
 
 # sync config files
 alias \
-    ssrc="Lsrdw && g pl && cmpl; Lsrdb && g pl && cmpl; Lsrdm && g pl && cmpl; Lsrst && g pl && cmpl; Lsrsx && g pl && sudo rm {config,patches}.h && cmpl;" \
-    sdots="Cpa && g pl; Cpu && g pl; Cpv && g pl; replace-all" \
-    slvim="Lshlv; git pull && lvim +LuaCacheClear +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
-    snc="ssrc; sdots; slvim" \
-    sproj="Dpzw && g pl; Dpza && g pl; Dpzl && g pl" \
-    sall="snc; sproj"
+    sync-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
+    sync-lvim="lvim +LuaCacheClear +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
+    sync-all="git-sync-local-repos; replace-all; sync-src; sync-lvim" \
+    sync-lvim-only="Lshlv; git pull && sync-lvim" \
 
 # some programs
 alias \
