@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+# NOTE: There's a faster way to find Git repositories, but this works for nested repos.
+# https://bit.ly/3pyUGDp
+# find "$HOME/.local/src" -type d -exec test -e '{}/.git' ';' -print -prune
+find "$HOME/.config/personal" -type d -exec test -e '{}/.git' ';' -print -prune
+find "$HOME/Documents/Projects" -type d -exec test -e '{}/.git' ';' -print -prune
+find "$HOME/.valet/Sites" -type d -exec test -e '{}/.git' ';' -print -prune
