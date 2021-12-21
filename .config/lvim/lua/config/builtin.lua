@@ -63,7 +63,7 @@ lvim.builtin.project.detection_methods = { "pattern" }
 lvim.builtin.project.patterns = { ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile" }
 
 
-lvim.builtin.nvimtree.setup.filters.custom = {}
+-- lvim.builtin.nvimtree.setup.filters.custom = {}
 vim.g.nvim_tree_indent_markers = 1
 
 
