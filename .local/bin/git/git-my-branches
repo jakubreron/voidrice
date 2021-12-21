@@ -9,4 +9,4 @@ else
   COLOR="auto"
 fi
 
-"$HOME/.dotfiles/bin/git/git-branches" --color="$COLOR" | grep "$(git config user.name)"
+git-branches --color="$COLOR" | grep "$(git config user.name)"
