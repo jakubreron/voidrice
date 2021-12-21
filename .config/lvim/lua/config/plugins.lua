@@ -192,11 +192,11 @@ lvim.plugins = {
     "felipec/vim-sanegx", -- go to the url using gX
     event = "BufRead",
   },
-  {
-    "turbio/bracey.vim",
-    cmd = {"Bracey", "BracyStop", "BraceyReload", "BraceyEval"},
-    run = "npm install --prefix server",
-  },
+  -- {
+  --   "turbio/bracey.vim",
+  --   cmd = {"Bracey", "BracyStop", "BraceyReload", "BraceyEval"},
+  --   run = "npm install --prefix server",
+  -- },
   -- {
   --   "tzachar/cmp-tabnine",
   --   config = function()
