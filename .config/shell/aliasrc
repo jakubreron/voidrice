@@ -201,7 +201,6 @@ alias \
     sync-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
     sync-lvim="lvim +LuaCacheClear +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
     sync-all="git-sync-local-repos; replace-all; sync-src; sync-lvim" \
-    sync-lvim-only="cd $LVIM_SHARE_DIR; git pull && sync-lvim" \
 
 # some programs
 alias \
