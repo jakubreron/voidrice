@@ -20,4 +20,4 @@ git local-repos | sort -r | while read -r GIT_DIRECTORY; do
     --format="[%Cblue%ad%Creset] %Cgreen$REPO%Creset %s (%Cred%h%Creset)" \
     --after "$1 0:00:00" \
     --before "$1 23:59:59"
-done | git page
+done | delta
