@@ -2,27 +2,28 @@
 
 set -euo pipefail
 
+cd "$LVIM_SHARE_DIR"
+
 git local-repos | while read -r REPO; do
   GIT_STATUS="$(git -C "$REPO" status --porcelain)"
 
   BRANCH=$(git -C "$REPO" default-branch)
 
   if [ -z "$BRANCH" ]; then
-    echo "✋ $(basename "$REPO") does not have a default branch."
+    echo "❌ $(basename "$REPO") does not have a default branch."
     continue;
   fi
 
   if [ -n "$GIT_STATUS" ]; then
-    echo "✋ $(basename "$REPO") has local changes, so it wasn't updated."
+    echo "❗ $(basename "$REPO") has local changes, so it wasn't updated."
     continue;
   fi
 
   git -C "$REPO" checkout --quiet "$BRANCH"
 
   if git ls-remote --exit-code --heads origin "$BRANCH"; then
-    echo "RUNNING PULL"
     git -C "$REPO" pull --quiet origin "$BRANCH"
   fi
 
-  echo "👍 $(basename "$REPO") was switched to $(basename "$BRANCH") and updated."
+  echo "✅ $(basename "$REPO") was switched to $(basename "$BRANCH") and updated."
 done
