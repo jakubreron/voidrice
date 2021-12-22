@@ -7,11 +7,3 @@ echo "$HOME/.local/share/lunarvim/lvim"
 # NOTE: There's a faster way to find Git repositories, but this works for nested repos.
 # https://bit.ly/3pyUGDp
 find "$HOME/.local/src" "$CONFIG_DIR" "$PROJECTS_DIR" "$VALET_SITES_DIR" -type d -exec test -e '{}/.git' ';' -print -prune
-
-# #!/usr/bin/env bash
-
-# set -euo pipefail
-
-# # NOTE: There's a faster way to find Git repositories, but this works for nested repos.
-# # https://bit.ly/3pyUGDp
-# find "$PROJECTS_DIR" -type d -exec test -e '{}/.git' ';' -print -prune
