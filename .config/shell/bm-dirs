@@ -47,6 +47,7 @@ L      $HOME/.local
 # local bin
 Lbn   $HOME/.local/bin
 Lbns  $HOME/.local/bin/statusbar
+Lbng  $HOME/.local/bin/git
 # local share
 Lsh    $HOME/.local/share
 Lshlv  $HOME/.local/share/lunarvim/lvim

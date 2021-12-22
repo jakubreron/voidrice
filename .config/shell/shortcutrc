@@ -33,6 +33,7 @@ Cpv="cd /home/jakub/.config/personal/voidrice" \
 L="cd /home/jakub/.local" \
 Lbn="cd /home/jakub/.local/bin" \
 Lbns="cd /home/jakub/.local/bin/statusbar" \
+Lbng="cd /home/jakub/.local/bin/git" \
 Lsh="cd /home/jakub/.local/share" \
 Lshlv="cd /home/jakub/.local/share/lunarvim/lvim" \
 Lsr="cd /home/jakub/.local/src" \
