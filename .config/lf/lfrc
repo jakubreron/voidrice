@@ -1,4 +1,5 @@
-set ratios 1:2:3
+# set ratios 1:2:3
+set ratios 1:2
 set previewer ~/.config/lf/preview
 set cleaner ~/.config/lf/cleaner
 
@@ -15,7 +16,7 @@ set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 set hidden
 set drawbox
 set ignorecase true
-set info 
+set info
 
 # Vars that depend on environmental variables
 # $lf -remote "send $id set previewer ${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope"
@@ -50,7 +51,7 @@ cmd open ${{
     esac
 }}
 
-cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
+cmd mkdir %mkdir "$@"
 
 cmd extract ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
