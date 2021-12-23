@@ -23,7 +23,7 @@ alias \
   bc="bc -ql" \
   df="duf" \
   du="dust" \
-  free='free -m' \
+  free="free -m" \
   mkd="mkdir -pv" \
   ffmpeg="ffmpeg -hide_banner"
 
@@ -57,9 +57,9 @@ alias \
   g="git" \
 
 alias \
-  ssctl="sudo systemctl" \
   sctl="systemctl" \
   sctlu="systemctl --user" \
+  ssctl="sudo systemctl" \
   ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
   wth="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
   rates="curl rate.sx | less -S"
@@ -67,9 +67,6 @@ alias \
 # get fastest mirrors
 alias \
   mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" \
-  mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist" \
-  mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist" \
-  mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
 
 # For when keys break
 alias fix-pkg-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
@@ -188,14 +185,14 @@ alias \
 
 # sync packages
 alias \
-    sync-packages="Cpap; paru -S --needed - < main.txt" \
-    sync-yarn="Cpap; cat yarn.txt | xargs -t yarn global add" \
+  sync-packages="Cpap; paru -S --needed - < main.txt" \
+  sync-yarn="Cpap; cat yarn.txt | xargs -t yarn global add" \
 
 # sync config files
 alias \
-    sync-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
-    sync-lvim="lvim +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
-    sync-all="git-sync-local-repos; replace-all; sync-src; sync-lvim" \
+  sync-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
+  sync-lvim="lvim +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
+  sync-all="git-sync-local-repos; replace-all; sync-src; sync-lvim" \
 
 # some programs
 alias \
@@ -225,10 +222,10 @@ alias \
 # reinstall
 alias \
   reinstall-lvim="
-  bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/uninstall.sh) &&
-    bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) &&
-    replace-all &&
-    Cpv; git restore .config/lvim/config.lua &&
+    bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/uninstall.sh) &&
+      bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) &&
+      replace-all &&
+      Cpv; git restore .config/lvim/config.lua &&
   " \
 
 # misc
