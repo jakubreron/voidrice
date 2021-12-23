@@ -240,8 +240,7 @@ alias \
 # misc
 alias \
   ndi="nodemon index.js" \
-  gcl="dmenu-github" \
-  cmpl="sudo make && sudo make install" \
+  cmpl="compiler" \
   encrypt="gpg -c --no-symkey-cache --cipher-algo AES256" \
   update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
   init-ctags="ctags -R --exclude=.git" \
