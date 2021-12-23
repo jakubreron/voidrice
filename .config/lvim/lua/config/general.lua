@@ -4,8 +4,8 @@ lvim.format_on_save = false
 lvim.lint_on_save = false
 
 -- appearance
-lvim.colorscheme = "tokyonight"
--- lvim.transparent_window = true
+lvim.colorscheme = "kanagawa"
+lvim.transparent_window = false
 
 -- debug
 lvim.debug = false
