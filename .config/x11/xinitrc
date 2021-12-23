@@ -14,11 +14,7 @@ else
 	. "$HOME/.xprofile"
 fi
 
-# eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-# export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
-# dbus-update-activation-environment --systemd DISPLAY
-
-# eval $(gnome-keyring-daemon --start)
-# export SSH_AUTH_SOCK
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
 
 ssh-agent dwm
