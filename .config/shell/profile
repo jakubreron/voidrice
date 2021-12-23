@@ -31,7 +31,7 @@ export LVIM_SHARE_DIR="$HOME/.local/share/lunarvim/lvim"
 # Performance fix
 export vblank_mode=0
 
-export GNUPGHOME="${XDG_DATA_HOME:-${HOME:/home/$LOGNAME}/.local/share}/gnupg"
+export GNUPGHOME="${XDG_DATA_HOME:-$HOME/.local/share}/gnupg"
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
