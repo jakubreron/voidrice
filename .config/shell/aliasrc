@@ -168,10 +168,11 @@ alias \
   yta-live="cd ~/Music/live; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
   yta-osts="cd ~/Music/osts; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
   yta-albums="cd ~/Music/albums; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
+  yta-main="yta-general; yta-live; yta-osts; yta-albums"
+alias \
   yta-touhou="cd ~/Music/touhou; ytap" \
   yta-akatsuki-records="cd ~/Music/akatsuki-records; ytap" \
-  yta-main="yta-general; yta-live; yta-osts; yta-albums" \
-  yta-all="yta-general; yta-live; yta-osts; yta-albums; yta-touhou; yta-akatsuki-records"
+  yta-custom="yta-touhou; yta-akatsuki-records"
 
 # sync replace every config file
 alias \
