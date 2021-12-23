@@ -74,12 +74,6 @@ alias \
 # For when keys break
 alias fix-pkg-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
 
-# get top process eating memory
-# get top process eating cpu ##
-alias \
-  psmem='ps auxf | sort -nr -k 4 | head -5' \
-  pscpu='ps auxf | sort -nr -k 3 | head -5'
-
 # yarn
 alias \
   y="yarn" \
@@ -194,8 +188,8 @@ alias \
 
 # sync packages
 alias \
-    sp="Cpap; paru -S --needed - < main.txt" \
-    sy="Cpap; cat yarn.txt | xargs -t yarn global add" \
+    sync-packages="Cpap; paru -S --needed - < main.txt" \
+    sync-yarn="Cpap; cat yarn.txt | xargs -t yarn global add" \
 
 # sync config files
 alias \
