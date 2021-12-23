@@ -208,9 +208,9 @@ lvim.plugins = {
         sort = true,
       }
     end,
-
     run = "./install.sh",
     requires = "hrsh7th/nvim-cmp",
+    event = "InsertEnter",
   },
 }
 
