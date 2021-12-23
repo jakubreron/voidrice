@@ -25,7 +25,7 @@ export GUI_FILE_EXPLORER="nautilus"
 
 export PROJECTS_DIR="$HOME/Documents/Projects"
 export CONFIG_DIR="$HOME/.config/personal"
-export VALET_SITES_DIR="$HOME/.config/personal"
+export VALET_SITES_DIR="$HOME/.valet/Sites"
 export LVIM_SHARE_DIR="$HOME/.local/share/lunarvim/lvim"
 
 # Performance fix
