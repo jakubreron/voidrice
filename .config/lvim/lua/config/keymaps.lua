@@ -75,7 +75,6 @@ lvim.builtin.which_key.mappings["ld"] = { "<cmd>TroubleToggle<cr>", "Diagnostics
 lvim.builtin.which_key.mappings["lR"] = { "<cmd>TroubleToggle lsp_references<cr>", "References" }
 
 lvim.builtin.which_key.mappings["ll"] = { ":LspRestart <CR>", "Restart LSP" }
--- lvim.builtin.which_key.mappings.l.o = { "<cmd>SymbolsOutline<cr>", "Outline" }
 
 -- langs
 lvim.builtin.which_key.mappings["o"] = {
@@ -99,6 +98,9 @@ lvim.builtin.which_key.mappings["bs"] = {
 
 -- buffer / zen
 lvim.builtin.which_key.mappings["bz"] = { "<cmd>ZenMode<cr>", "Zen" }
+
+-- buffer / outline
+lvim.builtin.which_key.mappings["bo"] = { "<cmd>SymbolsOutline<cr>", "Outline" }
 
 -- search & replace
 lvim.builtin.which_key.mappings["r"] = {
