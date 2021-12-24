@@ -107,6 +107,11 @@ lvim.autocommands.custom_groups = {
   },
   {
     "VimLeave",
+    "~/.config/personal/voidrice/.config/zsh/.zshrc",
+    "!cd ~/.config/personal/voidrice; git add .; git commit -m 'feat(zshrc)'; git push;",
+  },
+  {
+    "VimLeave",
     "~/.config/personal/voidrice/.config/lvim/lua/config/autocommands.lua",
     "!cd ~/.config/personal/voidrice; git add .; git commit -m 'feat(lvim): autocommands'; git push;",
   },
