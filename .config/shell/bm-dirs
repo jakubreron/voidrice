@@ -25,6 +25,9 @@ Mar    ${XDG_MUSIC_DIR:-$HOME/Music/akatsuki-records}
 # dropbox
 Dr     $HOME/Dropbox
 Drb    $HOME/Dropbox/Books
+Drbj   $HOME/Dropbox/Books/Japanese
+Drbp   $HOME/Dropbox/Books/Programming
+Drbs   $HOME/Dropbox/Books/Self-improvement
 Dri    $HOME/Dropbox/Images
 Driw   $HOME/Dropbox/Images/Wallpapers
 Dria   $HOME/Dropbox/Images/Avatars
