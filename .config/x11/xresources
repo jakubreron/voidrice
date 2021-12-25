@@ -1,6 +1,6 @@
 #include "/home/jakub/.cache/wal/colors.Xresources"
 
-st.alpha: 0.90
+st.alpha: 0.96
 
 !! Set a default font and font size as below:
 !! *.font: FONT

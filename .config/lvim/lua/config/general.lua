@@ -1,11 +1,10 @@
 -- general
-
 lvim.format_on_save = false
 lvim.lint_on_save = false
 
 -- appearance
 lvim.colorscheme = "tokyonight"
-lvim.transparent_window = false
+lvim.transparent_window = true
 
 -- debug
 lvim.debug = false
@@ -19,7 +18,7 @@ vim.opt.smarttab = true
 vim.opt.softtabstop = 2
 vim.opt.relativenumber = true
 vim.opt.hlsearch = false
-vim.opt.colorcolumn = "100"
+-- vim.opt.colorcolumn = "100"
 vim.opt.incsearch = true
 vim.opt.lazyredraw = true
 vim.opt.magic = true
@@ -29,6 +28,3 @@ vim.opt.path:append("**")
 vim.opt.wildmenu = true
 vim.opt.dictionary = "/usr/share/dict/words"
 vim.opt.thesaurus = "~/.config/lvim/mthesaur.txt"
-
--- whichkey timeout
-vim.opt.timeoutlen = 150
