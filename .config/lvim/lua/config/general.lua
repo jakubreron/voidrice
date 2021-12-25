@@ -2,10 +2,6 @@
 lvim.format_on_save = false
 lvim.lint_on_save = false
 
--- appearance
-lvim.colorscheme = "tokyonight"
-lvim.transparent_window = true
-
 -- debug
 lvim.debug = false
 lvim.log.level = "warn"
