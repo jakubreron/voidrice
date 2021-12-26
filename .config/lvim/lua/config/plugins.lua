@@ -17,6 +17,7 @@ lvim.plugins = {
   { "tpope/vim-sleuth" }, -- detect the relevant tabs / shifts
   { "tpope/vim-jdaddy" }, -- additional json movements
   { "tpope/vim-surround" }, -- surround movement
+  { "tpope/vim-rsi" }, -- readline key bindings
   -- {
   --   "ThePrimeagen/git-worktree.nvim", -- git worktree integration
   --   config = function ()
