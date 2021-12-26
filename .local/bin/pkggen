@@ -15,7 +15,7 @@ fi
 $manager -Qqe | sed -r "s/\b($excluded_files)//g" > $file
 
 if $commit && command -v git &> /dev/null; then
-  commit_msg="docs(pkglist): $file"
+  commit_msg="docs(pkglist): ✏️$file"
 
   git add .
   git commit -m "$commit_msg"
