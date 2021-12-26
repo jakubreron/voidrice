@@ -1,7 +1,8 @@
 #!/bin/sh
 
 file="${1:-pkglist.txt}"
-commit="${2:-true}"
+excluded_files="${2:-'intel-ucode'}"
+commit="${3:-true}"
 
 if command -v paru &> /dev/null; then
   manager=paru
@@ -11,7 +12,7 @@ else
   manager=pacman
 fi
 
-$manager -Qqe > $file
+$manager -Qqe | sed "s/$excluded_files//g" > $file
 
 if $commit && command -v git &> /dev/null; then
   commit_msg="docs(pkglist): $file"
