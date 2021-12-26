@@ -22,6 +22,7 @@ export TERMINAL="st"
 export BROWSER="firefox-developer-edition"
 export BACKUP_BROWSER="google-chrome-stable"
 export GUI_FILE_EXPLORER="nautilus"
+export PACKAGE_MANAGER="paru"
 
 export PROJECTS_DIR="$HOME/Documents/Projects"
 export CONFIG_DIR="$HOME/.config/personal"

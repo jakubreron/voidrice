@@ -41,7 +41,7 @@ alias \
   sdn="shutdown -h now" \
   e="sudoedit" \
   v="$EDITOR" \
-  p="paru" \
+  p="$PACKAGE_MANAGER" \
   pkgs="pkgstats search" \
   ud="updatedb"
 
@@ -186,7 +186,7 @@ alias \
 
 # sync packages
 alias \
-  sync-packages="Cpap; paru -S --needed - < main.txt" \
+  sync-packages="Cpap; $PACKAGE_MANAGER -S --needed - < main.txt" \
   sync-yarn="Cpap; cat yarn.txt | xargs -t yarn global add" \
 
 # sync config files
