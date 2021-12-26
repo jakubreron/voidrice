@@ -213,5 +213,3 @@ lvim.plugins = {
     event = "InsertEnter",
   },
 }
-
-

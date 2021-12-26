@@ -4,7 +4,7 @@ lvim.builtin.terminal.active = true
 lvim.builtin.autopairs.active = true
 lvim.builtin.comment.active = true
 lvim.builtin.gitsigns.active = true
-lvim.builtin.notify.active = true
+-- lvim.builtin.notify.active = true
 
 
 local components = require "lvim.core.lualine.components"
