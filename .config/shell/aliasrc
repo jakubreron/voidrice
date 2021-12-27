@@ -151,9 +151,9 @@ alias \
 # NOTE: i = ignore errors
 # NOTE: x = extract, -f = format
 alias \
-  yt="yt-dlp --add-metadata -i" \
+  yt="yt-dlp --add-metadata -i --cookies-from-browser chrome" \
   yta="yt -x -f bestaudio/best --download-archive playlist.txt" \
-  ytap="cat playlist.txt | sed -e 's/youtube /https:\/\/www.youtube.com\/watch?v=/g' | xargs -t yt-dlp --add-metadata -i --cookies-from-browser chrome -x -f bestaudio/best"
+  ytap="cat playlist.txt | sed -e 's/youtube /https:\/\/www.youtube.com\/watch?v=/g' | xargs -t yt-dlp --add-metadata -i -x -f bestaudio/best"
 alias \
   yta-general="cd ~/Music/general; yta  'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
   yta-live="cd ~/Music/live; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
