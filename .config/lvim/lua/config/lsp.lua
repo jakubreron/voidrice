@@ -78,6 +78,12 @@ formatters.setup({
       "html", "markdown", "yaml", "json"
     }
   },
+  {
+    exe = "stylua",
+    filetypes = {
+      "lua"
+    }
+  }
 })
 
 
