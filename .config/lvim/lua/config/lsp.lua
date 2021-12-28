@@ -52,7 +52,7 @@ local filetypes = {
 formatters.setup({
 	{ exe = "eslint_d", filetypes = filetypes.eslint },
 	{ exe = "stylelint", filetypes = filetypes.stylelint },
-	{ exe = "prettierd", filetypes = fileypes.prettier },
+	{ exe = "prettierd", filetypes = filetypes.prettier },
 	{ exe = "stylua", filetypes = { "lua" } },
 })
 
