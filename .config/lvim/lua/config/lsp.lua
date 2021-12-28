@@ -8,30 +8,6 @@ require("lvim.lsp.manager").setup("emmet_ls")
 -- require("lvim.lsp.manager").setup("tailwindcss")
 -- require("lvim.lsp.manager").setup("volar")
 
--- lvim.lsp.override = {
---   "angularls",
---   "ansiblels",
---   "csharp_ls",
---   "denols",
---   "ember",
---   -- "emmet_ls",
---   "eslint",
---   "eslintls",
---   "graphql",
---   "jedi_language_server",
---   "ltex",
---   "phpactor",
---   "pylsp",
---   "rome",
---   "sorbet",
---   "sqlls",
---   "sqls",
---   "stylelint_lsp",
---   -- "tailwindcss",
---   "tflint",
---   -- "volar",
--- }
-
 -- generic LSP settings
 -- you can set a custom on_attach function that will be used for all the language servers
 -- See <https://github.com/neovim/nvim-lspconfig#keybindings-and-completion>
@@ -51,67 +27,37 @@ end
 local formatters = require("lvim.lsp.null-ls.formatters")
 local linters = require("lvim.lsp.null-ls.linters")
 
+local eslint_filetypes = {
+	"javascript",
+	"javascriptreact",
+	"vue",
+	"typescript",
+	"typescriptreact",
+}
+
+local stylelint_filetypes = {
+	"css",
+	"scss",
+	"less",
+	"sass",
+}
+
+local prettier_filetypes = {
+	"html",
+	"markdown",
+	"yaml",
+	"json",
+}
+
 formatters.setup({
-	{
-		exe = "eslint_d",
-		filetypes = {
-			"javascript",
-			"javascriptreact",
-			"vue",
-			"typescript",
-			"typescriptreact",
-		},
-	},
-	{
-		exe = "stylelint",
-		filetypes = {
-			"css",
-			"scss",
-			"less",
-			"sass",
-		},
-	},
-	{
-		exe = "prettierd",
-		filetypes = {
-			"html",
-			"markdown",
-			"yaml",
-			"json",
-		},
-	},
-	{
-		exe = "stylua",
-		filetypes = {
-			"lua",
-		},
-	},
+	{ exe = "eslint_d", filetypes = eslint_filetypes },
+	{ exe = "stylelint", filetypes = stylelint_filetypes },
+	{ exe = "prettierd", filetypes = prettier_filetypes },
+	{ exe = "stylua", filetypes = { "lua" } },
 })
 
 linters.setup({
-	{
-		exe = "eslint_d",
-		filetypes = {
-			"javascript",
-			"javascriptreact",
-			"vue",
-			"typescript",
-			"typescriptreact",
-		},
-	},
-	{
-		exe = "stylelint",
-		filetypes = {
-			"css",
-			"scss",
-			"less",
-			"sass",
-		},
-	},
-	{
-		exe = "luacheck",
-		filetypes = {
-			"lua",
-		},
-	},
+	{ exe = "eslint_d", filetypes = eslint_filetypes },
+	{ exe = "stylelint", filetypes = stylelint_filetypes },
+	{ exe = "luacheck", filetypes = { "lua" } },
 })
