@@ -177,7 +177,7 @@ alias \
   #     rm -rf ~/.local/bin/{cron,statusbar,git} &&
   #     rm ~/.local/bin/* | echo 'y' &&
   #     cd $CONFIG_DIR &
-  #     stow --adopt --target=/home/jakub arch voidrice universal &&
+  #     replace-stow arch voidrice universal &&
   #     rm -rf ~/.local/bin/{cron,statusbar,git} &&
   #     mkdir ~/.local/bin/{statusbar,cron,git} &&
   #     ln -n ~/.config/personal/voidrice/.local/bin/statusbar/* ~/.local/bin/statusbar/ &&
