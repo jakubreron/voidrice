@@ -27,37 +27,37 @@ end
 local formatters = require("lvim.lsp.null-ls.formatters")
 local linters = require("lvim.lsp.null-ls.linters")
 
-local eslint_filetypes = {
-	"javascript",
-	"javascriptreact",
-	"vue",
-	"typescript",
-	"typescriptreact",
-}
-
-local stylelint_filetypes = {
-	"css",
-	"scss",
-	"less",
-	"sass",
-}
-
-local prettier_filetypes = {
-	"html",
-	"markdown",
-	"yaml",
-	"json",
+local filetypes = {
+	eslint = {
+		"javascript",
+		"javascriptreact",
+		"vue",
+		"typescript",
+		"typescriptreact",
+	},
+	stylelint = {
+		"css",
+		"scss",
+		"less",
+		"sass",
+	},
+	prettier = {
+		"html",
+		"markdown",
+		"yaml",
+		"json",
+	},
 }
 
 formatters.setup({
-	{ exe = "eslint_d", filetypes = eslint_filetypes },
-	{ exe = "stylelint", filetypes = stylelint_filetypes },
-	{ exe = "prettierd", filetypes = prettier_filetypes },
+	{ exe = "eslint_d", filetypes = filetypes.eslint },
+	{ exe = "stylelint", filetypes = filetypes.stylelint },
+	{ exe = "prettierd", filetypes = fileypes.prettier },
 	{ exe = "stylua", filetypes = { "lua" } },
 })
 
 linters.setup({
-	{ exe = "eslint_d", filetypes = eslint_filetypes },
-	{ exe = "stylelint", filetypes = stylelint_filetypes },
+	{ exe = "eslint_d", filetypes = filetypes.eslint },
+	{ exe = "stylelint", filetypes = filetypes.stylelint },
 	{ exe = "luacheck", filetypes = { "lua" } },
 })
