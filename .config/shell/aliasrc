@@ -167,7 +167,7 @@ alias \
 
 # sync replace every config file
 alias \
-  replace-stow="cd $CONFIG_DIR && stow --adopt --target=/home/jakub" \
+  replace-stow="cd $CONFIG_DIR && stow --adopt --target=${HOME}" \
   replace-stow-all="replace-stow arch voidrice universal" \
   # replace-all="
   #     rm ~/{.zprofile,.xprofile} &&
