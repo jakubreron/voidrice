@@ -153,8 +153,9 @@ map i push A<a-b><a-b><a-f> # before extention
 map a push A<a-b> # after extention
 
 map b $setbg $f
+map B $xwallpaper --zoom $f
 
-map B bulkrename
+map c bulkrename
 
 map W $setsid -f $TERMINAL >/dev/null 2>&1 # open in new terminal
 
