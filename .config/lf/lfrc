@@ -51,7 +51,7 @@ cmd open ${{
     esac
 }}
 
-cmd jump $lf -remote "send $id cd $(awk '{ gsub(/#.*/, ""); } !/^$/ { print $2 }' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed "s/\${.*-// ; s/}//" | envsubst)"
+cmd fzf_jump $lf -remote "send $id cd $(awk '{ gsub(/#.*/, ""); } !/^$/ { print $2 }' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed "s/\${.*-// ; s/}//" | envsubst)"
 
 cmd delete ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
@@ -111,7 +111,7 @@ cmd decrypt $gpg $f
 
 cmd zip $zip -j -r "$fx" "$fx"
 
-cmd send_to_device ${{
+cmd kdeconnect ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	clear; echo "Send to which device?"
@@ -124,7 +124,11 @@ cmd send_to_device ${{
 
 cmd dragon %dragon-drag-and-drop -a -x $fx
 
-cmd convert %convert $fx
+# cmd convert %convert $fx
+
+cmd run_scripts ${{
+  script=$(cat package.json | jq -r '.scripts | keys[] ' | sort | fzf --height 20%) && npm run $(echo "$script")
+}}
 
 cmd setbg "$1"
 cmd bulkrename $vidir
@@ -132,7 +136,7 @@ cmd bulkrename $vidir
 cmd open_in_new_terminal $setsid -f $TERMINAL >/dev/null 2>&1
 
 # Bindings
-map J jump
+map J fzf_jump
 map V push :!$EDITOR<space>
 map D delete
 map E extract
@@ -146,9 +150,10 @@ map <c-r> reload
 map <c-e> encrypt
 map <c-g> decrypt
 map <c-z> zip
-map <c-s> send_to_device
+map <c-k> kdeconnect
 map <c-o> dragon
-map <c-c> convert
+# map <c-c> convert
+map <c-s> run_scripts
 map <enter> shell
 
 map g top
