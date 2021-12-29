@@ -99,12 +99,6 @@ cmd fzf_search $lf -remote "send $id select '$(fzf)'"
 
 cmd mkdir %mkdir "$@"
 cmd new_dir push :mkdir<space>
-cmd new_dir_with_selected ${{
-    set -f
-    read newd
-    mkdir -- "$newd"
-    mv -- $fx "$newd"
-}}
 
 cmd encrypt $gpg -c --no-symkey-cache --cipher-algo AES256 $f
 cmd decrypt $gpg $f
@@ -124,7 +118,13 @@ cmd kdeconnect ${{
 
 cmd dragon %dragon-drag-and-drop -a -x $fx
 
-# cmd convert %convert $fx
+cmd convert ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	clear; echo "Name of the file:"
+	read name
+	convert $fx $name
+}}
 
 cmd run_scripts ${{
   script=$(cat package.json | jq -r '.scripts | keys[] ' | sort | fzf --height 20%) && npm run $(echo "$script")
@@ -152,9 +152,8 @@ map <c-g> decrypt
 map <c-z> zip
 map <c-k> kdeconnect
 map <c-o> dragon
-# map <c-c> convert
+map <c-c> convert
 map <c-s> run_scripts
-map <enter> shell
 
 map g top
 
