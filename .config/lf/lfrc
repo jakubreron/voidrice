@@ -127,7 +127,7 @@ map S share
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map <c-n> push :mkdir<space>
 map <c-r> reload
-map <c-e> encrypt $f
+map <c-e> $gpg -c --no-symkey-cache --cipher-algo AES256 $f # encrypt
 map <enter> shell
 
 map g top
