@@ -51,16 +51,7 @@ cmd open ${{
     esac
 }}
 
-cmd mkdir %mkdir "$@"
-
-cmd extract ${{
-	clear; tput cup $(($(tput lines)/3)); tput bold
-	set -f
-	printf "%s\n\t" "$fx"
-	printf "extract?[y/N]"
-	read ans
-	[ $ans = "y" ] && aunpack $fx
-}}
+cmd jump $lf -remote "send $id cd $(awk '{ gsub(/#.*/, ""); } !/^$/ { print $2 }' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed "s/\${.*-// ; s/}//" | envsubst)"
 
 cmd delete ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
@@ -69,6 +60,15 @@ cmd delete ${{
 	printf "delete?[y/N]"
 	read ans
 	[ $ans = "y" ] && rm -rf -- $fx
+}}
+
+cmd extract ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "extract?[y/N]"
+	read ans
+	[ $ans = "y" ] && aunpack $fx
 }}
 
 cmd moveto ${{
@@ -93,7 +93,19 @@ cmd copyto ${{
 	notify-send " File(s) copied." "File(s) copies to $dest."
 }}
 
-cmd sendtodevice ${{
+cmd share $curl -F"file=@$fx" https://0x0.st | xclip -selection c
+
+cmd fzf_search $lf -remote "send $id select '$(fzf)'"
+
+cmd mkdir %mkdir "$@"
+cmd new_dir push :mkdir<space>
+
+cmd encrypt $gpg -c --no-symkey-cache --cipher-algo AES256 $f
+cmd decrypt $gpg $f
+
+cmd zip $zip -j -r "$fx" "$fx"
+
+cmd send_to_device ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	clear; echo "Send to which device?"
@@ -105,47 +117,40 @@ cmd sendtodevice ${{
 }}
 
 cmd dragon %dragon-drag-and-drop -a -x $fx
-cmd share $curl -F"file=@$fx" https://0x0.st | xclip -selection c
 
 cmd setbg "$1"
 cmd bulkrename $vidir
 
-cmd zip %zip -r "$fx" "$fx"
-cmd tar %tar cvf "$f.tar" "$f"
-cmd targz %tar cvzf "$f.tar.gz" "$f"
+cmd open_in_new_terminal $setsid -f $TERMINAL >/dev/null 2>&1
 
 # Bindings
-map J $lf -remote "send $id cd $(awk '{ gsub(/#.*/, ""); } !/^$/ { print $2 }' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed "s/\${.*-// ; s/}//" | envsubst)"
+map J jump
 map V push :!$EDITOR<space>
 map D delete
 map E extract
-map C copyto
 map M moveto
-map K sendtodevice
+map C copyto
 map S share
 
-map <c-f> $lf -remote "send $id select '$(fzf)'"
-map <c-n> push :mkdir<space>
+map <c-f> fzf_search
+map <c-n> new_dir
 map <c-r> reload
-map <c-e> $gpg -c --no-symkey-cache --cipher-algo AES256 $f # encrypt
+map <c-e> encrypt
+map <c-g> decrypt
+map <c-z> zip
+map <c-s> send_to_device
+map <c-o> dragon
 map <enter> shell
 
 map g top
 
-map x $$f
+map x $$f # execute
 map X !$f
 
 map H set hidden!
 
 map o &mimeopen $f
 map O $mimeopen --ask $f
-
-map R dragon
-
-# Pack
-map Pz zip
-map Pt tar
-map Pg targz
 
 # Renames
 map r push A<c-u> # new rename
@@ -155,11 +160,11 @@ map i push A<a-b><a-b><a-f> # before extention
 map a push A<a-b> # after extention
 
 map b $setbg $f
-map B $xwallpaper --zoom $f
+map B $xwallpaper --zoom $f # without wal
 
 map c bulkrename
 
-map W $setsid -f $TERMINAL >/dev/null 2>&1 # open in new terminal
+map W open_in_new_terminal
 
 # Source Bookmarks
 source "~/.config/lf/shortcutrc"
