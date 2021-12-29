@@ -127,7 +127,7 @@ map S share
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map <c-n> push :mkdir<space>
 map <c-r> reload
-map <c-e> !encrypt
+map <c-e> encrypt $f
 map <enter> shell
 
 map g top
