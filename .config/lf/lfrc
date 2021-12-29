@@ -118,6 +118,8 @@ cmd send_to_device ${{
 
 cmd dragon %dragon-drag-and-drop -a -x $fx
 
+cmd convert %convert $fx
+
 cmd setbg "$1"
 cmd bulkrename $vidir
 
@@ -140,6 +142,7 @@ map <c-g> decrypt
 map <c-z> zip
 map <c-s> send_to_device
 map <c-o> dragon
+map <c-c> convert
 map <enter> shell
 
 map g top
