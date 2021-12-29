@@ -127,13 +127,15 @@ map S share
 map <c-f> $lf -remote "send $id select '$(fzf)'"
 map <c-n> push :mkdir<space>
 map <c-r> reload
-map <c-s> set hidden!
+map <c-e> !encrypt
 map <enter> shell
 
 map g top
 
 map x $$f
 map X !$f
+
+map H set hidden!
 
 map o &mimeopen $f
 map O $mimeopen --ask $f
