@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # set ratios 1:2:3
 set ratios 1:2
 set previewer ~/.config/lf/preview
@@ -103,7 +105,13 @@ cmd new_dir push :mkdir<space>
 cmd encrypt $gpg -c --no-symkey-cache --cipher-algo AES256 $f
 cmd decrypt $gpg $f
 
-cmd zip $zip -j -r "$fx" "$fx"
+cmd zip ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	clear; echo "Name of the file:"
+	read name
+	zip -j -r "$fx" "$fx"
+}}
 
 cmd kdeconnect ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
