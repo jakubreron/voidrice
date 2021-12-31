@@ -1,8 +1,9 @@
 #!/bin/sh
 
 file="${1:-pkglist.txt}"
-excluded_files="${2:-intel-ucode|xf86-video-intel|amd-ucode|tlp|tlp-rdw|phpstorm|phpstorm-jre}"
-commit="${3:-true}"
+excluded_files="${2:-intel-ucode|xf86-video-intel|amd-ucode|tlp|tlp-rdw|phpstorm|phpstorm-jre|php|php-.*$}"
+search="${3}"
+commit="${4:-true}"
 
 if command -v paru &> /dev/null; then
   manager=paru
@@ -12,7 +13,7 @@ else
   manager=pacman
 fi
 
-$manager -Qqe | sed -r "s/\b($excluded_files)//g" > $file
+$manager -Qqe | grep "$search" | sed -r "s/\b($excluded_files)//g" > $file
 
 if $commit && command -v git &> /dev/null; then
   commit_msg="docs(pkglist): ✏️$file"

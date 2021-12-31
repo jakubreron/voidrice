@@ -47,10 +47,11 @@ alias \
 
 # Generate packages
 alias \
-  pkg-main="Cpap; pkggen main.txt && cd -" \
-  pkg-work="Cpap; pkggen work.txt && cd -" \
-  pkg-secondary="Cpap; pkggen secondary.txt && cd -" \
-  pkg-yarn="Cpap; yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt && cd -"
+  pkg-main="Cpap; pkggen main.txt" \
+  pkg-work="Cpap; pkggen work.txt" \
+  pkg-secondary="Cpap; pkggen secondary.txt" \
+  pkg-yarn="Cpap; yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt" \
+  pkg-php="Cpap; pkggen php.txt 'phpstorm|phpstorm-jre' 'php'"
 
 # Git
 alias \
@@ -187,14 +188,16 @@ alias \
 
 # sync packages
 alias \
-  sync-packages="Cpap; $PACKAGE_MANAGER -S --needed - < main.txt" \
-  sync-yarn="Cpap; cat yarn.txt | xargs -t yarn global add" \
+  sync-pkg-main="Cpap; $PACKAGE_MANAGER -S --needed - < main.txt" \
+  sync-pkg-php="Cpap; $PACKAGE_MANAGER -S --needed - < php.txt" \
+  sync-pkg-yarn="Cpap; cat yarn.txt | xargs -t yarn global add" \
+  sync-pkg-all="sync-pkg-main; sync-pkg-php; sync-pkg-yarn"
 
 # sync config files
 alias \
-  sync-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
-  sync-lvim="lvim +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
-  sync-all="git-sync-local-repos; replace-all; sync-src; sync-lvim" \
+  sync-cf-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
+  sync-cf-lvim="lvim +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
+  sync-cf-all="git-sync-local-repos; replace-all; sync-src; sync-lvim"
 
 # some programs
 alias \
