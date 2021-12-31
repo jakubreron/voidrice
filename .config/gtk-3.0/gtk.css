@@ -1,0 +1,9 @@
+/* https://www.reddit.com/r/gnome/comments/eojq1r/what_css_property_controls_this_1px_square_border/fedlzxy/ */
+/* Rounded corners */
+decoration {
+ border-radius: 6px;
+}
+
+window, window.background {
+ border-radius: 0 0 6px 6px;
+}
