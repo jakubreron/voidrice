@@ -209,9 +209,9 @@ alias \
 
 # restart
 alias \
-  restart-ee="ka easyeffects; nohup easyeffects --gapplication-service &; rm nohup.out; notify-send 'EasyEffects activated'" \
-  restart-dunst="ka dunst; nohup dunst &; rm nohup.out; notify-send 'Dunst activated'" \
-  restart-picom="ka picom; nohup picom --experimental-backend &; rm nohup.out; notify-send 'Compositor activated'"
+  restart-ee="ka easyeffects; nohup >/dev/null 2>&1 easyeffects --gapplication-service &; notify-send 'EasyEffects activated'" \
+  restart-dunst="ka dunst; nohup >/dev/null 2>&1 dunst &; notify-send 'Dunst activated'" \
+  restart-picom="ka picom; nohup >/dev/null 2>&1 picom --experimental-backend &; notify-send 'Compositor activated'"
 
 # network
 alias \

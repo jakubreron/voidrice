@@ -7,5 +7,4 @@ PID="$(pstree -lpA "$PID")"
 PID="${PID##*(}"
 PID="${PID%)}"
 cd "$(readlink /proc/"$PID"/cwd)" || return 1
-nohup "$TERMINAL" &
-rm nohup.out
+nohup >/dev/null 2>&1 "$TERMINAL" &
