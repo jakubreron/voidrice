@@ -1,13 +1,13 @@
 [global]
     monitor = 0
     follow = keyboard
-    offset = 22x40
+    offset = 12x40
     width = (0, 400)
     indicate_hidden = yes
     transparency = 25
     padding = 8
     horizontal_padding = 8
-    frame_width = 3
+    frame_width = 2
     frame_color = "{color4}"
     progress_bar = true
     font = Hack Nerd Font Mono 13
