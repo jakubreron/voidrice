@@ -36,6 +36,11 @@ lvim.autocommands.custom_groups = {
 		"!cd ~/.local/src/dwm/; sudo make install && kill -HUP $(pgrep -u $USER 'dwm$')",
 	},
 	{
+		"BufWritePost",
+		"~/.local/src/dwm/dwm.c",
+		"!cd ~/.local/src/dwm/; sudo make install",
+	},
+	{
 		"VimLeave",
 		"~/.local/src/dwmblocks/config.h",
 		"!cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }",
