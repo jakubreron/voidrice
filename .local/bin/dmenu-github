@@ -43,7 +43,7 @@ all_my_repositories_short_name(){
 
 # Rofi dmenu
 rofi_dmenu(){
-  dmenu -p "Select a repository >" -l 10
+  dmenu -c -p "Select a repository >" -l 30
 }
 
 main(){

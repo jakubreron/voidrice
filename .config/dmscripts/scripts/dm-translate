@@ -28,15 +28,15 @@ source "$(get_config)"
 main() {
   # shellcheck disable=SC2154
   # Get input and output languages
-  from_name=$(printf '%s\n' "${!translate_list[@]}" | sort | ${DMENU} -i -l 20 -p 'Translate from:') "$@" || exit 1
-  to_name=$(printf '%s\n' "${!translate_list[@]}" | sort | ${DMENU} -i -l 20 -p 'Translate to:') "$@" || exit 1
+  from_name=$(printf '%s\n' "${!translate_list[@]}" | sort | ${DMENU} -i -c -l 30 -p 'Translate from:') "$@" || exit 1
+  to_name=$(printf '%s\n' "${!translate_list[@]}" | sort | ${DMENU} -i -c -l 30 -p 'Translate to:') "$@" || exit 1
 
   # Get the short names of the lanuguages chosen
   from="${translate_list["${from_name}"]}"
   to="${translate_list["${to_name}"]}"
 
   # Get the text to translate
-  query=$(echo "" | ${DMENU} -p 'Translate:')
+  query=$(echo "" | ${DMENU} -c -p 'Translate:')
 
   # Encode to url encoding
   query=$(python3 -c "import sys, urllib.parse as ul; print (ul.quote_plus(sys.argv[1]))" "$query")

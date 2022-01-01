@@ -1,12 +1,12 @@
 #!/bin/sh
 
-LAUNCER="dmenu -l 5 -i -p "
-[ -z "${DISPLAY}" ] && LAUNCER="fzf --prompt "
+LAUNCHER="dmenu -c -l 30 -i -p "
+[ -z "${DISPLAY}" ] && LAUNCHER="fzf --prompt "
 
 localBROWSER="$BROWSER "
 
 if [ -f ~/.config/bookmarks ]; then
-	choice=$( (cat ~/.config/bookmarks) | $LAUNCER"Search:") || exit 1
+	choice=$( (cat ~/.config/bookmarks) | $LAUNCHER"Search:") || exit 1
 fi
 
 case "$choice" in *❔*)
