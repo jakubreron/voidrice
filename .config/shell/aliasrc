@@ -196,7 +196,7 @@ alias \
 # sync config files
 alias \
   sync-cf-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
-  sync-cf-lvim="lvim +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
+  sync-cf-lvim="Lshlv && git pull && lvim +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
   sync-cf-all="git-sync-local-repos; replace-all; sync-src; sync-lvim"
 
 # some programs
