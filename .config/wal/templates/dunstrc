@@ -1,7 +1,7 @@
 [global]
     monitor = 0
     follow = keyboard
-    offset = 12x40
+    offset = 12x43
     width = (0, 400)
     indicate_hidden = yes
     transparency = 25
