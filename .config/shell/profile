@@ -32,6 +32,8 @@ export LVIM_SHARE_DIR="$HOME/.local/share/lunarvim/lvim"
 # Performance fix
 # export vblank_mode=0
 
+export SQLITE_PATH = '~/.pgadmin/pgadmin4.db'
+
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
