@@ -177,7 +177,6 @@ alias \
   #     rm -rf ~/.local/share/{applications,larbs} &&
   #     rm -rf ~/.local/bin/{cron,statusbar,git} &&
   #     rm ~/.local/bin/* | echo 'y' &&
-  #     cd $CONFIG_DIR &
   #     replace-stow arch voidrice universal &&
   #     rm -rf ~/.local/bin/{cron,statusbar,git} &&
   #     mkdir ~/.local/bin/{statusbar,cron,git} &&
