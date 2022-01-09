@@ -1,7 +1,3 @@
-# general
-Dw    ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
-Pi    ${XDG_PICTURES_DIR:-$HOME/Pictures}
-Vi    ${XDG_VIDEOS_DIR:-$HOME/Videos}
 
 # documents
 Do    ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
