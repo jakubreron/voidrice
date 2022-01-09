@@ -23,17 +23,17 @@ Pj      $PROJECTS_DIR/jakubreron.me
 Pb      $PROJECTS_DIR/boilerplate
 
 # dropbox
-D       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}
-Db      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books
-Dbj     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books/Japanese
-Dbp     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books/Programming
-Dbs     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books/Self-improvement
-Di      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Images
-Diw     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Images/Wallpapers
-Dia     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Images/Avatars
-Dp      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Programming
-Dw      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Work
-Ds      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Studies
+Dr       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}
+Drb      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books
+Drbj     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books/Japanese
+Drbp     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books/Programming
+Drbs     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books/Self-improvement
+Dri      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Images
+Driw     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Images/Wallpapers
+Dria     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Images/Avatars
+Drp      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Programming
+Drw      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Work
+Drs      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Studies
 
 # config
 C       ${XDG_CONFIG_HOME:-$HOME/.config}
