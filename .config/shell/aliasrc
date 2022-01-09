@@ -47,11 +47,11 @@ alias \
 
 # Generate packages
 alias \
-  pkg-main="$PROJECTS_DIR/arch/pkglist; pkggen main.txt" \
-  pkg-work="$PROJECTS_DIR/arch/pkglist; pkggen work.txt" \
-  pkg-secondary="$PROJECTS_DIR/arch/pkglist; pkggen secondary.txt" \
-  pkg-yarn="$PROJECTS_DIR/arch/pkglist; yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt" \
-  pkg-php="$PROJECTS_DIR/arch/pkglist; pkggen php.txt 'phpstorm|phpstorm-jre' 'php'"
+  gen-pkg-main="cd $PKGLIST_DIR; genpkg main.txt" \
+  gen-pkg-work="cd $PKGLIST_DIR; genpkg work.txt" \
+  gen-pkg-secondary="cd $PKGLIST_DIR; genpkg secondary.txt" \
+  gen-pkg-yarn="cd $PKGLIST_DIR; yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt" \
+  gen-pkg-php="cd $PKGLIST_DIR; genpkg php.txt 'phpstorm|phpstorm-jre' 'php'"
 
 # Git
 alias \
