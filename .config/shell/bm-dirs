@@ -1,73 +1,77 @@
+# general
+Dw      ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
+Pi      ${XDG_PICTURES_DIR:-$HOME/Pictures}
+Vi      ${XDG_VIDEOS_DIR:-$HOME/Videos}
 
 # documents
-Do    ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
+Do      ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
 # documents software
-Dos   ${XDG_DOCUMENTS_DIR:-$HOME/Documents}/Software
+Dos     ${XDG_DOCUMENTS_DIR:-$HOME/Documents}/Software
 
 # music
-Mu    ${XDG_MUSIC_DIR:-$HOME/Music}
-Mug   ${XDG_MUSIC_DIR:-$HOME/Music/general}
-Mul   ${XDG_MUSIC_DIR:-$HOME/Music/live}
-Muo   ${XDG_MUSIC_DIR:-$HOME/Music/osts}
-Mua   ${XDG_MUSIC_DIR:-$HOME/Music/albums}
-Mut   ${XDG_MUSIC_DIR:-$HOME/Music/touhou}
-Muar  ${XDG_MUSIC_DIR:-$HOME/Music/akatsuki-records}
+Mu      ${XDG_MUSIC_DIR:-$HOME/Music}
+Mug     ${XDG_MUSIC_DIR:-$HOME/Music/general}
+Mul     ${XDG_MUSIC_DIR:-$HOME/Music/live}
+Muo     ${XDG_MUSIC_DIR:-$HOME/Music/osts}
+Mua     ${XDG_MUSIC_DIR:-$HOME/Music/albums}
+Mut     ${XDG_MUSIC_DIR:-$HOME/Music/touhou}
+Muar    ${XDG_MUSIC_DIR:-$HOME/Music/akatsuki-records}
 
 # projects
-P     $PROJECTS_DIR
-Pj    $PROJECTS_DIR/jakubreron.me
-Pb    $PROJECTS_DIR/boilerplate
+P       $PROJECTS_DIR
+Pj      $PROJECTS_DIR/jakubreron.me
+Pb      $PROJECTS_DIR/boilerplate
 
 # dropbox
-D     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}
-Db    ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books
-Dbj   ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books/Japanese
-Dbp   ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books/Programming
-Dbs   ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books/Self-improvement
-Di    ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Images
-Diw   ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Images/Wallpapers
-Dia   ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Images/Avatars
-Dp    ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Programming
-Dw    ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Work
-Ds    ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Studies
+D       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}
+Db      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books
+Dbj     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books/Japanese
+Dbp     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books/Programming
+Dbs     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books/Self-improvement
+Di      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Images
+Diw     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Images/Wallpapers
+Dia     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Images/Avatars
+Dp      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Programming
+Dw      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Work
+Ds      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Studies
 
 # config
-C     ${XDG_CONFIG_HOME:-$HOME/.config}
-Clv   $LVIM_CONFIG_DIR
+C       ${XDG_CONFIG_HOME:-$HOME/.config}
+Clv     $LVIM_CONFIG_DIR
 # config personal
-Cp    $DOTFILES_DIR
-Cpa   $DOTFILES_DIR/arch
-Cpap  $PKGLIST_DIR
-Cpu   $DOTFILES_DIR/universal
-Cpv   $DOTFILES_DIR/voidrice
+Cp      $DOTFILES_DIR
+Cpa     $DOTFILES_DIR/arch
+Cpap    $PKGLIST_DIR
+Cpu     $DOTFILES_DIR/universal
+Cpv     $DOTFILES_DIR/voidrice
 
 # local
-L     $HOME/.local
+L       $HOME/.local
 # local bin
-Lbn   ${$XDG_BIN_HOME:-$HOME/.local/bin}
-Lbns  ${$XDG_BIN_HOME:-$HOME/.local/bin}/statusbar
-Lbng  ${$XDG_BIN_HOME:-$HOME/.local/bin}/git
+Lbn     ${XDG_BIN_HOME:-$HOME/.local/bin}
+Lbns    ${XDG_BIN_HOME:-$HOME/.local/bin}/statusbar
+Lbng    ${XDG_BIN_HOME:-$HOME/.local/bin}/git
 # local share
-Lsh    ${XDG_DATA_HOME:-$HOME/.local/share}
-Lshlv  $LVIM_SHARE_DIR
+Lsh     ${XDG_DATA_HOME:-$HOME/.local/share}
+Lshlv   $LVIM_SHARE_DIR
 # local src
-Lsr   ${XDG_SRC_HOME:-$HOME/.local/src}
-Lsrdw ${XDG_SRC_HOME:-$HOME/.local/src}/dwm
-Lsrdb ${XDG_SRC_HOME:-$HOME/.local/src}/dwmblocks
-Lsrdm ${XDG_SRC_HOME:-$HOME/.local/src}/dmenu
-Lsrst ${XDG_SRC_HOME:-$HOME/.local/src}/st
-Lsrsx ${XDG_SRC_HOME:-$HOME/.local/src}/sxiv-flexipatch/
+Lsr     ${XDG_SRC_HOME:-$HOME/.local/src}
+Lsrdw   ${XDG_SRC_HOME:-$HOME/.local/src}/dwm
+Lsrdb   ${XDG_SRC_HOME:-$HOME/.local/src}/dwmblocks
+Lsrdm   ${XDG_SRC_HOME:-$HOME/.local/src}/dmenu
+Lsrst   ${XDG_SRC_HOME:-$HOME/.local/src}/st
+Lsrsx   ${XDG_SRC_HOME:-$HOME/.local/src}/sxiv-flexipatch/
 
 # valet
-Va    $VALET_DIR
-Vas   $VALET_DIR/Sites
-Van   $VALET_DIR/Ngnix
-Vac   $VALET_DIR/Certificates
+Va      $VALET_DIR
+Vas     $VALET_DIR/Sites
+Van     $VALET_DIR/Ngnix
+Vac     $VALET_DIR/Certificates
 
 # php
-Php   /etc/php/
-Phpc  /etc/php/conf.d
+Php     /etc/php/
+Phpc    /etc/php/conf.d
 
 # misc
-Mn    $MOUNT_DIR
-Ca    ${XDG_CACHE_HOME:-$HOME/.cache}
+Mn      $MOUNT_DIR
+Ca      ${XDG_CACHE_HOME:-$HOME/.cache}
