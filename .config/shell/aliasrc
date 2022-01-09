@@ -47,11 +47,11 @@ alias \
 
 # Generate packages
 alias \
-  pkg-main="Cpap; pkggen main.txt" \
-  pkg-work="Cpap; pkggen work.txt" \
-  pkg-secondary="Cpap; pkggen secondary.txt" \
-  pkg-yarn="Cpap; yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt" \
-  pkg-php="Cpap; pkggen php.txt 'phpstorm|phpstorm-jre' 'php'"
+  pkg-main="$PROJECTS_DIR/arch/pkglist; pkggen main.txt" \
+  pkg-work="$PROJECTS_DIR/arch/pkglist; pkggen work.txt" \
+  pkg-secondary="$PROJECTS_DIR/arch/pkglist; pkggen secondary.txt" \
+  pkg-yarn="$PROJECTS_DIR/arch/pkglist; yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt" \
+  pkg-php="$PROJECTS_DIR/arch/pkglist; pkggen php.txt 'phpstorm|phpstorm-jre' 'php'"
 
 # Git
 alias \
@@ -156,46 +156,46 @@ alias \
   yta="yt -x -f bestaudio/best --download-archive playlist.txt" \
   ytap="cat playlist.txt | sed -e 's/youtube /https:\/\/www.youtube.com\/watch?v=/g' | xargs -t yt-dlp --add-metadata -i -x -f bestaudio/best"
 alias \
-  yta-general="cd ~/Music/general; yta  'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
-  yta-live="cd ~/Music/live; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
-  yta-osts="cd ~/Music/osts; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
-  yta-albums="cd ~/Music/albums; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
+  yta-general="cd $HOME/Music/general; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
+  yta-live="cd $HOME/Music/live; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
+  yta-osts="cd $HOME/Music/osts; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
+  yta-albums="cd $HOME/Music/albums; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
   yta-main="yta-general; yta-live; yta-osts; yta-albums"
 alias \
-  yta-touhou="cd ~/Music/touhou; ytap" \
-  yta-akatsuki-records="cd ~/Music/akatsuki-records; ytap" \
+  yta-touhou="cd $HOME/Music/touhou; ytap" \
+  yta-akatsuki-records="cd $HOME/Music/akatsuki-records; ytap" \
   yta-custom="yta-touhou; yta-akatsuki-records"
 
 # sync replace every config file
 alias \
-  replace-stow="cd $CONFIG_DIR && stow --adopt --target=${HOME}" \
+  replace-stow="cd $DOTFILES_DIR && stow --adopt --target=${HOME}" \
   replace-stow-all="replace-stow arch voidrice universal" \
   # replace-all="
-  #     rm ~/{.zprofile,.xprofile} &&
-  #     rm -rf ~/.config/{dunst,fontconfig,gtk-4.0,gtk-3.0,gtk-2.0,lf,mpd,mpv,ncmpcpp,newsboat,nvim,pulse,shell,sxiv,wal,wget,x11,zathura,zsh,neofetch,pinentry,pipewire} &&
-  #     rm ~/.config/{mimeapps.list,user-dirs.dirs} &&
-  #     rm -rf ~/.local/share/{applications,larbs} &&
-  #     rm -rf ~/.local/bin/{cron,statusbar,git} &&
-  #     rm ~/.local/bin/* | echo 'y' &&
+  #     rm $HOME/{.zprofile,.xprofile} &&
+  #     rm -rf $HOME/.config/{dunst,fontconfig,gtk-4.0,gtk-3.0,gtk-2.0,lf,mpd,mpv,ncmpcpp,newsboat,nvim,pulse,shell,sxiv,wal,wget,x11,zathura,zsh,neofetch,pinentry,pipewire} &&
+  #     rm $HOME/.config/{mimeapps.list,user-dirs.dirs} &&
+  #     rm -rf $HOME/.local/share/{applications,larbs} &&
+  #     rm -rf $HOME/.local/bin/{cron,statusbar,git} &&
+  #     rm $HOME/.local/bin/* | echo 'y' &&
   #     replace-stow arch voidrice universal &&
-  #     rm -rf ~/.local/bin/{cron,statusbar,git} &&
-  #     mkdir ~/.local/bin/{statusbar,cron,git} &&
-  #     ln -n ~/.config/personal/voidrice/.local/bin/statusbar/* ~/.local/bin/statusbar/ &&
-  #     ln -n ~/.config/personal/voidrice/.local/bin/cron/* ~/.local/bin/cron/
-  #     ln -n ~/.config/personal/voidrice/.local/bin/git/* ~/.local/bin/git/
+  #     rm -rf $HOME/.local/bin/{cron,statusbar,git} &&
+  #     mkdir $HOME/.local/bin/{statusbar,cron,git} &&
+  #     ln -n $HOME/.config/personal/voidrice/.local/bin/statusbar/* $HOME/.local/bin/statusbar/ &&
+  #     ln -n $HOME/.config/personal/voidrice/.local/bin/cron/* $HOME/.local/bin/cron/
+  #     ln -n $HOME/.config/personal/voidrice/.local/bin/git/* $HOME/.local/bin/git/
   #   " \
 
 # sync packages
 alias \
-  sync-pkg-main="Cpap; $PACKAGE_MANAGER -S --needed - < main.txt" \
-  sync-pkg-php="Cpap; $PACKAGE_MANAGER -S --needed - < php.txt" \
-  sync-pkg-yarn="Cpap; cat yarn.txt | xargs -t yarn global add" \
+  sync-pkg-main="$PROJECTS_DIR/arch/pkglist; $PACKAGE_MANAGER -S --needed - < main.txt" \
+  sync-pkg-php="$PROJECTS_DIR/arch/pkglist; $PACKAGE_MANAGER -S --needed - < php.txt" \
+  sync-pkg-yarn="$PROJECTS_DIR/arch/pkglist; cat yarn.txt | xargs -t yarn global add" \
   sync-pkg-all="sync-pkg-main; sync-pkg-php; sync-pkg-yarn"
 
 # sync config files
 alias \
   sync-cf-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
-  sync-cf-lvim="Lshlv && git pull && Clv && git pull && lvim +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
+  sync-cf-lvim="cd $LVIM_SHARE_DIR && git pull && cd $LVIM_CONFIG_DIR && git pull && lvim +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
   sync-cf-all="git-sync-local-repos; sync-cf-src; sync-cf-lvim"
 
 # some programs
@@ -222,15 +222,6 @@ alias \
 alias \
   ff="cd $HOME/.mozilla/firefox/*.dev-edition-default" \
   ffc="cd $HOME/.mozilla/firefox/*.dev-edition-default/chrome"
-
-# reinstall
-alias \
-  reinstall-lvim="
-    bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/uninstall.sh) &&
-      bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh) &&
-      replace-all &&
-      Cpv; git restore .config/lvim/config.lua &&
-  " \
 
 # misc
 alias \
