@@ -41,7 +41,7 @@ Clv   $LVIM_CONFIG_DIR
 # config personal
 Cp    $DOTFILES_DIR
 Cpa   $DOTFILES_DIR/arch
-Cpap  $DOTFILES_DIR/arch/pkglist
+Cpap  $PKGLIST_DIR
 Cpu   $DOTFILES_DIR/universal
 Cpv   $DOTFILES_DIR/voidrice
 

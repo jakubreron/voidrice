@@ -33,6 +33,8 @@ export XDG_DROPBOX_DIR="$HOME/Dropbox"
 export MOUNT_DIR="$HOME/Mount"
 
 export DOTFILES_DIR="$XDG_CONFIG_HOME/personal"
+export PKGLIST_DIR="$DOTFILES_DIR/arch/pkglist"
+
 export PROJECTS_DIR="$XDG_DOCUMENTS_DIR/Projects"
 
 export LVIM_CONFIG_DIR="$XDG_CONFIG_HOME/lvim"
