@@ -164,7 +164,8 @@ alias \
 alias \
   yta-touhou="cd ${XDG_MUSIC_DIR:-$HOME/Music}/touhou; ytap" \
   yta-akatsuki-records="cd ${XDG_MUSIC_DIR:-$HOME/Music}/akatsuki-records; ytap" \
-  yta-custom="yta-touhou; yta-akatsuki-records"
+  yta-shield-hero"cd ${XDG_MUSIC_DIR:-$HOME/Music}/rising-of-the-shield-hero; ytap" \
+  yta-custom="yta-touhou; yta-akatsuki-records; yta-shield-hero"
 
 # sync replace every config file
 alias \
