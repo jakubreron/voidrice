@@ -12,12 +12,7 @@
 .config/zsh/.oh-my-zsh
 
 .config/dunst/dunstrc
-.config/dunst/dunstrc.bak
-
 .config/zathura/zathurarc
-.config/zathura/zathurarc.bak
-
-.config/scripts/nohup.out
 
 .config/x11/xprofile
 
@@ -26,13 +21,12 @@
 .local/bin/ticker
 .local/bin/redshift
 
-.local/bin/statusbar/sb-cpu
-.local/bin/statusbar/sb-gpu
-
 .config/shell/zshnameddirrc
 
 .config/BetterDiscord/themes/*.css
 
-*.log
 .idea
+*.log
 *.asar
+*.bak
+*.out
