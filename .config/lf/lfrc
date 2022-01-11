@@ -148,7 +148,6 @@ map S share
 
 map <c-f> fzf_search
 map <c-n> new_dir
-map <c-r> reload
 map <c-e> encrypt
 map <c-g> decrypt
 map <c-k> kdeconnect
@@ -167,6 +166,8 @@ map H set hidden!
 
 map o &mimeopen $f
 map O $mimeopen --ask $f
+
+map R reload
 
 # Renames
 map r push A<c-u> # new rename
