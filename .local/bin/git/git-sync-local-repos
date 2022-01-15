@@ -7,7 +7,8 @@ cd "$LVIM_SHARE_DIR"
 git local-repos | while read -r REPO; do
   GIT_STATUS="$(git -C "$REPO" status --porcelain)"
 
-  BRANCH=$(git -C "$REPO" default-branch)
+  BRANCH=$(git -C "$REPO" rev-parse --abbrev-ref HEAD)
+  # BRANCH=$(git -C "$REPO" default-branch) # NOTE: switch to default and update
 
   if [ -z "$BRANCH" ]; then
     echo "❌ $(basename "$REPO") does not have a default branch."
@@ -25,5 +26,5 @@ git local-repos | while read -r REPO; do
     git -C "$REPO" pull --quiet origin "$BRANCH"
   fi
 
-  echo "✅ $(basename "$REPO") was switched to $(basename "$BRANCH") and updated."
+  echo "✅ $(basename "$REPO") was updated on $(basename "$BRANCH")."
 done
