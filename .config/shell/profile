@@ -43,6 +43,8 @@ export LVIM_SHARE_DIR="$XDG_DATA_HOME/lunarvim/lvim"
 export VALET_DIR="$HOME/.valet"
 export VALET_SITES_DIR="$VALET_DIR/Sites"
 
+export EXCLUDED_PACKAGES="intel-ucode|xf86-video-intel|amd-ucode|tlp|tlp-rdw|phpstorm|phpstorm-jre|php|php-.*$|lib-.*$|amd.*$|steam|teams|remmina|remmina-.*$"
+
 # Performance fix
 # export vblank_mode=0
 
