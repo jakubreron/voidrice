@@ -3,7 +3,7 @@
 set -euo pipefail
 
 # NOTE: single folders with echo
-# echo "$LVIM_SHARE_DIR"
+echo "$LVIM_SHARE_DIR"
 
 # NOTE: There's a faster way to find Git repositories, but this works for nested repos.
 # https://bit.ly/3pyUGDp
