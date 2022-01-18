@@ -3,34 +3,22 @@
 # This file runs when a DM logs you into a graphical session.
 # If you use startx/xinit like a Chad, this file will also be sourced.
 
-# xrandr --dpi 96 &	                                                # Uncomment when xorg breaks it again...
 setbg &			                                                        # Set the background with the `setbg` script
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	# Uncomment to use Xresources colors/settings on startup
 remaps &		                                                        # Run the remaps script, switching caps/esc and more; check it for more info
 fcitx -d &																													# Keyboard
-# easyeffects --gapplication-service &																# Equalizer
+easyeffects --gapplication-service &																# Equalizer
 redshift &																													# Night light
 /usr/lib/kdeconnectd &																							# KDE connect daemon
 maestral start &
-
-# Autostart
-autostart="dunst unclutter" # use "xcompmgr" instead of "picom" for the unbloated transparency
-for program in $autostart; do
-	pidof -s "$program" || setsid -f "$program"
-done >/dev/null 2>&1
-
+dunst &
+unclutter &
 picom --experimental-backend &
 
 # Screen layouts
-# layout-primary &
+# layout-primary  &
 # layout-secondary &
 # layout-temporary &
-
-# Scripts
-# nohup ${XDG_CONFIG_HOME:-$HOME/.config}/scripts/entr.sh &
-
-# HACK: Performance fix (might not be necessary in some cases)
-# export vblank_mode=0
 
 # NOTE: Some apps(lvim) are not picking the global path correctly from the zsh
 export PATH="$(yarn global bin):$PATH"
