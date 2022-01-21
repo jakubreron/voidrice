@@ -4,6 +4,7 @@
 
 .config/mpd/mpdstate
 .config/mpd/database
+.config/mpv/watch_later
 
 .config/pulse/cookie
 
