@@ -154,7 +154,7 @@ alias \
 alias \
   yt="yt-dlp --add-metadata -i --cookies-from-browser firefox" \
   yta="yt -x -f bestaudio/best --download-archive playlist.txt" \
-  ytap="cat playlist.txt | sed -e 's/youtube /https:\/\/www.youtube.com\/watch?v=/g' | xargs -t yt-dlp --add-metadata -i -x -f bestaudio/best"
+  ytap="cat playlist.txt | sed -e 's/youtube /https:\/\/www.youtube.com\/watch?v=/g' | xargs -t yt-dlp --add-metadata -i -x -f bestaudio/best --cookies-from-browser firefox"
 alias \
   yta-general="cd ${XDG_MUSIC_DIR:-$HOME/Music}/general; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
   yta-live="cd ${XDG_MUSIC_DIR:-$HOME/Music}/live; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
