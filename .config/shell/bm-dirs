@@ -10,12 +10,12 @@ Dos     ${XDG_DOCUMENTS_DIR:-$HOME/Documents}/Software
 
 # music
 Mu      ${XDG_MUSIC_DIR:-$HOME/Music}
-Mug     ${XDG_MUSIC_DIR:-$HOME/Music/general}
-Mul     ${XDG_MUSIC_DIR:-$HOME/Music/live}
-Muo     ${XDG_MUSIC_DIR:-$HOME/Music/osts}
-Mua     ${XDG_MUSIC_DIR:-$HOME/Music/albums}
-Mut     ${XDG_MUSIC_DIR:-$HOME/Music/touhou}
-Muar    ${XDG_MUSIC_DIR:-$HOME/Music/akatsuki-records}
+Mug     ${XDG_MUSIC_DIR:-$HOME/Music}/general
+Mul     ${XDG_MUSIC_DIR:-$HOME/Music}/live
+Muo     ${XDG_MUSIC_DIR:-$HOME/Music}/osts
+Mua     ${XDG_MUSIC_DIR:-$HOME/Music}/albums
+Mut     ${XDG_MUSIC_DIR:-$HOME/Music}/touhou
+Muar    ${XDG_MUSIC_DIR:-$HOME/Music}/akatsuki-records
 
 # projects
 Pr       $PROJECTS_DIR
