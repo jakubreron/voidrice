@@ -84,7 +84,7 @@ alias \
 # global
 alias \
   ygl="yarn global" \
-  ygll="yarn global list --depth=0" \
+  ygli="yarn global list --depth=0" \
   yga="yarn global add" \
   ygr="yarn global remove"
 # tests
@@ -95,13 +95,10 @@ alias \
 alias \
   ydv="yarn dev" \
   ydvw="yarn dev --watch" \
-  ywt="yarn watch" \
   yst="yarn start" \
   ystw="yarn start --watch" \
   ysr="yarn serve" \
   ysrw="yarn serve --watch" \
-  yp="yarn prod" \
-  ypr="yarn production" \
   yb="yarn build"
 # lints
 alias \
@@ -116,16 +113,8 @@ alias \
   yod="yarn outdated" \
   ycc="yarn cache clean" \
   yli="yarn list --depth=0" \
-  yif="yarn info --verbose --no-emoji" \
   yua="yarn-upgrade-all" \
   ycv="yarn create vite"
-
-# php
-alias \
-  paws="sudo php artisan websockets:serve --host=0.0.0.0 --port=444" \
-  padw="php artisan deploy:workspaces" \
-  pawd="php artisan workspace:dump" \
-  pacc="php artisan cache:clear"
 
 # composer
 alias \
