@@ -75,18 +75,19 @@ alias fix-pkg-keys="sudo pacman-key --init && sudo pacman-key --populate archlin
 # yarn
 alias \
   y="yarn" \
-  yi="yarn init -y"
+  yin="yarn init -y" \
+  yli="yarn list --depth=0"
 # add & remove
 alias \
-  ya="yarn add" \
-  yad="yarn add -D" \
-  yr="yarn remove"
+  yad="yarn add" \
+  yadd="yarn add -D" \
+  yrm="yarn remove"
 # global
 alias \
   ygl="yarn global" \
   ygli="yarn global list --depth=0" \
-  yga="yarn global add" \
-  ygr="yarn global remove"
+  yglad="yarn global add" \
+  yglrm="yarn global remove"
 # tests
 alias \
   yts="yarn test" \
@@ -99,7 +100,7 @@ alias \
   ystw="yarn start --watch" \
   ysr="yarn serve" \
   ysrw="yarn serve --watch" \
-  yb="yarn build"
+  ybd="yarn build"
 # lints
 alias \
   yln="yarn lint" \
@@ -111,10 +112,10 @@ alias \
 # misc
 alias \
   yod="yarn outdated" \
-  ycc="yarn cache clean" \
-  yli="yarn list --depth=0" \
+  ycac="yarn cache clean" \
   yua="yarn-upgrade-all" \
-  ycv="yarn create vite"
+  ycv="yarn create vite" \
+  yau="yarn audit"
 
 # composer
 alias \
