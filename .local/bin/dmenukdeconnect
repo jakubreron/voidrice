@@ -99,7 +99,7 @@ Notification_menu () {
     fi
     ticker1=`qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$2/notifications/$1 org.kde.kdeconnect.device.notifications.notification.ticker`
     prompt=$(echo $ticker1 | cut -c 1-100)
-    menu=$(echo $options | dmenu -c -i -p "$prompt" -l $optionNum )
+    menu=$(echo $options | dmenu -i -p "$prompt" -l $optionNum )
     case "$menu" in
 	*'View' )
 	    ticker1=`qdbus org.kde.kdeconnect /modules/kdeconnect/devices/$2/notifications/$1 org.kde.kdeconnect.device.notifications.notification.ticker`
@@ -121,10 +121,10 @@ show_menu () {
 	optionNum=$((optionNum+1))
     fi
     options+=$(printf "\\nRefresh\\n")
-    menu=$(echo $options | dmenu -c -i -p $1 -l $optionNum )
+    menu=$(echo $options | dmenu -i -p $1 -l $optionNum )
     case "$menu" in
 	*'Ping')
-	    message=$(echo 'Ping' | dmenu -c -i -p "Msg to send")
+	    message=$(echo 'Ping' | dmenu -i -p "Msg to send")
 	    kdeconnect-cli --ping-msg "$message" -d $2;;
 	*'Find Device') kdeconnect-cli --ring -d $2 ;;
 	*'Send File')
@@ -136,8 +136,8 @@ show_menu () {
 	    fi;;
 	*'Unpair' ) kdeconnect-cli --unpair -d $2 ;;
 	*'Send SMS' )
-	    message=$(echo 'OTW' | dmenu -c -i -p "Msg to send")
-	    recipient=$(echo '14039199518' | dmenu -c -i -p "Recipient's phone #")
+	    message=$(echo 'OTW' | dmenu -i -p "Msg to send")
+	    recipient=$(echo '14039199518' | dmenu -i -p "Recipient's phone #")
 	    kdeconnect-cli --send-sms "$message" --destination "$recipient" -d $2 ;;
 	*'Refresh' )
 	    kdeconnect-cli --refresh;;
@@ -149,7 +149,7 @@ show_menu () {
 }
 
 show_pmenu () {
-    menu="$(printf "Pair Device" | dmenu -c -i -p "$1"  )"
+    menu="$(printf "Pair Device" | dmenu -i -p "$1"  )"
     case "$menu" in
 	*'Pair Device') kdeconnect-cli --pair -d $2 ;;
     esac

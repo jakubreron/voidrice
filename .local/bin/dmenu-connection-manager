@@ -19,9 +19,9 @@
 WIFI=$(printf "%s %s" "${wifiicon}" "$(cat /sys/class/net/w*/operstate | sed "s/down/❎/;s/up/🌐/")")
 
 if [ -n "${WIFI}" ]; then
-	choice=$(printf 'Bluetooth\nNetwork' | dmenu -c -i -p 'Connect:' -l 30)
+	choice=$(printf 'Bluetooth\nNetwork' | dmenu -i -p 'Connect:' -l 30)
 else
-	choice=$(printf 'Bluetooth\nNetwork' | dmenu -c -i -p 'Connect:' -l 30)
+	choice=$(printf 'Bluetooth\nNetwork' | dmenu -i -p 'Connect:' -l 30)
 fi
 
 if [ "${choice}" = "Bluetooth" ]; then
@@ -31,7 +31,7 @@ if [ "${choice}" = "Bluetooth" ]; then
 	blueman-applet &
 	# [ -z "$(pgrep blueman)" ] && blueman-applet &
 
-	choice2=$(printf 'Connect\nNew\nManage\nDisable' | dmenu -c -i -p 'Bluetooth:' -l 30)
+	choice2=$(printf 'Connect\nNew\nManage\nDisable' | dmenu -i -p 'Bluetooth:' -l 30)
 	[ "${choice2}" = 'Connect' ] && btmenu
 	[ "${choice2}" = 'New' ] && blueman-assistant
 	[ "${choice2}" = 'Manage' ] && blueman-manager
@@ -40,6 +40,6 @@ if [ "${choice}" = "Bluetooth" ]; then
 	# since bluman-applet is nolonger needed to maintain connections
 fi
 if [ "${choice}" = "Network" ]; then
-	networkmanager_dmenu -c -l 30
+	networkmanager_dmenu -l 30
 fi
 #vim:ft=sh
