@@ -72,6 +72,10 @@ alias \
 # For when keys break
 alias fix-pkg-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
 
+# pnpm
+alias \
+  pn="pnpm"
+
 # yarn
 alias \
   y="yarn" \
