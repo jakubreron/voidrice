@@ -20,8 +20,6 @@ Muar    ${XDG_MUSIC_DIR:-$HOME/Music}/akatsuki-records
 # projects
 Pr       $PROJECTS_DIR
 Prw      $PROJECTS_DIR/work
-Prj      $PROJECTS_DIR/jakubreron.me
-Prb      $PROJECTS_DIR/boilerplate
 
 # dropbox
 Dr       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}
