@@ -74,73 +74,22 @@ alias fix-pkg-keys="sudo pacman-key --init && sudo pacman-key --populate archlin
 
 # pnpm
 alias \
-  pn="pnpm"
+  pn="pnpm" \
+  pnin="pnpm init -y"
 
 # yarn
 alias \
-  y="yarn" \
-  yin="yarn init -y" \
-  yli="yarn list --depth=0"
-# add & remove
-alias \
-  yad="yarn add" \
-  yadd="yarn add -D" \
-  yrm="yarn remove"
-# global
-alias \
-  ygl="yarn global" \
-  ygli="yarn global list --depth=0" \
-  yglad="yarn global add" \
-  yglrm="yarn global remove"
-# tests
-alias \
-  yts="yarn test" \
-  ytsu="yarn test:unit" \
-# dev
-alias \
-  ydv="yarn dev" \
-  ydvw="yarn dev --watch" \
-  yst="yarn start" \
-  ystw="yarn start --watch" \
-  ysr="yarn serve" \
-  ysrw="yarn serve --watch" \
-  ybd="yarn build"
-# lints
-alias \
-  yln="yarn lint" \
-  ylnf="yarn lint:fix" \
-# storybook
-alias \
-  ysb="yarn storybook" \
-  ysbb="yarn storybook:build"
-# misc
-alias \
-  yod="yarn outdated" \
-  ycac="yarn cache clean" \
-  yua="yarn-upgrade-all" \
-  ycv="yarn create vite" \
-  yau="yarn audit"
+  yr="yarn" \
+  yrin="yarn init -y" \
 
 # composer
 alias \
   cs="composer" \
-  csi="composer install" \
-  csr="composer refresh" \
-  csb="composer rebuild" \
-  csd="composer deploy" \
-  csa="csi; csr; csb; csd;"
+  csi="composer install"
 
 # valet
 alias \
   va="valet" \
-  vas="valet secure" \
-  vau="valet unsecure" \
-  var="valet restart" \
-  vad="valet domain" \
-  val="valet link" \
-  vaf="valet forget" \
-  vau="valet use" \
-  vast="valet status"
 
 # youtube
 # NOTE: i = ignore errors
