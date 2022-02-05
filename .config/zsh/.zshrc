@@ -21,7 +21,7 @@ setopt interactive_comments
 # To customize prompt, run `p10k configure` or edit ~/.config/personal/universal/shell/.p10k.zsh.
 # [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
 
-eval "$(oh-my-posh --init --shell zsh --config ~/.config/zsh/theme.omp.json)"
+# eval "$(oh-my-posh --init --shell zsh --config ~/.config/zsh/theme.omp.json)"
 
 # Load aliases and shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
