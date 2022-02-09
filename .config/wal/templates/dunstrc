@@ -13,7 +13,7 @@
 
     format = "<b>%s</b>\n%b"
 
-kurgency_low]
+[urgency_low]
     background = "{background}"
     foreground = "{foreground}"
     timeout = 5
