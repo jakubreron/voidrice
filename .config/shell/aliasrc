@@ -75,12 +75,10 @@ alias fix-pkg-keys="sudo pacman-key --init && sudo pacman-key --populate archlin
 # pnpm
 alias \
   pn="pnpm" \
-  pnin="pnpm init -y"
 
 # yarn
 alias \
   yr="yarn" \
-  yrin="yarn init -y" \
 
 # composer
 alias \
