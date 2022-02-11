@@ -1,17 +1,38 @@
 [global]
     monitor = 0
-    offset = 12x43
+
+    offset = 20x43
     width = (0, 400)
+
     indicate_hidden = yes
     transparency = 25
-    padding = 8
-    horizontal_padding = 8
-    frame_width = 2
-    frame_color = "{color4}"
-    progress_bar = true
-    font = Hack Nerd Font Mono 13
 
+    padding = 15
+    horizontal_padding = 15
+
+    frame_width = 0
+    frame_color = "{color4}"
+    separator_color = frame
+
+    sort = yes
+
+    progress_bar = true
+    progress_bar_height = 10
+
+    font = Hack Nerd Font Mono 13
+    follow = mouse
+
+    markup = full
     format = "<b>%s</b>\n%b"
+
+    icon_size = 35
+    max_icon_size = 50
+
+    dmenu = /usr/local/bin/dmenu -p dunst:
+
+    browser =  /usr/bin/firefox-developer-edition -new-tab
+
+    corner_radius = 2
 
 [urgency_low]
     background = "{background}"
