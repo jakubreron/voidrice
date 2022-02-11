@@ -5,7 +5,7 @@
     width = (0, 400)
 
     indicate_hidden = yes
-    transparency = 25
+    transparency = 15
 
     padding = 15
     horizontal_padding = 15
