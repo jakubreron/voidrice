@@ -159,4 +159,5 @@ alias \
   encrypt="gpg -c --no-symkey-cache --cipher-algo AES256" \
   update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
   init-ctags="ctags -R --exclude=.git" \
-  rkrl="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash"
+  rkrl="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash" \
+  sdw="sudo downgrade"
