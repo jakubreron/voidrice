@@ -19,6 +19,8 @@
 
 .config/lvim/plugin
 
+.config/lazygit/state.yml
+
 .local/bin/ticker
 .local/bin/redshift
 
