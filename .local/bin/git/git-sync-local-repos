@@ -23,7 +23,7 @@ git local-repos | while read -r REPO; do
   git -C "$REPO" checkout --quiet "$BRANCH"
 
   if git ls-remote --exit-code --heads origin "$BRANCH"; then
-    git -C "$REPO" pull --quiet origin "$BRANCH"
+    git -C "$REPO" pull origin "$BRANCH"
   fi
 
   echo "✅ $(basename "$REPO") was updated on $(basename "$BRANCH")."
