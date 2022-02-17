@@ -171,15 +171,16 @@ map R reload
 
 # Renames
 map r push A<c-u> # new rename
+map <c-r> bulkrename
+
+map i push A<a-b><a-b><a-f> # before extension
 map I push A<c-a> # at the very beginning
+
+map a push A<a-b> # after extension
 map A rename # at the very end
-map i push A<a-b><a-b><a-f> # before extention
-map a push A<a-b> # after extention
 
 map b $setbg $f
 map B $xwallpaper --zoom $f # without wal
-
-map c bulkrename
 
 map W open_in_new_terminal
 
