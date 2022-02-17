@@ -136,9 +136,9 @@ alias \
 
 # restart
 alias \
-  restart-ee="ka easyeffects; nohup >/dev/null 2>&1 easyeffects --gapplication-service &; notify-send 'EasyEffects activated'" \
-  restart-dunst="ka dunst; nohup >/dev/null 2>&1 dunst &; notify-send 'Dunst activated'" \
-  restart-picom="ka picom; nohup >/dev/null 2>&1 picom --experimental-backend &; notify-send 'Compositor activated'"
+  restart-ee="ka easyeffects; easyeffects --gapplication-service &; notify-send 'EasyEffects activated'" \
+  restart-dunst="ka dunst; dunst &; notify-send 'Dunst activated'" \
+  restart-picom="ka picom; picom --experimental-backend &; notify-send 'Compositor activated'"
 
 # network
 alias \
@@ -153,7 +153,8 @@ alias \
 
 # misc
 alias \
-  sd="nohup >/dev/null 2>&1 $TERMINAL &" \
+  nohup="nohup >/dev/null 2>&1" \
+  sd="nohup $TERMINAL &" \
   ndi="nodemon index.js" \
   cmpl="sudo make && sudo make install" \
   encrypt="gpg -c --no-symkey-cache --cipher-algo AES256" \
