@@ -67,7 +67,7 @@ alias \
 
 # get fastest mirrors
 alias \
-  mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" \
+  refresh-mirrors="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" \
 
 # For when keys break
 alias fix-pkg-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
@@ -138,13 +138,13 @@ alias \
 alias \
   restart-ee="ka easyeffects; easyeffects --gapplication-service &; notify-send 'EasyEffects activated'" \
   restart-dunst="ka dunst; dunst &; notify-send 'Dunst activated'" \
-  restart-picom="ka picom; picom --experimental-backend &; notify-send 'Compositor activated'"
+  restart-compositor="ka picom; picom --experimental-backend &; notify-send 'Compositor activated'"
 
 # network
 alias \
   myip="curl ifconfig.co" \
   ports="netstat -ntlup" \
-  restart-hosts="/bin/systemctl restart systemd-hostnamed"
+  refresh-hosts="/bin/systemctl restart systemd-hostnamed"
 
 # dynamic folders
 alias \
@@ -160,5 +160,4 @@ alias \
   encrypt="gpg -c --no-symkey-cache --cipher-algo AES256" \
   update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
   init-ctags="ctags -R --exclude=.git" \
-  rkrl="curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash" \
-  sdw="sudo downgrade"
+  dw="sudo downgrade"
