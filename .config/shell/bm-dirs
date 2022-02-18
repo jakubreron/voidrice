@@ -72,5 +72,4 @@ Php     /etc/php/
 Phpc    /etc/php/conf.d
 
 # misc
-Mn      $MOUNT_DIR
 Ca      ${XDG_CACHE_HOME:-$HOME/.cache}

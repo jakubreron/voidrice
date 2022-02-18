@@ -49,7 +49,6 @@ Van="cd /home/jakub/.valet/Ngnix" \
 Vac="cd /home/jakub/.valet/Certificates" \
 Php="cd /etc/php/" \
 Phpc="cd /etc/php/conf.d" \
-Mn="cd /home/jakub/Mount" \
 Ca="cd /home/jakub/.cache" \
 cfbf="$EDITOR /home/jakub/.config/shell/bm-files" \
 cfbd="$EDITOR /home/jakub/.config/shell/bm-dirs" \
