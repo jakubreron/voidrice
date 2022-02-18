@@ -64,6 +64,7 @@ declare -A websearch
 websearch[maps]="https://www.google.com/maps/search/"
 websearch[wikipedia]="https://en.wikipedia.org/w/index.php?search="
 websearch[wiktionary]="https://en.wiktionary.org/w/index.php?search="
+websearch[google schoolar]="https://scholar.google.pl/scholar?q="
 # Social Media
 websearch[reddit]="https://www.reddit.com/search/?q="
 websearch[youtube]="https://www.youtube.com/results?search_query="
