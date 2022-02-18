@@ -124,7 +124,7 @@ alias \
 alias \
   sync-cf-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
   sync-cf-lvim="cd $LVIM_SHARE_DIR && git pull && cd $LVIM_CONFIG_DIR && git pull && lvim +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
-  sync-cf-all="git-sync-local-repos; sync-cf-src; sync-cf-lvim"
+  sync-cf-all="git-sync-local-repos; sync-cf-src; sync-cf-lvim; replace-stow-all"
 
 # some programs
 alias \
