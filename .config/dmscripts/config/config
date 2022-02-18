@@ -77,7 +77,7 @@ websearch[caniuse]="https://caniuse.com/?search="
 websearch[caniemail]="https://caniemail.com/search/?s="
 websearch[npmjs]="https://npmjs.com/search?q="
 websearch[bundlephobia]="https://bundlephobia.com/package/"
-websearch[fontawesome]="https://fontawesome.com/v5.15/icons?d=gallery&p=2&q="
+websearch[fontawesome]="https://fontawesome.com/v5/search?q="
 # Japanese
 websearch[jisho]="https://jisho.org/search/"
 websearch[kanji]="https://jisho.org/search/%23kanji "
