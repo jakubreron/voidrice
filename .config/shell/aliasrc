@@ -38,7 +38,6 @@ alias \
 # These common commands are just too long! Abbreviate them.
 alias \
   ka="killall" \
-  sdn="shutdown -h now" \
   e="sudoedit" \
   v="$EDITOR" \
   p="$PACKAGE_MANAGER" \
@@ -67,7 +66,7 @@ alias \
 
 # get fastest mirrors
 alias \
-  refresh-mirrors="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" \
+  update-mirrors="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" \
 
 # For when keys break
 alias fix-pkg-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
@@ -144,7 +143,7 @@ alias \
 alias \
   myip="curl ifconfig.co" \
   ports="netstat -ntlup" \
-  refresh-hosts="/bin/systemctl restart systemd-hostnamed"
+  update-hosts="/bin/systemctl restart systemd-hostnamed"
 
 # dynamic folders
 alias \
