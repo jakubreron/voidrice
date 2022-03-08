@@ -1,11 +1,7 @@
 #!/bin/sh
-
 set ratios 1:2:3
-# set ratios 1:2
 set previewer ~/.config/lf/preview
 set cleaner ~/.config/lf/cleaner
-
-# Luke's lf settings
 
 # Basic vars
 set shell zsh
@@ -39,8 +35,9 @@ cmd on-cd &{{
 
 cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -b) in
+	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
 	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
-        text/*) $EDITOR $fx;;
+        text/*|application/json|inode/x-empty) $EDITOR $fx;;
 	image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
 	image/svg+xml) display -- $f ;;
 	image/*) rotdir $f | grep -i "\.\(png\|jpg\|jpeg\|gif\|webp\|tif\|ico\)\(_large\)*$" | setsid -f sxiv -aio 2>/dev/null | lf-select & ;;
@@ -184,6 +181,8 @@ map b $setbg $f
 map B $xwallpaper --zoom $f # without wal
 
 map W open_in_new_terminal
+
+map Y $printf "%s" "$fx" | xclip -selection clipboard
 
 # Source Bookmarks
 source "~/.config/lf/shortcutrc"
