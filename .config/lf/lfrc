@@ -16,9 +16,6 @@ set drawbox
 set ignorecase true
 set info
 
-# Vars that depend on environmental variables
-# $lf -remote "send $id set previewer ${XDG_CONFIG_HOME:-$HOME/.config}/lf/scope"
-
 # cmds/functions
 cmd on-cd &{{
     # display git repository status in your prompt
