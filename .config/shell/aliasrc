@@ -142,7 +142,7 @@ alias \
 # network
 alias \
   myip="curl ifconfig.co" \
-  ports="netstat -ntlup" \
+  ports="sudo netstat -ntlup" \
   update-hosts="/bin/systemctl restart systemd-hostnamed"
 
 # dynamic folders
