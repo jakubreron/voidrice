@@ -47,7 +47,7 @@ bindkey '^e' edit-command-line
 source "$ZDOTDIR/zsh-functions"
 
 chpwd() {
-  ls -a
+  ls -la
 }
 
 # Normal files to source
