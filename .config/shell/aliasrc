@@ -135,9 +135,10 @@ alias \
 
 # restart
 alias \
-  restart-ee="ka easyeffects; easyeffects --gapplication-service &; notify-send 'EasyEffects activated'" \
-  restart-dunst="ka dunst; dunst &; notify-send 'Dunst activated'" \
-  restart-compositor="ka picom; picom --experimental-backend &; notify-send 'Compositor activated'"
+  restart-ee="ka easyeffects; nohup easyeffects --gapplication-service &; notify-send 'EasyEffects activated...'" \
+  restart-dunst="ka dunst; nohup dunst &; notify-send 'Dunst activated...'" \
+  restart-compositor="ka picom; nohup picom --experimental-backend &; notify-send 'Compositor activated...'" \
+  restart-nightlight="ka redshift; nohup redshift &; & notify-send 'Night light activated..."
 
 # network
 alias \
