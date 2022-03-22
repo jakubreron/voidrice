@@ -15,14 +15,22 @@ for command in mount umount sv pacman updatedb su shutdown poweroff reboot ; do
 	alias $command="sudo $command"
 done; unset command
 
+# general
+alias \
+  t="ls -T" \
+  l="ls -la" \
+
+# overwritten
+alias \
+  df="duf" \
+  du="dust" \
+
 # Verbosity and settings that you pretty much just always are going to want.
 # df="df -h" \
 alias \
   cp="cp -iv" \
   mv="mv -iv" \
   bc="bc -ql" \
-  df="duf" \
-  du="dust" \
   free="free -m" \
   mkd="mkdir -pv" \
   ffmpeg="ffmpeg -hide_banner"
@@ -30,10 +38,9 @@ alias \
 # Colorize commands when possible.
 alias \
   ls="exa -F --time-style=iso --icons --group-directories-first --git" \
-  l="ls -la" \
+  ip="ip -color=auto" \
   grep="grep --color=auto" \
   diff="diff --color=auto" \
-  t="ls -T"
 
 # These common commands are just too long! Abbreviate them.
 alias \
