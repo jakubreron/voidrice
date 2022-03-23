@@ -1,11 +1,12 @@
-#!/bin/zsh 
+#!/bin/zsh
 export GTK_IM_MODULE='fcitx'
 export QT_IM_MODULE='fcitx'
 export SDL_IM_MODULE='fcitx'
 export XMODIFIERS='@im=fcitx'
 
 # Adds `~/.local/bin` to $PATH
-export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
+# export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
+export PATH="${HOME}/.local/bin:${PATH}"
 
 unsetopt PROMPT_SP
 
