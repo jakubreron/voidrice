@@ -3,6 +3,11 @@ HISTFILE=~/.cache/zsh/history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
+eval $(/opt/homebrew/bin/brew shellenv)
+eval "$(mcfly init zsh)"
+eval "$(fnm env)"
+# eval "`pip completion --zsh`"
+
 export MANPAGER='lvim +Man!'
 export MANWIDTH=999
 export MCFLY_RESULTS=30
@@ -11,10 +16,6 @@ export MCFLY_KEY_SCHEME=vim
 export PATH=$HOME/.fnm:$PATH
 export PATH="$(yarn global bin):$PATH"
 export PATH="$HOME/.local/share/cargo/bin:$PATH"
-
-eval "$(mcfly init zsh)"
-eval "$(fnm env)"
-# eval "`pip completion --zsh`"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!

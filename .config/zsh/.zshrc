@@ -51,8 +51,8 @@ chpwd() {
 }
 
 # Normal files to source
-zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-exports"
+zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-prompt"
 
 # Plugins
