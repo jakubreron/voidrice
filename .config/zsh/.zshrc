@@ -51,7 +51,10 @@ chpwd() {
 }
 
 # Normal files to source
-zsh_add_file "zsh-custom-exports"
+if [[ $OSTYPE == 'darwin'* ]]; then
+  eval $(/opt/homebrew/bin/brew shellenv)
+fi
+
 zsh_add_file "zsh-exports"
 zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-prompt"
