@@ -9,6 +9,7 @@
 .config/pulse/cookie
 
 .config/zsh/plugins
+.config/zsh/zsh-custom-exports
 .config/zsh/.zsh_sessions
 .config/zsh/.zcompdump*
 .config/zsh/.oh-my-zsh
