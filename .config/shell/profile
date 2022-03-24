@@ -10,3 +10,12 @@ if [[ $OSTYPE == 'linux'* ]]; then
 else
 	source ~/.config/shell/profile.osx
 fi
+
+##
+# Your previous /Users/jakub/.zprofile file was backed up as /Users/jakub/.zprofile.macports-saved_2022-03-24_at_21:19:37
+##
+
+# MacPorts Installer addition on 2022-03-24_at_21:19:37: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
