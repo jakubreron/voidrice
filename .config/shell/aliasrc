@@ -51,14 +51,31 @@ alias \
   pkgs="pkgstats search" \
   ud="updatedb"
 
-# Generate packages
+# generate & sync packages
+# pacman
 alias \
-  gen-pkg-pacman-main="cd $PKGLIST_DIR; genpkg pacman.main" \
-  gen-pkg-pacman-secondary="cd $PKGLIST_DIR; genpkg pacman.secondary" \
-  gen-pkg-pacman-work="cd $PKGLIST_DIR; genpkg pacman.work" \
-  gen-pkg-brew-work="cd $PKGLIST_DIR; genpkg brew.work" \
-  gen-pkg-yarn="cd $PKGLIST_DIR; yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn" \
-  gen-pkg-php="cd $PKGLIST_DIR; genpkg php 'phpstorm|phpstorm-jre' 'php'"
+  gen-pkg-main-pacman="cd $PKGLIST_DIR; genpkg main.pacman.txt" \
+  gen-pkg-secondary-pacman="cd $PKGLIST_DIR; genpkg secondary.pacman.txt" \
+  sync-pkg-main-pacman="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < main.pacman.txt" \
+  sync-pkg-secondary-pacman="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < secondary.pacman.txt" \
+# TODO: add brew & macports sync
+# mac
+alias \
+  gen-pkg-work-brew="cd $PKGLIST_DIR; brew list > work.brew.txt" \
+  gen-pkg-work-macports="cd $PKGLIST_DIR; sudo port installed > work.macports.txt" \
+# universal
+alias \
+  gen-pkg-main-yarn="cd $PKGLIST_DIR; yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > main.yarn.txt" \
+  gen-pkg-main-php="cd $PKGLIST_DIR; genpkg php 'phpstorm|phpstorm-jre' 'main.php.txt'" \
+  sync-pkg-main-php="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < php" \
+  sync-pkg-main-yarn="cd $PKGLIST_DIR; cat yarn | xargs -t yarn global add" \
+
+
+# sync config files
+alias \
+  sync-cf-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
+  sync-cf-lvim="cd $LVIM_SHARE_DIR && git pull && cd $LVIM_CONFIG_DIR && git pull && lvim +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
+  sync-cf-all="git-sync-local-repos; sync-cf-src; sync-cf-lvim; replace-stow-all"
 
 # Git
 alias \
@@ -119,24 +136,6 @@ alias \
 alias \
   replace-stow="cd $DOTFILES_DIR && stow --adopt --target=${HOME}" \
   replace-stow-all="replace-stow arch voidrice universal" \
-
-# sync pacman packages
-alias \
-  sync-pkg-pacman-main="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < pacman.main" \
-  sync-pkg-pacman-secondary="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < pacman.secondary" \
-  sync-pkg-pacman-work="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < pacman.work" \
-  sync-pkg-pacman-php="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < php" \
-  sync-pkg-pacman-all="sync-pkg-main; sync-pkg-php; sync-pkg-yarn"
-
-# sync universal packages
-alias \
-  sync-pkg-yarn="cd $PKGLIST_DIR; cat yarn | xargs -t yarn global add" \
-
-# sync config files
-alias \
-  sync-cf-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
-  sync-cf-lvim="cd $LVIM_SHARE_DIR && git pull && cd $LVIM_CONFIG_DIR && git pull && lvim +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile" \
-  sync-cf-all="git-sync-local-repos; sync-cf-src; sync-cf-lvim; replace-stow-all"
 
 # some programs
 alias \
