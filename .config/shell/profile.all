@@ -5,6 +5,7 @@ source ~/.config/shell/lf-icons
 
 # PATHS
 export PATH=$HOME/.fnm:$PATH
+export PATH="$(yarn global bin):$PATH"
 export PATH="$HOME/.local/share/cargo/bin:$PATH"
 
 # XDG main
