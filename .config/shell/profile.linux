@@ -1,7 +1,9 @@
 #!/bin/zsh
 
 # WARNING: Shared
+export PATH="$(yarn global bin):$PATH"
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
+
 export BROWSER="firefox-developer-edition"
 export BACKUP_BROWSER="google-chrome-stable"
 export GUI_FILE_EXPLORER="nautilus"

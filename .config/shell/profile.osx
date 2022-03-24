@@ -2,6 +2,7 @@
 
 # WARNING: Shared
 export PATH="${HOME}/.local/bin:${PATH}"
+
 export BROWSER="firefox"
 export BACKUP_BROWSER="chrome"
 export GUI_FILE_EXPLORER="open"
