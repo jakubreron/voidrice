@@ -1,14 +1,14 @@
 #!/bin/sh
-
-##
-## Stolen
-##
+# TODO: separate aliases for linux-distros, osx and unix-universal
 
 # Use neovim for vim if present.
 [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
 
-# Use $XINITRC variable if file exists.
-[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
+if [[ $OSTYPE == 'linux'* ]]; then
+  # Use $XINITRC variable if file exists.
+  [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+fi
 
 # sudo not required for some system commands
 for command in mount umount sv pacman updatedb su shutdown poweroff reboot ; do
@@ -53,12 +53,12 @@ alias \
 
 # Generate packages
 alias \
-  gen-pkg-pacman-main="cd $PKGLIST_DIR; genpkg pacman-main.txt" \
-  gen-pkg-pacman-secondary="cd $PKGLIST_DIR; genpkg pacman-secondary.txt" \
-  gen-pkg-pacman-work="cd $PKGLIST_DIR; genpkg pacman-work.txt" \
-  gen-pkg-brew-work="cd $PKGLIST_DIR; genpkg brew-work.txt" \
-  gen-pkg-yarn="cd $PKGLIST_DIR; yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt" \
-  gen-pkg-php="cd $PKGLIST_DIR; genpkg php.txt 'phpstorm|phpstorm-jre' 'php'"
+  gen-pkg-pacman-main="cd $PKGLIST_DIR; genpkg pacman.main" \
+  gen-pkg-pacman-secondary="cd $PKGLIST_DIR; genpkg pacman.secondary" \
+  gen-pkg-pacman-work="cd $PKGLIST_DIR; genpkg pacman.work" \
+  gen-pkg-brew-work="cd $PKGLIST_DIR; genpkg brew.work" \
+  gen-pkg-yarn="cd $PKGLIST_DIR; yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn" \
+  gen-pkg-php="cd $PKGLIST_DIR; genpkg php 'phpstorm|phpstorm-jre' 'php'"
 
 # Git
 alias \
@@ -120,12 +120,17 @@ alias \
   replace-stow="cd $DOTFILES_DIR && stow --adopt --target=${HOME}" \
   replace-stow-all="replace-stow arch voidrice universal" \
 
-# sync packages
+# sync pacman packages
 alias \
-  sync-pkg-main="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < main.txt" \
-  sync-pkg-php="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < php.txt" \
-  sync-pkg-yarn="cd $PKGLIST_DIR; cat yarn.txt | xargs -t yarn global add" \
-  sync-pkg-all="sync-pkg-main; sync-pkg-php; sync-pkg-yarn"
+  sync-pkg-pacman-main="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < pacman.main" \
+  sync-pkg-pacman-secondary="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < pacman.secondary" \
+  sync-pkg-pacman-work="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < pacman.work" \
+  sync-pkg-pacman-php="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < php" \
+  sync-pkg-pacman-all="sync-pkg-main; sync-pkg-php; sync-pkg-yarn"
+
+# sync universal packages
+alias \
+  sync-pkg-yarn="cd $PKGLIST_DIR; cat yarn | xargs -t yarn global add" \
 
 # sync config files
 alias \
