@@ -53,9 +53,10 @@ alias \
 
 # Generate packages
 alias \
-  gen-pkg-main="cd $PKGLIST_DIR; genpkg main.txt" \
-  gen-pkg-work="cd $PKGLIST_DIR; genpkg work.txt" \
-  gen-pkg-secondary="cd $PKGLIST_DIR; genpkg secondary.txt" \
+  gen-pkg-pacman-main="cd $PKGLIST_DIR; genpkg pacman-main.txt" \
+  gen-pkg-pacman-secondary="cd $PKGLIST_DIR; genpkg pacman-secondary.txt" \
+  gen-pkg-pacman-work="cd $PKGLIST_DIR; genpkg pacman-work.txt" \
+  gen-pkg-brew-work="cd $PKGLIST_DIR; genpkg brew-work.txt" \
   gen-pkg-yarn="cd $PKGLIST_DIR; yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > yarn.txt" \
   gen-pkg-php="cd $PKGLIST_DIR; genpkg php.txt 'phpstorm|phpstorm-jre' 'php'"
 
