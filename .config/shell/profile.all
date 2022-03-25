@@ -24,7 +24,7 @@ export XDG_BIN_HOME="$HOME/.local/bin"
 export XDG_CACHE_HOME="$HOME/.cache"
 
 export DOTFILES_DIR="$XDG_CONFIG_HOME/personal"
-export PKGLIST_DIR="$DOTFILES_DIR/pkglist"
+export PKGLIST_DIR="$DOTFILES_DIR/pkglists"
 
 export PROJECTS_DIR="$XDG_DOCUMENTS_DIR/Projects"
 
