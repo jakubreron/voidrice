@@ -66,10 +66,10 @@ zsh_add_plugin "hlissner/zsh-autopair"
 zsh_add_completion "esc/conda-zsh-completion" false
 
 # Key bindings
-bindkey -s '^o' '$CLI_FILE_EXPLORER\n'
+bindkey -s '^o' '${CLI_FILE_EXPLORER}\n'
 bindkey -s '^g' 'lazygit\n'
 bindkey -s '^d' 'lazydocker\n'
-bindkey -s '^n' '$GUI_FILE_EXPLORER .\n'
+bindkey -s '^n' '${GUI_FILE_EXPLORER} .\n'
 bindkey -s '^a' 'bc -lq\n'
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 bindkey '^[[P' delete-char
