@@ -7,5 +7,5 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH" # macports
 export BROWSER="firefox"
 export BACKUP_BROWSER="chrome"
 export GUI_FILE_EXPLORER="open"
-export CLI_FILE_EXPLORER="lfrun"
+export CLI_FILE_EXPLORER="lf"
 export PACKAGE_MANAGER="brew"
