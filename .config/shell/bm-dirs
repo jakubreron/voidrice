@@ -42,7 +42,7 @@ Cflv     $LVIM_CONFIG_DIR
 # config personal
 Cfp      $DOTFILES_DIR
 Cfpa     $DOTFILES_DIR/arch
-Cfpap    $PKGLIST_DIR
+Cfpp     $PKGLIST_DIR
 Cfpu     $DOTFILES_DIR/universal
 Cfpv     $DOTFILES_DIR/voidrice
 
