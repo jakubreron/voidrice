@@ -8,6 +8,7 @@ export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 export BROWSER="firefox-developer-edition"
 export BACKUP_BROWSER="google-chrome-stable"
 export GUI_FILE_EXPLORER="nautilus"
+export CLI_FILE_EXPLORER="lfrun"
 export PACKAGE_MANAGER="paru"
 
 # Programs

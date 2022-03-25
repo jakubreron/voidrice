@@ -1,9 +1,11 @@
 #!/bin/zsh
 
 # WARNING: Shared
-export PATH="${HOME}/.local/bin:${PATH}"
+export PATH="${HOME}/.local/bin:${PATH}" # .local/bin on osx doesn't work with the "-printf" way
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH" # macports
 
 export BROWSER="firefox"
 export BACKUP_BROWSER="chrome"
 export GUI_FILE_EXPLORER="open"
+export CLI_FILE_EXPLORER="lfrun"
 export PACKAGE_MANAGER="brew"
