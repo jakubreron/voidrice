@@ -52,12 +52,13 @@ alias \
   ud="updatedb"
 
 # generate & sync packages
-# pacman
+# arch / pacman / paru
 alias \
   gen-pkg-main-pacman="cd $PKGLIST_DIR; genpkg main.pacman.txt" \
   gen-pkg-secondary-pacman="cd $PKGLIST_DIR; genpkg secondary.pacman.txt" \
   sync-pkg-main-pacman="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < main.pacman.txt" \
   sync-pkg-secondary-pacman="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < secondary.pacman.txt" \
+  sync-pkg-main-php="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < php" \
 # TODO: add brew & macports sync
 # mac
 alias \
@@ -67,9 +68,7 @@ alias \
 alias \
   gen-pkg-main-yarn="cd $PKGLIST_DIR; yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > main.yarn.txt" \
   gen-pkg-main-php="cd $PKGLIST_DIR; genpkg php 'phpstorm|phpstorm-jre' 'main.php.txt'" \
-  sync-pkg-main-php="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < php" \
   sync-pkg-main-yarn="cd $PKGLIST_DIR; cat yarn | xargs -t yarn global add" \
-
 
 # sync config files
 alias \
