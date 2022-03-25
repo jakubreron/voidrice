@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+# NOTE: yarn installed via brew is included in another place
+export PATH="$(yarn global bin):$PATH"
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
 # WARNING: Shared
