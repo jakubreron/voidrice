@@ -102,6 +102,7 @@ alias \
 # yarn
 alias \
   yr="yarn" \
+  yrt="yarn test --watch --coverage --silent false" \
 
 # composer
 alias \
