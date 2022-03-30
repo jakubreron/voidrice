@@ -20,6 +20,8 @@ printf "# vim: filetype=sh\\n" > "$fish_shortcuts"
 printf "# vim: filetype=sh\\nalias " > "$shell_shortcuts"
 printf "\" vim: filetype=vim\\n" > "$vifm_shortcuts"
 
+echo "vim.cmd [[" >> $lvim_shortcuts
+
 # Format the `directories` file in the correct syntax and sent it to all three configs.
 eval "echo \"$(cat "$bmdirs")\"" | \
 awk "!/^\s*#/ && !/^\s*\$/ {gsub(\"\\\s*#.*$\",\"\");
@@ -44,3 +46,5 @@ awk "!/^\s*#/ && !/^\s*\$/ {gsub(\"\\\s*#.*$\",\"\");
 	printf(\"map E%s \$\$EDITOR \42%s\42 \n\",\$1,\$2)   >> \"$lf_shortcuts\" ;
 	printf(\"cmap ;%s %s\n\",\$1,\$2)                    >> \"$vim_shortcuts\" ;
 	printf(\"cmap ;%s %s\n\",\$1,\$2)                    >> \"$lvim_shortcuts\" }"
+
+echo "]]" >> $lvim_shortcuts
