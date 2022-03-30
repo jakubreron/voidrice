@@ -29,7 +29,7 @@ application/x-extension-xhtml=firefox-developer-edition.desktop
 application/x-extension-xht=firefox-developer-edition.desktop
 
 [Added Associations]
-video/mp4=org.kde.kdeconnect.handler.desktop;mpv.desktop;
+video/mp4=mpv.desktop;org.kde.kdeconnect.handler.desktop;
 x-scheme-handler/http=firefox-developer-edition.desktop;
 x-scheme-handler/https=firefox-developer-edition.desktop;
 x-scheme-handler/chrome=firefox-developer-edition.desktop;

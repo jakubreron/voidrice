@@ -381,7 +381,7 @@ function! VisualSelection(direction, extra_filter) range
     let @" = l:saved_reg
 endfunction
 " Ultimate vim config copied end
-nnoremap <leader>h :call ToggleHiddenAll()<CR>
+
 " Load command shortcuts generated from bm-dirs and bm-files via shortcuts script.
 " Here leader is ";".
 " So ":vs ;cfz" will expand into ":vs /home/<user>/.config/zsh/.zshrc"
