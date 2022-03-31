@@ -1,6 +1,7 @@
 # NOTE: cf = "config" prefix
 cfbf	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-files	# This file, a list of bookmarked files
 cfbd	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs		# A list of bookmarked directories similar to this file
+cfbw	$DOTFILES_DIR/universal/.config/bookmarks  # A list of boookmarked websites
 
 cfdb	${XDG_SRC_HOME:-$HOME/.local/src}/dwmblocks/config.h
 cfdw	${XDG_SRC_HOME:-$HOME/.local/src}/dwm/config.h
@@ -30,9 +31,4 @@ cfnbu	${XDG_CONFIG_HOME:-$HOME/.config}/newsboat/urls
 
 ## personal configs
 cft	$HOME/.ticker.yaml 
-cfb	$DOTFILES_DIR/universal/.config/bookmarks 
 cfg	$DOTFILES_DIR/universal/.config/git/config
-
-# documentation
-cfpar $DOTFILES_DIR/arch/README.md 
-cfpur $DOTFILES_DIR/universal/README.md

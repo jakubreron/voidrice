@@ -53,6 +53,7 @@ cmap ;Phpc /etc/php/conf.d
 cmap ;Ca /home/jakub/.cache
 cmap ;cfbf /home/jakub/.config/shell/bm-files
 cmap ;cfbd /home/jakub/.config/shell/bm-dirs
+cmap ;cfbw /home/jakub/.config/personal/universal/.config/bookmarks
 cmap ;cfdb /home/jakub/.local/src/dwmblocks/config.h
 cmap ;cfdw /home/jakub/.local/src/dwm/config.h
 cmap ;cfdm /home/jakub/.local/src/dmenu/config.h
@@ -74,7 +75,4 @@ cmap ;cflvt /home/jakub/.config/lvim/lua/config/themes.lua
 cmap ;cflvp /home/jakub/.config/lvim/lua/config/plugins.lua
 cmap ;cfnbu /home/jakub/.config/newsboat/urls
 cmap ;cft /home/jakub/.ticker.yaml
-cmap ;cfb /home/jakub/.config/personal/universal/.config/bookmarks
 cmap ;cfg /home/jakub/.config/personal/universal/.config/git/config
-cmap ;cfpar /home/jakub/.config/personal/arch/README.md
-cmap ;cfpur /home/jakub/.config/personal/universal/README.md
