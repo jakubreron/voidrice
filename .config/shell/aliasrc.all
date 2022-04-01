@@ -28,7 +28,6 @@ alias \
   mv="mv -iv" \
   bc="bc -ql" \
   free="free -m" \
-  mkd="mkdir -pv" \
   ffmpeg="ffmpeg -hide_banner" \
   nf="neofetch" \
   lzg="lazygit" \

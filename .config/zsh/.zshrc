@@ -67,8 +67,8 @@ zsh_add_completion "esc/conda-zsh-completion" false
 
 # Key bindings
 bindkey -s '^o' '${CLI_FILE_EXPLORER}\n'
-bindkey -s '^g' 'lazygit\n'
-bindkey -s '^d' 'lazydocker\n'
+bindkey -s '^g' '${GIT_CLIENT}\n'
+bindkey -s '^d' '${DOCKER_CLIENT}\n'
 bindkey -s '^n' '${GUI_FILE_EXPLORER} .\n'
 bindkey -s '^a' 'bc -lq\n'
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
