@@ -15,6 +15,9 @@ for command in mount umount sv pacman updatedb su shutdown poweroff reboot ; do
 	alias $command="sudo $command"
 done; unset command
 
+# enable aliases to be sudo'ed
+alias sudo='sudo '
+
 # general
 alias \
   t="ls -T" \
@@ -102,7 +105,7 @@ alias \
 # yarn
 alias \
   yr="yarn" \
-  yrt="yarn test --watch --coverage --silent false" \
+  yrt="yarn test --watchAll --coverage --silent false" \
 
 # composer
 alias \
