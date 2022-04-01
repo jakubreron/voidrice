@@ -1,49 +1,17 @@
 #!/bin/sh
-# TODO: separate aliases for linux-distros, osx and unix-universal
-
-# Use neovim for vim if present.
-[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
-
+source ~/.config/shell/aliasrc.all
 
 if [[ $OSTYPE == 'linux'* ]]; then
-  # Use $XINITRC variable if file exists.
-  [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+  source ~/.config/shell/aliasrc.linux
+else
+  # bloated mac
+  source ~/.config/shell/aliasrc.osx
 fi
 
 # sudo not required for some system commands
 for command in mount umount sv pacman updatedb su shutdown poweroff reboot ; do
-	alias $command="sudo $command"
+  alias $command="sudo $command"
 done; unset command
-
-# enable aliases to be sudo'ed
-alias sudo='sudo '
-
-# general
-alias \
-  t="ls -T" \
-  l="ls -la" \
-
-# overwritten
-alias \
-  df="duf" \
-  du="dust" \
-
-# Verbosity and settings that you pretty much just always are going to want.
-# df="df -h" \
-alias \
-  cp="cp -iv" \
-  mv="mv -iv" \
-  bc="bc -ql" \
-  free="free -m" \
-  mkd="mkdir -pv" \
-  ffmpeg="ffmpeg -hide_banner"
-
-# Colorize commands when possible.
-alias \
-  ls="exa -F --time-style=iso --icons --group-directories-first --git" \
-  ip="ip -color=auto" \
-  grep="grep --color=auto" \
-  diff="diff --color=auto" \
 
 # These common commands are just too long! Abbreviate them.
 alias \
