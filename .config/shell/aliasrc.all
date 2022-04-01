@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Use neovim for vim if present.
 [ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
 
@@ -7,12 +9,12 @@ alias sudo='sudo '
 # general
 alias \
   t="ls -T" \
-  l="ls -la" \
+  l="ls -la" 
 
 # overwritten
 alias \
   df="duf" \
-  du="dust" \
+  du="dust" 
 
 # Verbosity and settings that you pretty much just always are going to want.
 # df="df -h" \
@@ -22,12 +24,88 @@ alias \
   bc="bc -ql" \
   free="free -m" \
   mkd="mkdir -pv" \
-  ffmpeg="ffmpeg -hide_banner"
+  ffmpeg="ffmpeg -hide_banner" \
+  nf="neofetch" \
+  lzg="lazygit" \
+  lzd="lazydocker" \
 
 # Colorize commands when possible.
 alias \
   ls="exa -F --time-style=iso --icons --group-directories-first --git" \
   ip="ip -color=auto" \
   grep="grep --color=auto" \
-  diff="diff --color=auto" \
+  diff="diff --color=auto" 
 
+# These common commands are just too long! Abbreviate them.
+alias \
+  ka="killall" \
+  g="git" \
+  e="sudoedit" \
+  v="$EDITOR" \
+  p="$PACKAGE_MANAGER"
+
+# pnpm
+alias \
+  pn="pnpm"
+
+# yarn
+alias \
+  yr="yarn" \
+  yrt="yarn test --watch --coverage --silent false"
+
+# composer
+alias \
+  cs="composer" \
+  csi="composer install"
+
+# valet
+alias \
+  va="valet"
+
+# packages
+# generate
+alias \
+  gen-pkg-main-yarn="cd $PKGLIST_DIR; yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > main.yarn.txt"
+# sync
+alias \
+  sync-pkg-main-yarn="cd $PKGLIST_DIR; cat yarn | xargs -t yarn global add" 
+
+# sync config files
+alias \
+  sync-cf-lvim="cd $LVIM_SHARE_DIR && git pull && cd $LVIM_CONFIG_DIR && git pull && lvim +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile"
+
+# replace dotfiles
+alias \
+  replace-stow="cd $DOTFILES_DIR && stow --adopt --target=${HOME}" \
+  replace-stow-all="replace-stow arch voidrice universal" \
+
+# youtube music
+# NOTE: i = ignore errors
+# NOTE: x = extract, -f = format
+alias \
+  yt="yt-dlp --add-metadata -i --cookies-from-browser firefox" \
+  yta="yt -x -f bestaudio/best --download-archive playlist.txt" \
+  ytap="cat playlist.txt | sed -e 's/youtube /https:\/\/www.youtube.com\/watch?v=/g' | xargs -t yt-dlp --add-metadata -i -x -f bestaudio/best --cookies-from-browser firefox"
+alias \
+  yta-general="cd ${XDG_MUSIC_DIR:-$HOME/Music}/general; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
+  yta-live="cd ${XDG_MUSIC_DIR:-$HOME/Music}/live; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
+  yta-osts="cd ${XDG_MUSIC_DIR:-$HOME/Music}/osts; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
+  yta-albums="cd ${XDG_MUSIC_DIR:-$HOME/Music}/albums; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
+  yta-main="yta-general; yta-live; yta-osts; yta-albums"
+alias \
+  yta-touhou="cd ${XDG_MUSIC_DIR:-$HOME/Music}/touhou; ytap" \
+  yta-akatsuki-records="cd ${XDG_MUSIC_DIR:-$HOME/Music}/akatsuki-records; ytap" \
+  yta-shield-hero="cd ${XDG_MUSIC_DIR:-$HOME/Music}/rising-of-the-shield-hero; ytap" \
+  yta-custom="yta-touhou; yta-akatsuki-records; yta-shield-hero"
+
+# network
+alias \
+  myip="curl ifconfig.co" \
+  ports="sudo netstat -ntlup"
+
+# misc
+alias \
+  ndi="nodemon index.js" \
+  rates="curl rate.sx | less -S" \
+  init-ctags="ctags -R --exclude=.git" \
+  cmpl="sudo make && sudo make install"

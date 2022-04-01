@@ -1,0 +1,4 @@
+#!/bin/sh
+# TODO: add brew & macports sync
+alias \
+  gen-pkg-work="cd $PKGLIST_DIR; brew list > work.brew.txt; sudo port installed > work.macports.txt" \

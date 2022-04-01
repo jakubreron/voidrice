@@ -1,2 +1,61 @@
+#!/bin/sh
+
 # Use $XINITRC variable if file exists.
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
+
+# These common commands are just too long! Abbreviate them.
+alias \
+  clp="colorpicker --short --one-shot --preview | xsel -b" \
+  pkgs="pkgstats search"
+
+# packages
+# generate
+alias \
+  gen-pkg-main-pacman="cd $PKGLIST_DIR; genpkg main.pacman.txt" \
+  gen-pkg-secondary-pacman="cd $PKGLIST_DIR; genpkg secondary.pacman.txt" \
+  gen-pkg-main-php="cd $PKGLIST_DIR; genpkg php 'phpstorm|phpstorm-jre' 'main.php.txt'"
+# sync
+alias \
+  sync-pkg-main-pacman="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < main.pacman.txt" \
+  sync-pkg-secondary-pacman="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < secondary.pacman.txt" \
+  sync-pkg-main-php="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < php"
+
+# sync config files
+alias \
+  sync-cf-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
+  sync-cf-all="git-sync-local-repos; sync-cf-src; replace-stow-all; sync-cf-lvim;"
+
+# systemctl
+alias \
+  sc="systemctl" \
+  scu="systemctl --user" \
+
+# For when keys break
+alias fix-pkg-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
+
+# restart programs
+alias \
+  rs-ee="ka easyeffects; nohup easyeffects --gapplication-service &; notify-send 'EasyEffects activated...'" \
+  rs-dunst="ka dunst; nohup dunst &; notify-send 'Dunst activated...'" \
+  rs-compositor="ka picom; nohup picom --experimental-backend &; notify-send 'Compositor activated...'" \
+  rs-nightlight="ka redshift; nohup redshift &; notify-send 'Night light activated...'"
+
+# update
+alias \
+  ud-hosts="/bin/systemctl restart systemd-hostnamed" \
+  ud-mirrors="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" \
+  ud-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+
+# dynamic folders
+alias \
+  ff="cd $HOME/.mozilla/firefox/*.dev-edition-default" \
+  ffc="cd $HOME/.mozilla/firefox/*.dev-edition-default/chrome"
+
+# misc
+alias \
+  ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
+  wth="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+  nohup="nohup >/dev/null 2>&1" \
+  dw="sudo downgrade" \
+  sd="nohup $TERMINAL &" \
+  encrypt="gpg -c --no-symkey-cache --cipher-algo AES256"
