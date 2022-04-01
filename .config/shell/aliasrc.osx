@@ -1,4 +1,17 @@
 #!/bin/sh
 # TODO: add brew & macports sync
 alias \
-  gen-pkg-work="cd $PKGLIST_DIR; brew list > work.brew.txt; sudo port installed > work.macports.txt" \
+  gen-pkg-work="cd $PKGLIST_DIR; brew list > work.brew.txt; sudo port installed > work.macports.txt"
+
+# Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
+
+# Cleanups
+alias \
+  clean-dss="find . -type f -name '*.DS_Store' -ls -delete" \
+  clean-trash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'" \
+# Clean up LaunchServices to remove duplicates in the “Open With” menu
+alias clean-ls="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+
+# Lock the screen (when going AFK)
+alias slock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
