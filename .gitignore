@@ -1,6 +1,7 @@
 .config/nvim/autoload
 .config/nvim/plugged
 .config/nvim/session
+.config/nvim/shortcuts.vim
 
 .config/mpd/mpdstate
 .config/mpd/database
