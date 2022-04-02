@@ -25,6 +25,10 @@ alias \
   sync-cf-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
   sync-cf-all="git-sync-local-repos; sync-cf-src; replace-stow-all; sync-cf-lvim;"
 
+# replace dotfiles
+alias \
+  replace-stow-all="replace-stow voidrice universal"
+
 # systemctl
 alias \
   sc="systemctl" \

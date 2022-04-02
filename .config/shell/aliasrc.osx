@@ -3,6 +3,10 @@
 alias \
   gen-pkg-work="cd $PKGLIST_DIR; brew list > work.brew.txt; sudo port installed > work.macports.txt"
 
+# replace dotfiles
+alias \
+  replace-stow-all="replace-stow voidrice universal macos"
+
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
 

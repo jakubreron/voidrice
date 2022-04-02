@@ -80,8 +80,7 @@ alias \
 
 # replace dotfiles
 alias \
-  replace-stow="cd $DOTFILES_DIR && stow --adopt --target=${HOME}" \
-  replace-stow-all="replace-stow arch voidrice universal" \
+  replace-stow="cd $DOTFILES_DIR && stow --adopt --target=${HOME}"
 
 # youtube music
 # NOTE: i = ignore errors
