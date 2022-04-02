@@ -1,0 +1,5 @@
+--style="full"
+--color="always"
+
+# # Use C++ syntax for .ino files
+--map-syntax "*.ino:C++"
