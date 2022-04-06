@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Shows current mute state
+
+is_unmuted=$(pactl get-source-mute @DEFAULT_SOURCE@ | grep 'Mute: no')
+volume=$(pactl get-source-volume @DEFAULT_SOURCE@ | awk '/front-left/{print $5}')
+
+[ "$is_unmuted" ] && echo " $volume" && exit
+
+echo ""
