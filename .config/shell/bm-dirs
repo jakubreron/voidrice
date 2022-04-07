@@ -44,6 +44,7 @@ Cfp      $DOTFILES_DIR
 Cfpp     $PKGLIST_DIR
 Cfpu     $DOTFILES_DIR/universal
 Cfpv     $DOTFILES_DIR/voidrice
+Cfpm     $DOTFILES_DIR/macos
 
 # local
 L       $HOME/.local
