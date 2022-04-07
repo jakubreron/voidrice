@@ -4,15 +4,13 @@
 export PATH="$(yarn global bin):$PATH"
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
-# WARNING: Shared
+# Programs
+export TERMINAL="st"
 export BROWSER="firefox-developer-edition"
 export BACKUP_BROWSER="google-chrome-stable"
 export GUI_FILE_EXPLORER="nautilus"
 export CLI_FILE_EXPLORER="lfrun"
 export PACKAGE_MANAGER="paru"
-
-# Programs
-export TERMINAL="st"
 
 # Misc
 export EXCLUDED_PACKAGES="intel-ucode|xf86-video-intel|amd-ucode|tlp|tlp-rdw|phpstorm|phpstorm-jre|php|php-.*$|lib-.*$|amd.*$|steam|remmina|remmina-.*$"
