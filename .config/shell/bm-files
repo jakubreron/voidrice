@@ -10,11 +10,12 @@ cfst	${XDG_SRC_HOME:-$HOME/.local/src}/st/config.h
 
 # system
 cfz	$ZDOTDIR/.zshrc						                       
-cfa	${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc	
-cfp	${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile		
-cfc	${XDG_CONFIG_HOME:-$HOME/.config}/picom.conf  
-cfx	${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile	
-cfl	${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc	      	
+cfa	${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc
+cfp	${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile
+cfc	${XDG_CONFIG_HOME:-$HOME/.config}/picom.conf
+cfx	${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile
+cfl	${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc
+cftm	${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf
 cfG /etc/default/grub
 
 # apps
