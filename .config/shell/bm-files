@@ -1,35 +1,35 @@
-# NOTE: cf = "config" prefix
-cfbf	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-files	# This file, a list of bookmarked files
-cfbd	${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs		# A list of bookmarked directories similar to this file
-cfbw	$DOTFILES_DIR/universal/.config/bookmarks  # A list of boookmarked websites
+# bookmarks
+cfbf	    ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-files	# This file, a list of bookmarked files
+cfbd	    ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs		# A list of bookmarked directories similar to this file
+cfbw	    $DOTFILES_DIR/universal/.config/bookmarks  # A list of boookmarked websites
 
-cfdb	${XDG_SRC_HOME:-$HOME/.local/src}/dwmblocks/config.h
-cfdw	${XDG_SRC_HOME:-$HOME/.local/src}/dwm/config.h
-cfdm	${XDG_SRC_HOME:-$HOME/.local/src}/dmenu/config.h
-cfst	${XDG_SRC_HOME:-$HOME/.local/src}/st/config.h
+# scripts
+cfdb	    ${XDG_SRC_HOME:-$HOME/.local/src}/dwmblocks/config.h
+cfdw	    ${XDG_SRC_HOME:-$HOME/.local/src}/dwm/config.h
+cfdm	    ${XDG_SRC_HOME:-$HOME/.local/src}/dmenu/config.h
+cfst	    ${XDG_SRC_HOME:-$HOME/.local/src}/st/config.h
 
 # system
-cfz	$ZDOTDIR/.zshrc						                       
-cfa	${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc
-cfp	${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile
-cfc	${XDG_CONFIG_HOME:-$HOME/.config}/picom.conf
-cfx	${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile
-cfl	${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc
-cftm	${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf
-cfG /etc/default/grub
+cfz	      $ZDOTDIR/.zshrc						                       
+cfa	      ${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc
+cfp	      ${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile
+cfc	      ${XDG_CONFIG_HOME:-$HOME/.config}/picom.conf
+cfx	      ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile
+cfl	      ${XDG_CONFIG_HOME:-$HOME/.config}/lf/lfrc
+cft       ${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf
+cfg	      $DOTFILES_DIR/universal/.config/git/config
+cfgrub    /etc/default/grub
 
-# apps
-cflv  $LVIM_CONFIG_DIR/config.lua 
-cflva $LVIM_CONFIG_DIR/lua/config/autocommands.lua
-cflvb $LVIM_CONFIG_DIR/lua/config/builtin.lua
-cflvg $LVIM_CONFIG_DIR/lua/config/general.lua
-cflvk $LVIM_CONFIG_DIR/lua/config/keymaps.lua
-cflvl $LVIM_CONFIG_DIR/lua/config/lsp.lua
-cflvt $LVIM_CONFIG_DIR/lua/config/themes.lua
-cflvp $LVIM_CONFIG_DIR/lua/config/plugins.lua
+# lvim
+cflv      $LVIM_CONFIG_DIR/config.lua 
+cflva     $LVIM_CONFIG_DIR/lua/config/autocommands.lua
+cflvb     $LVIM_CONFIG_DIR/lua/config/builtin.lua
+cflvg     $LVIM_CONFIG_DIR/lua/config/general.lua
+cflvk     $LVIM_CONFIG_DIR/lua/config/keymaps.lua
+cflvl     $LVIM_CONFIG_DIR/lua/config/lsp.lua
+cflvt     $LVIM_CONFIG_DIR/lua/config/themes.lua
+cflvp     $LVIM_CONFIG_DIR/lua/config/plugins.lua
 
-cfnbu	${XDG_CONFIG_HOME:-$HOME/.config}/newsboat/urls	
+# newsboat
+cfnbu	    ${XDG_CONFIG_HOME:-$HOME/.config}/newsboat/urls	
 
-## personal configs
-cft	$HOME/.ticker.yaml 
-cfg	$DOTFILES_DIR/universal/.config/git/config
