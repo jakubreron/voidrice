@@ -62,12 +62,6 @@ Lsrdm   ${XDG_SRC_HOME:-$HOME/.local/src}/dmenu
 Lsrst   ${XDG_SRC_HOME:-$HOME/.local/src}/st
 Lsrsx   ${XDG_SRC_HOME:-$HOME/.local/src}/sxiv-flexipatch/
 
-# valet
-Va      $VALET_DIR
-Vas     $VALET_DIR/Sites
-Van     $VALET_DIR/Ngnix
-Vac     $VALET_DIR/Certificates
-
 # php
 Php     /etc/php/
 Phpc    /etc/php/conf.d

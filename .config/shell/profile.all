@@ -41,11 +41,9 @@ export EDITOR="lvim"
 export GIT_CLIENT="lazygit"
 export DOCKER_CLIENT="lazydocker"
 
-# Valet
-export VALET_DIR="$HOME/.valet"
-export VALET_SITES_DIR="$VALET_DIR/Sites"
-
 # Misc
+export TERM="screen-256color" # TMUX fix
+
 export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
 export AWT_TOOLKIT="MToolkit wmname LG3D"	# May have to install wmname
 
