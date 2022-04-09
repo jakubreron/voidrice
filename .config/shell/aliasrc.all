@@ -77,7 +77,7 @@ alias \
 
 # sync config files
 alias \
-  sync-cf-lvim="cd $LVIM_SHARE_DIR && git pull && cd $LVIM_CONFIG_DIR && git pull && lvim +LvimCacheReset +LvimUpdate +PackerSync +PackerCompile"
+  sync-cf-lvim="cd $LVIM_SHARE_DIR && git pull && cd $LVIM_CONFIG_DIR && git pull && lvim +LvimUpdate +q"
 
 # replace dotfiles
 alias \
