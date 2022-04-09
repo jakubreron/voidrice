@@ -19,6 +19,9 @@
 .config/dunst/dunstrc
 .config/zathura/zathurarc
 
+.config/tmux/plugins/*
+!.config/tmux/plugins/tpm/
+
 .config/x11/xprofile
 
 .config/lvim/plugin
