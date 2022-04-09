@@ -66,10 +66,10 @@ zsh_add_plugin "hlissner/zsh-autopair"
 zsh_add_completion "esc/conda-zsh-completion" false
 
 # Key bindings
-bindkey -s '^o' '${CLI_FILE_EXPLORER}\n'
-bindkey -s '^g' '${GIT_CLIENT}\n'
-bindkey -s '^d' '${DOCKER_CLIENT}\n'
-bindkey -s '^n' '${GUI_FILE_EXPLORER} .\n'
-bindkey -s '^a' 'bc -lq\n'
-bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
+bindkey -s '^o' '${CLI_FILE_EXPLORER}\n' # open
+bindkey -s '^b' '${GUI_FILE_EXPLORER} .\n' # browse
+bindkey -s '^g' '${GIT_CLIENT}\n' # git
+bindkey -s '^d' '${DOCKER_CLIENT}\n' # docker
+bindkey -s '^m' 'bc -lq\n' # math
+bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n' # find
 bindkey '^[[P' delete-char
