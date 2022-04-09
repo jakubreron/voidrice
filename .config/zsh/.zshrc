@@ -68,7 +68,7 @@ zsh_add_completion "esc/conda-zsh-completion" false
 # Key bindings
 bindkey -s '^o' '${CLI_FILE_EXPLORER}\n' # open
 bindkey -s '^b' '${GUI_FILE_EXPLORER} .\n' # browse
-bindkey -s '^t' '${GUI_FILE_EXPLORER} .\n' # tmux
+bindkey -s '^t' 'tmux \n' # tmux
 bindkey -s '^g' '${GIT_CLIENT}\n' # git
 bindkey -s '^d' '${DOCKER_CLIENT}\n' # docker
 bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n' # find
