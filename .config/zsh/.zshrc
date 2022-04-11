@@ -56,20 +56,15 @@ if [[ $OSTYPE == 'darwin'* ]]; then
 fi
 
 zsh_add_file "zsh-exports"
-zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-prompt"
 
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+zsh_add_plugin "zsh-users/zsh-history-substring-search"
 zsh_add_plugin "hlissner/zsh-autopair"
 zsh_add_completion "esc/conda-zsh-completion" false
 
-# Key bindings
-bindkey -s '^o' '${CLI_FILE_EXPLORER}\n' # open
-bindkey -s '^b' '${GUI_FILE_EXPLORER} .\n' # browse
-bindkey -s '^t' 'tmux \n' # tmux
-bindkey -s '^g' '${GIT_CLIENT}\n' # git
-bindkey -s '^d' '${DOCKER_CLIENT}\n' # docker
-bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n' # find
-bindkey '^[[P' delete-char
+# Normal files to source that depend on some plugins
+zsh_add_file "zsh-vim-mode"
+zsh_add_file "zsh-keybinds"
