@@ -13,7 +13,7 @@ alias sudo='sudo '
 
 # general
 alias \
-  t="ls -T" \
+  t="tmux" \
   l="ls -la" \
   nf="neofetch" \
   lzg="lazygit" \
