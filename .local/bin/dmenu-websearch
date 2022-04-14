@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Script name: dm-websearch
+# Script name: dmenu-websearch
 # Description: Search various search engines (inspired by surfraw).
 # Dependencies: dmenu and brave
 # GitLab: https://www.gitlab.com/dwt1/dmscripts
@@ -16,9 +16,9 @@
 set -euo pipefail
 
 _path="$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd "$(dirname "$(readlink "${BASH_SOURCE[0]}" || echo ".")")" && pwd)"
-if [[  -f "${_path}/_dm-helper.sh" ]]; then
+if [[  -f "${_path}/_dmenu-helper.sh" ]]; then
   # shellcheck disable=SC1090,SC1091
-  source "${_path}/_dm-helper.sh"
+  source "${_path}/_dmenu-helper.sh"
 else
   # shellcheck disable=SC1090
   echo "No helper-script found"
