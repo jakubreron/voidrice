@@ -59,7 +59,5 @@ alias \
 alias \
   ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
   wth="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
-  nohup="nohup >/dev/null 2>&1" \
   dw="sudo downgrade" \
   sd="nohup $TERMINAL &" \
-  encrypt="gpg -c --no-symkey-cache --cipher-algo AES256"
