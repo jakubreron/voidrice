@@ -17,7 +17,7 @@ export EXCLUDED_PACKAGES="intel-ucode|xf86-video-intel|amd-ucode|tlp|tlp-rdw|php
 
 export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
-export SUDO_ASKPASS="$HOME/.local/bin/dmenupass"
+export SUDO_ASKPASS="dmenupass"
 
 export GTK_IM_MODULE='fcitx'
 export QT_IM_MODULE='fcitx'
