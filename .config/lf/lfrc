@@ -163,15 +163,18 @@ map M moveto
 map C copyto
 map S share
 
+# Go encrypt / decript / convert, etc...
+map ge encrypt
+map gd decrypt
+
+map gca convert_any
+map gcp convert_to_pdf
+
 map <c-f> fzf_search
 map <c-n> new_dir
-map <c-e> encrypt
-map <c-g> decrypt
 map <c-k> kdeconnect
 map <c-o> dragon
-map <c-c> convert_any
-map <c-p> convert_to_pdf
-map <c-s> run_scripts
+map <c-x> run_scripts
 
 map Z zip
 
