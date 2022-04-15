@@ -33,6 +33,8 @@ Drv       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Videos
 
 # config
 Cf       ${XDG_CONFIG_HOME:-$HOME/.config}
+Cft      ${XDG_CONFIG_HOME:-$HOME/.config}/tmux
+Cfz      ${XDG_CONFIG_HOME:-$HOME/.config}/zsh
 Cflv     $LVIM_CONFIG_DIR
 # config personal
 Cfp      $DOTFILES_DIR
