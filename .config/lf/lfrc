@@ -187,7 +187,8 @@ map o &mimeopen $f
 map O $mimeopen --ask $f
 
 # Renames
-map r push A<c-u> # new rename map R bulkrename
+map r push A<c-u> # new rename
+map R bulkrename
 
 map i push A<a-b><a-b><a-f> # before extension
 map I push A<c-a> # at the very beginning

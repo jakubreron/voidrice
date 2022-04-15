@@ -10,7 +10,7 @@ cfdm	    ${XDG_SRC_HOME:-$HOME/.local/src}/dmenu/config.h
 cfst	    ${XDG_SRC_HOME:-$HOME/.local/src}/st/config.h
 
 # system
-cfz	      $ZDOTDIR/.zshrc						                       
+cfz	      $ZDOTDIR/.zshrc
 cfa	      ${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc
 cfp	      ${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile
 cfc	      ${XDG_CONFIG_HOME:-$HOME/.config}/picom.conf
@@ -21,7 +21,7 @@ cfg	      $DOTFILES_DIR/universal/.config/git/config
 cfgrub    /etc/default/grub
 
 # lvim
-cflv      $LVIM_CONFIG_DIR/config.lua 
+cflv      $LVIM_CONFIG_DIR/config.lua
 cflva     $LVIM_CONFIG_DIR/lua/config/autocommands.lua
 cflvb     $LVIM_CONFIG_DIR/lua/config/builtin.lua
 cflvg     $LVIM_CONFIG_DIR/lua/config/general.lua
@@ -31,5 +31,4 @@ cflvt     $LVIM_CONFIG_DIR/lua/config/themes.lua
 cflvp     $LVIM_CONFIG_DIR/lua/config/plugins.lua
 
 # newsboat
-cfnbu	    ${XDG_CONFIG_HOME:-$HOME/.config}/newsboat/urls	
-
+cfnbu	    ${XDG_CONFIG_HOME:-$HOME/.config}/newsboat/urls
