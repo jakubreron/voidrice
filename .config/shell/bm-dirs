@@ -24,16 +24,12 @@ Prw      $PROJECTS_DIR/work
 
 # dropbox
 Dr       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}
-Drb      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books
-Drbj     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books/Japanese
-Drbp     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books/Programming
-Drbs     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Books/Self-improvement
-Dri      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Images
-Driw     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Images/Wallpapers
-Dria     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Images/Avatars
-Drp      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Programming
-Drw      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Work
-Drs      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Studies
+Drb       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}Backups
+Drd       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Documents
+Drp       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Pictures
+Drpa       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Pictures/Avatars
+Drpw       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Pictures/Wallpapers
+Drv       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Videos
 
 # config
 Cf       ${XDG_CONFIG_HOME:-$HOME/.config}
