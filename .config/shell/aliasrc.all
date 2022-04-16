@@ -74,6 +74,9 @@ alias \
 # sync
 alias \
   sync-pkg-main-yarn="cd $PKGLIST_DIR; cat yarn | xargs -t yarn global add" 
+# update
+alias \
+  update-pkg-main-pip="pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip3 install -U"
 
 # sync config files
 alias \
