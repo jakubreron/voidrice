@@ -17,7 +17,8 @@ alias \
   l="ls -la" \
   nf="neofetch" \
   lzg="lazygit" \
-  lzd="lazydocker"
+  lzd="lazydocker" \
+  m="maestral"
 
 # overwritten
 alias \
