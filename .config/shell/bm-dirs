@@ -24,7 +24,7 @@ Prw      $PROJECTS_DIR/work
 
 # dropbox
 Dr       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}
-Drb       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}Backups
+Drb       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Backups
 Drd       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Documents
 Drp       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Pictures
 Drpa       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Pictures/Avatars
