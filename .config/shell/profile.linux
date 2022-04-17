@@ -24,7 +24,8 @@ export QT_IM_MODULE='fcitx'
 export SDL_IM_MODULE='fcitx'
 export XMODIFIERS='@im=fcitx'
 
-export QT_QPA_PLATFORMTHEME="qt5ct"	# Have QT use qt5ct theme.
+export QT_QPA_PLATFORMTHEME="qt6ct"	# Have QT use qt6ct theme.
+export DISABLE_QT5_COMPAT=1
 export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
 
 [ ! -f $XDG_CONFIG_HOME/shell/shortcutrc ] && shortcuts >/dev/null 2>&1 &
