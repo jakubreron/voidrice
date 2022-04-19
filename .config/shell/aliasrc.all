@@ -71,7 +71,8 @@ alias \
 # packages
 # generate
 alias \
-  gen-pkg-main-yarn="cd $PKGLIST_DIR; yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > main.yarn.txt"
+  gen-pkg-main-yarn="cd $PKGLIST_DIR; yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > main.yarn.txt" \
+  gen-pkg-main-pip="cd $PKGLIST_DIR; pip list > main.pip.txt"
 # sync
 alias \
   sync-pkg-main-yarn="cd $PKGLIST_DIR; cat yarn | xargs -t yarn global add" 
