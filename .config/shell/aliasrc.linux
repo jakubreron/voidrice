@@ -23,7 +23,7 @@ alias \
 # sync config files
 alias \
   sync-cf-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
-  sync-cf-all="git-sync-local-repos; sync-cf-src; replace-stow-all; sync-cf-lvim;"
+  sync-cf-all="git-sync-repos 'global'; sync-cf-src; replace-stow-all; sync-cf-lvim;"
 
 # replace dotfiles
 alias \
