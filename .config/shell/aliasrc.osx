@@ -2,6 +2,9 @@
 # TODO: add brew & macports sync
 alias \
   gen-pkg-work="cd $PKGLIST_DIR; brew list > work/brew.txt; sudo port installed > work/macports.txt; git add .; git commit -m 'docs(brew, ports): auto-commit changes'; git push origin HEAD"
+# sync config files
+alias \
+  sync-cf-all="git-sync-repos 'global'; replace-stow-all; sync-cf-lvim;"
 
 # replace dotfiles
 alias \
