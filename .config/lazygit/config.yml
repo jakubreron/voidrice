@@ -1,2 +1,7 @@
 gui:
   skipUnstageLineWarning: true
+  theme:
+    selectedLineBgColor:
+      - reverse
+    selectedRangeBgColor:
+      - reverse
