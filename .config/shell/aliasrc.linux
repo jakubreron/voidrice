@@ -39,10 +39,10 @@ alias fix-pkg-keys="sudo pacman-key --init && sudo pacman-key --populate archlin
 
 # restart programs
 alias \
-  rs-ee="ka easyeffects; nohup easyeffects --gapplication-service &; notify-send 'EasyEffects activated...'" \
-  rs-dunst="ka dunst; nohup dunst &; notify-send 'Dunst activated...'" \
-  rs-compositor="ka picom; nohup picom --experimental-backend &; notify-send 'Compositor activated...'" \
-  rs-nightlight="ka redshift; nohup redshift &; notify-send 'Night light activated...'"
+  rs-ee="killall easyeffects; nohup easyeffects --gapplication-service &; notify-send 'EasyEffects activated...'" \
+  rs-dunst="killall dunst; nohup dunst &; notify-send 'Dunst activated...'" \
+  rs-compositor="killall picom; nohup picom --experimental-backend &; notify-send 'Compositor activated...'" \
+  rs-nightlight="killall redshift; nohup redshift &; notify-send 'Night light activated...'"
 
 # update
 alias \
