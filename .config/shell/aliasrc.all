@@ -47,6 +47,7 @@ alias \
   g="git" \
   e="sudoedit" \
   v="$EDITOR" \
+  vw="$EDITOR ~/Documents/vimwiki/index.md" \
   p="$PACKAGE_MANAGER" \
   c="clear"
 
