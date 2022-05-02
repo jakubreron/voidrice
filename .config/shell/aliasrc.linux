@@ -42,7 +42,8 @@ alias \
   rs-ee="killall easyeffects; nohup easyeffects --gapplication-service &; notify-send 'EasyEffects activated...'" \
   rs-dunst="killall dunst; nohup dunst &; notify-send 'Dunst activated...'" \
   rs-compositor="killall picom; nohup picom --experimental-backend &; notify-send 'Compositor activated...'" \
-  rs-nightlight="killall redshift; nohup redshift &; notify-send 'Night light activated...'"
+  rs-nightlight="killall redshift; nohup redshift &; notify-send 'Night light activated...'" \
+  rs-audio="systemctl --user restart pipewire pipewire-pulse" \
 
 # update
 alias \
