@@ -11,14 +11,18 @@ fcitx -d &																													# Keyboard
 redshift &																													# Night light
 /usr/lib/kdeconnectd &																							# KDE connect daemon
 maestral start &
-dunst &
-unclutter &
 picom --experimental-backend &
 
 # Screen layouts
 # layout-primary  &
 # layout-secondary &
 # layout-temporary &
+
+autostart="dunst unclutter"
+
+for program in $autostart; do
+	pidof -s "$program" || "$program" &
+done >/dev/null 2>&1
 
 # Ensure that xrdb has finished running before moving on to start the WM/DE.
 [ -n "$xrdbpid" ] && wait "$xrdbpid"
