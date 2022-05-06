@@ -1,10 +1,9 @@
 # Key bindings
-bindkey -s '^o' '${CLI_FILE_EXPLORER}\n' # open
-bindkey -s '^b' '${GUI_FILE_EXPLORER} .\n' # browse
-# bindkey -s '^t' 'tmux \n' # tmux
-bindkey -s '^g' '${GIT_CLIENT}\n' # git
-bindkey -s '^d' '${DOCKER_CLIENT}\n' # docker
-bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n' # find
+bindkey -s '^o' '^u${CLI_FILE_EXPLORER}\n' # open
+bindkey -s '^b' '^u${GUI_FILE_EXPLORER} .\n' # browse
+bindkey -s '^g' '^u${GIT_CLIENT}\n' # git
+bindkey -s '^d' '^u${DOCKER_CLIENT}\n' # docker
+bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n' # find
 
 bindkey '^[[A' history-substring-search-up # arrow up
 bindkey '^[[B' history-substring-search-down # arrow down
