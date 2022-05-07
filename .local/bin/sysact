@@ -1,26 +1,22 @@
 #!/bin/sh
 
 # A dmenu wrapper script for system functions.
-export WM="dwm"
+
+# For non-systemd init systems.
 case "$(readlink -f /sbin/init)" in
-	*systemd*) ctl='systemctl' ;;
-	*) ctl='loginctl' ;;
+	*runit*) hib="sudo -A zzz" ;;
+	*openrc*) reb="sudo -A openrc-shutdown -r"; shut="sudo -A openrc-shutdown -p 0" ;;
 esac
 
-wmpid(){ # This function is needed if there are multiple instances of the window manager.
-	tree="$(pstree -ps $$)"
-	tree="${tree#*$WM(}"
-	echo "${tree%%)*}"
-}
+cmds="\
+  lock		slock
+ leave dwm	kill -TERM $(pgrep -u $USER "\bdwm$")
+  renew dwm	kill -HUP $(pgrep -u $USER "\bdwm$")
+  hibernate	slock ${hib:-systemctl suspend-then-hibernate -i}
+  reboot	${reb:-sudo -A reboot}
+  shutdown	${shut:-sudo -A shutdown -h now}
+  display off 	 xset dpms force off"
 
-case "$(printf "🔒 lock\n🚪 leave $WM\n♻️ renew $WM\n🐻 hibernate\n🔃 reboot\n🖥️shutdown\n💤 sleep\n📺 display off" | dmenu -l 30 -i -p 'Action: ')" in
-	'🔒 lock') slock ;;
-	"🚪 leave $WM") kill -TERM "$(wmpid)" ;;
-	"♻️ renew $WM") kill -HUP "$(wmpid)" ;;
-	'🐻 hibernate') slock $ctl hibernate ;;
-	'💤 sleep') slock $ctl suspend ;;
-	'🔃 reboot') $ctl reboot -i ;;
-	'🖥️shutdown') $ctl poweroff -i ;;
-	'📺 display off') xset dpms force off ;;
-	*) exit 1 ;;
-esac
+choice="$(echo "$cmds" | cut -d'	' -f 1 | dmenu -l 30)" || exit 1
+
+eval "$(echo "$cmds" | grep "^$choice	" | cut -d '	' -f2-)"
