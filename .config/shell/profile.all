@@ -44,6 +44,10 @@ export DOCKER_CLIENT="lazydocker"
 export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
 export AWT_TOOLKIT="MToolkit wmname LG3D"	# May have to install wmname
 
+# CLI Dev
+export NUXT_TELEMETRY_DISABLED=1 
+
+# Misc
 export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config"
 export LESSHISTFILE="-"
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
