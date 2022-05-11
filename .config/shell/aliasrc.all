@@ -71,16 +71,21 @@ alias \
 
 # packages
 # generate
+# yarn
 alias \
-  gen-pkg-main-yarn="cd $PKGLIST_DIR; yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > main/yarn.txt" \
-  gen-pkg-main-pip="cd $PKGLIST_DIR; pip list > main/pip.txt" \
-  gen-pkg-secondary-pip="cd $PKGLIST_DIR; pip list > secondary/pip.txt"
+  gen-pkg-yarn="cd $PKGLIST_DIR; yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g'" \
+  gen-pkg-yarn-main="gen-pkg-yarn > main/yarn.txt" \
+# pip
+alias \
+  gen-pkg-pip="cd $PKGLIST_DIR; pip list" \
+  gen-pkg-pip-main="gen-pkg-pip > main/pip.txt" \
+  gen-pkg-pip-secondary="gen-pkg-pip > secondary/pip.txt"
 # sync
 alias \
-  sync-pkg-main-yarn="cd $PKGLIST_DIR; cat main/yarn.txt | xargs -t yarn global add" 
+  sync-pkg-yarn-main="cd $PKGLIST_DIR; cat main/yarn.txt | xargs -t yarn global add" 
 # update
 alias \
-  update-pkg-main-pip="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U"
+  update-pkg-pip-main="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1 | xargs -n1 pip install -U"
 
 # sync config files
 alias \

@@ -1,18 +1,19 @@
 #!/bin/sh
-# TODO: add brew & macports sync
-alias \
-  gen-pkg-work="cd $PKGLIST_DIR; brew list > work/brew.txt; sudo port installed > work/macports.txt; git add .; git commit -m 'docs(brew, ports): auto-commit changes'; git push origin HEAD"
-# sync config files
-alias \
-  sync-cf-all="git-sync-repos 'global'; replace-stow-all; sync-cf-lvim;"
-
 # replace dotfiles
 alias \
   replace-stow-all="replace-stow voidrice universal macos"
 
+alias \
+  gen-pkg-brew="cd $PKGLIST_DIR; brew list > work/brew.txt" \
+  gen-pkg-ports="cd $PKGLIST_DIR; sudo port installed > work/macports.txt" \
+  gen-pkg-all="gen-pkg-brew; gen-pkg-ports; git add .; git commit -m 'docs(brew, ports): auto-commit changes'; git push origin HEAD"
+# sync config files
+alias \
+  sync-cf-all="git-sync-repos 'global'; replace-stow-all; sync-cf-lvim;"
+
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, yarn, and their installed packages
 alias \
-  update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; yarn global upgrade; sudo gem update --system; sudo gem update; sudo gem cleanup; sudo port selfupdate'
+  update-all='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; yarn global upgrade; sudo gem update --system; sudo gem update; sudo gem cleanup; sudo port selfupdate'
 
 # Cleanups
 alias \
