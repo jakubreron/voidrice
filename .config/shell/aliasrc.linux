@@ -11,14 +11,9 @@ alias \
 # packages
 # generate
 alias \
-  gen-pkg-main-pacman="cd $PKGLIST_DIR; genpkg main/pacman.txt" \
-  gen-pkg-secondary-pacman="cd $PKGLIST_DIR; genpkg secondary/pacman.txt" \
-  gen-pkg-main-php="cd $PKGLIST_DIR; genpkg php 'phpstorm|phpstorm-jre' 'main/php.txt'"
-# sync
-alias \
-  sync-pkg-main-pacman="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < main/pacman.txt" \
-  sync-pkg-secondary-pacman="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < secondary/pacman.txt" \
-  sync-pkg-main-php="cd $PKGLIST_DIR; $PACKAGE_MANAGER -S --needed - < main/php.txt"
+  gen-pkg-main="cd $PKGLIST_DIR; genpkg main/pacman.txt" \
+  gen-pkg-secondary="cd $PKGLIST_DIR; genpkg secondary/pacman.txt" \
+  gen-pkg-php="cd $PKGLIST_DIR; genpkg php 'phpstorm|phpstorm-jre' 'main/php.txt'"
 
 # sync config files
 alias \
@@ -47,9 +42,9 @@ alias \
 
 # update
 alias \
-  ud-hosts="/bin/systemctl restart systemd-hostnamed" \
-  ud-mirrors="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" \
-  ud-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+  update-hosts="/bin/systemctl restart systemd-hostnamed" \
+  update-mirrors="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" \
+  update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 # dynamic folders
 alias \
