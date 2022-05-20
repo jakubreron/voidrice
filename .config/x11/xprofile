@@ -12,6 +12,7 @@ redshift &																													# Night light
 /usr/lib/kdeconnectd &																							# KDE connect daemon
 maestral start &
 picom --experimental-backend &
+xhost +SI:localuser:root &
 
 # Screen layouts
 # layout-primary  &
