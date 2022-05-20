@@ -9,3 +9,7 @@ bindkey '^[[A' history-substring-search-up # arrow up
 bindkey '^[[B' history-substring-search-down # arrow down
 
 bindkey '^[[P' delete-char
+
+# Emacs bindings
+bindkey '^A' beginning-of-line
+bindkey '^E' end-of-line
