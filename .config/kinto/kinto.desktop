@@ -1,0 +1,11 @@
+[Desktop Entry]
+# /.local/share/applications
+Name=Kinto.sh
+GenericName=Kinto.sh
+Categories=Utility;
+Type=Application
+Exec=/usr/bin/python3 /home/jakub/.config/kinto/gui/kinto-gui.py
+Icon=/home/jakub/.config/kinto/kinto-color-48.svg
+# Icon=/usr/share/icons/Pocillo/kinto-color.svg
+Terminal=false
+NoDisplay=false
