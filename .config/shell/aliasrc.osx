@@ -13,7 +13,7 @@ alias \
 
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, yarn, and their installed packages
 alias \
-  update-all='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; yarn global upgrade; sudo gem update --system; sudo gem update; sudo gem cleanup; sudo port selfupdate'
+  update-all='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm install npm -g; yarn global upgrade; sudo gem update --system; sudo gem update; sudo gem cleanup; sudo port selfupdate; sudo port upgrade outdated'
 
 # Cleanups
 alias \
