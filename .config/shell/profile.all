@@ -6,6 +6,7 @@ source ~/.config/shell/lf-icons
 # Programs
 export CLI_SYSTEM_MONITOR="htop"
 export CLI_STOCKS_APP="ticker"
+export CLI_CRYPTO_APP="cointop"
 
 # PATHS
 export PATH=$HOME/.fnm:$PATH
