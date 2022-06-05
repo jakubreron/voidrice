@@ -57,3 +57,5 @@ alias \
   wth="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
   dw="sudo downgrade" \
   sd="nohup $TERMINAL &" \
+  charge-to-full="echo 100 | sudo tee /sys/devices/platform/smapi/BAT0/stop_charge_thresh" \
+  charge-to-limited="echo 80 | sudo tee /sys/devices/platform/smapi/BAT0/stop_charge_thresh"
