@@ -3,6 +3,7 @@
 alias \
   replace-stow-all="replace-stow voidrice universal macos"
 
+# TODO: move gen-pkg to separate scripts to make changes easier and declutter the aliases
 alias \
   gen-pkg-brew="cd $PKGLIST_DIR; brew list > work/brew.txt" \
   gen-pkg-ports="cd $PKGLIST_DIR; sudo port installed > work/macports.txt" \
