@@ -1,6 +1,7 @@
 # some useful options (man zshoptions)
 stty stop undef		# Disable ctrl-s to freeze terminal.
 
+setopt glob_dots
 setopt extendedglob nomatch menucomplete
 setopt autocd		# Automatically cd into typed directory.
 setopt interactive_comments
