@@ -13,11 +13,10 @@ alias \
 
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, yarn, and their installed packages
 alias \
-  update-pkg"sudo softwareupdate -i -a" \
   update-pkg-brew="brew update; brew upgrade; brew cleanup" \
   update-pkg-gems="sudo gem update --system; sudo gem update; sudo gem cleanup" \
   update-pkg-ports="sudo port selfupdate; sudo port upgrade outdated" \
-  update-pkg-all="update-pkg; update-pkg-brew; update-pkg-gems; update-pkg-ports; update-pkg-node"
+  update-pkg-all="sudo softwareupdate -i -a; update-pkg-brew; update-pkg-gems; update-pkg-ports; update-pkg-node"
 
 # Cleanups
 alias \

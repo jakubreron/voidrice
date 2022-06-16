@@ -21,8 +21,7 @@ alias \
 
 # update packages
 alias \
-  update-pkg="$PACKAGE_MANAGER" \
-  update-pkg-all="update-pkg; update-pkg-node"
+  update-pkg-all="$PACKAGE_MANAGER; update-pkg-node"
 
 # systemctl
 alias \
