@@ -77,7 +77,7 @@ alias \
 
 # update packages
 alias \
-  update-pkg-node="npm install -g; yarn global upgrade" \
+  update-pkg-node="npm install npm -g; yarn global upgrade" \
 
 # youtube music
 # NOTE: i = ignore errors
