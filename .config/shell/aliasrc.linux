@@ -9,20 +9,20 @@ alias \
   pkgs="pkgstats search"
 
 # packages
-# generate
 alias \
   gen-pkg-main="cd $PKGLIST_DIR; genpkg main/pacman.txt" \
   gen-pkg-secondary="cd $PKGLIST_DIR; genpkg secondary/pacman.txt" \
   gen-pkg-php="cd $PKGLIST_DIR; genpkg php 'phpstorm|phpstorm-jre' 'main/php.txt'"
-
-# sync config files
 alias \
   sync-cf-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
   sync-cf-all="git-sync-repos 'global'; sync-cf-src; replace-stow-all; sync-cf-lvim;"
-
-# replace dotfiles
 alias \
-  replace-stow-all="replace-stow voidrice universal"
+  replace-stow-all="replace-stow voidrice universal" \
+
+# update packages
+alias \
+  update-pkg"$PACKAGE_MANAGER" \
+  update-pkg-all="update-pkg; update-pkg-node"
 
 # systemctl
 alias \
@@ -30,7 +30,8 @@ alias \
   scu="systemctl --user" \
 
 # For when keys break
-alias fix-pkg-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
+alias \
+  fix-pkg-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
 
 # restart programs
 alias \
@@ -40,11 +41,10 @@ alias \
   rs-nightlight="killall redshift; nohup redshift &; notify-send 'Night light activated...'" \
   rs-audio="systemctl --user restart pipewire pipewire-pulse" \
 
-# update
 alias \
   update-hosts="/bin/systemctl restart systemd-hostnamed" \
   update-mirrors="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" \
-  update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+  update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
 
 # dynamic folders
 alias \
@@ -53,7 +53,7 @@ alias \
 
 # misc
 alias \
-  ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
+  ref="shortcuts >/dev/null; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc; source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" \
   wth="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
   dw="sudo downgrade" \
   sd="nohup $TERMINAL &" \
