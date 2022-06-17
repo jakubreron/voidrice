@@ -18,7 +18,7 @@ alias \
 alias \
   gen-pkg-node="cd $PKGLIST_DIR; gen-pkg-yarn > $PACKAGE_TYPE/yarn.txt" \
   gen-pkg-manager="cd $PKGLIST_DIR; gen-pkg '$PACKAGE_TYPE/pacman.txt'; gen-pkg '$PACKAGE_TYPE/php.txt' 'phpstorm|phpstorm-jre' 'php'" \
-  gen-pkg-all="gen-pkg-yarn; gen-pkg-manager; git commit -am'docs(yarn, pacman): auto-commit changes' && git push origin HEAD"
+  gen-pkg-all="gen-pkg-node; gen-pkg-manager; git add . && git commit -m'docs($PACKAGE_TYPE/{yarn.txt,pacman.txt}): auto-commit changes' && git push origin HEAD"
 
 # Replace/renew dotfiles
 alias \
