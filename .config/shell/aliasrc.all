@@ -68,16 +68,8 @@ alias \
 alias \
   va="valet"
 
-# packages
 alias \
-  gen-pkg-yarn-main="cd $PKGLIST_DIR; gen-pkg-yarn > main/yarn.txt" \
-  sync-pkg-yarn-main="cd $PKGLIST_DIR; cat main/yarn.txt | xargs -t yarn global add"
-alias \
-  replace-stow="cd $DOTFILES_DIR && stow --adopt --target=${HOME}" \
-
-# update packages
-alias \
-  update-pkg-node="npm install npm -g; yarn global upgrade" \
+  replace-stow="cd $DOTFILES_DIR && stow --adopt --target=${HOME}"
 
 # youtube music
 # NOTE: i = ignore errors

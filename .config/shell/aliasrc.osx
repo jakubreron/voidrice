@@ -1,29 +1,35 @@
 #!/bin/sh
-# replace dotfiles
-alias \
-  replace-stow-all="replace-stow voidrice universal macos"
-
-alias \
-  gen-pkg-brew="cd $PKGLIST_DIR; brew list > work/brew.txt" \
-  gen-pkg-ports="cd $PKGLIST_DIR; sudo port installed > work/macports.txt" \
-  gen-pkg-all="gen-pkg-brew; gen-pkg-ports; git add .; git commit -m 'docs(brew, ports): auto-commit changes'; git push origin HEAD"
-# sync config files
-alias \
-  sync-cf-all="git-sync-repos 'global'; replace-stow-all; sync-cf-lvim;"
 
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, yarn, and their installed packages
 alias \
+  update-pkg-node="npm install npm -g; yarn global upgrade" \
+  update-pkg-manager="sudo softwareupdate -i -a" \
   update-pkg-brew="brew update; brew upgrade; brew cleanup" \
   update-pkg-gems="sudo gem update --system; sudo gem update; sudo gem cleanup" \
   update-pkg-ports="sudo port selfupdate; sudo port upgrade outdated" \
-  update-pkg-all="sudo softwareupdate -i -a; update-pkg-brew; update-pkg-gems; update-pkg-ports; update-pkg-node"
+  update-pkg-all="update-pkg-node; update-pkg-manager; update-pkg-brew; update-pkg-gems; update-pkg-ports;"
 
-# Cleanups
+# Generate and push packages to repos
+alias \
+  gen-pkg-node="cd $PKGLIST_DIR; gen-pkg-yarn > $PACKAGE_TYPE/yarn.txt" \
+  gen-pkg-brew="cd $PKGLIST_DIR; brew list > $PACKAGE_TYPE/brew.txt" \
+  gen-pkg-ports="cd $PKGLIST_DIR; sudo port installed > $PACKAGE_TYPE/macports.txt" \
+  gen-pkg-all="gen-pkg-node; gen-pkg-brew; gen-pkg-ports; git commit -am'docs(yarn, brew, ports): auto-commit changes' && git push origin HEAD"
+
+# Debloat
 alias \
   clean-dss="find . -type f -name '*.DS_Store' -ls -delete" \
   clean-trash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'" \
   clean-ls="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder" \
   clean-all="clean-dss; clean-trash; clean-ls"
+
+# Replace/renew dotfiles
+alias \
+  replace-stow-all="replace-stow voidrice universal macos"
+
+# Sync all
+alias \
+  sync-cf-all="git-sync-repos 'global'; sync-cf-lvim; update-pkg-all; gen-pkg-all; clean-all; replace-stow-all"
 
 # Lock the screen
 alias \

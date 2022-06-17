@@ -4,6 +4,13 @@
 export PATH="$PATH:$(yarn global bin)"
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
+# Variable for packages generation
+if [[ $(hostnamectl --static) == *'desktop'* ]]; then
+  export PACKAGE_TYPE="main"
+else
+  export PACKAGE_TYPE="secondary"
+fi
+
 # Programs
 export TERMINAL="st"
 export BROWSER="firefox-developer-edition"

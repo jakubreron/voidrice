@@ -1,11 +1,13 @@
 #!/bin/zsh
 
-# WARNING: Shared
 export PATH="${HOME}/.local/bin:${PATH}" # .local/bin on osx doesn't work with the "-printf" way
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH" # macports
 
+# Variable for packages generation
+export PACKAGE_TYPE="work"
+
 # Programs
-# export TERMINAL="st" # TODO: add terminal
+export TERMINAL="alacritty"
 export BROWSER="firefox"
 export BACKUP_BROWSER="chrome"
 export GUI_FILE_EXPLORER="open"

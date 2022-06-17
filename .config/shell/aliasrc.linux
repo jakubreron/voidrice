@@ -8,20 +8,26 @@ alias \
   clp="colorpicker --short --one-shot --preview | xsel -b" \
   pkgs="pkgstats search"
 
-# packages
+# update packages
 alias \
-  gen-pkg-main="cd $PKGLIST_DIR; genpkg main/pacman.txt" \
-  gen-pkg-secondary="cd $PKGLIST_DIR; genpkg secondary/pacman.txt" \
-  gen-pkg-php="cd $PKGLIST_DIR; genpkg php 'phpstorm|phpstorm-jre' 'main/php.txt'"
+  update-pkg-node="npm install npm -g; yarn global upgrade" \
+  update-pkg-manager="$PACKAGE_MANAGER" \
+  update-pkg-all="update-pkg-node; update-pkg-manager"
+
+# Generate and push packages to repos
 alias \
-  sync-cf-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
-  sync-cf-all="git-sync-repos 'global'; sync-cf-src; replace-stow-all; sync-cf-lvim;"
+  gen-pkg-node="cd $PKGLIST_DIR; gen-pkg-yarn > $PACKAGE_TYPE/yarn.txt" \
+  gen-pkg-manager="cd $PKGLIST_DIR; gen-pkg '$PACKAGE_TYPE/pacman.txt'; gen-pkg '$PACKAGE_TYPE/php.txt' 'phpstorm|phpstorm-jre' 'php'" \
+  gen-pkg-all="gen-pkg-yarn; gen-pkg-manager; git commit -am'docs(yarn, pacman): auto-commit changes' && git push origin HEAD"
+
+# Replace/renew dotfiles
 alias \
   replace-stow-all="replace-stow voidrice universal" \
 
-# update packages
+# Sync all
 alias \
-  update-pkg-all="$PACKAGE_MANAGER; update-pkg-node"
+  sync-cf-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
+  sync-cf-all="git-sync-repos 'global'; sync-cf-lvim; sync-cf-src; update-pkg-all; gen-pkg-all; replace-stow-all"
 
 # systemctl
 alias \

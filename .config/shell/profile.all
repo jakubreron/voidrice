@@ -11,6 +11,7 @@ export CLI_CRYPTO_APP="cointop"
 # PATHS
 export PATH=$HOME/.fnm:$PATH
 export PATH="$HOME/.local/share/cargo/bin:$PATH"
+
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"

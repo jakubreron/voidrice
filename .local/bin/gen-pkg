@@ -3,7 +3,6 @@
 file="${1:-pkglist.txt}"
 excluded_packages="${2:-$EXCLUDED_PACKAGES}"
 search="${3}"
-commit="${4:-true}"
 
 if command -v paru &> /dev/null; then
   manager=paru
@@ -14,15 +13,3 @@ else
 fi
 
 $manager -Qqe | grep "$search" | sed -r "s/\b($excluded_packages)//g" > $file
-
-if $commit && command -v git &> /dev/null; then
-  commit_msg="docs(pkglist): ✏️$file"
-
-  git add .
-  git commit -m "$commit_msg"
-  git push origin HEAD
-
-  notify-send "Generated and pushed the $commit_msg"
-else
-  notify-send "Generated the $file"
-fi
