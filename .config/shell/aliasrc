@@ -4,6 +4,5 @@ source ~/.config/shell/aliasrc.all
 if [[ $OSTYPE == 'linux'* ]]; then
   source ~/.config/shell/aliasrc.linux
 else
-  # bloated mac
   source ~/.config/shell/aliasrc.osx
 fi
