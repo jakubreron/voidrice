@@ -57,7 +57,7 @@ execute_mode() {
         return 2
     fi
 
-    name=$(printf '%s\n' "${!DEVICES[@]}" | dmenu -p "btmenu" "${dmenu_args[@]}")
+    name=$(printf '%s\n' "${!DEVICES[@]}" | dmenu -l 30 -p "btmenu" "${dmenu_args[@]}")
     [[ $name ]] || return
     mac=${DEVICES["$name"]}
 
