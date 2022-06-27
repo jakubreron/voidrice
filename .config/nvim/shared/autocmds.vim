@@ -15,3 +15,10 @@ autocmd VimLeave $DOTFILES_DIR/universal/Documents/vimwiki/* !git add *; git com
 
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Recompile suckless scripts on save
+autocmd VimLeave ~/.local/src/st/config.h !cd ~/.local/src/st/; sudo make install
+autocmd VimLeave ~/.local/src/dmenu/config.h !cd ~/.local/src/dmenu/; sudo make install
+autocmd VimLeave ~/.local/src/dwm/config.h !cd ~/.local/src/dwm/; sudo make install && kill -HUP $(pgrep -u $USER "\bdwm$")
+autocmd VimLeave ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
+autocmd VimLeave ~/.local/bin/statusbar/* !{ killall -q dwmblocks;setsid -f dwmblocks }

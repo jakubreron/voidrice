@@ -94,13 +94,6 @@ nnoremap <leader>k :m .-2<CR>==
 " Replace all is aliased to S.
 	nnoremap <leader>/ :%s//g<Left><Left>
 
-" Open corresponding .pdf/.html or preview
-	" map <leader>p :!opout <c-r>%<CR><CR>
-
-" Runs a script that cleans out tex build files whenever I close out of a .tex file.
-	" autocmd VimLeave *.tex !texclear %
-
-
 " Save file as sudo on files that require root permission
 	cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
@@ -110,14 +103,6 @@ nnoremap <leader>k :m .-2<CR>==
 	autocmd BufWritePre * %s/\n\+\%$//e
 	autocmd BufWritePre *.[ch] %s/\%$/\r/e
   	autocmd BufWritePre * cal cursor(currPos[1], currPos[2])
-
-
-" Recompile suckless scripts on save
-	autocmd BufWritePost ~/.local/src/st/config.h !cd ~/.local/src/st/; sudo make install
-	autocmd BufWritePost ~/.local/src/dmenu/config.h !cd ~/.local/src/dmenu/; sudo make install
-	autocmd BufWritePost ~/.local/src/dwm/config.h !cd ~/.local/src/dwm/; sudo make install && kill -HUP $(pgrep -u $USER "\bdwm$")
-	autocmd BufWritePost ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
-	autocmd BufWritePost ~/.local/bin/statusbar/* !{ killall -q dwmblocks;setsid -f dwmblocks }
 
 " Turns off highlighting on the bits of code that are changed, so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
 if &diff
