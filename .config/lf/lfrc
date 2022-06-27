@@ -112,7 +112,7 @@ cmd copyto ${{
 
 cmd share $curl -F"file=@$fx" https://0x0.st | xclip -selection c
 
-cmd fzf_search $lf -remote "send $id select '$(fzf)'"
+cmd fzf_search $lf -remote "send $id select \"$(fzf)\""
 
 cmd mkdir %mkdir "$@"
 cmd new_dir push :mkdir<space>
