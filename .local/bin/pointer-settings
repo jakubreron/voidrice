@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if xinput --list | grep -q 'TrackPoint'; then
+    xinput --set-prop "$TRACKPOINT_CLASS" 'libinput Accel Speed' -0.45
+fi
