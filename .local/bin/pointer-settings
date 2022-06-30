@@ -1,5 +1,10 @@
 #!/bin/bash
 
-if xinput --list | grep -q 'TrackPoint'; then
-    xinput --set-prop "$TRACKPOINT_CLASS" 'libinput Accel Speed' -0.45
+if xinput --list | grep -q "TrackPoint"; then
+    id_regex='s/.*id=\([0-9]*\).*/\1/p'
+
+    xinput --list | grep -q 'Mouse' && device_type="Mouse" || device_type="TrackPoint"
+
+    device_id=$(xinput --list | sed -n "/$device_type/ $id_regex")
+    xinput --set-prop "$device_id" 'libinput Accel Speed' -0.45
 fi
