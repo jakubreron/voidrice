@@ -6,5 +6,15 @@ if xinput --list | grep -q "TrackPoint"; then
     xinput --list | grep -q 'Mouse' && device_type="Mouse" || device_type="TrackPoint"
 
     device_id=$(xinput --list | sed -n "/$device_type/ $id_regex")
-    xinput --set-prop "$device_id" 'libinput Accel Speed' -0.45
+
+    adjustAccelSpeed() {
+        xinput --set-prop "$device_id" 'libinput Accel Speed' -0.45
+    }
+
+    disableMiddlePaste() {
+        xinput --set-button-map "$device_id" 1 0 3
+    }
+
+    adjustAccelSpeed
+    disableMiddlePaste
 fi
