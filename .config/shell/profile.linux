@@ -17,6 +17,8 @@ export BROWSER="firefox-developer-edition"
 export BACKUP_BROWSER="google-chrome-stable"
 export GUI_FILE_EXPLORER="nautilus"
 export CLI_FILE_EXPLORER="lfrun"
+export CLI_MAIL_CLIENT="neomutt"
+export CLI_MUSIC_PLAYER="ncmpcpp"
 export PACKAGE_MANAGER="paru"
 
 # Misc
