@@ -1,5 +1,5 @@
 " When shortcut files are updated, renew bash and ranger configs with new material:
-autocmd VimLeave bm-files,bm-dirs,bm-websites !shortcuts; git add .; git commit -m 'config(bm-dirs/files): ⚙️ auto-commit changes'; git push
+autocmd VimLeave bm-files,bm-dirs,bm-websites !shortcuts; git add .; git commit -m 'config(bm-{dirs,files,websites}): ⚙️ auto-commit changes'; git push
 
 " Run xrdb whenever Xdefaults or Xresources are updated.
 autocmd BufRead,BufNewFile Xresources,Xdefaults,xresources,xdefaults set filetype=xdefaults
