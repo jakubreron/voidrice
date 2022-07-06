@@ -49,7 +49,7 @@ cmap ;Phpc /etc/php/conf.d
 cmap ;Ca /home/jakub/.cache
 cmap ;cfbf /home/jakub/.config/shell/bm-files
 cmap ;cfbd /home/jakub/.config/shell/bm-dirs
-cmap ;cfbw /home/jakub/.config/personal/universal/.config/bookmarks
+cmap ;cfbw /home/jakub/.config/personal/universal/.config/bm-websites
 cmap ;cfdb /home/jakub/.local/src/dwmblocks/config.h
 cmap ;cfdw /home/jakub/.local/src/dwm/config.h
 cmap ;cfdm /home/jakub/.local/src/dmenu/config.h
