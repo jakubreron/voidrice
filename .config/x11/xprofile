@@ -13,7 +13,6 @@ maestral start &
 picom --experimental-backend &
 xhost +SI:localuser:root &
 remaps &		                                                         # Run the remaps script, switching caps/esc and more; check it for more info
-adjust-trackpoint &																									 # Adjust TrackPoint sensitivity if your device has it
 
 # Screen layouts
 # layout-primary &

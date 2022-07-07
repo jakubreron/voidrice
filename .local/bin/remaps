@@ -9,5 +9,29 @@ setxkbmap -option caps:super,altwin:menu_win
 killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape'
 # Turn off caps lock if on since there is no longer a key for it.
 xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
-# Confirm
+
+if xinput --list | grep -q "TrackPoint"; then
+    id_regex='s/.*id=\([0-9]*\).*/\1/p'
+
+    # setup device_type (desktop vs laptop trackpoint)
+    xinput --list | grep -q 'Mouse' && device_type="Mouse" || device_type="TrackPoint"
+    # setup acceleration speed (laptop needs to have a bit faster speed)
+    echo $device_type | grep -q 'Mouse' && accel_speed=-0.45 || accel_speed=-0.35
+    # find device_id based on the device_type
+    device_id=$(xinput --list | sed -n "/$device_type/ $id_regex")
+
+    adjustAccelSpeed() {
+        xinput --set-prop "$device_id" 'libinput Accel Speed' $accel_speed
+    }
+
+    disableMiddlePaste() {
+        xinput --set-button-map "$device_id" 1 0 3
+    }
+
+    adjustAccelSpeed
+    disableMiddlePaste
+
+    notify-send 'Trackpoint adjusted'
+fi
+
 notify-send 'Keyboard remapped'
