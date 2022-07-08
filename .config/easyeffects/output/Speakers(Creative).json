@@ -1,7 +1,7 @@
 {
     "output": {
         "bass_enhancer": {
-            "amount": -2.0000000000000004,
+            "amount": 1.942890293094024e-16,
             "blend": 0.0,
             "floor": 20.0,
             "floor-active": true,
@@ -12,6 +12,7 @@
         },
         "blocklist": [],
         "convolver": {
+            "autogain": true,
             "input-gain": -2.0,
             "ir-width": 100,
             "kernel-path": "/home/jakub/.config/easyeffects/irs/MaxxAudio Pro ((128K MP3)) 4.Music w MaxxSpace.irs",
@@ -32,7 +33,7 @@
                 },
                 "band1": {
                     "frequency": 59.763340205038524,
-                    "gain": 5.0,
+                    "gain": 1.0,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 1.5047602375372453,
@@ -137,7 +138,7 @@
                 },
                 "band1": {
                     "frequency": 59.763340205038524,
-                    "gain": 5.0,
+                    "gain": 1.0,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 1.5047602375372453,
