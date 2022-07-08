@@ -24,12 +24,12 @@ if xinput --list | grep -q "TrackPoint"; then
         xinput --set-prop "$device_id" 'libinput Accel Speed' $accel_speed
     }
 
-    disableMiddlePaste() {
-        xinput --set-button-map "$device_id" 1 0 3
-    }
+    # disableMiddlePaste() {
+    #     xinput --set-button-map "$device_id" 1 2 3
+    # }
 
     adjustAccelSpeed
-    disableMiddlePaste
+    # disableMiddlePaste
 
     notify-send 'Trackpoint adjusted'
 fi
