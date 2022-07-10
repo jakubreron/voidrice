@@ -20,8 +20,6 @@ cmap ;Drb /home/jakub/Dropbox/Backups
 cmap ;Drd /home/jakub/Dropbox/Documents
 cmap ;Drdb /home/jakub/Dropbox/Documents/Books
 cmap ;Drp /home/jakub/Dropbox/Pictures
-cmap ;Drpa /home/jakub/Dropbox/Pictures/Avatars
-cmap ;Drpw /home/jakub/Dropbox/Pictures/Wallpapers
 cmap ;Drv /home/jakub/Dropbox/Videos
 cmap ;Cf /home/jakub/.config
 cmap ;Cft /home/jakub/.config/tmux
