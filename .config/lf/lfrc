@@ -133,7 +133,7 @@ cmd kdeconnect ${{
 	notify-send " Sending file(s)" "Sending file(s) to $dest."
 }}
 
-cmd dragon %dragon-drag-and-drop -a -x $fx
+cmd dragon %dragon-drop -a -x $fx
 
 cmd convert_any ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
