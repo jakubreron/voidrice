@@ -53,8 +53,8 @@ alias \
 
 # dynamic folders
 alias \
-  ff="cd $HOME/.mozilla/firefox/*.dev-edition-default" \
-  ffc="cd $HOME/.mozilla/firefox/*.dev-edition-default/chrome"
+  ff="cd $HOME/.mozilla/firefox/*.default-*" \
+  ffc="cd $HOME/.mozilla/firefox/*.default-*/chrome"
 
 # misc
 alias \
