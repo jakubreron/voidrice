@@ -20,14 +20,17 @@ alias \
   gen-pkg-manager="cd $PKGLIST_DIR; gen-pkg '$PACKAGE_TYPE/pacman.txt'; gen-pkg '$PACKAGE_TYPE/php.txt' 'phpstorm|phpstorm-jre' 'php'" \
   gen-pkg-all="gen-pkg-node; gen-pkg-manager; git add . && git commit -m'docs($PACKAGE_TYPE/{yarn.txt,pacman.txt}): auto-commit changes' && git push origin HEAD"
 
-# Replace/renew dotfiles
+# Replace/renew dotfiles and symlinks
 alias \
   replace-stow-all="replace-stow voidrice universal" \
+  replace-symlinks-firefox-userjs="ln -sf $DOTFILES_DIR/user.js/user.js ~/.mozilla/firefox/*.default-*" \
+  replace-symlinks-firefox-chrome="ln -sf $DOTFILES_DIR/cascade/userChrome.light.css ~/.mozilla/firefox/*.default-*/chrome/userChrome.css" \
+  replace-symlinks-all="replace-symlinks-firefox-userjs; replace-symlinks-firefox-chrome"
 
 # Sync all
 alias \
   sync-cf-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
-  sync-cf-all="git-sync-repos 'global'; sync-cf-lvim; sync-cf-src; update-pkg-all; gen-pkg-all; replace-stow-all"
+  sync-cf-all="git-sync-repos 'global'; sync-cf-lvim; sync-cf-src; update-pkg-all; gen-pkg-all; replace-stow-all; replace-symlinks-all"
 
 # systemctl
 alias \
