@@ -25,7 +25,10 @@ alias \
 
 # Replace/renew dotfiles
 alias \
-  replace-stow-all="replace-stow voidrice universal macos"
+  replace-stow-all="replace-stow voidrice universal macos" \
+  replace-symlinks-firefox-userjs="ln -sf $DOTFILES_DIR/user.js/user.js ~/Library/Application\ Support/Firefox/Profiles/*.default-*" \
+  replace-symlinks-firefox-chrome="ln -sf $DOTFILES_DIR/cascade/userChrome.light.css ~/Library/Application\ Support/Firefox/Profiles/*.default-*/chrome/userChrome.css" \
+  replace-symlinks-all="replace-symlinks-firefox-userjs; replace-symlinks-firefox-chrome"
 
 # Sync all
 alias \
