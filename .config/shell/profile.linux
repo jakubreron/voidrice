@@ -14,7 +14,7 @@ fi
 # Programs
 export TERMINAL="st"
 export BROWSER="firefox"
-export BACKUP_BROWSER="google-chrome-stable"
+export BACKUP_BROWSER="chromium"
 export GUI_FILE_EXPLORER="nautilus"
 export CLI_FILE_EXPLORER="lfrun"
 export CLI_MAIL_CLIENT="neomutt"
