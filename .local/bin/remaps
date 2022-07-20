@@ -15,12 +15,12 @@ if xinput --list | grep -q "TrackPoint"; then
 
     # setup device_type (desktop vs laptop trackpoint)
     xinput --list | grep -q 'Mouse' && device_type="Mouse" || device_type="TrackPoint"
-    # setup acceleration speed (laptop needs to have a bit faster speed)
-    echo $device_type | grep -q 'Mouse' && accel_speed=-0.45 || accel_speed=-0.35
     # find device_id based on the device_type
     device_id=$(xinput --list | sed -n "/$device_type/ $id_regex")
 
     adjustAccelSpeed() {
+        accel_speed=-0.45
+
         xinput --set-prop "$device_id" 'libinput Accel Speed' $accel_speed
     }
 
