@@ -4,8 +4,8 @@
 export PATH="$PATH:$(yarn global bin)"
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
-export LANG="ja_JP:en_US:pl_PL"
-export LANGUAGE="$LANG"
+# export LANG="ja_JP:en_US:pl_PL"
+# export LANGUAGE="$LANG"
 
 # Variable for packages generation
 if [[ $(hostnamectl --static) == *'desktop'* ]]; then
