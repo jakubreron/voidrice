@@ -44,7 +44,7 @@ export VIMWIKI_DIR="~/Documents/vimwiki/index.md"
 
 # Programs
 export EDITOR="lvim"
-export SUDO_EDITOR="lvim"
+export SUDO_EDITOR="/usr/bin/nvim"
 export GIT_CLIENT="lazygit"
 export DOCKER_CLIENT="lazydocker"
 
