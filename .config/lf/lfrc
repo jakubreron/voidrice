@@ -135,7 +135,7 @@ cmd kdeconnect ${{
 
 cmd dragon %dragon-drop -a -x $fx
 
-cmd convert_anything_to_anything ${{
+cmd convert_any ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	clear; echo "Convert to:"
@@ -143,8 +143,7 @@ cmd convert_anything_to_anything ${{
 	convert $fx $name
 }}
 
-cmd convert_anything_to_pdf $unoconv $fx
-cmd convert_image_to_pdf $convert $fx
+cmd convert_to_pdf $unoconv $fx
 
 cmd run_scripts ${{
   script=$(cat package.json | jq -r '.scripts | keys[] ' | sort | fzf --height 20%) && npm run $(echo "$script")
@@ -168,9 +167,8 @@ map S share
 map ge encrypt
 map gd decrypt
 
-map gcaa convert_anything_to_anything
-map gcap convert_anything_to_pdf
-map gcip convert_image_to_pdf
+map gca convert_any
+map gcp convert_to_pdf
 
 map <c-f> fzf_search
 map <c-n> new_dir
