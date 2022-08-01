@@ -1,6 +1,6 @@
 {
-    "version": "1.5.3",
-    "emoteVersion": "v1.5.3",
+    "version": "1.5.3-hotfix",
+    "emoteVersion": "v1.5.3-hotfix",
     "drawerStates": {
         "settings": {
             "addons": true,
