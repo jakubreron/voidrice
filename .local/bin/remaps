@@ -19,7 +19,7 @@ if xinput --list | grep -q "TrackPoint"; then
     device_id=$(xinput --list | sed -n "/$device_type/ $id_regex")
 
     adjustAccelSpeed() {
-        accel_speed=-0.45
+        accel_speed=-0.50
 
         xinput --set-prop "$device_id" 'libinput Accel Speed' $accel_speed
     }
