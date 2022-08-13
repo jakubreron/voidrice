@@ -25,13 +25,16 @@ Prp      $PROJECTS_DIR/personal
 Prs      $PROJECTS_DIR/studies
 Prw      $PROJECTS_DIR/work
 
+# Drive
+Dv       $HOME/Drive
+
 # dropbox
 Dr       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}
-Drb       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Backups
-Drd       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Documents
-Drdb       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Documents/Books
-Drp       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Pictures
-Drv       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Videos
+Drb      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Backups
+Drd      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Documents
+Drdb     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Documents/Books
+Drp      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Pictures
+Drv      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Videos
 
 # config
 Cf       ${XDG_CONFIG_HOME:-$HOME/.config}
