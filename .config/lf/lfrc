@@ -85,7 +85,11 @@ cmd extract ${{
 	printf "%s\n\t" "$fx"
 	printf "extract?[y/N]"
 	read ans
-	[ $ans = "y" ] && aunpack $fx
+	if [[ $ans = "y" ]]; then
+		for x in $fx; do
+			eval aunpack \"$x\"
+		done 
+	fi
 }}
 
 cmd moveto ${{
