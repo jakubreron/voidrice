@@ -114,7 +114,14 @@ cmd copyto ${{
 	notify-send " File(s) copied." "File(s) copies to $dest."
 }}
 
-cmd share $curl -F"file=@$fx" https://0x0.st | xclip -selection c
+cmd share ${{
+	clear; tput cup $(($(tput lines)/3)); tput bold
+	set -f
+	printf "%s\n\t" "$fx"
+	printf "share?[y/N]"
+	read ans
+	[ $ans = "y" ] && curl -F"file=@$fx" https://0x0.st | xclip -selection c
+}}
 
 cmd fzf_search $lf -remote "send $id select \"$(fzf)\""
 
@@ -124,7 +131,8 @@ cmd new_dir push :mkdir<space>
 cmd encrypt $gpg -c --no-symkey-cache --cipher-algo AES256 $f
 cmd decrypt $gpg $f
 
-cmd zip $zip -j -r "$fx" "$fx"
+# TODO: fix, ask for the dir name and prevent flattening the structure
+# cmd zip $zip -j -r "$fx" "$fx"
 
 cmd kdeconnect ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
@@ -139,15 +147,13 @@ cmd kdeconnect ${{
 
 cmd dragon %dragon-drop -a -x $fx
 
-cmd convert_any ${{
+cmd convert ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
 	clear; echo "Convert to:"
 	read name
 	convert $fx $name
 }}
-
-cmd convert_to_pdf $unoconv $fx
 
 cmd run_scripts ${{
   script=$(cat package.json | jq -r '.scripts | keys[] ' | sort | fzf --height 20%) && npm run $(echo "$script")
@@ -170,9 +176,7 @@ map S share
 # Go encrypt / decript / convert, etc...
 map ge encrypt
 map gd decrypt
-
-map gca convert_any
-map gcp convert_to_pdf
+map gc convert
 
 map <c-f> fzf_search
 map <c-n> new_dir
@@ -180,7 +184,7 @@ map <c-k> kdeconnect
 map <c-o> dragon
 map <c-x> run_scripts
 
-map Z zip
+# map Z zip
 
 map x $$f # execute
 map X !$f
