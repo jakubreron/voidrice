@@ -11,12 +11,11 @@ killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape'
 xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
 
 if xinput --list | grep -q "TrackPoint"; then
+    device_type="TrackPoint"
     id_regex='s/.*id=\([0-9]*\).*/\1/p'
 
-    # setup device_type (desktop vs laptop trackpoint)
-    xinput --list | grep -q 'Mouse' && device_type="Mouse" || device_type="TrackPoint"
     # find device_id based on the device_type
-    device_id=$(xinput --list | sed -n "/$device_type/ $id_regex")
+    device_id=$(xinput --list | grep 'TrackPoint.*pointer' | tail -n 1 | sed -n "/$device_type/ $id_regex")
 
     adjustAccelSpeed() {
         accel_speed=-0.50
