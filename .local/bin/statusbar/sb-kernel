@@ -1,4 +1,4 @@
 #! /bin/bash 
 
 kern="$(uname -r)"
-echo -e "  $kern" | cut -f1 -d "-"
+echo -e "🐧$kern" | cut -f1 -d "-"
