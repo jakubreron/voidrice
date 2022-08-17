@@ -9,7 +9,6 @@ fcitx -d &																													 # Keyboard
 # easyeffects --gapplication-service &															   # Equalizer
 redshift &																													 # Night light
 /usr/lib/kdeconnectd &																							 # KDE connect daemon
-maestral start &
 picom --experimental-backend &
 xhost +SI:localuser:root &
 remaps &		                                                         # Run the remaps script, switching caps/esc and more; check it for more info
