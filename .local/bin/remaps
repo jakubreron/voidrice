@@ -9,28 +9,24 @@ setxkbmap -option caps:super,altwin:menu_win
 killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape'
 # Turn off caps lock if on since there is no longer a key for it.
 xset -q | grep "Caps Lock:\s*on" && xdotool key Caps_Lock
+# Confirm remapping
+notify-send 'Keyboard remapped'
 
 if xinput --list | grep -q "TrackPoint"; then
-    device_type="TrackPoint"
+    # regex to match only numeric IDs
     id_regex='s/.*id=\([0-9]*\).*/\1/p'
 
-    # find device_id based on the device_type
-    device_id=$(xinput --list | grep 'TrackPoint.*pointer' | tail -n 1 | sed -n "/$device_type/ $id_regex")
+    # find all matching TrackPoint pointers only (there might be multiple pointers, we don't know which one is correct since they have the same name but different id)
+    device_ids=$(xinput --list | grep 'TrackPoint.*pointer' | sed -n "$id_regex")
 
     adjustAccelSpeed() {
         accel_speed=-0.50
 
-        xinput --set-prop "$device_id" 'libinput Accel Speed' $accel_speed
+        while read -r device_ids; do
+            xinput --set-prop "$device_ids" 'libinput Accel Speed' $accel_speed
+        done <<< "$device_ids"
     }
 
-    # disableMiddlePaste() {
-    #     xinput --set-button-map "$device_id" 1 2 3
-    # }
-
     adjustAccelSpeed
-    # disableMiddlePaste
-
     notify-send 'Trackpoint adjusted'
 fi
-
-notify-send 'Keyboard remapped'
