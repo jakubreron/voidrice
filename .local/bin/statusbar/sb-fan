@@ -9,4 +9,4 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-sensors | awk '/fan1/{print "🌬️ " $2}'
+sensors | awk '/fan1/{print "🍃" $2}'
