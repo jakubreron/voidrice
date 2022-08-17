@@ -23,6 +23,7 @@ export XDG_PICTURES_DIR="$HOME/Pictures"
 export XDG_VIDEOS_DIR="$HOME/Videos"
 export XDG_MUSIC_DIR="$HOME/Music"
 export XDG_DROPBOX_DIR="$HOME/Dropbox"
+export XDG_CUSTOM_STORAGE_DIR="$HOME/Drive"
 export XDG_APPLICATIONS_DIR="$HOME/Applications"
 
 # XDG misc

@@ -25,8 +25,12 @@ Prp      $PROJECTS_DIR/personal
 Prs      $PROJECTS_DIR/studies
 Prw      $PROJECTS_DIR/work
 
-# Drive
-Dv       $HOME/Drive
+# custom storage
+Dv       ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/
+Dvb      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Backups
+Dvd      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Documents
+Dvp      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Pictures
+Dvv      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Videos
 
 # dropbox
 Dr       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}

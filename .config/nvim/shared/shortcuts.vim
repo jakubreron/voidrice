@@ -15,7 +15,11 @@ cmap ;Pr /home/jakub/Documents/Projects
 cmap ;Prp /home/jakub/Documents/Projects/personal
 cmap ;Prs /home/jakub/Documents/Projects/studies
 cmap ;Prw /home/jakub/Documents/Projects/work
-cmap ;Dv /home/jakub/Drive
+cmap ;Dv /home/jakub/Drive/
+cmap ;Dvb /home/jakub/Drive/Backups
+cmap ;Dvd /home/jakub/Drive/Documents
+cmap ;Dvp /home/jakub/Drive/Pictures
+cmap ;Dvv /home/jakub/Drive/Videos
 cmap ;Dr /home/jakub/Dropbox
 cmap ;Drb /home/jakub/Dropbox/Backups
 cmap ;Drd /home/jakub/Dropbox/Documents
