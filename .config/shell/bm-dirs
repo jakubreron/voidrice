@@ -32,14 +32,6 @@ Dvd      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Documents
 Dvp      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Pictures
 Dvv      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Videos
 
-# dropbox
-Dr       ${XDG_DROPBOX_DIR:-$HOME/Dropbox}
-Drb      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Backups
-Drd      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Documents
-Drdb     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Documents/Books
-Drp      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Pictures
-Drpw     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Pictures/Wallpapers
-
 # config
 Cf       ${XDG_CONFIG_HOME:-$HOME/.config}
 Cft      ${XDG_CONFIG_HOME:-$HOME/.config}/tmux
