@@ -21,7 +21,7 @@ cmap ;Drb /home/jakub/Dropbox/Backups
 cmap ;Drd /home/jakub/Dropbox/Documents
 cmap ;Drdb /home/jakub/Dropbox/Documents/Books
 cmap ;Drp /home/jakub/Dropbox/Pictures
-cmap ;Drv /home/jakub/Dropbox/Videos
+cmap ;Drpw /home/jakub/Dropbox/Pictures/Wallpapers
 cmap ;Cf /home/jakub/.config
 cmap ;Cft /home/jakub/.config/tmux
 cmap ;Cfz /home/jakub/.config/zsh

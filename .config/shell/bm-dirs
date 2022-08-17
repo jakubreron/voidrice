@@ -34,7 +34,7 @@ Drb      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Backups
 Drd      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Documents
 Drdb     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Documents/Books
 Drp      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Pictures
-Drv      ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Videos
+Drpw     ${XDG_DROPBOX_DIR:-$HOME/Dropbox}/Pictures/Wallpapers
 
 # config
 Cf       ${XDG_CONFIG_HOME:-$HOME/.config}
