@@ -18,6 +18,7 @@ cmap ;Prw /home/jakub/Documents/Projects/work
 cmap ;Dv /home/jakub/Drive/
 cmap ;Dvb /home/jakub/Drive/Backups
 cmap ;Dvd /home/jakub/Drive/Documents
+cmap ;Dvdb /home/jakub/Drive/Documents/Books
 cmap ;Dvp /home/jakub/Drive/Pictures
 cmap ;Dvv /home/jakub/Drive/Videos
 cmap ;Cf /home/jakub/.config

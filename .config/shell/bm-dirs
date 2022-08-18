@@ -29,6 +29,7 @@ Prw      $PROJECTS_DIR/work
 Dv       ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/
 Dvb      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Backups
 Dvd      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Documents
+Dvdb     ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Documents/Books
 Dvp      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Pictures
 Dvv      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Videos
 
