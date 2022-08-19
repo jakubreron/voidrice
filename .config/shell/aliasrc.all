@@ -32,9 +32,14 @@ alias \
   t="tmux" \
   l="ls -la" \
   nf="neofetch" \
-  lzg="lazygit" \
-  lzd="lazydocker" \
-  m="maestral"
+  v="$EDITOR" \
+  vw="$EDITOR $VIMWIKI_DIR" \
+  p="$PACKAGE_MANAGER" \
+
+# some gui programs
+alias \
+  git-gui="$GIT_CLIENT" \
+  docker-gui="$DOCKER_CLIENT" \
 
 # overwritten
 alias \
@@ -45,28 +50,13 @@ alias \
 alias \
   ka="killall" \
   g="git" \
-  e="sudoedit" \
-  v="$EDITOR" \
-  vw="$EDITOR $VIMWIKI_DIR" \
-  p="$PACKAGE_MANAGER" \
-  c="clear"
-
-# pnpm
-alias \
-  pn="pnpm"
+  se="sudoedit" \
+  c="clear" # ctrl + l does not work in tmux
 
 # yarn
 alias \
   yr="yarn" \
   yrt="yarn test --watch --coverage --silent false"
-
-# composer
-alias \
-  cs="composer" \
-
-# valet
-alias \
-  va="valet"
 
 alias \
   replace-stow="cd $DOTFILES_DIR && stow --adopt --target=${HOME}"
