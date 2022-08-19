@@ -38,8 +38,8 @@ alias \
 
 # some gui programs
 alias \
-  git-gui="$GIT_CLIENT" \
-  docker-gui="$DOCKER_CLIENT" \
+  cli-git="$CLI_GIT_APP" \
+  cli-docker="$CLI_DOCKER_APP" \
 
 # overwritten
 alias \

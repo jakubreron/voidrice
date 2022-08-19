@@ -18,6 +18,9 @@ else
   export PACKAGE_TYPE="secondary"
 fi
 
+# Exclude certain packages from being generated
+export EXCLUDED_PACKAGES="intel-ucode|xf86-video-intel|amd-ucode|tlp|tlp-rdw|phpstorm|phpstorm-jre|php|php-.*$|lib-.*$|amd.*$|steam|remmina|remmina-.*$"
+
 # Programs
 export TERMINAL="st"
 export BROWSER="firefox"
@@ -28,13 +31,11 @@ export CLI_MAIL_CLIENT="neomutt"
 export CLI_MUSIC_PLAYER="ncmpcpp"
 export PACKAGE_MANAGER="paru"
 
-# Misc
-export EXCLUDED_PACKAGES="intel-ucode|xf86-video-intel|amd-ucode|tlp|tlp-rdw|phpstorm|phpstorm-jre|php|php-.*$|lib-.*$|amd.*$|steam|remmina|remmina-.*$"
-
 export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
 export SUDO_ASKPASS="$HOME/.local/bin/dmenu/dmenupass"
 
+# Input
 export GTK_IM_MODULE='fcitx'
 export QT_IM_MODULE='fcitx'
 export SDL_IM_MODULE='fcitx'
