@@ -1,9 +1,16 @@
 #!/bin/sh
 
 filter() { 
-	name=$(mpc | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/⏸/g;/\\[playing\\].*/d;/^ERROR/Q" | paste -sd ' ' -)
+	play_icon="🎹"
+	pause_icon="⏸"
 
-	echo "🎹$name" | sed 's/\(.*\)\(⏸\)/\2\1/'
+	name=$(mpc | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/$pause_icon/g;/\\[playing\\].*/d;/^ERROR/Q" | paste -sd ' ' -)
+
+	if [[ $name == *"$pause_icon"* ]]; then
+		echo "$name" | sed "s/\(.*\)\($pause_icon\)/\2\1/"
+	else
+		echo "$play_icon$name"
+	fi
 }
 
 pidof -x sb-mpdup >/dev/null 2>&1 || sb-mpdup >/dev/null 2>&1 &
