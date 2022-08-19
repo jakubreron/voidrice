@@ -1,7 +1,7 @@
 #!/bin/sh
 
 filter() { 
-	play_icon="🎹"
+	play_icon="🎧"
 	pause_icon="⏸"
 
 	name=$(mpc | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/$pause_icon/g;/\\[playing\\].*/d;/^ERROR/Q" | paste -sd ' ' -)
