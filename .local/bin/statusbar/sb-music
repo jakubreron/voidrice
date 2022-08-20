@@ -1,15 +1,27 @@
 #!/bin/sh
 
-filter() { 
+filter() {
 	play_icon="🎹"
 	pause_icon="⏸"
 
 	name=$(mpc | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/$pause_icon/g;/\\[playing\\].*/d;/^ERROR/Q" | paste -sd ' ' -)
 
+	trim() {
+		cut_characters_count="40"
+
+		if [[ ${#1} -gt $cut_characters_count ]]; then
+			echo "$1" | cut "-c1-$cut_characters_count" | sed "s/$/.../g" 
+		else
+			echo "$1"
+		fi
+	}
+
 	if [[ $name == *"$pause_icon"* ]]; then
-		echo "$name" | sed "s/\(.*\)\($pause_icon\)/\2\1/"
+		paused_name=`echo "$name" | sed "s/\(.*\)\($pause_icon\)/\2\1/"`
+
+		trim "$paused_name"
 	else
-		echo "$play_icon$name"
+		trim "$play_icon$name"
 	fi
 }
 
