@@ -1,8 +1,5 @@
 #!/bin/zsh
 
-# Sources
-source ~/.config/shell/lf-icons
-
 # Programs
 export CLI_SYSTEM_MONITOR="btop"
 export CLI_STOCKS_APP="ticker"
