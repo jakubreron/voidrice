@@ -19,7 +19,7 @@
     progress_bar = true
     progress_bar_height = 10
 
-    font = Hack Nerd Font Mono 13
+    font = JetBrainsMono Nerd Font 11
     follow = mouse
 
     markup = full
