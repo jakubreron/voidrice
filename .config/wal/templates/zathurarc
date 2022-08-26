@@ -1,4 +1,4 @@
-set font "Google Sans 11"
+set font "Sans 11"
 set sandbox none
 set statusbar-h-padding 0
 set statusbar-v-padding 0
