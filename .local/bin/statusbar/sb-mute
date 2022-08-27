@@ -7,4 +7,4 @@ volume=$(pactl get-source-volume @DEFAULT_SOURCE@ | awk '/front-left/{print $5}'
 
 [ "$is_unmuted" ] && echo "🎤$volume" && exit
 
-echo "🔇"
+echo "🚫"

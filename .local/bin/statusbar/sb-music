@@ -1,10 +1,11 @@
 #!/bin/sh
 
-filter() {
-	play_icon="🎹"
-	pause_icon="⏸"
+play_icon="🟢"
+pause_icon="🔴"
+random_icon="🔀"
 
-	name=$(mpc | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/$pause_icon/g;/\\[playing\\].*/d;/^ERROR/Q" | paste -s)
+filter() {
+	name=$(mpc | head -n 1) # get first line only
 
 	trim() {
 		cut_characters_count="40"
@@ -17,12 +18,16 @@ filter() {
 		fi
 	}
 
-	if [[ $name == *"$pause_icon"* ]]; then
-		paused_name=$(echo "$name" | sed "s/\(.*\)\($pause_icon\)/\2\1/")
-		trim "$paused_name"
+	# check based on the overall status (not first line only as in $name)
+	[[ $(mpc) == *"random: on"* ]] && name="$random_icon$name"
+
+	if [[ $(mpc) == *"paused"* ]]; then
+		name="$pause_icon$name"
 	else
-		trim "$play_icon$name"
+		name="$play_icon$name"
 	fi
+
+	trim "$name" # trim based on first line
 }
 
 pidof -x sb-mpdup >/dev/null 2>&1 || sb-mpdup >/dev/null 2>&1 &
@@ -31,7 +36,9 @@ case $BLOCK_BUTTON in
 	1) mpc status | filter ; setsid -f "$TERMINAL" -e ncmpcpp ;;  # right click, pause/unpause
 	2) mpc toggle | filter ;;  # right click, pause/unpause
 	3) mpc status | filter ; notify-send "🎵 Music module" "\- Shows mpd song playing.
-- ⏸ when paused.
+- $pause_icon when paused.
+- $play_icon when playing.
+- $random_icon when playing random songs.
 - Left click opens ncmpcpp.
 - Middle click pauses.
 - Scroll changes track.";;  # right click, pause/unpause
