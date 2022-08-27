@@ -8,9 +8,10 @@ filter() {
 
 	trim() {
 		cut_characters_count="40"
+		cut_indicator="🔸"
 
 		if [[ ${#1} -gt $cut_characters_count ]]; then
-			echo "$1" | cut "-c1-$cut_characters_count" | sed "s/$/.../g" 
+			echo "$1" | cut "-c1-$cut_characters_count" | sed "s/$/$cut_indicator/g" 
 		else
 			echo "$1"
 		fi

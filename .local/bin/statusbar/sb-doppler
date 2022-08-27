@@ -253,7 +253,7 @@ radarcode=${chosen#* } radarcode=${radarcode%:*}
 getdoppler() {
 	cont=$(cut -c -2 "$radarloc")
 	loc=$(cut -c 4- "$radarloc")
-	notify-send "🌦️ Doppler RADAR" "Pulling most recent Doppler RADAR for $loc."
+	notify-send "💨 Doppler RADAR" "Pulling most recent Doppler RADAR for $loc."
 	case "$cont" in
 		"US") curl -sL "https://radar.weather.gov/ridge/lite/${loc}_loop.gif" > "$doppler" ;;
 		"EU") curl -sL "https://api.sat24.com/animated/${loc}/rainTMC/2/" > "$doppler" ;;
@@ -270,10 +270,10 @@ case $BLOCK_BUTTON in
 	[ $(($(date '+%s') - $(stat -c %Y "$doppler"))) -gt "$secs" ] && getdoppler
 	showdoppler ;;
 	2) pickloc && getdoppler && showdoppler ;;
-	3) notify-send "🗺️ Doppler RADAR module" "\- Left click for local Doppler RADAR.
+	3) notify-send "💨 Doppler RADAR module" "\- Left click for local Doppler RADAR.
 - Middle click to update RADAR location.
 After $secs seconds, new clicks will also automatically update the doppler RADAR."  ;;
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-echo 🗺️
+echo 💨
