@@ -4,7 +4,7 @@ filter() {
 	play_icon="🎹"
 	pause_icon="⏸"
 
-	name=$(mpc | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/$pause_icon/g;/\\[playing\\].*/d;/^ERROR/Q" | paste -sd ' ' -)
+	name=$(mpc | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/$pause_icon/g;/\\[playing\\].*/d;/^ERROR/Q" | paste -s)
 
 	trim() {
 		cut_characters_count="40"
@@ -18,8 +18,7 @@ filter() {
 	}
 
 	if [[ $name == *"$pause_icon"* ]]; then
-		paused_name=`echo "$name" | sed "s/\(.*\)\($pause_icon\)/\2\1/"`
-
+		paused_name=$(echo "$name" | sed "s/\(.*\)\($pause_icon\)/\2\1/")
 		trim "$paused_name"
 	else
 		trim "$play_icon$name"
