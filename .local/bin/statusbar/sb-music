@@ -5,7 +5,7 @@ pause_icon="🔴"
 random_icon="🔀"
 
 filter() {
-	name=$(mpc | head -n 1) # get first line only
+	name=$(mpc status -f %title% | head -n 1) # get first line only
 
 	trim() {
 		cut_characters_count="40"
