@@ -97,7 +97,7 @@ alias \
 # quick reinstall
 alias \
   uninstall-lvim="bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/uninstall.sh)" \
-  install-lvim="bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)" \
+  install-lvim="LV_BRANCH=rolling bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/rolling/utils/installer/install.sh)" \
   install-lvim-config="cd $LVIM_CONFIG_DIR && rm config.lua && git clone git@github.com:jakubreron/lvim.git && mv ./lvim/* . && rmdir lvim && shortcuts" \
   reinstall-lvim="uninstall-lvim; install-lvim && install-lvim-config" \
   sync-cf-lvim="cd $LVIM_SHARE_DIR && git pull; cd $LVIM_CONFIG_DIR && git pull; lvim +LvimUpdate +q"
