@@ -24,6 +24,7 @@ if xinput --list | grep -q "TrackPoint"; then
 
         while read -r device_ids; do
             xinput --set-prop "$device_ids" 'libinput Accel Speed' $accel_speed
+            xinput --set-button-map "$device_ids" 1 2 3
         done <<< "$device_ids"
     }
 
