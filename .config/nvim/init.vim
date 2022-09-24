@@ -1,8 +1,8 @@
-" {vim,nvim}-only related settings
-source ~/.config/nvim/shared/plug.vim
-source ~/.config/nvim/shared/settings.vim 
+" NOTE: {vim,nvim}-only related settings
+source ~/.config/nvim/plug.vim
+source ~/.config/nvim/settings.vim 
 
-" settings shared between multiple vim configs
+" NOTE: settings shared between multiple vim configs
 source ~/.config/nvim/shared/functions.vim
 source ~/.config/nvim/shared/mappings.vim
 source ~/.config/nvim/shared/shortcuts.vim
