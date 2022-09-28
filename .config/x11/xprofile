@@ -7,6 +7,7 @@ setbg "" "false" &			                                             # Set the back
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	 # Uncomment to use Xresources colors/settings on startup
 fcitx -d &																													 # Keyboard
 # easyeffects --gapplication-service &															   # Equalizer
+keepassxc &
 redshift &																													 # Night light
 /usr/lib/kdeconnectd &																							 # KDE connect daemon
 picom --experimental-backend &
