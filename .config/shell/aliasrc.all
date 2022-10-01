@@ -33,7 +33,7 @@ alias \
   l="ls -la" \
   nf="neofetch" \
   v="$EDITOR" \
-  vw="$EDITOR $VIMWIKI_DIR" \
+  vw="$EDITOR $VIMWIKI_DIR/index.md" \
   p="$PACKAGE_MANAGER" \
 
 # some gui programs
