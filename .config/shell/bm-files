@@ -22,8 +22,6 @@ cfgrub    /etc/default/grub
 
 # lvim
 cflv      $LVIM_CONFIG_DIR/config.lua
-cflva     $LVIM_CONFIG_DIR/lua/config/autocommands.lua
-cflvb     $LVIM_CONFIG_DIR/lua/config/builtin.lua
 cflvg     $LVIM_CONFIG_DIR/lua/config/general.lua
 cflvk     $LVIM_CONFIG_DIR/lua/config/keymaps.lua
 cflvl     $LVIM_CONFIG_DIR/lua/config/lsp.lua
