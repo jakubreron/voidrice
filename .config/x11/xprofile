@@ -3,16 +3,38 @@
 # This file runs when a DM logs you into a graphical session.
 # If you use startx/xinit like a Chad, this file will also be sourced.
 
-setbg "" "false" &			                                             # Set the background with the `setbg` script
-xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	 # Uncomment to use Xresources colors/settings on startup
-fcitx -d &																													 # Keyboard
-# easyeffects --gapplication-service &															   # Equalizer
+# Wallpaper with some wal arguments
+setbg "" "false" &			                               
+
+# Xresources colors/settings on startup
+xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	 
+
+# Keyboard
+fcitx -d &																												
+
+# Equalizer
+# easyeffects --gapplication-service &															
+
+# Password Manage
 keepassxc &
-redshift &																													 # Night light
-/usr/lib/kdeconnectd &																							 # KDE connect daemon
+
+# Night light
+redshift &																													 
+
+# KDE connect daemon
+/usr/lib/kdeconnectd &																							 
+
+# Compositor
 picom --experimental-backend &
-xhost +SI:localuser:root &
-remaps &		                                                         # Run the remaps script, switching caps/esc and more; check it for more info
+
+# Weird thingy needed for Kinto to work
+# xhost +SI:localuser:root &
+
+# Switching caps/esc, adjusting speed, etc...
+remaps &		                                                         
+
+# Pull newest changes form all my repos in the background
+git-sync-repos global &			
 
 # Screen layouts
 # layout-primary &
