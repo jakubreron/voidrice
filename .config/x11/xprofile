@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # This file runs when a DM logs you into a graphical session.
 # If you use startx/xinit like a Chad, this file will also be sourced.
@@ -12,14 +12,11 @@ xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!
 # Switching caps/esc, adjusting speed, etc...
 remaps &		                                                         
 
-autostart="picom dunst unclutter keepassxc redshift fcitx /usr/lib/kdeconnectd"
-for program in $autostart; do
-	pidof -s "$program" || "$program" &
+autostart=("picom --experimental-backend" dunst unclutter keepassxc redshift fcitx /usr/lib/kdeconnectd "easyeffects --gapplication-service")
+for program in  "${autostart[@]}"; do
+  program_without_args=${program%% *}
+	pidof -s "$program_without_args" || $program &
 done >/dev/null 2>&1
-
-# Equalizer
-# TODO: move to autostart (after figuring out how to include arguments)
-# easyeffects --gapplication-service &															
 
 # Weird thingy needed for Kinto to work
 # xhost +SI:localuser:root &
@@ -28,7 +25,7 @@ done >/dev/null 2>&1
 git-sync-repos global &			
 
 # Screen layouts
-# layout-primary &
+layout-primary &
 # layout-secondary &
 # layout-temporary &
 
