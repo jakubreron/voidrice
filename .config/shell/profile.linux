@@ -13,10 +13,10 @@ export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 
 if [[ $(hostnamectl --static) == *'desktop'* ]]; then
   export PACKAGE_TYPE="main"
-  # export ADDITIONAL_AUTOSTART_PROGRAMS="easyeffects --gapplication-service"
+  export ADDITIONAL_AUTOSTART_PROGRAMS="easyeffects --gapplication-service"
 else
   export PACKAGE_TYPE="secondary"
-  export ADDITIONAL_AUTOSTART_PROGRAMS="easyeffects --gapplication-service"
+  export ADDITIONAL_AUTOSTART_PROGRAMS=""
 fi
 
 # Exclude certain packages from being generated
