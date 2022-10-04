@@ -30,6 +30,7 @@ set hidden
 set drawbox
 set ignorecase true
 set info
+set autoquit on
 
 # cmds/functions
 cmd on-cd &{{
