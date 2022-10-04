@@ -9,20 +9,20 @@ setbg "" "false" &
 # Xresources colors/settings on startup
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	 
 
-# Keyboard
-fcitx -d &																												
+# Switching caps/esc, adjusting speed, etc...
+remaps &		                                                         
+
+autostart="picom dunst unclutter keepassxc redshift fcitx /usr/lib/kdeconnectd"
+for program in $autostart; do
+	pidof -s "$program" || "$program" &
+done >/dev/null 2>&1
 
 # Equalizer
+# TODO: move to autostart (after figuring out how to include arguments)
 # easyeffects --gapplication-service &															
-
-# KDE connect daemon
-/usr/lib/kdeconnectd &																							 
 
 # Weird thingy needed for Kinto to work
 # xhost +SI:localuser:root &
-
-# Switching caps/esc, adjusting speed, etc...
-remaps &		                                                         
 
 # Pull newest changes form all my repos in the background
 git-sync-repos global &			
@@ -31,12 +31,6 @@ git-sync-repos global &
 # layout-primary &
 # layout-secondary &
 # layout-temporary &
-#
-autostart="dunst unclutter keepassxc redshift picom"
-
-for program in $autostart; do
-	pidof -s "$program" || "$program" &
-done >/dev/null 2>&1
 
 # Ensure that xrdb has finished running before moving on to start the WM/DE.
 [ -n "$xrdbpid" ] && wait "$xrdbpid"
