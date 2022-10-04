@@ -11,11 +11,13 @@ export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
 # export LC_MESSAGES="$LANGUAGE"
 # export LC_TIME="$LANGUAGE"
 
-# Variable for packages generation
+export AUTOSTART=("picom --experimental-backend" dunst unclutter keepassxc redshift fcitx /usr/lib/kdeconnectd "git-sync-repos global")
 if [[ $(hostnamectl --static) == *'desktop'* ]]; then
   export PACKAGE_TYPE="main"
+  AUTOSTART+=("easyeffects --gapplication-service")
 else
   export PACKAGE_TYPE="secondary"
+  AUTOSTART+=()
 fi
 
 # Exclude certain packages from being generated

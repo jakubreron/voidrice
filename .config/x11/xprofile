@@ -12,7 +12,7 @@ xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!
 # Switching caps/esc, adjusting speed, etc...
 remaps &		                                                         
 
-autostart=("picom --experimental-backend" dunst unclutter keepassxc redshift fcitx /usr/lib/kdeconnectd "easyeffects --gapplication-service" "git-sync-repos global")
+autostart=$AUTOSTART
 for program in "${autostart[@]}"; do
   program_without_args=${program%% *}
   pidof -s "$program_without_args" || $program &
