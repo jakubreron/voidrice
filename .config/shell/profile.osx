@@ -5,6 +5,7 @@ export PATH="/opt/local/bin:/opt/local/sbin:$PATH" # macports
 
 # Variable for packages generation
 export PACKAGE_TYPE="work"
+export YARN_REGISTRY="https://registry.npmjs.org/" # sneaky xd
 
 # Programs
 export TERMINAL="alacritty"
