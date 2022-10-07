@@ -12,17 +12,25 @@ xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!
 # Switching caps/esc, adjusting speed, etc...
 remaps &		                                                         
 
-autostart=("picom --experimental-backend" dunst unclutter keepassxc redshift fcitx /usr/lib/kdeconnectd "git-sync-repos global" "$ADDITIONAL_AUTOSTART_PROGRAMS")
-for program in "${autostart[@]}"; do
-  program_without_args=${program%% *}
-  pidof -s "$program_without_args" || $program &
+autostart="picom --experimental-backend
+dunst
+unclutter
+keepassxc
+redshift
+fcitx
+/usr/lib/kdeconnectd
+git-sync-repos global
+$ADDITIONAL_AUTOSTART_PROGRAMS
+"
+printf "%s" "$autostart" | while IFS="" read -r program; do
+	pgrep -fl "$program" || $program &
 done >/dev/null 2>&1
 
 # Weird thingy needed for Kinto to work
 # xhost +SI:localuser:root &
 
 # Screen layouts
-# layout-primary &
+layout-primary &
 # layout-secondary &
 # layout-temporary &
 
