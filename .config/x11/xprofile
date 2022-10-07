@@ -24,9 +24,9 @@ done >/dev/null 2>&1
 # xhost +SI:localuser:root &
 
 # Screen layouts
-layout-primary &
-# layout-secondary &
-# layout-temporary &
+if [[ $LAYOUT_TYPE ]]; then
+  eval "layout-${LAYOUT_TYPE}"
+fi
 
 # Ensure that xrdb has finished running before moving on to start the WM/DE.
 [ -n "$xrdbpid" ] && wait "$xrdbpid"
