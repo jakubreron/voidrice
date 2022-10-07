@@ -12,14 +12,8 @@ xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!
 # Switching caps/esc, adjusting speed, etc...
 remaps &		                                                         
 
-autostart="picom --experimental-backend
-dunst
-unclutter
-keepassxc
-redshift
-fcitx
-/usr/lib/kdeconnectd
-git-sync-repos global
+autostart="
+$AUTOSTART_PROGRAMS
 $ADDITIONAL_AUTOSTART_PROGRAMS
 "
 printf "%s" "$autostart" | while IFS="" read -r program; do
