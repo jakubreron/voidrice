@@ -8,6 +8,11 @@ alias \
   clp="colorpicker --short --one-shot --preview | xsel -b" \
   pkgs="pkgstats search"
 
+# Debloat
+alias \
+  clean-pacman="pacman -Rns $(pacman -Qtdq)" \
+  clean-all="clean-pacman" \
+
 # update packages
 alias \
   update-pkg-node="npm install npm -g; yarn global upgrade" \
@@ -30,7 +35,7 @@ alias \
 # Sync all
 alias \
   sync-cf-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
-  sync-cf-all="git-sync-repos 'global'; sync-cf-lvim; sync-cf-src; update-pkg-all; gen-pkg-all; replace-stow-all; replace-symlinks-all"
+  sync-cf-all="git-sync-repos 'global'; sync-cf-lvim; sync-cf-src; clean-all; update-pkg-all; gen-pkg-all; replace-stow-all; replace-symlinks-all"
 
 # systemctl
 alias \

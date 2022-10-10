@@ -32,7 +32,7 @@ alias \
 
 # Sync all
 alias \
-  sync-cf-all="git-sync-repos 'global'; sync-cf-lvim; update-pkg-all; gen-pkg-all; clean-all; replace-stow-all"
+  sync-cf-all="git-sync-repos 'global'; sync-cf-lvim; clean-all; update-pkg-all; gen-pkg-all; replace-stow-all"
 
 # Lock the screen
 alias \
