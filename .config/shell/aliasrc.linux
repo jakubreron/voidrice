@@ -10,7 +10,7 @@ alias \
 
 # Debloat
 alias \
-  clean-pkg-manager-orphans="$PACKAGE_MANAGER -Rns $($PACKAGE_MANAGER -Qtdq)" \
+  clean-pkg-manager-orphans="pacman -Rns $(pacman -Qtdq)" \
   clean-pkg-manager-cache="$PACKAGE_MANAGER -Sc" \
   clean-all="clean-pkg-manager-orphans; clean-pkg-manager-cache" \
 
