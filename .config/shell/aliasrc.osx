@@ -3,25 +3,23 @@
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, yarn, and their installed packages
 alias \
   update-pkg-node="npm install npm -g; yarn global upgrade" \
-  update-pkg-manager="sudo softwareupdate -i -a" \
+  update-pkg-manager="softwareupdate -i -a" \
   update-pkg-brew="brew update; brew upgrade; brew cleanup" \
-  update-pkg-gems="sudo gem update --system; sudo gem update; sudo gem cleanup" \
-  update-pkg-ports="sudo port selfupdate; sudo port upgrade outdated" \
-  update-pkg-all="update-pkg-node; update-pkg-manager; update-pkg-brew; update-pkg-gems; update-pkg-ports;"
+  update-pkg-all="update-pkg-node; update-pkg-manager; update-pkg-brew"
+  # update-pkg-gems="sudo gem update --system; sudo gem update; sudo gem cleanup" \
+  # update-pkg-ports="sudo port selfupdate; sudo port upgrade outdated" \
 
 # Generate and push packages to repos
 alias \
   gen-pkg-node="cd $PKGLIST_DIR; gen-pkg-yarn > $PACKAGE_TYPE/yarn.txt" \
   gen-pkg-brew="cd $PKGLIST_DIR; brew leaves > $PACKAGE_TYPE/brew.txt" \
-  gen-pkg-ports="cd $PKGLIST_DIR; sudo port installed > $PACKAGE_TYPE/macports.txt" \
-  gen-pkg-all="gen-pkg-node; gen-pkg-brew; gen-pkg-ports; git add . && git commit -m'docs($PACKAGE_TYPE/{yarn,brew,ports}): auto-commit changes' && git push origin HEAD"
+  gen-pkg-all="gen-pkg-node; gen-pkg-brew; git add . && git commit -m'docs($PACKAGE_TYPE/{yarn,brew}): auto-commit changes' && git push origin HEAD"
+  # gen-pkg-ports="cd $PKGLIST_DIR; sudo port installed > $PACKAGE_TYPE/macports.txt" \
 
 # Debloat
 alias \
   clean-dss="find . -type f -name '*.DS_Store' -ls -delete" \
-  clean-trash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl; sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'" \
-  clean-ls="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder" \
-  clean-all="clean-dss; clean-trash; clean-ls"
+  clean-all="clean-dss"
 
 # Replace/renew dotfiles
 alias \
