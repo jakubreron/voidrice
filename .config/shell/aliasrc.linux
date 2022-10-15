@@ -30,7 +30,7 @@ alias \
 alias \
   replace-stow-all="replace-stow voidrice universal" \
   replace-symlinks-firefox-userjs="ln -sf $DOTFILES_DIR/user.js/user.js ~/.mozilla/firefox/*.default-*" \
-  replace-symlinks-firefox-chrome="ln -sf $DOTFILES_DIR/cascade/userChrome.light.css ~/.mozilla/firefox/*.default-*/chrome/userChrome.css" \
+  replace-symlinks-firefox-chrome="ln -sf $DOTFILES_DIR/firefox-styles/userChrome.css ~/.mozilla/firefox/*.default-*/chrome" \
   replace-symlinks-all="replace-symlinks-firefox-userjs; replace-symlinks-firefox-chrome"
 
 # Sync all
