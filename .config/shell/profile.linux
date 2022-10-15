@@ -20,6 +20,7 @@ redshift
 fcitx
 /usr/lib/kdeconnectd
 git-sync-repos global
+grive --path $XDG_CUSTOM_STORAGE_DIR
 "
 
 # LAYOUT_TYPE: primary, secondary, temporary
