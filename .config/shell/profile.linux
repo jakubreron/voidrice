@@ -2,7 +2,7 @@
 
 # NOTE: yarn installed via brew is included in another place
 export PATH="$PATH:$(yarn global bin)"
-export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
+export PATH="$PATH:${$(find $HOME/.local/bin -type d -printf %p:)%%:}"
 
 # NOTE: LANG is the default locale for all the LC_* variables (ja_JP.UTF-8 causes bugs in some CLI programs)
 # export LANG="en_US.UTF-8" 

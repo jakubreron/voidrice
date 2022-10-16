@@ -2,12 +2,12 @@
 
 unsetopt PROMPT_SP
 
-source ~/.config/shell/profile.all
+source $HOME/.config/shell/profile.all
 
 # TODO: add statements for multiple linux distros after switching (arch, fedora, ubuntu etc...)
 if [[ $OSTYPE == 'linux'* ]]; then
-	source ~/.config/shell/profile.linux
+	source $HOME/.config/shell/profile.linux
 else
 	# bloated mac
-	source ~/.config/shell/profile.osx
+	source $HOME/.config/shell/profile.osx
 fi

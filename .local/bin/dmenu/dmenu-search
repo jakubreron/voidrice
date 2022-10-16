@@ -5,8 +5,8 @@ LAUNCHER="dmenu -l 30 -i -p "
 
 localBROWSER="$BROWSER "
 
-if [ -f ~/.config/bm-websites ]; then
-	choice=$( (cat ~/.config/bm-websites) | $LAUNCHER"Search:") || exit 1
+if [ -f $HOME/.config/bm-websites ]; then
+	choice=$( (cat $HOME/.config/bm-websites) | $LAUNCHER"Search:") || exit 1
 fi
 
 case "$choice" in *❔*)

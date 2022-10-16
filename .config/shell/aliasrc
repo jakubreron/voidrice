@@ -1,8 +1,8 @@
 #!/bin/sh
-source ~/.config/shell/aliasrc.all
+source $HOME/.config/shell/aliasrc.all
 
 if [[ $OSTYPE == 'linux'* ]]; then
-  source ~/.config/shell/aliasrc.linux
+  source $HOME/.config/shell/aliasrc.linux
 else
-  source ~/.config/shell/aliasrc.osx
+  source $HOME/.config/shell/aliasrc.osx
 fi
