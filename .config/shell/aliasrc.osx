@@ -3,9 +3,9 @@
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, yarn, and their installed packages
 alias \
   update-pkg-node="npm install npm -g; yarn global upgrade" \
-  update-pkg-manager="softwareupdate -i -a" \
   update-pkg-brew="brew update; brew upgrade; brew cleanup" \
-  update-pkg-all="update-pkg-node; update-pkg-manager; update-pkg-brew"
+  update-pkg-all="update-pkg-node; update-pkg-brew"
+  # update-pkg-manager="softwareupdate -i -a" \
   # update-pkg-gems="sudo gem update --system; sudo gem update; sudo gem cleanup" \
   # update-pkg-ports="sudo port selfupdate; sudo port upgrade outdated" \
 
@@ -25,7 +25,7 @@ alias \
 alias \
   replace-stow-all="replace-stow voidrice universal macos" \
   replace-symlinks-firefox-userjs="ln -sf $DOTFILES_DIR/user.js/user.js ~/Library/Application\ Support/Firefox/Profiles/*.default-*" \
-  replace-symlinks-firefox-chrome="ln -sf $DOTFILES_DIR/cascade/userChrome.light.css ~/Library/Application\ Support/Firefox/Profiles/*.default-*/chrome/userChrome.css" \
+  replace-symlinks-firefox-chrome="ln -sf $DOTFILES_DIR/firefox-config/userChrome.css ~/Library/Application\ Support/Firefox/Profiles/*.default-*/chrome/userChrome.css" \
   replace-symlinks-all="replace-symlinks-firefox-userjs; replace-symlinks-firefox-chrome"
 
 # Sync all
