@@ -36,7 +36,7 @@ alias \
 # Sync all
 alias \
   sync-cf-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
-  sync-cf-all="git-sync-repos 'global'; sync-cf-lvim; sync-cf-src; clean-all; update-pkg-all; gen-pkg-all; replace-stow-all; replace-symlinks-all"
+  sync-cf-all="git-sync-repos 'global'; sync-cf-lvim; sync-cf-src; update-pkg-all; gen-pkg-all; replace-stow-all; replace-symlinks-all"
 
 # systemctl
 alias \
