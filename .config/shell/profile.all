@@ -8,8 +8,9 @@ export CLI_GIT_APP="lazygit"
 export CLI_DOCKER_APP="lazydocker"
 
 # PATHS
-export PATH=$HOME/.fnm:$PATH
+export PATH="$HOME/.fnm:$PATH"
 export PATH="$HOME/.local/share/cargo/bin:$PATH"
+export PATH="$HOME/.dotnet/tools:$PATH"
 
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"
