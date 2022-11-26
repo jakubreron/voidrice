@@ -30,6 +30,7 @@ if [[ $(hostnamectl --static) == *'desktop'* ]]; then
   export LAYOUT_TYPE="primary"
   export ADDITIONAL_AUTOSTART_PROGRAMS="
     easyeffects --gapplication-service
+    fragments
   "
 else
   export PACKAGE_TYPE="secondary"
