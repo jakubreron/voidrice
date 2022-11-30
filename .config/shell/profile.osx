@@ -2,6 +2,7 @@
 
 export PATH="${HOME}/.local/bin:${PATH}" # .local/bin on osx doesn't work with the "-printf" way
 export PATH="/opt/local/bin:/opt/local/sbin:$PATH" # macports
+export PATH="$HOME/.local/bin/homebrew/:$PATH" # brew
 
 # Variable for packages generation
 export PACKAGE_TYPE="work"
