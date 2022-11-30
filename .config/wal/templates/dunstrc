@@ -7,8 +7,8 @@
     indicate_hidden = yes
     transparency = 15
 
-    padding = 15
-    horizontal_padding = 15
+    padding = 10
+    horizontal_padding = 10
 
     frame_width = 0
     frame_color = "{color4}"
@@ -19,7 +19,7 @@
     progress_bar = true
     progress_bar_height = 10
 
-    font = Monospace 11
+    font = Monospace 10
     follow = mouse
 
     markup = full
