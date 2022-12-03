@@ -15,6 +15,8 @@ nnoremap Y y$
 nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap J mzJ`z
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
 
 " Shortcutting split navigation, saving a keypress:
 map <C-h> <C-w>h
