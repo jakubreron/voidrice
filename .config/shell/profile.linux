@@ -1,8 +1,17 @@
 #!/bin/zsh
 
-# NOTE: yarn installed via brew is included in another place
-export PATH="$PATH:$(yarn global bin)"
+# Path
 export PATH="$PATH:${$(find $HOME/.local/bin -type d -printf %p:)%%:}"
+
+# Programs
+export TERMINAL="st"
+export BROWSER="firefox"
+export BACKUP_BROWSER="chromium"
+export GUI_FILE_EXPLORER="nautilus"
+export CLI_FILE_EXPLORER="lfrun"
+export CLI_MAIL_CLIENT="neomutt"
+export CLI_MUSIC_PLAYER="ncmpcpp"
+export PACKAGE_MANAGER="paru"
 
 # NOTE: LANG is the default locale for all the LC_* variables (ja_JP.UTF-8 causes bugs in some CLI programs)
 # export LANG="en_US.UTF-8" 
@@ -39,16 +48,6 @@ fi
 
 # Exclude certain packages from being generated
 export EXCLUDED_PACKAGES="intel-ucode|xf86-video-intel|amd-ucode|tlp|tlp-rdw|phpstorm|phpstorm-jre|php|php-.*$|lib-.*$|amd.*$|steam|remmina|remmina-.*$"
-
-# Programs
-export TERMINAL="st"
-export BROWSER="firefox"
-export BACKUP_BROWSER="chromium"
-export GUI_FILE_EXPLORER="nautilus"
-export CLI_FILE_EXPLORER="lfrun"
-export CLI_MAIL_CLIENT="neomutt"
-export CLI_MUSIC_PLAYER="ncmpcpp"
-export PACKAGE_MANAGER="paru"
 
 export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"

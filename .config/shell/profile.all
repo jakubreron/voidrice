@@ -8,11 +8,14 @@ export CLI_GIT_APP="lazygit"
 export CLI_DOCKER_APP="lazydocker"
 
 # PATHS
-export PATH="$HOME/.fnm:$PATH"
 export PATH="$HOME/.local/share/cargo/bin:$PATH"
+
+# TODO: To be removed after graduating
 export PATH="$HOME/.dotnet/tools:$PATH"
 
-# pnpm
+# Node (Yarn, PNPM)
+export PATH="$HOME/.fnm:$PATH"
+export PATH="$(yarn global bin):$PATH"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
