@@ -15,7 +15,6 @@ export PATH="$HOME/.dotnet/tools:$PATH"
 
 # Node (Yarn, PNPM)
 export PATH="$HOME/.fnm:$PATH"
-export PATH="$(yarn global bin):$PATH"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 

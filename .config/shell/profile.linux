@@ -1,6 +1,7 @@
 #!/bin/zsh
 
 # Scripts
+export PATH="$(yarn global bin):$PATH"
 export PATH="$PATH:${$(find $HOME/.local/bin -type d -printf %p:)%%:}"
 
 # Programs
