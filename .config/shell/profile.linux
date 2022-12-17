@@ -15,7 +15,7 @@ export CLI_MUSIC_PLAYER="ncmpcpp"
 export PACKAGE_MANAGER="paru"
 
 export AUTOSTART_PROGRAMS="
-picom --experimental-backend
+picom
 dunst
 unclutter
 keepassxc
