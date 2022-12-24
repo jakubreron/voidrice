@@ -21,7 +21,6 @@ unclutter
 keepassxc
 redshift
 fcitx
-/usr/lib/kdeconnectd
 git-sync-repos global
 grive --path $XDG_CUSTOM_STORAGE_DIR
 "
@@ -32,6 +31,7 @@ if [[ $(hostnamectl --static) == *'desktop'* ]]; then
   export PACKAGE_TYPE="primary"
   export LAYOUT_TYPE="primary"
   export ADDITIONAL_AUTOSTART_PROGRAMS="
+    /usr/lib/kdeconnectd
     easyeffects --gapplication-service
     fragments
   "
