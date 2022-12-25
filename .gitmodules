@@ -19,12 +19,6 @@
 [submodule ".config/zsh/plugins/zsh-syntax-highlighting"]
 	path = .config/zsh/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
-[submodule ".config/tmux/themes/catppuccin"]
-	path = .config/tmux/themes/catppuccin
-	url = https://github.com/catppuccin/tmux
-[submodule ".config/alacritty/themes"]
-	path = .config/alacritty/themes
-	url = https://github.com/catppuccin/alacritty
 [submodule ".config/alacritty/themes/catppuccin"]
 	path = .config/alacritty/themes/catppuccin
 	url = https://github.com/catppuccin/alacritty
