@@ -1,6 +1,3 @@
-" When shortcut files are updated, renew bash and ranger configs with new material:
-autocmd VimLeave bm-files,bm-dirs,bm-websites !shortcuts; git add .; git commit -m 'config(bm-{dirs,files,websites}): ⚙️ auto-commit changes'; git push
-
 " Run xrdb whenever Xdefaults or Xresources are updated.
 autocmd BufRead,BufNewFile Xresources,Xdefaults,xresources,xdefaults set filetype=xdefaults
 autocmd BufWritePost Xresources,Xdefaults,xresources,xdefaults !xrdb %
@@ -10,6 +7,8 @@ autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markd
 autocmd BufRead,BufNewFile *.ms,*.me,*.mom,*.man set filetype=groff
 autocmd BufRead,BufNewFile *.tex set filetype=tex
 
+" When shortcut files are updated, renew bash and ranger configs with new material:
+autocmd VimLeave bm-files,bm-dirs,bm-websites !shortcuts; git add .; git commit -m 'config(bm-{dirs,files,websites}): ⚙️ auto-commit changes'; git push
 " Auto commit dotfiles changes
 autocmd VimLeave $DOTFILES_DIR/voidrice/.config/lf/lfrc !git add .; git commit -m 'config(lfrc): ⚙️ auto-commit changes'; git push;
 autocmd VimLeave $DOTFILES_DIR/voidrice/.config/picom.conf !git add .; git commit -m 'config(picom): ⚙️ auto-commit changes'; git push;
