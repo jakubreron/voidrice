@@ -80,18 +80,24 @@ cmd fzf_jump $lf -remote "send $id cd $(fzf-jump)"
 cmd delete ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
-	printf "%s\n\t" "$fx"
-	printf "delete?[y/N]"
+	printf "$fx \n"
+	printf "❌ Delete? [y/n] "
 	read ans
+	if [ -z "$ans" ]; then
+		ans="y"
+	fi
 	[ $ans = "y" ] && rm -rf -- $fx
 }}
 
 cmd extract ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
-	printf "%s\n\t" "$fx"
-	printf "extract?[y/N]"
+	printf "$fx \n"
+	printf "📦 Extract? [y/n] "
 	read ans
+	if [ -z "$ans" ]; then
+		ans="y"
+	fi
 	if [[ $ans = "y" ]]; then
 		for x in $fx; do
 			eval aunpack \"$x\"
@@ -124,9 +130,12 @@ cmd copyto ${{
 cmd share ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
-	printf "%s\n\t" "$fx"
-	printf "share?[y/N]"
+	printf "$fx \n"
+	printf "🌐 Share? [y/n] "
 	read ans
+	if [ -z "$ans" ]; then
+		ans="y"
+	fi
 	[ $ans = "y" ] && curl -F"file=@$fx" https://0x0.st | xclip -selection c
 }}
 
