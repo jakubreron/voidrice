@@ -211,13 +211,12 @@ map <c-n> new_dir
 map <c-k> kdeconnect
 map <c-o> dragon
 map <c-x> run_scripts
+map <c-s> set hidden!
 
 # map Z zip
 
 map x $$f # execute
 map X !$f
-
-map H set hidden!
 
 map o &mimeopen $f
 map O $mimeopen --ask $f
