@@ -78,3 +78,7 @@ if [[ $(hostnamectl --static) == *'thinkpad'* ]]; then
     charge-to-full="echo 100 | sudo tee /sys/devices/platform/smapi/BAT0/stop_charge_thresh" \
     charge-to-limited="echo 81 | sudo tee /sys/devices/platform/smapi/BAT0/stop_charge_thresh"
 fi
+
+# temporary
+alias \
+  dotnet-recreate-db="dotnet ef database drop && dotnet ef migrations add InitialCreate && dotnet ef database update"
