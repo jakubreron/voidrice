@@ -39,11 +39,6 @@ alias \
   sync-cf-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
   sync-cf-all="git-sync-repos 'global'; sync-cf-lvim; sync-cf-src; update-pkg-all; gen-pkg-all; replace-stow-all; replace-symlinks-all" \
 
-# systemctl
-alias \
-  sc="systemctl" \
-  scu="systemctl --user" \
-
 # For when keys break
 alias \
   fix-pkg-keys="sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys" \
