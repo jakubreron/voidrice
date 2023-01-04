@@ -22,11 +22,3 @@ cfgrub    /etc/default/grub
 
 # lvim
 cflv      $LVIM_CONFIG_DIR/config.lua
-cflvg     $LVIM_CONFIG_DIR/lua/config/general.lua
-cflvk     $LVIM_CONFIG_DIR/lua/config/keymaps.lua
-cflvl     $LVIM_CONFIG_DIR/lua/config/lsp.lua
-cflvt     $LVIM_CONFIG_DIR/lua/config/themes.lua
-cflvp     $LVIM_CONFIG_DIR/lua/config/plugins.lua
-
-# newsboat
-cfnbu	    ${XDG_CONFIG_HOME:-$HOME/.config}/newsboat/urls
