@@ -1,3 +1,5 @@
+vim.g.mapleader = " " -- space
+
 -- vim
 local options = {
 	dictionary = "/usr/share/dict/words",
@@ -17,7 +19,7 @@ local options = {
 	mouse = "a", -- allow the mouse to be used in neovim
 	pumheight = 10, -- pop up menu height
 	showmode = false, -- we don't need to see things like -- INSERT -- anymore
-	showtabline = 2, -- always show tabs
+	showtabline = 1, -- show tabline only if there are at least two tab pages (it's the default)
 	smartcase = true, -- smart case
 	smartindent = true, -- make indenting smarter again
 	splitbelow = true, -- force all horizontal splits to go below current window
@@ -50,20 +52,21 @@ local options = {
 	textwidth = 500, -- linebreak on 500 characters
 }
 
-vim.opt.path:append "**"
-vim.opt.wildignore:append "*.pyc"
-vim.opt.wildignore:append "*_build/*"
-vim.opt.wildignore:append "**/coverage/*"
-vim.opt.wildignore:append "**/node_modules/*"
-vim.opt.wildignore:append "**/android/*"
-vim.opt.wildignore:append "**/ios/*"
-vim.opt.wildignore:append "**/.git/*"
-vim.opt.wildignore:append "tags"
+vim.opt.path:append("**")
+vim.opt.wildignore:append("*.o")
+vim.opt.wildignore:append("*.pyc")
+vim.opt.wildignore:append("*_build/*")
+vim.opt.wildignore:append("**/coverage/*")
+vim.opt.wildignore:append("**/node_modules/*")
+vim.opt.wildignore:append("**/android/*")
+vim.opt.wildignore:append("**/ios/*")
+vim.opt.wildignore:append("**/.git/*")
+vim.opt.wildignore:append("tags")
 
-vim.opt.spelllang:append "cjk" -- disable spellchecking for asian characters (VIM algorithm does not support it)
-vim.opt.shortmess:append "c" -- don't show redundant messages from ins-completion-menu
-vim.opt.shortmess:append "I" -- don't show the default intro message
-vim.opt.whichwrap:append "<,>,[,],h,l"
+vim.opt.spelllang:append("cjk") -- disable spellchecking for asian characters (VIM algorithm does not support it)
+vim.opt.shortmess:append("c") -- don't show redundant messages from ins-completion-menu
+vim.opt.shortmess:append("I") -- don't show the default intro message
+vim.opt.whichwrap:append("<,>,[,],h,l")
 
 for k, v in pairs(options) do
 	vim.opt[k] = v

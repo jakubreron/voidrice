@@ -29,5 +29,14 @@ autocmd VimLeave ~/.local/src/dwm/config.h !cd ~/.local/src/dwm/; sudo make inst
 autocmd VimLeave ~/.local/src/dwmblocks/config.h !cd ~/.local/src/dwmblocks/; sudo make install && { killall -q dwmblocks;setsid -f dwmblocks }
 autocmd VimLeave ~/.local/bin/statusbar/* !{ killall -q dwmblocks;setsid -f dwmblocks }
 
+" Turns off highlighting on the bits of code that are changed, 
+" so the line that is changed is highlighted but the actual text that has changed stands out on the line and is readable.
+if &diff
+    highlight! link DiffText MatchParen
+endif
+
+" Set to auto read when a file is changed from the outside
+autocmd FocusGained,BufEnter * checktime
+
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
