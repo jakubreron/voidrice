@@ -37,7 +37,9 @@ if [[ $(hostnamectl --static) == *'desktop'* ]]; then
   "
 else
   export PACKAGE_TYPE="secondary"
-  export ADDITIONAL_AUTOSTART_PROGRAMS=""
+  export ADDITIONAL_AUTOSTART_PROGRAMS="
+    anki
+  "
 fi
 
 # Exclude certain packages from being generated
