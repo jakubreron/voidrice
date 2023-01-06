@@ -48,7 +48,7 @@ export VIMWIKI_DIR="$DOTFILES_DIR/universal/Documents/VimWiki"
 export EDITOR="lvim"
 export SUDO_EDITOR="/usr/bin/nvim"
 
-export MOZ_USE_XINPUT2="1"		# Mozilla smooth scrolling/touchpads.
+export MOZ_USE_XINPUT2=1		# Mozilla smooth scrolling/touchpads.
 export AWT_TOOLKIT="MToolkit wmname LG3D"	# May have to install wmname
 
 # CLI Dev
