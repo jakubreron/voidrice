@@ -187,19 +187,19 @@ map D delete
 map E extract
 map M moveto
 map C copyto
-map S share
+map U set hidden!
 
-# Go encrypt / decript / convert, etc...
 map ge encrypt
 map gd decrypt
 map gc convert
+map gx run_scripts
+
+map Sw share
+map Sk kdeconnect
 
 map <c-f> fzf_search
 map <c-n> new_dir
-map <c-k> kdeconnect
 map <c-o> dragon
-map <c-x> run_scripts
-map <c-s> set hidden!
 
 # map Z zip
 
