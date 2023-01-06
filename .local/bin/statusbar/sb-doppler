@@ -239,7 +239,7 @@ DE: SAC: Saxony
 DE: SAA: Saxony-Anhalt
 DE: SHH: Schleswig-Holstein
 DE: SHH: Hamburg
-DE: THU: Thuringia" | dmenu -r -i -l 50 -p "Select a radar to use as default:" | tr "[:lower:]" "[:upper:]")"
+DE: THU: Thuringia" | dmenu -r -i -p "Select a radar to use as default:" | tr "[:lower:]" "[:upper:]")"
 
 # Ensure user did not escape.
 [ -z "$chosen" ] && exit 1

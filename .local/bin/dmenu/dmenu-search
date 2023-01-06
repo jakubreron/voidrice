@@ -1,6 +1,6 @@
 #!/bin/sh
 
-LAUNCHER="dmenu -l 30 -i -p "
+LAUNCHER="dmenu -i -p "
 [ -z "${DISPLAY}" ] && LAUNCHER="fzf --prompt "
 
 localBROWSER="$BROWSER "
