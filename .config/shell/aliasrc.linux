@@ -13,7 +13,7 @@ alias \
 alias \
   clean-pkg-manager-orphans="pacman -Rns $(pacman -Qtdq)" \
   clean-pkg-manager-cache="$PACKAGE_MANAGER -Sc" \
-  clean-all="clean-pkg-manager-orphans; clean-pkg-manager-cache" \
+  clean-all="clean-pkg-manager-orphans; clean-pkg-manager-cache; profile-cleaner f" \
 
 # update packages
 alias \
