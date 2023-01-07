@@ -268,7 +268,7 @@ show_menu() {
     fi
 
     # Open dmenu, read chosen option
-    chosen="$(echo -e "$options" | $dmenu_command "Bluetooth")"
+    chosen="$(echo -e "$options" | $dmenu_command "Bluetooth:")"
 
     # Match chosen option to command
     case $chosen in
