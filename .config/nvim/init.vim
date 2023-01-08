@@ -1,6 +1,3 @@
-" NOTE: vim / neovim config
-source ~/.config/nvim/general.vim 
-
 " NOTE: settings shared between neovim / lunarvim configs
 source ~/.config/nvim/shared/general.lua
 source ~/.config/nvim/shared/mappings.vim
