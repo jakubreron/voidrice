@@ -1,5 +1,3 @@
-vim.g.mapleader = " " -- space
-
 -- vim
 local options = {
 	dictionary = "/usr/share/dict/words",
@@ -52,6 +50,10 @@ local options = {
 	textwidth = 500, -- linebreak on 500 characters
 }
 
+local globals = {
+  mapleader = " " -- space
+}
+
 vim.opt.path:append("**")
 vim.opt.wildignore:append("*.o")
 vim.opt.wildignore:append("*.pyc")
@@ -70,6 +72,10 @@ vim.opt.whichwrap:append("<,>,[,],h,l")
 
 for k, v in pairs(options) do
 	vim.opt[k] = v
+end
+
+for k, v in pairs(globals) do
+  vim.g[k] = v
 end
 
 vim.b.match_words = "<<<<<<<:=======:>>>>>>>" -- match git conflict markers with %
