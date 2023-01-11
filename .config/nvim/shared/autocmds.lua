@@ -1,3 +1,14 @@
+-- Set to auto read when a file is changed from the outside
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
+	pattern = { "*" },
+	command = "checktime",
+})
+
+vim.cmd([[
+  " Return to last edit position when opening files (You want this!)
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+]])
+
 local x_filetypes = { "xresources", "xdefaults" }
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = x_filetypes,
@@ -6,21 +17,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = x_filetypes,
 	command = "!xrdb %",
-})
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = { "/tmp/calcurse*", "~/.calcurse/notes/*" },
-	command = "setlocal filetype=markdown",
-})
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = { "*.ms", "*.me", "*.mom", "*.man" },
-	command = "setlocal filetype=groff",
-})
-
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = { "*.tex" },
-	command = "setlocal filetype=text",
 })
 
 local auto_commit = function(type, scope)
@@ -38,27 +34,23 @@ vim.api.nvim_create_autocmd({ "VimLeave" }, {
 })
 
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
-	pattern = { "aliasrc*" },
+	pattern = { vim.fn.expand("~") .. "/.config/shell/aliasrc*" },
 	command = auto_commit("config", "alias"),
 })
-
--- Set to auto read when a file is changed from the outside
-vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
-	pattern = { "*" },
-	command = "checktime",
+vim.api.nvim_create_autocmd({ "VimLeave" }, {
+	pattern = { vim.fn.expand("~") .. "/.config/shell/profile*" },
+	command = auto_commit("config", "profile"),
 })
 
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
-	pattern = { "config.h" },
+	pattern = { "*/src/*/config.h" },
 	command = "!sudo make install",
 })
-
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
-	pattern = { vim.fn.expand("~") .. "/.local/src/dwm/config.h" },
+	pattern = { "*/src/dwm/config.h" },
 	command = "!kill -HUP $(pgrep -u $USER '\bdwm$')",
 })
-
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
-	pattern = { vim.fn.expand("~") .. "/.local/src/dwmblocks/config.h" },
+	pattern = { "*/src/dwmblocks/config.h" },
 	command = "!{ killall -q dwmblocks;setsid -f dwmblocks }",
 })
