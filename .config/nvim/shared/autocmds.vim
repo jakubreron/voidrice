@@ -1,14 +1,7 @@
-" When shortcut files are updated, renew bash and ranger configs with new material:
-" autocmd VimLeave bm-files,bm-dirs,bm-websites !shortcuts; git add .; git commit -m 'config(bm-files): ⚙️ auto-commit changes'; git push
-" Auto commit dotfiles changes
-autocmd VimLeave $DOTFILES_DIR/voidrice/.config/lf/lfrc !git add .; git commit -m 'config(lfrc): ⚙️ auto-commit changes'; git push;
-autocmd VimLeave $DOTFILES_DIR/voidrice/.config/picom.conf !git add .; git commit -m 'config(picom): ⚙️ auto-commit changes'; git push;
 autocmd VimLeave $DOTFILES_DIR/voidrice/.config/shell/profile* !git add .; git commit -m 'config(profile): ⚙️ auto-commit changes'; git push;
-autocmd VimLeave $DOTFILES_DIR/voidrice/.config/newsboat/urls !git add .; git commit -m 'docs(newsboat): ✏️ auto-commit changes'; git push;
 autocmd VimLeave $DOTFILES_DIR/voidrice/.config/zsh/.zshrc !git add .; git commit -m 'config(zshrc): ⚙️ auto-commit changes'; git push;
 autocmd VimLeave $DOTFILES_DIR/voidrice/.config/shell/aliasrc* !git add .; git commit -m 'config(aliases): ⚙️ auto-commit changes'; git push;
 autocmd VimLeave $VIMWIKI_DIR/* !git add *; git commit -m 'docs(vimwiki): ✏️ auto-commit changes'; git push;
-autocmd VimLeave $DOTFILES_DIR/universal/.ticker.yaml !git add .; git commit -m 'docs(ticker): ✏️ auto-commit changes'; git push;
 autocmd VimLeave $DOTFILES_DIR/universal/.config/git/config !git add .; git commit -m 'config(git): ⚙️ auto-commit changes'; git push;
 autocmd VimLeave $DOTFILES_DIR/universal/.config/git/.gitignore_global !git add .; git commit -m 'config(gitignore_global): ⚙️ auto-commit changes'; git push;
 autocmd VimLeave $DOTFILES_DIR/universal/.config/bookmarks !git add .; git commit -m 'docs(bookmarks): ✏️ auto-commit changes'; git push;
