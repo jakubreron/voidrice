@@ -4,6 +4,7 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
 	command = "checktime",
 })
 
+-- TODO: try to find a lua alternative / try to refactor
 vim.cmd([[
   " Return to last edit position when opening files (You want this!)
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
