@@ -38,8 +38,8 @@ vim.api.nvim_create_autocmd({ "VimLeave" }, {
 })
 
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
-	pattern = { vim.fn.expand("$DOTFILES_DIR") .. "/voidrice/.config/*" },
-	command = auto_commit("config", "config"),
+	pattern = { "aliasrc*" },
+	command = auto_commit("config", "alias"),
 })
 
 -- Set to auto read when a file is changed from the outside
