@@ -39,6 +39,8 @@ if [[ $(hostnamectl --static) == *'desktop'* ]]; then
 else
   export PACKAGE_TYPE="secondary"
   export ADDITIONAL_AUTOSTART_PROGRAMS="
+    /usr/lib/kdeconnectd
+    easyeffects --gapplication-service
     anki
   "
 fi
