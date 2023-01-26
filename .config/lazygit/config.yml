@@ -1,8 +1,16 @@
 gui:
   skipUnstageLineWarning: true
   showIcons: true
+  mouseEvents: false
+  authorColors:
+    "Jakub Reroń": "red"
+    "Jakub Reron": "red"
+    "jakubreron": "red"
+    "jr": "red"
   theme:
     selectedLineBgColor:
       - reverse
     selectedRangeBgColor:
       - reverse
+git: 
+  branchLogCmd: "git lg {{branchName}} --"
