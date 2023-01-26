@@ -34,10 +34,11 @@ alias \
   replace-symlinks-firefox-chrome="ln -sf $DOTFILES_DIR/firefox-config/userChrome.css ~/.mozilla/firefox/*.default-*/chrome" \
   replace-symlinks-all="replace-symlinks-firefox-userjs; replace-symlinks-firefox-chrome" \
 
-# Sync all
+# Sync
 alias \
-  sync-cf-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
-  sync-cf-all="git-sync-repos 'global'; sync-cf-lvim; sync-cf-src; update-pkg-all; gen-pkg-all; replace-stow-all; replace-symlinks-all" \
+  sync-drive="grive --path $XDG_CUSTOM_STORAGE_DIR" \
+  sync-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
+  sync-all="git-sync-repos 'global'; sync-cf-lvim; sync-cf-src; update-pkg-all; gen-pkg-all; replace-stow-all; replace-symlinks-all; sync-drive" \
 
 # For when keys break
 alias \

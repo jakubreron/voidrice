@@ -28,9 +28,9 @@ alias \
   replace-symlinks-firefox-chrome="ln -sf $DOTFILES_DIR/firefox-config/userChrome.css ~/Library/Application\ Support/Firefox/Profiles/*.default-*/chrome/userChrome.css" \
   replace-symlinks-all="replace-symlinks-firefox-userjs; replace-symlinks-firefox-chrome"
 
-# Sync all
+# Sync
 alias \
-  sync-cf-all="git-sync-repos 'global'; sync-cf-lvim; clean-all; update-pkg-all; gen-pkg-all; replace-stow-all"
+  sync-all="git-sync-repos 'global'; sync-cf-lvim; clean-all; update-pkg-all; gen-pkg-all; replace-stow-all"
 
 # Lock the screen
 alias \
