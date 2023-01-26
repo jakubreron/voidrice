@@ -1,5 +1,6 @@
 gui:
   skipUnstageLineWarning: true
+  showIcons: true
   theme:
     selectedLineBgColor:
       - reverse

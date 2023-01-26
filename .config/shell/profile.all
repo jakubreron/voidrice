@@ -46,6 +46,7 @@ export VIMWIKI_DIR="$DOTFILES_DIR/universal/Documents/VimWiki"
 
 # Programs
 export EDITOR="lvim"
+export GIT_EDITOR="$EDITOR"
 export SUDO_EDITOR="/usr/bin/nvim"
 
 export MOZ_USE_XINPUT2=1		# Mozilla smooth scrolling/touchpads.
