@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [[ $(hostnamectl --static) == *'desktop'* ]]; then
+  exec anki
+else
+  exec env vblank_mode=0 anki
+fi
