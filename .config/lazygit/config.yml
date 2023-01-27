@@ -1,7 +1,13 @@
+disableStartupPopups: true
+notARepository: "skip"
 gui:
   skipUnstageLineWarning: true
   showIcons: true
   mouseEvents: false
+  showFileTree: true
+  showBottomLine: false # for hiding the bottom information line (unless it has important information to tell you)
+  showRandomTip: false
+  showCommandLog: true
   authorColors:
     "Jakub Reroń": "red"
     "Jakub Reron": "red"
