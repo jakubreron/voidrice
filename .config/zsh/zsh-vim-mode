@@ -1,12 +1,5 @@
 #!/bin/sh
 
-# Basic auto/tab complete:
-autoload -U compinit
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)	# Include hidden files.
-
 # del char in visual and normal modes
 bindkey -M vicmd '^[[P' vi-delete-char
 bindkey -M visual '^[[P' vi-delete
