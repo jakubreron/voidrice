@@ -1,32 +1,13 @@
 # some useful options (man zshoptions)
-stty stop undef		# Disable ctrl-s to freeze terminal.
+stty stop undef	# Disable ctrl-s to freeze terminal.
 
 setopt glob_dots
 setopt extendedglob nomatch menucomplete
 setopt autocd		# Automatically cd into typed directory.
 setopt interactive_comments
 
-# Powerlevel10k
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-
-# ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Path to oh-my-zsh installation.
-# source $ZDOTDIR/.oh-my-zsh/oh-my-zsh.sh
-
-# To customize prompt, run `p10k configure` or edit ~/.config/personal/universal/shell/.p10k.zsh.
-# [[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
-
-# eval "$(oh-my-posh --init --shell zsh --config ~/.config/zsh/theme.omp.json)"
-
-# Load aliases and shortcuts if existent.
+# Load shortcuts if existent.
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
 
 # Enable colors and change prompt:
@@ -40,7 +21,7 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
-# Useful Functions
+source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 source "$ZDOTDIR/zsh-functions"
 
 chpwd() {
@@ -52,16 +33,15 @@ if [[ $OSTYPE == 'darwin'* ]]; then
   eval $(/opt/homebrew/bin/brew shellenv)
 fi
 
-zsh_add_file "zsh-exports"
-zsh_add_file "zsh-prompt"
-
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "zsh-users/zsh-history-substring-search"
 zsh_add_plugin "hlissner/zsh-autopair"
-zsh_add_completion "esc/conda-zsh-completion" false
 
+
+zsh_add_file "zsh-exports"
+zsh_add_file "zsh-prompt"
 # Normal files to source that depend on some plugins
 zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-keybinds"
