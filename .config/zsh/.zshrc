@@ -5,7 +5,7 @@ stty stop undef	# Disable ctrl-s to freeze terminal.
 
 setopt glob_dots
 setopt extendedglob nomatch menucomplete
-setopt autocd		# Automatically cd into typed directory.
+setopt autocd
 setopt interactive_comments
 
 # Load shortcuts if existent.
@@ -25,12 +25,12 @@ plug "zsh-users/zsh-syntax-highlighting"
 plug "zsh-users/zsh-history-substring-search"
 plug "hlissner/zsh-autopair"
 plug "zap-zsh/exa"
+plug "zap-zsh/zap-prompt"
 
 # Files
 plug "$XDG_CONFIG_HOME/shell/aliasrc"
 
 plug "$ZDOTDIR/zsh-exports"
-plug "$ZDOTDIR/zsh-prompt"
 plug "$ZDOTDIR/zsh-vim-mode"
 plug "$ZDOTDIR/zsh-keybinds"
 plug "$ZDOTDIR/zsh-functions"
