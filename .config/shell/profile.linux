@@ -35,13 +35,12 @@ if [[ $(hostnamectl --static) == *'desktop'* ]]; then
     easyeffects --gapplication-service
     fragments
   "
-  export CAPACITOR_ANDROID_STUDIO_PATH="/usr/bin/android-studio"
+  export CAPACITOR_ANDROID_STUDIO_PATH="/usr/bin/android-studio" # TODO: remove it later
 else
   export PACKAGE_TYPE="secondary"
   export ADDITIONAL_AUTOSTART_PROGRAMS="
     /usr/lib/kdeconnectd
     easyeffects --gapplication-service
-    anki
   "
 fi
 
