@@ -23,9 +23,6 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
-source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
-source "$ZDOTDIR/zsh-functions"
-
 chpwd() {
   ls -la
 }
@@ -36,12 +33,16 @@ if [[ $OSTYPE == 'darwin'* ]]; then
 fi
 
 # Plugins
-zsh_add_plugin "zsh-users/zsh-autosuggestions"
-zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
-zsh_add_plugin "zsh-users/zsh-history-substring-search"
-zsh_add_plugin "hlissner/zsh-autopair"
+plug "zsh-users/zsh-autosuggestions"
+plug "zsh-users/zsh-syntax-highlighting"
+plug "zsh-users/zsh-history-substring-search"
+plug "hlissner/zsh-autopair"
 
-plug "zsh-exports"
-plug "zsh-prompt"
-plug "zsh-vim-mode"
-plug "zsh-keybinds"
+# Files
+plug "$ZDOTDIR/zsh-exports"
+plug "$ZDOTDIR/zsh-prompt"
+plug "$ZDOTDIR/zsh-vim-mode"
+plug "$ZDOTDIR/zsh-keybinds"
+plug "$ZDOTDIR/zsh-functions"
+plug "$XDG_CONFIG_HOME/shell/aliasrc"
+
