@@ -1,6 +1,11 @@
 #!/bin/sh
+HISTFILE="$ZDOTDIR/.zsh_history"
+HISTSIZE=1000000
+SAVEHIST=1000000
+
 eval "$(mcfly init zsh)"
 eval "$(fnm env)"
+# eval "`pip completion --zsh`"
 
 export MANPAGER="$EDITOR +Man!"
 export MANWIDTH=999
