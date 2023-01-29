@@ -3,7 +3,7 @@ HISTFILE="$ZDOTDIR/.zsh_history"
 HISTSIZE=100000
 SAVEHIST=100000
 
-eval "$(mcfly init zsh | sed "s,\^R,^H,")"
+eval "$(mcfly init zsh)"
 eval "$(fnm env)"
 
 export MANPAGER="$EDITOR +Man!"
