@@ -141,8 +141,7 @@ cmd share ${{
 
 cmd fzf_search $lf -remote "send $id select \"$(fzf)\""
 
-cmd mkdir %mkdir "$@"
-cmd new_dir push :mkdir<space>
+cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
 
 cmd encrypt $gpg -c --no-symkey-cache --cipher-algo AES256 $f
 cmd decrypt $gpg $f
@@ -198,7 +197,7 @@ map Sw share
 map Sk kdeconnect
 
 map <c-f> fzf_search
-map <c-n> new_dir
+map <c-n> push :mkdir<space>
 map <c-o> dragon
 
 # map Z zip
