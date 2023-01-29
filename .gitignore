@@ -38,7 +38,7 @@
 .idea
 *.log
 *.asar
-*.bak
+# *.bak
 *.out
 shortcutrc
 

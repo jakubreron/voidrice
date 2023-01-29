@@ -4,7 +4,7 @@
 # If you use startx/xinit like a Chad, this file will also be sourced.
 
 # Setbg without wal
-setbg "" "false" &			                               
+setbg &			                               
 
 # Xresources colors/settings on startup
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	 
