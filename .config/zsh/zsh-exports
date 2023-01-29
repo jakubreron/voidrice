@@ -1,9 +1,9 @@
 #!/bin/sh
 HISTFILE="$ZDOTDIR/.zsh_history"
-HISTSIZE=1000000
-SAVEHIST=1000000
+HISTSIZE=100000
+SAVEHIST=100000
 
-eval "$(mcfly init zsh)"
+eval "$(mcfly init zsh | sed "s,\^R,^H,")"
 eval "$(fnm env)"
 # eval "`pip completion --zsh`"
 
