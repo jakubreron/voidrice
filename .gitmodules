@@ -16,3 +16,6 @@
 [submodule ".config/x11/themes"]
 	path = .config/x11/themes
 	url = git@github.com:dracula/xresources.git
+[submodule ".config/alacritty/themes/dracula"]
+	path = .config/alacritty/themes/dracula
+	url = git@github.com:dracula/alacritty.git
