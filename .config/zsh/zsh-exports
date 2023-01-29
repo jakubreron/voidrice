@@ -5,7 +5,6 @@ SAVEHIST=100000
 
 eval "$(mcfly init zsh | sed "s,\^R,^H,")"
 eval "$(fnm env)"
-# eval "`pip completion --zsh`"
 
 export MANPAGER="$EDITOR +Man!"
 export MANWIDTH=999
