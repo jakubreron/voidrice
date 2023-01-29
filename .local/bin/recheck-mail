@@ -1,0 +1,3 @@
+#!/bin/sh
+
+notify-send '🔃 Syncing the mail'; mw -Y &

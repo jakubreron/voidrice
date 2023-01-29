@@ -11,6 +11,7 @@ xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!
 
 # Switching caps/esc, adjusting speed, etc...
 remaps &		                                                         
+recheck-mail &
 
 autostart="
 $AUTOSTART_PROGRAMS
