@@ -218,7 +218,6 @@ map a push A<a-b> # after extension
 map A rename # at the very end
 
 map b $setbg $f
-map B $setbg $f false # without wal
 
 map W open_in_new_terminal
 
