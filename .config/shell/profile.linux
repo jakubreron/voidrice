@@ -34,7 +34,7 @@ if [[ $(hostnamectl --static) == *'desktop'* ]]; then
   export LAYOUT_TYPE="primary"
   export ADDITIONAL_AUTOSTART_PROGRAMS="
   "
-  export CAPACITOR_ANDROID_STUDIO_PATH="/usr/bin/android-studio" # TODO: remove it later
+  export CAPACITOR_ANDROID_STUDIO_PATH="/usr/bin/android-studio" # TODO: remove after graduating
 else
   export PACKAGE_TYPE="secondary"
   export ADDITIONAL_AUTOSTART_PROGRAMS="
