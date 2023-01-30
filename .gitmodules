@@ -19,3 +19,9 @@
 [submodule ".config/alacritty/themes/dracula"]
 	path = .config/alacritty/themes/dracula
 	url = git@github.com:dracula/alacritty.git
+[submodule ".config/dunst"]
+	path = .config/dunst
+	url = git@github.com:dracula/dunst.git
+[submodule ".config/zathura/themes"]
+	path = .config/zathura/themes
+	url = git@github.com:dracula/zathura.git
