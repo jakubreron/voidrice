@@ -31,6 +31,7 @@ Dvb      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Backups
 Dvd      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Documents
 Dvdb     ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Documents/Books
 Dvp      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Pictures
+Dvpw      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Pictures/Wallpapers
 Dvv      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Videos
 
 # config
