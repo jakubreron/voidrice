@@ -13,16 +13,30 @@ done
 export PATH
 unset bin_list
 
-# Variable for packages generation
-export PACKAGE_TYPE="work"
-export YARN_REGISTRY="https://registry.npmjs.org/" # sneaky xd
+function __setup_packages() {
+  export PACKAGE_TYPE="work"
+  export PACKAGE_MANAGER="brew"
 
-# Programs
-export TERMINAL="alacritty"
-export BROWSER="firefox"
-export BACKUP_BROWSER="chrome"
-export GUI_FILE_EXPLORER="open"
-export CLI_FILE_EXPLORER="lf"
-export CLI_MAIL_CLIENT="neomutt"
-export CLI_MUSIC_PLAYER="ncmpcpp"
-export PACKAGE_MANAGER="brew"
+  export YARN_REGISTRY="https://registry.npmjs.org/" # sneaky xd
+}
+
+function __setup_defaults() {
+  export TERMINAL="alacritty"
+  export BROWSER="firefox"
+  export BACKUP_BROWSER="chrome"
+  export GUI_FILE_EXPLORER="open"
+  export CLI_FILE_EXPLORER="lf"
+  export CLI_MAIL_CLIENT="neomutt"
+  export CLI_MUSIC_PLAYER="ncmpcpp"
+}
+
+setup_functions=(
+  __setup_packages
+  __setup_defaults
+)
+
+for func in "${setup_functions[@]}"; do
+  "$func"
+  unset -f "$func"
+done
+unset setup_functions

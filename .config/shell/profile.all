@@ -1,12 +1,5 @@
 #!/bin/zsh
 
-# Programs
-export CLI_SYSTEM_MONITOR="btop"
-export CLI_STOCKS_APP="ticker"
-export CLI_CRYPTO_APP="cointop"
-export CLI_GIT_APP="lazygit"
-export CLI_DOCKER_APP="lazydocker"
-
 # TODO: remove dotnet after graduating
 # TODO: verify $HOME/.fnm
 bin_list=(
@@ -21,6 +14,13 @@ for extra in "${bin_list[@]}"; do
 done
 export PATH
 unset bin_list
+
+# Programs
+export CLI_SYSTEM_MONITOR="btop"
+export CLI_STOCKS_APP="ticker"
+export CLI_CRYPTO_APP="cointop"
+export CLI_GIT_APP="lazygit"
+export CLI_DOCKER_APP="lazydocker"
 
 # XDG main
 export XDG_DOWNLOAD_DIR="$HOME/Downloads"
