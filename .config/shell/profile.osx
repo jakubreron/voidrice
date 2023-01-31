@@ -1,8 +1,17 @@
 #!/bin/zsh
 
-export PATH="${HOME}/.local/bin:${PATH}" # .local/bin on osx doesn't work with the "-printf" way
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH" # macports
-export PATH="$HOME/.local/bin/homebrew/:$PATH" # brew
+# .local/bin on osx doesn't work with the "-printf" way
+bin_list=(
+  "$HOME/.local/bin"
+  "/opt/local/bin:/opt/local/sbin"
+  "$HOME/.local/bin/homebrew/"
+  )
+
+for extra in "${bin_list[@]}"; do
+  PATH=$extra:$PATH
+done
+export PATH
+unset bin_list
 
 # Variable for packages generation
 export PACKAGE_TYPE="work"

@@ -7,16 +7,20 @@ export CLI_CRYPTO_APP="cointop"
 export CLI_GIT_APP="lazygit"
 export CLI_DOCKER_APP="lazydocker"
 
-# PATHS
-export PATH="$HOME/.local/share/cargo/bin:$PATH"
+# TODO: remove dotnet after graduating
+# TODO: verify $HOME/.fnm
+bin_list=(
+  "$HOME/.local/share/cargo/bin"
+  "$HOME/.dotnet/tools"
+  "$HOME/.local/share/pnpm"
+  "$HOME/.fnm"
+  )
 
-# TODO: To be removed after graduating
-export PATH="$HOME/.dotnet/tools:$PATH"
-
-# Node (Yarn, PNPM)
-export PNPM_HOME="$HOME/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-export PATH="$HOME/.fnm:$PATH"
+for extra in "${bin_list[@]}"; do
+  PATH=$extra:$PATH
+done
+export PATH
+unset bin_list
 
 # XDG main
 export XDG_DOWNLOAD_DIR="$HOME/Downloads"

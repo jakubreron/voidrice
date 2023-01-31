@@ -1,8 +1,15 @@
 #!/bin/zsh
 
-# Scripts
-export PATH="$(yarn global bin):$PATH"
-export PATH="$PATH:${$(find $HOME/.local/bin -type d -printf %p:)%%:}"
+bin_list=(
+  "$(yarn global bin)"
+  "${$(find $HOME/.local/bin -type d -printf %p:)%%:}"
+  )
+
+for extra in "${bin_list[@]}"; do
+  PATH=$extra:$PATH
+done
+export PATH
+unset bin_list
 
 # Programs
 export TERMINAL="st"
