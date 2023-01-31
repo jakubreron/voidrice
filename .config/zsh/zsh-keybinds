@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Key bindings
 bindkey -s '^o' '^u${CLI_FILE_EXPLORER}\n' # open
 bindkey -s '^b' '^u${GUI_FILE_EXPLORER} .\n' # browse

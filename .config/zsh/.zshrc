@@ -1,36 +1,41 @@
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 
-# some useful options (man zshoptions)
-stty stop undef	# Disable ctrl-s to freeze terminal.
+function __setup_defaults() {
+  stty stop undef	# Disable ctrl-s to freeze terminal.
 
-setopt glob_dots
-setopt extendedglob nomatch menucomplete
-setopt autocd
-setopt interactive_comments
+  setopt GLOB_DOTS
+  setopt EXTENDED_GLOB NOMATCH MENU_COMPLETE
+  setopt AUTO_CD
+  setopt INTERACTIVE_COMMENTS
+  setopt LIST_PACKED
+}
 
-# Load shortcuts if existent.
-plug "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc"
-plug "${XDG_CONFIG_HOME:-$HOME/.config}/shell/zshnameddirrc"
+function __setup_history() {
+  setopt EXTENDED_HISTORY   # Write the history file in the ":start:elapsed;command" format.
+  setopt HIST_FCNTL_LOCK    # Use  system’s fcntl call where available (better performance)
+  setopt HIST_IGNORE_SPACE  # Do not record an entry starting with a space.
+  setopt HIST_REDUCE_BLANKS # Remove superfluous blanks before recording entry.
+  setopt HIST_VERIFY        # Do not execute immediately upon history expansion.
+  setopt INC_APPEND_HISTORY # Write to the history file immediately, not when the shell exits.
+  setopt SHARE_HISTORY      # Share history between all sessions.
+}
 
-# Enable colors and change prompt:
-# PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+setup_functions=(
+  __setup_defaults
+  __setup_history
+)
 
-if [[ $OSTYPE == 'darwin'* ]]; then
-  eval $(/opt/homebrew/bin/brew shellenv)
-fi
+for func in "${setup_functions[@]}"; do
+  "$func"
+  unset -f "$func"
+done
+unset setup_functions
 
-# Plugins
-plug "zsh-users/zsh-autosuggestions"
-plug "zsh-users/zsh-syntax-highlighting"
-plug "zsh-users/zsh-history-substring-search"
-plug "hlissner/zsh-autopair"
-plug "zap-zsh/exa"
-plug "zap-zsh/zap-prompt"
-
-# Files
 plug "$XDG_CONFIG_HOME/shell/aliasrc"
+plug "$XDG_CONFIG_HOME/shell/shortcutrc"
+plug "$XDG_CONFIG_HOME/shell/zshnameddirrc"
 
-plug "$ZDOTDIR/zsh-exports"
+plug "$ZDOTDIR/zsh-plugins"
 plug "$ZDOTDIR/zsh-vim-mode"
 plug "$ZDOTDIR/zsh-keybinds"
 plug "$ZDOTDIR/zsh-functions"

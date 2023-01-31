@@ -29,6 +29,7 @@ alias \
 # general
 alias \
   t="tmux" \
+  tk='tmux kill-server' \
   l="ls -la" \
   nf="neofetch" \
   v="$EDITOR" \
