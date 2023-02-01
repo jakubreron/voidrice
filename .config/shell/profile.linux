@@ -25,11 +25,12 @@ export AUTOSTART_PROGRAMS="
 picom
 dunst
 unclutter
-keepassxc
 redshift
 fcitx
 easyeffects --gapplication-service
 /usr/lib/kdeconnectd
+keepassxc
+fragments
 git-sync-repos global
 grive --path $XDG_CUSTOM_STORAGE_DIR
 "
