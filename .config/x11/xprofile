@@ -13,11 +13,7 @@ xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!
 remaps &		                                                         
 recheck-mail &
 
-autostart="
-$AUTOSTART_PROGRAMS
-$ADDITIONAL_AUTOSTART_PROGRAMS
-"
-printf "%s" "$autostart" | while IFS="" read -r program; do
+printf "%s" "$AUTOSTART_PROGRAMS" | while IFS="" read -r program; do
 	pgrep -fl "$program" || $program &
 done >/dev/null 2>&1
 

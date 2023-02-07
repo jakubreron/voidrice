@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+# NOTE: do it the same way on macos
+# /home/jakub/.local/bin:/home/jakub/.local/bin/layouts:/home/jakub/.local/bin/statusbar:/home/jakub/.local/bin/cron:/home/jakub/.local/bin/dmenu
 bin_list=(
   "$(yarn global bin)"
   "${$(find $HOME/.local/bin -type d -printf %p:)%%:}"
@@ -11,72 +13,90 @@ done
 export PATH
 unset bin_list
 
-# Programs
-export TERMINAL="st"
-export BROWSER="firefox"
-export BACKUP_BROWSER="chromium"
-export GUI_FILE_EXPLORER="nautilus"
-export CLI_FILE_EXPLORER="lfrun"
-export CLI_MAIL_CLIENT="neomutt"
-export CLI_MUSIC_PLAYER="ncmpcpp"
-export PACKAGE_MANAGER="paru"
+function __setup_defaults() {
+  export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
+  export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
+  export SUDO_ASKPASS="$HOME/.local/bin/dmenu/dmenupass"
+  export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
+  export QT_QPA_PLATFORMTHEME='qt5ct' # QT Theme adjustements
 
-export AUTOSTART_PROGRAMS="
-picom
-dunst
-unclutter
-redshift
-fcitx
-easyeffects --gapplication-service
-/usr/lib/kdeconnectd
-keepassxc
-fragments
-git-sync-repos global
-grive --path $XDG_CUSTOM_STORAGE_DIR
-"
+  [ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
+}
 
-# NOTE: LAYOUT_TYPE (display arrangement): primary, secondary, temporary
-# NOTE: PACKAGE_TYPE (needed for package-generation auto-commits): primary, secondary
-if [[ $(hostnamectl --static) == *'desktop'* ]]; then
-  export PACKAGE_TYPE="primary"
-  export LAYOUT_TYPE="primary"
-  export ADDITIONAL_AUTOSTART_PROGRAMS="
+function __setup_keyboard() {
+  export GTK_IM_MODULE='fcitx'
+  export QT_IM_MODULE='fcitx'
+  export SDL_IM_MODULE='fcitx'
+  export XMODIFIERS='@im=fcitx'
+
+  # Switch escape and caps if tty and no passwd required:
+  sudo -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/larbs/ttymaps.kmap 2>/dev/null
+}
+
+function __setup_packages() {
+  export PACKAGE_MANAGER="paru"
+  # Exclude certain packages from being generated
+  export EXCLUDED_PACKAGES="intel-ucode|xf86-video-intel|amd-ucode|tlp|tlp-rdw|php|php-.*$|lib-.*$|amd.*$|steam|remmina|remmina-.*$"
+}
+
+function __setup_programs() {
+  export TERMINAL="st"
+  export BROWSER="firefox"
+  export BACKUP_BROWSER="chromium"
+  export GUI_FILE_EXPLORER="nautilus"
+  export CLI_FILE_EXPLORER="lfrun"
+  export CLI_MAIL_CLIENT="neomutt"
+  export CLI_MUSIC_PLAYER="ncmpcpp"
+
+  export AUTOSTART_PROGRAMS="
+    picom
+    dunst
+    unclutter
+    redshift
+    fcitx
+    easyeffects --gapplication-service
+    /usr/lib/kdeconnectd
+    keepassxc
+    fragments
+    git-sync-repos global
+    grive --path $XDG_CUSTOM_STORAGE_DIR
   "
-  export CAPACITOR_ANDROID_STUDIO_PATH="/usr/bin/android-studio" # TODO: remove after graduating
-else
-  export PACKAGE_TYPE="secondary"
-  export ADDITIONAL_AUTOSTART_PROGRAMS="
-  "
-fi
+}
 
-# Exclude certain packages from being generated
-export EXCLUDED_PACKAGES="intel-ucode|xf86-video-intel|amd-ucode|tlp|tlp-rdw|php|php-.*$|lib-.*$|amd.*$|steam|remmina|remmina-.*$"
+function __setup_machines() {
+  # NOTE: LAYOUT_TYPE (display arrangement): primary, secondary, temporary
+  # NOTE: PACKAGE_TYPE (needed for package-generation auto-commits): primary, secondary
+  if [[ $(hostnamectl --static) == *'desktop'* ]]; then
+    export PACKAGE_TYPE="primary"
+    export LAYOUT_TYPE="primary"
+    export CAPACITOR_ANDROID_STUDIO_PATH="/usr/bin/android-studio" # TODO: remove after graduating
+  else
+    export PACKAGE_TYPE="secondary"
+  fi
+}
 
-export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
-export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
-export SUDO_ASKPASS="$HOME/.local/bin/dmenu/dmenupass"
+# function __setup_lang() {
+#   # NOTE: LANG is the default locale for all the LC_* variables (ja_JP.UTF-8 causes bugs in some CLI programs)
+#   export LANG="en_US.UTF-8" 
+#   # NOTE: Then the desired language can be defined separately
+#   export LANGUAGE="ja_JP.UTF-8"
+#   export LC_MESSAGES="$LANGUAGE"
+#   export LC_TIME="$LANGUAGE"
+# }
 
-# Input
-export GTK_IM_MODULE='fcitx'
-export QT_IM_MODULE='fcitx'
-export SDL_IM_MODULE='fcitx'
-export XMODIFIERS='@im=fcitx'
+setup_functions=(
+  __setup_defaults
+  __setup_packages
+  __setup_programs
+  __setup_keyboard
+  __setup_machines
+)
 
-# NOTE: LANG is the default locale for all the LC_* variables (ja_JP.UTF-8 causes bugs in some CLI programs)
-# export LANG="en_US.UTF-8" 
-# NOTE: Then the desired language can be defined separately
-# export LANGUAGE="ja_JP.UTF-8"
-# export LC_MESSAGES="$LANGUAGE"
-# export LC_TIME="$LANGUAGE"
-
-export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
-
-export QT_QPA_PLATFORMTHEME='qt5ct' # QT Theme adjustements
-
-[ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
+for func in "${setup_functions[@]}"; do
+  "$func"
+  unset -f "$func"
+done
+unset setup_functions
 
 # Start graphical server on user's current tty if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
-
-# Switch escape and caps if tty and no passwd required:
-sudo -n loadkeys ${XDG_DATA_HOME:-$HOME/.local/share}/larbs/ttymaps.kmap 2>/dev/null

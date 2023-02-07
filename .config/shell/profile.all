@@ -1,12 +1,11 @@
 #!/bin/zsh
 
+unsetopt PROMPT_SP
+
 # TODO: remove dotnet after graduating
-# TODO: verify $HOME/.fnm
 bin_list=(
   "$HOME/.local/share/cargo/bin"
   "$HOME/.dotnet/tools"
-  "$HOME/.local/share/pnpm"
-  "$HOME/.fnm"
   )
 
 for extra in "${bin_list[@]}"; do
