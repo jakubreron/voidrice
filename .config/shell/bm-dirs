@@ -14,29 +14,29 @@ Mua     $XDG_MUSIC_DIR/albums
 Mut     $XDG_MUSIC_DIR/touhou
 Muar    $XDG_MUSIC_DIR/akatsuki-records
 
-Pr       $PROJECTS_DIR
-Prp      $PROJECTS_DIR/personal
-Prs      $PROJECTS_DIR/studies
-Prw      $PROJECTS_DIR/work
+Pr      $PROJECTS_DIR
+Prp     $PROJECTS_DIR/personal
+Prs     $PROJECTS_DIR/studies
+Prw     $PROJECTS_DIR/work
 
-Dv       $CUSTOM_STORAGE_DIR/
-Dvb      $CUSTOM_STORAGE_DIR/Backups
-Dvd      $CUSTOM_STORAGE_DIR/Documents
-Dvdb     $CUSTOM_STORAGE_DIR/Documents/Books
-Dvp      $CUSTOM_STORAGE_DIR/Pictures
-Dvpw     $CUSTOM_STORAGE_DIR/Pictures/Wallpapers
-Dvv      $CUSTOM_STORAGE_DIR/Videos
+Dv      $CLOUD_DIR/
+Dvb     $CLOUD_DIR/Backups
+Dvd     $CLOUD_DIR/Documents
+Dvdb    $CLOUD_DIR/Documents/Books
+Dvp     $CLOUD_DIR/Pictures
+Dvpw    $CLOUD_DIR/Pictures/Wallpapers
+Dvv     $CLOUD_DIR/Videos
 
-Cf       $XDG_CONFIG_HOME
-Cft      $XDG_CONFIG_HOME/tmux
-Cfz      $XDG_CONFIG_HOME/zsh
-Cflv     $LVIM_CONFIG_DIR
+Cf      $XDG_CONFIG_HOME
+Cft     $XDG_CONFIG_HOME/tmux
+Cfz     $XDG_CONFIG_HOME/zsh
+Cflv    $LVIM_CONFIG_DIR
 
-Cfp      $DOTFILES_DIR
-Cfpp     $PKGLIST_DIR
-Cfpu     $DOTFILES_DIR/universal
-Cfpv     $DOTFILES_DIR/voidrice
-Cfpm     $DOTFILES_DIR/macos
+Cfp     $DOTFILES_DIR
+Cfpp    $PKGLIST_DIR
+Cfpu    $DOTFILES_DIR/universal
+Cfpv    $DOTFILES_DIR/voidrice
+Cfpm    $DOTFILES_DIR/macos
 
 Lbn     $XDG_BIN_HOME
 Lbns    $XDG_BIN_HOME/statusbar

@@ -36,7 +36,7 @@ alias \
 
 # Sync
 alias \
-  sync-drive="grive --path $XDG_CUSTOM_STORAGE_DIR" \
+  sync-drive="grive --path $CLOUD_DIR" \
   sync-files="git-sync-repos 'global'; sync-drive;" \
   sync-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
   sync-all="sync-files; sync-lvim; sync-src; update-pkg-all; gen-pkg-all; replace-stow-all; replace-symlinks-all" \

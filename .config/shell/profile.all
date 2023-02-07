@@ -15,6 +15,10 @@ export PATH
 unset bin_list
 
 function __setup_programs() {
+  export EDITOR="lvim"
+  export GIT_EDITOR="$EDITOR"
+  export SUDO_EDITOR="/usr/bin/nvim"
+
   export CLI_SYSTEM_MONITOR="btop"
   export CLI_STOCKS_APP="ticker"
   export CLI_CRYPTO_APP="cointop"
@@ -22,7 +26,7 @@ function __setup_programs() {
   export CLI_DOCKER_APP="lazydocker"
 }
 
-function __setup_folders() {
+function __setup_xdg_dirs() {
   # export XDG_DESKTOP_DIR="$HOME/Desktop"
   export XDG_DOCUMENTS_DIR="$HOME/Documents"
   export XDG_DOWNLOAD_DIR="$HOME/Downloads"
@@ -38,7 +42,10 @@ function __setup_folders() {
   export XDG_BIN_HOME="$HOME/.local/bin"
   export XDG_CACHE_HOME="$HOME/.cache"
 
-  export CUSTOM_STORAGE_DIR="$HOME/Drive"
+}
+
+function __setup_custom_dirs() {
+  export CLOUD_DIR="$HOME/Drive"
   export TORRENTS_DIR="$XDG_DOCUMENTS_DIR/Torrents"
   export DOTFILES_DIR="$XDG_CONFIG_HOME/personal"
   export PKGLIST_DIR="$DOTFILES_DIR/pkglists"
@@ -50,45 +57,53 @@ function __setup_folders() {
   export VIMWIKI_DIR="$DOTFILES_DIR/universal/Documents/VimWiki"
 }
 
-# Programs
-export EDITOR="lvim"
-export GIT_EDITOR="$EDITOR"
-export SUDO_EDITOR="/usr/bin/nvim"
+function __setup_zsh() {
+  export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+  export HISTFILE="$ZDOTDIR/.zsh_history"
+  export HISTSIZE=100000
+  export SAVEHIST=100000
+}
 
-export MANPAGER="$EDITOR +Man!"
-export MANWIDTH=999
+function __setup_settings() {
+  export MANPAGER="$EDITOR +Man!"
+  export MANWIDTH=999
+  export MCFLY_KEY_SCHEME=vim
+  export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config"
+  export LESSHISTFILE="-"
+  export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
+  export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
+  export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
+  export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
+  export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+  export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+  export CARGO_HOME="$XDG_DATA_HOME/cargo"
+  export GOPATH="$XDG_DATA_HOME/go"
+  export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
+  export MOZ_USE_XINPUT2=1		# Mozilla smooth scrolling/touchpads.
+  export AWT_TOOLKIT="MToolkit wmname LG3D"	# May have to install wmname
+  export FZF_DEFAULT_OPTS='--preview "bat --line-range :500 {}"' # preview
 
-export MCFLY_KEY_SCHEME=vim
+  export LESS=-R
+  export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
+  export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
+  export LESS_TERMCAP_me="$(printf '%b' '[0m')"
+  export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"
+  export LESS_TERMCAP_se="$(printf '%b' '[0m')"
+  export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
+  export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
+  export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
+}
 
-# ZSH
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-export HISTFILE="$ZDOTDIR/.zsh_history"
-export HISTSIZE=100000
-export SAVEHIST=100000
+setup_functions=(
+  __setup_programs
+  __setup_xdg_dirs
+  __setup_custom_dirs
+  __setup_zsh
+  __setup_settings
+)
 
-# Misc
-export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config"
-export LESSHISTFILE="-"
-export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
-export INPUTRC="$XDG_CONFIG_HOME/shell/inputrc"
-export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/1000/bus"
-export WINEPREFIX="$XDG_DATA_HOME/wineprefixes/default"
-export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
-export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export GOPATH="$XDG_DATA_HOME/go"
-export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
-export MOZ_USE_XINPUT2=1		# Mozilla smooth scrolling/touchpads.
-export AWT_TOOLKIT="MToolkit wmname LG3D"	# May have to install wmname
-
-export FZF_DEFAULT_OPTS='--preview "bat --line-range :500 {}"'
-
-export LESS=-R
-export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
-export LESS_TERMCAP_md="$(printf '%b' '[1;36m')"
-export LESS_TERMCAP_me="$(printf '%b' '[0m')"
-export LESS_TERMCAP_so="$(printf '%b' '[01;44;33m')"
-export LESS_TERMCAP_se="$(printf '%b' '[0m')"
-export LESS_TERMCAP_us="$(printf '%b' '[1;32m')"
-export LESS_TERMCAP_ue="$(printf '%b' '[0m')"
-export LESSOPEN="| /usr/bin/highlight -O ansi %s 2>/dev/null"
+for func in "${setup_functions[@]}"; do
+  "$func"
+  unset -f "$func"
+done
+unset setup_functions

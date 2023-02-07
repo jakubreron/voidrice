@@ -1,4 +1,5 @@
 #!/bin/sh
+
 source $HOME/.config/shell/aliasrc.all
 
 if [[ $OSTYPE == 'linux'* ]]; then

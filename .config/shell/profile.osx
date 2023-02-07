@@ -13,13 +13,6 @@ done
 export PATH
 unset bin_list
 
-function __setup_packages() {
-  export PACKAGE_TYPE="work"
-  export PACKAGE_MANAGER="brew"
-
-  export YARN_REGISTRY="https://registry.npmjs.org/" # sneaky xd
-}
-
 function __setup_programs() {
   export TERMINAL="alacritty"
   export BROWSER="firefox"
@@ -30,9 +23,16 @@ function __setup_programs() {
   export CLI_MUSIC_PLAYER="ncmpcpp"
 }
 
+function __setup_packages() {
+  export PACKAGE_TYPE="work"
+  export PACKAGE_MANAGER="brew"
+
+  export YARN_REGISTRY="https://registry.npmjs.org/" # sneaky xd
+}
+
 setup_functions=(
-  __setup_packages
   __setup_programs
+  __setup_packages
 )
 
 for func in "${setup_functions[@]}"; do
