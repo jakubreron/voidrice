@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 source $HOME/.config/shell/aliasrc.all
 
