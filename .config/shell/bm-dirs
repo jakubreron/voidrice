@@ -1,71 +1,58 @@
-# general
-Ap      ${XDG_APPLICATIONS_DIR:-$HOME/Applications}
-Dw      ${XDG_DOWNLOAD_DIR:-$HOME/Downloads}
-Pi      ${XDG_PICTURES_DIR:-$HOME/Pictures}
-Vi      ${XDG_VIDEOS_DIR:-$HOME/Videos}
+Dw      $XDG_DOWNLOAD_DIR
+Pi      $XDG_PICTURES_DIR
+Vi      $XDG_VIDEOS_DIR
 
-# documents
-Do      ${XDG_DOCUMENTS_DIR:-$HOME/Documents}
+Do      $XDG_DOCUMENTS_DIR
 
-# Torrents
-Tr      ${XDG_DOCUMENTS_DIR:-$HOME/Documents}/Torrents
+Tr      $XDG_DOCUMENTS_DIR/Torrents
 
-# music
-Mu      ${XDG_MUSIC_DIR:-$HOME/Music}
-Mug     ${XDG_MUSIC_DIR:-$HOME/Music}/general
-Mul     ${XDG_MUSIC_DIR:-$HOME/Music}/live
-Muo     ${XDG_MUSIC_DIR:-$HOME/Music}/osts
-Mua     ${XDG_MUSIC_DIR:-$HOME/Music}/albums
-Mut     ${XDG_MUSIC_DIR:-$HOME/Music}/touhou
-Muar    ${XDG_MUSIC_DIR:-$HOME/Music}/akatsuki-records
+Mu      $XDG_MUSIC_DIR
+Mug     $XDG_MUSIC_DIR/general
+Mul     $XDG_MUSIC_DIR/live
+Muo     $XDG_MUSIC_DIR/osts
+Mua     $XDG_MUSIC_DIR/albums
+Mut     $XDG_MUSIC_DIR/touhou
+Muar    $XDG_MUSIC_DIR/akatsuki-records
 
-# projects
 Pr       $PROJECTS_DIR
 Prp      $PROJECTS_DIR/personal
 Prs      $PROJECTS_DIR/studies
 Prw      $PROJECTS_DIR/work
 
-# custom storage
-Dv       ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/
-Dvb      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Backups
-Dvd      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Documents
-Dvdb     ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Documents/Books
-Dvp      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Pictures
-Dvpw      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Pictures/Wallpapers
-Dvv      ${XDG_CUSTOM_STORAGE_DIR:-$HOME/Drive}/Videos
+Dv       $CUSTOM_STORAGE_DIR/
+Dvb      $CUSTOM_STORAGE_DIR/Backups
+Dvd      $CUSTOM_STORAGE_DIR/Documents
+Dvdb     $CUSTOM_STORAGE_DIR/Documents/Books
+Dvp      $CUSTOM_STORAGE_DIR/Pictures
+Dvpw     $CUSTOM_STORAGE_DIR/Pictures/Wallpapers
+Dvv      $CUSTOM_STORAGE_DIR/Videos
 
-# config
-Cf       ${XDG_CONFIG_HOME:-$HOME/.config}
-Cft      ${XDG_CONFIG_HOME:-$HOME/.config}/tmux
-Cfz      ${XDG_CONFIG_HOME:-$HOME/.config}/zsh
+Cf       $XDG_CONFIG_HOME
+Cft      $XDG_CONFIG_HOME/tmux
+Cfz      $XDG_CONFIG_HOME/zsh
 Cflv     $LVIM_CONFIG_DIR
-# config personal
+
 Cfp      $DOTFILES_DIR
 Cfpp     $PKGLIST_DIR
 Cfpu     $DOTFILES_DIR/universal
 Cfpv     $DOTFILES_DIR/voidrice
 Cfpm     $DOTFILES_DIR/macos
 
-# local
-L       $HOME/.local
-# local bin
-Lbn     ${XDG_BIN_HOME:-$HOME/.local/bin}
-Lbns    ${XDG_BIN_HOME:-$HOME/.local/bin}/statusbar
-Lbng    ${XDG_BIN_HOME:-$HOME/.local/bin}/git
-# local share
-Lsh     ${XDG_DATA_HOME:-$HOME/.local/share}
-Lshlv   $LVIM_SHARE_DIR
-# local src
-Lsr     ${XDG_SRC_HOME:-$HOME/.local/src}
-Lsrdw   ${XDG_SRC_HOME:-$HOME/.local/src}/dwm
-Lsrdb   ${XDG_SRC_HOME:-$HOME/.local/src}/dwmblocks
-Lsrdm   ${XDG_SRC_HOME:-$HOME/.local/src}/dmenu
-Lsrst   ${XDG_SRC_HOME:-$HOME/.local/src}/st
-Lsrsx   ${XDG_SRC_HOME:-$HOME/.local/src}/sxiv-flexipatch/
+Lbn     $XDG_BIN_HOME
+Lbns    $XDG_BIN_HOME/statusbar
+Lbng    $XDG_BIN_HOME/git
 
-# php
+Lsh     $XDG_DATA_HOME
+Lshlv   $VIM_SHARE_DIR
+
+Lsr     $XDG_SRC_HOME
+Lsrdw   $XDG_SRC_HOME/dwm
+Lsrdb   $XDG_SRC_HOME/dwmblocks
+Lsrdm   $XDG_SRC_HOME/dmenu
+Lsrst   $XDG_SRC_HOME/st
+Lsrsx   $XDG_SRC_HOME/sxiv-flexipatch/
+
 Php     /etc/php/
 Phpc    /etc/php/conf.d
 
-# misc
-Ca      ${XDG_CACHE_HOME:-$HOME/.cache}
+Ca      $XDG_CACHE_HOME
