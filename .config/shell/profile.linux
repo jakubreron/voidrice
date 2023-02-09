@@ -45,10 +45,13 @@ function __setup_programs() {
   export CLI_MUSIC_PLAYER="ncmpcpp"
 
   export AUTOSTART_PROGRAMS="
+    setbg
     picom
     dunst
     unclutter
     remapd
+    xsettingsd
+    recheck-mail 
     redshift
     fcitx
     easyeffects --gapplication-service
