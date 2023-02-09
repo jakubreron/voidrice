@@ -3,16 +3,13 @@
 # This file runs when a DM logs you into a graphical session.
 # If you use startx/xinit like a Chad, this file will also be sourced.
 
-# Setbg without wal
-setbg &			                               
+setbg &
 
-# Xresources colors/settings on startup
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	 
-xsettingsd &
 
-# Switching caps/esc, adjusting speed, etc...
 remaps &		                                                         
 recheck-mail &
+xsettingsd &
 
 printf "%s" "$AUTOSTART_PROGRAMS" | while IFS="" read -r program; do
 	pgrep -fl "$program" || $program &
