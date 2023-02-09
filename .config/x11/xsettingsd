@@ -4,4 +4,3 @@ Xft/HintStyle "hintslight"
 Xft/Antialias 1
 Net/ThemeName "adw-gtk3"
 Net/IconThemeName "Adwaita"
-Gtk/CursorThemeName "WhiteSur-cursors"
