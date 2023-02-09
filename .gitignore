@@ -16,8 +16,7 @@
 .config/zsh/.oh-my-zsh
 .config/zsh/.zsh_history
 
-# .config/dunst/dunstrc
-# .config/zathura/zathurarc
+.config/Kvantum
 
 .config/tmux/plugins/*
 !.config/tmux/plugins/tpm/
