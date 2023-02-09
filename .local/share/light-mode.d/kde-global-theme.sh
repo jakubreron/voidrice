@@ -5,4 +5,4 @@
 # Reference: https://userbase.kde.org/Plasma/Create_a_Global_Theme_Package
 
 # lookandfeeltool --apply "org.kde.breeze.desktop"
-echo '[General]\ntheme=KvLibadwaita' > ~/.config/Kvantum/kvantum.kvconfig
+printf "[General]\ntheme=KvLibadwaita" > ~/.config/Kvantum/kvantum.kvconfig
