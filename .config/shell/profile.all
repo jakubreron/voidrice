@@ -45,7 +45,7 @@ function __setup_xdg_dirs() {
 }
 
 function __setup_custom_dirs() {
-  export CLOUD_DIR="$HOME/Drive"
+  export CLOUD_DIR="$HOME/Cloud"
   export TORRENTS_DIR="$XDG_DOCUMENTS_DIR/Torrents"
   export DOTFILES_DIR="$XDG_CONFIG_HOME/personal"
   export PKGLIST_DIR="$DOTFILES_DIR/pkglists"
