@@ -8,6 +8,7 @@ setbg &
 
 # Xresources colors/settings on startup
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	 
+xsettingsd &
 
 # Switching caps/esc, adjusting speed, etc...
 remaps &		                                                         
