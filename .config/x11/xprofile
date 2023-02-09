@@ -7,7 +7,6 @@ setbg &
 
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	 
 
-remaps &		                                                         
 recheck-mail &
 xsettingsd &
 

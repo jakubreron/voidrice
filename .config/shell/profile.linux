@@ -48,6 +48,7 @@ function __setup_programs() {
     picom
     dunst
     unclutter
+    remapd
     redshift
     fcitx
     easyeffects --gapplication-service
