@@ -16,8 +16,6 @@
 .config/zsh/.oh-my-zsh
 .config/zsh/.zsh_history
 
-.config/Kvantum/*
-
 .config/tmux/plugins/*
 !.config/tmux/plugins/tpm/
 
