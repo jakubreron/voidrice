@@ -19,13 +19,13 @@ Prp     $PROJECTS_DIR/personal
 Prs     $PROJECTS_DIR/studies
 Prw     $PROJECTS_DIR/work
 
-Dv      $CLOUD_DIR/
-Dvb     $CLOUD_DIR/Backups
-Dvd     $CLOUD_DIR/Documents
-Dvdb    $CLOUD_DIR/Documents/Books
-Dvp     $CLOUD_DIR/Pictures
-Dvpw    $CLOUD_DIR/Pictures/Wallpapers
-Dvv     $CLOUD_DIR/Videos
+Cl      $CLOUD_DIR/
+Clb     $CLOUD_DIR/Backups
+Cld     $CLOUD_DIR/Documents
+Cldb    $CLOUD_DIR/Documents/Books
+Clp     $CLOUD_DIR/Pictures
+Clpw    $CLOUD_DIR/Pictures/Wallpapers
+Clv     $CLOUD_DIR/Videos
 
 Cf      $XDG_CONFIG_HOME
 Cft     $XDG_CONFIG_HOME/tmux
