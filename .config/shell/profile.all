@@ -61,6 +61,7 @@ function __setup_zsh() {
   export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
   export HISTFILE="$ZDOTDIR/.zsh_history"
   export HISTSIZE=100000
+  export HISTIGNORE="ls:ps:history"
   export SAVEHIST=100000
 }
 
@@ -79,6 +80,7 @@ function __setup_settings() {
   export CARGO_HOME="$XDG_DATA_HOME/cargo"
   export GOPATH="$XDG_DATA_HOME/go"
   export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/config"
+  export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
   export MOZ_USE_XINPUT2=1		# Mozilla smooth scrolling/touchpads.
   export AWT_TOOLKIT="MToolkit wmname LG3D"	# May have to install wmname
   export FZF_DEFAULT_OPTS='--preview "bat --line-range :500 {}"' # preview
