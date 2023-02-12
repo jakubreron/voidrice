@@ -1,45 +1,27 @@
-.config/nvim/autoload
-.config/nvim/plugged
-.config/nvim/session
-.config/nvim/shared/shortcuts.vim
-
 .config/mpd/mpdstate
 .config/mpd/database
 .config/mpv/watch_later
 
-.config/pulse/cookie
-
-.config/zsh/plugins
-.config/zsh/zsh-custom-exports
-.config/zsh/.zsh_sessions
 .config/zsh/.zcompdump*
-.config/zsh/.oh-my-zsh
 .config/zsh/.zsh_history
-
-.config/tmux/plugins/*
-!.config/tmux/plugins/tpm/
-
-.config/x11/xprofile
-
-.config/lvim/plugin
-
-.config/lazygit/state.yml
-
-.local/bin/ticker
-.local/bin/redshift
-
 .config/shell/zshnameddirrc
 
+.config/tmux/plugins/*
+
+.config/Kvantum/kvantum.kvconfig
+.config/x11/xprofile
+.config/lazygit/state.yml
 .config/BetterDiscord/themes/*.css
 
 .idea
 *.log
 *.asar
-# *.bak
+*.bak
 *.out
+
 shortcutrc
+shortcuts.vim
 
 .config/fcitx/clipboard/*
 .config/fcitx/dbus/*
-.config/fcitx/log/*
 .config/fcitx/cached_layout
