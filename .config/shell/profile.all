@@ -2,10 +2,8 @@
 
 unsetopt PROMPT_SP
 
-# TODO: remove dotnet after graduating
 bin_list=(
   "$HOME/.local/share/cargo/bin"
-  "$HOME/.dotnet/tools"
   )
 
 for extra in "${bin_list[@]}"; do

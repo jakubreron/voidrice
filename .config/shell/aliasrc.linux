@@ -44,11 +44,11 @@ alias \
 
 # restart programs
 alias \
-  rs-ee="killall easyeffects; nohup easyeffects --gapplication-service &; notify-send 'EasyEffects activated...'" \
-  rs-dunst="killall dunst; nohup dunst &; notify-send 'Dunst activated...'" \
-  rs-compositor="killall picom; nohup picom &; notify-send 'Compositor activated...'" \
-  rs-nightlight="killall redshift; nohup redshift &; notify-send 'Night light activated...'" \
-  rs-audio="systemctl --user restart pipewire pipewire-pulse" \
+  rs-ee="killall easyeffects; nohup easyeffects --gapplication-service &; notify-send 'Restarted EasyEffects'" \
+  rs-dunst="killall dunst; nohup dunst &; notify-send 'Restarted Dunst'" \
+  rs-compositor="killall picom; nohup picom &; notify-send 'Restarted Compositor'" \
+  rs-nightlight="killall redshift; nohup redshift &; notify-send 'Restarted Night Light'" \
+  rs-audio="systemctl --user restart pipewire pipewire-pulse; notify-send 'Restarted Audio'" \
 
 alias \
   update-hosts="/bin/systemctl restart systemd-hostnamed" \
@@ -73,7 +73,3 @@ if [[ $(hostnamectl --static) == *'thinkpad'* ]]; then
     charge-to-full="echo 99 | sudo tee /sys/devices/platform/smapi/BAT0/stop_charge_thresh" \
     charge-to-limited="echo 80 | sudo tee /sys/devices/platform/smapi/BAT0/stop_charge_thresh"
 fi
-
-# TODO: remove after graduating
-alias \
-  dotnet-recreate-db="dotnet ef database drop && dotnet ef migrations remove && dotnet ef migrations add InitialCreate && dotnet ef database update"
