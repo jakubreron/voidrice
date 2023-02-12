@@ -1,0 +1,13 @@
+#!/bin/sh
+
+download_custom_playlist() {
+  path=$1
+  
+  command="cat ${path}/playlist.txt | sed -e 's/youtube /https:\/\/www.youtube.com\/watch?v=/g' | xargs -t yt-dlp --add-metadata -i -x -f bestaudio/best --cookies-from-browser $BROWSER -P $path"
+
+  eval "${command}"
+}
+
+download_custom_playlist "$XDG_MUSIC_DIR/touhou"
+download_custom_playlist "$XDG_MUSIC_DIR/akatsuki-records"
+download_custom_playlist "$XDG_MUSIC_DIR/rising-of-the-shield-hero"

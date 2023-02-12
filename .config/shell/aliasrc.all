@@ -53,23 +53,9 @@ alias \
   replace-stow="cd $DOTFILES_DIR && stow --adopt --target=$HOME"
 
 # youtube music
-# NOTE: i = ignore errors
-# NOTE: x = extract, -f = format
 alias \
-  yt="yt-dlp --add-metadata -i --cookies-from-browser firefox" \
-  yta="yt -x -f bestaudio/best --download-archive playlist.txt" \
-  ytap="cat playlist.txt | sed -e 's/youtube /https:\/\/www.youtube.com\/watch?v=/g' | xargs -t yt-dlp --add-metadata -i -x -f bestaudio/best --cookies-from-browser firefox"
-alias \
-  yta-general="cd $XDG_MUSIC_DIR/general; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'" \
-  yta-live="cd $XDG_MUSIC_DIR/live; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'" \
-  yta-osts="cd $XDG_MUSIC_DIR/osts; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'" \
-  yta-albums="cd $XDG_MUSIC_DIR/albums; yta 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'" \
-  yta-main="yta-general; yta-live; yta-osts; yta-albums"
-alias \
-  yta-touhou="cd $XDG_MUSIC_DIR/touhou; ytap" \
-  yta-akatsuki-records="cd $XDG_MUSIC_DIR/akatsuki-records; ytap" \
-  yta-shield-hero="cd $XDG_MUSIC_DIR/rising-of-the-shield-hero; ytap" \
-  yta-custom="yta-touhou; yta-akatsuki-records; yta-shield-hero"
+  sync-playlist="yt-dlp --add-metadata -i --cookies-from-browser $BROWSER -x -f bestaudio/best --download-archive playlist.txt" \
+  download-playlist="cat playlist.txt | sed -e 's/youtube /https:\/\/www.youtube.com\/watch?v=/g' | xargs -t yt-dlp --add-metadata -i -x -f bestaudio/best --cookies-from-browser $BROWSER"
 
 # network
 alias \
@@ -85,10 +71,5 @@ alias \
   cmpl="sudo make && sudo make install" \
   encrypt="gpg -c --no-symkey-cache --cipher-algo AES256" \
 
-# quick reinstall
 alias \
-  uninstall-lvim="bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/uninstall.sh)" \
-  install-lvim="LV_BRANCH=rolling bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/rolling/utils/installer/install.sh)" \
-  install-lvim-config="cd $LVIM_CONFIG_DIR && rm config.lua && git clone git@github.com:jakubreron/lvim.git && mv ./lvim/* . && rmdir lvim && shortcuts" \
-  reinstall-lvim="uninstall-lvim; install-lvim && install-lvim-config" \
   sync-lvim="cd $LVIM_SHARE_DIR && git pull; cd $LVIM_CONFIG_DIR && git pull; lvim +LvimUpdate +q"
