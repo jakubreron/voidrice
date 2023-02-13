@@ -43,7 +43,7 @@ Lbns    $XDG_BIN_HOME/statusbar
 Lbng    $XDG_BIN_HOME/git
 
 Lsh     $XDG_DATA_HOME
-Lshlv   $VIM_SHARE_DIR
+Lshlv   $LVIM_SHARE_DIR
 
 Lsr     $XDG_SRC_HOME
 Lsrdw   $XDG_SRC_HOME/dwm
