@@ -1,14 +1,13 @@
 -- Set to auto read when a file is changed from the outside
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
-	pattern = { "*" },
+	pattern = "*",
 	command = "checktime",
 })
 
--- TODO: try to find a lua alternative / try to refactor
-vim.cmd([[
-  " Return to last edit position when opening files (You want this!)
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-]])
+vim.api.nvim_create_autocmd("BufReadPost", {
+	pattern = "*",
+	command = "normal g'\"",
+})
 
 local x_filetypes = { "xresources", "xdefaults" }
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
