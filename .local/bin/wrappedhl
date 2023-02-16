@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Log WLR errors and logs to the hyprland log. Recommended
+export HYPRLAND_LOG_WLR=1
+
+exec Hyprland
