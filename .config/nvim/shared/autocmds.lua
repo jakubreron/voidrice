@@ -1,14 +1,14 @@
--- Set to auto read when a file is changed from the outside
+-- set to auto read when a file is changed from the outside
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
-	pattern = { "*" },
+	pattern = "*",
 	command = "checktime",
 })
 
--- TODO: try to find a lua alternative / try to refactor
-vim.cmd([[
-  " Return to last edit position when opening files (You want this!)
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-]])
+-- return to last position when editing the file
+vim.api.nvim_create_autocmd("BufReadPost", {
+	pattern = "*",
+	command = "normal g'\"",
+})
 
 local x_filetypes = { "xresources", "xdefaults" }
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
@@ -25,33 +25,33 @@ local auto_commit = function(type, scope)
 end
 
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
-	pattern = { "bm-*" },
+	pattern = "bm-*",
 	command = auto_commit("config", "bm-files") .. "shortcuts",
 })
 
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
-	pattern = { vim.fn.expand("$VIMWIKI_DIR") .. "/*" },
+	pattern = vim.fn.expand("$VIMWIKI_DIR") .. "/*",
 	command = auto_commit("docs", "vimwiki"),
 })
 
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
-	pattern = { vim.fn.expand("~") .. "/.config/shell/aliasrc*" },
+	pattern = vim.fn.expand("~") .. "/.config/shell/aliasrc*",
 	command = auto_commit("config", "alias"),
 })
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
-	pattern = { vim.fn.expand("~") .. "/.config/shell/profile*" },
+	pattern = vim.fn.expand("~") .. "/.config/shell/profile*",
 	command = auto_commit("config", "profile"),
 })
 
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
-	pattern = { "*/src/*/config.h" },
+	pattern = "*/src/*/config.h",
 	command = "!sudo make install",
 })
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
-	pattern = { "*/src/dwm/config.h" },
+	pattern = "*/src/dwm/config.h",
 	command = "!kill -HUP $(pgrep -u $USER '\bdwm$')",
 })
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
-	pattern = { "*/src/dwmblocks/config.h" },
+	pattern = "*/src/dwmblocks/config.h",
 	command = "!{ killall -q dwmblocks;setsid -f dwmblocks }",
 })
