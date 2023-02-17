@@ -44,10 +44,11 @@ alias \
   df="duf" \
   du="dust" 
 
-# yarn
+# npm
 alias \
   yr="yarn" \
-  yrt="yarn test --watch --coverage --silent false"
+  yrt="yarn test --watch --coverage --silent false" \
+  npmt="npm run unit -- --watch --coverage --silent false"
 
 alias \
   replace-stow="cd $DOTFILES_DIR && stow --adopt --target=$HOME"
