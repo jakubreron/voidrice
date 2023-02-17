@@ -5,6 +5,18 @@
 # See 'info stow' section "4 Ignore Lists" for more information
 .idea
 
+# Vim sessions
+Session.*
+
+# Nohup unix files
+*.out
+
+# macOS bloat
+.DS_Store
+
+# Backup files (for example in user.js config)
+*.backup.*
+
 RCS
 .+,v
 
