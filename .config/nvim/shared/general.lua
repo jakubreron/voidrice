@@ -38,7 +38,7 @@ local options = {
 	numberwidth = 4, -- set number column width to 2 {default 4}
 	signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
 	wrap = false, -- display lines as one long line
-	scrolloff = 8, -- minimal number of screen lines to keep above and below the cursor.
+	scrolloff = 1, -- minimal number of screen lines to keep above and below the cursor.
 	sidescrolloff = 8, -- minimal number of screen lines to keep left and right of the cursor.
 	showcmd = false,
 	ruler = false,
@@ -51,7 +51,7 @@ local options = {
 }
 
 local globals = {
-  mapleader = " " -- space
+	mapleader = " ", -- space
 }
 
 vim.opt.path:append("**")
@@ -75,7 +75,7 @@ for k, v in pairs(options) do
 end
 
 for k, v in pairs(globals) do
-  vim.g[k] = v
+	vim.g[k] = v
 end
 
 vim.b.match_words = "<<<<<<<:=======:>>>>>>>" -- match git conflict markers with %
