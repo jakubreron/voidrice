@@ -49,6 +49,7 @@ function __setup_programs() {
     picom
     dunst
     unclutter
+    remapd
     xsettingsd
     recheck-mail 
     redshift

@@ -28,5 +28,3 @@ if xinput --list | grep -q "TrackPoint"; then
 
     adjustAccelSpeed
 fi
-
-notify-send 'Keyboard remapped'
