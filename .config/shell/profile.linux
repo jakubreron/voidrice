@@ -31,8 +31,8 @@ function __setup_keyboard() {
 
 function __setup_packages() {
   export PACKAGE_MANAGER="paru"
-  # Exclude certain packages from being generated
-  export EXCLUDED_PACKAGES="intel-ucode|xf86-video-intel|amd-ucode|tlp|tlp-rdw|php|php-.*$|lib-.*$|amd.*$|steam|remmina|remmina-.*$"
+  export PARU_CONF="$XDG_CONFIG_HOME/paru/paru.conf"
+  export AUTOGENERATE_EXCLUDED_PACKAGES="intel-ucode|xf86-video-intel|amd-ucode|tlp|tlp-rdw|php|php-.*$|lib-.*$|amd.*$|steam|remmina|remmina-.*$"
 }
 
 function __setup_programs() {

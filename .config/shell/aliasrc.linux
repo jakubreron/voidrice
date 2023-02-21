@@ -5,6 +5,7 @@
 
 # general purpose
 alias \
+  pacman="pacman -c $HOME/.config/pacman/pacman.conf" \
   clp="colorpicker --short --one-shot --preview | xsel -b" \
   pkgs="pkgstats search" \
   kdeconnect="/usr/lib/kdeconnectd" \

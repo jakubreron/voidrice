@@ -1,7 +1,7 @@
 #!/bin/sh
 
 file="${1:-pkglist.txt}"
-excluded_packages="${2:-$EXCLUDED_PACKAGES}"
+excluded_packages="${2:-$AUTOGENERATE_EXCLUDED_PACKAGES}"
 search="${3}"
 
 if command -v paru &> /dev/null; then
