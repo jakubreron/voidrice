@@ -51,7 +51,7 @@ alias \
   npmt="npm run unit -- --watch --coverage --silent false"
 
 alias \
-  replace-stow="cd $DOTFILES_DIR && stow --adopt --target=$HOME"
+  replace-stow="stow --adopt --target=$HOME --dir=$DOTFILES_DIR"
 
 # youtube music
 alias \
