@@ -57,8 +57,6 @@ function __setup_programs() {
     easyeffects --gapplication-service
     /usr/lib/kdeconnectd
     keepassxc
-    git-sync-repos global
-    grive --path $CLOUD_DIR
   "
 }
 

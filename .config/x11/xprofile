@@ -3,13 +3,12 @@
 # This file runs when a DM logs you into a graphical session.
 # If you use startx/xinit like a Chad, this file will also be sourced.
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!	 
+git-sync-repos global &
+grive --path $CLOUD_DIR &
 
 printf "%s" "$AUTOSTART_PROGRAMS" | while IFS="" read -r program; do
 	pgrep -fl "$program" || $program &
 done >/dev/null 2>&1
-
-# Weird thingy needed for Kinto to work
-# xhost +SI:localuser:root &
 
 # Screen layouts
 if [[ $LAYOUT_TYPE ]]; then
