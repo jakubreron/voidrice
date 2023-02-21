@@ -16,3 +16,17 @@ bindkey '^[[P' delete-char
 # Emacs bindings
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
+bindkey '^p' history-substring-search-up
+bindkey '^n' history-substring-search-down
+
+# VIM del char in visual and normal modes
+bindkey -M vicmd '^[[P' vi-delete-char
+bindkey -M visual '^[[P' vi-delete
+
+# Change cursor shape for different VIM modes.
+function zle-keymap-select () {
+    case $KEYMAP in
+        vicmd) echo -ne '\e[1 q';;      # block
+        viins|main) echo -ne '\e[5 q';; # beam
+    esac
+}

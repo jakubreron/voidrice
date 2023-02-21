@@ -10,8 +10,11 @@ plug "zsh-users/zsh-history-substring-search"
 plug "zdharma-continuum/fast-syntax-highlighting"
 plug "hlissner/zsh-autopair"
 
-plug "zap-zsh/exa"
 plug "zap-zsh/zap-prompt"
+plug "zap-zsh/fnm"
+plug "zap-zsh/sudo"
+plug "zap-zsh/supercharge"
+plug "zap-zsh/vim"
+plug "zap-zsh/exa"
 
 eval "$(mcfly init zsh)"
-eval "$(fnm env)"
