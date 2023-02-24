@@ -18,7 +18,7 @@ alias \
 # update packages
 alias \
   update-pkg-node="npm install npm -g; yarn global upgrade" \
-  update-pkg-manager="$PACKAGE_MANAGER" \
+  update-pkg-manager="$PACKAGE_MANAGER -Syu --noconfirm" \
   update-pkg-all="update-pkg-node; update-pkg-manager" \
 
 # Generate and push packages to repos
