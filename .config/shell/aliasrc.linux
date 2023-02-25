@@ -57,6 +57,7 @@ alias \
 
 alias \
   boot-qemu-disk="qemu-system-x86_64 -enable-kvm -cpu host -drive format=raw,file=disk_image" \
+  install-qemu-image-to-disk="qemu-system-x86_64 -cdrom iso_image.iso -boot order=d -drive file=disk_image,format=raw -m 4G" \
 
 # dynamic folders
 alias \
