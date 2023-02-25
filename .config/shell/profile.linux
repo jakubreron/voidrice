@@ -32,7 +32,7 @@ function __setup_keyboard() {
 function __setup_packages() {
   export PACKAGE_MANAGER="paru"
   export PARU_CONF="$XDG_CONFIG_HOME/paru/paru.conf"
-  export AUTOGENERATE_EXCLUDED_PACKAGES="intel-ucode|xf86-video-intel|amd-ucode|tlp|tlp-rdw|php|php-.*$|lib-.*$|amd.*$|steam|remmina|remmina-.*$|^x.*"
+  export AUTOGENERATE_EXCLUDED_PACKAGES="intel-ucode|xf86-video-intel|amd-ucode|tlp|tlp-rdw|php|php-.*$|lib-.*$|amd.*$|steam|remmina|remmina-.*$|^x.*|^qemu-.*$"
 }
 
 function __setup_programs() {
