@@ -56,7 +56,7 @@ alias \
   update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
 
 alias \
-  boot-qemu-disk="qemu-system-x86_64 -enable-kvm -drive format=raw,file=disk_image" \
+  boot-qemu-disk="qemu-system-x86_64 -enable-kvm -cpu host -drive format=raw,file=disk_image" \
 
 # dynamic folders
 alias \
