@@ -10,6 +10,11 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	command = "normal g'\"",
 })
 
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = "*.conf",
+	command = "setlocal filetype=conf",
+})
+
 local x_filetypes = { "xresources", "xdefaults" }
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = x_filetypes,
