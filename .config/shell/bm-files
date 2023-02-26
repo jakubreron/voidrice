@@ -20,5 +20,6 @@ cft       $XDG_CONFIG_HOME/tmux/tmux.conf
 cfg	      $DOTFILES_DIR/universal/.config/git/config
 cfgrub    /etc/default/grub
 
-# lvim
+# vim
 cflv      $LVIM_CONFIG_DIR/config.lua
+cfnv      $XDG_CONFIG_HOME/nvim/init.vim
