@@ -1,3 +1,3 @@
 #!/bin/sh
 
-qemu-system-x86_64 -enable-kvm -cpu host -m 8G -drive format=raw,file="$1"
+qemu-system-x86_64 -enable-kvm -cpu host -vga qxl -m 8G -drive format=raw,file="$1"
