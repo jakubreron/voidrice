@@ -1,3 +1,0 @@
-#!/bin/sh
-
-qemu-img create -f raw "$1" 25G
