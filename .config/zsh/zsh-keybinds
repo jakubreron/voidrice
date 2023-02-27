@@ -1,7 +1,21 @@
 #!/usr/bin/env zsh
+lfcd () {
+    tmp="$(mktemp)"
+    # `command` is needed in case `lfcd` is aliased to `lf`
+    command $CLI_FILE_EXPLORER -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        if [ -d "$dir" ]; then
+            if [ "$dir" != "$(pwd)" ]; then
+                cd "$dir"
+            fi
+        fi
+    fi
+}
 
 # Key bindings
-bindkey -s '^o' '^u${CLI_FILE_EXPLORER}\n' # open
+bindkey -s '^o' '^ulfcd\n' # open
 bindkey -s '^b' '^u${GUI_FILE_EXPLORER} .\n' # browse
 bindkey -s '^g' '^u${CLI_GIT_APP}\n' # git
 bindkey -s '^d' '^u${CLI_DOCKER_APP}\n' # docker
