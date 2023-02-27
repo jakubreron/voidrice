@@ -2,9 +2,8 @@
 
 # .local/bin on osx doesn't work with the "-printf" way
 bin_list=(
-  "$HOME/.local/bin"
   "/opt/local/bin:/opt/local/sbin"
-  "$HOME/.local/bin/homebrew/"
+  "${$(gfind $HOME/.local/bin -type d -printf %p:)%%:}"
   )
 
 for extra in "${bin_list[@]}"; do
