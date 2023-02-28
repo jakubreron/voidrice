@@ -32,11 +32,11 @@ Cft     $XDG_CONFIG_HOME/tmux
 Cfz     $XDG_CONFIG_HOME/zsh
 Cflv    $LVIM_CONFIG_DIR
 
-Cfp     $DOTFILES_DIR
-Cfpp    $PKGLIST_DIR
-Cfpu    $DOTFILES_DIR/universal
-Cfpv    $DOTFILES_DIR/voidrice
-Cfpm    $DOTFILES_DIR/macos
+Cfd     $DOTFILES_DIR
+Cfdp    $PKGLIST_DIR
+Cfdu    $DOTFILES_DIR/universal
+Cfdv    $DOTFILES_DIR/voidrice
+Cfdm    $DOTFILES_DIR/macos
 
 Lbn     $XDG_BIN_HOME
 Lbns    $XDG_BIN_HOME/statusbar
