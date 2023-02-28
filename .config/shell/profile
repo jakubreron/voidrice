@@ -8,3 +8,17 @@ if [[ $OSTYPE == 'linux'* ]]; then
 else
 	source $HOME/.config/shell/profile.osx
 fi
+
+unsetopt PROMPT_SP
+
+bin_list=(
+  "$(yarn global bin)"
+  "$HOME/.local/share/cargo/bin"
+  )
+
+for extra in "${bin_list[@]}"; do
+  PATH=$extra:$PATH
+done
+export PATH
+unset bin_list
+

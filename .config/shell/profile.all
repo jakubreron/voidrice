@@ -1,17 +1,5 @@
 #!/bin/zsh
 
-unsetopt PROMPT_SP
-
-bin_list=(
-  "$(yarn global bin)"
-  )
-
-for extra in "${bin_list[@]}"; do
-  PATH=$extra:$PATH
-done
-export PATH
-unset bin_list
-
 function __setup_programs() {
   export EDITOR="lvim"
   export GIT_EDITOR="$EDITOR"

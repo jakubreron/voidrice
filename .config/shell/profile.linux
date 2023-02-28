@@ -1,5 +1,15 @@
 #!/bin/zsh
 
+bin_list=(
+  "${$(find $HOME/.local/bin -type d -printf %p:)%%:}"
+)
+
+for extra in "${bin_list[@]}"; do
+  PATH=$extra:$PATH
+done
+export PATH
+unset bin_list
+
 function __setup_settings() {
   export SUDO_ASKPASS="$HOME/.local/bin/dmenu/dmenupass"
   export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm

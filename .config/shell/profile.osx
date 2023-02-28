@@ -4,6 +4,17 @@ if [ -d "/opt/homebrew" ]; then
   eval $(/opt/homebrew/bin/brew shellenv)
 fi
 
+bin_list=(
+  "/opt/local/bin:/opt/local/sbin"
+  "${$(gfind $HOME/.local/bin -type d -printf %p:)%%:}"
+)
+
+for extra in "${bin_list[@]}"; do
+  PATH=$extra:$PATH
+done
+export PATH
+unset bin_list
+
 function __setup_programs() {
   export TERMINAL="alacritty"
   export BROWSER="firefox"
