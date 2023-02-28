@@ -1,9 +1,9 @@
 #!/bin/zsh
 
-source $HOME/.config/shell/profile.all
-
 if [[ $OSTYPE == 'linux'* ]]; then
 	source $HOME/.config/shell/profile.linux
 else
 	source $HOME/.config/shell/profile.osx
 fi
+
+source $HOME/.config/shell/profile.all
