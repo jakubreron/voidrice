@@ -1,4 +1,5 @@
 #!/bin/zsh
+# NOTE: read once, at login (variables and settings that don't need to be updated frequently)
 
 if [[ $OSTYPE == 'linux'* ]]; then
 	source $HOME/.config/shell/profile.linux

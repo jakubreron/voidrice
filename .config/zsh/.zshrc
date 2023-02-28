@@ -1,3 +1,4 @@
+# NOTE: read when interactive (completions, aliases, prompt, etc)
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 
 function __setup_defaults() {

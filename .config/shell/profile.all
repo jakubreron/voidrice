@@ -2,15 +2,15 @@
 
 unsetopt PROMPT_SP
 
-static_bin_list=(
+bin_list=(
   "$(yarn global bin)"
   )
 
-for extra in "${static_bin_list[@]}"; do
+for extra in "${bin_list[@]}"; do
   PATH=$extra:$PATH
 done
 export PATH
-unset static_bin_list
+unset bin_list
 
 
 function __setup_programs() {
