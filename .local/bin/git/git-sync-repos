@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+case "${1:-local}" in
+  local) repos='git local-repos';;
+  global) repos='git global-repos';;
+esac
+
+bash -c "$repos" | while read -r REPO; do
+  GIT_STATUS="$(git -C "$REPO" status --porcelain)"
+
+  BRANCH=$(git -C "$REPO" rev-parse --abbrev-ref HEAD)
+
+  if [ -z "$BRANCH" ]; then
+    echo "❌ $(basename "$REPO") does not have a default branch."
+    continue;
+  fi
+
+  if [ -n "$GIT_STATUS" ]; then
+    echo "❗ $(basename "$REPO") has local changes, so it wasn't updated."
+    continue;
+  fi
+
+  # if git -C "$REPO" rev-parse --verify --quiet "$BRANCH" 2>/dev/null; then
+    git -C "$REPO" pull --quiet origin "$BRANCH" &
+  # fi
+
+  echo "✅ $(basename "$REPO") was updated on $(basename "$BRANCH")."
+done
