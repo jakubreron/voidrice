@@ -12,7 +12,6 @@ done
 export PATH
 unset bin_list
 
-
 function __setup_programs() {
   export EDITOR="lvim"
   export GIT_EDITOR="$EDITOR"
