@@ -4,7 +4,8 @@ set -euo pipefail
 
 case "${1:-local}" in
   local) repos='git local-repos';;
-  global) repos='git global-repos';;
+  dotfiles) repos='git dotfiles-repos';;
+  projects) repos='git projects-repos';;
 esac
 
 bash -c "$repos" | while read -r REPO; do
