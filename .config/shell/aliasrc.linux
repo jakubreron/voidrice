@@ -34,7 +34,7 @@ alias \
 
 # Sync
 alias \
-  sync-files="git-sync-repos 'global'; grive --path $CLOUD_DIR" \
+  sync-files="git-sync-repos 'dotfiles'; grive --path $CLOUD_DIR" \
   sync-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
   sync-all="sync-files; sync-lvim; sync-src; update-pkg-all; gen-pkg-all; replace-stow-all; clean-all" \
 
