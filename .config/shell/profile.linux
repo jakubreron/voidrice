@@ -54,8 +54,6 @@ function __setup_programs() {
     easyeffects --gapplication-service
     keepassxc
     firefox
-    anki
-    fragments
   "
 }
 
