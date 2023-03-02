@@ -14,5 +14,4 @@ download_playlist "$XDG_MUSIC_DIR/live" 'https://www.youtube.com/playlist?list=P
 download_playlist "$XDG_MUSIC_DIR/osts" 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'
 download_playlist "$XDG_MUSIC_DIR/albums" 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'
 
-download_playlist "$XDG_MUSIC_DIR/bandcamp" 'https://susumuhirasawa.bandcamp.com/album/beacon'
-download_playlist "$XDG_MUSIC_DIR/bandcamp" 'https://susumuhirasawa.bandcamp.com/album/rubedo-albedo-songs-for-fuji-rock-festival-2019-2021'
+download_playlist "$XDG_MUSIC_DIR/bandcamp" 'https://susumuhirasawa.bandcamp.com'
