@@ -30,7 +30,7 @@ alias \
 
 # Sync
 alias \
-  sync-all="git-sync-repos 'global'; sync-lvim; clean-all; update-pkg-all; gen-pkg-all; replace-stow-all"
+  sync-all="git-sync-repos 'dotfiles'; sync-lvim; clean-all; update-pkg-all; gen-pkg-all; replace-stow-all"
 
 # Lock the screen
 alias \
