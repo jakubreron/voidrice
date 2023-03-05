@@ -5,7 +5,7 @@
 
 # general purpose
 alias \
-  p="$PACKAGE_MANAGER --noconfirm" \
+  p="$PACKAGE_MANAGER" \
   clp="colorpicker --short --one-shot --preview | xsel -b" \
   pkgs="pkgstats search" \
   kdeconnect="/usr/lib/kdeconnectd" \
