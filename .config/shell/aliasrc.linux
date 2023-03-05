@@ -69,7 +69,7 @@ alias \
 
 if [[ $(hostnamectl --static) == *'thinkpad'* ]]; then
   alias \
-    battery-health="upower -i /org/freedesktop/UPower/devices/battery_BAT0; acpi -V" \
+    battery-health="upower -i /org/freedesktop/UPower/devices/battery_BAT0; acpi -i" \
     charge-to-full="echo 99 | sudo tee /sys/devices/platform/smapi/BAT0/stop_charge_thresh" \
     charge-to-limited="echo 80 | sudo tee /sys/devices/platform/smapi/BAT0/stop_charge_thresh" \
     set-performance="sudo auto-cpufreq --force=performance" \
