@@ -1,0 +1,3 @@
+#!/bin/sh
+
+wpctl status | awk '/Music Player Daemon/ {print $1}' | tail -n 1 | tr -d '.' | xargs -I{} wpctl set-mute {} toggle
