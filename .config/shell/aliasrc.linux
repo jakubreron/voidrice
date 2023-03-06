@@ -6,6 +6,7 @@
 # general purpose
 alias \
   p="$PACKAGE_MANAGER" \
+  tsm="transmission-remote" \
   clp="colorpicker --short --one-shot --preview | xsel -b" \
   pkgs="pkgstats search" \
   kdeconnect="/usr/lib/kdeconnectd" \
