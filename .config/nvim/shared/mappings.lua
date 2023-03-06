@@ -9,6 +9,7 @@ keymap("v", "<leader>p", '"_dP', { silent = true, desc = "Paste without yank" })
 -- toggle eventignore
 keymap("n", "yoe", function()
 	vim.cmd("set eventignore=" .. (vim.o.eventignore == "" and "all" or ""))
+  print (vim.o.eventignore == "" and "Do not ignore" or "Ignore all")
 end, { silent = true, desc = "Toggle eventignore" })
 
 -- languages
