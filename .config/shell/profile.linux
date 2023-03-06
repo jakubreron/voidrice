@@ -52,6 +52,7 @@ function __setup_programs() {
     redshift
     fcitx
     easyeffects --gapplication-service
+    transmission-daemon
     keepassxc
     firefox
   "
