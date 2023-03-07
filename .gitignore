@@ -27,3 +27,5 @@ shortcuts.vim
 .config/fcitx/dbus/*
 .config/fcitx/cached_layout
 .config/fcitx/profile
+
+.local/share/lf/files
