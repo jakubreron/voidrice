@@ -14,7 +14,6 @@ alias \
   gen-pkg-node="cd $PKGLIST_DIR; gen-pkg-yarn > $PACKAGE_TYPE/yarn.txt" \
   gen-pkg-brew="cd $PKGLIST_DIR; brew leaves > $PACKAGE_TYPE/brew.txt" \
   gen-pkg-all="gen-pkg-node; gen-pkg-brew; git add . && git commit -m'docs($PACKAGE_TYPE/{yarn,brew}): auto-commit changes' && git push origin HEAD"
-  # gen-pkg-ports="cd $PKGLIST_DIR; sudo port installed > $PACKAGE_TYPE/macports.txt" \
 
 # Debloat
 alias \
