@@ -64,7 +64,6 @@ function __setup_machines() {
   if [[ $(hostnamectl --static) == *'desktop'* ]]; then
     export PACKAGE_TYPE="primary"
     export LAYOUT_TYPE="primary"
-    export CAPACITOR_ANDROID_STUDIO_PATH="/usr/bin/android-studio" # TODO: remove after graduating
   else
     export PACKAGE_TYPE="secondary"
   fi
