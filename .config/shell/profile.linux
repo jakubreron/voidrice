@@ -54,7 +54,7 @@ function __setup_programs() {
     easyeffects --gapplication-service
     transmission-daemon
     keepassxc
-    firefox
+    firefox-developer-edition
   "
 }
 
