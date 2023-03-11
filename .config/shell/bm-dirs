@@ -7,17 +7,8 @@ Do      $XDG_DOCUMENTS_DIR
 Tr      $XDG_TORRENTS_DIR
 
 Mu      $XDG_MUSIC_DIR
-Mug     $XDG_MUSIC_DIR/general
-Mul     $XDG_MUSIC_DIR/live
-Muo     $XDG_MUSIC_DIR/osts
-Mua     $XDG_MUSIC_DIR/albums
-Mut     $XDG_MUSIC_DIR/touhou
-Muar    $XDG_MUSIC_DIR/akatsuki-records
 
 Pr      $PROJECTS_DIR
-Prp     $PROJECTS_DIR/personal
-Prs     $PROJECTS_DIR/studies
-Prw     $PROJECTS_DIR/work
 
 Cl      $CLOUD_DIR/
 Clb     $CLOUD_DIR/Backups
@@ -30,6 +21,7 @@ Clv     $CLOUD_DIR/Videos
 Cf      $XDG_CONFIG_HOME
 Cft     $XDG_CONFIG_HOME/tmux
 Cfz     $XDG_CONFIG_HOME/zsh
+
 Cflv    $LVIM_CONFIG_DIR
 
 Cfd     $DOTFILES_DIR
