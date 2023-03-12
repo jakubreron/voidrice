@@ -3,7 +3,7 @@
 download_custom_playlist() {
   path=$1
   
-  command="cat ${path}/playlist.txt | sed -e 's/youtube /https:\/\/www.youtube.com\/watch?v=/g' | xargs -t yt-dlp --add-metadata -i -x -f bestaudio/best --cookies-from-browser $BROWSER -P $path"
+  command="cat ${path}/playlist.txt | sed -e 's/youtube /https:\/\/www.youtube.com\/watch?v=/g' | xargs -t yt-dlp --add-metadata -i -x -f bestaudio/best --cookies-from-browser $BACKUP_BROWSER -P $path"
 
   eval "${command}"
 }
