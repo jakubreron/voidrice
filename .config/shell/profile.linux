@@ -36,6 +36,12 @@ function __setup_programs() {
   export TERMINAL="st"
   export BROWSER="firefox-developer-edition"
   export BACKUP_BROWSER="chromium"
+
+  export COMPOSITOR="picom"
+  export NOFIFICATION_DAEMON="dunst"
+  export TORRENTS_DAEMON="transmission-daemon"
+  export PASSWORD_MANAGER="keepassxc"
+
   export GUI_FILE_EXPLORER="nautilus"
   export CLI_FILE_EXPLORER="lfrun"
   export CLI_MAIL_CLIENT="neomutt"
@@ -43,8 +49,8 @@ function __setup_programs() {
 
   export AUTOSTART_PROGRAMS="
     setbg
-    picom
-    dunst
+    $COMPOSITOR
+    $NOFIFICATION_DAEMON
     unclutter
     remapd
     xsettingsd
@@ -52,9 +58,10 @@ function __setup_programs() {
     redshift
     fcitx
     easyeffects --gapplication-service
-    transmission-daemon
-    keepassxc
+    $TORRENTS_DAEMON
+    $PASSWORD_MANAGER
     discord
+    $TERIMNAL
     $BROWSER
   "
 }
