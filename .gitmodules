@@ -23,11 +23,11 @@
 	path = .config/zathura/themes
 	url = git@github.com:dracula/zathura.git
 [submodule ".local/bin/rofi-bluetooth"]
-	path = .local/bin/rofi-bluetooth
+	path = .local/bin/rofi/bluetooth
 	url = https://github.com/nickclyde/rofi-bluetooth
 [submodule ".config/rofi/dracula"]
 	path = .config/rofi/dracula
 	url = https://github.com/dracula/rofi
 [submodule ".local/bin/rofi-power-menu"]
-	path = .local/bin/rofi-power-menu
+	path = .local/bin/rofi/power-menu
 	url = https://github.com/jluttine/rofi-power-menu.git
