@@ -55,8 +55,8 @@ alias \
 
 # youtube music
 alias \
-  sync-playlist="yt-dlp --add-metadata -i --cookies-from-browser $BROWSER -x -f bestaudio/best --download-archive playlist.txt" \
-  download-playlist="cat playlist.txt | sed -e 's/youtube /https:\/\/www.youtube.com\/watch?v=/g' | xargs -t yt-dlp --add-metadata -i -x -f bestaudio/best --cookies-from-browser $BROWSER"
+  sync-playlist="yt-dlp --add-metadata -i --cookies-from-browser $BACKUP_BROWSER -x -f bestaudio/best --download-archive playlist.txt" \
+  download-playlist="cat playlist.txt | sed -e 's/youtube /https:\/\/www.youtube.com\/watch?v=/g' | xargs -t yt-dlp --add-metadata -i -x -f bestaudio/best --cookies-from-browser $BACKUP_BROWSER"
 
 # network
 alias \
