@@ -28,3 +28,6 @@
 [submodule ".config/rofi/dracula"]
 	path = .config/rofi/dracula
 	url = https://github.com/dracula/rofi
+[submodule ".local/bin/rofi-power-menu"]
+	path = .local/bin/rofi-power-menu
+	url = https://github.com/jluttine/rofi-power-menu.git
