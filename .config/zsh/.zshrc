@@ -30,3 +30,9 @@ plug "$XDG_CONFIG_HOME/shell/zshnameddirrc"
 plug "$ZDOTDIR/zsh-plugins"
 plug "$ZDOTDIR/zsh-keybinds"
 plug "$ZDOTDIR/zsh-functions"
+
+if [[ $(uname) == "Darwin" ]]; then
+  #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+  export SDKMAN_DIR="$HOME/.sdkman"
+  [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
