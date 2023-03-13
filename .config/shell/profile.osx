@@ -16,6 +16,10 @@ done
 export PATH
 unset bin_list
 
+function __setup_settings() {
+  export JAVA_HOME="/Users/jakubreron/.sdkman/candidates/java/11.0.15-tem"
+}
+
 function __setup_programs() {
   export TERMINAL="alacritty"
   export BROWSER="firefox"
@@ -29,11 +33,11 @@ function __setup_programs() {
 function __setup_packages() {
   export PACKAGE_TYPE="work"
   export PACKAGE_MANAGER="brew"
-
-  export YARN_REGISTRY="https://registry.npmjs.org/" # sneaky xd
+  # export YARN_REGISTRY="https://registry.npmjs.org/" # sneaky xd
 }
 
 setup_functions=(
+  __setup_settings
   __setup_programs
   __setup_packages
 )
