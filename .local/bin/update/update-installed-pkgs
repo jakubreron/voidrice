@@ -1,24 +1,29 @@
 #!/bin/sh
 
+log() {
+  message="$1"
+  echo -e "\033[1m⏳ $message...\033[0m"
+}
+
 if command -v npm &> /dev/null; then
-  echo -e "\033[1m⏳ Updating NPM Packages...\033[0m"
+  log "Updating NPM Packages"
   sudo npm install npm -g
 fi
 
 if command -v yarn &> /dev/null; then
-  echo -e "\033[1m⏳ Updating Yarn Packages...\033[0m"
+  log "Updating Yarn Packages"
   yarn global upgrade
 fi
 
 update_linux_pkgs() {
   if command -v $PACKAGE_MANAGER &> /dev/null; then
-    echo -e "\033[1m⏳ Updating $PACKAGE_MANAGER Packages...\033[0m"
+    log "Updating $PACKAGE_MANAGER Packages"
     $PACKAGE_MANAGER -Syu --noconfirm
   fi
 
   compile() {
     path="$1"
-    echo -e "\033[1m⏳ Compiling $path...\033[0m"
+    log "Compiling $path"
     [ -d "$path" ] && sudo make -C "$path" && sudo make install -C "$path"
   }
 
@@ -31,17 +36,17 @@ update_linux_pkgs() {
 
 update_macos_pkgs() {
   if command -v brew &> /dev/null; then
-    echo -e "\033[1m⏳ Updating Brew Packages...\033[0m"
+    log "Updating Brew Packages"
     brew update
     brew upgrade
     brew cleanup
   fi
 
-  echo -e "\033[1m⏳ Updating Software Packages...\033[0m"
+  log "Updating Software Packages"
   softwareupdate -i -a
 
   if command -v gem &> /dev/null; then
-    echo -e "\033[1m⏳ Updating Gem Packages...\033[0m"
+    log "Updating Gem Packages"
     sudo gem update --system
     sudo gem update
     sudo gem cleanup

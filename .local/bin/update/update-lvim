@@ -1,7 +1,12 @@
 #!/bin/sh
 
+log() {
+  message="$1"
+  echo -e "\033[1m⏳ $message...\033[0m"
+}
+
 if command -v lvim &> /dev/null; then
-  echo -e "\033[1m⏳ Updating LunarVim...\033[0m"
+  log "Updating LunarVim"
   [[ -d "$LVIM_SHARE_DIR" ]] && git -C "$LVIM_SHARE_DIR" pull
   [[ -d "$LVIM_CONFIG_DIR" ]] && git -C "$LVIM_CONFIG_DIR" pull
 
