@@ -2,7 +2,7 @@
 
 path="$PKGLIST_DIR/$PACKAGE_TYPE"
 
-if [[ -d "$path" ]]; then 
+if [ -d "$path" ]; then 
   if command -v yarn &> /dev/null; then
     echo -e "\033[1m⏳ Generating Yarn Packages...\033[0m"
     yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > "$path/yarn.txt"
@@ -34,5 +34,11 @@ if [[ -d "$path" ]]; then
     generate_linux_pkgs
   else
     generate_macos_pkgs
+  fi
+
+  if [ -d "$PKGLIST_DIR/.git" ] && [ -d "$HOME/.ssh" ]; then
+    git -C "$PKGLIST_DIR" add .
+    git -C "$PKGLIST_DIR" commit -m "docs: auto-commit-changes"
+    git -C "$PKGLIST_DIR" push
   fi
 fi
