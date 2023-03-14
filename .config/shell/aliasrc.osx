@@ -1,12 +1,5 @@
 #!/bin/zsh
 
-# TODO: move to separate scripts
-# Replace/renew dotfiles
-alias \
-  replace-symlinks-firefox-userjs="ln -sf $DOTFILES_DIR/user.js/user.js ~/Library/Application\ Support/Firefox/Profiles/*.default-*" \
-  replace-symlinks-firefox-chrome="ln -sf $DOTFILES_DIR/firefox-config/userChrome.css ~/Library/Application\ Support/Firefox/Profiles/*.default-*/chrome/userChrome.css" \
-  replace-symlinks-all="replace-symlinks-firefox-userjs; replace-symlinks-firefox-chrome"
-
 # Lock the screen
 alias \
   slock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"

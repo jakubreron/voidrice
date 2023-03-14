@@ -14,6 +14,7 @@ alias sudo='sudo '
 # Verbosity and settings that you pretty much just always are going to want.
 # df="df -h" \
 alias \
+  p="$PACKAGE_MANAGER" \
   cp="cp -iv" \
   mv="mv -iv" \
   bc="bc -ql" \
@@ -50,11 +51,6 @@ alias \
   yrt="yarn test --watch --coverage --silent false" \
   npmt="npm run unit -- --watch --coverage --silent false"
 
-# youtube music
-alias \
-  sync-playlist="yt-dlp --add-metadata -i --cookies-from-browser $BACKUP_BROWSER -x -f bestaudio/best --download-archive playlist.txt" \
-  download-playlist="cat playlist.txt | sed -e 's/youtube /https:\/\/www.youtube.com\/watch?v=/g' | xargs -t yt-dlp --add-metadata -i -x -f bestaudio/best --cookies-from-browser $BACKUP_BROWSER"
-
 # network
 alias \
   myip="dig +short myip.opendns.com @resolver1.opendns.com" \
@@ -70,4 +66,4 @@ alias \
   encrypt="gpg -c --no-symkey-cache --cipher-algo AES256" \
 
 alias \
-  update-all="update-files; update-lvim; update-installed-pkgs; update-generated-pkgs; replace-stow; clean-all"
+  update-all="update-files; update-lvim; update-symlinks-all; update-installed-pkgs; update-generated-pkgs; clean-all"

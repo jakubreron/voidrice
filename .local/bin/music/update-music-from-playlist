@@ -1,0 +1,3 @@
+#!/bin/sh
+
+yt-dlp --add-metadata -i --cookies-from-browser $BACKUP_BROWSER -x -f bestaudio/best --download-archive playlist.txt

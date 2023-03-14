@@ -1,9 +1,0 @@
-#!/bin/sh
-
-command="stow --adopt --target=$HOME --dir=$DOTFILES_DIR"
-
-$command replace-stow voidrice universal
-
-if [[ $OSTYPE == 'darwin'* ]]; then
-  $command macos
-fi
