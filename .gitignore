@@ -28,5 +28,4 @@ shortcuts.vim
 .config/fcitx/cached_layout
 .config/fcitx/profile
 
-.local/share/lf/files
-.local/share/lf/history
+.local/share/lf

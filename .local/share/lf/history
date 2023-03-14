@@ -1,6 +1,0 @@
-: mkdir update
-! $EDITOR update-installed-pkgs
-: mkdir clean
-: mkdir replace
-! $EDITOR replace-stow
-: mkdir replace
