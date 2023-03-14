@@ -2,4 +2,9 @@
 
 message="$1"
 emoji="${2:-⏳}"
-printf "\033[1m$emoji $message...\033[0m\n"
+
+BOLD=$(tput bold)
+BLUE=$(tput setaf 4)
+RESET=$(tput sgr0)
+
+printf "%s${BLUE}${BOLD}$emoji $message...${RESET}\n"
