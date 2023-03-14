@@ -8,7 +8,7 @@ if [[ $OSTYPE == 'linux'* ]]; then
 
   compile() {
     path="$1"
-    [ -f "$path" ] && sudo make -C "$path" && sudo make install -C "$path"
+    [ -d "$path" ] && sudo make -C "$path" && sudo make install -C "$path"
   }
 
   compile "$XDG_SRC_HOME/dwm"

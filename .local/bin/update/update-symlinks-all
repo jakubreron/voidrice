@@ -3,22 +3,24 @@
 replace_stow() {
   command="stow --adopt --target=$HOME --dir=$DOTFILES_DIR"
 
-  [ -f "$DOTFILES_DIR/voidrice" ] && $command voidrice
-  [ -f "$DOTFILES_DIR/universal" ] && $command universal
+  [ -d "$DOTFILES_DIR/voidrice" ] && $command voidrice
+  [ -d "$DOTFILES_DIR/universal" ] && $command universal
 
   if [[ $OSTYPE == 'darwin'* ]]; then
-    [ -f "$DOTFILES_DIR/macos" ] && $command macos
+    [ -d "$DOTFILES_DIR/macos" ] && $command macos
   fi
 }
 
 replace_firefox_symlinks() {
-  path="$DOTFILES_DIR/voidrice/.config/firefox/larbs.js"
+  dotfiles_userjs_path="$DOTFILES_DIR/voidrice/.config/firefox/larbs.js"
 
-  if [[ -f "$path" ]]; then
+  if [[ -f "$dotfiles_userjs_path" ]]; then
     if [[ $OSTYPE == 'linux'* ]]; then
-      ln -sf "$path" ~/.mozilla/firefox/*dev-edition-*/user-overrides.js
+      firefox_userjs_path="~/.mozilla/firefox/*dev-edition-*"
+      [[ -d "$firefox_userjs_path" ]] && ln -sf "$dotfiles_userjs_path" "$firefox_userjs_path/user-overrides.js"
     else
-      ln -sf "$path" ~/Library/Application\ Support/Firefox/Profiles/*.default-*/user-overrides.js
+      firefox_userjs_path="~/Library/Application\ Support/Firefox/Profiles/*.default-*"
+      [[ -d ""$firefox_userjs_path ]] && ln -sf "$dotfiles_userjs_path" "$firefox_userjs_path/user-overrides.js"
     fi
   fi
 
