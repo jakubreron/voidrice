@@ -4,7 +4,7 @@ path="$PKGLIST_DIR/$PACKAGE_TYPE"
 
 if [ -d "$path" ]; then 
   if command -v yarn >/dev/null 2>&1; then
-    log-pretty-message "Generating yarn Packages"
+    log-pretty-message "Generating yarn packages" "🧶"
     yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > "$path/yarn.txt"
   fi
 
@@ -17,14 +17,14 @@ if [ -d "$path" ]; then
       manager=pacman
     fi
 
-    log-pretty-message "Generating $manager Packages"
+    log-pretty-message "Generating $manager packages" "📦"
     $manager -Qqe > "$path/pacman.txt";
     $manager -Qqe | grep 'php' | sed -r "s/\b('phpstorm|phpstorm-jre')//g" > "$path/php.txt"
   }
 
   generate_macos_pkgs() {
     if command -v brew >/dev/null 2>&1; then
-      log-pretty-message "Generating brew Packages"
+      log-pretty-message "Generating brew packages" "🍺"
       brew leaves > "$path/brew.txt"
       brew list --cask > "$path/brew-casks.txt"
     fi

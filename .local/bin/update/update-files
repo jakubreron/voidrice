@@ -1,13 +1,13 @@
 #!/bin/sh
 
 if command -v git-sync-repos >/dev/null 2>&1; then
-  log-pretty-message "Synchronizing Dotfiles Repositories"
+  log-pretty-message "Synchronizing dotfiles repositories"
   git-sync-repos 'dotfiles'
 fi
 
 case "$(uname -s)" in
   Linux*)
-    log-pretty-message "Synchronizing Google Drive"
+    log-pretty-message "Synchronizing google drive"
     if command -v grive >/dev/null 2>&1; then
       grive --path "$CLOUD_DIR"
     fi
