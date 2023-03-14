@@ -1,0 +1,14 @@
+#!/bin/sh
+
+path="$PKGLIST_DIR/$PACKAGE_TYPE"
+
+if command -v paru &> /dev/null; then
+  manager=paru
+elif command -v yay &> /dev/null; then
+  manager=yay
+else
+  manager=pacman
+fi
+
+$manager -Qqe > "$path/pacman.txt";
+$manager -Qqe | grep 'php' | sed -r "s/\b('phpstorm|phpstorm-jre')//g" > "$path/php.txt"
