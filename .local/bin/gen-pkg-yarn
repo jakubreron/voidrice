@@ -1,3 +1,0 @@
-#!/bin/sh
-
-yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g'
