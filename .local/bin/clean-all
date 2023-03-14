@@ -1,26 +1,21 @@
 #!/bin/sh
 
-log() {
-  message="$1"
-  echo -e "\033[1m⏳ $message...\033[0m"
-}
-
 if [[ $OSTYPE == 'linux'* ]]; then
   if command -v $PACKAGE_MANAGER &> /dev/null; then
-    log "Cleaning the $PACKAGE_MANAGER Cache"
+    log-pretty-message "Cleaning the $PACKAGE_MANAGER Cache"
     $PACKAGE_MANAGER -Sc --noconfirm
   fi
 
   if command -v pacman &> /dev/null; then
-    log "Cleaning Unused Pacman Dependencies"
+    log-pretty-message "Cleaning Unused Pacman Dependencies"
     sudo pacman -Rns --noconfirm $(pacman -Qtdq)
   fi
 
   if command -v profile-cleaner &> /dev/null; then
-    log "Cleaning the Firefox Profile"
+    log-pretty-message "Cleaning the Firefox Profile"
     profile-cleaner f
   fi
 else
-  log "Cleaning the DS_Store Rubbish"
+  log-pretty-message "Cleaning the DS_Store Rubbish"
   find . -type f -name '*.DS_Store' -ls -delete
 fi

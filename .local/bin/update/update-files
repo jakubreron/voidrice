@@ -1,17 +1,12 @@
 #!/bin/sh
 
-log() {
-  message="$1"
-  echo -e "\033[1m⏳ $message...\033[0m"
-}
-
 if command -v git-sync-repos &> /dev/null; then
-  log "Synchronizing Dotfiles Repositories"
+  log-pretty-message "Synchronizing Dotfiles Repositories"
   git-sync-repos 'dotfiles'
 fi
 
 if [[ $OSTYPE == 'linux'* ]]; then
-  log "Synchronizing Google Drive"
+  log-pretty-message "Synchronizing Google Drive"
   if command -v grive &> /dev/null; then
     grive --path $CLOUD_DIR
   fi

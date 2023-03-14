@@ -1,29 +1,24 @@
 #!/bin/sh
 
-log() {
-  message="$1"
-  echo -e "\033[1m⏳ $message...\033[0m"
-}
-
 if command -v npm &> /dev/null; then
-  log "Updating NPM Packages"
+  log-pretty-message "Updating NPM Packages"
   sudo npm install npm -g
 fi
 
 if command -v yarn &> /dev/null; then
-  log "Updating Yarn Packages"
+  log-pretty-message "Updating Yarn Packages"
   yarn global upgrade
 fi
 
 update_linux_pkgs() {
   if command -v $PACKAGE_MANAGER &> /dev/null; then
-    log "Updating $PACKAGE_MANAGER Packages"
+    log-pretty-message "Updating $PACKAGE_MANAGER Packages"
     $PACKAGE_MANAGER -Syu --noconfirm
   fi
 
   compile() {
     path="$1"
-    log "Compiling $path"
+    log-pretty-message "Compiling $path"
     [ -d "$path" ] && sudo make -C "$path" && sudo make install -C "$path"
   }
 
@@ -36,17 +31,17 @@ update_linux_pkgs() {
 
 update_macos_pkgs() {
   if command -v brew &> /dev/null; then
-    log "Updating Brew Packages"
+    log-pretty-message "Updating Brew Packages"
     brew update
     brew upgrade
     brew cleanup
   fi
 
-  log "Updating Software Packages"
+  log-pretty-message "Updating Software Packages"
   softwareupdate -i -a
 
   if command -v gem &> /dev/null; then
-    log "Updating Gem Packages"
+    log-pretty-message "Updating Gem Packages"
     sudo gem update --system
     sudo gem update
     sudo gem cleanup
