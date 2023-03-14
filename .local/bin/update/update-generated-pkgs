@@ -4,7 +4,7 @@ path="$PKGLIST_DIR/$PACKAGE_TYPE"
 
 if [ -d "$path" ]; then 
   if command -v yarn >/dev/null 2>&1; then
-    log-pretty-message "Generating Yarn Packages"
+    log-pretty-message "Generating yarn Packages"
     yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > "$path/yarn.txt"
   fi
 
@@ -24,7 +24,7 @@ if [ -d "$path" ]; then
 
   generate_macos_pkgs() {
     if command -v brew >/dev/null 2>&1; then
-      log-pretty-message "Generating Brew Packages"
+      log-pretty-message "Generating brew Packages"
       brew leaves > "$path/brew.txt"
       brew list --cask > "$path/brew-casks.txt"
     fi
