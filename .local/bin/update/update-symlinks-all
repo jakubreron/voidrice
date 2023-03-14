@@ -1,32 +1,46 @@
 #!/bin/sh
 
-replace_stow() {
-  command="stow --adopt --target=$HOME --dir=$DOTFILES_DIR"
+replace_dotfiles_symlinks() {
+  replace_stow() {
+    repo="$1"
 
-  log-pretty-message "Updating Dotfiles Symlinks"
-  [ -d "$DOTFILES_DIR/voidrice" ] && $command voidrice
-  [ -d "$DOTFILES_DIR/universal" ] && $command universal
+    if [ -d "$DOTFILES_DIR/$repo" ]; then
+      log-pretty-message "Updating $repo Symlinks"
+      stow --adopt --target="$HOME" --dir="$DOTFILES_DIR" "$repo"
+    else
+      log-pretty-message "Could Not Update $repo Symlinks, Path Does Not Exist" "❌"
+    fi
+  }
 
-  if [[ $OSTYPE == 'darwin'* ]]; then
-    [ -d "$DOTFILES_DIR/macos" ] && $command macos
-  fi
+  replace_stow voidrice 
+  replace_stow universal 
+
+  case "$(uname -s)" in
+    Darwin*)
+      replace_stow macos 
+      ;;
+  esac
 }
 
 replace_firefox_symlinks() {
   dotfiles_userjs_path="$DOTFILES_DIR/voidrice/.config/firefox/larbs.js"
 
-  if [[ -f "$dotfiles_userjs_path" ]]; then
+  if [ -f "$dotfiles_userjs_path" ]; then
     log-pretty-message "Updating Firefox Symlinks"
-    if [[ $OSTYPE == 'linux'* ]]; then
-      firefox_userjs_path="~/.mozilla/firefox/*dev-edition-*"
-      [[ -d "$firefox_userjs_path" ]] && ln -sf "$dotfiles_userjs_path" "$firefox_userjs_path/user-overrides.js"
-    else
-      firefox_userjs_path="~/Library/Application\ Support/Firefox/Profiles/*.default-*"
-      [[ -d ""$firefox_userjs_path ]] && ln -sf "$dotfiles_userjs_path" "$firefox_userjs_path/user-overrides.js"
-    fi
+
+    case "$(uname -s)" in
+      Linux*)
+        firefox_userjs_path="$HOME/.mozilla/firefox/*dev-edition-*"
+        [ -d "$firefox_userjs_path" ] && ln -sf "$dotfiles_userjs_path" "$firefox_userjs_path/user-overrides.js"
+        ;;
+      *)
+        firefox_userjs_path="$HOME/Library/Application\ Support/Firefox/Profiles/*.default-*"
+        [ -d "$firefox_userjs_path" ] && ln -sf "$dotfiles_userjs_path" "$firefox_userjs_path/user-overrides.js"
+        ;;
+    esac
   fi
 
 }
 
-replace_stow
+replace_dotfiles_symlinks
 replace_firefox_symlinks

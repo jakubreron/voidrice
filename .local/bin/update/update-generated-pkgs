@@ -3,15 +3,15 @@
 path="$PKGLIST_DIR/$PACKAGE_TYPE"
 
 if [ -d "$path" ]; then 
-  if command -v yarn &> /dev/null; then
+  if command -v yarn >/dev/null 2>&1; then
     log-pretty-message "Generating Yarn Packages"
     yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > "$path/yarn.txt"
   fi
 
   generate_linux_pkgs() {
-    if command -v paru &> /dev/null; then
+    if command -v paru >/dev/null 2>&1; then
       manager=paru
-    elif command -v yay &> /dev/null; then
+    elif command -v yay >/dev/null 2>&1; then
       manager=yay
     else
       manager=pacman
@@ -23,18 +23,21 @@ if [ -d "$path" ]; then
   }
 
   generate_macos_pkgs() {
-    if command -v brew &> /dev/null; then
+    if command -v brew >/dev/null 2>&1; then
       log-pretty-message "Generating Brew Packages"
       brew leaves > "$path/brew.txt"
       brew list --cask > "$path/brew-casks.txt"
     fi
   }
 
-  if [[ $OSTYPE == 'linux'* ]]; then
-    generate_linux_pkgs
-  else
-    generate_macos_pkgs
-  fi
+  case "$(uname -s)" in
+    Linux*)
+      generate_linux_pkgs
+      ;;
+    *)
+      generate_macos_pkgs
+      ;;
+  esac
 
   if [ -d "$PKGLIST_DIR/.git" ] && [ -d "$HOME/.ssh" ]; then
     git -C "$PKGLIST_DIR" add .

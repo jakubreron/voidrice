@@ -1,17 +1,17 @@
 #!/bin/sh
 
-if command -v npm &> /dev/null; then
+if command -v npm >/dev/null 2>&1; then
   log-pretty-message "Updating NPM Packages"
   sudo npm install npm -g
 fi
 
-if command -v yarn &> /dev/null; then
+if command -v yarn >/dev/null 2>&1; then
   log-pretty-message "Updating Yarn Packages"
   yarn global upgrade
 fi
 
 update_linux_pkgs() {
-  if command -v $PACKAGE_MANAGER &> /dev/null; then
+  if command -v "$PACKAGE_MANAGER" >/dev/null 2>&1; then
     log-pretty-message "Updating $PACKAGE_MANAGER Packages"
     $PACKAGE_MANAGER -Syu --noconfirm
   fi
@@ -30,7 +30,7 @@ update_linux_pkgs() {
 }
 
 update_macos_pkgs() {
-  if command -v brew &> /dev/null; then
+  if command -v brew >/dev/null 2>&1; then
     log-pretty-message "Updating Brew Packages"
     brew update
     brew upgrade
@@ -40,7 +40,7 @@ update_macos_pkgs() {
   log-pretty-message "Updating Software Packages"
   softwareupdate -i -a
 
-  if command -v gem &> /dev/null; then
+  if command -v gem >/dev/null 2>&1; then
     log-pretty-message "Updating Gem Packages"
     sudo gem update --system
     sudo gem update
@@ -51,8 +51,11 @@ update_macos_pkgs() {
   # sudo port upgrade outdated
 }
 
-if [[ $OSTYPE == 'linux'* ]]; then
-  update_linux_pkgs
-else
-  update_macos_pkgs
-fi
+case "$(uname -s)" in
+  Linux*)
+    update_linux_pkgs
+    ;;
+  *)
+    update_macos_pkgs
+    ;;
+esac

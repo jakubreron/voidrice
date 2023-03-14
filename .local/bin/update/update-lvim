@@ -1,9 +1,9 @@
 #!/bin/sh
 
-if command -v lvim &> /dev/null; then
+if command -v lvim >/dev/null 2>&1; then
   log-pretty-message "Updating LunarVim"
-  [[ -d "$LVIM_SHARE_DIR" ]] && git -C "$LVIM_SHARE_DIR" pull
-  [[ -d "$LVIM_CONFIG_DIR" ]] && git -C "$LVIM_CONFIG_DIR" pull
+  [ -d "$LVIM_SHARE_DIR" ] && git -C "$LVIM_SHARE_DIR" pull
+  [ -d "$LVIM_CONFIG_DIR" ] && git -C "$LVIM_CONFIG_DIR" pull
 
   lvim +LvimUpdate +q
 fi

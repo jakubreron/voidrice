@@ -1,21 +1,24 @@
 #!/bin/sh
 
-if [[ $OSTYPE == 'linux'* ]]; then
-  if command -v $PACKAGE_MANAGER &> /dev/null; then
-    log-pretty-message "Cleaning the $PACKAGE_MANAGER Cache"
-    $PACKAGE_MANAGER -Sc --noconfirm
-  fi
+case "$(uname -s)" in
+  Linux*)
+    if command -v "$PACKAGE_MANAGER" >/dev/null 2>&1; then
+      log-pretty-message "Cleaning the $PACKAGE_MANAGER Cache"
+      $PACKAGE_MANAGER -Sc --noconfirm
+    fi
 
-  if command -v pacman &> /dev/null; then
-    log-pretty-message "Cleaning Unused Pacman Dependencies"
-    sudo pacman -Rns --noconfirm $(pacman -Qtdq)
-  fi
+    if command -v pacman >/dev/null 2>&1; then
+      log-pretty-message "Cleaning Unused Pacman Dependencies"
+      sudo pacman -Rns --noconfirm "$(pacman -Qtdq)"
+    fi
 
-  if command -v profile-cleaner &> /dev/null; then
-    log-pretty-message "Cleaning the Firefox Profile"
-    profile-cleaner f
-  fi
-else
-  log-pretty-message "Cleaning the DS_Store Rubbish"
-  find . -type f -name '*.DS_Store' -ls -delete
-fi
+    if command -v profile-cleaner >/dev/null 2>&1; then
+      log-pretty-message "Cleaning the Firefox Profile"
+      profile-cleaner f
+    fi
+    ;;
+  *)
+    log-pretty-message "Cleaning the DS_Store Rubbish"
+    find . -type f -name '*.DS_Store' -ls -delete
+    ;;
+esac
