@@ -23,6 +23,7 @@ Cft     $XDG_CONFIG_HOME/tmux
 Cfz     $XDG_CONFIG_HOME/zsh
 
 Cflv    $LVIM_CONFIG_DIR
+Cfnv    $XDG_CONFIG_HOME/nvim
 
 Cfd     $DOTFILES_DIR
 Cfdp    $PKGLIST_DIR
