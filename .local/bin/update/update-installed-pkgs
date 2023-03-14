@@ -1,16 +1,18 @@
 #!/bin/sh
 
 if command -v npm &> /dev/null; then
+  echo -e "\033[1m⏳ Updating NPM Packages...\033[0m"
   sudo npm install npm -g
 fi
 
 if command -v yarn &> /dev/null; then
+  echo -e "\033[1m⏳ Updating Yarn Packages...\033[0m"
   yarn global upgrade
 fi
 
 update_linux_pkgs() {
   if command -v $PACKAGE_MANAGER &> /dev/null; then
-    echo -e "\033[1m⏳ Updating $PACKAGE_MANAGER packages...\033[0m"
+    echo -e "\033[1m⏳ Updating $PACKAGE_MANAGER Packages...\033[0m"
     $PACKAGE_MANAGER -Syu --noconfirm
   fi
 
@@ -29,17 +31,17 @@ update_linux_pkgs() {
 
 update_macos_pkgs() {
   if command -v brew &> /dev/null; then
-    echo -e "\033[1m⏳ Updating gem brew packages...\033[0m"
+    echo -e "\033[1m⏳ Updating Brew Packages...\033[0m"
     brew update
     brew upgrade
     brew cleanup
   fi
 
-  echo -e "\033[1m⏳ Updating gem software packages...\033[0m"
+  echo -e "\033[1m⏳ Updating Software Packages...\033[0m"
   softwareupdate -i -a
 
   if command -v gem &> /dev/null; then
-    echo -e "\033[1m⏳ Updating gem packages...\033[0m"
+    echo -e "\033[1m⏳ Updating Gem Packages...\033[0m"
     sudo gem update --system
     sudo gem update
     sudo gem cleanup

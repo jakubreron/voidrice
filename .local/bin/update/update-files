@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if command -v git-sync-repos &> /dev/null; then
-  echo -e "\033[1m⏳ Synchronizing repos...\033[0m"
+  echo -e "\033[1m⏳ Synchronizing Dotfiles Repositories...\033[0m"
   git-sync-repos 'dotfiles'
 fi
 
