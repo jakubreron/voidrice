@@ -10,13 +10,13 @@ fi
 
 update_linux_pkgs() {
   if command -v $PACKAGE_MANAGER &> /dev/null; then
-    echo "Updating $PACKAGE_MANAGER packages..."
+    echo -e "\033[1m⏳ Updating $PACKAGE_MANAGER packages...\033[0m"
     $PACKAGE_MANAGER -Syu --noconfirm
   fi
 
   compile() {
     path="$1"
-    echo "Compiling $path..."
+    echo -e "\033[1m⏳ Compiling $path...\033[0m"
     [ -d "$path" ] && sudo make -C "$path" && sudo make install -C "$path"
   }
 
@@ -29,17 +29,17 @@ update_linux_pkgs() {
 
 update_macos_pkgs() {
   if command -v brew &> /dev/null; then
-    echo "Updating gem brew packages..."
+    echo -e "\033[1m⏳ Updating gem brew packages...\033[0m"
     brew update
     brew upgrade
     brew cleanup
   fi
 
-  echo "Updating gem software packages..."
+  echo -e "\033[1m⏳ Updating gem software packages...\033[0m"
   softwareupdate -i -a
 
   if command -v gem &> /dev/null; then
-    echo "Updating gem packages..."
+    echo -e "\033[1m⏳ Updating gem packages...\033[0m"
     sudo gem update --system
     sudo gem update
     sudo gem cleanup

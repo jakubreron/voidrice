@@ -3,7 +3,7 @@
 replace_stow() {
   command="stow --adopt --target=$HOME --dir=$DOTFILES_DIR"
 
-  echo "Updating dotfiles systemlinks..."
+  echo -e "\033[1m⏳ Updating dotfiles systemlinks...\033[0m"
   [ -d "$DOTFILES_DIR/voidrice" ] && $command voidrice
   [ -d "$DOTFILES_DIR/universal" ] && $command universal
 
@@ -16,7 +16,7 @@ replace_firefox_symlinks() {
   dotfiles_userjs_path="$DOTFILES_DIR/voidrice/.config/firefox/larbs.js"
 
   if [[ -f "$dotfiles_userjs_path" ]]; then
-    echo "Updating firefox systemlinks..."
+    echo -e "\033[1m⏳ Updating firefox systemlinks...\033[0m"
     if [[ $OSTYPE == 'linux'* ]]; then
       firefox_userjs_path="~/.mozilla/firefox/*dev-edition-*"
       [[ -d "$firefox_userjs_path" ]] && ln -sf "$dotfiles_userjs_path" "$firefox_userjs_path/user-overrides.js"

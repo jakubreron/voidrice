@@ -2,20 +2,20 @@
 
 if [[ $OSTYPE == 'linux'* ]]; then
   if command -v $PACKAGE_MANAGER &> /dev/null; then
-    echo "Cleaning the $PACKAGE_MANAGER cache..."
-    $PACKAGE_MANAGER -Sc
+    echo -e "\033[1m⏳ Cleaning the $PACKAGE_MANAGER cache...\033[0m"
+    $PACKAGE_MANAGER -Sc --noconfirm
   fi
 
   if command -v pacman &> /dev/null; then
-    echo "Cleaning unused pacman dependencies..."
-    pacman -Rns $(pacman -Qtdq)
+    echo -e "\033[1m⏳ Cleaning unused pacman dependencies...\033[0m"
+    pacman -Rns --noconfirm $(pacman -Qtdq)
   fi
 
   if command -v profile-cleaner &> /dev/null; then
-    echo "Cleaning the firefox profile..."
+    echo -e "\033[1m⏳ Cleaning the firefox profile...\033[0m"
     profile-cleaner f
   fi
 else
-  echo "Cleaning the DS_Store rubbish..."
+  echo -e "\033[1m⏳ Cleaning the DS_Store rubbish...\033[0m"
   find . -type f -name '*.DS_Store' -ls -delete
 fi

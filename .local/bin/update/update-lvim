@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if command -v lvim &> /dev/null; then
-  echo "Updating LunarVim..."
+  echo -e "\033[1m⏳ Updating LunarVim...\033[0m"
   [[ -d "$LVIM_SHARE_DIR" ]] && git -C "$LVIM_SHARE_DIR" pull
   [[ -d "$LVIM_CONFIG_DIR" ]] && git -C "$LVIM_CONFIG_DIR" pull
 
