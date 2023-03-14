@@ -9,7 +9,7 @@ case "$(uname -s)" in
   Linux*)
     log-pretty-message "Synchronizing google drive"
     if command -v grive >/dev/null 2>&1; then
-      grive --path "$CLOUD_DIR"
+      grive --progress-bar --path "$CLOUD_DIR"
     fi
     ;;
 esac

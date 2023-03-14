@@ -6,6 +6,7 @@ xrdb "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources" & xrdbpid=$!
 git-sync-repos global &
 grive --path "$CLOUD_DIR" &
 /usr/lib/kdeconnectd &
+entr-watch &
 
 printf "%s" "$AUTOSTART_PROGRAMS" | while IFS="" read -r program; do
 	pgrep -fl "$program" || $program &

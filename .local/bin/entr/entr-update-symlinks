@@ -1,0 +1,5 @@
+#!/bin/sh
+
+update-symlinks-all &
+notify-send "⏳ Updating the symlinks with entr..."
+clear
