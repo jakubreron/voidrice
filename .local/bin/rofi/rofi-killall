@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 # kill a running process using rofi
 
-process_name=`ps -e | awk '{ print $4 }' | sort -u | rofi -dmenu -i -p "process"`
+process_name=`ps -e | awk '{ print $4 }' | sort -u | rofi -dmenu -matching fuzzy -i -p "process"`
 if [ ! -z $process_name ]; then
     for process in $(ps -e | grep " $process_name$" | awk '{ print $1 }');
     do
