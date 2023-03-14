@@ -6,4 +6,5 @@ if command -v lvim >/dev/null 2>&1; then
   [ -d "$LVIM_CONFIG_DIR" ] && git -C "$LVIM_CONFIG_DIR" pull
 
   lvim +LvimUpdate +q
+  printf "\n"
 fi
