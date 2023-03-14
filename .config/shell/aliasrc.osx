@@ -1,25 +1,20 @@
 #!/bin/zsh
 
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, yarn, and their installed packages
-alias \
-  update-pkg-node="npm install npm -g; yarn global upgrade" \
-  update-pkg-brew="brew update; brew upgrade; brew cleanup" \
-  update-pkg-all="update-pkg-node; update-pkg-brew"
-  # update-pkg-manager="softwareupdate -i -a" \
-  # update-pkg-gems="sudo gem update --system; sudo gem update; sudo gem cleanup" \
-  # update-pkg-ports="sudo port selfupdate; sudo port upgrade outdated" \
+# TODO: move to separate scripts
+# alias \
+#   update-pkg-node="npm install npm -g; yarn global upgrade" \
+#   update-pkg-brew="brew update; brew upgrade; brew cleanup" \
+#   update-pkg-all="update-pkg-node; update-pkg-brew"
+#   # update-pkg-manager="softwareupdate -i -a" \
+#   # update-pkg-gems="sudo gem update --system; sudo gem update; sudo gem cleanup" \
+#   # update-pkg-ports="sudo port selfupdate; sudo port upgrade outdated" \
 
-# Generate and push packages to repos
-alias \
-  gen-pkg-node="cd $PKGLIST_DIR; gen-pkg-yarn > $PACKAGE_TYPE/yarn.txt" \
-  gen-pkg-brew="cd $PKGLIST_DIR; brew leaves > $PACKAGE_TYPE/brew.txt" \
-  gen-pkg-brew-casks="cd $PKGLIST_DIR; brew list --cask > $PACKAGE_TYPE/brew-casks.txt" \
-  gen-pkg-all="gen-pkg-node; gen-pkg-brew; gen-pkg-brew-casks; git add . && git commit -m'docs($PACKAGE_TYPE/{yarn,brew}): auto-commit changes' && git push origin HEAD"
-
+# TODO: move to separate scripts
 # Debloat
 alias \
-  clean-dss="find . -type f -name '*.DS_Store' -ls -delete" \
-  clean-all="clean-dss"
+  # clean-dss="find . -type f -name '*.DS_Store' -ls -delete" \
+  # clean-all="clean-dss"
 
 # Replace/renew dotfiles
 alias \
@@ -28,9 +23,10 @@ alias \
   replace-symlinks-firefox-chrome="ln -sf $DOTFILES_DIR/firefox-config/userChrome.css ~/Library/Application\ Support/Firefox/Profiles/*.default-*/chrome/userChrome.css" \
   replace-symlinks-all="replace-symlinks-firefox-userjs; replace-symlinks-firefox-chrome"
 
+# TODO: update after moving to separate scripts
 # Sync
-alias \
-  sync-all="git-sync-repos 'dotfiles'; sync-lvim; clean-all; update-pkg-all; gen-pkg-all; replace-stow-all"
+# alias \
+  # sync-all="git-sync-repos 'dotfiles'; sync-lvim; clean-all; update-pkg-all; gen-pkg-all; replace-stow-all"
 
 # Lock the screen
 alias \

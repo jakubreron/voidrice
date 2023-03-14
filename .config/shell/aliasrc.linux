@@ -11,27 +11,30 @@ alias \
   pkgs="pkgstats search" \
   kdeconnect="/usr/lib/kdeconnectd" \
 
+# TODO: move to separate scripts
 # Debloat
-alias \
-  clean-pkg-manager-orphans="pacman -Rns $(pacman -Qtdq)" \
-  clean-pkg-manager-cache="$PACKAGE_MANAGER -Sc" \
-  clean-all="clean-pkg-manager-orphans; clean-pkg-manager-cache; profile-cleaner f" \
+# alias \
+#   clean-pkg-manager-orphans="pacman -Rns $(pacman -Qtdq)" \
+#   clean-pkg-manager-cache="$PACKAGE_MANAGER -Sc" \
+#   clean-all="clean-pkg-manager-orphans; clean-pkg-manager-cache; profile-cleaner f" \
 
+# TODO: move to separate scripts
 # update packages
-alias \
-  update-pkg-node="npm install npm -g; yarn global upgrade" \
-  update-pkg-manager="$PACKAGE_MANAGER -Syu --noconfirm" \
-  update-pkg-all="update-pkg-node; update-pkg-manager" \
+# alias \
+#   update-pkg-node="npm install npm -g; yarn global upgrade" \
+#   update-pkg-manager="$PACKAGE_MANAGER -Syu --noconfirm" \
+#   update-pkg-all="update-pkg-node; update-pkg-manager" \
 
 # Replace/renew dotfiles
 alias \
   replace-stow-all="replace-stow voidrice universal" \
 
+# TODO: update after moving to separate scripts
 # Sync
 alias \
   sync-files="git-sync-repos 'dotfiles'; grive --path $CLOUD_DIR" \
   sync-src="Lsrdw && cmpl; Lsrdb && cmpl; Lsrdm && cmpl; Lsrst && cmpl; Lsrsx && cmpl" \
-  sync-all="sync-files; sync-lvim; sync-src; update-pkg-all; gen-pkg-all; replace-stow-all; clean-all" \
+  # sync-all="sync-files; sync-lvim; sync-src; update-pkg-all; gen-pkg-all; replace-stow-all; clean-all" \
 
 # For when keys break
 alias \
