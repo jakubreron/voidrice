@@ -25,10 +25,16 @@ URLS=(
   ["yahoo"]="https://search.yahoo.com/search?p="
   ["duckduckgo"]="https://www.duckduckgo.com/?q="
   ["yandex"]="https://yandex.ru/yandsearch?text="
-  ["github"]="https://github.com/search?q="
   ["goodreads"]="https://www.goodreads.com/search?q="
+  ["mdn"]="https://developer.mozilla.org/en-US/search?q="
+  ["wai-aria"]="https://www.w3.org/TR/wai-aria-1.2/#"
+  ["github"]="https://github.com/search?q="
   ["stackoverflow"]="http://stackoverflow.com/search?q="
-  ["symbolhound"]="http://symbolhound.com/?q="
+  ["caniuse"]="https://caniuse.com/?search="
+  ["caniemail"]="https://caniemail.com/search/?s="
+  ["npmjs"]="https://npmjs.com/search?q="
+  ["bundlephobia"]="https://bundlephobia.com/package/"
+  ["fontawesome"]="https://fontawesome.com/v5/search?q="
   ["searchcode"]="https://searchcode.com/?q="
   ["openhub"]="https://www.openhub.net/p?ref=homepage&query="
   ["superuser"]="http://superuser.com/search?q="
@@ -36,6 +42,8 @@ URLS=(
   ["piratebay"]="https://thepiratebay.org/search/"
   ["youtube"]="https://www.youtube.com/results?search_query="
   ["vimawesome"]="http://vimawesome.com/?q="
+  ["jisho"]="https://jisho.org/search/"
+  ["kanji"]="https://jisho.org/search/%23kanji "
 )
 
 # List for rofi
