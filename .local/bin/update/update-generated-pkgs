@@ -2,20 +2,37 @@
 
 path="$PKGLIST_DIR/$PACKAGE_TYPE"
 
-yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > "$path/yarn.txt"
-
-if [[ $OSTYPE == 'linux'* ]]; then
-  if command -v paru &> /dev/null; then
-    manager=paru
-  elif command -v yay &> /dev/null; then
-    manager=yay
-  else
-    manager=pacman
+if [[ -d "$path" ]]; then 
+  if command -v yarn &> /dev/null; then
+    echo "Generating yarn packages..."
+    yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > "$path/yarn.txt"
   fi
 
-  $manager -Qqe > "$path/pacman.txt";
-  $manager -Qqe | grep 'php' | sed -r "s/\b('phpstorm|phpstorm-jre')//g" > "$path/php.txt"
-else
-  brew leaves > "$path/brew.txt"
-  brew list --cask > "$path/brew-casks.txt"
+  generate_linux_pkgs() {
+    if command -v paru &> /dev/null; then
+      manager=paru
+    elif command -v yay &> /dev/null; then
+      manager=yay
+    else
+      manager=pacman
+    fi
+
+    echo "Generating $manager packages..."
+    $manager -Qqe > "$path/pacman.txt";
+    $manager -Qqe | grep 'php' | sed -r "s/\b('phpstorm|phpstorm-jre')//g" > "$path/php.txt"
+  }
+
+  generate_macos_pkgs() {
+    if command -v brew &> /dev/null; then
+      echo "Generating brew packages..."
+      brew leaves > "$path/brew.txt"
+      brew list --cask > "$path/brew-casks.txt"
+    fi
+  }
+
+  if [[ $OSTYPE == 'linux'* ]]; then
+    generate_linux_pkgs
+  else
+    generate_macos_pkgs
+  fi
 fi

@@ -1,8 +1,12 @@
 #!/bin/sh
 
-git-sync-repos 'dotfiles'
+if command -v git-sync-repos &> /dev/null; then
+  echo "Synchronizing repos..."
+  git-sync-repos 'dotfiles'
+fi
 
 if [[ $OSTYPE == 'linux'* ]]; then
+  echo "Synchronizing Google Drive..."
   if command -v grive &> /dev/null; then
     grive --path $CLOUD_DIR
   fi
