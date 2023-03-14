@@ -1,4 +1,5 @@
 #!/bin/sh
+# NOTE: downloads once, doesn't synchronize with the playlist
 
 download_custom_playlist() {
   path=$1

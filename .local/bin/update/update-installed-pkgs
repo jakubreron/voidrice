@@ -7,7 +7,8 @@ if [[ $OSTYPE == 'linux'* ]]; then
   $PACKAGE_MANAGER -Syu --noconfirm
 
   compile() {
-    [ -f "$1" ] && sudo make -C "$1" && sudo make install -C "$1"
+    path="$1"
+    [ -f "$path" ] && sudo make -C "$path" && sudo make install -C "$path"
   }
 
   compile "$XDG_SRC_HOME/dwm"

@@ -1,4 +1,5 @@
 #!/bin/sh
+# NOTE: synchronizes local music to playlist.txt file music
 
 download_playlist() {
   path=$1
