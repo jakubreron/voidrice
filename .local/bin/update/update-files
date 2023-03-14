@@ -1,0 +1,9 @@
+#!/bin/sh
+
+git-sync-repos 'dotfiles'
+
+if [[ $OSTYPE == 'linux'* ]]; then
+  if command -v grive &> /dev/null; then
+    grive --path $CLOUD_DIR
+  fi
+fi

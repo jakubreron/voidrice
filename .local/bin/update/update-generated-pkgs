@@ -1,0 +1,21 @@
+#!/bin/sh
+
+path="$PKGLIST_DIR/$PACKAGE_TYPE"
+
+yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > "$path/yarn.txt"
+
+if [[ $OSTYPE == 'linux'* ]]; then
+  if command -v paru &> /dev/null; then
+    manager=paru
+  elif command -v yay &> /dev/null; then
+    manager=yay
+  else
+    manager=pacman
+  fi
+
+  $manager -Qqe > "$path/pacman.txt";
+  $manager -Qqe | grep 'php' | sed -r "s/\b('phpstorm|phpstorm-jre')//g" > "$path/php.txt"
+else
+  brew leaves > "$path/brew.txt"
+  brew list --cask > "$path/brew-casks.txt"
+fi

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if command -v lvim &> /dev/null; then
+  git -C "$LVIM_SHARE_DIR" pull
+  git -C "$LVIM_CONFIG_DIR" pull
+  lvim +LvimUpdate +q
+fi

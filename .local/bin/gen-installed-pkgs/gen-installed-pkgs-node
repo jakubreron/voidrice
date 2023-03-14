@@ -1,5 +1,0 @@
-#!/bin/sh
-
-path="$PKGLIST_DIR/$PACKAGE_TYPE"
-
-yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > "$path/yarn.txt"

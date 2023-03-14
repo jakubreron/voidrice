@@ -1,0 +1,12 @@
+#!/bin/sh
+
+if [[ $OSTYPE == 'linux'* ]]; then
+  $PACKAGE_MANAGER -Sc
+  pacman -Rns $(pacman -Qtdq)
+
+  if command -v profile-cleaner &> /dev/null; then
+    profile-cleaner f
+  fi
+else
+  find . -type f -name '*.DS_Store' -ls -delete
+fi

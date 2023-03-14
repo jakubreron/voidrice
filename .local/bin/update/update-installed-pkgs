@@ -1,0 +1,33 @@
+#!/bin/sh
+
+npm install npm -g
+yarn global upgrade
+
+if [[ $OSTYPE == 'linux'* ]]; then
+  $PACKAGE_MANAGER -Syu --noconfirm
+
+  compile() {
+    [ -f "$1" ] && sudo make -C "$1" && sudo make install -C "$1"
+  }
+
+  compile "$XDG_SRC_HOME/dwm"
+  compile "$XDG_SRC_HOME/dwmblocks"
+  compile "$XDG_SRC_HOME/dmenu"
+  compile "$XDG_SRC_HOME/st"
+  compile "$XDG_SRC_HOME/sxiv-flexipatch"
+else
+  brew update
+  brew upgrade
+  brew cleanup
+
+  softwareupdate -i -a
+
+  if command -v gem &> /dev/null; then
+    sudo gem update --system
+    sudo gem update
+    sudo gem cleanup
+  fi
+
+  # sudo port selfupdate
+  # sudo port upgrade outdated
+fi
