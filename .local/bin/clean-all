@@ -1,12 +1,21 @@
 #!/bin/sh
 
 if [[ $OSTYPE == 'linux'* ]]; then
-  $PACKAGE_MANAGER -Sc
-  pacman -Rns $(pacman -Qtdq)
+  if command -v $PACKAGE_MANAGER &> /dev/null; then
+    echo "Cleaning the $PACKAGE_MANAGER cache..."
+    $PACKAGE_MANAGER -Sc
+  fi
+
+  if command -v pacman &> /dev/null; then
+    echo "Cleaning unused pacman dependencies..."
+    pacman -Rns $(pacman -Qtdq)
+  fi
 
   if command -v profile-cleaner &> /dev/null; then
+    echo "Cleaning the firefox profile..."
     profile-cleaner f
   fi
 else
+  echo "Cleaning the DS_Store rubbish..."
   find . -type f -name '*.DS_Store' -ls -delete
 fi
