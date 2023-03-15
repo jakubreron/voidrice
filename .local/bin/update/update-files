@@ -1,15 +1,15 @@
 #!/bin/sh
 
 if command -v git-sync-repos >/dev/null 2>&1; then
-  log-pretty-message "Synchronizing dotfiles repositories"
+  log-pretty-message "Synchronizing dotfiles repositories in the background"
   git-sync-repos 'dotfiles'
 fi
 
 case "$(uname -s)" in
   Linux*)
-    log-pretty-message "Synchronizing google drive"
+    log-pretty-message "Synchronizing google drive in the background"
     if command -v grive >/dev/null 2>&1; then
-      grive --progress-bar --path "$CLOUD_DIR"
+      nohup >/dev/null 2>&1 grive --progress-bar --path "$CLOUD_DIR" &
     fi
     ;;
 esac

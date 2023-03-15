@@ -13,7 +13,6 @@ alias sudo='sudo '
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
-  p="$PACKAGE_MANAGER" \
   cp="cp -iv" \
   mv="mv -iv" \
   bc="bc -ql" \
@@ -28,12 +27,12 @@ alias \
 
 # general
 alias \
+  p="$PACKAGE_MANAGER" \
   t="tmux" \
   tk='tmux kill-server' \
   nf="neofetch" \
   v="$EDITOR" \
   vw="$EDITOR $VIMWIKI_DIR/index.md" \
-  p="$PACKAGE_MANAGER" \
   ka="killall" \
   g="git" \
   se="sudoedit" \
