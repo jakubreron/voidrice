@@ -41,7 +41,7 @@ if [ -d "$path" ]; then
 
   if [ -d "$PKGLIST_DIR/.git" ] && [ -d "$HOME/.ssh" ]; then
     git -C "$PKGLIST_DIR" add .
-    git -C "$PKGLIST_DIR" commit -m "docs: auto-commit-changes"
+    git -C "$PKGLIST_DIR" commit -m "docs($PACKAGE_TYPE): auto-commit-changes"
     git -C "$PKGLIST_DIR" push
   fi
 fi
