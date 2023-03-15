@@ -1,6 +1,6 @@
 #!/bin/sh
 
-LAUNCHER="rofi -dmenu -p"
+LAUNCHER="rofi -dmenu -i -p"
 [ -z "${DISPLAY}" ] && LAUNCHER="fzf --prompt "
 
 if [ -f $HOME/.config/bm-websites ]; then
