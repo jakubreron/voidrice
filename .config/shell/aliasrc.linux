@@ -17,7 +17,7 @@ alias \
 
 # restart programs
 alias \
-  rs-ee="killall easyeffects; nohup easyeffects --gapplication-service &; -notify-send 'Restarted EasyEffects'" \
+  rs-ee="killall easyeffects; nohup easyeffects --gapplication-service &; notify-send 'Restarted EasyEffects'" \
   rs-dunst="killall dunst; nohup dunst &; notify-send 'Restarted Dunst'" \
   rs-compositor="killall picom; nohup picom &; notify-send 'Restarted Compositor'" \
   rs-nightlight="killall redshift; nohup redshift &; notify-send 'Restarted Night Light'" \
