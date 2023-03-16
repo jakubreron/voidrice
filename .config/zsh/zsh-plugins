@@ -12,5 +12,6 @@ plug "zap-zsh/fnm"
 plug "zap-zsh/supercharge"
 plug "zap-zsh/vim"
 plug "zap-zsh/exa" # WARNING: needs to be loaded after supercharge
+plug "lukechilds/zsh-better-npm-completion"
 
 eval "$(mcfly init zsh)"
