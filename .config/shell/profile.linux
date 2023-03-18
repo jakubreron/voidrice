@@ -14,6 +14,7 @@ function __setup_settings() {
   export SUDO_ASKPASS="$HOME/.local/bin/dmenu/dmenupass"
   export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
   export QT_QPA_PLATFORMTHEME='qt5ct' # QT Theme adjustements
+  +export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 }
 
 function __setup_keyboard() {
