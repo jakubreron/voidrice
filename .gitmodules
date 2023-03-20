@@ -25,3 +25,6 @@
 [submodule ".config/rofi/dracula"]
 	path = .config/rofi/dracula
 	url = https://github.com/dracula/rofi
+[submodule ".local/bin/rofi/rofi-translate"]
+	path = .local/bin/rofi/rofi-translate
+	url = git@github.com:jakubreron/rofi-translate.git
