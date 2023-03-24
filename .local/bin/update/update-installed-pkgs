@@ -55,7 +55,7 @@ case "$(uname -s)" in
   Linux*)
     update_linux_pkgs
     ;;
-  *)
+  Darwin)
     update_macos_pkgs
     ;;
 esac

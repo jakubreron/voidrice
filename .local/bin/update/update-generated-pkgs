@@ -34,7 +34,7 @@ if [ -d "$path" ]; then
     Linux*)
       generate_linux_pkgs
       ;;
-    *)
+    Darwin)
       generate_macos_pkgs
       ;;
   esac

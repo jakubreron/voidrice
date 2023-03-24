@@ -17,7 +17,7 @@ case "$(uname -s)" in
       profile-cleaner f
     fi
     ;;
-  *)
+  Darwin)
     log-pretty-message "Cleaning the DS_Store rubbish" "🧹🍏"
     find . -type f -name '*.DS_Store' -ls -delete
     ;;
