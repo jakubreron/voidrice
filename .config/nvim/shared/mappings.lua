@@ -1,5 +1,7 @@
 local keymap = vim.keymap.set
 
+keymap("i", "<C-BS>", "<C-w>", { silent = true })
+
 -- perform dot commands over visual blocks:
 keymap("v", ".", ":normal .<CR>", { silent = true })
 

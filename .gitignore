@@ -29,3 +29,5 @@ shortcuts.vim
 .config/fcitx/profile
 
 .local/share/lf
+
+.config/keyd/app.lock
