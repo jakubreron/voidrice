@@ -3,6 +3,7 @@
 if command -v git-sync-repos >/dev/null 2>&1; then
   log-pretty-message "Synchronizing dotfiles repositories in the background"
   git-sync-repos 'dotfiles'
+  git-sync-repos 'projects'
 fi
 
 case "$(uname -s)" in
