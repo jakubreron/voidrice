@@ -45,6 +45,10 @@ function __setup_programs() {
   export CLI_FILE_EXPLORER="lfrun"
   export CLI_MAIL_CLIENT="neomutt"
   export CLI_MUSIC_PLAYER="ncmpcpp"
+  export CLI_NETWORK_MANAGER="nmtui"
+  export CLI_NETWORK_TRAFFIC="bmon"
+  export CLI_TORRENTS_MANAGER="tremc"
+  export CLI_SOUND_MANAGER="pulsemixer"
 
   export AUTOSTART_PROGRAMS="
     setbg
