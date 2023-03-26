@@ -1,0 +1,8 @@
+#!/bin/sh
+socket_path="/run/user/1000/Alacritty-:0-37430.sock"
+
+if [ -e "$socket_path" ]; then
+  alacritty --socket "$socket_path" msg create-window
+else
+  alacritty --socket "$socket_path"
+fi
