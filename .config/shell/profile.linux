@@ -16,6 +16,7 @@ function __setup_settings() {
   export QT_QPA_PLATFORMTHEME='qt5ct' # QT Theme adjustements
   export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
   export WINIT_X11_SCALE_FACTOR=0.78
+  export vblank_mode=0
 }
 
 function __setup_keyboard() {
