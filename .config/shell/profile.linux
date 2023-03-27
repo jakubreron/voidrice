@@ -17,7 +17,7 @@ function __setup_settings() {
   export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
   export WINIT_X11_SCALE_FACTOR=0.78 # fix alacritty xorg font size
   export DISABLE_QT5_COMPAT=1 # confirm qt6 compatibility
-  export vblank_mode=0 # performance fix
+  # export vblank_mode=0 # performance fix
 }
 
 function __setup_keyboard() {
