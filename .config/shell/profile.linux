@@ -16,11 +16,6 @@ function __setup_settings() {
   export QT_QPA_PLATFORMTHEME='qt5ct' # QT Theme adjustements
   export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
   export DISABLE_QT5_COMPAT=1 # confirm qt6 compatibility
-
-  if laptop-detect -s >/dev/null 2>&1; then
-    export LIBVA_DRIVER_NAME="i965"
-    # export vblank_mode=0 # performance fix
-  fi
 }
 
 function __setup_keyboard() {
@@ -107,8 +102,15 @@ for func in "${setup_functions[@]}"; do
 done
 unset setup_functions
 
+if laptop-detect -s >/dev/null 2>&1; then
+  # NOTE: check: https://wiki.archlinux.org/title/Hardware_video_acceleration#Configuration
+  export LIBVA_DRIVER_NAME="i965" # NOTE: only for older intel hd graphics cards (Intel HD 3000), requires libva-intel-driver package
+  # export vblank_mode=0 # performance fix
+fi
+
 [ ! -f $XDG_CONFIG_HOME/.config/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
 if command -v Xorg >/dev/null 2>&1; then
+
   export WINIT_X11_SCALE_FACTOR=0.78 # fix alacritty xorg font size
   export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
   # Start graphical server on user's current tty if not already running.
