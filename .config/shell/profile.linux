@@ -62,8 +62,6 @@ function __setup_programs() {
     fcitx
     easyeffects --gapplication-service
     $TORRENTS_DAEMON
-    $PASSWORD_MANAGER
-    $TERIMNAL
   "
 }
 
