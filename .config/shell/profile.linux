@@ -15,9 +15,12 @@ function __setup_settings() {
   export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
   export QT_QPA_PLATFORMTHEME='qt5ct' # QT Theme adjustements
   export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
-  export WINIT_X11_SCALE_FACTOR=0.78 # fix alacritty xorg font size
   export DISABLE_QT5_COMPAT=1 # confirm qt6 compatibility
-  # export vblank_mode=0 # performance fix
+
+  if laptop-detect -s >/dev/null 2>&1; then
+    export LIBVA_DRIVER_NAME="i965"
+    # export vblank_mode=0 # performance fix
+  fi
 }
 
 function __setup_keyboard() {
@@ -105,6 +108,9 @@ done
 unset setup_functions
 
 [ ! -f $XDG_CONFIG_HOME/.config/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
-export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
-# Start graphical server on user's current tty if not already running.
-[ "$(tty)" = "/dev/tty1" ] && [ -x "$(command -v "Xorg")" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
+if command -v Xorg >/dev/null 2>&1; then
+  export WINIT_X11_SCALE_FACTOR=0.78 # fix alacritty xorg font size
+  export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
+  # Start graphical server on user's current tty if not already running.
+  [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
+fi
