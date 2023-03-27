@@ -11,7 +11,7 @@ transmission-remote -l | grep % |
 		sort -h | uniq -c | awk '{print $3 $1}' | paste -sd ' ' -
 
 case $BLOCK_BUTTON in
-	1) setsid -f "$TERMINAL" -e "$CLI_TORRENTS_MANAGER" ;;
+	1) setsid -f "$TERMINAL" -e "$CLI_TORRENTS_MANAGER -X" ;;
 	2) td-toggle ;;
   3) notify-send "🌱 Torrent module" "\- Left click to open $CLI_TORRENTS_MANAGER.
 - Middle click to toggle transmission.
