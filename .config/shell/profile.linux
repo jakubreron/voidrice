@@ -102,7 +102,7 @@ for func in "${setup_functions[@]}"; do
 done
 unset setup_functions
 
-if laptop-detect -s >/dev/null 2>&1; then
+if laptop-detect >/dev/null 2>&1; then
   # NOTE: check: https://wiki.archlinux.org/title/Hardware_video_acceleration#Configuration
   # NOTE: only for older intel hd graphics cards (Intel HD 3000), requires libva-intel-driver package
   export LIBVA_DRIVER_NAME=i965 
