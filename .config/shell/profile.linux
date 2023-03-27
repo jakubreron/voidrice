@@ -104,7 +104,10 @@ unset setup_functions
 
 if laptop-detect -s >/dev/null 2>&1; then
   # NOTE: check: https://wiki.archlinux.org/title/Hardware_video_acceleration#Configuration
-  export LIBVA_DRIVER_NAME="i965" # NOTE: only for older intel hd graphics cards (Intel HD 3000), requires libva-intel-driver package
+  # NOTE: only for older intel hd graphics cards (Intel HD 3000), requires libva-intel-driver package
+  export LIBVA_DRIVER_NAME=i965 
+  export MESA_LOADER_DRIVER_OVERRIDE=i965
+
   # export vblank_mode=0 # performance fix
 fi
 
