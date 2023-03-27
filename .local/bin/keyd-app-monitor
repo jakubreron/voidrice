@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MAX_MEMORY_USAGE=100000 # 100MB
+MAX_MEMORY_USAGE=50000 # 50MB
 
 while true; do
     APP_PIDS=$(pgrep keyd-applicatio)
