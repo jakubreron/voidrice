@@ -1,0 +1,22 @@
+#!/bin/sh
+
+while true; do
+  APP_PID=$(pgrep keyd-applicatio)
+
+  if [ -z "$APP_PID" ]; then
+    keyd-application-mapper -d -q
+  else
+    MAX_MEMORY_USAGE=50000 # 50MB
+    MEMORY_USAGE=$(ps -o rss= -p "$APP_PID")
+
+    if [ "$MEMORY_USAGE" -gt "$MAX_MEMORY_USAGE" ]; then
+      notify-send "Memory usage of keyd-application-manager has exceeded the limit. Restarting..."
+      kill -9 "$APP_PID"
+      sleep
+      keyd-application-mapper -d -q
+    fi
+
+  fi
+
+  sleep 1m
+done

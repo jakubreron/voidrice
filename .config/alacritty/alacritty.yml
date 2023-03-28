@@ -377,13 +377,13 @@ draw_bold_text_with_bright_colors: true
   #
   #command: None
 
-#selection:
+# selection:
   # This string contains all characters that are used as separators for
   # "semantic words" in Alacritty.
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
   # When set to `true`, selected text will be copied to the primary clipboard.
-  #save_to_clipboard: false
+  # save_to_clipboard: true
 
 #cursor:
   # Cursor style
@@ -841,7 +841,8 @@ key_bindings:
   #- { key: F,              mods: Control|Shift, mode: ~Search,    action: SearchForward    }
   #- { key: B,              mods: Control|Shift, mode: ~Search,    action: SearchBackward   }
   #- { key: C,              mods: Control|Shift, mode: Vi|~Search, action: ClearSelection   }
-  #- { key: Insert,         mods: Shift,                           action: PasteSelection   }
+  - { key: Insert,          mods: Control,                         action: Copy    }
+  - { key: Insert,          mods: Shift,                           action: Paste   }
   #- { key: Key0,           mods: Control,                         action: ResetFontSize    }
   #- { key: Equals,         mods: Control,                         action: IncreaseFontSize }
   #- { key: Plus,           mods: Control,                         action: IncreaseFontSize }

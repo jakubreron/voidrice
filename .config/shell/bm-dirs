@@ -4,7 +4,7 @@ Vi      $XDG_VIDEOS_DIR
 
 Do      $XDG_DOCUMENTS_DIR
 
-Tr      $XDG_TORRENTS_DIR
+Tr      $TORRENTS_DIR
 
 Mu      $XDG_MUSIC_DIR
 
