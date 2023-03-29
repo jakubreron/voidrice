@@ -10,6 +10,7 @@ function __setup_programs() {
   export CLI_CRYPTO_APP="cointop"
   export CLI_GIT_APP="lazygit"
   export CLI_DOCKER_APP="lazydocker"
+  export CLI_NETWORK_TRAFFIC="bmon"
 }
 
 function __setup_xdg_dirs() {
