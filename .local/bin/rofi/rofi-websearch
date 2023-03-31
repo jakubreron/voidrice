@@ -44,6 +44,9 @@ URLS=(
   ["vimawesome"]="http://vimawesome.com/?q="
   ["jisho"]="https://jisho.org/search/"
   ["kanji"]="https://jisho.org/search/%23kanji "
+  ["allegro"]="https://allegro.pl/listing?string="
+  ["allegrolokalnie"]="https://allegrolokalnie.pl/oferty/q/"
+  ["olx"]="https://www.olx.pl/oferty/q-"
 )
 
 # List for rofi
