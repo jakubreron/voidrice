@@ -1,0 +1,11 @@
+#!/bin/sh
+
+stop_on_file="$1"
+command="${2:-pwd}"
+
+fd --type d --exclude node_modules . | while read -r folder; do
+  if [ -e "${folder}/${stop_on_file}" ]; then
+    log-pretty-message "Runninng $command in $folder$stop_on_file"
+    (cd "$folder" && eval "$command")
+  fi
+done
