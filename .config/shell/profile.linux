@@ -57,7 +57,6 @@ function __setup_programs() {
     remapd
     xsettingsd
     recheck-mail 
-    redshift
     fcitx
     easyeffects --gapplication-service
     $TORRENTS_DAEMON
