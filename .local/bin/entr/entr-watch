@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 find "$CLOUD_DIR/Backups/Recovery Codes/Passwords.kdbx" | entr -np entr-sync-password &
 find "$XDG_BIN_HOME" | entr -np entr-update-symlinks &

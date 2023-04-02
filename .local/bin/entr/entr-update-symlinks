@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 notify-send "⏳ Updating the symlinks with entr..."
 update-symlinks-all &

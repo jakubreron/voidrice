@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # NOTE: synchronizes local music to playlist.txt file music
 
 yt-dlp --add-metadata -i --cookies-from-browser $BACKUP_BROWSER -x -f bestaudio/best --download-archive playlist.txt

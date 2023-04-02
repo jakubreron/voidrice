@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # NOTE: synchronizes local music to playlist.txt file music
 
 download_playlist() {

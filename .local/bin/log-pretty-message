@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 message="$1"
 emoji="${2:-⏳}"

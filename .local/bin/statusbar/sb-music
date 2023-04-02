@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 play_icon="🟢"
 pause_icon="🔴"

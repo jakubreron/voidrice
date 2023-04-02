@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 if command -v git-sync-repos >/dev/null 2>&1; then
   log-pretty-message "Synchronizing dotfiles repositories in the background"

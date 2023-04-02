@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 replace_dotfiles_symlinks() {
   log-pretty-message "Updating dotfiles symlinks"

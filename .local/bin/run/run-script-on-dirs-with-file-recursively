@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 stop_on_file="$1"
 command="${2:-pwd}"

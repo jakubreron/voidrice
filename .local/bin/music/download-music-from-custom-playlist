@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # NOTE: downloads once, doesn't synchronize with the playlist
 
 download_custom_playlist() {

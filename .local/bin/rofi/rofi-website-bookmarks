@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 LAUNCHER="rofi -dmenu -i -p"
 [ -z "${DISPLAY}" ] && LAUNCHER="fzf --prompt "

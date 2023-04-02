@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 path="$PKGLIST_DIR/$PACKAGE_TYPE"
 
