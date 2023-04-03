@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-run-script-on-dirs-with-file-recursively "yarn.lock" "yarn"
