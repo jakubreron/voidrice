@@ -71,6 +71,7 @@ function __setup_machines() {
     export LAYOUT_TYPE="primary"
   else
     export PACKAGE_TYPE="secondary"
+    export LAYOUT_TYPE="secondary"
   fi
 }
 
