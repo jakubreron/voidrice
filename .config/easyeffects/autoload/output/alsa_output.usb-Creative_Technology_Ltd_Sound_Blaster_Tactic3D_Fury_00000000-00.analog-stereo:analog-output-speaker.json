@@ -1,0 +1,6 @@
+{
+    "device": "alsa_output.usb-Creative_Technology_Ltd_Sound_Blaster_Tactic3D_Fury_00000000-00.analog-stereo",
+    "device-description": "Sound Blaster Tactic3D Fury Analog Stereo",
+    "device-profile": "analog-output-speaker",
+    "preset-name": "Speakers(Creative)"
+}
