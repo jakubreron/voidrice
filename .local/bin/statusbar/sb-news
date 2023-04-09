@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Displays number of unread news items and an loading icon if updating.
 # When clicked, brings up `newsboat`.

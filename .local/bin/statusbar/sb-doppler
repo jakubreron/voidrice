@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Show a Doppler RADAR of a user's preferred location.
 
