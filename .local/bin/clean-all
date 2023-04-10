@@ -16,6 +16,8 @@ case "$(uname -s)" in
       log-pretty-message "Cleaning the firefox profile" "🧹🦊"
       profile-cleaner f
     fi
+
+    find "$HOME" -type f -name 'nohup.out' -ls -delete
     ;;
   Darwin)
     log-pretty-message "Cleaning the DS_Store rubbish" "🧹🍏"
