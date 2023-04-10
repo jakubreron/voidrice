@@ -28,6 +28,7 @@ application/xhtml+xml=firefoxdeveloperedition.desktop
 application/x-extension-xhtml=firefoxdeveloperedition.desktop
 application/x-extension-xht=firefoxdeveloperedition.desktop
 x-scheme-handler/etcher=balena-etcher.desktop
+application/dicom=gimp.desktop
 
 [Added Associations]
 x-scheme-handler/http=firefox.desktop;firefoxdeveloperedition.desktop;
@@ -40,3 +41,5 @@ application/x-extension-shtml=firefox.desktop;firefoxdeveloperedition.desktop;
 application/xhtml+xml=firefox.desktop;firefoxdeveloperedition.desktop;
 application/x-extension-xhtml=firefox.desktop;firefoxdeveloperedition.desktop;
 application/x-extension-xht=firefox.desktop;firefoxdeveloperedition.desktop;
+text/calendar=firefoxdeveloperedition.desktop;
+application/dicom=gimp.desktop;
