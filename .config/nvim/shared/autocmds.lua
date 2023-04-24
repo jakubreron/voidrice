@@ -15,6 +15,13 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	command = "setlocal filetype=conf",
 })
 
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	pattern = ".env*",
+  callback = function(args)
+    vim.diagnostic.disable(args.buf)
+  end
+})
+
 local x_filetypes = { "xresources", "xdefaults" }
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = x_filetypes,
