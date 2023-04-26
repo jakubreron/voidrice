@@ -1,61 +1,106 @@
 #!/usr/bin/env bash
 
-if command -v npm >/dev/null 2>&1; then
-  log-pretty-message "Updating NPM packages" "💩"
-  sudo npm install npm -g
-fi
+scriptpath="$(
+    cd -- "$(dirname "$0")" >/dev/null 2>&1
+    pwd -P
+)"
 
-if command -v yarn >/dev/null 2>&1; then
-  log-pretty-message "Updating yarn packages" "🧶"
-  yarn global upgrade
-fi
-
-update_linux_pkgs() {
-  if command -v "$PACKAGE_MANAGER" >/dev/null 2>&1; then
-    log-pretty-message "Updating $PACKAGE_MANAGER packages" "📦"
-    $PACKAGE_MANAGER -Syu --noconfirm
+function update_npm_packages() {
+  if command -v npm >/dev/null 2>&1; then
+    sudo npm install npm -g
   fi
-
-  compile() {
-    path="$1"
-    log-pretty-message "Compiling $path"
-    [ -d "$path" ] && sudo make -C "$path" && sudo make install -C "$path"
-  }
-
-  compile "$XDG_SRC_HOME/dwm"
-  compile "$XDG_SRC_HOME/dwmblocks"
-  compile "$XDG_SRC_HOME/dmenu"
-  compile "$XDG_SRC_HOME/st"
-  compile "$XDG_SRC_HOME/sxiv-flexipatch"
 }
 
-update_macos_pkgs() {
-  if command -v brew >/dev/null 2>&1; then
-    log-pretty-message "Updating brew packages" "🍺"
-    brew update
-    brew upgrade
-    brew cleanup
+function update_yarn_packages() {
+  if command -v yarn >/dev/null 2>&1; then
+    yarn global upgrade
   fi
-
-  log-pretty-message "Updating software packages"
-  softwareupdate -i -a
-
-  if command -v gem >/dev/null 2>&1; then
-    log-pretty-message "Updating gem packages" "💎"
-    sudo gem update --system
-    sudo gem update
-    sudo gem cleanup
-  fi
-
-  # sudo port selfupdate
-  # sudo port upgrade outdated
 }
 
 case "$(uname -s)" in
   Linux*)
-    update_linux_pkgs
+    function update_linux_pkgs() {
+      if command -v "$PACKAGE_MANAGER" >/dev/null 2>&1; then
+        $PACKAGE_MANAGER -Syu --noconfirm
+      fi
+    }
+
+    function update_linux_compiled_pkgs() {
+      compile() {
+        path="$1"
+        [ -d "$path" ] && sudo make -C "$path" && sudo make install -C "$path"
+      }
+
+      compile "$XDG_SRC_HOME/dwm"
+      compile "$XDG_SRC_HOME/dwmblocks"
+      compile "$XDG_SRC_HOME/dmenu"
+      compile "$XDG_SRC_HOME/st"
+      compile "$XDG_SRC_HOME/sxiv-flexipatch"
+    }
     ;;
   Darwin)
-    update_macos_pkgs
-    ;;
+    function update_macos_brew_pkgs() {
+      if command -v brew >/dev/null 2>&1; then
+        brew update
+        brew upgrade
+        brew cleanup
+      fi
+    }
+
+    function update_macos_software_pkgs() {
+      softwareupdate -i -a
+    }
+
+    function update_macos_gem_pkgs() {
+      if command -v gem >/dev/null 2>&1; then
+        sudo gem update --system
+        sudo gem update
+        sudo gem cleanup
+      fi
+    }
+  ;;
 esac
+
+function run_functions_asynchronously() {
+  local_functions=($(typeset -F))
+  update_functions_to_run=()
+
+  for function_name in "${local_functions[@]}"; do
+    if [[ $function_name == update* ]]; then
+      update_functions_to_run+=("$function_name")
+    fi
+  done
+
+  local pids=()
+
+  for function_name in "${update_functions_to_run[@]}"; do
+    log-pretty-message "Running $function_name in the background"
+    temp_log_file="$scriptpath/$function_name.log"
+    
+    (
+      TIMEFORMAT="✅ $function_name updated successfully in %lR"
+      time $function_name $1 &>$temp_log_file >(sed "s/^/$function_name: /" >&2) &
+      set +e # don't exit on error
+      wait $!
+      local exit_status=$? # store the exit status of last command
+      set ie
+      if [[ $exit_status != "0" ]]; then
+        log-pretty-message "$function_name: exited with status code $exit_status" "💣"
+      else
+        rm "$temp_log_file"
+      fi
+    ) &
+
+    pids+=($!) # add most recently started background command to the subshell
+  done
+
+  wait "${pids[@]}"
+
+  for function_name in "${update_functions_to_run[@]}"; do
+    temp_log_file="$scriptpath/$function_name.log"
+
+    [ -f "$temp_log_file" ] && log-pretty-message "$function_name failed, see $temp_log_file to see why." "💣"
+  done
+}
+
+time run_functions_asynchronously
