@@ -19,13 +19,13 @@ function update_yarn_packages() {
 
 case "$(uname -s)" in
   Linux*)
-    function update_linux_pkgs() {
+    function update_pacman_pkgs() {
       if command -v "$PACKAGE_MANAGER" >/dev/null 2>&1; then
         $PACKAGE_MANAGER -Syu --noconfirm
       fi
     }
 
-    function update_linux_compiled_pkgs() {
+    function update_compiled_pkgs() {
       compile() {
         path="$1"
         [ -d "$path" ] && sudo make -C "$path" && sudo make install -C "$path"
@@ -39,7 +39,7 @@ case "$(uname -s)" in
     }
     ;;
   Darwin)
-    function update_macos_brew_pkgs() {
+    function update_brew_pkgs() {
       if command -v brew >/dev/null 2>&1; then
         brew update
         brew upgrade
@@ -47,11 +47,11 @@ case "$(uname -s)" in
       fi
     }
 
-    function update_macos_software_pkgs() {
+    function update_software_pkgs() {
       softwareupdate -i -a
     }
 
-    function update_macos_gem_pkgs() {
+    function update_gem_pkgs() {
       if command -v gem >/dev/null 2>&1; then
         sudo gem update --system
         sudo gem update
