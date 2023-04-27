@@ -5,13 +5,13 @@ scriptpath="$(
     pwd -P
 )"
 
-function update_npm_packages() {
+function update_npm_pkgs() {
   if command -v npm >/dev/null 2>&1; then
     sudo npm install npm -g
   fi
 }
 
-function update_yarn_packages() {
+function update_yarn_pkgs() {
   if command -v yarn >/dev/null 2>&1; then
     yarn global upgrade
   fi

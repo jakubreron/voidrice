@@ -14,11 +14,11 @@ bash -c "$repos" | while read -r REPO; do
   BRANCH=$(git -C "$REPO" rev-parse --abbrev-ref HEAD)
 
   if [ -n "$GIT_STATUS" ]; then
-    log-pretty-message "$(basename "$REPO") has local changes, so it wasn't updated." "❗"
+    echo "❗ $(basename "$REPO") has local changes, so it wasn't updated."
     continue;
   fi
 
   git -C "$REPO" pull --quiet origin "$BRANCH" &
 
-  log-pretty-message "$(basename "$REPO") was updated on $(basename "$BRANCH")." "✅"
+  echo "✅ $(basename "$REPO") was updated on $(basename "$BRANCH")."
 done
