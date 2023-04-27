@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-scriptpath="$(
-    cd -- "$(dirname "$0")" >/dev/null 2>&1
-    pwd -P
-)"
+scriptpath=$(dirname "$0")
 
 function update_npm_pkgs() {
   if command -v npm >/dev/null 2>&1; then
