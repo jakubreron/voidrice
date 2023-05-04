@@ -1,0 +1,6 @@
+{
+    "device": "alsa_output.pci-0000_05_00.1.hdmi-stereo-extra2",
+    "device-description": "Baffin HDMI/DP Audio [Radeon RX 550 640SP / RX 560/560X] Digital Stereo (HDMI 3)",
+    "device-profile": "hdmi-output-2",
+    "preset-name": "Speakers(Creative)"
+}
