@@ -17,7 +17,7 @@ log-pretty-message "Looking for outdated packages"
 packages="$(na outdated | grep -E "$regex_search" | awk '{print $1}')"
 
 log-pretty-message "Packages to update" "ℹ️"
-printf "%s" "$packages"
+printf "%s \n" "$packages"
 
 log-pretty-message "Updating"
 echo "$packages" | xargs nu "$args"
