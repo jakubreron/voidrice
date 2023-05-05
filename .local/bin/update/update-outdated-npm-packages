@@ -1,13 +1,23 @@
 #!/usr/bin/env bash
 
 regex_search=$1
+args=$2
 
 if ! command -v na >/dev/null 2>&1; then
   log-pretty-message 'Installing "ni" package manager via npm'
   npm i -g @antfu/ni
 fi
 
-if [ -d "./node_modules" ]; then
-  log-pretty-message "Updating outdated packages"
-  na outdated | grep -E "$regex_search" | awk '{print $1}' | xargs nu
+if [ ! -d "./node_modules" ]; then
+  log-pretty-message "./node_modules not found, installing dependencies first"
+  ni
 fi
+
+log-pretty-message "Looking for outdated packages"
+packages="$(na outdated | grep -E "$regex_search" | awk '{print $1}')"
+
+log-pretty-message "Packages to update" "ℹ️"
+printf "%s" "$packages"
+
+log-pretty-message "Updating"
+echo "$packages" | xargs nu "$args"
