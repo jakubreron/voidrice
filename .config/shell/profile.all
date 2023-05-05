@@ -73,6 +73,7 @@ function __setup_settings() {
   export MOZ_USE_XINPUT2=1		# Mozilla smooth scrolling/touchpads.
   export AWT_TOOLKIT="MToolkit wmname LG3D"	# May have to install wmname
   export NUXT_TELEMETRY_DISABLED=1
+  export NI_CONFIG_FILE="$HOME/.config/ni/nirc"
 
   export LESS=-R
   export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
