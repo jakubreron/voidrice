@@ -19,5 +19,14 @@ packages="$(na outdated | grep -E "$regex_search" | awk '{print $1}')"
 log-pretty-message "Packages to update" "ℹ️"
 printf "%s \n" "$packages"
 
-log-pretty-message "Updating"
-echo "$packages" | xargs nu "$args"
+read -p "Do you want to proceed? (y/n): " -r answer
+
+case "$answer" in
+  y | Y | yes | YES | Yes)
+    log-pretty-message "Updating"
+    echo "$packages" | xargs nu "$args"
+    ;;
+  n | N | no | NO | No | *[[:blank:]]* | "")
+    log-pretty-message "Cancelling" 🚫
+    ;;
+esac
