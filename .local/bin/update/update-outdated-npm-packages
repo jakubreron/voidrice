@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+regex_search=$1
+
+if ! command -v na >/dev/null 2>&1; then
+  log-pretty-message 'Installing "ni" package manager via npm'
+  npm i -g @antfu/ni
+fi
+
+if [ -d "./node_modules" ]; then
+  log-pretty-message "Updating outdated packages"
+  na outdated | grep -E "$regex_search" | awk '{print $1}' | xargs nu
+fi
