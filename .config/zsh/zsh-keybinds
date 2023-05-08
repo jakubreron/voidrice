@@ -24,7 +24,7 @@ bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n' # find
 
 # nr command = (npm|yarn|pnpm) run # @antfu/ni
 bindkey -s '^d' '^unr dev\n' 
-bindkey -s '^s' '^unr start\n' 
+bindkey -s '^s' '^urun-npm-script\n' 
 
 bindkey '^[[A' history-substring-search-up # arrow up
 bindkey '^[[B' history-substring-search-down # arrow down

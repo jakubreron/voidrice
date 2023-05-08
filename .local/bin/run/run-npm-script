@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+script=$(cat package.json | jq -r '.scripts | keys[] ' | sort | fzf --height 20%) && nr $(echo "$script")

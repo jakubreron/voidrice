@@ -174,7 +174,7 @@ cmd convert ${{
 }}
 
 cmd run_scripts ${{
-  script=$(cat package.json | jq -r '.scripts | keys[] ' | sort | fzf --height 20%) && npm run $(echo "$script")
+  script=$(cat package.json | jq -r '.scripts | keys[] ' | sort | fzf --height 20%) && nr $(echo "$script")
 }}
 
 cmd setbg "$1"
