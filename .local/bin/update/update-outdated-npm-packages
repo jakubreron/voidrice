@@ -2,6 +2,9 @@
 
 regex_search=$1
 args=$2
+version=$3
+
+command="nu" # update
 
 if ! command -v na >/dev/null 2>&1; then
   log-pretty-message 'Installing "ni" package manager via npm'
@@ -16,6 +19,11 @@ fi
 log-pretty-message "Looking for outdated packages"
 packages="$(na outdated | awk '{print $1}' | grep -E "$regex_search")"
 
+if [ "$version" = 'latest' ]; then
+  packages="$(echo -e "$packages" | sed 's/$/@latest/')" # append latest to the end of every package
+  command="ni" # overwrite to install
+fi
+
 log-pretty-message "Packages to update" "ℹ️"
 printf "%s \n" "$packages"
 
@@ -24,7 +32,8 @@ read -p "Do you want to proceed? (y/n): " -r answer
 case "$answer" in
   y | Y | yes | YES | Yes)
     log-pretty-message "Updating"
-    echo "$packages" | xargs nu "$args"
+
+    echo "$packages" | xargs $command "$args"
     ;;
   n | N | no | NO | No | *[[:blank:]]* | "")
     log-pretty-message "Cancelling" 🚫
