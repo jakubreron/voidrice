@@ -11,7 +11,6 @@ if [[ $OSTYPE == 'linux'* ]]; then
   export PATH
   unset bin_list
 else
-  eval $(/opt/homebrew/bin/brew shellenv)
   bin_list=(
     "${$(gfind $HOME/.local/bin -type d -printf %p:)%%:}"
     )
