@@ -18,9 +18,13 @@ lfcd () {
 bindkey -s '^o' '^ulfcd\n' # open
 bindkey -s '^b' '^u${GUI_FILE_EXPLORER} .\n' # browse
 bindkey -s '^g' '^u${CLI_GIT_APP}\n' # git
-bindkey -s '^d' '^u${CLI_DOCKER_APP}\n' # docker
+# bindkey -s '^d' '^u${CLI_DOCKER_APP}\n' # docker
 bindkey -s '^\' '^u${CLI_SYSTEM_MONITOR}\n' # system monitor (htop, btop, etc...)
 bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n' # find
+
+# nr command = (npm|yarn|pnpm) run # @antfu/ni
+bindkey -s '^d' '^unr dev\n' 
+bindkey -s '^s' '^unr start\n' 
 
 bindkey '^[[A' history-substring-search-up # arrow up
 bindkey '^[[B' history-substring-search-down # arrow down
