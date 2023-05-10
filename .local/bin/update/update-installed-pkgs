@@ -44,10 +44,6 @@ case "$(uname -s)" in
       fi
     }
 
-    function update_software_pkgs() {
-      softwareupdate -i -a
-    }
-
     function update_gem_pkgs() {
       if command -v gem >/dev/null 2>&1; then
         sudo gem update --system
