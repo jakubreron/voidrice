@@ -48,8 +48,8 @@ alias \
   yr="yarn" \
   yrt="yarn test --watch --coverage --silent false" \
   npmt="npm run unit -- --watch --coverage --silent false" \
-  update-minor-dependencies="npx taze minor -w" \
-  update-major-dependencies="npx taze major -w"
+  update-minor-dependencies="npx taze minor -w; ni" \
+  update-major-dependencies="npx taze major -w; ni"
 
 # network
 alias \
