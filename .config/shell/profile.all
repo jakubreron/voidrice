@@ -74,6 +74,7 @@ function __setup_settings() {
   export AWT_TOOLKIT="MToolkit wmname LG3D"	# May have to install wmname
   export NUXT_TELEMETRY_DISABLED=1
   export NI_CONFIG_FILE="$HOME/.config/ni/nirc"
+  export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 
   export LESS=-R
   export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"
