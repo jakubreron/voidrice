@@ -13,5 +13,6 @@ plug "zap-zsh/supercharge"
 plug "zap-zsh/vim"
 plug "zap-zsh/exa" # WARNING: needs to be loaded after supercharge
 plug "lukechilds/zsh-better-npm-completion"
+plug "MichaelAquilina/zsh-you-should-use"
 
 eval "$(mcfly init zsh)"
