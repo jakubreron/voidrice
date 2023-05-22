@@ -142,7 +142,7 @@ cmd fzf_search $lf -remote "send $id select \"$(fzf)\""
 cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
 
 cmd encrypt $gpg -c --no-symkey-cache --cipher-algo AES256 $f
-cmd decrypt $gpg --decrypt $f
+cmd decrypt $gpg $f
 
 # TODO: fix, ask for the dir name and prevent flattening the structure
 # cmd zip $zip -j -r "$fx" "$fx"
