@@ -22,6 +22,11 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   end
 })
 
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	pattern = { ".env*" } ,
+  command = "setlocal filetype=sh"
+})
+
 local x_filetypes = { "xresources", "xdefaults" }
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = x_filetypes,
