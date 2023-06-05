@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+session_file="Session.vim"
+path_to_include="${PROJECTS_DIR:-$HOME/Documents/Projects}"
+
+echo "$path_to_include"
+if [ -f "$session_file" ]; then
+  echo "has session"
+fi
