@@ -47,7 +47,8 @@ alias \
 alias \
   yr="yarn" \
   yrt="yarn test --watch --coverage --silent false" \
-  npmt="npm run unit -- --watch --coverage --silent false" \
+  nt="npm run unit -- --watch --coverage --silent false" \
+  nir="run-script-on-dirs package-lock.json 'ni'" \
   update-minor-dependencies="npx taze minor -w; ni" \
   update-major-dependencies="npx taze major -w; ni"
 

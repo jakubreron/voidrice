@@ -2,8 +2,9 @@
 
 session_file="Session.vim"
 path_to_include="${PROJECTS_DIR:-$HOME/Documents/Projects}"
+current_path=$(dirname "$0")
 
-echo "$path_to_include"
 if [ -f "$session_file" ]; then
+  echo "$current_path"
   echo "has session"
 fi
