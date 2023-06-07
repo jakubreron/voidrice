@@ -49,16 +49,25 @@ function __setup_programs() {
   export CLI_TORRENTS_MANAGER="tremc"
   export CLI_SOUND_MANAGER="pulsemixer"
 
+  # NOTE: full sequence
+  # setbg
+  # $COMPOSITOR
+  # $NOFIFICATION_DAEMON
+  # unclutter
+  # remapd
+  # xsettingsd
+  # recheck-mail 
+  # fcitx
+  # easyeffects --gapplication-service
+  # $TORRENTS_DAEMON
+
   export AUTOSTART_PROGRAMS="
     setbg
-    $COMPOSITOR
     $NOFIFICATION_DAEMON
     unclutter
     remapd
     xsettingsd
-    recheck-mail 
     fcitx
-    easyeffects --gapplication-service
     $TORRENTS_DAEMON
   "
 }
