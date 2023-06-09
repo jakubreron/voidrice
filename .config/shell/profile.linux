@@ -68,6 +68,7 @@ function __setup_programs() {
     remapd
     xsettingsd
     fcitx
+    easyeffects --gapplication-service
     $TORRENTS_DAEMON
   "
 }
