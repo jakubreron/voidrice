@@ -64,14 +64,11 @@ function __setup_programs() {
 }
 
 function __setup_machines() {
-  # NOTE: LAYOUT_TYPE (display arrangement): primary, secondary, temporary
   # NOTE: PACKAGE_TYPE (needed for package-generation auto-commits): primary, secondary
   if [[ $(hostnamectl --static) == *'desktop'* ]]; then
     export PACKAGE_TYPE="primary"
-    export LAYOUT_TYPE="primary"
   else
     export PACKAGE_TYPE="secondary"
-    export LAYOUT_TYPE="secondary"
   fi
 }
 
