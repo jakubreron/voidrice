@@ -173,7 +173,27 @@ cmd run_scripts ${{
 }}
 
 cmd setbg "$1"
-cmd bulkrename $vidir
+
+cmd bulkrename ${{
+    tmpfile_old="$(mktemp)"
+    tmpfile_new="$(mktemp)"
+
+    [ -n "$fs" ] && fs=$(basename -a $fs) || fs=$(ls)
+
+    echo "$fs" > "$tmpfile_old"
+    echo "$fs" > "$tmpfile_new"
+    $EDITOR "$tmpfile_new"
+
+    [ "$(wc -l < "$tmpfile_old")" -eq "$(wc -l < "$tmpfile_new")" ] || { rm -f "$tmpfile_old" "$tmpfile_new"; exit 1; }
+
+    paste "$tmpfile_old" "$tmpfile_new" | while IFS="$(printf '\t')" read -r src dst
+    do
+        [ "$src" = "$dst" ] || [ -e "$dst" ] || mv -- "$src" "$dst"
+    done
+
+    rm -f "$tmpfile_old" "$tmpfile_new"
+    lf -remote "send $id unselect"
+}}
 
 cmd open_in_new_terminal $setsid -f $TERMINAL >/dev/null 2>&1
 
@@ -209,11 +229,11 @@ map O $mimeopen --ask "$f"
 map r push A<c-u> # new rename
 map R bulkrename
 
-map i push A<a-b><a-b><a-f> # before extension
-map I push A<c-a> # at the very beginning
+map i :rename # before extension
+map I :rename; cmd-home # at the very beginning
 
-map a push A<a-b> # after extension
-map A rename # at the very end
+map a :rename; cmd-right # after extension
+map A :rename; cmd-end # at the very end
 
 map b $setbg $f
 
