@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Define the list of commands as an array
+commands=("layout-builtin+external-above.sh" "layout-builtin-only.sh" "layout-external-only.sh")
+
+# Display the command choices in Rofi
+chosen=$(printf '%s\n' "${commands[@]}" | rofi -dmenu -i -p "Select a layout")
+
+# Execute the chosen command
+if [[ " ${commands[*]} " == *" $chosen "* ]]; then
+    eval "$chosen"
+else
+    echo "Invalid selection"
+fi
