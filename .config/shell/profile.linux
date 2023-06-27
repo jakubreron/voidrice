@@ -51,6 +51,7 @@ function __setup_programs() {
 
   export AUTOSTART_PROGRAMS="
     setbg
+    $COMPOSITOR
     $NOFIFICATION_DAEMON
     unclutter
     remapd
