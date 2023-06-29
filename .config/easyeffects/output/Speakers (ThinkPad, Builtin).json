@@ -1,28 +1,6 @@
 {
     "output": {
         "blocklist": [],
-        "convolver#0": {
-            "autogain": true,
-            "bypass": false,
-            "input-gain": -2.0,
-            "ir-width": 100,
-            "kernel-path": "/home/jakub/.config/easyeffects/irs/MaxxAudio Pro ((128K MP3)) 4.Music w MaxxSpace.irs",
-            "output-gain": 0.0
-        },
-        "exciter#0": {
-            "amount": 6.0,
-            "blend": 6.0,
-            "bypass": false,
-            "ceil": 16000.0,
-            "ceil-active": true,
-            "harmonics": 8.0,
-            "input-gain": -2.0,
-            "output-gain": 0.0,
-            "scope": 5500.0
-        },
-        "plugins_order": [
-            "exciter#0",
-            "convolver#0"
-        ]
+        "plugins_order": []
     }
 }
