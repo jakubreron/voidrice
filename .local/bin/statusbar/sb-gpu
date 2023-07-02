@@ -9,4 +9,4 @@ case $BLOCK_BUTTON in
 	6) "$TERMINAL" -e "$EDITOR" "$0" ;;
 esac
 
-sensors | grep edge | awk '/edge:/{print "🌡" $2}' | sed 's/+//g'
+sensors | grep edge | awk '/edge:/{print "🌡" $2}' | sed 's/[+C]//g'
