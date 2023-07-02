@@ -58,7 +58,6 @@ function __setup_programs() {
     xsettingsd
     recheck-mail
     fcitx
-    easyeffects --gapplication-service
     $TORRENTS_DAEMON
   "
 }
