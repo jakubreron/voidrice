@@ -1,7 +1,9 @@
 local keymap = vim.keymap.set
 
+keymap("n", "ZZ", "<cmd>qa!<CR>", { silent = true })
+
 -- perform dot commands over visual blocks:
-keymap("v", ".", ":normal .<CR>", { silent = true })
+keymap("v", ".", "<cmd>normal .<CR>", { silent = true })
 
 -- paste without yank
 keymap("v", "<leader>p", '"_dP', { silent = true, desc = "Paste without yank" })
