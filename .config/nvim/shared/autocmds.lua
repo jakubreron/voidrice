@@ -11,6 +11,11 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = "*.tfvars",
+	command = "setlocal filetype=tf",
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = "*.conf",
 	command = "setlocal filetype=conf",
 })

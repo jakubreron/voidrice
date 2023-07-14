@@ -1,6 +1,7 @@
 local keymap = vim.keymap.set
 
-keymap("n", "ZZ", "<cmd>wqa<CR>", { silent = true })
+keymap("n", "ZZ", "<cmd>confirm wqa<CR>", { silent = true })
+keymap("n", "ZQ", "<cmd>qa!<CR>", { silent = true })
 
 -- perform dot commands over visual blocks:
 keymap("v", ".", "<cmd>normal .<CR>", { silent = true })
