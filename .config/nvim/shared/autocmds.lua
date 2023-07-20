@@ -43,7 +43,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 })
 
 local auto_commit = function(type, scope)
-	return "!git add .; git commit -m '" .. type .. "(" .. scope .. "): ⚙️ auto-commit changes'; git push;"
+	return "!git add .; git commit -m '" .. type .. "(" .. scope .. "): ⚙️ auto-commit changes'; git pull && git push;"
 end
 
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
