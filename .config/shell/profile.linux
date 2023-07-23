@@ -42,6 +42,8 @@ function __setup_programs() {
   export PASSWORD_MANAGER="keepassxc"
 
   export GUI_FILE_EXPLORER="nautilus"
+  export GUI_IMAGE_VIEWER="nsxiv"
+
   export CLI_FILE_EXPLORER="lfrun"
   export CLI_MAIL_CLIENT="neomutt"
   export CLI_MUSIC_PLAYER="ncmpcpp"
