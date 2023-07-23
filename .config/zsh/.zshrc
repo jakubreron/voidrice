@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # NOTE: read when interactive (completions, aliases, prompt, etc)
 [ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
 

@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 # # sudo not required for some system commands
 # for command in mount umount sv pacman updatedb su shutdown poweroff reboot ; do
@@ -16,14 +16,18 @@ alias \
   cp="cp -iv" \
   mv="mv -iv" \
   bc="bc -ql" \
-  free="free -m" \
-  ffmpeg="ffmpeg -hide_banner"
+  free="free -m"
 
 # Colorize commands when possible.
 alias \
   ip="ip -color=auto" \
-  grep="grep --color=auto" \
-  diff="diff --color=auto" \
+  grep="grep --color=auto"
+
+if command -v delta >/dev/null 2>&1; then
+  alias diff="delta"
+else
+  alias diff="diff --color=auto"
+fi
 
 # general
 alias \
@@ -36,7 +40,7 @@ alias \
   ka="killall" \
   g="git" \
   se="sudoedit" \
-  c="clear" # ctrl + l does not work in tmux
+  c="clear" # ctrl + l is impossible in tmux with vim keybinds
 
 # overwritten
 alias \
@@ -48,7 +52,7 @@ alias \
   yr="yarn" \
   yrt="yarn test --watch --coverage --silent false" \
   nt="npm run unit -- --watch --coverage --silent false" \
-  nir="run-script-on-dirs package-lock.json 'ni'" \
+  recursively-install-npm="run-script-on-dirs package-lock.json 'ni'; run-script-on-dirs yarn.lock 'ni'; run-script-on-dirs pnpm-lock.yaml 'ni'" \
   update-minor-dependencies="npx taze minor -w; ni" \
   update-major-dependencies="npx taze major -w; ni"
 

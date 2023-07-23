@@ -1,6 +1,7 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 bin_list=(
+  "${$(find $HOME/.yarn/bin -type d -printf %p:)%%:}"
   "${$(find $HOME/.local/bin -type d -printf %p:)%%:}"
 )
 

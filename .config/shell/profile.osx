@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
 if [ -d "/opt/homebrew" ]; then
   eval $(/opt/homebrew/bin/brew shellenv)
@@ -17,6 +17,7 @@ export PATH
 unset bin_list
 
 function __setup_settings() {
+  # TODO: remove after changing the work
   export JAVA_HOME="/Users/jakubreron/.sdkman/candidates/java/11.0.15-tem"
 }
 

@@ -1,4 +1,14 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
+
+bin_list=(
+  "$HOME/.local/share/cargo/bin"
+  )
+
+for extra in "${bin_list[@]}"; do
+  PATH=$extra:$PATH
+done
+export PATH
+unset bin_list
 
 function __setup_programs() {
   export EDITOR="lvim"

@@ -1,4 +1,5 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
+
 # NOTE: read once, at login (variables and settings that don't need to be updated frequently)
 
 OS="$(uname -s)"
@@ -15,14 +16,3 @@ case "$OS" in
 esac
 
 unsetopt PROMPT_SP
-
-bin_list=(
-  "$(yarn global bin)"
-  "$HOME/.local/share/cargo/bin"
-  )
-
-for extra in "${bin_list[@]}"; do
-  PATH=$extra:$PATH
-done
-export PATH
-unset bin_list
