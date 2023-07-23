@@ -1,13 +1,18 @@
 #!/bin/zsh
 # NOTE: read once, at login (variables and settings that don't need to be updated frequently)
 
+OS="$(uname -s)"
+
 source $HOME/.config/shell/profile.all
 
-if [[ $OSTYPE == 'linux'* ]]; then
-	source $HOME/.config/shell/profile.linux
-else
-	source $HOME/.config/shell/profile.osx
-fi
+case "$OS" in
+  Linux)
+    source $HOME/.config/shell/profile.linux
+    ;;
+  Darwin)
+    source $HOME/.config/shell/profile.osx
+    ;;
+esac
 
 unsetopt PROMPT_SP
 

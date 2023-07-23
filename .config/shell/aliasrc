@@ -1,9 +1,14 @@
 #!/bin/zsh
 
+OS="$(uname -s)"
+
 source $HOME/.config/shell/aliasrc.all
 
-if [[ $OSTYPE == 'linux'* ]]; then
-  source $HOME/.config/shell/aliasrc.linux
-else
-  source $HOME/.config/shell/aliasrc.osx
-fi
+case "$OS" in
+  Linux)
+    source $HOME/.config/shell/aliasrc.linux
+    ;;
+  Darwin)
+    source $HOME/.config/shell/aliasrc.osx
+    ;;
+esac
