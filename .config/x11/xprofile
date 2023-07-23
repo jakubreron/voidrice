@@ -7,7 +7,7 @@ git-sync-repos global &
 grive --path "$CLOUD_DIR" &
 /usr/lib/kdeconnectd &
 entr-watch &
-keyd-app-monitor &
+keyd-application-mapper -d &
 
 printf "%s" "$AUTOSTART_PROGRAMS" | while IFS="" read -r program; do
 	pgrep -fl "$program" || $program &
