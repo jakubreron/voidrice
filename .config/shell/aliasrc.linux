@@ -1,8 +1,6 @@
 #!/bin/zsh
 
-# Use $XINITRC variable if file exists.
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
-
 [ -f "$MBSYNCRC" ] && alias mbsync="mbsync -c $MBSYNCRC"
 
 sbn() {
@@ -44,15 +42,18 @@ alias \
 alias \
   ref="shortcuts >/dev/null; source $XDG_CONFIG_HOME/shell/shortcutrc; source $XDG_CONFIG_HOME/shell/zshnameddirrc" \
   wth="less -S $XDG_CACHE_HOME/weatherreport" \
-  dw="sudo downgrade" \
   sd="nohup $TERMINAL &" \
 
-if [[ $(hostnamectl --static) == *'thinkpad'* ]]; then
+if laptop-detect > /dev/null; then
   alias \
     battery-health="upower -i /org/freedesktop/UPower/devices/battery_BAT0; acpi -i" \
     charge-to-100="echo 99 | sudo tee /sys/devices/platform/smapi/BAT0/stop_charge_thresh" \
     charge-to-80="echo 80 | sudo tee /sys/devices/platform/smapi/BAT0/stop_charge_thresh" \
-    set-performance="sudo auto-cpufreq --force=performance" \
-    set-reset="sudo auto-cpufreq --force=reset" \
-    set-powersave="sudo auto-cpufreq --force=powersave"
+
+    if command -v auto-cpufreq >/dev/null 2>&1; then
+      alias \
+        set-performance="sudo auto-cpufreq --force=performance" \
+        set-reset="sudo auto-cpufreq --force=reset" \
+        set-powersave="sudo auto-cpufreq --force=powersave"
+    fi
 fi
