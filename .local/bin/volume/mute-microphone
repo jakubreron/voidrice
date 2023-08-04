@@ -1,3 +1,18 @@
 #!/usr/bin/env bash
 
-pactl set-source-mute @DEFAULT_SOURCE@ toggle 
+# NOTE: this command does the job
+# pactl set-source-mute @DEFAULT_SOURCE@ toggle 
+
+# NOTE: but this fixes thinkpad bug with microphone mute light always on
+state=$(pactl get-source-mute @DEFAULT_SOURCE@ | awk -F': ' '{print $2}')
+
+case ${state} in
+  yes)
+    # WARNING: one needs to have permissions to this file
+    echo 0 | tee /sys/devices/platform/thinkpad_acpi/leds/platform::micmute/brightness
+    pactl set-source-mute @DEFAULT_SOURCE@ 0 ;;
+  no)
+    echo 1 | tee /sys/devices/platform/thinkpad_acpi/leds/platform::micmute/brightness
+    pactl set-source-mute @DEFAULT_SOURCE@ 1 ;;
+esac
+
