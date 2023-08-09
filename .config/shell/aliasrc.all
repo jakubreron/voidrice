@@ -53,8 +53,8 @@ alias \
   yrt="yarn test --watch --coverage --silent false" \
   nt="npm run unit -- --watch --coverage --silent false" \
   recursively-install-npm="run-script-on-dirs package-lock.json 'ni'; run-script-on-dirs yarn.lock 'ni'; run-script-on-dirs pnpm-lock.yaml 'ni'" \
-  update-minor-dependencies="npx taze minor -w; ni" \
-  update-major-dependencies="npx taze major -w; ni"
+  update-minor-deps="npx taze minor -w; ni" \
+  update-major-deps="npx taze major -w; ni"
 
 # network
 alias \
