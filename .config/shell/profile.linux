@@ -41,6 +41,7 @@ function __setup_programs() {
   export NOFIFICATION_DAEMON="dunst"
   export TORRENTS_DAEMON="transmission-daemon"
   export PASSWORD_MANAGER="keepassxc"
+  export JAPANESE_OCR="gazou"
 
   export GUI_FILE_EXPLORER="nautilus"
   export GUI_IMAGE_VIEWER="sxiv" # TODO: use it
@@ -61,6 +62,7 @@ function __setup_programs() {
     xsettingsd
     fcitx
     $TORRENTS_DAEMON
+    $JAPANESE_OCR
   "
 }
 
