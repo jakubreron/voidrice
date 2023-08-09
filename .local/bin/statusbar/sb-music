@@ -8,7 +8,7 @@ filter() {
 	name=$(mpc status -f %title% | head -n 1) # get first line only
 
 	trim() {
-		cut_characters_count="40"
+		cut_characters_count="30"
 		cut_indicator="🔸"
 
 		if [[ ${#1} -gt $cut_characters_count ]]; then
