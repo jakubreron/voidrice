@@ -15,7 +15,7 @@ user_pref("general.autoScroll", false); // middle-click enabling auto-scrolling 
 user_pref("ui.key.menuAccessKey", 0); // disable alt key toggling the menu bar [RESTART]
 
 /* UX FEATURES ***/
-user_pref("extensions.pocket.enabled", false); // Pocket Account [FF46+]
+user_pref("extensions.pocket.enabled", true); // Pocket Account [FF46+]
 user_pref("browser.ctrlTab.sortByRecentlyUsed", true);
 
 // Disable the Twitter/R*ddit/Faceberg ads in the URL bar:
