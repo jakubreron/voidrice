@@ -40,6 +40,7 @@ URLS=(
   ["superuser"]="http://superuser.com/search?q="
   ["askubuntu"]="http://askubuntu.com/search?q="
   ["piratebay"]="https://thepiratebay.org/search/"
+  ["myanimelist"]="https://myanimelist.net/search/all?q="
   ["youtube"]="https://www.youtube.com/results?search_query="
   ["vimawesome"]="http://vimawesome.com/?q="
   ["jisho"]="https://jisho.org/search/"
