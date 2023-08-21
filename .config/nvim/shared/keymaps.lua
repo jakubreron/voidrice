@@ -47,3 +47,12 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true })
 -- jumplist every 5 lines jump with j/k
 keymap("n", "k", 'v:count > 5 ? "m\'" .. v:count .. "k" : "k"', { expr = true, silent = true })
 keymap("n", "j", 'v:count > 5 ? "m\'" .. v:count .. "j" : "j"', { expr = true, silent = true })
+
+-- switch to last used tab
+vim.api.nvim_create_autocmd("TabLeave",  {
+    pattern = "*",
+    callback = function()
+      vim.api.nvim_set_keymap('n', '<Leader>tt', '<cmd>tabn ' .. vim.api.nvim_tabpage_get_number(0) .. '<CR>', { noremap = true, silent = true })
+    end
+})
+
