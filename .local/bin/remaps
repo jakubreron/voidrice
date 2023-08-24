@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
 
+#!/usr/bin/env bash
 # This script is called on startup to remap keys.
 # Decrease key repeat delay to 250ms and increase key repeat rate to 50 per second.
 xset r rate 250 50
@@ -14,7 +14,7 @@ if xinput --list | grep -q "TrackPoint"; then
     # regex to match only numeric IDs
     id_regex='s/.*id=\([0-9]*\).*/\1/p'
 
-    echo $device_type | grep -q 'Mouse' && accel_speed=-0.60 || accel_speed=-0.45
+    echo $device_type | grep -q 'Mouse' && accel_speed=-0.60
 
     # find all matching TrackPoint pointers only (there might be multiple pointers, we don't know which one is correct since they have the same name but different id)
     device_ids=$(xinput --list | grep 'TrackPoint.*pointer' | sed -n "$id_regex")
