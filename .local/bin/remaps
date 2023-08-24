@@ -1,29 +1,26 @@
-
 #!/usr/bin/env bash
+
 # This script is called on startup to remap keys.
 # Decrease key repeat delay to 250ms and increase key repeat rate to 50 per second.
 xset r rate 250 50
-# Map the caps lock key to super, and map the menu key to right super.
-# setxkbmap -option caps:super,altwin:menu_win
-# When caps lock is pressed only once, treat it as escape.
-# killall xcape 2>/dev/null ; xcape -e 'Super_L=Escape'
-# Turn off caps lock if on since there is no longer a key for it.
-# xset -q | grep -q "Caps Lock:\s*on" && xdotool key Caps_Lock
 
 if xinput --list | grep -q "TrackPoint"; then
     # regex to match only numeric IDs
     id_regex='s/.*id=\([0-9]*\).*/\1/p'
 
-    echo $device_type | grep -q 'Mouse' && accel_speed=-0.60
-
     # find all matching TrackPoint pointers only (there might be multiple pointers, we don't know which one is correct since they have the same name but different id)
-    device_ids=$(xinput --list | grep 'TrackPoint.*pointer' | sed -n "$id_regex")
+    internal_trackpoint_ids=$(xinput --list | grep 'IBM TrackPoint.*pointer' | sed -n "$id_regex")
+    external_trackpoint_ids=$(xinput --list | grep 'TrackPoint Keyboard.*pointer' | sed -n "$id_regex")
 
     adjustAccelSpeed() {
-        while read -r device_ids; do
-            xinput --set-prop "$device_ids" 'libinput Accel Speed' $accel_speed
-            xinput --set-button-map "$device_ids" 1 2 3
-        done <<< "$device_ids"
+        while read -r external_trackpoint_ids; do
+            xinput --set-prop "$external_trackpoint_ids" 'libinput Accel Speed' -0.60
+            xinput --set-button-map "$external_trackpoint_ids" 1 2 3
+        done <<< "$external_trackpoint_ids"
+
+        while read -r internal_trackpoint_ids; do
+            xinput --set-prop "$internal_trackpoint_ids" 'libinput Accel Speed' -0.45
+        done <<< "$internal_trackpoint_ids"
     }
 
     adjustAccelSpeed
