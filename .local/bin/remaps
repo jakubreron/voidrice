@@ -13,14 +13,15 @@ if xinput --list | grep -q "TrackPoint"; then
     external_trackpoint_ids=$(xinput --list | grep 'TrackPoint Keyboard.*pointer' | sed -n "$id_regex")
 
     adjustAccelSpeed() {
+        while read -r internal_trackpoint_ids; do
+            xinput --set-prop "$internal_trackpoint_ids" 'libinput Accel Speed' -0.45
+            xinput --set-button-map "$internal_trackpoint_ids" 1 2 3
+        done <<< "$internal_trackpoint_ids"
+
         while read -r external_trackpoint_ids; do
             xinput --set-prop "$external_trackpoint_ids" 'libinput Accel Speed' -0.60
             xinput --set-button-map "$external_trackpoint_ids" 1 2 3
         done <<< "$external_trackpoint_ids"
-
-        while read -r internal_trackpoint_ids; do
-            xinput --set-prop "$internal_trackpoint_ids" 'libinput Accel Speed' -0.45
-        done <<< "$internal_trackpoint_ids"
     }
 
     adjustAccelSpeed
