@@ -9,7 +9,6 @@ grive --path "$CLOUD_DIR" &
 entr-watch &
 keyd-application-mapper -d &
 layout-builtin-only.sh &
-/usr/lib/polkit-kde-authentication-agent-1 &
 
 printf "%s" "$AUTOSTART_PROGRAMS" | while IFS="" read -r program; do
 	pgrep -fl "$program" || $program &
