@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-socket_path="/run/user/1000/Alacritty-:0-37430.sock"
+socket_path="/run/user/1000/Alacritty.sock"
 command="alacritty --socket $socket_path"
 
 if [ -e "$socket_path" ]; then
-  $command msg create-window "$@"
+  $command msg create-window --hold "$@"
 else
   $command "$@"
 fi
