@@ -3,7 +3,7 @@ socket_path="/run/user/1000/Alacritty-:0-37430.sock"
 command="alacritty --socket $socket_path"
 
 if [ -e "$socket_path" ]; then
-  $command msg create-window --hold "$@"
+  $command msg create-window "$@"
 else
   $command "$@"
 fi
