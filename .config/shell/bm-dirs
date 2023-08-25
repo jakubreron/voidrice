@@ -43,7 +43,6 @@ Lsrdw   $XDG_SRC_HOME/dwm
 Lsrdb   $XDG_SRC_HOME/dwmblocks
 Lsrdm   $XDG_SRC_HOME/dmenu
 Lsrst   $XDG_SRC_HOME/st
-Lsrsx   $XDG_SRC_HOME/sxiv-flexipatch/
 
 Php     /etc/php/
 Phpc    /etc/php/conf.d

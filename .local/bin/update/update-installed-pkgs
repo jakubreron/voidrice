@@ -32,7 +32,6 @@ case "$(uname -s)" in
       compile "$XDG_SRC_HOME/dwmblocks"
       compile "$XDG_SRC_HOME/dmenu"
       compile "$XDG_SRC_HOME/st"
-      compile "$XDG_SRC_HOME/sxiv-flexipatch"
       compile "$XDG_SRC_HOME/keyd"
     }
     ;;
