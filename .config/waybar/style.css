@@ -22,7 +22,7 @@
 
 #waybar {
 	font-family: 'Source Code Pro', sans-serif;
-	font-size: 0.9em;
+	font-size: 1em;
 	font-weight: 400;
   color: @base04;
   background: @base01;
@@ -92,7 +92,7 @@
 }
 
 #window {
-  font-size: 0.9em;
+  font-size: 1em;
 	font-weight: 400;
 	font-family: sans-serif;
 }
