@@ -13,6 +13,7 @@ cfst	    $XDG_SRC_HOME/st/config.h
 cfz	      $ZDOTDIR/.zshrc
 cfa	      $XDG_CONFIG_HOME/shell/aliasrc
 cfp	      $XDG_CONFIG_HOME/shell/profile
+cfh	      $XDG_CONFIG_HOME/hypr/hyprland.conf
 cfc	      $XDG_CONFIG_HOME/picom.conf
 cfx	      $XDG_CONFIG_HOME/x11/xprofile
 cfl	      $XDG_CONFIG_HOME/lf/lfrc

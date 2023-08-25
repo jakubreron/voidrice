@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-if [ -f /usr/local/bin/Hyprland ]; then
-   exec /usr/local/bin/Hyprland >/dev/null 2>&1 
-elif [ -f /usr/bin/Hyprland ]; then
-   exec /usr/bin/Hyprland >/dev/null 2>&1 
-fi
