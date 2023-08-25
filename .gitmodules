@@ -28,3 +28,6 @@
 [submodule ".local/bin/rofi/rofi-translate"]
 	path = .local/bin/rofi/rofi-translate
 	url = git@github.com:jakubreron/rofi-translate.git
+[submodule ".config/swaylock"]
+	path = .config/swaylock
+	url = https://github.com/dracula/swaylock.git
