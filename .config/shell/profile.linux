@@ -97,11 +97,17 @@ if [[ "$STARTUP_DESKTOP" = 'X11' ]]; then
     setbg
     $COMPOSITOR --daemon
     $NOFIFICATION_DAEMON
-    unclutter
+    keyd-application-mapper -d
     remapd
+    unclutter
     xsettingsd
+    easyeffects --gapplication-service 
     fcitx
     $TORRENTS_DAEMON
+    /usr/lib/kdeconnectd
+    entr-watch
+    git-sync-repos global
+    grive --path $CLOUD_DIR
   "
 
   if command -v Xorg >/dev/null 2>&1; then

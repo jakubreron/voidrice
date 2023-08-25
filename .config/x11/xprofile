@@ -2,13 +2,8 @@
 
 # This file runs when a DM logs you into a graphical session.
 # If you use startx/xinit like a Chad, this file will also be sourced.
-xrdb "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources" & xrdbpid=$!	 
-git-sync-repos global &
-grive --path "$CLOUD_DIR" &
-/usr/lib/kdeconnectd &
-entr-watch &
-keyd-application-mapper -d &
 layout-builtin-only.sh &
+xrdb "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources" & xrdbpid=$!	 
 
 printf "%s" "$AUTOSTART_PROGRAMS" | while IFS="" read -r program; do
 	pgrep -fl "$program" || $program &
