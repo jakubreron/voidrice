@@ -12,7 +12,7 @@ export PATH
 unset bin_list
 
 function __setup_settings() {
-  # export STARTUP_DESKTOP="Wayland"
+  # export STARTUP_DESKTOP="X11"
   export STARTUP_DESKTOP="Wayland"
   export SUDO_ASKPASS="$HOME/.local/bin/dmenu/dmenupass"
   export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm
@@ -55,16 +55,6 @@ function __setup_programs() {
   export CLI_SOUND_MANAGER="pulsemixer"
   export CLI_WEATHER_APP="less -S $XDG_CACHE_HOME/weatherreport"
 
-  export AUTOSTART_PROGRAMS="
-    setbg
-    $COMPOSITOR --daemon
-    $NOFIFICATION_DAEMON
-    unclutter
-    remapd
-    xsettingsd
-    fcitx
-    $TORRENTS_DAEMON
-  "
 }
 
 function __setup_machines() {
@@ -103,9 +93,21 @@ unset setup_functions
 [ ! -f $XDG_CONFIG_HOME/.config/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
 
 if [[ "$STARTUP_DESKTOP" = 'X11' ]]; then
+  export AUTOSTART_PROGRAMS="
+    setbg
+    $COMPOSITOR --daemon
+    $NOFIFICATION_DAEMON
+    unclutter
+    remapd
+    xsettingsd
+    fcitx
+    $TORRENTS_DAEMON
+  "
+
   if command -v Xorg >/dev/null 2>&1; then
     export WINIT_X11_SCALE_FACTOR=0.88 # fix alacritty xorg font size
     export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
+
     # Start graphical server on user's current tty if not already running.
     [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
   fi
