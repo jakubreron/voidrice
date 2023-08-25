@@ -9,7 +9,7 @@ esac
 case "$(printf "🔒 lock\n🚪 leave $WM\n♻️ renew $WM\n🐻 hibernate\n🔃 reboot\n🖥️shutdown\n💤 sleep\n📺 display off" | rofi -dmenu -p Action)" in
 	'🔒 lock') swaylock ;;
 	"🚪 leave $WM") hyprctl dispatch exit ;;
-	"♻️ renew $WM") hyprctl reload ;;
+	"♻️ renew $WM") hyprctl reload && killall waybar && sleep 1 && nohup waybar & ;;
 	'🐻 hibernate') $ctl hibernate -i ;;
 	'💤 sleep') $ctl suspend -i ;;
 	'🔃 reboot') $ctl reboot -i ;;
