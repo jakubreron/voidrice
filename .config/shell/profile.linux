@@ -12,8 +12,8 @@ export PATH
 unset bin_list
 
 function __setup_settings() {
-  export STARTUP_DESKTOP="X11"
-  # export STARTUP_DESKTOP="Wayland"
+  # export STARTUP_DESKTOP="X11"
+  export STARTUP_DESKTOP="Wayland"
   export SUDO_ASKPASS="$HOME/.local/bin/dmenu/dmenupass"
   export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm and/or wayland
   export QT_QPA_PLATFORMTHEME='qt6ct' # QT Theme adjustements
@@ -125,7 +125,6 @@ if [[ "$STARTUP_DESKTOP" = 'Wayland' ]]; then
     export QT_QPA_PLATFORM="wayland;xcb"
     export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
     export QT_WAYLAND_FORCE_DPI=physical
-    export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 
     export SDL_VIDEODRIVER="wayland"
     export MOZ_ENABLE_WAYLAND=1
