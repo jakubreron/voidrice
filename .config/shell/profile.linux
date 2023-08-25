@@ -117,6 +117,6 @@ if [[ "$STARTUP_DESKTOP" ~= 'Wayland' ]]; then
     export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
     export SDL_VIDEODRIVER=wayland
 
-    clear && exec dbus-run-session Hyprland > /dev/null 2>&1
+    clear && wrappedhl
   fi
 fi
