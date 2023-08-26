@@ -22,3 +22,6 @@
 [submodule ".config/swaylock/themes/catppuccin"]
 	path = .config/swaylock/themes/catppuccin
 	url = https://github.com/remiposo/swaylock
+[submodule ".config/zathura/themes/catppuccin"]
+	path = .config/zathura/themes/catppuccin
+	url = https://github.com/catppuccin/zathura.git
