@@ -19,12 +19,3 @@
 [submodule ".config/zathura/themes"]
 	path = .config/zathura/themes
 	url = git@github.com:dracula/zathura.git
-[submodule ".config/rofi/dracula"]
-	path = .config/rofi/dracula
-	url = https://github.com/dracula/rofi
-[submodule ".local/bin/rofi/rofi-translate"]
-	path = .local/bin/rofi/rofi-translate
-	url = git@github.com:jakubreron/rofi-translate.git
-[submodule ".config/swaylock"]
-	path = .config/swaylock
-	url = https://github.com/dracula/swaylock.git
