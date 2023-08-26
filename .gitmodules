@@ -28,3 +28,6 @@
 [submodule ".config/x11/themes/catppuccin"]
 	path = .config/x11/themes/catppuccin
 	url = https://github.com/catppuccin/xresources.git
+[submodule ".local/share/sddm/themes/catppuccin"]
+	path = .local/share/sddm/themes/catppuccin
+	url = https://github.com/catppuccin/sddm.git
