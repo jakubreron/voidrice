@@ -3,7 +3,7 @@ gsettings set org.gnome.desktop.interface gtk-theme "$GTK_LIGHT_THEME" # anki an
 
 # old apps fix
 #
-sed --in-place --follow-symlinks "s/'$GTK_DARK_THEME'/'$GTK_LIGHT_THEME'/" ~/.xsettingsd 
+sed --in-place --follow-symlinks "s/$GTK_DARK_THEME/$GTK_LIGHT_THEME/" ~/.xsettingsd 
 
 if [[ "$STARTUP_DESKTOP" = "X11" ]]; then
   killall -hup xsettingsd
