@@ -1,7 +1,7 @@
 @import "./themes/catppuccin/themes/mocha.css";
 
 #waybar {
-  background: rgba(0,0,0, .5);
+  background: rgba(0,0,0, .25);
 }
 
 #waybar,
