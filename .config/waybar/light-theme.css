@@ -1,0 +1,10 @@
+@import "./themes/catppuccin/themes/latte.css";
+
+#waybar {
+  background: rgba(255,255,255, .5);
+}
+
+#waybar,
+#workspaces button {
+  color: #000;
+}

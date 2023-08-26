@@ -1,0 +1,86 @@
+@import "./dark-theme.css";
+
+* {
+  font-family: monospace;
+  font-size: 14px;
+  color: @text;
+}
+
+#workspaces {
+  border-radius: 16px;
+  margin: 4px 6px;
+  background-color: @base;
+}
+
+#workspaces button {
+  border-radius: 16px;
+  margin: 2px;
+  border: 0;
+}
+
+#workspaces button.active {
+  background-color: @surface0;
+}
+
+#workspaces button:hover {
+  background-color: @surface1;
+}
+
+#window {
+  margin: 0 6px;
+}
+
+#mpd,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#battery,
+#tray,
+#backlight,
+#clock {
+  background-color: @base;
+  padding: 0 16px;
+  margin: 4px 3px;
+  border-radius: 16px;
+}
+
+#clock {
+  color: @blue;
+  margin-right: 6px;
+}
+
+#battery,
+#battery.charging {
+  color: @green;
+}
+
+#battery.warning:not(.charging) {
+  color: @red;
+}
+
+#backlight {
+  color: @yellow;
+}
+
+#network {
+  color: @lavender;
+}
+
+#memory, #cpu {
+  color: @peach;
+}
+
+#temperature {
+  color: @red;
+}
+
+#pulseaudio {
+  color: @teal;
+}
+
+#backlight {
+  color: @yellow;
+}

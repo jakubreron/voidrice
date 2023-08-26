@@ -21,3 +21,7 @@ sed --in-place --follow-symlinks "s/$dark_theme/$light_theme/" ~/.config/btop/bt
 
 # SDDM
 sudo sed --in-place --follow-symlinks "s/$dark_theme/$light_theme/" /etc/sddm.conf.d/autologin.conf
+
+# Waybar
+sed --in-place --follow-symlinks "s/dark-theme/light-theme/" ~/.config/waybar/style.css
+killall waybar && nohup waybar &
