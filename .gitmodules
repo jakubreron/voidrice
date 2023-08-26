@@ -16,3 +16,6 @@
 [submodule ".config/waybar/themes/catppuccin"]
 	path = .config/waybar/themes/catppuccin
 	url = https://github.com/catppuccin/waybar.git
+[submodule ".config/dunst/themes/catppuccin"]
+	path = .config/dunst/themes/catppuccin
+	url = https://github.com/catppuccin/dunst.git
