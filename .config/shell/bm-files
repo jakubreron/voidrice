@@ -12,6 +12,7 @@ cfst	    $XDG_SRC_HOME/st/config.h
 # system
 cfz	      $ZDOTDIR/.zshrc
 cfa	      $XDG_CONFIG_HOME/shell/aliasrc
+cfA	      $XDG_CONFIG_HOME/alacritty/alacritty.yml
 cfp	      $XDG_CONFIG_HOME/shell/profile
 cfh	      $XDG_CONFIG_HOME/hypr/hyprland.conf
 cfc	      $XDG_CONFIG_HOME/picom.conf
