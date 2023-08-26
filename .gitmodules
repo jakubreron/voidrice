@@ -25,3 +25,6 @@
 [submodule ".config/zathura/themes/catppuccin"]
 	path = .config/zathura/themes/catppuccin
 	url = https://github.com/catppuccin/zathura.git
+[submodule ".config/x11/themes/catppuccin"]
+	path = .config/x11/themes/catppuccin
+	url = https://github.com/catppuccin/xresources.git
