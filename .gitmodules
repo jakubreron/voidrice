@@ -6,7 +6,7 @@
 	url = https://github.com/tmux-plugins/tpm
 [submodule ".config/alacritty/themes/catppuccin"]
 	path = .config/alacritty/themes/catppuccin
-	url = https://github.com/catppuccin/alacritty
+	url = https://github.com/catppuccin/alacritty.git
 [submodule ".config/mpv/scripts/autosubsync-mpv"]
 	path = .config/mpv/scripts/autosubsync-mpv
 	url = git@github.com:joaquintorres/autosubsync-mpv.git
