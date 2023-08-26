@@ -24,4 +24,3 @@ sudo sed --in-place --follow-symlinks "s/$light_theme/$dark_theme/" /etc/sddm.co
 
 # Waybar
 sed --in-place --follow-symlinks "s/light-theme/dark-theme/" ~/.config/waybar/style.css
-killall waybar && sleep 1; nohup waybar &
