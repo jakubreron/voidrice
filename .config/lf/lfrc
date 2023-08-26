@@ -134,7 +134,7 @@ cmd share ${{
 	if [ -z "$ans" ]; then
 		ans="y"
 	fi
-	[ $ans = "y" ] && curl -F"file=@$fx" https://0x0.st | xclip -selection c
+	[ $ans = "y" ] && curl -F"file=@$fx" https://0x0.st | wl-copy
 }}
 
 cmd fzf_search $lf -remote "send $id select \"$(fzf)\""
@@ -239,7 +239,7 @@ map b $setbg $f
 
 map W open_in_new_terminal
 
-map Y $printf "%s" "$fx" | xclip -selection clipboard
+map Y $printf "%s" "$fx" | wl-copy
 
 # Source Bookmarks
 source "~/.config/lf/shortcutrc"
