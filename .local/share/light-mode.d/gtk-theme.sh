@@ -1,7 +1,11 @@
 gsettings set org.gnome.desktop.interface color-scheme prefer-light
-gsettings set org.gnome.desktop.interface gtk-theme "adw-gtk3" # anki and other apps that depend on string "-dark" fix
+gsettings set org.gnome.desktop.interface gtk-theme "$GTK_LIGHT_THEME" # anki and other apps that depend on string "-dark" fix
 
 # old apps fix
-sed --in-place --follow-symlinks 's/"adw-gtk3-dark"/"adw-gtk3"/' ~/.xsettingsd
-killall -HUP xsettingsd
+#
+sed --in-place --follow-symlinks "s/'$GTK_DARK_THEME'/'$GTK_LIGHT_THEME'/" ~/.xsettingsd 
+
+if [[ "$STARTUP_DESKTOP" = "X11" ]]; then
+  killall -hup xsettingsd
+fi
 
