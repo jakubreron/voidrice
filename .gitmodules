@@ -10,3 +10,6 @@
 [submodule ".config/mpv/scripts/autosubsync-mpv"]
 	path = .config/mpv/scripts/autosubsync-mpv
 	url = git@github.com:joaquintorres/autosubsync-mpv.git
+[submodule ".config/rofi/themes/rofi"]
+	path = .config/rofi/themes/rofi
+	url = https://github.com/catppuccin/rofi
