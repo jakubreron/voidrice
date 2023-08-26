@@ -18,3 +18,6 @@ tmux source-file ~.config/tmux/tmux.conf
 
 # Btop
 sed --in-place --follow-symlinks "s/$light_theme/$dark_theme/" ~/.config/btop/btop.conf
+
+# SDDM
+sudo sed --in-place --follow-symlinks "s/$light_theme/$dark_theme/" /etc/sddm.conf.d/autologin.conf
