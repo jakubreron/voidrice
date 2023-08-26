@@ -24,6 +24,17 @@
   "wlr/workspaces": {
     "disable-scroll": true,
     "sort-by-name": true,
+    "format": "{name}: {icon}",
+    "format-icons": {
+      "1": "󰈹",
+      "2": "",
+      "3": "󰇮 ",
+      "4": "󱍁 ",
+      "5": "󰗊 ",
+      "7": " ",
+      "8": " ",
+      "default": ""
+    },
   },
   "tray": {
     "icon-size": 21,
@@ -35,6 +46,7 @@
     "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
     "unknown-tag": "N/A",
     "interval": 2,
+    "title-len": 25,
     "consume-icons": {
       "on": " "
     },
@@ -53,12 +65,13 @@
       "playing": ""
     },
     "tooltip-format": "MPD (connected)",
-    "tooltip-format-disconnected": "MPD (disconnected)"
+    "tooltip-format-disconnected": "MPD (disconnected)",
+    "on-click": "daemonable-terminal-instance --command $CLI_MUSIC_PLAYER"
   },
   "clock": {
     // "timezone": "America/New_York",
     "interval": 1,
-  	"format": "{:%Y-%m-%d「%a」%I:%M:%S%p}",
+    "format": "{:%Y-%m-%d「%a」%I:%M:%S%p}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
   },
   "cpu": {
@@ -145,6 +158,6 @@
         " "
       ]
     },
-    "on-click": "pulsemixer"
+    "on-click": "daemonable-terminal-instance --command $CLI_SOUND_MANAGER"
   },
 }
