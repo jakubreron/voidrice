@@ -10,12 +10,3 @@
 [submodule ".config/mpv/scripts/autosubsync-mpv"]
 	path = .config/mpv/scripts/autosubsync-mpv
 	url = git@github.com:joaquintorres/autosubsync-mpv.git
-[submodule ".config/x11/themes"]
-	path = .config/x11/themes
-	url = git@github.com:dracula/xresources.git
-[submodule ".config/alacritty/themes/dracula"]
-	path = .config/alacritty/themes/dracula
-	url = git@github.com:dracula/alacritty.git
-[submodule ".config/zathura/themes"]
-	path = .config/zathura/themes
-	url = git@github.com:dracula/zathura.git
