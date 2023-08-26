@@ -31,3 +31,6 @@ shortcuts.vim
 .local/share/lf
 
 .config/keyd/app.lock
+.config/gtk-4.0
+.config/gtk-2.0
+.config/gtk-3.0
