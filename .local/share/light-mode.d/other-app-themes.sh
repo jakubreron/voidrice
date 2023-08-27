@@ -24,3 +24,6 @@ sudo sed --in-place --follow-symlinks "s/$dark_theme/$light_theme/" /etc/sddm.co
 
 # Waybar
 sed --in-place --follow-symlinks "s/dark-theme/light-theme/" ~/.config/waybar/style.css
+
+# Fcitx5
+sed --in-place --follow-symlinks "s/$dark_theme/$light_theme/" ~/.config/fcitx5/conf/classicui.conf
