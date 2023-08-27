@@ -4,6 +4,6 @@
 # GTK themes can be installed here: Global Theme > Application Style > Configure GNOME/GTK Application Style.
 # Reference: https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications
 
-# theme="adw-gtk3-dark"
-theme="Catppuccin-Mocha-Standard-Blue-dark"
+theme="adw-gtk3-dark"
+# theme="Catppuccin-Mocha-Standard-Blue-dark"
 dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme "string:$theme"

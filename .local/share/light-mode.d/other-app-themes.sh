@@ -3,8 +3,8 @@ dark_theme_alternative="macchiato"
 light_theme="latte"
 
 # # Dunst
-# ln -fs ~/.config/dunst/themes/catppuccin/src/$light_theme.conf ~/.config/dunst/dunstrc.d/99-theme.conf
-# killall dunst && nohup dunst &
+ln -fs ~/.config/dunst/themes/catppuccin/src/$light_theme.conf ~/.config/dunst/dunstrc.d/99-theme.conf
+killall dunst && nohup dunst &
 
 # Alacritty
 sed --in-place --follow-symlinks "s/$dark_theme/$light_theme/" ~/.config/alacritty/alacritty.yml

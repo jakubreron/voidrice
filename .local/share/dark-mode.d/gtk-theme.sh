@@ -1,5 +1,5 @@
-theme="Catppuccin-Mocha-Standard-Blue-dark"
-# theme="adw-gtk3-dark"
+# theme="Catppuccin-Mocha-Standard-Blue-dark"
+theme="adw-gtk3-dark"
 
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gnome.desktop.interface gtk-theme $theme # anki and other apps that depend on string "-dark" fix
