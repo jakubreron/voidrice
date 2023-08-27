@@ -40,11 +40,9 @@
     "spacing": 5,
   },
   "mpd": {
-    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {title} ",
+    "format": "{stateIcon}{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {title} ",
     "format-disconnected": "Disconnected ",
-    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-    "unknown-tag": "N/A",
-    "interval": 1,
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped ",
     "title-len": 23,
     "consume-icons": {
       "on": " "
@@ -63,7 +61,7 @@
       "paused": "<span color=\"#f38ba8\"></span> ",
       "playing": "<span color=\"#a6e3a1\"></span> "
     },
-    "tooltip-format": "MPD (connected)",
+    "tooltip-format": "{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}%",
     "tooltip-format-disconnected": "MPD (disconnected)",
     "on-click": "daemonable-terminal-instance --command $CLI_MUSIC_PLAYER"
   },
@@ -138,23 +136,21 @@
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
-    "format": "{volume}% {icon} {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": "󰝟 {icon} {format_source}",
-    "format-muted": "󰝟 {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": " ",
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-bluetooth-muted": "0% 󰝟 {icon}",
+    "format-muted": "0% 󰝟",
     "format-icons": {
       "headphone": " ",
-      "hands-free": "󰙌",
-      "headset": "󰋎 ",
+      "hands-free": " ",
+      "headset": " ",
       "phone": " ",
       "portable": " ",
       "car": " ",
       "default": [
-        " ",
-        " ",
-        " "
+        "",
+        "",
+        ""
       ]
     },
     "on-click": "daemonable-terminal-instance --command $CLI_SOUND_MANAGER"
