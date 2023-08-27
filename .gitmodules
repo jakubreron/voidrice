@@ -31,3 +31,6 @@
 [submodule ".local/share/sddm/themes/catppuccin"]
 	path = .local/share/sddm/themes/catppuccin
 	url = https://github.com/catppuccin/sddm.git
+[submodule ".config/hypr/themes/catppuccin"]
+	path = .config/hypr/themes/catppuccin
+	url = https://github.com/catppuccin/hyprland
