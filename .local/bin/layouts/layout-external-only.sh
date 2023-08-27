@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 if [[  "$STARTUP_DESKTOP" = "Wayland" ]]; then
   sed --in-place --follow-symlinks "s/size: 11.5/size: 10/" ~/.config/alacritty/alacritty.yml 
-  sed --in-place --follow-symlinks "s/builtin/external/" ~/.config/hypr/monitor.conf
+  hyprctl --batch "keyword monitor DP-1,1920x1080@60,0x0,1; keyword monitor LVDS-1,disabled"
 fi
 
 if [[ "$STARTUP_DESKTOP" = "X11" ]]; then
