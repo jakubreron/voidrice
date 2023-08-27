@@ -1,8 +1,8 @@
 @import "./dark-theme.css";
 
 * {
-  font-family: monospace;
-  font-size: 14px;
+  font-family: sans-serif, monospace;
+  font-size: 12.5px;
   color: @text;
 }
 
