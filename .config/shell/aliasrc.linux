@@ -12,6 +12,7 @@ sbn() {
 alias \
   p="$PACKAGE_MANAGER" \
   tsm="transmission-remote" \
+  clp="hyprpicker" \
   pkgs="pkgstats search" \
   kdeconnect="/usr/lib/kdeconnectd" \
 
