@@ -1,9 +1,6 @@
 # theme="Catppuccin-Latte-Standard-Blue-light"
 theme="adw-gtk3"
 
-gsettings set org.gnome.desktop.interface color-scheme prefer-light
-gsettings set org.gnome.desktop.interface gtk-theme $theme # anki and other apps that depend on string "-dark" fix
-
 # old apps fix
 sed --in-place --follow-symlinks "s/gtk-theme-name=.*/gtk-theme-name=$theme/" ~/.config/gtk-3.0/settings.ini
 sed --in-place --follow-symlinks "s/gtk-theme-name=.*/gtk-theme-name=$theme/" ~/.config/gtk-4.0/settings.ini
@@ -12,7 +9,10 @@ sed --in-place --follow-symlinks "s/gtk-theme-name=.*/gtk-theme-name=$theme/" ~/
 ln -fs /usr/share/themes/$theme/gtk-4.0/* ~/.config/gtk-4.0/
 ln -fs /usr/share/themes/$theme/gtk-3.0/* ~/.config/gtk-3.0/
 
-sed --in-place --follow-symlinks "s/Net\/ThemeName.*/Net\/ThemeName \"$theme\"/" ~/.xsettingsd 
+import-gsettings
+gsettings set org.gnome.desktop.interface color-scheme prefer-light
+
 if [[ "$STARTUP_DESKTOP" = "X11" ]]; then
+  sed --in-place --follow-symlinks "s/Net\/ThemeName.*/Net\/ThemeName \"$theme\"/" ~/.xsettingsd 
   killall -hup xsettingsd
 fi
