@@ -1,10 +1,1 @@
 @import "./themes/catppuccin/themes/mocha.css";
-
-#waybar {
-  background: rgba(0,0,0, .25);
-}
-
-#waybar,
-#workspaces button {
-  color: @text;
-}

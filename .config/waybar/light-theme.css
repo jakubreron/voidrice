@@ -1,18 +1,10 @@
 @import "./themes/catppuccin/themes/latte.css";
 
-* {
-  color: #000;
-}
-
 #window {
-  text-shadow: 1px 1px 4px @base;
+  color: @base;
+  text-shadow: 1px 1px 4px @text;
 }
 
-#waybar {
-  background: rgba(255,255,255, .5);
-}
-
-#workspaces,
 #mpd,
 #pulseaudio,
 #network,
@@ -24,6 +16,6 @@
 #tray,
 #backlight,
 #clock {
-  background-color: rgba(255, 255, 255, .75);
+  background-color: @base;
   box-shadow: 1px 1px 2px @text;
 }
