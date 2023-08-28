@@ -39,7 +39,7 @@ function __setup_programs() {
   export BROWSER="firefox-developer-edition"
   export BACKUP_BROWSER="chromium"
 
-  export INPUT_METHOD="/usr/lib/kdeconnectd"
+  export INPUT_METHOD="fcitx5"
 
   export PHONE_INTEGRATION_DAEMON="/usr/lib/kdeconnectd"
   export NOFIFICATION_DAEMON="dunst"
