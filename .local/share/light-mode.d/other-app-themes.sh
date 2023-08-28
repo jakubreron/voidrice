@@ -30,6 +30,7 @@ sed --in-place --follow-symlinks "s/dark-theme/light-theme/" ~/.config/waybar/st
 # Fcitx5
 sed --in-place --follow-symlinks "s/$dark_theme/$light_theme/" ~/.config/fcitx5/conf/classicui.conf
 
+# TODO: Fix
 # Hyprland
 if [[ "$XDG_CURRENT_DESKTOP" = "Hyprland" ]];then
   hyprctl hyprpaper wallpaper ,~/Cloud/Pictures/Wallpapers/Touhou/white-blue-crino.jpg
