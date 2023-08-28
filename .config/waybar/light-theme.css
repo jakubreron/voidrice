@@ -4,8 +4,12 @@
   color: #000;
 }
 
+#window {
+  text-shadow: 1px 1px 4px @base;
+}
+
 #waybar {
-  background: rgba(255,255,255, .6);
+  background: rgba(255,255,255, .5);
 }
 
 #workspaces,
@@ -20,5 +24,6 @@
 #tray,
 #backlight,
 #clock {
+  background-color: rgba(255, 255, 255, .75);
   box-shadow: 1px 1px 2px @text;
 }
