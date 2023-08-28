@@ -19,6 +19,8 @@ function __setup_settings() {
   export QT_QPA_PLATFORMTHEME='qt6ct' # QT Theme adjustements
   export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
   export DISABLE_QT5_COMPAT=1 # confirm qt6 compatibility
+  export LIGHT_MODE_WALLPAPER="~/Cloud/Pictures/Wallpapers/Inne/face-tears-blue-light-wristband.jpg"
+  export DARK_MODE_WALLPAPER="~/Cloud/Pictures/Wallpapers/Best/pink.png"
 }
 
 function __setup_keyboard() {
