@@ -2,6 +2,11 @@
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
   // Choose the order of the modules
+  "spacing": 6,
+  "margin-top": 4,
+  "margin-bottom": 4,
+  "margin-left": 6,
+  "margin-right": 8,
   "modules-left": [
     "wlr/workspaces",
     "hyprland/window"
