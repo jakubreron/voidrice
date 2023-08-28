@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
 replace_dotfiles_symlinks() {
+  for dir in "$DOTFILES_DIR"/voidrice/.local/bin/*/; do
+    dir_name=$(basename "$dir")
+    mkdir -p "$HOME"/.local/bin/"$dir_name"
+  done
+
   log-pretty-message "Updating dotfiles symlinks"
   find "$DOTFILES_DIR" -type d \
     -exec test -e '{}/.stow-local-ignore' ';' \
