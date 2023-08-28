@@ -35,7 +35,7 @@
       "6": "󰕧 ",
       "7": " ",
       "8": " ",
-      "default": " "
+      "default": " ",
     },
   },
   "hyprland/window": {
@@ -48,9 +48,9 @@
     "spacing": 14,
   },
   "mpd": {
-    "format": "{stateIcon}{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {title} ",
-    "format-disconnected": "Disconnected ",
-    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped ",
+    "format": "{stateIcon}{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {title}  ",
+    "format-disconnected": "Disconnected  ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped  ",
     "title-len": 23,
     "consume-icons": {
       "on": " "
@@ -144,9 +144,10 @@
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
+    "ignored-sinks": ["Easy Effects Sink"],
     "format": "{volume}% {icon}",
-    "format-bluetooth": "{volume}% {icon}",
-    "format-bluetooth-muted": "0% 󰝟 {icon}",
+    "format-bluetooth": "{volume}% {icon}<span color=\"#89b4fa\"></span>",
+    "format-bluetooth-muted": "0% 󰝟 {icon}<span color=\"#89b4fa\"></span>",
     "format-muted": "0% 󰝟",
     "format-icons": {
       "headphone": " ",
