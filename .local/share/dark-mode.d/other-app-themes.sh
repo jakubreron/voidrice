@@ -29,3 +29,8 @@ sed --in-place --follow-symlinks "s/light-theme/dark-theme/" ~/.config/waybar/st
 
 # Fcitx5
 sed --in-place --follow-symlinks "s/$light_theme/$dark_theme/" ~/.config/fcitx5/conf/classicui.conf
+
+# Hyprland
+if [[ "$XDG_CURRENT_DESKTOP" = "Hyprland" ]];then
+  hyprctl hyprpaper wallpaper ,~/Cloud/Pictures/Wallpapers/Best/pink.png
+fi
