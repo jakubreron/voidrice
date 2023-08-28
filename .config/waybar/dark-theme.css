@@ -1,1 +1,16 @@
 @import "./themes/catppuccin/themes/mocha.css";
+
+#mpd,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#battery,
+#tray,
+#backlight,
+#clock {
+  background-color: @base;
+  box-shadow: 1px 1px 2px @surface0;
+}
