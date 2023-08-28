@@ -120,6 +120,13 @@ if [[ "$STARTUP_DESKTOP" = 'X11' ]]; then
 fi
 
 if [[ "$STARTUP_DESKTOP" = 'Wayland' ]]; then
+  export QT_AUTO_SCREEN_SCALE_FACTOR=1
+  export QT_QPA_PLATFORM="wayland;xcb"
+  export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+  export SDL_VIDEODRIVER="wayland"
+  export MOZ_ENABLE_WAYLAND=1
+  export XCURSOR_SIZE=24
+
   if [ -z $DISPLAY ] && [ $(tty) = "/dev/tty1" ]; then
     if [ -f /usr/local/bin/Hyprland ]; then
       exec /usr/local/bin/Hyprland >/dev/null 2>&1 
