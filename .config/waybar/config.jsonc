@@ -147,8 +147,10 @@
     "ignored-sinks": ["Easy Effects Sink"],
     "format": "{volume}% {icon}",
     "format-bluetooth": "{volume}% {icon}<span color=\"#89b4fa\"></span>",
-    "format-bluetooth-muted": "0% 󰝟 {icon}<span color=\"#89b4fa\"></span>",
-    "format-muted": "0% 󰝟",
+    "format-bluetooth-muted": "<span color=\"#f38ba8\">0% 󰝟</span> {icon}<span color=\"#89b4fa\"></span>",
+    "format-source": "{volume}% ",
+    "format-source-muted": "<span color=\"#f38ba8\">0% </span>",
+    "format-muted": "<span color=\"#f38ba8\">0% 󰝟</span>",
     "format-icons": {
       "headphone": " ",
       "hands-free": " ",
