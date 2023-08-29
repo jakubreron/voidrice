@@ -44,6 +44,4 @@ display_volume_level = no
 ignore_leading_the = yes
 external_editor = lvim
 use_console_editor = yes
-empty_tag_color = magenta
-main_window_color = white
 execute_on_song_change="pkill -RTMIN+11 dwmblocks"
