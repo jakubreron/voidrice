@@ -1,33 +1,79 @@
-@import "./dark-theme.css";
-
-* {
+#waybar {
   font-family: sans-serif, monospace;
-  font-size: 12.5px;
+  font-size: 13px;
+  background: rgba(0, 0, 0, .5);
+  font-weight: 500;
+}
+
+#waybar,
+#workspaces button {
   color: @text;
 }
 
-#workspaces {
-  border-radius: 16px;
-  margin: 4px 6px;
-  background-color: @base;
+#workspaces,
+#mpd,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#battery,
+#tray,
+#backlight,
+#clock {
+  margin: 4px 2px;
 }
 
-#workspaces button {
-  border-radius: 16px;
-  margin: 2px;
-  border: 0;
+#workspaces {
+  background-color: @base;
+  margin-right: 12px;
+  margin-left: 4px;
+}
+
+#clock {
+  margin-right: 4px;
 }
 
 #workspaces button.active {
   background-color: @surface0;
+  color: @blue;
 }
 
 #workspaces button:hover {
   background-color: @surface1;
 }
 
-#window {
-  margin: 0 6px;
+#workspaces button, 
+#mpd,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#battery,
+#tray,
+#backlight,
+#clock {
+  padding: 0 6px;
+}
+
+#waybar,
+#workspaces,
+#workspaces button, 
+#mpd,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#battery,
+#tray,
+#backlight,
+#clock {
+  border-radius: 6px;
 }
 
 #mpd,
@@ -41,15 +87,8 @@
 #tray,
 #backlight,
 #clock {
-  background-color: @base;
-  padding: 0 16px;
-  margin: 4px 3px;
-  border-radius: 16px;
-}
-
-#clock {
-  color: @blue;
-  margin-right: 6px;
+  background-color: rgba(0,0,0, .75);
+  box-shadow: 1px 1px 3px @overlay2;
 }
 
 #battery,
@@ -70,17 +109,15 @@
 }
 
 #memory, #cpu {
-  color: @peach;
+  color: @sapphire;
 }
 
 #temperature {
   color: @red;
 }
 
-#pulseaudio {
-  color: @teal;
-}
-
 #backlight {
   color: @yellow;
 }
+
+@import "./mocha.css";
