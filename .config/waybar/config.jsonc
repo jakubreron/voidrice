@@ -11,6 +11,7 @@
     "hyprland/window"
   ],
   "modules-right": [
+    "custom/todo",
     "network",
     "cpu",
     "memory",
@@ -18,7 +19,7 @@
     "backlight",
     "battery",
     "tray",
-    "clock"
+    "clock",
   ],
   "wlr/workspaces": {
     "disable-scroll": true,
@@ -39,11 +40,11 @@
   "hyprland/window": {
     "separate-outputs": true,
     "icon": true,
-    "icon-size": 18,
+    "icon-size": 14,
   },
   "tray": {
-    "icon-size": 18,
-    "spacing": 14,
+    "icon-size": 14,
+    "spacing": 8,
   },
   "mpd": {
     "format": "{stateIcon}{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {title}  ",
@@ -74,7 +75,7 @@
   "clock": {
     // "timezone": "America/New_York",
     "interval": 1,
-    "format": "{:%Y-%m-%d「%a」%I:%M:%S%p}",
+    "format": "{:%Y-%m-%d「%a」%I:%M:%S} 󰥔",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
   },
   "cpu": {
@@ -133,10 +134,10 @@
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{signalStrength}%  ",
-    "format-ethernet": "{ipaddr}/{cidr} 󰈀 ",
-    "tooltip-format": "{ifname} via {gwaddr}  ",
-    "format-linked": "{ifname} (No IP)  ",
+    "format-wifi": "{signalStrength}% ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰈀",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
     "on-click": "daemonable-terminal-instance --command $CLI_NETWORK_MANAGER"
   },
@@ -156,9 +157,9 @@
       "headphone": "",
       "hands-free": "",
       "headset": "",
-      "phone": " ",
-      "portable": " ",
-      "car": " ",
+      "phone": "",
+      "portable": "",
+      "car": "",
       "default": [
         "",
         "",
@@ -166,5 +167,11 @@
       ]
     },
     "on-click": "daemonable-terminal-instance --command $CLI_SOUND_MANAGER"
+  },
+  "custom/todo": {
+      "exec": "grep -c \"\\* \\[ \\]\" ~/Documents/VimWiki/index.md",
+      "format": "{} ",
+      "interval": "once",
+      "signal": 7
   },
 }

@@ -95,4 +95,12 @@
   color: @overlay2;
 }
 
+#custom-todo {
+  color: @rosewater;
+}
+
+#tray {
+  padding: 0;
+}
+
 @import "./mocha.css";

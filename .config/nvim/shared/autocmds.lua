@@ -78,6 +78,12 @@ local function buffer_has_git_changes()
 	return git_status ~= ""
 end
 
+-- NOTE: update waybar todo tasks
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = vim.fn.expand("$VIMWIKI_DIR") .. "/*",
+	command = "!pkill -RTMIN+7 waybar",
+})
+
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
 	pattern = vim.fn.expand("$VIMWIKI_DIR") .. "/*",
 	callback = function()
