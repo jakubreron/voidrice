@@ -56,7 +56,6 @@ function __setup_programs() {
   export CLI_TORRENTS_MANAGER="tremc"
   export CLI_SOUND_MANAGER="pulsemixer"
   export CLI_WEATHER_APP="less -S $XDG_CACHE_HOME/weatherreport"
-
 }
 
 function __setup_machines() {
@@ -77,6 +76,22 @@ function __setup_lang() {
   export LC_TIME="$LANGUAGE"
 }
 
+function __setup_themes() {
+  export STANDARD_THEME_SWITCHER_PATHS=(
+    "$HOME/.config/alacritty/alacritty.yml"
+    "$HOME/.config/rofi/config.rasi"
+    "$HOME/.config/lvim/lua/user/builtin/init.lua"
+    "$HOME/.config/btop/btop.conf"
+    "/etc/sddm.conf.d/autologin.conf"
+    "$HOME/.config/fcitx5/conf/classicui.conf"
+    "$HOME/.config/waybar/style.css"
+  )
+
+  export ALTERNATIVE_THEME_SWITCHER_PATHS=(
+    "$HOME/.config/tmux/tmux.conf"
+  )
+}
+
 setup_functions=(
   __setup_settings
   __setup_packages
@@ -84,6 +99,7 @@ setup_functions=(
   __setup_keyboard
   __setup_machines
   __setup_lang
+  __setup_themes
 )
 
 for func in "${setup_functions[@]}"; do
