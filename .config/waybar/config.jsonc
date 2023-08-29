@@ -2,17 +2,15 @@
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
   // Choose the order of the modules
-  "margin-top": 4,
-  "margin-left": 4,
-  "margin-right": 4,
   "modules-left": [
     "wlr/workspaces",
+    "pulseaudio",
+    "mpd",
+  ],
+  "modules-center": [
     "hyprland/window"
   ],
-  "modules-center": [],
   "modules-right": [
-    "mpd",
-    "pulseaudio",
     "network",
     "cpu",
     "memory",
@@ -51,7 +49,7 @@
     "format": "{stateIcon}{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {title}  ",
     "format-disconnected": "Disconnected  ",
     "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped  ",
-    "title-len": 23,
+    "title-len": 12,
     "consume-icons": {
       "on": " "
     },

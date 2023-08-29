@@ -1,7 +1,6 @@
 #waybar {
   font-family: sans-serif, monospace;
-  font-size: 13px;
-  background: rgba(0, 0, 0, .5);
+  font-size: 12.5px;
   font-weight: 500;
 }
 
@@ -22,12 +21,10 @@
 #tray,
 #backlight,
 #clock {
-  margin: 4px 2px;
+  margin: 2px;
 }
 
 #workspaces {
-  background-color: @base;
-  margin-right: 12px;
   margin-left: 4px;
 }
 
@@ -35,13 +32,15 @@
   margin-right: 4px;
 }
 
+#workspaces button {
+  border-radius: 4px;
+}
 #workspaces button.active {
   background-color: @surface0;
   color: @blue;
 }
-
-#workspaces button:hover {
-  background-color: @surface1;
+#workspaces button.urgent {
+  color: @red;
 }
 
 #workspaces button, 
@@ -57,38 +56,6 @@
 #backlight,
 #clock {
   padding: 0 6px;
-}
-
-#waybar,
-#workspaces,
-#workspaces button, 
-#mpd,
-#pulseaudio,
-#network,
-#cpu,
-#memory,
-#temperature,
-#backlight,
-#battery,
-#tray,
-#backlight,
-#clock {
-  border-radius: 6px;
-}
-
-#mpd,
-#pulseaudio,
-#network,
-#cpu,
-#memory,
-#temperature,
-#backlight,
-#battery,
-#tray,
-#backlight,
-#clock {
-  background-color: rgba(0,0,0, .75);
-  box-shadow: 1px 1px 3px @overlay2;
 }
 
 #battery,
@@ -118,6 +85,14 @@
 
 #backlight {
   color: @yellow;
+}
+
+#mpd.disconnected {
+  color: @red;
+}
+
+#mpd.paused {
+  color: @overlay2;
 }
 
 @import "./mocha.css";
