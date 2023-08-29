@@ -9,15 +9,17 @@ light_theme="latte"
 
 printf "%s" "$STANDARD_THEME_SWITCHER_PATHS" | while read -r path; do
   sed --in-place --follow-symlinks "s/$light_theme/$dark_theme/" $path
-done >/dev/null 2>&1
+done
 
 printf "%s" "$ALTERNATIVE_THEME_SWITCHER_PATHS" | while read -r path; do
   sed --in-place --follow-symlinks "s/$light_theme/$dark_theme_alternative/" $path
-done >/dev/null 2>&1
+done
 
 # Dunst is different
 ln -fs ~/.config/dunst/themes/catppuccin/src/$dark_theme.conf ~/.config/dunst/dunstrc.d/99-theme.conf
 
 # Reload all after paths changes
 killall dunst && nohup dunst &
-tmux source-file ~.config/tmux/tmux.conf
+if pgrep -f "tmux" > /dev/null; then
+  tmux source-file ~/.config/tmux/tmux.conf
+fi
