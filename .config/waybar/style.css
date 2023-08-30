@@ -75,6 +75,10 @@
   color: @lavender;
 }
 
+#network.disconnected {
+  color: @red;
+}
+
 #memory, #cpu {
   color: @sapphire;
 }
