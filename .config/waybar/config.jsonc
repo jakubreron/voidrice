@@ -46,10 +46,10 @@
     "spacing": 8,
   },
   "mpd": {
-    "format": "{stateIcon}{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {artist} - {title}  ",
+    "format": "{stateIcon}{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {title}  ",
     "format-disconnected": "Disconnected  ",
     "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped  ",
-    "title-len": 12,
+    "title-len": 50,
     "consume-icons": {
       "on": " "
     },
