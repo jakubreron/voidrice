@@ -76,6 +76,7 @@
 
 #battery.critical:not(.charging) {
   color: @red;
+  text-shadow: 0 0 4px @red;
 }
 
 #backlight {
@@ -96,6 +97,11 @@
 
 #temperature {
   color: @red;
+}
+
+#temperature.critical {
+  font-weight: bold;
+  text-shadow: 0 0 4px @red;
 }
 
 #backlight {
