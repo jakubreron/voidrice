@@ -20,6 +20,8 @@ configuration{
     selected-col: @blue;
     fg-col2: @bg-col;
     border-col: #89b4fa;
+    border-rad: 6px;
+
     width: 65%;
     font: "Monospace 14";
 }
@@ -27,11 +29,14 @@ configuration{
 window {
     height: 50%;
     border: 2px;
-    border-radius: 6px;
 }
 
+inputbar,
+prompt,
+message,
+window,
 element {
-  border-radius: 6px;
+  border-radius: @border-rad;
 }
 
 listview,
@@ -46,5 +51,5 @@ listview {
 }
 
 element {
-  margin: 0 10px;
+  margin: 0 12px;
 }
