@@ -1,5 +1,5 @@
 @import "./themes/catppuccin/themes/mocha.css";
 
 #waybar {
-  background: rgba(0, 0, 0, .85);
+  background: rgba(0, 0, 0, .5);
 }
