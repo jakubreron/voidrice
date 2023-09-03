@@ -221,7 +221,7 @@ map <c-o> dragon
 # map Z zip
 
 map x $$f # execute
-map X !$f
+map X $chmod +x "$f" && lf -remote "send reload"
 map o &mimeopen "$f"
 map O $mimeopen --ask "$f"
 
