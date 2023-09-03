@@ -9,23 +9,23 @@ configuration{
     location: 0;
     disable-history: false;
     hide-scrollbar: false;
-    display-drun: "   Apps ";
-    display-run: "   Run ";
-    display-window: " 﩯  Window";
-    display-Network: " 󰤨  Network";
-    sidebar-mode: true;
+    display-drun: " App    ";
+    display-run: " Run     ";
+    display-window: " Win ";
+    display-Network: " Network 󰤨 ";
+    sidebar-mode: false;
 }
 
 * {
     selected-col: @blue;
     fg-col2: @bg-col;
     border-col: #89b4fa;
-    width: 800;
+    width: 65%;
     font: "Monospace 14";
 }
 
 window {
-    height: 460px;
+    height: 50%;
     border: 2px;
     border-radius: 6px;
 }
@@ -42,5 +42,9 @@ inputbar {
 }
 
 listview {
-  margin: 10px 20px 0 20px;
+  margin: 0px 10px 0 10px;
+}
+
+element {
+  margin: 0 10px;
 }
