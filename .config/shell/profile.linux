@@ -44,6 +44,8 @@ function __setup_programs() {
   export PHONE_INTEGRATION_DAEMON="/usr/lib/kdeconnectd"
   export NOFIFICATION_DAEMON="dunst"
   export TORRENTS_DAEMON="transmission-daemon"
+  export EQUALIZER_DAEMON="easyeffects-daemon"
+
   export PASSWORD_MANAGER="keepassxc"
 
   export GUI_FILE_EXPLORER="nautilus"
@@ -104,7 +106,7 @@ if [[ "$STARTUP_DESKTOP" = 'X11' ]]; then
     remapd
     unclutter
     xsettingsd
-    easyeffects --gapplication-service 
+    $EQUALIZER_DAEMON
     $INPUT_METHOD
     $TORRENTS_DAEMON
     $PHONE_INTEGRATION_DAEMON
