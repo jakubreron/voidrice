@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 # Define the list of commands as an array
-commands=("layout-builtin+external-above.sh" "layout-builtin-only.sh" "layout-external-only.sh")
+# TODO: get from layouts folder
+commands=("layout-builtin-only" "layout-external-only")
 
 # Display the command choices in Rofi
 chosen=$(printf '%s\n' "${commands[@]}" | rofi -dmenu -i -p "Select a layout")
