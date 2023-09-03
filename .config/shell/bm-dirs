@@ -22,6 +22,9 @@ Cf      $XDG_CONFIG_HOME
 Cft     $XDG_CONFIG_HOME/tmux
 Cfz     $XDG_CONFIG_HOME/zsh
 
+Cfh     $XDG_CONFIG_HOME/hypr
+Cfw     $XDG_CONFIG_HOME/waybar
+
 Cflv    $LVIM_CONFIG_DIR
 Cfnv    $XDG_CONFIG_HOME/nvim
 
