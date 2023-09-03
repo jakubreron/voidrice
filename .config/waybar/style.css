@@ -35,13 +35,16 @@
 
 #workspaces button {
   border-radius: 4px;
+  margin-right: 1px;
 }
 #workspaces button.active {
   background-color: @surface0;
   color: @blue;
 }
 #workspaces button.urgent {
+  font-weight: bold;
   color: @red;
+  background-color: rgba(255, 0, 0, .2);
 }
 
 #workspaces button, 
