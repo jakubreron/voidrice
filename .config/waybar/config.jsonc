@@ -38,7 +38,7 @@
   },
   "hyprland/window": {
     "separate-outputs": true,
-    "icon": false,
+    "icon": true,
     "icon-size": 14,
   },
   "tray": {
