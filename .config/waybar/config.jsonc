@@ -2,7 +2,7 @@
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
   "modules-left": [
-    "wlr/workspaces",
+    "hyprland/workspaces",
     "hyprland/window",
   ],
   "modules-center": [],
@@ -19,7 +19,7 @@
     "tray",
     "clock",
   ],
-  "wlr/workspaces": {
+  "hyprland/workspaces": {
     "disable-scroll": true,
     "sort-by-name": true,
     "format": "{name}: {icon} ",
