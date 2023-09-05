@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 udevadm monitor -u -t seat -s input | while read -r line; do
   if [[ "$line" =~ "/devices/virtual/input" ]]; then
