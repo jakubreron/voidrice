@@ -1,14 +1,15 @@
 #!/bin/bash
 
-# TODO: fix docking station triggering these events
-udevadm monitor -u -t seat -s input -s usb | while read -r line; do
-  if [[ "$line" =~ add ]]; then
-    nohup easyeffects --gapplication-service & 
-    notify-send 'Enabled EasyEffects'
-  elif [[ "$line" =~ remove ]]; then
-    if pgrep -f "easyeffects" > /dev/null; then
-      killall easyeffects
-      notify-send 'Disabled EasyEffects'
+udevadm monitor -u -t seat -s input | while read -r line; do
+  if [[ "$line" =~ "/devices/virtual/input" ]]; then
+    if [[ "$line" =~ "add" ]]; then
+      nohup easyeffects --gapplication-service & 
+      notify-send 'Enabled EasyEffects'
+    elif [[ "$line" =~ remove ]]; then
+      if pgrep -f "easyeffects" > /dev/null; then
+        killall easyeffects
+        notify-send 'Disabled EasyEffects'
+      fi
     fi
   fi
 done
