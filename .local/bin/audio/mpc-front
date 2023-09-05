@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+mpc "$@"
+echo "mpc" > "$LAST_USED_AUDIO_STATE_DAEMON_FILE"

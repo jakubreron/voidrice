@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+playerctl metadata --format '{{ status }}' --follow | while read -r; do
+  echo "playerctl" > "$LAST_USED_AUDIO_STATE_DAEMON_FILE"
+done

@@ -46,6 +46,9 @@ function __setup_programs() {
   export TORRENTS_DAEMON="transmission-daemon"
   export EQUALIZER_DAEMON="easyeffects-daemon"
 
+  export LAST_USED_AUDIO_STATE_DAEMON="mpc-or-playerctl-state-daemon"
+  export LAST_USED_AUDIO_STATE_DAEMON_FILE="$XDG_CACHE_HOME/mpc-or-playerctl-laststate"
+
   export PASSWORD_MANAGER="keepassxc"
 
   export GUI_FILE_EXPLORER="nautilus"
