@@ -14,7 +14,6 @@ unset bin_list
 function __setup_settings() {
   # export STARTUP_DESKTOP="X11"
   export STARTUP_DESKTOP="Wayland"
-  export SUDO_ASKPASS="$HOME/.local/bin/dmenu/dmenupass"
   export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm and/or wayland
   export QT_QPA_PLATFORMTHEME='qt6ct' # QT Theme adjustements
   export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
