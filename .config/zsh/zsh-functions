@@ -1,5 +1,10 @@
 #!/usr/bin/env zsh
 
+function lfcd() {
+    # `command` is needed in case `lfcd` is aliased to `lf`
+    cd "$(command lf -last-dir-path /dev/stdout "$@")"
+}
+
 # Create a new directory and enter it
 function mkd() {
 	mkdir -p "$@" && cd "$_";
