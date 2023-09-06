@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-# NOTE: read once, at login (variables and settings that don't need to be updated frequently)
+# NOTE: this file is being read once, at login (variables and settings that don't need to be updated frequently)
 
 OS="$(uname -s)"
 
