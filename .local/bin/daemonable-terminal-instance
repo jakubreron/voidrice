@@ -1,12 +1,5 @@
 #!/usr/bin/env bash
-if [ "$STARTUP_DESKTOP" = 'Wayland' ]; then
-  socket_path="/run/user/1000/Alacritty-wayland-1-50274.sock"
-fi
-
-if [ "$STARTUP_DESKTOP" = 'X11' ]; then
-  socket_path="/run/user/1000/Alacritty-:0-37430.sock"
-fi
-
+socket_path="/run/user/1000/Alacritty-wayland-1-50274.sock"
 command="alacritty --socket $socket_path"
 
 if [ -e "$socket_path" ]; then

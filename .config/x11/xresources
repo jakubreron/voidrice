@@ -1,5 +1,0 @@
-st.alpha: 0.96
-spterm.alpha: 0.96
-
-! #include "/home/jakub/.cache/wal/colors.Xresources"
-#include "./themes/catppuccin/mocha.Xresources"

@@ -3,12 +3,6 @@ cfbf	    $XDG_CONFIG_HOME/shell/bm-files	# This file, a list of bookmarked files
 cfbd	    $XDG_CONFIG_HOME/shell/bm-dirs		# A list of bookmarked directories similar to this file
 cfbw	    $DOTFILES_DIR/universal/.config/bm-websites       # A list of boookmarked websites
 
-# scripts
-cfdb	    $XDG_SRC_HOME/dwmblocks/config.h
-cfdw	    $XDG_SRC_HOME/dwm/config.h
-cfdm	    $XDG_SRC_HOME/dmenu/config.h
-cfst	    $XDG_SRC_HOME/st/config.h
-
 # system
 cfz	      $ZDOTDIR/.zshrc
 cfa	      $XDG_CONFIG_HOME/shell/aliasrc
@@ -17,8 +11,6 @@ cfp	      $XDG_CONFIG_HOME/shell/profile
 cfh	      $XDG_CONFIG_HOME/hypr/hyprland.conf
 cfww      $XDG_CONFIG_HOME/waybar/config.jsonc
 cfws      $XDG_CONFIG_HOME/waybar/style.css
-cfc	      $XDG_CONFIG_HOME/picom.conf
-cfx	      $XDG_CONFIG_HOME/x11/xprofile
 cfl	      $XDG_CONFIG_HOME/lf/lfrc
 cftm      $XDG_CONFIG_HOME/tmux/tmux.conf
 cfti      $XDG_CONFIG_HOME/ticker/.ticker.yaml

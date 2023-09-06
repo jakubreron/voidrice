@@ -32,17 +32,6 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 	end,
 })
 
--- NOTE: renew x11 theme
-local x_filetypes = { "xresources", "xdefaults" }
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = x_filetypes,
-	command = "setlocal filetype=xdefaults",
-})
-vim.api.nvim_create_autocmd("BufWritePost", {
-	pattern = x_filetypes,
-	command = "!xrdb %",
-})
-
 -- NOTE: renew shortcuts
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
 	pattern = "bm-*",

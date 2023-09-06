@@ -11,8 +11,3 @@ ln -fs /usr/share/themes/$theme/gtk-3.0/* ~/.config/gtk-3.0/
 
 import-gsettings
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-
-if [[ "$STARTUP_DESKTOP" = "X11" ]]; then
-  sed --in-place --follow-symlinks "s/Net\/ThemeName.*/Net\/ThemeName \"$theme\"/" ~/.xsettingsd 
-  killall -hup xsettingsd
-fi
