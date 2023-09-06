@@ -97,6 +97,7 @@ vim.api.nvim_create_autocmd({ "VimLeave" }, {
 	pattern = {
 		vim.fn.expand("~") .. "/.config/shell/aliasrc*",
 		vim.fn.expand("~") .. "/.config/shell/profile*",
+		vim.fn.expand("~") .. "/.config/ticker/.ticker.yaml",
     "bm-*",
 	},
   callback = function ()
