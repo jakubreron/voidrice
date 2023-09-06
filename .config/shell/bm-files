@@ -20,7 +20,8 @@ cfws      $XDG_CONFIG_HOME/waybar/style.css
 cfc	      $XDG_CONFIG_HOME/picom.conf
 cfx	      $XDG_CONFIG_HOME/x11/xprofile
 cfl	      $XDG_CONFIG_HOME/lf/lfrc
-cft       $XDG_CONFIG_HOME/tmux/tmux.conf
+cftm      $XDG_CONFIG_HOME/tmux/tmux.conf
+cfti      $XDG_CONFIG_HOME/ticker/.ticker.yaml
 cfg	      $DOTFILES_DIR/universal/.config/git/config
 cfgrub    /etc/default/grub
 
