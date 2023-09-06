@@ -1,7 +1,7 @@
 # vim: filetype=conf
 
 [mpd]
-mpd_music_dir = "~/Music"
+mpd_music_dir = "$XDG_MUSIC_DIR"
 mpd_crossfade_time = "2"
 mpd_connection_timeout = "5"
 
@@ -40,8 +40,7 @@ ncmpcpp_directory = "~/.config/ncmpcpp"
 lyrics_directory = "~/.local/share/lyrics"
 message_delay_time = "1"
 browser_display_mode = columns
-display_volume_level = no
+display_volume_level = yes
 ignore_leading_the = yes
 external_editor = lvim
 use_console_editor = yes
-execute_on_song_change="pkill -RTMIN+11 dwmblocks"
