@@ -4,7 +4,7 @@
 switch_from="${1:-mocha}"
 switch_to="${2:-latte}"
 
-paths="$HOME/.config/alacritty/alacritty.yml
+lowercase_paths="$HOME/.config/alacritty/alacritty.yml
   $HOME/.config/rofi/config.rasi
   $HOME/.config/lvim/lua/user/builtin/init.lua
   $HOME/.config/btop/btop.conf
@@ -14,18 +14,20 @@ paths="$HOME/.config/alacritty/alacritty.yml
   $HOME/.config/bat/config
   $HOME/.config/BetterDiscord/data/stable/custom.css
 "
+uppercase_paths="$HOME/.config/Kvantum/kvantum.kvconfig"
 
-# TODO: add lvim live reload
-# TODO: add git update-index assume-unchanged for all paths
-
-for path in "${paths[@]}"; do
+for path in "${lowercase_paths[@]}"; do
   sed --in-place --follow-symlinks "s/$switch_from/$switch_to/" $path
+done
+
+for path in "${uppercase_paths[@]}"; do
+  sed --in-place --follow-symlinks "s/${switch_from^}/${switch_to^}/" $path
 done
 
 # Dunst has different approach
 ln -fs ~/.config/dunst/themes/catppuccin/src/$switch_to.conf ~/.config/dunst/dunstrc.d/99-theme.conf
 
-# Reload all after paths changes
+# Reload all after lowercase_paths changes
 killall dunst && sleep 1 && nohup dunst &
 
 if pgrep -f "tmux" > /dev/null; then
