@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # NOTE: can be mocha, latte, macchiato, frappe
 switch_from="${1:-mocha}"
@@ -12,6 +12,7 @@ paths="$HOME/.config/alacritty/alacritty.yml
   $HOME/.config/waybar/style.css
   $HOME/.config/tmux/tmux.conf
   $HOME/.config/bat/config
+  $HOME/.config/BetterDiscord/data/stable/custom.css
 "
 
 # TODO: add lvim live reload

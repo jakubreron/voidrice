@@ -5,7 +5,9 @@
         "settings": {
             "addons": true,
             "developer": true,
-            "window": true
+            "window": true,
+            "customcss": true,
+            "editor": true
         }
     }
 }
