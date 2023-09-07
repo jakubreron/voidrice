@@ -172,7 +172,7 @@ cmd run_scripts ${{
   script=$(cat package.json | jq -r '.scripts | keys[] ' | sort | fzf --height 20%) && nr $(echo "$script")
 }}
 
-cmd setbg "$1"
+# cmd setbg "$1"
 
 cmd bulkrename ${{
     tmpfile_old="$(mktemp)"
@@ -235,7 +235,7 @@ map I :rename; cmd-home # at the very beginning
 map a :rename; cmd-right # after extension
 map A :rename; cmd-end # at the very end
 
-map b $setbg $f
+# map b $setbg $f
 
 map W open_in_new_terminal
 
