@@ -4,24 +4,46 @@
 switch_from="${1:-mocha}"
 switch_to="${2:-latte}"
 
-lowercase_paths="$HOME/.config/alacritty/alacritty.yml
-  $HOME/.config/rofi/config.rasi
-  $HOME/.config/lvim/lua/user/builtin/init.lua
-  $HOME/.config/btop/btop.conf
-  $HOME/.config/fcitx5/conf/classicui.conf
-  $HOME/.config/waybar/style.css
-  $HOME/.config/tmux/tmux.conf
-  $HOME/.config/bat/config
-  $HOME/.config/BetterDiscord/data/stable/custom.css
-"
-uppercase_paths="$HOME/.config/Kvantum/kvantum.kvconfig"
+declare -a lowercase_paths=(
+  "$HOME/.config/alacritty/alacritty.yml"
+  "$HOME/.config/rofi/config.rasi"
+  "$HOME/.config/lvim/lua/user/builtin/init.lua"
+  "$HOME/.config/btop/btop.conf"
+  "$HOME/.config/fcitx5/conf/classicui.conf"
+  "$HOME/.config/waybar/style.css"
+  "$HOME/.config/tmux/tmux.conf"
+  "$HOME/.config/bat/config"
+  "$HOME/.config/BetterDiscord/data/stable/custom.css"
+)
+
+declare -a uppercase_paths=(
+  "$HOME/.config/Kvantum/kvantum.kvconfig" 
+)
+
+function ignore_changes_in_repo() {
+  local path="$1"
+  local path_in_repo
+  local dirpath_in_repo
+  local repo_root_path
+
+  path_in_repo=$(readlink -f "$path")
+  if [[ -f $path_in_repo ]]; then
+    dirpath_in_repo=$(dirname "$path_in_repo")
+    repo_root_path=$(git -C "$dirpath_in_repo" rev-parse --show-toplevel 2>/dev/null)
+    if [[ -n "$repo_root_path" ]]; then 
+      git -C "$repo_root_path" update-index --assume-unchanged "$path_in_repo"
+    fi
+  fi
+}
 
 for path in "${lowercase_paths[@]}"; do
   sed --in-place --follow-symlinks "s/$switch_from/$switch_to/" $path
+  ignore_changes_in_repo "$path"
 done
 
 for path in "${uppercase_paths[@]}"; do
   sed --in-place --follow-symlinks "s/${switch_from^}/${switch_to^}/" $path
+  ignore_changes_in_repo "$path"
 done
 
 # Dunst has different approach

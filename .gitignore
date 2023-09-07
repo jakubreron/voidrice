@@ -9,7 +9,6 @@
 
 .config/tmux/plugins/*
 
-.config/Kvantum/kvantum.kvconfig
 .config/lazygit/state.yml
 .config/BetterDiscord/themes/*.css
 
