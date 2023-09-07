@@ -34,3 +34,6 @@
 [submodule ".config/fcitx5/themes/catppuccin"]
 	path = .config/fcitx5/themes/catppuccin
 	url = https://github.com/catppuccin/fcitx5.git
+[submodule ".config/bat/themes/catppuccin"]
+	path = .config/bat/themes/catppuccin
+	url = https://github.com/catppuccin/bat
