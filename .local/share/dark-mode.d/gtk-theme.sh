@@ -9,5 +9,5 @@ sed --in-place --follow-symlinks "s/gtk-theme-name=.*/gtk-theme-name=$theme/" ~/
 ln -fs /usr/share/themes/$theme/gtk-4.0/* ~/.config/gtk-4.0/
 ln -fs /usr/share/themes/$theme/gtk-3.0/* ~/.config/gtk-3.0/
 
-import-gsettings
+~/.local/bin/themes/import-gsettings
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
