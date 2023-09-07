@@ -2,12 +2,25 @@
 
 theme=$1
 
+gtk3_config="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-3.0/settings.ini"
+gtk4_config="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-4.0/settings.ini"
+
+if [ ! -f "$gtk3_config" ] || [ ! -f "$gtk4_config" ]; then exit 1; fi
+
 # old apps fix
-sed --in-place --follow-symlinks "s/gtk-theme-name=.*/gtk-theme-name=$theme/" ~/.config/gtk-3.0/settings.ini
-sed --in-place --follow-symlinks "s/gtk-theme-name=.*/gtk-theme-name=$theme/" ~/.config/gtk-4.0/settings.ini
+sed --in-place --follow-symlinks "s/gtk-theme-name=.*/gtk-theme-name=$theme/" "$gtk3_config"
+sed --in-place --follow-symlinks "s/gtk-theme-name=.*/gtk-theme-name=$theme/" "$gtk4_config"
 
 # multiple gtk versions
 ln -fs /usr/share/themes/$theme/gtk-4.0/* ~/.config/gtk-4.0/
 ln -fs /usr/share/themes/$theme/gtk-3.0/* ~/.config/gtk-3.0/
 
-~/.local/bin/themes/import-gsettings
+gnome_schema="org.gnome.desktop.interface"
+gtk_theme="$(grep 'gtk-theme-name' "$gtk3_config" | sed 's/.*\s*=\s*//')"
+icon_theme="$(grep 'gtk-icon-theme-name' "$gtk3_config" | sed 's/.*\s*=\s*//')"
+cursor_theme="$(grep 'gtk-cursor-theme-name' "$gtk3_config" | sed 's/.*\s*=\s*//')"
+font_name="$(grep 'gtk-font-name' "$gtk3_config" | sed 's/.*\s*=\s*//')"
+gsettings set "$gnome_schema" gtk-theme "$gtk_theme"
+gsettings set "$gnome_schema" icon-theme "$icon_theme"
+gsettings set "$gnome_schema" cursor-theme "$cursor_theme"
+gsettings set "$gnome_schema" font-name "$font_name"
