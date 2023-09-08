@@ -15,6 +15,7 @@ declare -a lowercase_paths=(
   "$HOME/.config/bat/config"
   "$HOME/.config/BetterDiscord/data/stable/custom.css"
   "$HOME/.config/starship.toml"
+  "$HOME/.config/hypr/theme.conf"
 )
 
 declare -a uppercase_paths=(
@@ -55,4 +56,8 @@ killall dunst && sleep 1 && nohup dunst &
 
 if pgrep -f "tmux" > /dev/null; then
   tmux source-file ~/.config/tmux/tmux.conf
+fi
+
+if pgrep -f "Hyprland" > /dev/null; then
+  hyprctl reload
 fi
