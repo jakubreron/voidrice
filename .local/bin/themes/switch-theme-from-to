@@ -14,6 +14,7 @@ declare -a lowercase_paths=(
   "$HOME/.config/tmux/tmux.conf"
   "$HOME/.config/bat/config"
   "$HOME/.config/BetterDiscord/data/stable/custom.css"
+  "$HOME/.config/starship.toml"
 )
 
 declare -a uppercase_paths=(
