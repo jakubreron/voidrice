@@ -3,13 +3,36 @@ palette = "catppuccin_mocha"
 
 [character]
 # Note the use of Catppuccin color 'maroon'
-success_symbol = "[[󰣇](green) ❯](maroon)"
+success_symbol = "[❯](maroon)"
 error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](green)"
 
 [directory]
+format = "[ $path ]($style)"
 truncation_length = 4
-style = "bold lavender"
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[package]
+format = ""
+
+[nodejs]
+symbol = ""
+format = '[$symbol ($version)]($style)'
+
+[os]
+style = "fg:blue"
+disabled = false
+
+[os.symbols]
+Arch = " "
+Macos = " "
+Unknown = " "
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
