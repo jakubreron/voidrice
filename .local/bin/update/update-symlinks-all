@@ -11,7 +11,7 @@ replace_dotfiles_symlinks() {
     -exec test -e '{}/.stow-local-ignore' ';' \
     -print0 -prune \
     | xargs -0 -I {} basename {} \
-    | parallel stow --adopt --target="$HOME" --dir="$DOTFILES_DIR"
+    | xargs stow --adopt --target="$HOME" --dir="$DOTFILES_DIR"
 }
 
 replace_firefox_symlinks() {
