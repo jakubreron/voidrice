@@ -10,7 +10,7 @@ replace_dotfiles_symlinks() {
   find "$DOTFILES_DIR" -type d \
     -exec test -e '{}/.stow-local-ignore' ';' \
     -print0 -prune \
-    | parallel -0 -I {} basename {} \
+    | xargs -0 -I {} basename {} \
     | parallel stow --adopt --target="$HOME" --dir="$DOTFILES_DIR"
 }
 
