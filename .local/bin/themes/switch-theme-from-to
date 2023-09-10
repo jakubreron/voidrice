@@ -48,6 +48,11 @@ for path in "${uppercase_paths[@]}"; do
   ignore_changes_in_repo "$path"
 done
 
+for file in /run/user/1000/nvim.*
+do
+  nvr --nostart --remote-send "colorscheme catppuccin-$switch_to<CR>" --servername "$file"
+done
+
 # Dunst has different approach
 ln -fs ~/.config/dunst/themes/catppuccin/src/$switch_to.conf ~/.config/dunst/dunstrc.d/99-theme.conf
 
