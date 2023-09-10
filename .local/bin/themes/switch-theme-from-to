@@ -51,11 +51,11 @@ done
 # Dunst has different approach
 ln -fs ~/.config/dunst/themes/catppuccin/src/$switch_to.conf ~/.config/dunst/dunstrc.d/99-theme.conf
 
-# Reload all after lowercase_paths changes
+# Reload everything after changes changes
 killall dunst && sleep 1 && nohup dunst &
+killall waybar && sleep 1 && nohup waybar &
+hyprctl reload
 
 if pgrep -f "tmux" > /dev/null; then
   tmux source-file ~/.config/tmux/tmux.conf
 fi
-
-hyprctl reload
