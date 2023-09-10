@@ -44,7 +44,7 @@ for path in "${lowercase_paths[@]}"; do
 done
 
 for path in "${uppercase_paths[@]}"; do
-  sed --in-place --follow-symlinks "0,/$switch_from/s//$switch_to/" "$path"
+  sed --in-place --follow-symlinks "s/${switch_from^}/${switch_to^}/" "$path"
   ignore_changes_in_repo "$path"
 done
 
