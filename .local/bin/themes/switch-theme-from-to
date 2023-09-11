@@ -14,7 +14,6 @@ declare -a lowercase_paths=(
   "$HOME/.config/tmux/tmux.conf"
   "$HOME/.config/bat/config"
   "$HOME/.config/BetterDiscord/data/stable/custom.css"
-  "$HOME/.config/starship.toml"
   "$HOME/.config/hypr/theme.conf"
 )
 
@@ -53,8 +52,13 @@ do
   nvr --nostart --remote-send "colorscheme catppuccin-$switch_to<CR>" --servername "$file"
 done
 
-# Dunst has different approach
+# NOTE: different approaches
+
+# Dunst
 ln -fs ~/.config/dunst/themes/catppuccin/src/$switch_to.conf ~/.config/dunst/dunstrc.d/99-theme.conf
+
+# Starship
+sed --in-place --follow-symlinks "s/palette = \"catppuccin_$switch_from\"/palette = \"catppuccin_$switch_to\"/" "$HOME/.config/starship.toml"
 
 # Reload everything after changes changes
 killall dunst && sleep 1 && nohup dunst &
