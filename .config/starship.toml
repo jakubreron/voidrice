@@ -23,7 +23,7 @@ format = ""
 
 [nodejs]
 symbol = ""
-format = '[$symbol ($version)]($style)'
+format = '[$symbol ($version) ]($style)'
 
 [os]
 style = "fg:blue"
