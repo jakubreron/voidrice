@@ -132,3 +132,5 @@
 #pulseaudio.bluetooth:not(.muted) {
   color: @blue;
 }
+
+@import './mocha.css';
