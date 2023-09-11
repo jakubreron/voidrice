@@ -1,4 +1,3 @@
--- vim
 local options = {
 	dictionary = "/usr/share/dict/words",
 	thesaurus = "~/.config/lvim/mthesaur.txt",
@@ -48,6 +47,7 @@ local options = {
 	fileformats = "unix,dos,mac", -- Use Unix as the standard file type
 	linebreak = true, -- set linebreak on very long lines
 	textwidth = 500, -- linebreak on 500 characters
+  colorcolumn = "80",
 }
 
 local globals = {
