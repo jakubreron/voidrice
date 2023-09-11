@@ -10,7 +10,7 @@ declare -a lowercase_paths=(
   "$HOME/.config/lvim/lua/user/builtin/init.lua"
   "$HOME/.config/btop/btop.conf"
   "$HOME/.config/fcitx5/conf/classicui.conf"
-  "$HOME/.config/waybar/style.css"
+  "$HOME/.config/waybar/colorscheme.css"
   "$HOME/.config/tmux/tmux.conf"
   "$HOME/.config/bat/config"
   "$HOME/.config/BetterDiscord/data/stable/custom.css"

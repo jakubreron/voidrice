@@ -1,3 +1,5 @@
+@import './colorscheme.css';
+
 #waybar {
   font-family: sans-serif, monospace;
   font-size: 12.5px;
@@ -132,5 +134,3 @@
 #pulseaudio.bluetooth:not(.muted) {
   color: @blue;
 }
-
-@import './mocha.css';
