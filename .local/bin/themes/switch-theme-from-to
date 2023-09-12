@@ -56,15 +56,24 @@ done
 
 # Dunst
 ln -fs ~/.config/dunst/themes/catppuccin/src/$switch_to.conf ~/.config/dunst/dunstrc.d/99-theme.conf
-
 # Starship
 sed --in-place --follow-symlinks "s/palette = \"catppuccin_$switch_from\"/palette = \"catppuccin_$switch_to\"/" "$HOME/.config/starship.toml"
 
-# Reload everything after changes changes
-killall dunst && sleep 1 && nohup dunst &
-killall waybar && sleep 1 && nohup waybar &
-hyprctl reload
-
-if pgrep -f "tmux" > /dev/null; then
+if pgrep -f "tmux" >/dev/null; then
   tmux source-file ~/.config/tmux/tmux.conf
+fi
+
+if pgrep -f "dunst" >/dev/null; then
+  killall dunst && sleep 1 && nohup dunst &
+fi
+
+if [[ "$STARTUP_DESKTOP" = "Wayland" ]]; then
+  # Reload everything after changes changes
+  if pgrep -f "waybar" >/dev/null; then
+    killall waybar && sleep 1 && nohup waybar &
+  fi
+
+  if pgrep -f "Hyprland" >/dev/null; then
+    hyprctl reload
+  fi
 fi
