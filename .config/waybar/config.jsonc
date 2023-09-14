@@ -177,7 +177,7 @@
   // },
   "custom/weather": {
     "exec": "get-weather",
-    "format": "{}",
+    "format": " {}",
     "interval": "once",
   }
 }
