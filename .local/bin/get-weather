@@ -32,7 +32,6 @@ showweather() {
 
   if pgrep -f "waybar" >/dev/null; then
     printf "<span color=\"#89b4fa\">  %s</span> <span color=\"#74c7ec\">  %s°</span> <span color=\"#f9e2af\">  %s°</span>\n" "$(getprecipchance)" $(getdailyhighlow)
-    pkill -RTMIN+8 waybar
   else
     printf "☔%s 🥶%s° 🌞%s°\n" "$(getprecipchance)" $(getdailyhighlow)
   fi

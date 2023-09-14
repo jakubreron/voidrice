@@ -179,6 +179,5 @@
     "exec": "get-weather",
     "format": "{}",
     "interval": "once",
-    "signal": 8
   }
 }
