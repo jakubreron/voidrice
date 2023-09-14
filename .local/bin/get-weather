@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+url="${WTTRURL:-wttr.in}"
+weatherreport="${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport"
+
+getforecast() { timeout --signal=1 2s curl -sf "$url/$LOCATION" > "$weatherreport" || exit 1; }
+
+checkforecast() {
+	[ -s "$weatherreport" ] && [ "$(stat -c %y "$weatherreport" 2>/dev/null |
+		cut -d' ' -f1)" = "$(date '+%Y-%m-%d')" ]
+}
+
+getprecipchance() {
+	echo "$weatherdata" | sed '16q;d' |    # Extract line 16 from file
+		grep -wo "[0-9]*%" |           # Find a sequence of digits followed by '%'
+		sort -rn |                     # Sort in descending order
+		head -1q                       # Extract first line
+}
+
+getdailyhighlow() {
+	echo "$weatherdata" | sed '13q;d' |      # Extract line 13 from file
+		grep -o "m\\([-+]\\)*[0-9]\\+" | # Find temperatures in the format "m<signed number>"
+		sed 's/[+m]//g' |                # Remove '+' and 'm'
+		sort -g |                        # Sort in ascending order
+		sed -e 1b -e '$!d'               # Extract the first and last lines
+}
+
+readfile() { weatherdata="$(cat "$weatherreport")" ;}
+
+showweather() {
+	readfile
+
+  if pgrep -f "waybar" >/dev/null; then
+    printf "<span color=\"#89b4fa\">  %s</span> <span color=\"#74c7ec\">  %s°</span> <span color=\"#f9e2af\">  %s°</span>\n" "$(getprecipchance)" $(getdailyhighlow)
+    pkill -RTMIN+8 waybar
+  else
+    printf "☔%s 🥶%s° 🌞%s°\n" "$(getprecipchance)" $(getdailyhighlow)
+  fi
+}
+
+checkforecast || getforecast
+showweather

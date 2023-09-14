@@ -9,7 +9,8 @@
   "modules-right": [
     "mpd",
     "pulseaudio",
-    "custom/todo",
+    // "custom/todo",
+    "custom/weather",
     "network",
     "cpu",
     "memory",
@@ -168,10 +169,16 @@
     },
     "on-click": "daemonable-terminal-instance --command $CLI_SOUND_MANAGER"
   },
-  "custom/todo": {
-      "exec": "grep -c \"\\* \\[ \\]\" ~/Documents/VimWiki/index.md",
-      "format": "{}  ",
-      "interval": "once",
-      "signal": 7
-  },
+  // "custom/todo": {
+  //     "exec": "grep -c \"\\* \\[ \\]\" ~/Documents/VimWiki/index.md",
+  //     "format": "{}  ",
+  //     "interval": "once",
+  //     "signal": 7
+  // },
+  "custom/weather": {
+    "exec": "get-weather",
+    "format": "{}",
+    "interval": "once",
+    "signal": 8
+  }
 }
