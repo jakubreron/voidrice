@@ -8,11 +8,11 @@
   "modules-center": [],
   "modules-right": [
     "mpd",
-    "pulseaudio",
     // "custom/todo",
     "custom/weather-precip-chance",
     "custom/weather-low",
     "custom/weather-high",
+    "pulseaudio",
     "network",
     "cpu",
     "memory",
@@ -48,9 +48,9 @@
     "spacing": 8,
   },
   "mpd": {
-    "format": "{stateIcon}{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {title} ",
+    "format": "{stateIcon}{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {title}  ",
     "format-disconnected": "Disconnected  ",
-    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped  ",
     "title-len": 50,
     "consume-icons": {
       "on": ""
@@ -179,17 +179,17 @@
   // },
   "custom/weather-low": {
     "exec": "get-weather low",
-    "format": "  {} ",
+    "format": "  {}",
     "interval": 43200,
   },
   "custom/weather-high": {
     "exec": "get-weather high",
-    "format": "  {} ",
+    "format": "  {}",
     "interval": 43200,
   },
   "custom/weather-precip-chance": {
     "exec": "get-weather precip",
-    "format": "  {} ",
+    "format": "  {}",
     "interval": 43200,
   }
 }

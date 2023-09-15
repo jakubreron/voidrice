@@ -22,6 +22,10 @@
 #battery,
 #tray,
 #backlight,
+#custom-todo,
+#custom-weather-precip-chance,
+#custom-weather-high,
+#custom-weather-low,
 #clock {
   margin: 2px;
 }
@@ -49,6 +53,13 @@
   background-color: rgba(255, 0, 0, .2);
 }
 
+#custom-weather-precip-chance {
+  padding-left: 6px;
+}
+#custom-weather-high {
+  padding-right: 6px
+}
+
 #workspaces button, 
 #mpd,
 #pulseaudio,
@@ -60,6 +71,7 @@
 #battery,
 #tray,
 #backlight,
+#custom-todo,
 #clock {
   transition: .25s;
   transition-property: color, background-color;
