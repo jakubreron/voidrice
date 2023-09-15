@@ -11,37 +11,22 @@
   color: @text;
 }
 
-#workspaces,
-#mpd,
-#pulseaudio,
-#network,
-#cpu,
-#memory,
-#temperature,
-#backlight,
-#battery,
-#tray,
-#backlight,
-#custom-todo,
-#custom-weather-precip-chance,
-#custom-weather-high,
-#custom-weather-low,
-#clock {
-  margin: 2px;
-}
-
-#workspaces {
+/* NOTE: first element gives "padding" top-bottom to the whole bar */
+/* WARNING: :first-child doesn't work for some reason */
+#waybar > * {
+  margin-top: 2px;
+  margin-bottom: 2px;
   margin-left: 4px;
-  margin-right: 12px;
 }
 
-#clock {
+ /* NOTE: first and last childs should have margin-left/right with the same value */
+#waybar > :last-child {
   margin-right: 4px;
 }
 
 #workspaces button {
   border-radius: 4px;
-  margin-right: 1px;
+  margin-right: 2px;
 }
 #workspaces button.active {
   background-color: @surface0;
@@ -56,6 +41,9 @@
 #custom-weather-precip-chance {
   padding-left: 6px;
 }
+#custom-weather-low {
+  padding: 0 4px;
+}
 #custom-weather-high {
   padding-right: 6px
 }
@@ -67,11 +55,9 @@
 #cpu,
 #memory,
 #temperature,
-#backlight,
 #battery,
 #tray,
 #backlight,
-#custom-todo,
 #clock {
   transition: .25s;
   transition-property: color, background-color;
@@ -97,27 +83,23 @@
   text-shadow: 0 0 4px @red;
 }
 
-#backlight {
-  color: @yellow;
-}
-
 #network {
   color: @lavender;
 }
-
 #network.disconnected {
   color: @red;
 }
 
-#memory, #cpu {
+#memory,
+#cpu {
   color: @sapphire;
 }
 
 #temperature {
-  color: @red;
+  color: @flamingo;
 }
-
 #temperature.critical {
+  color: @red;
   font-weight: bold;
   text-shadow: 0 0 4px @red;
 }
@@ -129,19 +111,14 @@
 #mpd.disconnected {
   color: @red;
 }
-
 #mpd.paused,
 #pulseaudio.muted {
   color: @overlay2;
 }
 
-#custom-todo {
-  color: @rosewater;
-}
-
-#tray {
-  padding: 0;
-}
+/* #tray { */
+/*   padding: 0; */
+/* } */
 
 #custom-weather-precip-chance,
 #pulseaudio.bluetooth:not(.muted) {
