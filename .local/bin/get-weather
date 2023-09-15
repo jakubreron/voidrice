@@ -31,7 +31,7 @@ showweather() {
 	readfile
 
   if pgrep -f "waybar" >/dev/null; then
-    printf "<span color=\"#89b4fa\">  %s</span> <span color=\"#74c7ec\">  %s°</span> <span color=\"#f9e2af\">  %s°</span>\n" "$(getprecipchance)" $(getdailyhighlow)
+    printf "<span color=\"#04a5e5\">  %s</span> <span color=\"#1e66f5\">  %s°</span> <span color=\"#df8e1d\">  %s°</span>\n" "$(getprecipchance)" $(getdailyhighlow)
   else
     printf "☔%s 🥶%s° 🌞%s°\n" "$(getprecipchance)" $(getdailyhighlow)
   fi

@@ -178,6 +178,6 @@
   "custom/weather": {
     "exec": "get-weather",
     "format": " {}",
-    "interval": "once",
+    "interval": 43200,
   }
 }
