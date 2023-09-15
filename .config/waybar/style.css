@@ -116,10 +116,6 @@
   color: @overlay2;
 }
 
-/* #tray { */
-/*   padding: 0; */
-/* } */
-
 #custom-weather-precip-chance,
 #pulseaudio.bluetooth:not(.muted) {
   color: @blue;
