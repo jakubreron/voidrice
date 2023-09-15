@@ -131,6 +131,15 @@
   padding: 0;
 }
 
+#custom-weather-precip-chance,
 #pulseaudio.bluetooth:not(.muted) {
   color: @blue;
+}
+
+#custom-weather-low {
+  color: @mauve;
+}
+
+#custom-weather-high {
+  color: @peach;
 }

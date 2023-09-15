@@ -3,6 +3,8 @@
 url="${WTTRURL:-wttr.in}"
 weatherreport="${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport"
 
+mode="$1"
+
 getforecast() { timeout --signal=1 2s curl -sf "$url/$LOCATION" > "$weatherreport" || exit 1; }
 
 checkforecast() {
@@ -21,21 +23,28 @@ getdailyhighlow() {
 	echo "$weatherdata" | sed '13q;d' |      # Extract line 13 from file
 		grep -o "m\\([-+]\\)*[0-9]\\+" | # Find temperatures in the format "m<signed number>"
 		sed 's/[+m]//g' |                # Remove '+' and 'm'
-		sort -g |                        # Sort in ascending order
-		sed -e 1b -e '$!d'               # Extract the first and last lines
+		sort -g                        # Sort in ascending order
+}
+
+gethigh() {
+  getdailyhighlow | sed -n '4p' # Get high temperature from the fourth line
+}
+
+getlow() {
+  getdailyhighlow | sed -n '1p' # Get low temperature from the first line
 }
 
 readfile() { weatherdata="$(cat "$weatherreport")" ;}
 
-showweather() {
-	readfile
-
-  if pgrep -f "waybar" >/dev/null; then
-    printf "<span color=\"#04a5e5\">  %s</span> <span color=\"#1e66f5\">  %s°</span> <span color=\"#df8e1d\">  %s°</span>\n" "$(getprecipchance)" $(getdailyhighlow)
-  else
-    printf "☔%s 🥶%s° 🌞%s°\n" "$(getprecipchance)" $(getdailyhighlow)
-  fi
-}
-
 checkforecast || getforecast
-showweather
+readfile
+
+if [[ $mode = 'precip' ]]; then
+  getprecipchance
+elif [[ $mode = 'high' ]]; then
+  echo "$(gethigh)°"
+elif [[ $mode = 'low' ]]; then
+  echo "$(getlow)°"
+else
+  printf "☔%s 🥶%s° 🌞%s°\n" "$(getprecipchance)" "$(getlow)" "$(gethigh)"
+fi

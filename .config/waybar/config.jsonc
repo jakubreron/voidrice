@@ -10,7 +10,9 @@
     "mpd",
     "pulseaudio",
     // "custom/todo",
-    "custom/weather",
+    "custom/weather-precip-chance",
+    "custom/weather-low",
+    "custom/weather-high",
     "network",
     "cpu",
     "memory",
@@ -175,9 +177,19 @@
   //     "interval": "once",
   //     "signal": 7
   // },
-  "custom/weather": {
-    "exec": "get-weather",
-    "format": " {}",
+  "custom/weather-low": {
+    "exec": "get-weather low",
+    "format": "  {} ",
+    "interval": 43200,
+  },
+  "custom/weather-high": {
+    "exec": "get-weather high",
+    "format": "  {} ",
+    "interval": 43200,
+  },
+  "custom/weather-precip-chance": {
+    "exec": "get-weather precip",
+    "format": "  {} ",
     "interval": 43200,
   }
 }
