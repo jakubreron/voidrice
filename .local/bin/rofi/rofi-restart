@@ -3,19 +3,21 @@
 
 process_name=`ps -e | awk '{ print $4 }' | sort -u | rofi -dmenu -matching fuzzy -i -p "Restart process"`
 if [ ! -z $process_name ]; then
-    for process in $(ps -e | grep " $process_name$" | awk '{ print $1 }');
-    do
-        if [ ! -z $process ]; then
-            kill -9 $process
-        fi
-    done
-    if [ -z "$(ps -e | grep " $process_name$")" ]; then
-        if [[ "$process_name" = "easyeffects" ]]; then
-          nohup "$process_name" --gapplication-service &
-        else
-          nohup "$process_name" &
-        fi
-
-        notify-send "Restarted $process_name"
+  for process in $(ps -e | grep " $process_name$" | awk '{ print $1 }');
+  do
+    if [ ! -z $process ]; then
+      kill -9 $process
     fi
+  done
+
+  if [ -z "$(ps -e | grep " $process_name$")" ]; then
+    sleep 1
+    if [[ "$process_name" = "easyeffects" ]]; then
+      nohup "$process_name" --gapplication-service &
+    else
+      nohup "$process_name" &
+    fi
+
+    notify-send "Restarted $process_name"
+  fi
 fi
