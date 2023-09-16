@@ -86,9 +86,6 @@
   text-shadow: 0 0 4px @red;
 }
 
-#network {
-  color: @lavender;
-}
 #network.disconnected {
   color: @red;
 }
@@ -119,13 +116,16 @@
   color: @overlay2;
 }
 
-#custom-weather-precip-chance,
 #pulseaudio.bluetooth:not(.muted) {
   color: @blue;
 }
 
+#custom-weather-precip-chance {
+  color: @sky;
+}
+
 #custom-weather-low {
-  color: @mauve;
+  color: @teal;
 }
 
 #custom-weather-high {
