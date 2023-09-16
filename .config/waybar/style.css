@@ -96,10 +96,9 @@
 }
 
 #temperature {
-  color: @flamingo;
+  color: @red;
 }
 #temperature.critical {
-  color: @red;
   font-weight: bold;
   text-shadow: 0 0 4px @red;
 }
@@ -116,6 +115,9 @@
   color: @overlay2;
 }
 
+#pulseaudio {
+  color: @flamingo;
+}
 #pulseaudio.bluetooth:not(.muted) {
   color: @blue;
 }
