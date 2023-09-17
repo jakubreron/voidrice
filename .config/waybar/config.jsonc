@@ -19,8 +19,8 @@
     "backlight",
     "battery",
     "tray",
-    "clock",
     "network",
+    "clock",
   ],
   "hyprland/workspaces": {
     "disable-scroll": true,
