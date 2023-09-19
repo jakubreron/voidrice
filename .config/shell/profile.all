@@ -67,7 +67,12 @@ function __setup_zsh() {
 function __setup_settings() {
   export MANPAGER="$EDITOR +Man!"
   export MANWIDTH=999
+
   export MCFLY_KEY_SCHEME=vim
+  export MCFLY_RESULTS=50
+  export MCFLY_INTERFACE_VIEW=BOTTOM
+  export MCFLY_PROMPT="❯"
+
   export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch-config"
   export LESSHISTFILE="-"
   export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
