@@ -52,8 +52,8 @@ function __setup_programs() {
   export GUI_FILE_EXPLORER="nautilus"
   export GUI_IMAGE_VIEWER="nsxiv"
 
-  # export CLI_FILE_EXPLORER="lfub"
-  export CLI_FILE_EXPLORER="lf"
+  export CLI_FILE_EXPLORER="lfub"
+  # export CLI_FILE_EXPLORER="lf"
   export CLI_MAIL_CLIENT="neomutt"
   export CLI_MUSIC_PLAYER="ncmpcpp"
   export CLI_NETWORK_MANAGER="nmtui"
