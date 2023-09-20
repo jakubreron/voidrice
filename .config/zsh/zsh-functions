@@ -1,45 +1,46 @@
 #!/usr/bin/env zsh
 
 # this doesn't work yet
-lfcd () {
-    # `command` is needed in case `lfcd` is aliased to `lf`
-    cd "$(command $CLI_FILE_EXPLORER -print-last-dir "$@")"
-}
+# function lfcd() {
+#     # `command` is needed in case `lfcd` is aliased to `lf`
+#     cd "$(command $CLI_FILE_EXPLORER -last-dir-path /dev/stdout "$@")"
+# }
 
-# OS="$(uname -s)"
-# case "$OS" in
-#   Linux)
-#     lfcd () {
-#       tmp="$(mktemp)"
-#       # `command` is needed in case `lfcd` is aliased to `lf`
-#       command $CLI_FILE_EXPLORER -last-dir-path="$tmp" "$@"
-#       if [ -f "$tmp" ]; then
-#         dir="$(cat "$tmp")"
-#         rm -f "$tmp"
-#         if [ -d "$dir" ]; then
-#           if [ "$dir" != "$(pwd)" ]; then
-#             cd "$dir"
-#           fi
-#         fi
-#       fi
-#     }
-#     ;;
-#   Darwin)
-#     lfcd () {
-#       tmp="$(mktemp)"
-#       command $CLI_FILE_EXPLORER -last-dir-path="$tmp" "$@"
-#       if [ -f "$tmp" ]; then
-#         dir="$(cat "$tmp")"
-#         rm -f "$tmp"
-#         if [ -d "$dir" ]; then
-#           if [ "$dir" != "$(pwd)" ]; then
-#             cd "$dir"
-#           fi
-#         fi
-#       fi
-#     }
-#     ;;
-# esac
+OS="$(uname -s)"
+
+case "$OS" in
+  Linux)
+    lfcd () {
+      tmp="$(mktemp)"
+      # `command` is needed in case `lfcd` is aliased to `lf`
+      command $CLI_FILE_EXPLORER -last-dir-path="$tmp" "$@"
+      if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        if [ -d "$dir" ]; then
+          if [ "$dir" != "$(pwd)" ]; then
+            cd "$dir"
+          fi
+        fi
+      fi
+    }
+    ;;
+  Darwin)
+    lfcd () {
+      tmp="$(mktemp)"
+      command $CLI_FILE_EXPLORER -last-dir-path="$tmp" "$@"
+      if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        if [ -d "$dir" ]; then
+          if [ "$dir" != "$(pwd)" ]; then
+            cd "$dir"
+          fi
+        fi
+      fi
+    }
+    ;;
+esac
 
 
 # Create a new directory and enter it
