@@ -1,2 +1,2 @@
 defaultAgent=prompt
-globalAgent=yarn
+globalAgent=npm
