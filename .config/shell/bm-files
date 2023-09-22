@@ -15,7 +15,6 @@ cfl	      $XDG_CONFIG_HOME/lf/lfrc
 cftm      $XDG_CONFIG_HOME/tmux/tmux.conf
 cfti      $XDG_CONFIG_HOME/ticker/.ticker.yaml
 cfg	      $DOTFILES_DIR/universal/.config/git/config
-cfgrub    /etc/default/grub
 
 # vim
 cflv      $LVIM_CONFIG_DIR/config.lua
