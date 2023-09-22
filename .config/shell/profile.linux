@@ -71,14 +71,14 @@ function __setup_machines() {
   fi
 }
 
-function __setup_lang() {
-  # NOTE: LANG is the default locale for all the LC_* variables (ja_JP.UTF-8 causes bugs in some CLI programs)
-  export LANG="en_US.UTF-8" 
-  # NOTE: Then the desired language can be defined separately
-  export LANGUAGE="ja_JP.UTF-8"
-  export LC_MESSAGES="$LANGUAGE"
-  export LC_TIME="$LANGUAGE"
-}
+# function __setup_lang() {
+#   # NOTE: LANG is the default locale for all the LC_* variables (ja_JP.UTF-8 causes bugs in some CLI programs)
+#   export LANG="en_US.UTF-8" 
+#   # NOTE: Then the desired language can be defined separately
+#   export LANGUAGE="ja_JP.UTF-8"
+#   export LC_MESSAGES="$LANGUAGE"
+#   export LC_TIME="$LANGUAGE"
+# }
 
 setup_functions=(
   __setup_settings
@@ -86,7 +86,7 @@ setup_functions=(
   __setup_programs
   __setup_keyboard
   __setup_machines
-  __setup_lang
+  # __setup_lang
 )
 
 for func in "${setup_functions[@]}"; do
