@@ -39,6 +39,7 @@ alias \
   vw="$EDITOR $VIMWIKI_DIR/index.md" \
   ka="killall" \
   g="git" \
+  sudo="sudo -E" \
   se="sudoedit" \
   c="clear" # ctrl + l is impossible in tmux with vim keybinds
 
