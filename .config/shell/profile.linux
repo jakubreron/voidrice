@@ -29,7 +29,7 @@ function __setup_keyboard() {
 function __setup_packages() {
   export PACKAGE_MANAGER="paru"
   export PARU_CONF="$XDG_CONFIG_HOME/paru/paru.conf"
-  export AUTOGENERATE_EXCLUDED_PACKAGES="php|php-.*$"
+  export AUTOGENERATE_EXCLUDED_PACKAGES="php|php-.*$|linux.*"
 }
 
 function __setup_programs() {
