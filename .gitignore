@@ -34,3 +34,6 @@ shortcuts.vim
 .config/gtk-3.0
 .config/BetterDiscord/data/stable/windowprefs.json
 .config/fcitx5/conf/cached_layouts
+.config/fcitx5/conf/clipboard.conf
+.config/fcitx5/conf/kimpanel.conf
+.config/fcitx5/conf/notifications.conf
