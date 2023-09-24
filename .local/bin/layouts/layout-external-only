@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 if [[  "$STARTUP_DESKTOP" = "Wayland" ]]; then
   sed --in-place --follow-symlinks "s/size: 11.5/size: 10/" ~/.config/alacritty/alacritty.yml 
-  hyprctl reload
-  sleep 1
   hyprctl --batch "keyword monitor DP-2,1920x1080,0x0,1; keyword monitor LVDS-1,disabled"
 fi
 notify-send "🖥️ External Display"
