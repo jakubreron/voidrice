@@ -18,6 +18,8 @@ user_pref("ui.key.menuAccessKey", 0); // disable alt key toggling the menu bar [
 user_pref("extensions.pocket.enabled", true); // Pocket Account [FF46+]
 user_pref("browser.ctrlTab.sortByRecentlyUsed", true);
 
+user_pref("xpinstall.signatures.required", false);
+
 // Disable the Twitter/R*ddit/Faceberg ads in the URL bar:
 user_pref("browser.urlbar.quicksuggest.enabled", false);
 user_pref("browser.urlbar.suggest.topsites", false); // [FF78+]
