@@ -55,9 +55,14 @@ done
 # NOTE: different approaches
 
 # Dunst
-ln -fs ~/.config/dunst/themes/catppuccin/src/$switch_to.conf ~/.config/dunst/dunstrc.d/99-theme.conf
+dunst_path="$HOME/.config/dunst/dunstrc.d/99-theme.conf"
+ln -fs ~/.config/dunst/themes/catppuccin/src/$switch_to.conf "$dunst_path"
+ignore_changes_in_repo "$dunst_path"
+
 # Starship
-sed --in-place --follow-symlinks "s/palette = \"catppuccin_$switch_from\"/palette = \"catppuccin_$switch_to\"/" "$HOME/.config/starship.toml"
+starship_path="$HOME/.config/starship.toml"
+sed --in-place --follow-symlinks "s/palette = \"catppuccin_$switch_from\"/palette = \"catppuccin_$switch_to\"/" "$starship_path"
+ignore_changes_in_repo "$starship_path"
 
 if pgrep -f "tmux" >/dev/null; then
   tmux source-file ~/.config/tmux/tmux.conf
