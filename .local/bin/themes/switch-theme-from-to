@@ -21,30 +21,14 @@ declare -a uppercase_paths=(
   "$HOME/.config/Kvantum/kvantum.kvconfig" 
 )
 
-function ignore_changes_in_repo() {
-  local path="$1"
-  local path_in_repo
-  local dirpath_in_repo
-  local repo_root_path
-
-  path_in_repo=$(readlink -f "$path")
-  if [[ -f $path_in_repo ]]; then
-    dirpath_in_repo=$(dirname "$path_in_repo")
-    repo_root_path=$(git -C "$dirpath_in_repo" rev-parse --show-toplevel 2>/dev/null)
-    if [[ -n "$repo_root_path" ]]; then 
-      git -C "$repo_root_path" update-index --assume-unchanged "$path_in_repo"
-    fi
-  fi
-}
-
 for path in "${lowercase_paths[@]}"; do
   sed --in-place --follow-symlinks "0,/$switch_from/s//$switch_to/" "$path"
-  ignore_changes_in_repo "$path"
+  git-ignore-changes-for-file "$path"
 done
 
 for path in "${uppercase_paths[@]}"; do
   sed --in-place --follow-symlinks "s/${switch_from^}/${switch_to^}/" "$path"
-  ignore_changes_in_repo "$path"
+  git-ignore-changes-for-file "$path"
 done
 
 for file in /run/user/1000/nvim.*
@@ -57,12 +41,12 @@ done
 # Dunst
 dunst_path="$HOME/.config/dunst/dunstrc.d/99-theme.conf"
 ln -fs ~/.config/dunst/themes/catppuccin/src/$switch_to.conf "$dunst_path"
-ignore_changes_in_repo "$dunst_path"
+git-ignore-changes-for-file "$dunst_path"
 
 # Starship
 starship_path="$HOME/.config/starship.toml"
 sed --in-place --follow-symlinks "s/palette = \"catppuccin_$switch_from\"/palette = \"catppuccin_$switch_to\"/" "$starship_path"
-ignore_changes_in_repo "$starship_path"
+git-ignore-changes-for-file "$starship_path"
 
 if pgrep -f "tmux" >/dev/null; then
   tmux source-file ~/.config/tmux/tmux.conf

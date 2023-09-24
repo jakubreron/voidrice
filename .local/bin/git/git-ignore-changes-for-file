@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+local path="$1"
+local path_in_repo
+local dirpath_in_repo
+local repo_root_path
+
+path_in_repo=$(readlink -f "$path")
+if [[ -f $path_in_repo ]]; then
+  dirpath_in_repo=$(dirname "$path_in_repo")
+  repo_root_path=$(git -C "$dirpath_in_repo" rev-parse --show-toplevel 2>/dev/null)
+  if [[ -n "$repo_root_path" ]]; then 
+    git -C "$repo_root_path" update-index --assume-unchanged "$path_in_repo"
+  fi
+fi

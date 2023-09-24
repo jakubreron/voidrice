@@ -9,7 +9,9 @@ if [ ! -f "$gtk3_config" ] || [ ! -f "$gtk4_config" ]; then exit 1; fi
 
 # old apps fix
 sed --in-place --follow-symlinks "s/gtk-theme-name=.*/gtk-theme-name=$theme/" "$gtk3_config"
+git-ignore-changes-for-file "$gtk3_config"
 sed --in-place --follow-symlinks "s/gtk-theme-name=.*/gtk-theme-name=$theme/" "$gtk4_config"
+git-ignore-changes-for-file "$gtk4_config"
 
 # multiple gtk versions
 ln -fs /usr/share/themes/$theme/gtk-4.0/* ~/.config/gtk-4.0/
