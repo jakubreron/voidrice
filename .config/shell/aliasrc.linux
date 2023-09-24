@@ -29,6 +29,9 @@ alias \
   rs-audio="systemctl --user restart pipewire pipewire-pulse; notify-send 'Restarted Audio'" \
 
 alias \
+  cfgrub="sudoedit /etc/default/grub"
+
+alias \
   update-hosts="/bin/systemctl restart systemd-hostnamed" \
   update-mirrors="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist" \
   update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
