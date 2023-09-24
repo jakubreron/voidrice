@@ -37,3 +37,4 @@ shortcuts.vim
 .config/fcitx5/conf/clipboard.conf
 .config/fcitx5/conf/kimpanel.conf
 .config/fcitx5/conf/notifications.conf
+.local/share/rofi/rofi_calc_history
