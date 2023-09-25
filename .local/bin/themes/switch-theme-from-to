@@ -31,7 +31,7 @@ for path in "${uppercase_paths[@]}"; do
   git-ignore-changes-for-file "$path"
 done
 
-for file in /run/user/1000/nvim.*
+for file in /run/user/1000/(l|n)vim.*
 do
   nvr --nostart --remote-send "colorscheme catppuccin-$switch_to<CR>" --servername "$file"
 done
