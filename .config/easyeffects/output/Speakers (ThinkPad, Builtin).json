@@ -14,7 +14,7 @@
         "blocklist": [],
         "convolver#0": {
             "autogain": false,
-            "bypass": true,
+            "bypass": false,
             "input-gain": -2.0,
             "ir-width": 100,
             "kernel-path": "/home/jakub/.config/easyeffects/irs/MaxxAudio Pro ((128K MP3)) 4.Music w MaxxSpace.irs",
