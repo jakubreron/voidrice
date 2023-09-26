@@ -1,7 +1,7 @@
 {
     "output": {
         "bass_enhancer#0": {
-            "amount": -2.000000000000001,
+            "amount": -2.0,
             "blend": 0.0,
             "bypass": false,
             "floor": 20.0,
@@ -238,7 +238,29 @@
         "plugins_order": [
             "equalizer#0",
             "bass_enhancer#0",
-            "convolver#0"
-        ]
+            "convolver#0",
+            "stereo_tools#0"
+        ],
+        "stereo_tools#0": {
+            "balance-in": 0.0,
+            "balance-out": 0.0,
+            "bypass": false,
+            "delay": 0.0,
+            "input-gain": 0.0,
+            "middle-level": 0.0,
+            "middle-panorama": 0.0,
+            "mode": "LR > LR (Stereo Default)",
+            "mutel": false,
+            "muter": false,
+            "output-gain": 0.0,
+            "phasel": false,
+            "phaser": false,
+            "sc-level": 1.0,
+            "side-balance": 0.1,
+            "side-level": 3.000000000000001,
+            "softclip": false,
+            "stereo-base": 0.0,
+            "stereo-phase": 0.0
+        }
     }
 }
