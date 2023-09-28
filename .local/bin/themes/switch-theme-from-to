@@ -31,12 +31,12 @@ for path in "${uppercase_paths[@]}"; do
   git-ignore-changes-for-file "$path"
 done
 
-for file in /run/user/1000/(l|n)vim.*
+find /run/user/1000 -maxdepth 1 -regex '/run/user/1000/.*vim.*' | while read -r file
 do
-  nvr --nostart --remote-send "colorscheme catppuccin-$switch_to<CR>" --servername "$file"
+  nohup nvr --nostart --remote-send "colorscheme catppuccin-$switch_to<CR>" --servername "$file" &
 done
 
-# NOTE: different approaches
+# # NOTE: different approaches
 
 # Dunst
 dunst_path="$HOME/.config/dunst/dunstrc.d/99-theme.conf"
