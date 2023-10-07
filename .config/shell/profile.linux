@@ -35,7 +35,7 @@ function __setup_packages() {
 function __setup_programs() {
   export TERMINAL="alacritty"
   export BROWSER="firefox-developer-edition"
-  export BACKUP_BROWSER="google-chrome"
+  export BACKUP_BROWSER="chromium"
 
   export INPUT_METHOD="fcitx5"
 
