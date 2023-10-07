@@ -34,6 +34,19 @@ user_pref("full-screen-api.warning.timeout", 0); // disable "... is now fullscre
  * [SETTING] General>Startup>Restore previous session ***/
 user_pref("browser.startup.page", 3); // default 0
 
+// NOTE: next-navigation performance
+/* 0601: disable link prefetching
+ * [1] https://developer.mozilla.org/docs/Web/HTTP/Link_prefetching_FAQ ***/
+user_pref("network.prefetch-next", true);
+
+/* 0602: disable DNS prefetching
+ * [1] https://developer.mozilla.org/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control ***/
+user_pref("network.dns.disablePrefetch", false);
+
+/* 0603: disable predictor / prefetching ***/
+user_pref("network.predictor.enabled", true);
+user_pref("network.predictor.enable-prefetch", true); // [FF48+] [DEFAULT: false]
+
 /* 0801: disable location bar using search
  * Don't leak URL typos to a search engine, give an error message instead
  * Examples: "secretplace,com", "secretplace/com", "secretplace com", "secret place.com"
