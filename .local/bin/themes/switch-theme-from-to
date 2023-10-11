@@ -56,9 +56,7 @@ if pgrep -f "dunst" >/dev/null; then
   killall dunst && sleep 1 && nohup dunst &
 fi
 
-if [[ "$STARTUP_DESKTOP" = "Wayland" ]]; then
-  # Reload everything after changes changes
-  if pgrep -f "waybar" >/dev/null; then
-    killall waybar && sleep 1 && nohup waybar &
-  fi
+# Reload everything after changes changes
+if pgrep -f "waybar" >/dev/null; then
+  killall waybar && nohup waybar &
 fi
