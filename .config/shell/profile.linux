@@ -99,8 +99,6 @@ unset setup_functions
 [ ! -f $XDG_CONFIG_HOME/.config/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
 
 if [[ "$STARTUP_DESKTOP" = 'Wayland' ]]; then
-  # $HOME/.local/bin/import-gsettings
-
   export QT_AUTO_SCREEN_SCALE_FACTOR=1
   export QT_QPA_PLATFORM="wayland;xcb"
   export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
