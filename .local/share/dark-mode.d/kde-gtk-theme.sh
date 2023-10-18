@@ -2,4 +2,4 @@
 
 theme="adw-gtk3-dark"
 
-~/.local/bin/themes/switch-kde-theme-to "$theme"
+"$XDG_BIN_HOME"/themes/switch-kde-theme-to "$theme"
