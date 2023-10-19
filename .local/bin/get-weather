@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-url="${WTTRURL:-wttr.in}"
+url="${WTTRURL:-wttr.in/Katowice}"
 weatherreport="${XDG_CACHE_HOME:-$HOME/.cache}/weatherreport"
 
 mode="$1"
