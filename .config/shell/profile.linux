@@ -50,7 +50,7 @@ function __setup_programs() {
   export PASSWORD_MANAGER="keepassxc"
 
   export GUI_FILE_EXPLORER="nautilus"
-  export GUI_IMAGE_VIEWER="nsxiv"
+  export GUI_IMAGE_VIEWER="loupe"
   export GUI_MAIL_CLIENT="geary"
 
   export CLI_FILE_EXPLORER="lfub"
