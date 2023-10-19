@@ -19,8 +19,8 @@
     "backlight",
     "battery",
     "tray",
-    "network",
     "clock",
+    "network",
   ],
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -138,8 +138,8 @@
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "{signalStrength}% ",
-    "format-ethernet": "{ifname} 󰈀",
-    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-ethernet": "󰈀",
+    "tooltip-format": "{ipaddr}/{cidr}, {ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
     "on-click": "daemonable-terminal-instance --command $CLI_NETWORK_MANAGER"
