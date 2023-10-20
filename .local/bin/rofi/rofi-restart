@@ -10,14 +10,11 @@ if [ ! -z $process_name ]; then
     fi
   done
 
-  if [ -z "$(ps -e | grep " $process_name$")" ]; then
-    sleep 1
-    if [[ "$process_name" = "easyeffects" ]]; then
-      nohup "$process_name" --gapplication-service &
-    else
-      nohup "$process_name" &
-    fi
-
-    notify-send "Restarted $process_name"
+  if [[ "$process_name" = "easyeffects" ]]; then
+    nohup "$process_name" --gapplication-service &
+  else
+    nohup "$process_name" &
   fi
+
+  notify-send "Restarted $process_name"
 fi
