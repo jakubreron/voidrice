@@ -17,6 +17,7 @@ function __setup_settings() {
   export QT_QPA_PLATFORMTHEME='qt6ct' # QT Theme adjustements
   export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
   export DISABLE_QT5_COMPAT=1 # confirm qt6 compatibility
+  export LOCATION="Katowice" # necessary for scripts like get-weather
 }
 
 function __setup_keyboard() {
