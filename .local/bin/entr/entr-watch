@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 
 find "$CLOUD_DIR/Backups/Recovery Codes/Passwords.kdbx" | entr -np entr-sync-password &
-
-find "$DOTFILES_DIR/voidrice" | entr -np entr-update-symlinks &
-find "$DOTFILES_DIR/universal" | entr -np entr-update-symlinks &
+find "$XDG_BIN_HOME" | entr -np entr-update-symlinks &
