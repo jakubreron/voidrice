@@ -10,9 +10,7 @@
     "mpd",
     // "custom/todo",
     "pulseaudio",
-    "custom/weather-precip-chance",
-    "custom/weather-low",
-    "custom/weather-high",
+    "custom/weather",
     "cpu",
     "memory",
     "temperature",
@@ -177,19 +175,11 @@
   //     "interval": "once",
   //     "signal": 7
   // },
-  "custom/weather-low": {
-    "exec": "get-weather low",
-    "format": "  {}",
-    "interval": 43200,
+  "custom/weather" : {
+    "tooltip" : true,
+    "format" : "{}",
+    "interval" : 30,
+    "exec" : "~/.config/waybar/scripts/waybar-wttr.py",
+    "return-type" : "json"
   },
-  "custom/weather-high": {
-    "exec": "get-weather high",
-    "format": "  {}",
-    "interval": 43200,
-  },
-  "custom/weather-precip-chance": {
-    "exec": "get-weather precip",
-    "format": "  {}",
-    "interval": 43200,
-  }
 }
