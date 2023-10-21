@@ -11,91 +11,60 @@ done
 export PATH
 unset bin_list
 
-function __setup_settings() {
-  export STARTUP_DESKTOP="Wayland"
-  export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm and/or wayland
-  export QT_QPA_PLATFORMTHEME='qt6ct' # QT Theme adjustements
-  export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
-  export DISABLE_QT5_COMPAT=1 # confirm qt6 compatibility
-  export LOCATION="Katowice" # necessary for scripts like get-weather
-}
+# NOTE: base settings
+export STARTUP_DESKTOP="Wayland"
+export LOCATION="Katowice" # necessary for scripts like get-weather
 
-function __setup_keyboard() {
-  export GTK_IM_MODULE='fcitx'
-  export QT_IM_MODULE='fcitx'
-  export SDL_IM_MODULE='fcitx'
-  export XMODIFIERS='@im=fcitx'
-}
+# QT
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_QPA_PLATFORMTHEME='qt6ct' # QT Theme adjustements
+export DISABLE_QT5_COMPAT=1 # confirm qt6 compatibility
 
-function __setup_packages() {
-  export PACKAGE_MANAGER="paru"
-  export PARU_CONF="$XDG_CONFIG_HOME/paru/paru.conf"
-  export AUTOGENERATE_EXCLUDED_PACKAGES="php|php-.*$|linux.*"
-}
+export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
+export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm and/or wayland
 
-function __setup_programs() {
-  export TERMINAL="alacritty"
-  export BROWSER="thorium-browser"
-  export BACKUP_BROWSER="firefox-developer-edition"
+# NOTE: keyboard
+export GTK_IM_MODULE='fcitx'
+export QT_IM_MODULE='fcitx'
+export SDL_IM_MODULE='fcitx'
+export XMODIFIERS='@im=fcitx'
 
-  export INPUT_METHOD="fcitx5"
+# NOTE: packages
+export PACKAGE_MANAGER="paru"
+export PARU_CONF="$XDG_CONFIG_HOME/paru/paru.conf"
+export AUTOGENERATE_EXCLUDED_PACKAGES="php|php-.*$|linux.*"
 
-  export PHONE_INTEGRATION_DAEMON="/usr/lib/kdeconnectd"
-  export NOFIFICATION_DAEMON="dunst"
-  export TORRENTS_DAEMON="transmission-daemon"
-  export EQUALIZER_DAEMON="easyeffects-daemon"
+# NOTE: programs
+export TERMINAL="alacritty"
+export BROWSER="thorium-browser"
+export BACKUP_BROWSER="firefox-developer-edition"
+export PASSWORD_MANAGER="keepassxc"
+export INPUT_METHOD="fcitx5"
 
-  export LAST_USED_AUDIO_STATE_DAEMON="mpc-or-playerctl-state-daemon"
-  export LAST_USED_AUDIO_STATE_DAEMON_FILE="$XDG_STATE_HOME/mpc-or-playerctl-laststate"
+export PHONE_INTEGRATION_DAEMON="/usr/lib/kdeconnectd"
+export NOFIFICATION_DAEMON="dunst"
+export TORRENTS_DAEMON="transmission-daemon"
+export EQUALIZER_DAEMON="easyeffects-daemon"
+export LAST_USED_AUDIO_STATE_DAEMON="mpc-or-playerctl-state-daemon"
+export LAST_USED_AUDIO_STATE_DAEMON_FILE="$XDG_STATE_HOME/mpc-or-playerctl-laststate"
 
-  export PASSWORD_MANAGER="keepassxc"
+# NOTE: GUI programs that could be CLI
+export GUI_FILE_EXPLORER="nautilus"
+export GUI_IMAGE_VIEWER="loupe"
+export GUI_MAIL_CLIENT="geary"
 
-  export GUI_FILE_EXPLORER="nautilus"
-  export GUI_IMAGE_VIEWER="loupe"
-  export GUI_MAIL_CLIENT="geary"
+# NOTE: CLI programs that could be GUI
+export CLI_FILE_EXPLORER="lfub"
+export CLI_MAIL_CLIENT="neomutt"
+export CLI_MUSIC_PLAYER="ncmpcpp"
+export CLI_NETWORK_MANAGER="nmtui"
+export CLI_TORRENTS_MANAGER="tremc"
+export CLI_SOUND_MANAGER="pulsemixer"
+export CLI_WEATHER_APP="$XDG_BIN_HOME/get-weather && less -S $XDG_CACHE_HOME/weatherreport"
 
-  export CLI_FILE_EXPLORER="lfub"
-  # export CLI_FILE_EXPLORER="lf"
-  export CLI_MAIL_CLIENT="neomutt"
-  export CLI_MUSIC_PLAYER="ncmpcpp"
-  export CLI_NETWORK_MANAGER="nmtui"
-  export CLI_TORRENTS_MANAGER="tremc"
-  export CLI_SOUND_MANAGER="pulsemixer"
-  export CLI_WEATHER_APP="$XDG_BIN_HOME/get-weather && less -S $XDG_CACHE_HOME/weatherreport"
-}
-
-function __setup_machines() {
-  # NOTE: PACKAGE_TYPE (needed for package-generation auto-commits): primary, secondary
-  if [[ $(hostnamectl --static) == *'desktop'* ]]; then
-    export PACKAGE_TYPE="primary"
-  else
-    export PACKAGE_TYPE="secondary"
-  fi
-}
-
-# function __setup_lang() {
-#   # NOTE: LANG is the default locale for all the LC_* variables (ja_JP.UTF-8 causes bugs in some CLI programs)
-#   export LANG="en_US.UTF-8" 
-#   # NOTE: Then the desired language can be defined separately
-#   export LANGUAGE="ja_JP.UTF-8"
-#   export LC_MESSAGES="$LANGUAGE"
-#   export LC_TIME="$LANGUAGE"
-# }
-
-setup_functions=(
-  __setup_settings
-  __setup_packages
-  __setup_programs
-  __setup_keyboard
-  __setup_machines
-  # __setup_lang
-)
-
-for func in "${setup_functions[@]}"; do
-  "$func"
-  unset -f "$func"
-done
-unset setup_functions
+# NOTE: machines
+# PACKAGE_TYPE (needed for package-generation auto-commits): primary, secondary
+export PACKAGE_TYPE="primary"
 
 [ ! -f $XDG_CONFIG_HOME/.config/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
 
@@ -103,11 +72,11 @@ if [[ "$STARTUP_DESKTOP" = 'Wayland' ]]; then
   export QT_AUTO_SCREEN_SCALE_FACTOR=1
   export QT_QPA_PLATFORM="wayland;xcb"
   export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+
   export SDL_VIDEODRIVER="wayland"
   export MOZ_ENABLE_WAYLAND=1
 
   export WLR_NO_HARDWARE_CURSORS=1
-  export XCURSOR_SIZE=24
 
   if [ -z $DISPLAY ] && [ $(tty) = "/dev/tty1" ]; then
     Hyprland

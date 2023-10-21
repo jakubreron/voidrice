@@ -16,35 +16,18 @@ done
 export PATH
 unset bin_list
 
-function __setup_settings() {
-  # TODO: remove after changing the work
-  export JAVA_HOME="/Users/jakubreron/.sdkman/candidates/java/11.0.15-tem"
-}
+# NOTE: programs
+export TERMINAL="alacritty"
+export BROWSER="firefox"
+export BACKUP_BROWSER="chrome"
 
-function __setup_programs() {
-  export TERMINAL="alacritty"
-  export BROWSER="firefox"
-  export BACKUP_BROWSER="chrome"
-  export GUI_FILE_EXPLORER="open"
-  export CLI_FILE_EXPLORER="lf"
-  export CLI_MAIL_CLIENT="neomutt"
-  export CLI_MUSIC_PLAYER="ncmpcpp"
-}
+export GUI_FILE_EXPLORER="open"
 
-function __setup_packages() {
-  export PACKAGE_TYPE="work"
-  export PACKAGE_MANAGER="brew"
-  # export YARN_REGISTRY="https://registry.npmjs.org/" # sneaky xd
-}
+export CLI_FILE_EXPLORER="lf"
+export CLI_MAIL_CLIENT="neomutt"
+export CLI_MUSIC_PLAYER="ncmpcpp"
 
-setup_functions=(
-  __setup_settings
-  __setup_programs
-  __setup_packages
-)
-
-for func in "${setup_functions[@]}"; do
-  "$func"
-  unset -f "$func"
-done
-unset setup_functions
+# NOTE: packages
+export PACKAGE_TYPE="work"
+export PACKAGE_MANAGER="brew"
+export YARN_REGISTRY="https://registry.npmjs.org/" # sneaky
