@@ -24,6 +24,19 @@
   margin-right: 4px;
 }
 
+tooltip {
+  font-size: 15px;
+  opacity: .9;
+  background: @base;
+  border: 2px solid @blue;
+  border-radius: 10px;
+}
+
+tooltip * {
+  color: @text;
+  text-shadow: none;
+}
+
 #workspaces {
   margin-right: 8px;
 }
