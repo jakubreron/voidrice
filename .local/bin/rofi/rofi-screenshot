@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-# This is bound to Shift+PrintScreen by default, requires maim. It lets you
-# choose the kind of screenshot to take, including copying the image or even
-# highlighting an area to copy. scrotcucks on suicidewatch right now.
-
-# variables
 path="$XDG_PICTURES_DIR/Screenshots"
 output="$(date '+%y%m%d-%H%M-%S').png"
 
