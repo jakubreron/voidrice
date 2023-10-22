@@ -55,6 +55,16 @@ tooltip * {
   background-color: rgba(255, 0, 0, .2);
 }
 
+#custom-weather-precip-chance {
+  padding-left: 6px;
+}
+#custom-weather-low {
+  padding: 0 4px;
+}
+#custom-weather-high {
+  padding-right: 6px
+}
+
 #workspaces button, 
 #mpd,
 #pulseaudio,
@@ -124,4 +134,16 @@ tooltip * {
 }
 #pulseaudio.bluetooth:not(.muted) {
   color: @blue;
+}
+
+#custom-weather-precip-chance {
+  color: @sky;
+}
+
+#custom-weather-low {
+  color: @teal;
+}
+
+#custom-weather-high {
+  color: @peach;
 }

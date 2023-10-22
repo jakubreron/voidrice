@@ -10,7 +10,9 @@
     "mpd",
     // "custom/todo",
     "pulseaudio",
-    "custom/weather",
+    "custom/weather-precip-chance",
+    "custom/weather-low",
+    "custom/weather-high",
     "cpu",
     "memory",
     "temperature",
@@ -167,12 +169,19 @@
   //     "interval": "once",
   //     "signal": 7
   // },
-  "custom/weather" : {
-    "tooltip" : true,
-    "format" : "{}",
-    "interval" : 30,
-    "exec" : "~/.config/waybar/scripts/waybar-wttr.py",
-    "return-type" : "json",
-    "on-click": "daemonable-terminal-instance --title cli_weather_app --command $CLI_WEATHER_APP"
+  "custom/weather-low": {
+    "exec": "get-weather low",
+    "format": "  {}",
+    "interval": 43200,
   },
+  "custom/weather-high": {
+    "exec": "get-weather high",
+    "format": "  {}",
+    "interval": 43200,
+  },
+  "custom/weather-precip-chance": {
+    "exec": "get-weather precip",
+    "format": "  {}",
+    "interval": 43200,
+  }
 }

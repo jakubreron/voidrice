@@ -4,8 +4,8 @@ path="$XDG_PICTURES_DIR/Screenshots"
 output="$(date '+%y%m%d-%H%M-%S').png"
 
 case "$(printf "a selected area\\nfull screen\\na selected area (edit)\\nfull screen (edit)" | rofi -dmenu -p "Screenshot which area?")" in
-    "a selected area") grim -g "$(slurp)" ${path}/pic-selected-"${output}" ;;
-    "full screen") grim ${path}/pic-full-"${output}" ;;
-    "a selected area (edit)") grim -g "$(slurp)" - | swappy -f - ;;
-    "full screen (edit)") grim - | swappy -f - ;;
+    "a selected area") sleep 1 & grim -g "$(slurp)" ${path}/pic-selected-"${output}" ;;
+    "full screen") sleep 1 & grim ${path}/pic-full-"${output}" ;;
+    "a selected area (edit)") sleep 1 & grim -g "$(slurp)" - | swappy -f - ;;
+    "full screen (edit)") sleep 1 & grim - | swappy -f - ;;
 esac
