@@ -8,7 +8,6 @@
   "modules-center": [],
   "modules-right": [
     "mpd",
-    // "custom/todo",
     "pulseaudio",
     "custom/weather-precip-chance",
     "custom/weather-low",
@@ -163,12 +162,6 @@
     },
     "on-click": "daemonable-terminal-instance --title cli_sound_manager --command $CLI_SOUND_MANAGER"
   },
-  // "custom/todo": {
-  //     "exec": "grep -c \"\\* \\[ \\]\" ~/Documents/VimWiki/index.md",
-  //     "format": "{}  ",
-  //     "interval": "once",
-  //     "signal": 7
-  // },
   "custom/weather-low": {
     "exec": "get-weather low",
     "format": "  {}",
