@@ -84,7 +84,7 @@
     "on-click": "daemonable-terminal-instance --title cli_system_monitor --command $CLI_SYSTEM_MONITOR"
   },
   "memory": {
-    "format": "{used:0.1f}G/{total:0.1f}G ",
+    "format": "{used:0.1f}G ",
     "on-click": "daemonable-terminal-instance --title cli_system_monitor --command $CLI_SYSTEM_MONITOR"
   },
   "temperature": {
