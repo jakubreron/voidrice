@@ -20,6 +20,8 @@ case "$(uname -s)" in
       if command -v "$PACKAGE_MANAGER" >/dev/null 2>&1; then
         $PACKAGE_MANAGER -Syu --noconfirm
       fi
+
+      bat cache --build
     }
 
     function update_compiled_pkgs() {
