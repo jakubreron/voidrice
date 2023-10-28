@@ -48,6 +48,7 @@ URLS=(
   ["allegro"]="https://allegro.pl/listing?string="
   ["allegrolokalnie"]="https://allegrolokalnie.pl/oferty/q/"
   ["olx"]="https://www.olx.pl/oferty/q-"
+  ["aur"]="https://aur.archlinux.org/packages?O=0&K="
 )
 
 # List for rofi
