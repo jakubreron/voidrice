@@ -1,5 +1,1 @@
 #!/usr/bin/env zsh
-
-# Lock the screen
-alias \
-  slock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"

@@ -1,8 +1,5 @@
 #!/usr/bin/env zsh
 
-[ -f "$XINITRC" ] && alias startx="startx $XINITRC"
-[ -f "$MBSYNCRC" ] && alias mbsync="mbsync -c $MBSYNCRC"
-
 sbn() {
 	choice="$(find ~/.local/bin -mindepth 1 -printf '%P\n' | fzf)"
 	[ -f "$HOME/.local/bin/$choice" ] && $EDITOR "$HOME/.local/bin/$choice"
