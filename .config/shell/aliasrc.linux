@@ -26,7 +26,7 @@ alias \
   rs-dunst="killall dunst; nohup dunst &; notify-send 'Restarted Dunst'" \
   rs-compositor="killall $COMPOSITOR; $COMPOSITOR --daemon &; notify-send 'Restarted Compositor'" \
   rs-nightlight="killall redshift; nohup redshift &; notify-send 'Restarted Night Light'" \
-  rs-audio="systemctl --user restart pipewire pipewire-pulse; notify-send 'Restarted Audio'" \
+  rs-audio="killall easyeffects; systemctl --user restart pipewire pipewire-pulse && nohup easyeffects --gapplication-service &; notify-send 'Restarted Audio & EasyEffects'" \
 
 alias \
   cfgrub="sudoedit /etc/default/grub"
