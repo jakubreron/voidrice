@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if [[  "$STARTUP_DESKTOP" = "Wayland" ]]; then
-  hyprctl reload && sleep 1 && hyprctl --batch "keyword monitor DP-2,1920x1080,0x0,1; keyword monitor LVDS-1,disabled"
+  hyprctl reload && sleep 1 && hyprctl --batch "keyword monitor DP-2,1920x1080@144,0x0,1; keyword monitor LVDS-1,disabled"
   killall waybar && nohup waybar &
 fi
 notify-send "🖥️ External Display"
