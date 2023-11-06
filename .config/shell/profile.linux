@@ -24,7 +24,7 @@ export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 export _JAVA_AWT_WM_NONREPARENTING=1	# Fix for Java applications in dwm and/or wayland
 
 # NOTE: keyboard
-export GTK_IM_MODULE='fcitx'
+# export GTK_IM_MODULE='fcitx'
 export QT_IM_MODULE='fcitx'
 export SDL_IM_MODULE='fcitx'
 export XMODIFIERS='@im=fcitx'
