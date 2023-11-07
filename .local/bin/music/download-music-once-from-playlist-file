@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # NOTE: downloads once, doesn't synchronize with the playlist
 
-cat playlist.txt | sed -e 's/youtube /https:\/\/www.youtube.com\/watch?v=/g' | xargs -t yt-dlp --add-metadata -i -x -f bestaudio/best --cookies-from-browser $BROWSER
+cat playlist.txt | sed -e 's/youtube /https:\/\/www.youtube.com\/watch?v=/g' | xargs -t yt-dlp --add-metadata -i -x -f bestaudio/best --cookies-from-browser $BACKUP_BROWSER
