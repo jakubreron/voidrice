@@ -5,7 +5,7 @@ download_playlist() {
   path=$1
   playlist=$2
   
-  command="yt-dlp --add-metadata -i --cookies-from-browser $BACKUP_BROWSER -x -f bestaudio/best --download-archive ${path}/playlist.txt -P $path $playlist"
+  command="yt-dlp --add-metadata -i --cookies-from-browser $BROWSER -x -f bestaudio/best --download-archive ${path}/playlist.txt -P $path $playlist"
 
   eval "${command}"
 }
