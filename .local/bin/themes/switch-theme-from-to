@@ -60,3 +60,5 @@ fi
 if pgrep -f "waybar" >/dev/null; then
   killall waybar && nohup waybar &
 fi
+
+hyprctl reload
