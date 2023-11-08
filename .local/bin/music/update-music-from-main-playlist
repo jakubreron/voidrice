@@ -10,9 +10,9 @@ download_playlist() {
   eval "${command}"
 }
 
-download_playlist "$XDG_MUSIC_DIR/general" 'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'
-download_playlist "$XDG_MUSIC_DIR/live" 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'
-download_playlist "$XDG_MUSIC_DIR/osts" 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'
-download_playlist "$XDG_MUSIC_DIR/albums" 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'
+# download_playlist "$XDG_MUSIC_DIR/general" 'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'
+# download_playlist "$XDG_MUSIC_DIR/live" 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'
+# download_playlist "$XDG_MUSIC_DIR/osts" 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'
+# download_playlist "$XDG_MUSIC_DIR/albums" 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'
 
 download_playlist "$XDG_MUSIC_DIR/bandcamp" 'https://susumuhirasawa.bandcamp.com'
