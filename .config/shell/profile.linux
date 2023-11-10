@@ -36,7 +36,7 @@ export AUTOGENERATE_EXCLUDED_PACKAGES="php|php-.*$|linux.*"
 
 # NOTE: programs
 export TERMINAL="alacritty"
-export BROWSER="thorium-browser"
+export BROWSER="thorium-browser-sse3"
 export BACKUP_BROWSER="firefox-developer-edition"
 export PASSWORD_MANAGER="keepassxc"
 export INPUT_METHOD="fcitx5"
