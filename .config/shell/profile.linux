@@ -13,7 +13,7 @@ unset bin_list
 
 # NOTE: base settings
 export STARTUP_DESKTOP="Wayland"
-export LOCATION="Katowice" # necessary for scripts like get-weather
+export LOCATION="Tokyo" # necessary for scripts like get-weather
 
 # QT
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
