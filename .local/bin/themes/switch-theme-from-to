@@ -48,17 +48,25 @@ starship_path="$HOME/.config/starship.toml"
 sed --in-place --follow-symlinks "s/palette = \"catppuccin_$switch_from\"/palette = \"catppuccin_$switch_to\"/" "$starship_path"
 git-ignore-changes-for-file "$starship_path"
 
-if pgrep -f "tmux" >/dev/null; then
-  tmux source-file ~/.config/tmux/tmux.conf
+if command -v tmux >/dev/null 2>&1; then
+  if pgrep -f "tmux" >/dev/null; then
+    tmux source-file ~/.config/tmux/tmux.conf
+  fi
 fi
 
-if pgrep -f "dunst" >/dev/null; then
-  killall dunst && sleep 1 && nohup dunst &
+if command -v dunst >/dev/null 2>&1; then
+  if pgrep -f "dunst" >/dev/null; then
+    killall dunst && sleep 1 && nohup dunst &
+  fi
 fi
 
 # Reload everything after changes changes
-if pgrep -f "waybar" >/dev/null; then
-  killall waybar && nohup waybar &
+if command -v waybar >/dev/null 2>&1; then
+  if pgrep -f "waybar" >/dev/null; then
+    killall waybar && nohup waybar &
+  fi
 fi
 
-hyprctl reload
+if command -v hyprctl >/dev/null 2>&1; then
+  hyprctl reload
+fi
