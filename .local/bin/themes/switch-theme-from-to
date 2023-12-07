@@ -1,8 +1,19 @@
 #!/usr/bin/env bash
 
+OS="$(uname -s)"
+
 # NOTE: can be mocha, latte, macchiato, frappe
 switch_from="${1:-mocha}"
 switch_to="${2:-latte}"
+
+case "$OS" in
+  Darwin)
+    correct_sed=gsed
+    ;;
+  *)
+    correct_sed=sed
+    ;;
+esac
 
 declare -a lowercase_paths=(
   "$HOME/.config/alacritty/alacritty.yml"
@@ -22,12 +33,12 @@ declare -a uppercase_paths=(
 )
 
 for path in "${lowercase_paths[@]}"; do
-  sed --in-place --follow-symlinks "0,/$switch_from/s//$switch_to/" "$path"
+  $correct_sed --in-place --follow-symlinks "0,/$switch_from/s//$switch_to/" "$path"
   git-ignore-changes-for-file "$path"
 done
 
 for path in "${uppercase_paths[@]}"; do
-  sed --in-place --follow-symlinks "s/${switch_from^}/${switch_to^}/" "$path"
+  $correct_sed --in-place --follow-symlinks "s/${switch_from^}/${switch_to^}/" "$path"
   git-ignore-changes-for-file "$path"
 done
 
@@ -45,7 +56,7 @@ git-ignore-changes-for-file "$dunst_path"
 
 # Starship
 starship_path="$HOME/.config/starship.toml"
-sed --in-place --follow-symlinks "s/palette = \"catppuccin_$switch_from\"/palette = \"catppuccin_$switch_to\"/" "$starship_path"
+$correct_sed --in-place --follow-symlinks "s/palette = \"catppuccin_$switch_from\"/palette = \"catppuccin_$switch_to\"/" "$starship_path"
 git-ignore-changes-for-file "$starship_path"
 
 if command -v tmux >/dev/null 2>&1; then
