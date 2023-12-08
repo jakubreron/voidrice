@@ -9,6 +9,8 @@ Tr      $TORRENTS_DIR
 Mu      $XDG_MUSIC_DIR
 
 Pr      $PROJECTS_DIR
+Prw      $PROJECTS_DIR/work
+Prp      $PROJECTS_DIR/personal
 
 Cl      $CLOUD_DIR/
 Clb     $CLOUD_DIR/Backups
