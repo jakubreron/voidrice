@@ -4,7 +4,7 @@ plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-history-substring-search"
 
 plug "zdharma-continuum/fast-syntax-highlighting"
-plug "hlissner/zsh-autopair"
+# plug "hlissner/zsh-autopair"
 
 plug "zap-zsh/zap-prompt"
 plug "zap-zsh/completions"
