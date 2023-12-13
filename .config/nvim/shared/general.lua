@@ -7,6 +7,7 @@ local options = {
 	completeopt = { "menuone", "noselect" },
 	conceallevel = 0, -- so that `` is visible in markdown files
 	fileencoding = "utf-8", -- the encoding written to a file
+  fixendofline = true,
 	foldmethod = "manual", -- folding, set to "expr" for treesitter based folding
 	foldexpr = "", -- set to "nvim_treesitter#foldexpr()" for treesitter based folding
 	guifont = "monospace:h17", -- the font used in graphical neovim applications
