@@ -10,6 +10,11 @@ vim.api.nvim_create_autocmd("BufRead", {
 	command = "normal g'\"",
 })
 
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	pattern = "*",
+	command = "set fixendofline",
+})
+
 -- NOTE: set correct filetypes
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = "*.tfvars",
