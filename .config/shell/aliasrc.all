@@ -46,6 +46,7 @@ alias \
 
 # npm
 alias \
+  yr="yarn" \
   nrt="npm run unit -- --watch --coverage --silent false" \
   recursively-install-npm="run-script-on-dirs package-lock.json 'ni'; run-script-on-dirs yarn.lock 'ni'; run-script-on-dirs pnpm-lock.yaml 'ni'" \
   update-minor-deps="npx taze minor -w; ni" \
