@@ -16,7 +16,7 @@ case "$OS" in
 esac
 
 declare -a lowercase_paths=(
-  "$HOME/.config/alacritty/alacritty.yml"
+  "$HOME/.config/alacritty/alacritty.toml"
   "$HOME/.config/rofi/config.rasi"
   "$HOME/.config/lvim/lua/user/builtin/init.lua"
   "$HOME/.config/btop/btop.conf"
