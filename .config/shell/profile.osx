@@ -6,6 +6,7 @@ if [ -d "/opt/homebrew" ]; then
 fi
 
 bin_list=(
+  "/opt/homebrew/opt/mysql@5.7/bin"
   "/opt/local/bin:/opt/local/sbin"
   "${$(gfind $HOME/.local/bin -type d -printf %p:)%%:}"
 )
@@ -15,6 +16,7 @@ for extra in "${bin_list[@]}"; do
 done
 export PATH
 unset bin_list
+
 
 # NOTE: programs
 export TERMINAL="alacritty"
