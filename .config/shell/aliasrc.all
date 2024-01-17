@@ -37,7 +37,9 @@ alias \
   ka="killall" \
   g="git" \
   se="sudoedit" \
-  c="clear" # ctrl + l is impossible in tmux with vim keybinds
+  c="clear" \
+  lg="lazygit" \
+  ld="lazydocker"
 
 # overwritten
 alias \
