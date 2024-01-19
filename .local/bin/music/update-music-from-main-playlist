@@ -5,14 +5,14 @@ download_playlist() {
   path=$1
   playlist=$2
   
-  command="yt-dlp --add-metadata -i --cookies-from-browser $BACKUP_BROWSER -x -f bestaudio/best --download-archive ${path}/playlist.txt -P $path $playlist"
+  command="yt-dlp --add-metadata -i --cookies-from-browser chrome -x -f bestaudio/best --download-archive ${path}/playlist.txt -P $path $playlist"
 
   eval "${command}"
 }
 
-# download_playlist "$XDG_MUSIC_DIR/general" 'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'
-# download_playlist "$XDG_MUSIC_DIR/live" 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'
-# download_playlist "$XDG_MUSIC_DIR/osts" 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'
-# download_playlist "$XDG_MUSIC_DIR/albums" 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'
+download_playlist "$XDG_MUSIC_DIR/general" 'https://www.youtube.com/playlist?list=PLqQefq-YNypMfVRJJSW10MRaFYARFiL_P'
+download_playlist "$XDG_MUSIC_DIR/live" 'https://www.youtube.com/playlist?list=PLqQefq-YNypOJjVTvYXW-8ftq2GpnxXVV'
+download_playlist "$XDG_MUSIC_DIR/osts" 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'
+download_playlist "$XDG_MUSIC_DIR/albums" 'https://www.youtube.com/playlist?list=PLqQefq-YNypNxKSWAsR7VQxEY63RK7AwD'
 
 download_playlist "$XDG_MUSIC_DIR/bandcamp" 'https://susumuhirasawa.bandcamp.com'
