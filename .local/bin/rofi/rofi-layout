@@ -2,7 +2,7 @@
 
 # Define the list of commands as an array
 # TODO: get from layouts folder
-commands=("layout-builtin-only" "layout-external-only")
+commands=("layout-builtin-only" "layout-external-only" "layout-both")
 
 # Display the command choices in Rofi
 chosen=$(printf '%s\n' "${commands[@]}" | rofi -dmenu -i -p "Select a layout")
