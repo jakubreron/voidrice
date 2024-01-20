@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 if [[  "$STARTUP_DESKTOP" = "Wayland" ]]; then
-  hyprctl --batch "keyword monitor eDP-1,2880x1800,1920x0,2; keyword monitor HDMI-A-1,disabled; DP-3,disabled"
+  hyprctl --batch "keyword monitor eDP-1,2880x1800@90,0x0,1.5; keyword monitor HDMI-A-1,disabled; DP-3,disabled"
   killall waybar && nohup waybar &
 fi
 notify-send "💻 Laptop Display"
