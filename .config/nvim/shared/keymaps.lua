@@ -2,6 +2,8 @@ local keymap = vim.keymap.set
 
 keymap("n", "ZQ", "<cmd>qa!<CR>", { silent = true })
 
+keymap("n", "<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>")
+
 -- perform dot commands over visual blocks:
 keymap("v", ".", "<cmd>normal .<CR>", { silent = true })
 
@@ -11,7 +13,7 @@ keymap("v", "<leader>p", '"_dP', { silent = true, desc = "Paste without yank" })
 -- toggle eventignore
 keymap("n", "yoe", function()
 	vim.cmd("set eventignore=" .. (vim.o.eventignore == "" and "all" or ""))
-  print (vim.o.eventignore == "" and "Do not ignore" or "Ignore all")
+	print(vim.o.eventignore == "" and "Do not ignore" or "Ignore all")
 end, { silent = true, desc = "Toggle eventignore" })
 
 -- languages
@@ -20,8 +22,18 @@ keymap("n", "yosp", "<cmd>setlocal spell! spelllang=pl<CR>", { silent = true, de
 keymap("n", "yose", "<cmd>setlocal spell! spelllang=en<CR>", { silent = true, desc = "Set English spelling" })
 
 -- diagnostics
-keymap("n", "]x", "<cmd>lua vim.diagnostic.goto_next({ float = false })<CR>", { silent = true, desc = "Next diagnostic" })
-keymap("n", "[x", "<cmd>lua vim.diagnostic.goto_prev({ float = false })<CR>", { silent = true, desc = "Prev diagnostic" })
+keymap(
+	"n",
+	"]x",
+	"<cmd>lua vim.diagnostic.goto_next({ float = false })<CR>",
+	{ silent = true, desc = "Next diagnostic" }
+)
+keymap(
+	"n",
+	"[x",
+	"<cmd>lua vim.diagnostic.goto_prev({ float = false })<CR>",
+	{ silent = true, desc = "Prev diagnostic" }
+)
 
 -- save file as sudo on files that require root permission
 keymap("c", "w!!", "execute 'silent! write !sudo tee % >/dev/null' <bar> edit!", { desc = "Write as sudo" })
@@ -49,10 +61,14 @@ keymap("n", "k", 'v:count > 5 ? "m\'" .. v:count .. "k" : "k"', { expr = true, s
 keymap("n", "j", 'v:count > 5 ? "m\'" .. v:count .. "j" : "j"', { expr = true, silent = true })
 
 -- switch to last used tab
-vim.api.nvim_create_autocmd("TabLeave",  {
-    pattern = "*",
-    callback = function()
-      vim.api.nvim_set_keymap('n', '<Leader>tt', '<cmd>tabn ' .. vim.api.nvim_tabpage_get_number(0) .. '<CR>', { noremap = true, silent = true })
-    end
+vim.api.nvim_create_autocmd("TabLeave", {
+	pattern = "*",
+	callback = function()
+		vim.api.nvim_set_keymap(
+			"n",
+			"<Leader>tt",
+			"<cmd>tabn " .. vim.api.nvim_tabpage_get_number(0) .. "<CR>",
+			{ noremap = true, silent = true }
+		)
+	end,
 })
-
