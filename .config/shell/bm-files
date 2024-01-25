@@ -6,7 +6,7 @@ cfbw	    $DOTFILES_DIR/universal/.config/bm-websites       # A list of boookmark
 # system
 cfz	      $ZDOTDIR/.zshrc
 cfa	      $XDG_CONFIG_HOME/shell/aliasrc
-cfA	      $XDG_CONFIG_HOME/alacritty/alacritty.yml
+cfA	      $XDG_CONFIG_HOME/alacritty/alacritty.toml
 cfp	      $XDG_CONFIG_HOME/shell/profile
 cfh	      $XDG_CONFIG_HOME/hypr/hyprland.conf
 cfww      $XDG_CONFIG_HOME/waybar/config.jsonc
