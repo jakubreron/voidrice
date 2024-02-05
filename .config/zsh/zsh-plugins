@@ -5,6 +5,7 @@ plug "zsh-users/zsh-history-substring-search"
 
 plug "zdharma-continuum/fast-syntax-highlighting"
 plug "joshskidmore/zsh-fzf-history-search"
+plug "MichaelAquilina/zsh-you-should-use"
 # plug "hlissner/zsh-autopair"
 
 plug "zap-zsh/zap-prompt"
