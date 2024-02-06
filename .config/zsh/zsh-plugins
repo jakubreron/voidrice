@@ -13,4 +13,4 @@ plug "zap-zsh/completions"
 plug "zap-zsh/fnm"
 plug "zap-zsh/supercharge"
 plug "zap-zsh/vim"
-plug "zap-zsh/exa" # WARNING: needs to be loaded after supercharge
+# plug "zap-zsh/exa" # WARNING: needs to be loaded after supercharge
