@@ -19,3 +19,7 @@ plug "$XDG_CONFIG_HOME/shell/zshnameddirrc"
 plug "$ZDOTDIR/zsh-plugins"
 plug "$ZDOTDIR/zsh-functions"
 plug "$ZDOTDIR/zsh-keybinds"
+
+if command -v kubectl >/dev/null 2>&1; then
+  source <(kubectl completion zsh)
+fi
