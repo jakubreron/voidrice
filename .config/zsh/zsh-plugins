@@ -2,15 +2,15 @@
 
 plug "zsh-users/zsh-autosuggestions"
 plug "zsh-users/zsh-history-substring-search"
+plug "zsh-users/zsh-syntax-highlighting"
 
-plug "zdharma-continuum/fast-syntax-highlighting"
 plug "joshskidmore/zsh-fzf-history-search"
 plug "MichaelAquilina/zsh-you-should-use"
-# plug "hlissner/zsh-autopair"
 
 plug "zap-zsh/zap-prompt"
 plug "zap-zsh/completions"
 plug "zap-zsh/fnm"
 plug "zap-zsh/supercharge"
 plug "zap-zsh/vim"
+
 plug "jakubreron/exa" # WARNING: needs to be loaded after supercharge
