@@ -37,3 +37,6 @@
 [submodule ".config/bat/themes/catppuccin"]
 	path = .config/bat/themes/catppuccin
 	url = https://github.com/catppuccin/bat
+[submodule ".config/alacritty/themes/alacritty-theme"]
+	path = .config/alacritty/themes/alacritty-theme
+	url = https://github.com/alacritty/alacritty-theme
