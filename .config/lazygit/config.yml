@@ -3,16 +3,18 @@ notARepository: "skip"
 gui:
     skipDiscardChangeWarning: true
     showIcons: true
+    nerdFontsVersion: "3"
+    expandFocusedSidePanel: true
     mouseEvents: false
     showFileTree: true
     showBottomLine: false # for hiding the bottom information line (unless it has important information to tell you)
     showRandomTip: false
-    showCommandLog: true
+    showCommandLog: false
     authorColors:
-        "Jakub Reroń": "red"
-        "Jakub Reron": "red"
-        "jakubreron": "red"
-        "jr": "red"
+        "Jakub Reroń": "green"
+        "Jakub Reron": "green"
+        "jakubreron": "green"
+        "jr": "green"
     theme:
         selectedLineBgColor:
             - reverse
@@ -20,3 +22,5 @@ gui:
             - reverse
 git:
     branchLogCmd: "git lg {{branchName}} --"
+refresher:
+  refreshInterval: 5
