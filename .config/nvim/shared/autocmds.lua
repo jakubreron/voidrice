@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 
 -- NOTE: disable diagnostics for other people's code
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
-	pattern = { ".env*", "**/node_modules/**" },
+	pattern = { ".env*", "*/node_modules/*" },
 	callback = function(args)
 		vim.diagnostic.disable(args.buf)
 	end,

@@ -2,7 +2,7 @@ local keymap = vim.keymap.set
 
 keymap("n", "ZQ", "<cmd>qa!<CR>", { silent = true })
 
-keymap("n", "<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>")
+keymap("n", "<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>", { desc = "Goto definiton vsplit" })
 
 -- perform dot commands over visual blocks:
 keymap("v", ".", "<cmd>normal .<CR>", { silent = true })
