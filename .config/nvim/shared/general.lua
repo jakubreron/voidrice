@@ -48,6 +48,7 @@ local options = {
 	linebreak = true, -- set linebreak on very long lines
 	textwidth = 500, -- linebreak on 500 characters
   colorcolumn = "80",
+  winbar = "%=%m %f",
 }
 
 local globals = {
