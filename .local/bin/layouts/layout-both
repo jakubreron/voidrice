@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 if [[  "$STARTUP_DESKTOP" = "Wayland" ]]; then
-  hyprctl --batch "keyword monitor DP-3,3840x2160,0x0,1.5; eDP-1,2880x1800@90,2880x0,1.5"
-  killall waybar && nohup waybar &
   hyprctl reload
 fi
-notify-send "🖥️ External Display"
+notify-send "🖥️ External Display + 💻 Laptop Display"

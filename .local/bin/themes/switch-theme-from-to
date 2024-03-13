@@ -78,6 +78,7 @@ if command -v waybar >/dev/null 2>&1; then
   fi
 fi
 
-if command -v hyprctl >/dev/null 2>&1; then
-  hyprctl reload
-fi
+# NOTE: it reloads the border colors, but also refreshes the layouts
+# if command -v hyprctl >/dev/null 2>&1; then
+#   hyprctl reload
+# fi
