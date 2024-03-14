@@ -1,8 +1,13 @@
 local keymap = vim.keymap.set
 
+-- quit all buffers, not only current one
 keymap("n", "ZQ", "<cmd>qa!<CR>", { silent = true })
 
+-- definition in split
 keymap("n", "<leader>v", "<cmd>vsplit | lua vim.lsp.buf.definition()<CR>", { desc = "Goto definiton vsplit" })
+
+-- save
+keymap("n", "<C-s>", "<cmd>w<CR>", { desc = "Save" })
 
 -- perform dot commands over visual blocks:
 keymap("v", ".", "<cmd>normal .<CR>", { silent = true })
@@ -37,6 +42,7 @@ keymap(
 
 -- save file as sudo on files that require root permission
 keymap("c", "w!!", "execute 'silent! write !sudo tee % >/dev/null' <bar> edit!", { desc = "Write as sudo" })
+
 
 -- copy to end on Y
 keymap("n", "Y", "y$", { silent = true })
