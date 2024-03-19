@@ -6,8 +6,7 @@ if [ -d "/opt/homebrew" ]; then
 fi
 
 bin_list=(
-  "/opt/homebrew/opt/mysql@5.7/bin"
-  "/usr/local/opt/mysql-client/bin"
+  "/opt/homebrew/opt/mysql-client/bin"
   "/opt/local/bin:/opt/local/sbin"
   "${$(gfind $HOME/.local/bin -type d -printf %p:)%%:}"
 )
