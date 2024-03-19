@@ -4,7 +4,7 @@
 bindkey -s '^o' '^ulfcd\n' # open
 bindkey -s '^b' '^u${GUI_FILE_EXPLORER} .\n' # browse
 bindkey -s '^g' '^u${CLI_GIT_APP}\n' # git
-bindkey -s '^d' '^u${CLI_DOCKER_APP}\n' # docker
+bindkey -s '^s' '^u${CLI_DOCKER_APP}\n'
 bindkey -s '^\' '^u${CLI_SYSTEM_MONITOR}\n' # system monitor (htop, btop, etc...)
 bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n' # find
 
