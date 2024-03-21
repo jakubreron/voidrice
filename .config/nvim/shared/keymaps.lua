@@ -87,9 +87,9 @@ vim.api.nvim_create_autocmd("TabLeave", {
 	callback = function()
 		vim.api.nvim_set_keymap(
 			"n",
-			"<Leader>tt",
+			"<leader>;",
 			"<cmd>tabn " .. vim.api.nvim_tabpage_get_number(0) .. "<CR>",
-			{ noremap = true, silent = true }
+			{ desc = "Last used tab", noremap = true, silent = true }
 		)
 	end,
 })
