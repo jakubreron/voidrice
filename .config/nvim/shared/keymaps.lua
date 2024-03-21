@@ -43,7 +43,6 @@ keymap(
 -- save file as sudo on files that require root permission
 keymap("c", "w!!", "execute 'silent! write !sudo tee % >/dev/null' <bar> edit!", { desc = "Write as sudo" })
 
-
 -- copy to end on Y
 keymap("n", "Y", "y$", { silent = true })
 
@@ -65,6 +64,22 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true })
 -- jumplist every 5 lines jump with j/k
 keymap("n", "k", 'v:count > 5 ? "m\'" .. v:count .. "k" : "k"', { expr = true, silent = true })
 keymap("n", "j", 'v:count > 5 ? "m\'" .. v:count .. "j" : "j"', { expr = true, silent = true })
+
+-- LSP
+keymap("n", "<leader>l_", "<cmd>LspRestart <CR>", { desc = "Restart LSP" })
+
+-- console
+keymap("n", "<leader>cs", "<C-w>s:term<CR>", { desc = "Split Horizontal" })
+keymap("n", "<leader>cv", "<C-w>v:term<CR>", { desc = "Split Vertical" })
+keymap("n", "<leader>ct", "<cmd>tabnew<CR><cmd>term<CR><cmd>setlocal nonumber norelativenumber<CR>", { desc = "New Tab" })
+keymap("n", "<leader>cn", "<cmd>silent !tmux neww tmux-sessionizer<CR>", { desc = "New Tmux Session" })
+
+-- tabs
+keymap("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "New" })
+keymap("n", "<leader>tc", "<cmd>tabclose<CR>", { desc = "Close" })
+keymap("n", "<leader>to", "<cmd>tabonly<CR>", { desc = "Only" })
+keymap("n", "<leader>tm", ":tabmove", { desc = "Move" })
+keymap("n", "<leader>te", ":tabedit <C-r>=expand('%:p:h')<CR>/", { desc = "Edit" })
 
 -- switch to last used tab
 vim.api.nvim_create_autocmd("TabLeave", {
