@@ -55,16 +55,16 @@ local globals = {
 	mapleader = " ", -- space
 }
 
-vim.opt.path:append("**")
-vim.opt.wildignore:append("*.o")
-vim.opt.wildignore:append("*.pyc")
-vim.opt.wildignore:append("*_build/*")
-vim.opt.wildignore:append("**/coverage/*")
-vim.opt.wildignore:append("**/node_modules/*")
-vim.opt.wildignore:append("**/android/*")
-vim.opt.wildignore:append("**/ios/*")
-vim.opt.wildignore:append("**/.git/*")
-vim.opt.wildignore:append("tags")
+-- vim.opt.path:append("**")
+-- vim.opt.wildignore:append("*.o")
+-- vim.opt.wildignore:append("*.pyc")
+-- vim.opt.wildignore:append("*_build/*")
+-- vim.opt.wildignore:append("**/coverage/*")
+-- vim.opt.wildignore:append("**/node_modules/*")
+-- vim.opt.wildignore:append("**/android/*")
+-- vim.opt.wildignore:append("**/ios/*")
+-- vim.opt.wildignore:append("**/.git/*")
+-- vim.opt.wildignore:append("tags")
 
 vim.opt.spelllang:append("cjk") -- disable spellchecking for asian characters (VIM algorithm does not support it)
 vim.opt.shortmess:append("c") -- don't show redundant messages from ins-completion-menu
