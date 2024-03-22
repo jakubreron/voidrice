@@ -15,6 +15,15 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 	command = "set fixendofline",
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "neotest-output", "neotest-output-panel" },
+	callback = function()
+		vim.cmd("norm G")
+		vim.cmd("setlocal number")
+		vim.cmd("setlocal relativenumber")
+	end,
+})
+
 -- NOTE: set correct filetypes
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = "*.tfvars",
@@ -68,7 +77,7 @@ vim.api.nvim_create_autocmd({ "VimLeave" }, {
 	pattern = vim.fn.expand("$VIMWIKI_DIR") .. "/*",
 	callback = function()
 		if buffer_has_git_changes() then
-      vim.fn.jobstart(auto_commit("docs", "vimwiki"), {detach=true})
+			vim.fn.jobstart(auto_commit("docs", "vimwiki"), { detach = true })
 		end
 	end,
 })
@@ -78,12 +87,12 @@ vim.api.nvim_create_autocmd({ "VimLeave" }, {
 		vim.fn.expand("~") .. "/.config/shell/aliasrc*",
 		vim.fn.expand("~") .. "/.config/shell/profile*",
 		vim.fn.expand("~") .. "/.config/ticker/.ticker.yaml",
-    "bm-*",
+		"bm-*",
 	},
-  callback = function ()
+	callback = function()
 		local filename = vim.fn.expand("%:t")
 		if buffer_has_git_changes() then
-      vim.fn.jobstart(auto_commit("config", filename), {detach=true})
+			vim.fn.jobstart(auto_commit("config", filename), { detach = true })
 		end
-  end
+	end,
 })
