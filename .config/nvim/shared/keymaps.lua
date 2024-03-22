@@ -56,6 +56,17 @@ keymap("n", "<C-c>", "<cmd>%y+<CR>", { silent = true })
 keymap("n", "n", "nzzzv", { silent = true })
 keymap("n", "N", "Nzzzv", { silent = true })
 keymap("n", "J", "mzJ`z", { silent = true })
+
+keymap("n", "<C-h>", "<C-w>h", { silent = true })
+keymap("n", "<C-j>", "<C-w>j", { silent = true })
+keymap("n", "<C-k>", "<C-w>k", { silent = true })
+keymap("n", "<C-l>", "<C-w>l", { silent = true })
+
+keymap("n", "<A-h>", ":vertical resize +2<CR>", { silent = true })
+keymap("n", "<A-j>", ":resize -2<CR>", { silent = true })
+keymap("n", "<A-k>", ":resize +2<CR>", { silent = true })
+keymap("n", "<A-l>", ":vertical resize -2<CR>", { silent = true })
+
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", { silent = true })
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", { silent = true })
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true })
