@@ -14,11 +14,11 @@ vim.api.nvim_create_autocmd("BufRead", {
 })
 
 -- NOTE: disable diagnostics for other people's code
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile", "LspAttach" }, {
 	pattern = { ".env*", "*/node_modules/*" },
 	callback = function(args)
-		vim.cmd("LspStop")
 		vim.diagnostic.disable(args.buf)
+		vim.lsp.stop_client(args.buf)
 	end,
 })
 
