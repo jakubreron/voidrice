@@ -1,6 +1,6 @@
 local options = {
 	dictionary = "/usr/share/dict/words",
-	thesaurus = "~/.config/nvim/mthesaur.txt",
+	thesaurus = "~/.config/nvim.old/mthesaur.txt",
 	backup = false, -- creates a backup file
 	clipboard = "unnamedplus", -- allows neovim to access the system clipboard
 	completeopt = { "menuone", "noselect" },
