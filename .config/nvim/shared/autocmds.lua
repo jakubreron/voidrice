@@ -4,15 +4,22 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter" }, {
 	command = "checktime",
 })
 
--- NOTE: return to last position when editing the file
+-- NOTE: return to last position when editing the file && disable fixendofline
 vim.api.nvim_create_autocmd("BufRead", {
 	pattern = "*",
-	command = "normal g'\"",
+	callback = function()
+		vim.cmd("normal g'\"")
+		vim.cmd("set fixendofline")
+	end,
 })
 
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-	pattern = "*",
-	command = "set fixendofline",
+-- NOTE: disable diagnostics for other people's code
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = { ".env*", "*/node_modules/*" },
+	callback = function(args)
+		vim.cmd("LspStop")
+		vim.diagnostic.disable(args.buf)
+	end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -38,14 +45,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	command = "setlocal filetype=sh",
 })
 
--- NOTE: disable diagnostics for other people's code
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
-	pattern = { ".env*", "*/node_modules/*" },
-	callback = function(args)
-		vim.diagnostic.disable(args.buf)
-	end,
-})
-
 -- NOTE: renew shortcuts
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
 	pattern = "bm-*",
@@ -53,10 +52,10 @@ vim.api.nvim_create_autocmd({ "VimLeave" }, {
 })
 
 -- NOTE: compile suckless scripts & reload them
-vim.api.nvim_create_autocmd({ "VimLeave" }, {
-	pattern = "*/src/*/config.h",
-	command = "!sudo make install",
-})
+-- vim.api.nvim_create_autocmd({ "VimLeave" }, {
+-- 	pattern = "*/src/*/config.h",
+-- 	command = "!sudo make install",
+-- })
 
 local auto_commit = function(type, scope)
 	return "git add .; git commit -m '"
@@ -84,9 +83,9 @@ vim.api.nvim_create_autocmd({ "VimLeave" }, {
 
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
 	pattern = {
-		vim.fn.expand("~") .. "/.config/shell/aliasrc*",
-		vim.fn.expand("~") .. "/.config/shell/profile*",
-		vim.fn.expand("~") .. "/.config/ticker/.ticker.yaml",
+		vim.fn.expand("$HOME") .. "/.config/shell/aliasrc*",
+		vim.fn.expand("$HOME") .. "/.config/shell/profile*",
+		vim.fn.expand("$HOME") .. "/.config/ticker/.ticker.yaml",
 		"bm-*",
 	},
 	callback = function()
