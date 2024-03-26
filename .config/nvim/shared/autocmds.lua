@@ -65,19 +65,10 @@ local auto_commit = function(type, scope)
 		.. "): ⚙️ auto-commit changes'; git pull && git push;"
 end
 
-local function buffer_has_git_changes()
-	local filepath = vim.fn.expand("%:p")
-	local git_status = vim.fn.system("git diff --name-status " .. filepath)
-
-	return git_status ~= ""
-end
-
 vim.api.nvim_create_autocmd({ "VimLeave" }, {
 	pattern = vim.fn.expand("$VIMWIKI_DIR") .. "/*",
 	callback = function()
-		if buffer_has_git_changes() then
-			vim.fn.jobstart(auto_commit("docs", "vimwiki"), { detach = true })
-		end
+		vim.fn.jobstart(auto_commit("docs", "vimwiki"), { detach = true })
 	end,
 })
 
@@ -90,8 +81,6 @@ vim.api.nvim_create_autocmd({ "VimLeave" }, {
 	},
 	callback = function()
 		local filename = vim.fn.expand("%:t")
-		if buffer_has_git_changes() then
-			vim.fn.jobstart(auto_commit("config", filename), { detach = true })
-		end
+		vim.fn.jobstart(auto_commit("config", filename), { detach = true })
 	end,
 })
