@@ -11,7 +11,7 @@ export PATH
 unset bin_list
 
 # NOTE: programs
-export EDITOR="lvim"
+export EDITOR="nvim"
 export GIT_EDITOR="$EDITOR"
 export SUDO_EDITOR="/usr/bin/nvim"
 
