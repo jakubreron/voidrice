@@ -29,13 +29,13 @@ keymap("n", "yose", "<cmd>setlocal spell! spelllang=en<CR>", { silent = true, de
 -- diagnostics
 keymap(
 	"n",
-	"]x",
+	"]d",
 	"<cmd>lua vim.diagnostic.goto_next({ float = false })<CR>",
 	{ silent = true, desc = "Next diagnostic" }
 )
 keymap(
 	"n",
-	"[x",
+	"[d",
 	"<cmd>lua vim.diagnostic.goto_prev({ float = false })<CR>",
 	{ silent = true, desc = "Prev diagnostic" }
 )
@@ -53,9 +53,9 @@ keymap("n", "<ESC>", "<cmd>noh<CR>", { silent = true })
 keymap("n", "<C-c>", "<cmd>%y+<CR>", { silent = true })
 
 -- keep it center
-keymap("n", "n", "nzzzv", { silent = true })
-keymap("n", "N", "Nzzzv", { silent = true })
-keymap("n", "J", "mzJ`z", { silent = true })
+-- keymap("n", "n", "nzzzv", { silent = true })
+-- keymap("n", "N", "Nzzzv", { silent = true })
+-- keymap("n", "J", "mzJ`z", { silent = true })
 
 keymap("n", "<C-h>", "<C-w>h", { silent = true })
 keymap("n", "<C-j>", "<C-w>j", { silent = true })
