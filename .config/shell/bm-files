@@ -19,4 +19,4 @@ cfg	      $DOTFILES_DIR/universal/.config/git/config
 # vim
 cflv      $LVIM_CONFIG_DIR/config.lua
 cflvp     $LVIM_CONFIG_DIR/lua/user/plugins/init.lua
-cfnv      $XDG_CONFIG_HOME/nvim/init.vim
+cfnv      $XDG_CONFIG_HOME/nvim/init.lua
