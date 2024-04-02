@@ -1,7 +1,7 @@
 #!/bin/sh
 
-width=${2:-98%}
-height=${2:-98%}
+width=${2:-100%}
+height=${2:-100%}
 if [ "$(tmux display-message -p -F "#{session_name}")" = "popup" ];then
     tmux detach-client
 else
