@@ -1,4 +1,4 @@
-import = ["/Users/ts-jakub.reron/.config/alacritty/themes/catppuccin/catppuccin-mocha.toml"]
+import = ["/home/jakub/.config/alacritty/themes/catppuccin/catppuccin-mocha.toml"]
 
 [colors]
 draw_bold_text_with_bright_colors = true
