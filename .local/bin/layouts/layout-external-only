@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 if [[  "$STARTUP_DESKTOP" = "Wayland" ]]; then
-  hyprctl --batch "keyword monitor DP-3,3840x2160,0x0,1.5; keyword monitor eDP-1,disabled"
+  hyprctl --batch "keyword monitor DP-3,3840x2160,0x0,1.5; keyword monitor desc:Samsung Display Corp. 0x4193,disabled"
 fi
 notify-send "🖥️ External Display"
