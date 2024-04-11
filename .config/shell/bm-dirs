@@ -40,6 +40,7 @@ Lbn     $XDG_BIN_HOME
 Lbns    $XDG_BIN_HOME/statusbar
 Lbng    $XDG_BIN_HOME/git
 
+Lst     $XDG_STATE_HOME
 Lsh     $XDG_DATA_HOME
 Lshlv   $LVIM_SHARE_DIR
 
