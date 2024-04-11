@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Text editor
-Exec=/home/jakub/.local/bin/daemonable-terminal-instance  -e lvim %u
+Exec=/home/jakub/.local/bin/daemons/daemonable-terminal-instance -e nvim %u
