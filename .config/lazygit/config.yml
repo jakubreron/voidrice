@@ -1,26 +1,28 @@
 disableStartupPopups: true
 notARepository: "skip"
 gui:
-    skipDiscardChangeWarning: true
-    showIcons: true
-    nerdFontsVersion: "3"
-    expandFocusedSidePanel: true
-    mouseEvents: false
-    showFileTree: true
-    showBottomLine: false # for hiding the bottom information line (unless it has important information to tell you)
-    showRandomTip: false
-    showCommandLog: false
-    authorColors:
-        "Jakub Reroń": "green"
-        "Jakub Reron": "green"
-        "jakubreron": "green"
-        "jr": "green"
-    theme:
-        selectedLineBgColor:
-            - reverse
-        selectedRangeBgColor:
-            - reverse
+  skipDiscardChangeWarning: true
+  showIcons: true
+  nerdFontsVersion: "3"
+  expandFocusedSidePanel: true
+  mouseEvents: false
+  showFileTree: true
+  showBottomLine: false # for hiding the bottom information line (unless it has important information to tell you)
+  showRandomTip: false
+  showCommandLog: false
+  authorColors:
+    "Jakub Reroń": "green"
+    "Jakub Reron": "green"
+    "jakubreron": "green"
+    "jr": "green"
+    "JR": "green"
+    "ヤ": "green"
+  theme:
+    selectedLineBgColor:
+      - reverse
+    selectedRangeBgColor:
+      - reverse
 git:
-    branchLogCmd: "git lg {{branchName}} --"
+  branchLogCmd: "git lg {{branchName}} --"
 refresher:
   refreshInterval: 5
