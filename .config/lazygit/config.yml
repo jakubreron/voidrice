@@ -9,7 +9,6 @@ gui:
   showFileTree: true
   showBottomLine: false # for hiding the bottom information line (unless it has important information to tell you)
   showRandomTip: false
-  showCommandLog: false
   authorColors:
     "Jakub Reroń": "green"
     "Jakub Reron": "green"
@@ -26,3 +25,7 @@ git:
   branchLogCmd: "git lg {{branchName}} --"
 refresher:
   refreshInterval: 5
+customCommands:
+  - key: "<c-a>"
+    context: "global"
+    command: "git commit --amend --no-edit && git push --force"
