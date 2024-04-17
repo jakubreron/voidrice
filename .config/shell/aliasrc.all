@@ -39,7 +39,8 @@ alias \
   se="sudoedit" \
   c="clear" \
   lg="lazygit" \
-  ld="lazydocker"
+  ld="lazydocker" \
+  nv="nordvpn"
 
 # overwritten
 alias \
