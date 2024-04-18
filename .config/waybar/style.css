@@ -16,13 +16,13 @@
 #waybar > * {
   margin-top: 2px;
   margin-bottom: 2px;
-  /* margin-left: 4px; */ /* NOTE: uncomment for style with no_gaps_when_only disabled */
+  margin-left: 4px;
 }
 
 /* NOTE: first and last childs should have margin-left/right with the same value */
-/* #waybar > :last-child { */
-/*   margin-right: 4px; */ /* NOTE: uncomment for style with no_gaps_when_only disabled */
-/* } */
+#waybar > :last-child {
+  margin-right: 4px;
+}
 
 tooltip {
   font-size: 13.5px;
@@ -42,8 +42,7 @@ tooltip * {
   margin-right: 8px;
 }
 #workspaces button {
-  /* border-radius: 4px; */ /* NOTE: uncomment for style with no_gaps_when_only disabled */
-  border-radius: 0;
+  border-radius: 4px;
   margin-right: 2px;
 }
 #workspaces button.active {
