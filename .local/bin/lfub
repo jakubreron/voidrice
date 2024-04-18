@@ -29,6 +29,6 @@ else
     rm "$UB_PID_FILE"
     UB_SOCKET="$UEBERZUG_TMP_DIR/ueberzugpp-${UB_PID}.socket"
     export UB_PID UB_SOCKET
-    trap cleanup HUP INT QUIT TERM EXIT PWR
+    trap cleanup HUP INT QUIT TERM EXIT
     lf "$@" 3>&-
 fi

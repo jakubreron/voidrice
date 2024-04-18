@@ -25,11 +25,11 @@ export BACKUP_BROWSER="chrome"
 
 export GUI_FILE_EXPLORER="open"
 
-export CLI_FILE_EXPLORER="lf"
+export CLI_FILE_EXPLORER="lfub"
 export CLI_MAIL_CLIENT="neomutt"
 export CLI_MUSIC_PLAYER="ncmpcpp"
 
 # NOTE: packages
 export PACKAGE_TYPE="work"
 export PACKAGE_MANAGER="brew"
-export NODE_OPTIONS="--max-old-space-size=8192" # Increase to 8 GB
+export NODE_OPTIONS="--max-old-space-size=8192"
