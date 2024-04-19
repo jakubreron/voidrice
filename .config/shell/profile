@@ -8,24 +8,11 @@ source $HOME/.config/shell/profile.all
 
 case "$OS" in
   Linux)
-    export FIND_COMMAND="find"
     source $HOME/.config/shell/profile.linux
     ;;
   Darwin)
-    export FIND_COMMAND="gfind"
     source $HOME/.config/shell/profile.osx
     ;;
 esac
 
-bin_list=(
-  "$HOME/.local/share/cargo/bin"
-  "${$($FIND_COMMAND $HOME/.local/bin -type d | paste -sd ':' -)%%:}"
-)
-
-for extra in "${bin_list[@]}"; do
-  PATH=$extra:$PATH
-done
-export PATH
-unset bin_list
-
-unsetopt PROMPT_SP 2>/dev/null
+unsetopt PROMPT_SP

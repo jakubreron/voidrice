@@ -9,7 +9,9 @@ if command -v pyenv >/dev/null 2>&1; then
 fi
 
 bin_list=(
+  "/opt/local/bin:/opt/local/sbin"
   "$(brew --prefix mysql-client)/bin"
+  "${$(gfind $HOME/.local/bin -type d -printf %p:)%%:}"
 )
 
 for extra in "${bin_list[@]}"; do
