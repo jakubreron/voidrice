@@ -74,9 +74,20 @@ cmd extract ${{
 		ans="y"
 	fi
 	if [[ $ans = "y" ]]; then
-		for x in $fx; do
-			eval aunpack \"$x\"
-		done 
+		case $fx in
+			*.tar.bz2)   tar xjf $fx     ;;
+			*.tar.gz)    tar xzf $fx     ;;
+			*.bz2)       bunzip2 $fx     ;;
+			*.rar)       unrar e $fx     ;;
+			*.gz)        gunzip $fx      ;;
+			*.tar)       tar xf $fx      ;;
+			*.tbz2)      tar xjf $fx     ;;
+			*.tgz)       tar xzf $fx     ;;
+			*.zip)       unzip $fx       ;;
+			*.Z)         uncompress $fx  ;;
+			*.7z)        7z x $fx        ;;
+			*.tar.xz)    tar xf $fx      ;;
+		esac
 	fi
 }}
 
@@ -120,7 +131,7 @@ cmd share ${{
 
 cmd fzf_search $lf -remote "send $id select \"$(fzf)\""
 
-cmd mkdir $mkdir -p "$(echo $* | tr ' ' '\ ')"
+cmd mkdir $mkdir -p "$@"
 
 cmd encrypt $gpg -c --no-symkey-cache --cipher-algo AES256 $f
 cmd decrypt $gpg $f
@@ -206,7 +217,7 @@ map Sw share
 map Sk kdeconnect
 
 map <c-f> fzf_search
-map <c-n> push :mkdir<space>
+map <c-n> push :mkdir<space>""<left>
 map <c-o> dragon
 
 map Z zip $f
