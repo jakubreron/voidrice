@@ -31,7 +31,7 @@ mods = "Shift"
 
 [window]
 decorations = "none"
-opacity = 0.90
+opacity = 0.96
 
 [window.dimensions]
 columns = 200
