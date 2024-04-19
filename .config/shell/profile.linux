@@ -1,8 +1,9 @@
 #!/usr/bin/env zsh
 
+# NOTE: on macos it's handled by brew, that's why it's not in shared profile
+# TODO: check if it's necessary, I'm using npm now
 bin_list=(
-  "${$(find $HOME/.yarn/bin -type d -printf %p:)%%:}"
-  "${$(find $HOME/.local/bin -type d -printf %p:)%%:}"
+  "${$(find $HOME/.yarn/bin -type d | paste -sd ':' -)%%:}"
 )
 
 for extra in "${bin_list[@]}"; do

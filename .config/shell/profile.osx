@@ -6,9 +6,7 @@ if [ -d "/opt/homebrew" ]; then
 fi
 
 bin_list=(
-  "/opt/local/bin:/opt/local/sbin"
   "$(brew --prefix mysql-client)/bin"
-  "${$(gfind $HOME/.local/bin -type d -printf %p:)%%:}"
 )
 
 for extra in "${bin_list[@]}"; do
