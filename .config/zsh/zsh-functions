@@ -1,94 +1,56 @@
 #!/usr/bin/env zsh
 
-# this doesn't work yet
-# function lfcd() {
-#     # `command` is needed in case `lfcd` is aliased to `lf`
-#     cd "$(command $CLI_FILE_EXPLORER -last-dir-path /dev/stdout "$@")"
-# }
-
-OS="$(uname -s)"
-
-case "$OS" in
-  Linux)
-    lfcd () {
-      tmp="$(mktemp)"
-      # `command` is needed in case `lfcd` is aliased to `lf`
-      command $CLI_FILE_EXPLORER -last-dir-path="$tmp" "$@"
-      if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        if [ -d "$dir" ]; then
-          if [ "$dir" != "$(pwd)" ]; then
-            cd "$dir"
-          fi
-        fi
-      fi
-    }
-    ;;
-  Darwin)
-    lfcd () {
-      tmp="$(mktemp)"
-      command $CLI_FILE_EXPLORER -last-dir-path="$tmp" "$@"
-      if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        if [ -d "$dir" ]; then
-          if [ "$dir" != "$(pwd)" ]; then
-            cd "$dir"
-          fi
-        fi
-      fi
-    }
-    ;;
-esac
-
+lfcd () {
+  # `command` is needed in case `lfcd` is aliased to `lf`
+  cd "$(command lf -print-last-dir "$@")"
+}
 
 # Create a new directory and enter it
 function mkd() {
-	mkdir -p "$@" && cd "$_";
+  mkdir -p "$@" && cd "$_";
 }
 
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {
-	local tmpFile="${@%/}.tar";
-	tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1;
+  local tmpFile="${@%/}.tar";
+  tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1;
 
-	size=$(
-		stat -f"%z" "${tmpFile}" 2> /dev/null; # macOS `stat`
-		stat -c"%s" "${tmpFile}" 2> /dev/null;  # GNU `stat`
-	);
+  size=$(
+  stat -f"%z" "${tmpFile}" 2> /dev/null; # macOS `stat`
+  stat -c"%s" "${tmpFile}" 2> /dev/null;  # GNU `stat`
+  );
 
-	local cmd="";
-	if (( size < 52428800 )) && hash zopfli 2> /dev/null; then
-		# the .tar file is smaller than 50 MB and Zopfli is available; use it
-		cmd="zopfli";
-	else
-		if hash pigz 2> /dev/null; then
-			cmd="pigz";
-		else
-			cmd="gzip";
-		fi;
-	fi;
+  local cmd="";
+  if (( size < 52428800 )) && hash zopfli 2> /dev/null; then
+    # the .tar file is smaller than 50 MB and Zopfli is available; use it
+    cmd="zopfli";
+  else
+    if hash pigz 2> /dev/null; then
+      cmd="pigz";
+    else
+      cmd="gzip";
+    fi;
+  fi;
 
-	echo "Compressing .tar ($((size / 1000)) kB) using \`${cmd}\`…";
-	"${cmd}" -v "${tmpFile}" || return 1;
-	[ -f "${tmpFile}" ] && rm "${tmpFile}";
+  echo "Compressing .tar ($((size / 1000)) kB) using \`${cmd}\`…";
+  "${cmd}" -v "${tmpFile}" || return 1;
+  [ -f "${tmpFile}" ] && rm "${tmpFile}";
 
-	zippedSize=$(
-		stat -f"%z" "${tmpFile}.gz" 2> /dev/null; # macOS `stat`
-		stat -c"%s" "${tmpFile}.gz" 2> /dev/null; # GNU `stat`
-	);
+  zippedSize=$(
+  stat -f"%z" "${tmpFile}.gz" 2> /dev/null; # macOS `stat`
+  stat -c"%s" "${tmpFile}.gz" 2> /dev/null; # GNU `stat`
+  );
 
-	echo "${tmpFile}.gz ($((zippedSize / 1000)) kB) created successfully.";
+  echo "${tmpFile}.gz ($((zippedSize / 1000)) kB) created successfully.";
 }
 
 # Normalize `open` across Linux, macOS, and Windows.
 # This is needed to make the `o` function (see below) cross-platform.
 if [ ! $(uname -s) = 'Darwin' ]; then
-	if grep -q Microsoft /proc/version; then
-		# Ubuntu on Windows using the Linux subsystem
-		alias open='explorer.exe';
-	else
-		alias open='xdg-open';
-	fi
+  if grep -q Microsoft /proc/version; then
+    # Ubuntu on Windows using the Linux subsystem
+    alias open='explorer.exe';
+  else
+    alias open='xdg-open';
+  fi
 fi
