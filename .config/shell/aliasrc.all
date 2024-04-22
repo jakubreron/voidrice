@@ -40,7 +40,9 @@ alias \
   c="clear" \
   lg="lazygit" \
   ld="lazydocker" \
-  nv="nordvpn"
+  nv="nordvpn" \
+  nvc="nordvpn connect" \
+  nvd="nordvpn disconnect"
 
 # overwritten
 alias \
@@ -50,7 +52,7 @@ alias \
 # npm
 alias \
   yr="yarn" \
-  nrt="npm run unit -- --watch --coverage --silent false" \
+  nrt="nr test -- --watch --coverage --silent false" \
   recursively-install-npm="run-script-on-dirs package-lock.json 'ni'; run-script-on-dirs yarn.lock 'ni'; run-script-on-dirs pnpm-lock.yaml 'ni'" \
   update-minor-deps="npx taze minor -w; ni" \
   update-major-deps="npx taze major -w; ni"
