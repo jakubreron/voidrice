@@ -3,7 +3,7 @@
 OS="$(uname -s)"
 
 # NOTE: can be mocha, latte, macchiato, frappe
-switch_from="${1:-mocha}"
+switch_from="${1:-frappe}"
 switch_to="${2:-latte}"
 
 case "$OS" in
