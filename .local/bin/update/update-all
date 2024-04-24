@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 update-files
-update-lvim
 update-symlinks-all
 update-installed-pkgs
 update-generated-pkgs
