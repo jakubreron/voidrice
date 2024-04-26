@@ -1,8 +1,7 @@
 #!/usr/bin/env zsh
 
 lfcd () {
-  # `command` is needed in case `lfcd` is aliased to `lf`
-  cd "$(command lf -print-last-dir "$@")"
+  cd "$(command $CLI_FILE_EXPLORER -print-last-dir "$@")"
 }
 
 # Create a new directory and enter it
