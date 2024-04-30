@@ -1,0 +1,13 @@
+#!/bin/sh
+
+while true;
+do
+    A=$(cat /sys/firmware/acpi/platform_profile)
+    if [ ${A} != 'performance' ]; then
+	echo ${A}
+	echo performance |  sudo tee  /sys/firmware/acpi/platform_profile   
+    else
+	echo ${A}
+    fi
+    sleep 0.5;
+done
