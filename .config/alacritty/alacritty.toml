@@ -32,6 +32,7 @@ mods = "Shift"
 [window]
 decorations = "none"
 opacity = 0.96
+option_as_alt = "Both"
 
 [window.dimensions]
 columns = 200
