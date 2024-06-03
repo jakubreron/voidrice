@@ -65,9 +65,8 @@ if [[ "$STARTUP_DESKTOP" = 'Wayland' ]]; then
 
   export QT_AUTO_SCREEN_SCALE_FACTOR=1
   export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-  export QT_QPA_PLATFORMTHEME='qt5ct'
-  # export QT_QPA_PLATFORMTHEME='qt6ct'
-  # export DISABLE_QT5_COMPAT=1 # confirm qt6 compatibility
+  export QT_QPA_PLATFORMTHEME='qt6ct'
+  export DISABLE_QT5_COMPAT=1 # confirm qt6 compatibility
 
   export SDL_VIDEODRIVER="wayland"
   export MOZ_ENABLE_WAYLAND=1
