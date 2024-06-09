@@ -29,12 +29,19 @@ shortcuts.vim
 .local/share/lf
 
 .config/keyd/app.lock
+
 .config/gtk-4.0
 .config/gtk-2.0
 .config/gtk-3.0
+
 .config/BetterDiscord/data/stable/windowprefs.json
+
 .config/fcitx5/conf/cached_layouts
 .config/fcitx5/conf/clipboard.conf
 .config/fcitx5/conf/kimpanel.conf
 .config/fcitx5/conf/notifications.conf
+
 .local/share/rofi/rofi_calc_history
+
+.local/share/applications/mimeinfo.cache
+.local/share/applications/appimagekit*
