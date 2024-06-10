@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+find /sys/firmware/acpi/platform_profile | entr -n echo 'performance' | sudo tee /sys/firmware/acpi/platform_profile
