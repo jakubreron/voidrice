@@ -28,7 +28,7 @@ set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 set hidden
 set drawbox
 set ignorecase true
-set info size
+set info size:time
 set autoquit true
 set statfmt "\033[7;31m %p \033[32m %c \033[33m %u %g \033[34m %s \033[35m %t |\033[36m -> %l |\033[0m"
 
