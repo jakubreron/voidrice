@@ -3,7 +3,7 @@
   "position": "top", // Waybar position (top|bottom|left|right)
   "modules-left": [
     "hyprland/workspaces",
-    "hyprland/window",
+    "hyprland/window"
   ],
   "modules-center": [],
   "modules-right": [
@@ -19,7 +19,7 @@
     "battery",
     "tray",
     "clock",
-    "network",
+    "network"
   ],
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -34,17 +34,17 @@
       "6": "󰇮",
       "7": "",
       "8": "",
-      "default": "",
-    },
+      "default": ""
+    }
   },
   "hyprland/window": {
     "separate-outputs": true,
     "icon": true,
-    "icon-size": 14,
+    "icon-size": 14
   },
   "tray": {
     "icon-size": 14,
-    "spacing": 8,
+    "spacing": 8
   },
   "mpd": {
     "format": "{stateIcon}{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {title}  ",
@@ -76,7 +76,7 @@
     // "timezone": "America/New_York",
     "interval": 1,
     "format": "{:%Y-%m-%d 󰃭   %I:%M:%S} 󰥔",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
   },
   "cpu": {
     "format": "{usage}% ",
@@ -102,7 +102,7 @@
   },
   "backlight": {
     "format": "{percent}% {icon}",
-    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "format-icons": ["󰃞", "󰃟", "󰃠"]
   },
   "battery": {
     "states": {
@@ -116,8 +116,8 @@
     "format-alt": "{time} {icon}",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
-    "format-warning": "{capacity}% {icon}",
-    "format-critical": "{capacity}% {icon}", 
+    // "format-warning": "{capacity}% {icon}",
+    // "format-critical": "{capacity}% {icon}", 
     "format-icons": [
       " ",
       " ",
@@ -139,7 +139,7 @@
     "ignored-sinks": [
       "Easy Effects Sink",
       "Easy Effects Source",
-      "Monitor of Easy Effects Sink",
+      "Monitor of Easy Effects Sink"
     ],
     "format": "{volume}% {icon}  {format_source}",
     "format-bluetooth": "{volume}% {icon}  {format_source}",
@@ -165,16 +165,16 @@
   "custom/weather-low": {
     "exec": "get-weather low",
     "format": "  {}",
-    "interval": 43200,
+    "interval": 43200
   },
   "custom/weather-high": {
     "exec": "get-weather high",
     "format": "  {}",
-    "interval": 43200,
+    "interval": 43200
   },
   "custom/weather-precip-chance": {
     "exec": "get-weather precip",
     "format": "  {}",
-    "interval": 43200,
+    "interval": 43200
   }
 }
