@@ -40,6 +40,7 @@ alias \
   c="clear" \
   lg="lazygit" \
   ld="lazydocker" \
+  ti="ticker" \
   nv="nordvpn" \
   nvc="nordvpn connect" \
   nvd="nordvpn disconnect"
@@ -60,6 +61,7 @@ alias \
 # network
 alias \
   myip="dig +short myip.opendns.com @resolver1.opendns.com" \
+  mylocalip="ipconfig getifaddr en0" \
   ports="sudo netstat -ntlup"
 
 # misc
