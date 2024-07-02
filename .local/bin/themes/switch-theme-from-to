@@ -19,7 +19,7 @@ declare -a lowercase_paths=(
   "$HOME/.config/alacritty/alacritty.toml"
   "$HOME/.config/rofi/config.rasi"
   "$HOME/.config/lvim/lua/user/builtin/init.lua"
-  "$HOME/.config/nvim/init.lua"
+  "$HOME/.config/nvim/lua/custom/plugins/colorschemes.lua"
   "$HOME/.config/btop/btop.conf"
   "$HOME/.config/fcitx5/conf/classicui.conf"
   "$HOME/.config/waybar/colorscheme.css"
@@ -48,7 +48,7 @@ do
   nohup nvr --nostart --remote-send "colorscheme catppuccin-$switch_to<CR>" --servername "$file" &
 done
 
-# # NOTE: different approaches
+# NOTE: different approaches
 
 # Dunst
 dunst_path="$HOME/.config/dunst/dunstrc.d/99-theme.conf"
