@@ -16,21 +16,18 @@ case "$OS" in
 esac
 
 declare -a lowercase_paths=(
-  "$HOME/.config/alacritty/alacritty.toml"
-  "$HOME/.config/rofi/config.rasi"
-  "$HOME/.config/lvim/lua/user/builtin/init.lua"
-  "$HOME/.config/nvim/lua/custom/plugins/colorschemes.lua"
-  "$HOME/.config/btop/btop.conf"
-  "$HOME/.config/fcitx5/conf/classicui.conf"
-  "$HOME/.config/waybar/colorscheme.css"
-  "$HOME/.config/tmux/tmux.conf"
-  "$HOME/.config/bat/config"
-  "$HOME/.config/BetterDiscord/data/stable/custom.css"
-  "$HOME/.config/hypr/theme.conf"
+"$HOME/.config/alacritty/alacritty.toml"
+"$HOME/.config/rofi/config.rasi"
+"$HOME/.config/nvim/lua/custom/plugins/colorschemes.lua"
+"$HOME/.config/btop/btop.conf"
+"$HOME/.config/waybar/colorscheme.css"
+"$HOME/.config/tmux/tmux.conf"
+"$HOME/.config/bat/config"
+"$HOME/.config/hypr/theme.conf"
 )
 
 declare -a uppercase_paths=(
-  "$HOME/.config/Kvantum/kvantum.kvconfig" 
+"$HOME/.config/Kvantum/kvantum.kvconfig" 
 )
 
 for path in "${lowercase_paths[@]}"; do
@@ -51,9 +48,11 @@ done
 # NOTE: different approaches
 
 # Starship
-starship_path="$HOME/.config/starship.toml"
-$correct_sed --in-place --follow-symlinks "s/palette = \"catppuccin_$switch_from\"/palette = \"catppuccin_$switch_to\"/" "$starship_path"
-git-ignore-changes-for-file "$starship_path"
+if command -v starship >/dev/null 2>&1; then
+  starship_path="$HOME/.config/starship.toml"
+  $correct_sed --in-place --follow-symlinks "s/palette = \"catppuccin_$switch_from\"/palette = \"catppuccin_$switch_to\"/" "$starship_path"
+  git-ignore-changes-for-file "$starship_path"
+fi
 
 if command -v tmux >/dev/null 2>&1; then
   if pgrep -f "tmux" >/dev/null; then

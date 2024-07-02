@@ -14,8 +14,8 @@ sed --in-place --follow-symlinks "s/gtk-theme-name=.*/gtk-theme-name=$theme/" "$
 git-ignore-changes-for-file "$gtk4_config"
 
 # multiple gtk versions
-ln -fs /usr/share/themes/$theme/gtk-4.0/* ~/.config/gtk-4.0/
 ln -fs /usr/share/themes/$theme/gtk-3.0/* ~/.config/gtk-3.0/
+ln -fs /usr/share/themes/$theme/gtk-4.0/* ~/.config/gtk-4.0/
 
 gnome_schema="org.gnome.desktop.interface"
 gtk_theme="$(grep 'gtk-theme-name' "$gtk3_config" | sed 's/.*\s*=\s*//')"
