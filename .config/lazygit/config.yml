@@ -1,5 +1,7 @@
 disableStartupPopups: true
 notARepository: "skip"
+os:
+  editPreset: 'nvim-remote'
 gui:
   skipDiscardChangeWarning: true
   showIcons: true
