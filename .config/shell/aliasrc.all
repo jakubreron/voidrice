@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-# Use neovim/lvim for vim.
+# Use neovimfor vim.
 alias \
   vim="$EDITOR" \
   vimdiff="$EDITOR -d"
@@ -33,6 +33,7 @@ alias \
   tk='tmux kill-server' \
   nf="neofetch" \
   v="$EDITOR" \
+  vs="$EDITOR -S" \
   vw="$EDITOR $VIMWIKI_DIR/index.md" \
   ka="killall" \
   g="git" \

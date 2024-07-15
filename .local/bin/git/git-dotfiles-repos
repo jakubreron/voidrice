@@ -2,10 +2,6 @@
 
 set -euo pipefail
 
-# NOTE: single folders with echo
-echo "$LVIM_SHARE_DIR"
-echo "$LVIM_CONFIG_DIR"
-
 # NOTE: There's a faster way to find Git repositories, but this works for nested repos.
 # https://bit.ly/3pyUGDp
 find "$XDG_SRC_HOME" "$DOTFILES_DIR" -type d -exec test -e '{}/.git' ';' -print -prune
