@@ -1,22 +1,20 @@
 # bookmarks
-cfbf	    $XDG_CONFIG_HOME/shell/bm-files	# This file, a list of bookmarked files
-cfbd	    $XDG_CONFIG_HOME/shell/bm-dirs		# A list of bookmarked directories similar to this file
-cfbw	    $DOTFILES_DIR/universal/.config/bm-websites       # A list of boookmarked websites
+cfbf     $XDG_CONFIG_HOME/shell/bm-files
+cfbd     $XDG_CONFIG_HOME/shell/bm-dirs
+cfbw     $DOTFILES_DIR/universal/.config/bm-websites
 
 # system
-cfz	      $ZDOTDIR/.zshrc
-cfa	      $XDG_CONFIG_HOME/shell/aliasrc
-cfA	      $XDG_CONFIG_HOME/alacritty/alacritty.toml
-cfp	      $XDG_CONFIG_HOME/shell/profile
-cfh	      $XDG_CONFIG_HOME/hypr/hyprland.conf
-cfww      $XDG_CONFIG_HOME/waybar/config.jsonc
-cfws      $XDG_CONFIG_HOME/waybar/style.css
-cfl	      $XDG_CONFIG_HOME/lf/lfrc
-cftm      $XDG_CONFIG_HOME/tmux/tmux.conf
-cfti      $XDG_CONFIG_HOME/ticker/.ticker.yaml
-cfg	      $DOTFILES_DIR/universal/.config/git/config
+cfz      $ZDOTDIR/.zshrc
+cfa      $XDG_CONFIG_HOME/shell/aliasrc
+cfA      $XDG_CONFIG_HOME/alacritty/alacritty.toml
+cfp      $XDG_CONFIG_HOME/shell/profile
+cfh      $XDG_CONFIG_HOME/hypr/hyprland.conf
+cfww     $XDG_CONFIG_HOME/waybar/config.jsonc
+cfws     $XDG_CONFIG_HOME/waybar/style.css
+cfl      $XDG_CONFIG_HOME/lf/lfrc
+cftm     $XDG_CONFIG_HOME/tmux/tmux.conf
+cfti     $XDG_CONFIG_HOME/ticker/.ticker.yaml
+cfg      $DOTFILES_DIR/universal/.config/git/config
 
 # vim
-cflv      $LVIM_CONFIG_DIR/config.lua
-cflvp     $LVIM_CONFIG_DIR/lua/user/plugins/init.lua
-cfnv      $XDG_CONFIG_HOME/nvim/init.lua
+cfnv     $XDG_CONFIG_HOME/nvim/init.lua

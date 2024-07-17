@@ -1,56 +1,43 @@
-Dw      $XDG_DOWNLOAD_DIR
-Pi      $XDG_PICTURES_DIR
-Vi      $XDG_VIDEOS_DIR
+Dw $XDG_DOWNLOAD_DIR
+Pi $XDG_PICTURES_DIR
+Vi $XDG_VIDEOS_DIR
+Do $XDG_DOCUMENTS_DIR
+Mu $XDG_MUSIC_DIR
 
-Do      $XDG_DOCUMENTS_DIR
+Tr $TORRENTS_DIR
 
-Tr      $TORRENTS_DIR
+Pr $PROJECTS_DIR
+Prw $PROJECTS_DIR/work
+Prp $PROJECTS_DIR/personal
 
-Mu      $XDG_MUSIC_DIR
+Cl $CLOUD_DIR/
+Clb $CLOUD_DIR/Backups
+Cld $CLOUD_DIR/Documents
+Cldb $CLOUD_DIR/Documents/Books
+Clp $CLOUD_DIR/Pictures
+Clpw $CLOUD_DIR/Pictures/Wallpapers
+Clv $CLOUD_DIR/Videos
 
-Pr      $PROJECTS_DIR
-Prw      $PROJECTS_DIR/work
-Prp      $PROJECTS_DIR/personal
+Cf $XDG_CONFIG_HOME
+Cft $XDG_CONFIG_HOME/tmux
+Cfz $XDG_CONFIG_HOME/zsh
+Cfh $XDG_CONFIG_HOME/hypr
+Cfw $XDG_CONFIG_HOME/waybar
 
-Cl      $CLOUD_DIR/
-Clb     $CLOUD_DIR/Backups
-Cld     $CLOUD_DIR/Documents
-Cldb    $CLOUD_DIR/Documents/Books
-Clp     $CLOUD_DIR/Pictures
-Clpw    $CLOUD_DIR/Pictures/Wallpapers
-Clv     $CLOUD_DIR/Videos
+Cfd $DOTFILES_DIR
+Cfdp $PKGLIST_DIR
+Cfdu $DOTFILES_DIR/universal
+Cfdv $DOTFILES_DIR/voidrice
+Cfdm $DOTFILES_DIR/macos
 
-Cf      $XDG_CONFIG_HOME
-Cft     $XDG_CONFIG_HOME/tmux
-Cfz     $XDG_CONFIG_HOME/zsh
+Cfnv $XDG_CONFIG_HOME/nvim
 
-Cfh     $XDG_CONFIG_HOME/hypr
-Cfw     $XDG_CONFIG_HOME/waybar
+Lbn $XDG_BIN_HOME
+Lsr $XDG_SRC_HOME
+Lst $XDG_STATE_HOME
+Lsh $XDG_DATA_HOME
 
-Cflv    $LVIM_CONFIG_DIR
-Cfnv    $XDG_CONFIG_HOME/nvim
+Ca $XDG_CACHE_HOME
 
-Cfd     $DOTFILES_DIR
-Cfdp    $PKGLIST_DIR
-Cfdu    $DOTFILES_DIR/universal
-Cfdv    $DOTFILES_DIR/voidrice
-Cfdm    $DOTFILES_DIR/macos
-
-Lbn     $XDG_BIN_HOME
-Lbns    $XDG_BIN_HOME/statusbar
-Lbng    $XDG_BIN_HOME/git
-
-Lst     $XDG_STATE_HOME
-Lsh     $XDG_DATA_HOME
-Lshlv   $LVIM_SHARE_DIR
-
-Lsr     $XDG_SRC_HOME
-Lsrdw   $XDG_SRC_HOME/dwm
-Lsrdb   $XDG_SRC_HOME/dwmblocks
-Lsrdm   $XDG_SRC_HOME/dmenu
-Lsrst   $XDG_SRC_HOME/st
-
-Php     /etc/php/
-Phpc    /etc/php/conf.d
-
-Ca      $XDG_CACHE_HOME
+Php /etc/php/
+Phpc /etc/php/conf.d

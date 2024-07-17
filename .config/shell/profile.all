@@ -44,8 +44,6 @@ export PROJECTS_DIR="$XDG_DOCUMENTS_DIR/Projects"
 export DOTFILES_DIR="$XDG_CONFIG_HOME/dotfiles"
 export PKGLIST_DIR="$DOTFILES_DIR/pkglists"
 
-export LVIM_CONFIG_DIR="$XDG_CONFIG_HOME/lvim"
-export LVIM_SHARE_DIR="$XDG_DATA_HOME/lunarvim/lvim"
 export VIMWIKI_DIR="$DOTFILES_DIR/universal/Documents/VimWiki"
 
 # NOTE: ZSH
