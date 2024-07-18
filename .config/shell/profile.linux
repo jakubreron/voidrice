@@ -16,7 +16,6 @@ export STARTUP_DESKTOP="Wayland"
 export LOCATION="Tokyo" # necessary for scripts like get-weather
 
 # NOTE: keyboard
-export GTK_IM_MODULE='fcitx'
 export QT_IM_MODULE='fcitx'
 export SDL_IM_MODULE='fcitx'
 export XMODIFIERS='@im=fcitx'
