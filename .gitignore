@@ -34,6 +34,8 @@ shortcuts.vim
 .config/gtk-2.0
 .config/gtk-3.0
 
+!.npmrc
+
 .config/BetterDiscord/data/stable/windowprefs.json
 
 .config/fcitx5/conf/cached_layouts
