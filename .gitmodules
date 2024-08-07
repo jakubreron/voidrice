@@ -43,3 +43,6 @@
 [submodule ".config/kitty/themes/catppuccin"]
 	path = .config/kitty/themes/catppuccin
 	url = https://github.com/catppuccin/kitty
+[submodule ".config/firefox/betterfox"]
+	path = .config/firefox/betterfox
+	url = https://github.com/yokoffing/Betterfox.git
