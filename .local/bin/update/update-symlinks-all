@@ -15,9 +15,10 @@ replace_dotfiles_symlinks() {
 }
 
 replace_firefox_symlinks() {
-  dotfiles_userjs_path="$DOTFILES_DIR/voidrice/.config/firefox/larbs.js"
+  dotfiles_userjs_overrides_path="$DOTFILES_DIR/voidrice/.config/firefox/user-overrides.js"
+  dotfiles_userjs_path="$DOTFILES_DIR/voidrice/.config/firefox/betterfox/user.js"
 
-  if [ -f "$dotfiles_userjs_path" ]; then
+  if [ -f "$dotfiles_userjs_overrides_path" ]; then
     log-pretty-message "Updating firefox symlinks"
 
     case "$(uname -s)" in
@@ -27,12 +28,16 @@ replace_firefox_symlinks() {
         profile="$(sed -n "/Default=.*.dev-edition-default/ s/.*=//p" "$browser_profiles_ini_dir")"
         browser_profile_dir="$browser_dir/$profile"
         overrides="$browser_profile_dir/user-overrides.js"
+        userjs="$browser_profile_dir/user.js"
 
-        [ -d "$browser_profile_dir" ] && ln -sf "$dotfiles_userjs_path" "$overrides"
+        if [ -d "$browser_profile_dir" ]; then
+          ln -sf "$dotfiles_userjs_overrides_path" "$overrides"
+          ln -sf "$dotfiles_userjs_path" "$userjs"
+        fi
         ;;
       Darwin)
         firefox_userjs_path="$HOME/Library/Application\ Support/Firefox/Profiles/*.default-*"
-        [ -d "$firefox_userjs_path" ] && ln -sf "$dotfiles_userjs_path" "$firefox_userjs_path/user-overrides.js"
+        [ -d "$firefox_userjs_path" ] && ln -sf "$dotfiles_userjs_overrides_path" "$firefox_userjs_path/user-overrides.js"
         ;;
     esac
   fi

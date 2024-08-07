@@ -7,7 +7,6 @@ user_pref("signon.rememberSignons", false);
 user_pref("browser.download.autohideButton", true); // [FF57+]
 
 /* UX BEHAVIOR ***/
-user_pref("general.autoScroll", false); // middle-click enabling auto-scrolling [DEFAULT: false on Linux]
 user_pref("ui.key.menuAccessKey", 0); // disable alt key toggling the menu bar [RESTART]
 
 /* UX FEATURES ***/
