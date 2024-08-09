@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-if [[  "$STARTUP_DESKTOP" = "Wayland" ]]; then
+if [[  "$XDG_SESSION_TYPE" = "Wayland" ]]; then
   hyprctl --batch "keyword monitor desc:LG Electronics LG Monitor 0x01010101,highres,0x0,1.6 ; keyword monitor desc:Samsung Display Corp. 0x4193,disabled"
 fi
 notify-send "🖥️ External Display"

@@ -12,7 +12,6 @@ export PATH
 unset bin_list
 
 # NOTE: base settings
-export STARTUP_DESKTOP="Wayland"
 export LOCATION="Tokyo" # necessary for scripts like get-weather
 
 # NOTE: keyboard
@@ -52,7 +51,7 @@ export PACKAGE_TYPE="primary"
 
 [ ! -f $XDG_CONFIG_HOME/.config/shell/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
 
-if [[ "$STARTUP_DESKTOP" = 'Wayland' ]]; then
+if [[ "$XDG_SESSION_TYPE" = 'Wayland' ]]; then
   export GDK_BACKEND="wayland,x11,*"
   export QT_QPA_PLATFORM="wayland;xcb"
   export SDL_VIDEODRIVER="wayland"
@@ -65,8 +64,6 @@ if [[ "$STARTUP_DESKTOP" = 'Wayland' ]]; then
 
   export SDL_VIDEODRIVER="wayland"
   export MOZ_ENABLE_WAYLAND=1
-
-  export WLR_NO_HARDWARE_CURSORS=1
 
   if [ -z $DISPLAY ] && [ $(tty) = "/dev/tty1" ]; then
     Hyprland
