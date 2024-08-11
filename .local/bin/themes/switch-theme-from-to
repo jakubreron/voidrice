@@ -62,7 +62,7 @@ fi
 
 if command -v dunst >/dev/null 2>&1; then
   dunst_path="$HOME/.config/dunst/dunstrc.d/99-theme.conf"
-  ln -fs ~/.config/dunst/themes/catppuccin/src/$switch_to.conf "$dunst_path"
+  ln -fs ~/.config/dunst/themes/catppuccin/themes/$switch_to.conf "$dunst_path"
   git-ignore-changes-for-file "$dunst_path"
 
   if pgrep -f "dunst" >/dev/null; then
