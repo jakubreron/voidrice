@@ -27,17 +27,22 @@ replace_firefox_symlinks() {
         browser_profiles_ini_dir="$browser_dir/profiles.ini"
         profile="$(sed -n "/Default=.*.dev-edition-default/ s/.*=//p" "$browser_profiles_ini_dir")"
         browser_profile_dir="$browser_dir/$profile"
-        overrides="$browser_profile_dir/user-overrides.js"
-        userjs="$browser_profile_dir/user.js"
 
         if [ -d "$browser_profile_dir" ]; then
-          ln -sf "$dotfiles_userjs_overrides_path" "$overrides"
-          ln -sf "$dotfiles_userjs_path" "$userjs"
+          ln -sf "$dotfiles_userjs_overrides_path" "$browser_profile_dir/user-overrides.js"
+          ln -sf "$dotfiles_userjs_path" "$browser_profile_dir/user.js"
         fi
         ;;
       Darwin)
-        firefox_userjs_path="$HOME/Library/Application\ Support/Firefox/Profiles/*.default-*"
-        [ -d "$firefox_userjs_path" ] && ln -sf "$dotfiles_userjs_overrides_path" "$firefox_userjs_path/user-overrides.js"
+        browser_dir="$HOME/Library/Application Support/Firefox"
+        browser_profiles_ini_dir="$browser_dir/profiles.ini"
+        profile="$(sed -n "/Default=.*.default-release/ s/.*=//p" "$browser_profiles_ini_dir")"
+        browser_profile_dir="$browser_dir/$profile"
+
+        if [ -d "$browser_profile_dir" ]; then
+          ln -sf "$dotfiles_userjs_overrides_path" "$browser_profile_dir/user-overrides.js"
+          ln -sf "$dotfiles_userjs_path" "$browser_profile_dir/user.js"
+        fi
         ;;
     esac
   fi
