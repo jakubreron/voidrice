@@ -36,3 +36,5 @@ export CLI_MUSIC_PLAYER="ncmpcpp"
 export PACKAGE_TYPE="work"
 export PACKAGE_MANAGER="brew"
 export NODE_OPTIONS="--max-old-space-size=8192"
+
+
