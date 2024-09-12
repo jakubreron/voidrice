@@ -170,32 +170,56 @@ cmd convert ${{
 	convert $fx $name
 }}
 
-cmd run_scripts ${{
-  script=$(cat package.json | jq -r '.scripts | keys[] ' | sort | fzf --height 20%) && nr $(echo "$script")
-}}
-
-cmd bulkrename ${{
-    tmpfile_old="$(mktemp)"
-    tmpfile_new="$(mktemp)"
-
-    [ -n "$fs" ] && fs=$(basename -a $fs) || fs=$(ls)
-
-    echo "$fs" > "$tmpfile_old"
-    echo "$fs" > "$tmpfile_new"
-    $EDITOR "$tmpfile_new"
-
-    [ "$(wc -l < "$tmpfile_old")" -eq "$(wc -l < "$tmpfile_new")" ] || { rm -f "$tmpfile_old" "$tmpfile_new"; exit 1; }
-
-    paste "$tmpfile_old" "$tmpfile_new" | while IFS="$(printf '\t')" read -r src dst
-    do
-        [ "$src" = "$dst" ] || [ -e "$dst" ] || mv -- "$src" "$dst"
+cmd bulk_rename ${{
+    old="$(mktemp)"
+    new="$(mktemp)"
+    if [ -n "$fs" ]; then
+        fs="$(basename -a -- $fs)"
+    else
+        fs="$(ls)"
+    fi
+    printf '%s\n' "$fs" > "$old"
+    printf '%s\n' "$fs" > "$new"
+    $EDITOR "$new"
+    [ "$(wc -l < "$new")" -ne "$(wc -l < "$old")" ] && exit
+    paste "$old" "$new" | while IFS= read -r names; do
+        src="$(printf '%s' "$names" | cut -f1)"
+        dst="$(printf '%s' "$names" | cut -f2)"
+        if [ "$src" = "$dst" ] || [ -e "$dst" ]; then
+            continue
+        fi
+        mv -- "$src" "$dst"
     done
-
-    rm -f "$tmpfile_old" "$tmpfile_new"
+    rm -- "$old" "$new"
     lf -remote "send $id unselect"
 }}
 
 cmd open_in_new_terminal $setsid -f $TERMINAL >/dev/null 2>&1
+
+cmd follow_link %{{
+  lf -remote "send $id select \"$(readlink -- "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
+}}
+
+# y (select for copy) and P to paste soft-link
+# d (select for cut) and P to paste hard-link
+cmd link %{{
+    set -- $(cat ~/.local/share/lf/files)
+    mode="$1"
+    shift
+    if [ "$#" -lt 1 ]; then
+        lf -remote "send $id echo no files to link"
+        exit
+    fi
+    case "$mode" in
+        # symbolically copy mode is indicating a soft link
+        copy) ln -sr -t . -- "$@";;
+        # while a move mode is indicating a hard link
+        move) ln -t . -- "$@";;
+    esac
+    rm ~/.local/share/lf/files
+    lf -remote "send clear"
+}}
+
 
 # Bindings
 map J fzf_jump
@@ -205,11 +229,12 @@ map E extract
 map M moveto
 map C copyto
 map U set hidden!
+map P :link
 
+map gl follow_link
 map ge encrypt
 map gd decrypt
 map gc convert
-map gx run_scripts
 
 map Sw share
 map Sk kdeconnect
@@ -227,7 +252,7 @@ map O $mimeopen --ask "$f"
 
 # Renames
 map r push A<c-u> # new rename
-map R bulkrename
+map R bulk_rename
 
 map i :rename # before extension
 map I :rename; cmd-home # at the very beginning
