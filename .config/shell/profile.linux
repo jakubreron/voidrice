@@ -38,7 +38,6 @@ export GUI_IMAGE_VIEWER="loupe"
 export GUI_MAIL_CLIENT="geary"
 
 # NOTE: CLI programs that could be GUI
-export CLI_FILE_EXPLORER="lfub"
 export CLI_MAIL_CLIENT="neomutt"
 export CLI_MUSIC_PLAYER="ncmpcpp"
 export CLI_NETWORK_MANAGER="nmtui"

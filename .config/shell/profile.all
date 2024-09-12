@@ -15,6 +15,7 @@ export EDITOR="nvim"
 export GIT_EDITOR="$EDITOR"
 export SUDO_EDITOR="/usr/bin/nvim"
 
+export CLI_FILE_EXPLORER="lf"
 export CLI_SYSTEM_MONITOR="btop"
 export CLI_STOCKS_APP="ticker"
 export CLI_CRYPTO_APP="cointop"

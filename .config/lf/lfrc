@@ -32,6 +32,16 @@ set info size:time
 set autoquit true
 set statfmt "\033[7;31m %p \033[32m %c \033[33m %u %g \033[34m %s \033[35m %t |\033[36m -> %l |\033[0m"
 
+cmd on-redraw %{{
+    if [ "$lf_width" -le 80 ]; then
+        lf -remote "send $id set ratios 1:2"
+    elif [ "$lf_width" -le 160 ]; then
+        lf -remote "send $id set ratios 1:2:3"
+    else
+        lf -remote "send $id set ratios 1:2:3:5"
+    fi
+}}
+
 cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -b) in
 	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
@@ -131,7 +141,12 @@ cmd share ${{
 
 cmd fzf_search $lf -remote "send $id select \"$(fzf)\""
 
-cmd mkdir $mkdir -p "$@"
+cmd mkdir %{{
+    IFS=" "
+    file="$*"
+    mkdir -p -- "$file"
+    lf -remote "send $id select \"$(printf '%s' "$file" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
+}}
 
 cmd encrypt $gpg -c --no-symkey-cache --cipher-algo AES256 $f
 cmd decrypt $gpg $f
@@ -200,27 +215,6 @@ cmd follow_link %{{
   lf -remote "send $id select \"$(readlink -- "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
 }}
 
-# y (select for copy) and P to paste soft-link
-# d (select for cut) and P to paste hard-link
-cmd link %{{
-    set -- $(cat ~/.local/share/lf/files)
-    mode="$1"
-    shift
-    if [ "$#" -lt 1 ]; then
-        lf -remote "send $id echo no files to link"
-        exit
-    fi
-    case "$mode" in
-        # symbolically copy mode is indicating a soft link
-        copy) ln -sr -t . -- "$@";;
-        # while a move mode is indicating a hard link
-        move) ln -t . -- "$@";;
-    esac
-    rm ~/.local/share/lf/files
-    lf -remote "send clear"
-}}
-
-
 # Bindings
 map J fzf_jump
 map V push :!$EDITOR<space>
@@ -229,7 +223,6 @@ map E extract
 map M moveto
 map C copyto
 map U set hidden!
-map P :link
 
 map gl follow_link
 map ge encrypt
