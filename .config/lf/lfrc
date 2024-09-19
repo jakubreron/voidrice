@@ -32,6 +32,16 @@ set info size:time
 set autoquit true
 set statfmt "\033[7;31m %p \033[32m %c \033[33m %u %g \033[34m %s \033[35m %t |\033[36m -> %l |\033[0m"
 
+cmd on-redraw %{{
+    if [ "$lf_width" -le 80 ]; then
+        lf -remote "send $id set ratios 1:2"
+    elif [ "$lf_width" -le 160 ]; then
+        lf -remote "send $id set ratios 1:2:3"
+    else
+        lf -remote "send $id set ratios 1:2:3:5"
+    fi
+}}
+
 cmd open ${{
     case $(file --mime-type "$(readlink -f $f)" -b) in
 	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
@@ -131,7 +141,12 @@ cmd share ${{
 
 cmd fzf_search $lf -remote "send $id select \"$(fzf)\""
 
-cmd mkdir $mkdir -p "$@"
+cmd mkdir %{{
+    IFS=" "
+    file="$*"
+    mkdir -p -- "$file"
+    lf -remote "send $id select \"$(printf '%s' "$file" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
+}}
 
 cmd encrypt $gpg -c --no-symkey-cache --cipher-algo AES256 $f
 cmd decrypt $gpg $f
@@ -170,32 +185,35 @@ cmd convert ${{
 	convert $fx $name
 }}
 
-cmd run_scripts ${{
-  script=$(cat package.json | jq -r '.scripts | keys[] ' | sort | fzf --height 20%) && nr $(echo "$script")
-}}
-
-cmd bulkrename ${{
-    tmpfile_old="$(mktemp)"
-    tmpfile_new="$(mktemp)"
-
-    [ -n "$fs" ] && fs=$(basename -a $fs) || fs=$(ls)
-
-    echo "$fs" > "$tmpfile_old"
-    echo "$fs" > "$tmpfile_new"
-    $EDITOR "$tmpfile_new"
-
-    [ "$(wc -l < "$tmpfile_old")" -eq "$(wc -l < "$tmpfile_new")" ] || { rm -f "$tmpfile_old" "$tmpfile_new"; exit 1; }
-
-    paste "$tmpfile_old" "$tmpfile_new" | while IFS="$(printf '\t')" read -r src dst
-    do
-        [ "$src" = "$dst" ] || [ -e "$dst" ] || mv -- "$src" "$dst"
+cmd bulk_rename ${{
+    old="$(mktemp)"
+    new="$(mktemp)"
+    if [ -n "$fs" ]; then
+        fs="$(basename -a -- $fs)"
+    else
+        fs="$(ls)"
+    fi
+    printf '%s\n' "$fs" > "$old"
+    printf '%s\n' "$fs" > "$new"
+    $EDITOR "$new"
+    [ "$(wc -l < "$new")" -ne "$(wc -l < "$old")" ] && exit
+    paste "$old" "$new" | while IFS= read -r names; do
+        src="$(printf '%s' "$names" | cut -f1)"
+        dst="$(printf '%s' "$names" | cut -f2)"
+        if [ "$src" = "$dst" ] || [ -e "$dst" ]; then
+            continue
+        fi
+        mv -- "$src" "$dst"
     done
-
-    rm -f "$tmpfile_old" "$tmpfile_new"
+    rm -- "$old" "$new"
     lf -remote "send $id unselect"
 }}
 
 cmd open_in_new_terminal $setsid -f $TERMINAL >/dev/null 2>&1
+
+cmd follow_link %{{
+  lf -remote "send $id select \"$(readlink -- "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
+}}
 
 # Bindings
 map J fzf_jump
@@ -206,10 +224,10 @@ map M moveto
 map C copyto
 map U set hidden!
 
+map gl follow_link
 map ge encrypt
 map gd decrypt
 map gc convert
-map gx run_scripts
 
 map Sw share
 map Sk kdeconnect
@@ -227,7 +245,7 @@ map O $mimeopen --ask "$f"
 
 # Renames
 map r push A<c-u> # new rename
-map R bulkrename
+map R bulk_rename
 
 map i :rename # before extension
 map I :rename; cmd-home # at the very beginning
