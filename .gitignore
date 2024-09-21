@@ -47,3 +47,4 @@ shortcuts.vim
 
 .local/share/applications/mimeinfo.cache
 .local/share/applications/appimagekit*
+.local/share/applications/*
