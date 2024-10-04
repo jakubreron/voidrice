@@ -20,9 +20,9 @@ config.window_padding = {
 }
 
 config.font = wezterm.font("JetBrains Mono")
-config.font_size = 12
+config.font_size = 12.5
 
--- config.disable_default_key_bindings = true
+config.disable_default_key_bindings = true
 
 -- and finally, return the configuration to wezterm
 return config
