@@ -22,12 +22,11 @@ declare -a lowercase_paths=(
 "$HOME/.config/btop/btop.conf"
 "$HOME/.config/waybar/colorscheme.css"
 "$HOME/.config/tmux/tmux.conf"
-"$HOME/.config/bat/config"
 "$HOME/.config/hypr/theme.conf"
 )
 
 declare -a uppercase_paths=(
-"$HOME/.config/Kvantum/kvantum.kvconfig" 
+"$HOME/.config/bat/config"
 )
 
 for path in "${lowercase_paths[@]}"; do
@@ -67,6 +66,12 @@ if command -v dunst >/dev/null 2>&1; then
 
   if pgrep -f "dunst" >/dev/null; then
     killall dunst && sleep 1 && nohup dunst &
+  fi
+fi
+
+if command -v waybar >/dev/null 2>&1; then
+  if pgrep -f "waybar" >/dev/null; then
+    killall waybar && sleep 1 && nohup waybar &
   fi
 fi
 
