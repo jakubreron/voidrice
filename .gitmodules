@@ -34,15 +34,9 @@
 [submodule ".config/fcitx5/themes/catppuccin"]
 	path = .config/fcitx5/themes/catppuccin
 	url = https://github.com/catppuccin/fcitx5.git
-[submodule ".config/bat/themes/catppuccin"]
-	path = .config/bat/themes/catppuccin
-	url = https://github.com/catppuccin/bat
 [submodule ".config/alacritty/themes/alacritty-theme"]
 	path = .config/alacritty/themes/alacritty-theme
 	url = https://github.com/alacritty/alacritty-theme
-[submodule ".config/kitty/themes/catppuccin"]
-	path = .config/kitty/themes/catppuccin
-	url = https://github.com/catppuccin/kitty
 [submodule ".config/firefox/betterfox"]
 	path = .config/firefox/betterfox
 	url = https://github.com/yokoffing/Betterfox.git
