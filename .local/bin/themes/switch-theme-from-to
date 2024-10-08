@@ -2,9 +2,17 @@
 
 OS="$(uname -s)"
 
-# NOTE: can be mocha, latte, macchiato, frappe
-switch_from="${1:-frappe}"
-switch_to="${2:-latte}"
+cli_switch_from="${1:-dark}"
+cli_switch_to="${2:-light}"
+
+if [[ $cli_switch_from = "dark"  ]]; then
+  other_switch_from="mocha"
+  other_switch_to="latte"
+else
+  other_switch_from="latte"
+  other_switch_to="mocha"
+fi
+
 
 case "$OS" in
   Darwin)
@@ -15,44 +23,38 @@ case "$OS" in
     ;;
 esac
 
-declare -a lowercase_paths=(
+declare -a cli_paths=(
 "$HOME/.config/alacritty/alacritty.toml"
-"$HOME/.config/rofi/config.rasi"
 "$HOME/.config/nvim/lua/custom/plugins/colorschemes.lua"
 "$HOME/.config/btop/btop.conf"
-"$HOME/.config/waybar/colorscheme.css"
 "$HOME/.config/tmux/tmux.conf"
-"$HOME/.config/hypr/theme.conf"
-)
-
-declare -a uppercase_paths=(
 "$HOME/.config/bat/config"
 )
 
-for path in "${lowercase_paths[@]}"; do
-  $correct_sed --in-place --follow-symlinks "0,/$switch_from/s//$switch_to/" "$path"
+declare -a other_paths=(
+"$HOME/.config/rofi/config.rasi"
+"$HOME/.config/waybar/colorscheme.css"
+"$HOME/.config/hypr/theme.conf"
+)
+
+
+for path in "${cli_paths[@]}"; do
+  $correct_sed --in-place --follow-symlinks "0,/$cli_switch_from/s//$cli_switch_to/" "$path"
   git-ignore-changes-for-file "$path"
 done
 
-for path in "${uppercase_paths[@]}"; do
-  $correct_sed --in-place --follow-symlinks "s/${switch_from^}/${switch_to^}/" "$path"
+for path in "${other_paths[@]}"; do
+  $correct_sed --in-place --follow-symlinks "0,/$other_switch_from/s//$other_switch_to/" "$path"
   git-ignore-changes-for-file "$path"
 done
 
-find /run/user/1000 -maxdepth 1 -regex '/run/user/1000/.*vim.*' | while read -r file
-do
-  nohup nvr --nostart --remote-send "colorscheme catppuccin-$switch_to<CR>" --servername "$file" &
+for s in $(nvr --serverlist); do
+    test ! -S "$s" && continue
+    nvr --nostart --servername "$s" --remote-expr "execute('set background=$cli_switch_to')"
 done
+
 
 # NOTE: different approaches
-
-# Starship
-if command -v starship >/dev/null 2>&1; then
-  starship_path="$HOME/.config/starship.toml"
-  $correct_sed --in-place --follow-symlinks "s/palette = \"catppuccin_$switch_from\"/palette = \"catppuccin_$switch_to\"/" "$starship_path"
-  git-ignore-changes-for-file "$starship_path"
-fi
-
 if command -v tmux >/dev/null 2>&1; then
   if pgrep -f "tmux" >/dev/null; then
     tmux source-file ~/.config/tmux/tmux.conf
@@ -61,7 +63,7 @@ fi
 
 if command -v dunst >/dev/null 2>&1; then
   dunst_path="$HOME/.config/dunst/dunstrc.d/99-theme.conf"
-  ln -fs ~/.config/dunst/themes/catppuccin/themes/$switch_to.conf "$dunst_path"
+  ln -fs ~/.config/dunst/themes/catppuccin/themes/$other_switch_to.conf "$dunst_path"
   git-ignore-changes-for-file "$dunst_path"
 
   if pgrep -f "dunst" >/dev/null; then
@@ -76,6 +78,6 @@ if command -v waybar >/dev/null 2>&1; then
 fi
 
 # NOTE: it reloads the border colors, but also refreshes the layouts
-# if command -v hyprctl >/dev/null 2>&1; then
-#   hyprctl reload
-# fi
+if command -v hyprctl >/dev/null 2>&1; then
+  hyprctl reload
+fi

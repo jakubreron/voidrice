@@ -4,6 +4,8 @@ local wezterm = require("wezterm")
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
+config.color_scheme = "Gruvbox (Gogh)"
+
 -- This is where you actually apply your config choices
 config.set_environment_variables = {
 	TERM = "xterm-256color",
@@ -22,7 +24,7 @@ config.window_padding = {
 config.font = wezterm.font("JetBrains Mono")
 config.font_size = 12.5
 
-config.disable_default_key_bindings = true
+-- config.disable_default_key_bindings = true
 
 -- and finally, return the configuration to wezterm
 return config
