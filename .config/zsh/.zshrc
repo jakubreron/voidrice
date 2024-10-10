@@ -5,12 +5,9 @@
 
 # General
 stty stop undef	# Disable ctrl-s to freeze terminal.
-setopt LIST_PACKED
 
-# History
-setopt HIST_FCNTL_LOCK    # Use system’s fcntl call where available (better performance)
-setopt INC_APPEND_HISTORY # Write to the history file immediately, not when the shell exits.
-setopt SHARE_HISTORY      # Share history between all sessions.
+setopt LIST_PACKED # Try to make the completion list smaller (occupying less lines) by printing the matches in columns with different widths.
+setopt HIST_FCNTL_LOCK  # Use system’s fcntl call where available (better performance)
 
 plug "$XDG_CONFIG_HOME/shell/aliasrc"
 plug "$XDG_CONFIG_HOME/shell/shortcutrc"

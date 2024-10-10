@@ -3,7 +3,6 @@
 .config/mpv/watch_later
 
 .config/zsh/.zcompdump*
-.config/zsh/.zsh_history
 .config/zsh/.chpwd-recent-dirs
 .config/shell/zshnameddirrc
 

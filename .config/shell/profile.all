@@ -37,6 +37,9 @@ export XDG_SRC_HOME="$HOME/.local/src"
 export XDG_BIN_HOME="$HOME/.local/bin"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+# NOTE: ZSH
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
 # NOTE: custom dirs
 export CLOUD_DIR="$HOME/Cloud"
 export TORRENTS_DIR="$XDG_DOCUMENTS_DIR/Torrents"
@@ -46,14 +49,6 @@ export DOTFILES_DIR="$XDG_CONFIG_HOME/dotfiles"
 export PKGLIST_DIR="$DOTFILES_DIR/pkglists"
 
 export VIMWIKI_DIR="$DOTFILES_DIR/universal/Documents/VimWiki"
-
-# NOTE: ZSH
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-export HISTFILE="$ZDOTDIR/.zsh_history"
-export HISTSIZE=100000
-export HISTIGNORE="ls:ps:history"
-export SAVEHIST=100000
-export YSU_MESSAGE_POSITION="after"
 
 # NOTE: other settings
 export MANPAGER="$EDITOR +Man!"
