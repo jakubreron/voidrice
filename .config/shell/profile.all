@@ -23,6 +23,9 @@ export CLI_GIT_APP="lazygit"
 export CLI_DOCKER_APP="lazydocker"
 export CLI_NETWORK_TRAFFIC="bmon"
 
+# NOTE: ZSH
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+
 # NOTE: XDG dirs
 export XDG_DOCUMENTS_DIR="$HOME/Documents"
 export XDG_DOWNLOAD_DIR="$HOME/Downloads"
@@ -46,14 +49,6 @@ export DOTFILES_DIR="$XDG_CONFIG_HOME/dotfiles"
 export PKGLIST_DIR="$DOTFILES_DIR/pkglists"
 
 export VIMWIKI_DIR="$DOTFILES_DIR/universal/Documents/VimWiki"
-
-# NOTE: ZSH
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-export HISTFILE="$ZDOTDIR/.zsh_history"
-export HISTSIZE=100000
-export HISTIGNORE="ls:ps:history"
-export SAVEHIST=100000
-export YSU_MESSAGE_POSITION="after"
 
 # NOTE: other settings
 export MANPAGER="$EDITOR +Man!"

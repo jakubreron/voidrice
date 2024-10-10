@@ -28,3 +28,12 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 zstyle ':fzf-tab:*' switch-group '<' '>'
 
 plug "jakubreron/exa" # WARNING: needs to be loaded after supercharge
+
+HISTFILE="$XDG_CACHE_HOME/zsh/.zsh_history"
+HISTSIZE=100000
+SAVEHIST=100000
+HISTIGNORE="ls:ps:history"
+YSU_MESSAGE_POSITION="after"
+
+setopt INC_APPEND_HISTORY # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY      # Share history between all sessions.
