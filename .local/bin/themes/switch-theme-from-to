@@ -48,10 +48,12 @@ for path in "${other_paths[@]}"; do
   git-ignore-changes-for-file "$path"
 done
 
-for s in $(nvr --serverlist); do
-    test ! -S "$s" && continue
-    nvr --nostart --servername "$s" --remote-expr "execute('set background=$cli_switch_to')"
-done
+if pgrep -f "neovim" >/dev/null; then
+  for s in $(nvr --serverlist); do
+      test ! -S "$s" && continue
+      nvr --nostart --servername "$s" --remote-send ":set background=$cli_switch_to<CR>"
+  done
+fi
 
 
 # NOTE: different approaches
