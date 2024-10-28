@@ -1,4 +1,5 @@
-import = ["/home/jakub/.config/alacritty/themes/alacritty-theme/themes/gruvbox_light.toml"]
+[general]
+import = ["/Users/ts-jakub.reron/.config/alacritty/themes/alacritty-theme/themes/gruvbox_light.toml"]
 
 [colors]
 draw_bold_text_with_bright_colors = true
