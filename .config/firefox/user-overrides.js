@@ -18,3 +18,7 @@ user_pref("full-screen-api.warning.timeout", 0); // disable "... is now fullscre
 
 // 0=blank, 1=home, 2=last visited page, 3=resume previous session
 user_pref("browser.startup.page", 3); // default 0
+
+// PREF: use native title bar buttons [LINUX]
+// [1] https://github.com/yokoffing/Betterfox/issues/320
+user_pref("widget.gtk.non-native-titlebar-buttons.enabled", true);
