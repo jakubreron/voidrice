@@ -5,7 +5,7 @@ import = ["/home/jakub/.config/alacritty/themes/alacritty-theme/themes/gruvbox_l
 draw_bold_text_with_bright_colors = true
 
 [font]
-size = 13
+size = 12.5
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
