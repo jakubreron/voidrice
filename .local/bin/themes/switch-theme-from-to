@@ -48,13 +48,10 @@ for path in "${other_paths[@]}"; do
   git-ignore-changes-for-file "$path"
 done
 
-if pgrep -f "neovim" >/dev/null; then
-  for s in $(nvr --serverlist); do
-      test ! -S "$s" && continue
-      nvr --nostart --servername "$s" --remote-send ":set background=$cli_switch_to<CR>"
-  done
-fi
-
+for s in $(nvr --serverlist); do
+  test ! -S "$s" && continue
+  nvr --nostart --servername "$s" --remote-send ":set background=$cli_switch_to<CR>"
+done
 
 # NOTE: different approaches
 if command -v tmux >/dev/null 2>&1; then
