@@ -1,16 +1,5 @@
 #!/usr/bin/env zsh
 
-bin_list=(
-  "${$(find $HOME/.yarn/bin -type d -printf %p:)%%:}"
-  "${$(find $HOME/.local/bin -type d -printf %p:)%%:}"
-)
-
-for extra in "${bin_list[@]}"; do
-  PATH=$extra:$PATH
-done
-export PATH
-unset bin_list
-
 # NOTE: base settings
 export STARTUP_DESKTOP="Wayland"
 export LOCATION="Tokyo" # necessary for scripts like get-weather
