@@ -37,3 +37,6 @@
 [submodule ".config/firefox/betterfox"]
 	path = .config/firefox/betterfox
 	url = https://github.com/yokoffing/Betterfox.git
+[submodule ".local/bin/lfimg"]
+	path = .local/bin/lfimg
+	url = https://github.com/thimc/lfimg
