@@ -36,7 +36,7 @@ alias \
   vs="$EDITOR -S" \
   vw="$EDITOR $VIMWIKI_DIR/index.md" \
   ka="killall" \
-  g="git" \
+  g="noglob git" \
   se="sudoedit" \
   c="clear" \
   lg="lazygit" \
