@@ -29,6 +29,7 @@ declare -a cli_paths=(
 "$HOME/.config/btop/btop.conf"
 "$HOME/.config/tmux/tmux.conf"
 "$HOME/.config/bat/config"
+"$HOME/.config/git/theme"
 )
 
 declare -a other_paths=(
