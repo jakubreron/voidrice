@@ -4,9 +4,5 @@
 # GTK themes can be installed here: Global Theme > Application Style > Configure GNOME/GTK Application Style.
 # Reference: https://wiki.archlinux.org/title/Uniform_look_for_Qt_and_GTK_applications
 
-gtk_theme="$1"
-kvantum_theme="$2"
-
-# theme="Catppuccin-Latte-Standard-Blue-light"
-dbus-send --session --dest=org.kde.GtkConfig --type=method_call /GtkConfig org.kde.GtkConfig.setGtkTheme "string:$theme"
-sed --in-place --follow-symlinks "0,/theme=.*/s//theme=$kvantum_theme/" "$HOME/.config/Kvantum/kvantum.kvconfig"
+theme="$1"
+sed --in-place --follow-symlinks "0,/theme=.*/s//theme=$theme/" "$HOME/.config/Kvantum/kvantum.kvconfig"

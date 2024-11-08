@@ -2,28 +2,31 @@
 
 OS="$(uname -s)"
 
-cli_switch_from="${1:-dark}"
-cli_switch_to="${2:-light}"
+cli_theme_to="${1:-light}"
 
-if [[ $cli_switch_from = "dark"  ]]; then
-  other_switch_from="mocha"
-  other_switch_to="latte"
+if [[ $cli_theme_to = "light" ]]; then
+  cli_theme_from="dark"
+
+  other_theme_from="mocha"
+  other_theme_to="latte"
 else
-  other_switch_from="latte"
-  other_switch_to="mocha"
+  cli_theme_from="light"
+
+  other_theme_from="latte"
+  other_theme_to="mocha"
 fi
 
 
 case "$OS" in
   Darwin)
-    correct_sed=gsed
+    sed_or_gsed=gsed
     ;;
   *)
-    correct_sed=sed
+    sed_or_gsed=sed
     ;;
 esac
 
-declare -a cli_paths=(
+declare -a cli_theme_paths=(
 "$HOME/.config/alacritty/alacritty.toml"
 "$HOME/.config/nvim/lua/custom/plugins/colorschemes.lua"
 "$HOME/.config/btop/btop.conf"
@@ -32,29 +35,28 @@ declare -a cli_paths=(
 "$HOME/.config/git/theme"
 )
 
-declare -a other_paths=(
+declare -a other_theme_paths=(
 "$HOME/.config/rofi/config.rasi"
 "$HOME/.config/waybar/colorscheme.css"
 "$HOME/.config/hypr/theme.conf"
 )
 
 
-for path in "${cli_paths[@]}"; do
-  $correct_sed --in-place --follow-symlinks "0,/$cli_switch_from/s//$cli_switch_to/" "$path"
+for path in "${cli_theme_paths[@]}"; do
+  $sed_or_gsed --in-place --follow-symlinks "0,/$cli_theme_from/s//$cli_theme_to/" "$path"
   git-ignore-changes-for-file "$path"
 done
 
-for path in "${other_paths[@]}"; do
-  $correct_sed --in-place --follow-symlinks "0,/$other_switch_from/s//$other_switch_to/" "$path"
+for path in "${other_theme_paths[@]}"; do
+  $sed_or_gsed --in-place --follow-symlinks "0,/$other_theme_from/s//$other_theme_to/" "$path"
   git-ignore-changes-for-file "$path"
 done
 
 for s in $(nvr --serverlist); do
   test ! -S "$s" && continue
-  nvr --nostart --servername "$s" --remote-send ":set background=$cli_switch_to<CR>"
+  nvr --nostart --servername "$s" --remote-send ":set background=$cli_theme_to<CR>"
 done
 
-# NOTE: different approaches
 if command -v tmux >/dev/null 2>&1; then
   if pgrep -f "tmux" >/dev/null; then
     tmux source-file ~/.config/tmux/tmux.conf
@@ -63,7 +65,7 @@ fi
 
 if command -v dunst >/dev/null 2>&1; then
   dunst_path="$HOME/.config/dunst/dunstrc.d/99-theme.conf"
-  ln -fs ~/.config/dunst/themes/catppuccin/themes/$other_switch_to.conf "$dunst_path"
+  ln -fs ~/.config/dunst/themes/catppuccin/themes/$other_theme_to.conf "$dunst_path"
   git-ignore-changes-for-file "$dunst_path"
 
   if pgrep -f "dunst" >/dev/null; then

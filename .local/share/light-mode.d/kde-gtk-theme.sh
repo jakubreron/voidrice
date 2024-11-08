@@ -3,4 +3,5 @@
 gtk_theme="adw-gtk3"
 kvantum_theme="KvLibadwaita"
 
-"$XDG_BIN_HOME"/themes/switch-kde-theme-to "$gtk_theme" "$kvantum_theme"
+"$XDG_BIN_HOME"/themes/set-kde-gtk-theme $gtk_theme 
+"$XDG_BIN_HOME"/themes/set-kde-kvantum-theme $kvantum_theme

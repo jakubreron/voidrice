@@ -1,3 +1,3 @@
 #!/bin/sh
 
-"$XDG_BIN_HOME"/themes/switch-theme-from-to "light" "dark"
+"$XDG_BIN_HOME"/themes/set-theme dark
