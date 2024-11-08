@@ -28,6 +28,9 @@ gui:
       - reverse
 git:
   branchLogCmd: "git lg {{branchName}} --"
+  paging:
+    colorArg: always
+    pager: delta --paging=never
 refresher:
   refreshInterval: 5
 customCommands:
