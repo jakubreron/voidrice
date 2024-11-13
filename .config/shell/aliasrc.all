@@ -38,7 +38,7 @@ alias \
   ka="killall" \
   g="noglob git" \
   se="sudoedit" \
-  c="clear" \
+  c="clear-histories" \
   lg="lazygit" \
   ld="lazydocker" \
   ti="ticker" \
