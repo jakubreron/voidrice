@@ -1,5 +1,15 @@
 #!/usr/bin/env zsh
 
+bin_list=(
+  "$HOME/.local/share/cargo/bin"
+  )
+
+for extra in "${bin_list[@]}"; do
+  PATH=$extra:$PATH
+done
+export PATH
+unset bin_list
+
 # NOTE: programs
 export EDITOR="nvim"
 export GIT_EDITOR="$EDITOR"
