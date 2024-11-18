@@ -35,7 +35,7 @@ if [ -d "$path" ]; then
     if command -v brew >/dev/null 2>&1; then
       log-pretty-message "Generating brew packages" "🍺"
 
-      brew bundle dump "$path/Brewfile"
+      brew bundle dump --file "$path/Brewfile"
     fi
   }
 
