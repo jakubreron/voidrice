@@ -4,8 +4,8 @@ scriptpath=$(dirname "$0")
 
 function update_npm_pkgs() {
   if command -v npm >/dev/null 2>&1; then
-    sudo npm install npm -g
-    sudo npm upgrade -g
+    npm install npm -g
+    npm upgrade -g
   fi
 }
 
