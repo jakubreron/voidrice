@@ -36,6 +36,9 @@ case "$(uname -s)" in
       compile "$XDG_SRC_HOME/dmenu"
       compile "$XDG_SRC_HOME/keyd"
     }
+
+    update_pacman_pkgs
+    update_compiled_pkgs
     ;;
   Darwin)
     function update_brew_pkgs() {
@@ -53,49 +56,11 @@ case "$(uname -s)" in
         sudo gem cleanup
       fi
     }
+
+    update_brew_pkgs
+    update_gem_pkgs
   ;;
 esac
 
-function run_functions_asynchronously() {
-  local_functions=($(typeset -F))
-  update_functions_to_run=()
-
-  for function_name in "${local_functions[@]}"; do
-    if [[ $function_name == update* ]]; then
-      update_functions_to_run+=("$function_name")
-    fi
-  done
-
-  local pids=()
-
-  for function_name in "${update_functions_to_run[@]}"; do
-    log-pretty-message "Running $function_name in the background"
-    temp_log_file="$scriptpath/$function_name.log"
-    
-    (
-      TIMEFORMAT="✅ $function_name updated successfully in %lR"
-      time $function_name $1 &>$temp_log_file >(sed "s/^/$function_name: /" >&2) &
-      set +e # don't exit on error
-      wait $!
-      local exit_status=$? # store the exit status of last command
-      set ie
-      if [[ $exit_status != "0" ]]; then
-        log-pretty-message "$function_name: exited with status code $exit_status" "💣"
-      else
-        rm "$temp_log_file"
-      fi
-    ) &
-
-    pids+=($!) # add most recently started background command to the subshell
-  done
-
-  wait "${pids[@]}"
-
-  for function_name in "${update_functions_to_run[@]}"; do
-    temp_log_file="$scriptpath/$function_name.log"
-
-    [ -f "$temp_log_file" ] && log-pretty-message "$function_name failed, see $temp_log_file to see why." "💣"
-  done
-}
-
-time run_functions_asynchronously
+update_npm_pkgs
+update_yarn_pkgs
