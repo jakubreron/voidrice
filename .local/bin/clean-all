@@ -17,10 +17,11 @@ case "$(uname -s)" in
       profile-cleaner f
     fi
 
-    find "$HOME" -type f -name 'nohup.out' -ls -delete
     ;;
   Darwin)
     log-pretty-message "Cleaning the DS_Store rubbish" "🧹🍏"
-    find . -type f -name '*.DS_Store' -ls -delete
+    find "$HOME" -type f -name '*.DS_Store' -ls -delete
     ;;
 esac
+
+find "$HOME" -type f -name 'nohup.out' -ls -delete
