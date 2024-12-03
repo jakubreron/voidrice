@@ -13,7 +13,7 @@ gui:
   mouseEvents: false
   showFileTree: true
   showBottomLine: false # for hiding the bottom information line (unless it has important information to tell you)
-  showRandomTip: false
+  showRandomTip: true
   authorColors:
     "Jakub Reroń": "green"
     "Jakub Reron": "green"
