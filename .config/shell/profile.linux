@@ -27,7 +27,7 @@ export AUTOGENERATE_EXCLUDED_PACKAGES="php|php-.*$|linux.*"
 
 # NOTE: programs
 export TERMINAL="alacritty"
-export BROWSER="firefox-developer-edition"
+export BROWSER="firefox"
 export BACKUP_BROWSER="google-chrome-stable"
 export PASSWORD_MANAGER="Bitwarden"
 export INPUT_METHOD="fcitx5"
