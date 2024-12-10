@@ -57,6 +57,5 @@ fi
 
 function clear-histories() {
   tmux clear-history
-  clear-history
   clear
 }

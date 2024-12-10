@@ -7,10 +7,6 @@ bindkey -s '^g' '^u${CLI_GIT_APP}\n' # git
 bindkey -s '^s' '^u${CLI_DOCKER_APP}\n'
 bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n' # find
 
-# nr command = (npm|yarn|pnpm) run # @antfu/ni
-bindkey -s '^d' '^unr dev\n' 
-bindkey -s '^x' '^unr\n' 
-
 bindkey '^[[A' history-substring-search-up # arrow up
 bindkey '^[[B' history-substring-search-down # arrow down
 
