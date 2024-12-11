@@ -25,7 +25,7 @@ replace_firefox_symlinks() {
       Linux*)
         browser_dir="$HOME/.mozilla/firefox"
         browser_profiles_ini_dir="$browser_dir/profiles.ini"
-        profile="$(sed -n "/Default=.*.dev-edition-default/ s/.*=//p" "$browser_profiles_ini_dir")"
+        profile="$(sed -n "/Default=.*.default-release/ s/.*=//p" "$browser_profiles_ini_dir")"
         browser_profile_dir="$browser_dir/$profile"
 
         if [ -d "$browser_profile_dir" ]; then
