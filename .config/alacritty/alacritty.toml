@@ -31,7 +31,7 @@ key = "Insert"
 mods = "Shift"
 
 [window]
-decorations = "none"
+decorations = "buttonless"
 opacity = 0.96
 option_as_alt = "Both"
 
