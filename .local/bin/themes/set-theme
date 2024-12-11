@@ -28,7 +28,7 @@ esac
 
 declare -a cli_theme_paths=(
 "$HOME/.config/alacritty/alacritty.toml"
-"$HOME/.config/nvim/lua/custom/plugins/colorschemes.lua"
+"$HOME/.config/nvim/lua/custom/plugins/colorscheme.lua"
 "$HOME/.config/btop/btop.conf"
 "$HOME/.config/tmux/tmux.conf"
 "$HOME/.config/bat/config"
