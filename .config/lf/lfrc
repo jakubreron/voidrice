@@ -20,45 +20,45 @@ set number
 set relativenumber
 
 cmd on-redraw %{{
-    if [ "$lf_width" -le 80 ]; then
-        lf -remote "send $id set ratios 1:2"
-    elif [ "$lf_width" -le 160 ]; then
-        lf -remote "send $id set ratios 1:2:3"
-    else
-        lf -remote "send $id set ratios 1:2:3:5"
-    fi
+  if [ "$lf_width" -le 80 ]; then
+    lf -remote "send $id set ratios 1:2"
+  elif [ "$lf_width" -le 160 ]; then
+    lf -remote "send $id set ratios 1:2:3"
+  else
+    lf -remote "send $id set ratios 1:2:3:5"
+  fi
 }}
 
 cmd open ${{
-    case $(file --mime-type "$(readlink -f $f)" -b) in
-	application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
-	image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
-        text/*|application/json|inode/x-empty|application/x-subrip) $EDITOR $fx;;
-	image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
-	image/svg+xml) display -- $f ;;
-	image/*) setsid -f $GUI_IMAGE_VIEWER $f >/dev/null 2>&1 ;;
-	audio/*|video/x-ms-asf) mpv --audio-display=no $f ;;
-	video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
-	application/pdf|application/vnd.djvu|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
-	application/vnd*) setsid -f libreoffice $fx >/dev/null 2>&1 ;; # NOTE: office formats
-	application/pgp-encrypted) $EDITOR $fx ;;
-	application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/vnd.oasis.opendocument.text|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|application/octet-stream|application/vnd.oasis.opendocument.spreadsheet|application/vnd.oasis.opendocument.spreadsheet-template|application/vnd.openxmlformats-officedocument.presentationml.presentation|application/vnd.oasis.opendocument.presentation-template|application/vnd.oasis.opendocument.presentation|application/vnd.ms-powerpoint|application/vnd.oasis.opendocument.graphics|application/vnd.oasis.opendocument.graphics-template|application/vnd.oasis.opendocument.formula|application/vnd.oasis.opendocument.database) setsid -f libreoffice $fx >/dev/null 2>&1 ;;
+  case $(file --mime-type "$(readlink -f $f)" -b) in
+    application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
+    image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
+    text/*|application/json|inode/x-empty|application/x-subrip) $EDITOR $fx;;
+    image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
+    image/svg+xml) display -- $f ;;
+    image/*) setsid -f $GUI_IMAGE_VIEWER $f >/dev/null 2>&1 ;;
+    audio/*|video/x-ms-asf) mpv --audio-display=no $f ;;
+    video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
+    application/pdf|application/vnd.djvu|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
+    application/vnd*) setsid -f libreoffice $fx >/dev/null 2>&1 ;; # NOTE: office formats
+    application/pgp-encrypted) $EDITOR $fx ;;
+    application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/vnd.oasis.opendocument.text|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|application/octet-stream|application/vnd.oasis.opendocument.spreadsheet|application/vnd.oasis.opendocument.spreadsheet-template|application/vnd.openxmlformats-officedocument.presentationml.presentation|application/vnd.oasis.opendocument.presentation-template|application/vnd.oasis.opendocument.presentation|application/vnd.ms-powerpoint|application/vnd.oasis.opendocument.graphics|application/vnd.oasis.opendocument.graphics-template|application/vnd.oasis.opendocument.formula|application/vnd.oasis.opendocument.database) setsid -f libreoffice $fx >/dev/null 2>&1 ;;
         *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
-    esac
+  esac
 }}
 
 cmd fzf_jump $lf -remote "send $id cd $(fzf-jump)"
 
 cmd delete ${{
-	clear; tput cup $(($(tput lines)/3)); tput bold
-	set -f
-	printf "$fx \n"
-	printf "❌ Delete? [y/n] "
-	read ans
-	if [ -z "$ans" ]; then
-		ans="y"
-	fi
-	[ $ans = "y" ] && rm -rf -- $fx
+  clear; tput cup $(($(tput lines)/3)); tput bold
+  set -f
+  printf "$fx \n"
+  printf "❌ Delete? [y/n] "
+  read ans
+  if [ -z "$ans" ]; then
+    ans="y"
+  fi
+  [ $ans = "y" ] && rm -rf -- $fx
 }}
 
 cmd on-select &{{
@@ -66,138 +66,138 @@ cmd on-select &{{
 }}
 
 cmd extract ${{
-	clear; tput cup $(($(tput lines)/3)); tput bold
-	set -f
-	printf "$fx \n"
-	printf "📦 Extract? [y/n] "
-	read ans
-	if [ -z "$ans" ]; then
-		ans="y"
-	fi
-	if [[ $ans = "y" ]]; then
-		case $fx in
-			*.tar.bz2)   tar xjf $fx     ;;
-			*.tar.gz)    tar xzf $fx     ;;
-			*.bz2)       bunzip2 $fx     ;;
-			*.rar)       unrar e $fx     ;;
-			*.gz)        gunzip $fx      ;;
-			*.tar)       tar xf $fx      ;;
-			*.tbz2)      tar xjf $fx     ;;
-			*.tgz)       tar xzf $fx     ;;
-			*.zip)       unzip $fx       ;;
-			*.Z)         uncompress $fx  ;;
-			*.7z)        7z x $fx        ;;
-			*.tar.xz)    tar xf $fx      ;;
-		esac
-	fi
+  clear; tput cup $(($(tput lines)/3)); tput bold
+  set -f
+  printf "$fx \n"
+  printf "📦 Extract? [y/n] "
+  read ans
+  if [ -z "$ans" ]; then
+    ans="y"
+  fi
+  if [[ $ans = "y" ]]; then
+  case $fx in
+    *.tar.bz2)   tar xjf $fx     ;;
+    *.tar.gz)    tar xzf $fx     ;;
+    *.bz2)       bunzip2 $fx     ;;
+    *.rar)       unrar e $fx     ;;
+    *.gz)        gunzip $fx      ;;
+    *.tar)       tar xf $fx      ;;
+    *.tbz2)      tar xjf $fx     ;;
+    *.tgz)       tar xzf $fx     ;;
+    *.zip)       unzip $fx       ;;
+    *.Z)         uncompress $fx  ;;
+    *.7z)        7z x $fx        ;;
+    *.tar.xz)    tar xf $fx      ;;
+  esac
+fi
 }}
 
 cmd moveto ${{
-	clear; tput cup $(($(tput lines)/3)); tput bold
-	set -f
-	clear; echo "Move to where?"
-	dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed 's|~|$HOME|')" &&
-	for x in $fx; do
-		eval mv -iv \"$x\" \"$dest\"
-	done &&
+  clear; tput cup $(($(tput lines)/3)); tput bold
+  set -f
+  clear; echo "Move to where?"
+  dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed 's|~|$HOME|')" &&
+  for x in $fx; do
+    eval mv -iv \"$x\" \"$dest\"
+  done &&
   dest_path=$(eval echo "$dest")
   lf -remote "send $id cd $dest_path"
-	notify-send " File(s) moved." "File(s) moved to $dest."
+  notify-send " File(s) moved." "File(s) moved to $dest."
 }}
 
 cmd copyto ${{
-	clear; tput cup $(($(tput lines)/3)); tput bold
-	set -f
-	clear; echo "Copy to where?"
-	dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed 's|~|$HOME|')" &&
-	for x in $fx; do
-		eval cp -ivr \"$x\" \"$dest\"
-	done &&
+  clear; tput cup $(($(tput lines)/3)); tput bold
+  set -f
+  clear; echo "Copy to where?"
+  dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf | sed 's|~|$HOME|')" &&
+  for x in $fx; do
+    eval cp -ivr \"$x\" \"$dest\"
+  done &&
   dest_path=$(eval echo "$dest")
   lf -remote "send $id cd $dest_path"
-	notify-send " File(s) copied." "File(s) copies to $dest."
+  notify-send " File(s) copied." "File(s) copies to $dest."
 }}
 
 cmd share ${{
-	clear; tput cup $(($(tput lines)/3)); tput bold
-	set -f
-	printf "$fx \n"
-	printf "🌐 Share? [y/n] "
-	read ans
-	if [ -z "$ans" ]; then
-		ans="y"
-	fi
-	[ $ans = "y" ] && curl -F"file=@$fx" https://0x0.st | wl-copy
+  clear; tput cup $(($(tput lines)/3)); tput bold
+  set -f
+  printf "$fx \n"
+  printf "🌐 Share? [y/n] "
+  read ans
+  if [ -z "$ans" ]; then
+    ans="y"
+  fi
+  [ $ans = "y" ] && curl -F"file=@$fx" https://0x0.st | wl-copy
 }}
 
 cmd fzf_search $lf -remote "send $id select \"$(fzf)\""
 
 cmd mkdir %{{
-    IFS=" "
-    file="$*"
-    mkdir -p -- "$file"
-    lf -remote "send $id select \"$(printf '%s' "$file" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
+  IFS=" "
+  file="$*"
+  mkdir -p -- "$file"
+  lf -remote "send $id select \"$(printf '%s' "$file" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
 }}
 
 cmd encrypt $gpg -c --no-symkey-cache --cipher-algo AES256 $f
 cmd decrypt $gpg $f
 
 cmd zip ${{
-    clear; tput cup $(($(tput lines)/3)); tput bold
-    set -f
-    printf "$fx \n"
-    printf "📦 Zip to: "
-    read name
-    mkdir $name
-    cp -r $fx $name
-    zip -r $name.zip $name
-    rm -rf $name
+  clear; tput cup $(($(tput lines)/3)); tput bold
+  set -f
+  printf "$fx \n"
+  printf "📦 Zip to: "
+  read name
+  mkdir $name
+  cp -r $fx $name
+  zip -r $name.zip $name
+  rm -rf $name
 }}
 
 cmd kdeconnect ${{
-	clear; tput cup $(($(tput lines)/3)); tput bold
-	set -f
-	clear; echo "Send to which device?"
-	dest="$(kdeconnect-cli -a | cut -f1 -d ':' | cut -c 3- | fzf)" &&
-	for x in $fx; do
-		eval kdeconnect-cli --share=\"$x\" --name=\"$dest\"
-	done &&
-	notify-send " Sending file(s)" "Sending file(s) to $dest."
+  clear; tput cup $(($(tput lines)/3)); tput bold
+  set -f
+  clear; echo "Send to which device?"
+  dest="$(kdeconnect-cli -a | cut -f1 -d ':' | cut -c 3- | fzf)" &&
+  for x in $fx; do
+    eval kdeconnect-cli --share=\"$x\" --name=\"$dest\"
+  done &&
+  notify-send " Sending file(s)" "Sending file(s) to $dest."
 }}
 
 cmd dragon %dragon-drop -a -x $fx
 
 cmd convert ${{
-	clear; tput cup $(($(tput lines)/3)); tput bold
-	set -f
+  clear; tput cup $(($(tput lines)/3)); tput bold
+  set -f
   printf "$fx \n"
   printf "💱 Convert to: "
-	read name
-	convert $fx $name
+  read name
+  convert $fx $name
 }}
 
 cmd bulk_rename ${{
-    old="$(mktemp)"
-    new="$(mktemp)"
-    if [ -n "$fs" ]; then
-        fs="$(basename -a -- $fs)"
-    else
-        fs="$(ls)"
+  old="$(mktemp)"
+  new="$(mktemp)"
+  if [ -n "$fs" ]; then
+    fs="$(basename -a -- $fs)"
+  else
+    fs="$(ls)"
+  fi
+  printf '%s\n' "$fs" > "$old"
+  printf '%s\n' "$fs" > "$new"
+  $EDITOR "$new"
+  [ "$(wc -l < "$new")" -ne "$(wc -l < "$old")" ] && exit
+  paste "$old" "$new" | while IFS= read -r names; do
+    src="$(printf '%s' "$names" | cut -f1)"
+    dst="$(printf '%s' "$names" | cut -f2)"
+    if [ "$src" = "$dst" ] || [ -e "$dst" ]; then
+      continue
     fi
-    printf '%s\n' "$fs" > "$old"
-    printf '%s\n' "$fs" > "$new"
-    $EDITOR "$new"
-    [ "$(wc -l < "$new")" -ne "$(wc -l < "$old")" ] && exit
-    paste "$old" "$new" | while IFS= read -r names; do
-        src="$(printf '%s' "$names" | cut -f1)"
-        dst="$(printf '%s' "$names" | cut -f2)"
-        if [ "$src" = "$dst" ] || [ -e "$dst" ]; then
-            continue
-        fi
-        mv -- "$src" "$dst"
-    done
-    rm -- "$old" "$new"
-    lf -remote "send $id unselect"
+    mv -- "$src" "$dst"
+  done
+  rm -- "$old" "$new"
+  lf -remote "send $id unselect"
 }}
 
 cmd open_in_new_terminal $setsid -f $TERMINAL >/dev/null 2>&1
