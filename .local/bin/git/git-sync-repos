@@ -2,13 +2,27 @@
 
 set -euo pipefail
 
+local_repos() {
+  find . -type d -exec test -e '{}/.git' ';' -print -prune
+}
+
+dotfiles_repos() {
+  # NOTE: single folders with echo
+  echo "$HOME/.config/nvim" 
+  find "$XDG_SRC_HOME" "$DOTFILES_DIR" -type d -exec test -e '{}/.git' ';' -print -prune
+}
+
+projects_repos() {
+  find "$PROJECTS_DIR" -type d -exec test -e '{}/.git' ';' -print -prune
+}
+
 case "${1:-local}" in
-  local) repos='git local-repos';;
-  dotfiles) repos='git dotfiles-repos';;
-  projects) repos='git projects-repos';;
+  local) repos=$(local_repos);;
+  dotfiles) repos=$(dotfiles_repos);;
+  projects) repos=$(projects_repos);;
 esac
 
-bash -c "$repos" | while read -r REPO; do
+echo "$repos" | while read -r REPO; do
   GIT_STATUS="$(git -C "$REPO" status --porcelain)"
 
   BRANCH=$(git -C "$REPO" rev-parse --abbrev-ref HEAD)

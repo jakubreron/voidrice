@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-find "$PROJECTS_DIR" -type d -exec test -e '{}/.git' ';' -print -prune
