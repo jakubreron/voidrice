@@ -1,5 +1,5 @@
 [general]
-import = ["/home/jakub/.config/alacritty/themes/alacritty-theme/themes/gruvbox_light.toml"]
+import = ["~/.config/alacritty/themes/alacritty-theme/themes/gruvbox_light.toml"]
 
 [colors]
 draw_bold_text_with_bright_colors = true
@@ -15,26 +15,8 @@ style = "Light"
 x = -1
 y = -3
 
-[[keyboard.bindings]]
-action = "SpawnNewInstance"
-key = "N"
-mods = "Control|Shift"
-
-[[keyboard.bindings]]
-action = "Copy"
-key = "Insert"
-mods = "Control"
-
-[[keyboard.bindings]]
-action = "Paste"
-key = "Insert"
-mods = "Shift"
 
 [window]
 decorations = "buttonless"
 opacity = 0.96
 option_as_alt = "Both"
-
-[window.dimensions]
-columns = 200
-lines = 50
