@@ -43,7 +43,6 @@ export CLI_MUSIC_PLAYER="ncmpcpp"
 export CLI_NETWORK_MANAGER="nmtui"
 export CLI_TORRENTS_MANAGER="tremc"
 export CLI_SOUND_MANAGER="pulsemixer"
-export CLI_WEATHER_APP="$XDG_BIN_HOME/get-weather && less -S $XDG_CACHE_HOME/weatherreport"
 
 # NOTE: machines
 # PACKAGE_TYPE (needed for package-generation auto-commits): primary, secondary
