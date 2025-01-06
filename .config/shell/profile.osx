@@ -31,4 +31,4 @@ export GUI_FILE_EXPLORER="open"
 # NOTE: packages
 export PACKAGE_TYPE="work"
 export PACKAGE_MANAGER="brew"
-export NODE_OPTIONS="--max-old-space-size=8192"
+export NODE_OPTIONS="--max-old-space-size=16384"
