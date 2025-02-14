@@ -9,9 +9,21 @@ stty stop undef	# Disable ctrl-s to freeze terminal.
 setopt LIST_PACKED # Try to make the completion list smaller (occupying less lines) by printing the matches in columns with different widths.
 setopt HIST_FCNTL_LOCK  # Use system’s fcntl call where available (better performance)
 
-plug "$XDG_CONFIG_HOME/shell/aliasrc"
-plug "$XDG_CONFIG_HOME/shell/shortcutrc"
-plug "$XDG_CONFIG_HOME/shell/zshnameddirrc"
+OS="$(uname -s)"
+
+source $HOME/.config/zsh/aliases/aliasrc.all
+
+case "$OS" in
+  Linux)
+    source $HOME/.config/zsh/aliases/aliasrc.linux
+    ;;
+  Darwin)
+    source $HOME/.config/zsh/aliases/aliasrc.osx
+    ;;
+esac
+
+plug "$ZDOTDIR/shortcuts/shortcutrc"
+plug "$ZDOTDIR/shortcuts/zshnameddirrc"
 
 plug "$ZDOTDIR/zsh-plugins"
 plug "$ZDOTDIR/zsh-functions"

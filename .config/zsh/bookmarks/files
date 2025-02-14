@@ -1,6 +1,6 @@
 # bookmarks
-cfbf     $XDG_CONFIG_HOME/shell/bm-files
-cfbd     $XDG_CONFIG_HOME/shell/bm-dirs
+cfbf     $XDG_CONFIG_HOME/zsh/bookmarks/files
+cfbd     $XDG_CONFIG_HOME/zsh/bookmarks/dirs
 cfbw     $DOTFILES_DIR/universal/.config/bm-websites
 
 # system

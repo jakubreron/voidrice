@@ -22,8 +22,7 @@ unset bin_list
 
 
 # NOTE: programs
-export TERMINAL="alacritty"
-export BROWSER="firefox"
+export BROWSER="zen-browser"
 export BACKUP_BROWSER="chrome"
 
 export GUI_FILE_EXPLORER="open"
@@ -31,4 +30,3 @@ export GUI_FILE_EXPLORER="open"
 # NOTE: packages
 export PACKAGE_TYPE="work"
 export PACKAGE_MANAGER="brew"
-export NODE_OPTIONS="--max-old-space-size=16384"
