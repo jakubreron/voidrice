@@ -1,4 +1,3 @@
 #!/usr/bin/env zsh
 
-alias \
-  sed="gsed"
+alias sed="gsed"

@@ -4,17 +4,20 @@
 alias sudo='sudo '
 
 # Verbosity and settings that you pretty much just always are going to want.
-alias \
-  cp="cp -iv" \
-  mv="mv -iv" \
-  bc="bc -ql" \
-  free="free -m" \
-	rm="rm -iv" 
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias bc="bc -ql"
+alias free="free -m"
+alias	rm="rm -iv" 
+
+alias ls='eza --group-directories-first --icons --no-git'
+alias ll='ls -lh'
+alias la='ll -a'
+alias tree='ll --tree --level=2'
 
 # Colorize commands when possible.
-alias \
-  ip="ip -color=auto" \
-  grep="grep --color=auto"
+alias ip="ip -color=auto"
+alias grep="grep --color=auto"
 
 if command -v delta >/dev/null 2>&1; then
   alias diff="delta"
@@ -23,41 +26,36 @@ else
 fi
 
 # general
-alias \
-  p="$PACKAGE_MANAGER" \
-  t="tmux" \
-  tk='tmux kill-server' \
-  v="$EDITOR" \
-  vs="$EDITOR -S" \
-  vw="$EDITOR $VIMWIKI_DIR/index.md" \
-  ka="killall" \
-  g="noglob git" \
-  se="sudoedit" \
-  c="clear-histories" \
-  lg="lazygit" \
-  ld="lazydocker" \
-  ti="ticker" \
-  nv="nordvpn" \
-  nvc="nordvpn connect" \
-  nvd="nordvpn disconnect"
+alias p="$PACKAGE_MANAGER"
+alias t="tmux"
+alias tk='tmux kill-server'
+alias v="$EDITOR"
+alias vs="$EDITOR -S"
+alias vw="$EDITOR $VIMWIKI_DIR/index.md"
+alias ka="killall"
+alias g="noglob git"
+alias se="sudoedit"
+alias c="tmux clear-history; clear"
+alias lg="lazygit"
+alias ld="lazydocker"
+alias ti="ticker"
+alias nv="nordvpn"
+alias nvc="nordvpn connect"
+alias nvd="nordvpn disconnect"
 
 # overwritten
-alias \
-  df="duf" \
+alias df="duf"
 
 # npm
-alias \
-  nrt="nr test -- --watch --coverage --silent false" \
+alias nrt="nr test -- --watch --coverage --silent false"
 
 # network
-alias \
-  myip="dig +short myip.opendns.com @resolver1.opendns.com" \
-  mylocalip="ipconfig getifaddr en0" \
-  ports="sudo netstat -ntlup"
+alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias mylocalip="ipconfig getifaddr en0"
+alias ports="sudo netstat -ntlup"
 
 # misc
-alias \
-  ndi="nodemon index.js" \
-  rates="curl rate.sx | less -S" \
-  nohup="nohup >/dev/null 2>&1" \
-  encrypt="gpg -c --no-symkey-cache --cipher-algo AES256" \
+alias ndi="nodemon index.js"
+alias rates="curl rate.sx | less -S"
+alias nohup="nohup >/dev/null 2>&1"
+alias encrypt="gpg -c --no-symkey-cache --cipher-algo AES256"

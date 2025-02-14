@@ -1,26 +1,17 @@
 #!/usr/bin/env zsh
 
 # Key bindings
-bindkey -s '^o' '^u${CLI_FILE_EXPLORER}\n' # open
-bindkey -s '^b' '^u${GUI_FILE_EXPLORER} .\n' # browse
-bindkey -s '^g' '^u${CLI_GIT_APP}\n' # git
-bindkey -s '^s' '^u${CLI_DOCKER_APP}\n'
-bindkey -s '^f' '^ucd "$(dirname "$(fzf)")"\n' # find
-
-bindkey '^[[A' history-substring-search-up # arrow up
-bindkey '^[[B' history-substring-search-down # arrow down
-
-bindkey '^[[P' delete-char
+bindkey -s '^o' '^u${CLI_FILE_EXPLORER}\n'
+bindkey -s '^g' '^u${GUI_FILE_EXPLORER} .\n'
 
 # Emacs bindings
+bindkey '^p' history-beginning-search-backward 
+bindkey '^n' history-beginning-search-forward 
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
-bindkey '^p' history-substring-search-up
-bindkey '^n' history-substring-search-down
-
-# VIM del char in visual and normal modes
-bindkey -M vicmd '^[[P' vi-delete-char
-bindkey -M visual '^[[P' vi-delete
+bindkey '^d' delete-char
+bindkey '^f' forward-char
+bindkey '^b' backward-char
 
 # Change cursor shape for different VIM modes.
 function zle-keymap-select () {
