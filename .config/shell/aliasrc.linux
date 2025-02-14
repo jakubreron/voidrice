@@ -1,11 +1,5 @@
 #!/usr/bin/env zsh
 
-# general purpose
-alias \
-  p="$PACKAGE_MANAGER" \
-  clp="hyprpicker" \
-  pkgs="pkgstats search" \
-
 # For when keys break
 alias \
   fix-pkg-keys="sudo rm -fr /etc/pacman.d/gnupg && sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys" \
@@ -13,7 +7,6 @@ alias \
 # restart programs
 alias \
   rs-ee="killall sasyeffects; nohup easyeffects --gapplication-service &; notify-send 'Restarted EasyEffects'" \
-  rs-dunst="killall dunst; nohup dunst &; notify-send 'Restarted Dunst'" \
   rs-audio="killall easyeffects; systemctl --user restart pipewire pipewire-pulse && nohup easyeffects --gapplication-service &; notify-send 'Restarted Audio & EasyEffects'" \
 
 alias \
@@ -23,11 +16,6 @@ alias \
   update-hosts="/bin/systemctl restart systemd-hostnamed" \
   update-mirrors="sudo reflector -f 100 -l 100 --number 10 --verbose --save /etc/pacman.d/mirrorlist" \
   update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg" \
-
-# dynamic folders
-alias \
-  ff="cd $HOME/.mozilla/firefox/*.dev-edition-default*" \
-  ffc="cd $HOME/.mozilla/firefox/*.dev-edition-default*/chrome" \
 
 if laptop-detect > /dev/null; then
   alias \

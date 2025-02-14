@@ -1,5 +1,4 @@
 #!/usr/bin/env zsh
 
 alias \
-  sed="gsed" \
-  roc-login="roc login -c jpe2-caas1-prod1 -n esd-gcid-rfb-prod"
+  sed="gsed"

@@ -6,11 +6,9 @@ os:
   editAtLine: '[ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "<CMD>LazyGitToggle<CR>" &&  nvim --server "$NVIM" --remote-tab {{filename}} && nvim --server "$NVIM" --remote-send ":{{line}}<CR>")'
 promptToReturnFromSubprocess: false
 gui:
-  skipDiscardChangeWarning: true
   showIcons: true
   nerdFontsVersion: "3"
   expandFocusedSidePanel: true
-  mouseEvents: false
   showFileTree: true
   showBottomLine: false # for hiding the bottom information line (unless it has important information to tell you)
   showRandomTip: true

@@ -1,10 +1,5 @@
 #!/usr/bin/env zsh
 
-# Use neovimfor vim.
-alias \
-  vim="$EDITOR" \
-  vimdiff="$EDITOR -d"
-
 # enable aliases to be sudo'ed
 alias sudo='sudo '
 
