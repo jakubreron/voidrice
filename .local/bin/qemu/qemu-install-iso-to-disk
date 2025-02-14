@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-qemu-system-x86_64 -cdrom "$1" -boot order=d -drive file="$2",format=raw -m 8G
