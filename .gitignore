@@ -4,7 +4,7 @@
 
 .config/zsh/.zcompdump*
 .config/zsh/.chpwd-recent-dirs
-.config/shell/zshnameddirrc
+.config/zsh/shortcuts/zshnameddirrc
 
 .config/tmux/plugins/*
 
