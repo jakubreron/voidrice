@@ -1,20 +1,14 @@
-# bookmarks
-cfbf     $XDG_CONFIG_HOME/zsh/bookmarks/files
-cfbd     $XDG_CONFIG_HOME/zsh/bookmarks/dirs
-cfbw     $DOTFILES_DIR/universal/.config/bm-websites
-
-# system
+cfp      $HOME/.zprofile
 cfz      $ZDOTDIR/.zshrc
-cfa      $XDG_CONFIG_HOME/shell/aliasrc
+cfa      $ZDOTDIR/aliases/aliasrc.all
+cfbf     $ZDOTDIR/bookmarks/files
+cfbd     $ZDOTDIR/bookmarks/dirs
+
 cfA      $XDG_CONFIG_HOME/alacritty/alacritty.toml
-cfp      $XDG_CONFIG_HOME/shell/profile
 cfh      $XDG_CONFIG_HOME/hypr/hyprland.conf
-cfww     $XDG_CONFIG_HOME/waybar/config.jsonc
-cfws     $XDG_CONFIG_HOME/waybar/style.css
-cfl      $XDG_CONFIG_HOME/lf/lfrc
+cflf     $XDG_CONFIG_HOME/lf/lfrc
 cftm     $XDG_CONFIG_HOME/tmux/tmux.conf
 cfti     $XDG_CONFIG_HOME/ticker/.ticker.yaml
 cfg      $DOTFILES_DIR/universal/.config/git/config
-
-# vim
+cfbw     $DOTFILES_DIR/universal/.config/bm-websites
 cfnv     $XDG_CONFIG_HOME/nvim/init.lua
