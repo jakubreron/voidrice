@@ -2,7 +2,7 @@
 
 # Key bindings
 bindkey -s '^o' '^u${CLI_FILE_EXPLORER}\n'
-bindkey -s '^g' '^u${GUI_FILE_EXPLORER} .\n'
+bindkey -s '^b' '^u${GUI_FILE_EXPLORER} .\n'
 
 # Emacs bindings
 bindkey '^p' history-beginning-search-backward 
