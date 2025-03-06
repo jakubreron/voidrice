@@ -4,7 +4,6 @@ local wezterm = require("wezterm")
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
--- This is where you actually apply your config choices
 config.set_environment_variables = {
 	TERM = "xterm-256color",
 }
@@ -19,11 +18,12 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
+config.cursor_blink_rate = 0
 
-config.font = wezterm.font("JetBrains Mono", { weight = "DemiBold" })
-config.font_size = 12.5
+config.font = wezterm.font("JetBrains Mono", { weight = "Bold" })
+config.font_size = 13
 config.cell_width = 0.8
-config.color_scheme = "GruvboxLight"
+config.color_scheme = "Gruvbox (Gogh)"
 
 -- and finally, return the configuration to wezterm
 return config
