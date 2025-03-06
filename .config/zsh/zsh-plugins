@@ -1,11 +1,8 @@
 #!/usr/bin/env zsh
 
-plug "zsh-users/zsh-autosuggestions"
-plug "zsh-users/zsh-syntax-highlighting"
 plug "joshskidmore/zsh-fzf-history-search"
 
 plug "zap-zsh/zap-prompt"
-plug "zap-zsh/supercharge"
 plug "zap-zsh/vim"
 
 plug "Aloxaf/fzf-tab"
@@ -24,24 +21,5 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 zstyle ':fzf-tab:*' switch-group '<' '>'
 zstyle ':fzf-tab:*' fzf-flags --color=light
 
-# TODO: @Jakub move to aliases after removing supercharge
-alias ls='eza --group-directories-first --icons --no-git'
-alias ll='ls -lh'
-alias la='ll -a'
-alias tree='ll --tree --level=2'
-
-HISTFILE="$XDG_CACHE_HOME/zsh/.zsh_history"
-HISTSIZE=100000
-SAVEHIST=100000
-HISTIGNORE="ls:ps:history"
-YSU_MESSAGE_POSITION="after"
-
-# Add environments variables and automatically run on cd
-eval "$(fnm env --use-on-cd)"
-# Add fnm completions
-fnm_completion="$(dirname "$(readlink -f "$0")")/_fnm"
-fpath=($fnm_completion $fpath)
-fnm completions --shell zsh > "$fnm_completion"
-
-setopt INC_APPEND_HISTORY # Write to the history file immediately, not when the shell exits.
-setopt SHARE_HISTORY      # Share history between all sessions.
+# must be sourced at the end
+plug "zsh-users/zsh-syntax-highlighting"
