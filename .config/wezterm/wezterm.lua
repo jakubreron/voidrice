@@ -10,7 +10,6 @@ config.set_environment_variables = {
 
 config.front_end = "WebGpu"
 config.enable_tab_bar = false
-config.window_background_opacity = 0.95
 config.window_decorations = "RESIZE"
 config.window_padding = {
 	left = 0,
