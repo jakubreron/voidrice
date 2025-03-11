@@ -1,21 +1,20 @@
-
 # General
 stty stop undef	# Disable ctrl-s to freeze terminal.
 
+# Prompt
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:git*' formats " (%b)"
+precmd() {
+    vcs_info
+}
+setopt prompt_subst
+prompt='%F{blue}%B%~%b%f${vcs_info_msg_0_} %F{green}❯%f '
+
 # completions
-autoload -Uz compinit
-zstyle ':completion:*' menu yes select
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
-zmodload zsh/complist
-_comp_options+=(globdots)		# Include hidden files.
-zle_highlight=('paste:none')
-for dump in "${ZDOTDIR:-$HOME}/.zcompdump"(N.mh+24); do
-  compinit
-done
-compinit -C
+autoload -U compinit && compinit
 
 unsetopt BEEP
-setopt LIST_PACKED # Try to make the completion list smaller
 setopt HIST_FCNTL_LOCK  # Use system’s fcntl call where available (better performance)
 setopt GLOB_DOTS
 setopt NOMATCH

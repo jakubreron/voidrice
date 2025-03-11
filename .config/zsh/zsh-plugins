@@ -1,13 +1,10 @@
 #!/usr/bin/env zsh
 
 plug "joshskidmore/zsh-fzf-history-search"
-
-plug "zap-zsh/zap-prompt"
 plug "zap-zsh/vim"
 
 plug "Aloxaf/fzf-tab"
-# disable sort when completing `git checkout`
-zstyle ':completion:*:git-checkout:*' sort false
+
 # set descriptions format to enable group support
 # NOTE: don't use escape sequences here, fzf-tab will ignore them
 zstyle ':completion:*:descriptions' format '[%d]'
@@ -20,6 +17,3 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
 zstyle ':fzf-tab:*' fzf-flags --color=light
-
-# must be sourced at the end
-plug "zsh-users/zsh-syntax-highlighting"
