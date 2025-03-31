@@ -1,0 +1,45 @@
+# General
+stty stop undef	# Disable ctrl-s to freeze terminal.
+
+# Prompt
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn
+zstyle ':vcs_info:git*' formats " (%b)"
+precmd() {
+    vcs_info
+}
+setopt prompt_subst
+prompt='%F{blue}%B%~%b%f${vcs_info_msg_0_} %F{green}❯%f '
+
+# completions
+autoload -U compinit && compinit
+
+unsetopt BEEP
+setopt HIST_FCNTL_LOCK  # Use system’s fcntl call where available (better performance)
+setopt GLOB_DOTS
+setopt NOMATCH
+setopt EXTENDED_GLOB
+setopt INTERACTIVE_COMMENTS
+setopt APPEND_HISTORY
+setopt BANG_HIST                 # Treat the '!' character specially during expansion.
+setopt EXTENDED_HISTORY          # Write the history file in the ":start:elapsed;command" format.
+setopt INC_APPEND_HISTORY        # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY             # Share history between all sessions.
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire duplicate entries first when trimming history.
+setopt HIST_IGNORE_DUPS          # Don't record an entry that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete old recorded entry if new entry is a duplicate.
+setopt HIST_FIND_NO_DUPS         # Do not display a line previously found.
+setopt HIST_IGNORE_SPACE         # Don't record an entry starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history file.
+setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
+setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
+
+HISTFILE="$XDG_CACHE_HOME/zsh/.zsh_history"
+HISTSIZE=100000
+SAVEHIST=100000
+
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+if command -v kubectl >/dev/null 2>&1; then
+  source <(kubectl completion zsh)
+fi

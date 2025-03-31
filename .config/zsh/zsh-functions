@@ -5,7 +5,10 @@ function lf () {
   cd "$(command lf -print-last-dir "$@")"
 }
 
-# Create a new directory and enter it
-function mkd() {
-  mkdir -p "$@" && cd "$_";
+# Change cursor shape for different VIM modes.
+function zle-keymap-select () {
+    case $KEYMAP in
+        vicmd) echo -ne '\e[1 q';;      # block
+        viins|main) echo -ne '\e[5 q';; # beam
+    esac
 }

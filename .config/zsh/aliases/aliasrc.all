@@ -20,6 +20,12 @@ else
   alias diff="diff --color=auto"
 fi
 
+# ls
+alias ls='eza --group-directories-first --icons --no-git'
+alias ll='ls -lh'
+alias la='ll -a'
+alias tree='ll --tree --level=2'
+
 # general
 alias p="$PACKAGE_MANAGER"
 alias t="tmux"

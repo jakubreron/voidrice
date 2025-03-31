@@ -1,10 +1,8 @@
 #!/usr/bin/env zsh
 
-# Key bindings
 bindkey -s '^o' '^u${CLI_FILE_EXPLORER}\n'
-bindkey -s '^g' '^u${GUI_FILE_EXPLORER} .\n'
+bindkey -s '^b' '^u${GUI_FILE_EXPLORER} .\n'
 
-# Emacs bindings
 bindkey '^p' history-beginning-search-backward 
 bindkey '^n' history-beginning-search-forward 
 bindkey '^A' beginning-of-line
@@ -12,11 +10,3 @@ bindkey '^E' end-of-line
 bindkey '^d' delete-char
 bindkey '^f' forward-char
 bindkey '^b' backward-char
-
-# Change cursor shape for different VIM modes.
-function zle-keymap-select () {
-    case $KEYMAP in
-        vicmd) echo -ne '\e[1 q';;      # block
-        viins|main) echo -ne '\e[5 q';; # beam
-    esac
-}
