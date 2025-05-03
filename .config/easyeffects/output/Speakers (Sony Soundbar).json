@@ -1,17 +1,14 @@
 {
     "output": {
-        "bass_enhancer#0": {
-            "amount": 3.0000000000000018,
-            "blend": 0.0,
-            "bypass": false,
-            "floor": 20.0,
-            "floor-active": false,
-            "harmonics": 2.0,
-            "input-gain": 0.0,
-            "output-gain": 0.0,
-            "scope": 100.0
-        },
         "blocklist": [],
+        "convolver#0": {
+            "autogain": false,
+            "bypass": false,
+            "input-gain": -2.0,
+            "ir-width": 100,
+            "kernel-name": "MaxxAudio Pro ((128K MP3)) 4.Music w MaxxSpace",
+            "output-gain": 0.0
+        },
         "equalizer#0": {
             "balance": 0.0,
             "bypass": false,
@@ -30,7 +27,7 @@
                 },
                 "band1": {
                     "frequency": 59.763340205038524,
-                    "gain": 6.0,
+                    "gain": 1.07,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 1.5047602375372453,
@@ -147,7 +144,7 @@
                 },
                 "band1": {
                     "frequency": 59.763340205038524,
-                    "gain": 6.0,
+                    "gain": 1.07,
                     "mode": "RLC (BT)",
                     "mute": false,
                     "q": 1.5047602375372453,
@@ -249,7 +246,7 @@
         },
         "plugins_order": [
             "equalizer#0",
-            "bass_enhancer#0"
+            "convolver#0"
         ]
     }
 }
