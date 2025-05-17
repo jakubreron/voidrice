@@ -36,7 +36,7 @@ declare -a cli_theme_paths=(
 )
 
 declare -a other_theme_paths=(
-"$HOME/.config/rofi/config.rasi"
+"$HOME/.config/rofi/themes/catppuccin-default.rasi"
 "$HOME/.config/waybar/colorscheme.css"
 "$HOME/.config/hypr/theme.conf"
 )
