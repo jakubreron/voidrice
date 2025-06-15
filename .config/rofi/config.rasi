@@ -1,55 +1,33 @@
-@theme "catppuccin-mocha"
+@theme "catppuccin-default"
 
 configuration{
-    modi: "run,drun,window";
-    icon-theme: "Oranchelo";
-    show-icons: true;
-    terminal: "alacritty";
-    drun-display-format: "{icon} {name}";
-    location: 0;
-    disable-history: false;
-    hide-scrollbar: false;
-    display-drun: " App    ";
-    display-run: " Run     ";
-    display-window: " Win ";
-    display-Network: " Network 󰤨 ";
-    sidebar-mode: false;
-}
-
-* {
-    selected-col: @blue;
-    fg-col2: @bg-col;
-    border-col: #89b4fa;
-    border-rad: 6px;
-
-    width: 65%;
-    font: "Monospace 14";
+  modi: "run,drun,window";
+  icon-theme: "Adwaita";
+  show-icons: true;
+  terminal: "alacritty";
+  display-drun: " App  ";
+  display-run: " Run  ";
+  display-window: " Win ";
+  display-Network: " Net 󰤨 ";
 }
 
 window {
-    height: 50%;
-    border: 2px;
+  max-height: 50%;
+  border: 2px;
 }
 
 inputbar,
 prompt,
-message,
 window,
 element {
-  border-radius: @border-rad;
+  border-radius: 9px;
 }
 
-listview,
 element,
-entry,
-inputbar {
-  background-color: transparent;
-}
-
 listview {
-  margin: 0px 10px 0 10px;
+  margin: 0;
 }
 
 element {
-  margin: 0 12px;
+  padding: 6px;
 }
