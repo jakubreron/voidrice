@@ -2,17 +2,17 @@
 
 path="$PKGLIST_DIR/$PACKAGE_TYPE"
 
-if [ -d "$path" ]; then 
+if [ -d "$path" ]; then
   if command -v yarn >/dev/null 2>&1; then
     log-pretty-message "Generating yarn packages" "🧶"
-    yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' > "$path/yarn.txt"
+    yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' >"$path/yarn.txt"
   else
     log-pretty-message "Skipping yarn packages (yarn not installed)" "⚠"
   fi
 
   if command -v npm >/dev/null 2>&1; then
     log-pretty-message "Generating npm packages" "📦"
-    npm -g ls --parseable | tail -n +2 | sed 's/.*node_modules\///' > "$path/npm.txt"
+    npm -g ls --parseable | tail -n +2 | sed 's/.*node_modules\///' >"$path/npm.txt"
   else
     log-pretty-message "Skipping npm packages (npm not installed)" "⚠"
   fi
@@ -27,25 +27,26 @@ if [ -d "$path" ]; then
     fi
 
     log-pretty-message "Generating $manager packages" "📦"
-    $manager -Qqe > "$path/pacman.txt";
-    $manager -Qqe | grep 'php' | sed -r "s/\b('phpstorm|phpstorm-jre')//g" > "$path/php.txt"
+    $manager -Qqe >"$path/pacman.txt"
+    $manager -Qqe | grep 'php' | sed -r "s/\b('phpstorm|phpstorm-jre')//g" >"$path/php.txt"
   }
 
   generate_macos_pkgs() {
     if command -v brew >/dev/null 2>&1; then
       log-pretty-message "Generating brew packages" "🍺"
 
+      rm "$path/Brewfile"
       brew bundle dump --file "$path/Brewfile"
     fi
   }
 
   case "$(uname -s)" in
-    Linux*)
-      generate_linux_pkgs
-      ;;
-    Darwin)
-      generate_macos_pkgs
-      ;;
+  Linux*)
+    generate_linux_pkgs
+    ;;
+  Darwin)
+    generate_macos_pkgs
+    ;;
   esac
 
   if [ -d "$PKGLIST_DIR/.git" ] && [ -d "$HOME/.ssh" ]; then
