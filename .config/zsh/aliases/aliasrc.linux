@@ -3,7 +3,6 @@
 # For when keys break
 alias fix-pkg-keys="sudo rm -fr /etc/pacman.d/gnupg && sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
 
-alias update-hosts="/bin/systemctl restart systemd-hostnamed"
 alias update-mirrors="sudo reflector -f 100 -l 100 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
