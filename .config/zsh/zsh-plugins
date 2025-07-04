@@ -1,9 +1,8 @@
 #!/usr/bin/env zsh
 
 plug "joshskidmore/zsh-fzf-history-search"
-plug "zap-zsh/vim"
-
 plug "Aloxaf/fzf-tab"
+plug "zap-zsh/vim"
 
 # set descriptions format to enable group support
 # NOTE: don't use escape sequences here, fzf-tab will ignore them
