@@ -207,44 +207,44 @@ cmd follow_link %{{
 }}
 
 # Bindings
-map J fzf_jump
-map V push :!$EDITOR<space>
+nmap J fzf_jump
+# map V push :!$EDITOR<space>
 map D delete
 map E extract
 map M moveto
 map C copyto
-map U set hidden!
+nmap U set hidden!
 
-map gl follow_link
+nmap gl follow_link
 map ge encrypt
 map gd decrypt
-map gc convert
+nmap gc convert
 
 map Sw share
 map Sk kdeconnect
 
-map <c-f> fzf_search
-map <c-n> push :mkdir<space>""<left>
+nmap <c-f> fzf_search
+nmap <c-n> push :mkdir<space>""<left>
 map <c-o> dragon
 
 map Z zip $f
 
-map x $$f # execute
-map X $chmod +x "$f" && lf -remote "send reload"
-map o &mimeopen "$f"
-map O $mimeopen --ask "$f"
+nmap x $$f # execute
+nmap X $chmod +x "$f" && lf -remote "send reload"
+nmap o &mimeopen "$f"
+nmap O $mimeopen --ask "$f"
 
 # Renames
-map r push A<c-u> # new rename
-map R bulk_rename
+nmap r push A<c-u> # new rename
+nmap R bulk_rename
 
-map i :rename # before extension
-map I :rename; cmd-home # at the very beginning
+nmap i :rename # before extension
+nmap I :rename; cmd-home # at the very beginning
 
-map a :rename; cmd-right # after extension
-map A :rename; cmd-end # at the very end
+nmap a :rename; cmd-right # after extension
+nmap A :rename; cmd-end # at the very end
 
-map W open_in_new_terminal
+nmap W open_in_new_terminal
 
 # TODO: @Jakub check if it sill works on Linux
 map Y $printf "%s" "$fx" | cross-platform-copy
