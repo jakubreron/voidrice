@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+#
 # General
 stty stop undef	# Disable ctrl-s to freeze terminal.
 

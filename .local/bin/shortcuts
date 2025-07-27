@@ -4,8 +4,12 @@ bmdirs="$XDG_CONFIG_HOME/zsh/bookmarks/dirs"
 bmfiles="$XDG_CONFIG_HOME/zsh/bookmarks/files"
 
 # Output locations. Unactivated progs should go to /dev/null.
-shell_shortcuts="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/shortcuts/shortcutrc"
-zsh_named_dirs="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/shortcuts/zshnameddirrc"
+shortcuts_path="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/shortcuts"
+
+mkdir -p $shortcuts_path
+
+shell_shortcuts="$shortcuts_path/shortcutrc"
+zsh_named_dirs="$shortcuts_path/zshnameddirrc"
 
 # Remove, prepare files
 printf "# vim: filetype=sh\\nalias " > "$shell_shortcuts"

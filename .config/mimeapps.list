@@ -27,15 +27,15 @@ x-scheme-handler/etcher=balena-etcher.desktop
 application/dicom=gimp.desktop
 
 [Added Associations]
-x-scheme-handler/http=firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;zen.desktop;
-x-scheme-handler/https=firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;zen.desktop;
-x-scheme-handler/chrome=firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;zen.desktop;
-text/html=firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;zen.desktop;
-application/x-extension-htm=firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;zen.desktop;
-application/x-extension-html=firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;zen.desktop;
-application/x-extension-shtml=firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;zen.desktop;
-application/xhtml+xml=firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;zen.desktop;
-application/x-extension-xhtml=firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;zen.desktop;
-application/x-extension-xht=firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;zen.desktop;
+x-scheme-handler/http=zen.desktop;firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;
+x-scheme-handler/https=zen.desktop;firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;
+x-scheme-handler/chrome=zen.desktop;firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;
+text/html=firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;
+application/x-extension-htm=firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;
+application/x-extension-html=firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;
+application/x-extension-shtml=firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;
+application/xhtml+xml=firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;
+application/x-extension-xhtml=firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;
+application/x-extension-xht=firefox.desktop;firefoxdeveloperedition.desktop;zen-beta.desktop;
 text/calendar=firefoxdeveloperedition.desktop
 application/dicom=gimp.desktop;
