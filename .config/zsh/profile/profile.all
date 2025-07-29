@@ -26,6 +26,7 @@ export VIMWIKI_DIR="$DOTFILES_DIR/universal/Documents/VimWiki"
 
 bin_list=(
   "$XDG_DATA_HOME/cargo/bin"
+  "$XDG_DATA_HOME/npm/bin"
   )
 
 for extra in "${bin_list[@]}"; do
