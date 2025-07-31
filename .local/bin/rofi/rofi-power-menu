@@ -10,7 +10,7 @@ case "$(printf "🔒 lock\n🚪 leave $WM\n♻️ renew $WM\n🔃 reboot\n🖥�
 	'🔒 lock') swaylock ;;
 	"🚪 leave $WM") hyprctl dispatch exit ;;
 	"♻️ renew $WM") hyprctl reload;;
-	'💤 sleep') $ctl suspend -i ;;
+	'💤 sleep') lock-and-suspend ;;
 	'🔃 reboot') $ctl reboot -i ;;
 	'🖥️shutdown') $ctl poweroff -i ;;
 	*) exit 1 ;;

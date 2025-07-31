@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Lock the screen
+swaylock &
+
+# Give swaylock a moment to activate
+sleep 0.5
+
+# Suspend the system
+systemctl suspend -i
