@@ -9,12 +9,13 @@ replace_dotfiles_symlinks() {
   log-pretty-message "Updating dotfiles symlinks"
   find "$DOTFILES_DIR" -type d \
     -exec test -e '{}/.stow-local-ignore' ';' \
-    -print0 -prune \
-    | xargs -0 -I {} basename {} \
-    | xargs stow --adopt --target="$HOME" --dir="$DOTFILES_DIR"
+    -print0 -prune |
+    xargs -0 -I {} basename {} |
+    xargs stow --adopt --target="$HOME" --dir="$DOTFILES_DIR"
 }
 
 replace_firefox_symlinks() {
+  dotfiles_userchrome_path="$DOTFILES_DIR/voidrice/.config/firefox/chrome"
   dotfiles_userjs_overrides_path="$DOTFILES_DIR/voidrice/.config/firefox/user-overrides.js"
   dotfiles_userjs_path="$DOTFILES_DIR/voidrice/.config/firefox/betterfox/user.js"
 
@@ -22,28 +23,32 @@ replace_firefox_symlinks() {
     log-pretty-message "Updating firefox symlinks"
 
     case "$(uname -s)" in
-      Linux*)
-        browser_dir="$HOME/.mozilla/firefox"
-        browser_profiles_ini_dir="$browser_dir/profiles.ini"
-        profile="$(sed -n "/Default=.*.default-release/ s/.*=//p" "$browser_profiles_ini_dir")"
-        browser_profile_dir="$browser_dir/$profile"
+    Linux*)
+      browser_dir="$HOME/.mozilla/firefox"
+      browser_profiles_ini_dir="$browser_dir/profiles.ini"
+      profile="$(sed -n "/Default=.*.default-release/ s/.*=//p" "$browser_profiles_ini_dir")"
+      browser_profile_dir="$browser_dir/$profile"
 
-        if [ -d "$browser_profile_dir" ]; then
-          ln -sf "$dotfiles_userjs_overrides_path" "$browser_profile_dir/user-overrides.js"
-          ln -sf "$dotfiles_userjs_path" "$browser_profile_dir/user.js"
-        fi
-        ;;
-      Darwin)
-        browser_dir="$HOME/Library/Application Support/Firefox"
-        browser_profiles_ini_dir="$browser_dir/profiles.ini"
-        profile="$(sed -n "/Default=.*.default-release/ s/.*=//p" "$browser_profiles_ini_dir")"
-        browser_profile_dir="$browser_dir/$profile"
+      if [ -d "$browser_profile_dir" ]; then
+        ln -sf "$dotfiles_userchrome_path" "$browser_profile_dir"
 
-        if [ -d "$browser_profile_dir" ]; then
-          ln -sf "$dotfiles_userjs_overrides_path" "$browser_profile_dir/user-overrides.js"
-          ln -sf "$dotfiles_userjs_path" "$browser_profile_dir/user.js"
-        fi
-        ;;
+        ln -sf "$dotfiles_userjs_overrides_path" "$browser_profile_dir/user-overrides.js"
+        ln -sf "$dotfiles_userjs_path" "$browser_profile_dir/user.js"
+      fi
+      ;;
+    Darwin)
+      browser_dir="$HOME/Library/Application Support/Firefox"
+      browser_profiles_ini_dir="$browser_dir/profiles.ini"
+      profile="$(sed -n "/Default=.*.default-release/ s/.*=//p" "$browser_profiles_ini_dir")"
+      browser_profile_dir="$browser_dir/$profile"
+
+      if [ -d "$browser_profile_dir" ]; then
+        ln -sf "$dotfiles_userchrome_path" "$browser_profile_dir"
+
+        ln -sf "$dotfiles_userjs_overrides_path" "$browser_profile_dir/user-overrides.js"
+        ln -sf "$dotfiles_userjs_path" "$browser_profile_dir/user.js"
+      fi
+      ;;
     esac
   fi
 
