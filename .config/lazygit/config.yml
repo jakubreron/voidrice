@@ -9,7 +9,6 @@ gui:
   showIcons: true
   nerdFontsVersion: "3"
   expandFocusedSidePanel: true
-  showFileTree: true
   showBottomLine: false # for hiding the bottom information line (unless it has important information to tell you)
   showRandomTip: true
   authorColors:
