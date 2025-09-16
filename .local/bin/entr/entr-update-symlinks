@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-notify-send "⏳ Updating the symlinks"
-update-symlinks-all &
-clear
