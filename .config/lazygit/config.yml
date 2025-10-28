@@ -29,7 +29,3 @@ git:
     pager: delta --paging=never
 refresher:
   refreshInterval: 3
-customCommands:
-  - key: "<c-a>"
-    context: "global"
-    command: "git commit --amend --no-edit && git push --force"
