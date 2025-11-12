@@ -24,8 +24,8 @@ gui:
     selectedRangeBgColor:
       - reverse
 git:
-  paging:
-    colorArg: always
-    pager: delta --paging=never
+  pagers:
+    - colorArg: always
+      pager: delta --paging=never
 refresher:
   refreshInterval: 3
