@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 replace_dotfiles_symlinks() {
-  for dir in "$DOTFILES_DIR"/voidrice/.local/bin/*/; do
+  for dir in $DOTFILES_DIR/voidrice/.local/bin/*/; do
     dir_name=$(basename "$dir")
-    mkdir -p "$HOME"/.local/bin/"$dir_name"
+    mkdir -p $HOME/.local/bin/$dir_name
   done
 
   log-pretty-message "Updating dotfiles symlinks"
@@ -12,6 +12,8 @@ replace_dotfiles_symlinks() {
     -print0 -prune |
     xargs -0 -I {} basename {} |
     xargs stow --adopt --target="$HOME" --dir="$DOTFILES_DIR"
+
+  ln -sf "$DOTFILES_DIR/voidrice/.local/bin/lfimg/"{cleaner,preview} "$HOME/.config/lf"
 }
 
 replace_firefox_symlinks() {
@@ -51,7 +53,6 @@ replace_firefox_symlinks() {
       ;;
     esac
   fi
-
 }
 
 replace_dotfiles_symlinks

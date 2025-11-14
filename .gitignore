@@ -26,6 +26,8 @@ shortcuts.vim
 .config/fcitx/profile
 
 .local/share/lf
+.config/lf/cleaner
+.config/lf/preview
 
 .config/keyd/app.lock
 
