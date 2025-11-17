@@ -1,10 +1,6 @@
 [submodule ".config/mpv/script_modules/mpvSockets"]
 	path = .config/mpv/script_modules/mpvSockets
 	url = https://github.com/wis/mpvSockets.git
-[submodule ".config/tmux/plugins/tpm"]
-	path = .config/tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
-  branch = master
 [submodule ".config/mpv/scripts/autosubsync-mpv"]
 	path = .config/mpv/scripts/autosubsync-mpv
 	url = git@github.com:joaquintorres/autosubsync-mpv.git
