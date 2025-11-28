@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 update-files
-update-symlinks-all
 update-installed-pkgs
 update-generated-pkgs
+update-symlinks-all
 
 clean-all
