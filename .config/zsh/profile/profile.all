@@ -1,6 +1,8 @@
 #!/usr/bin/env zsh
 
 export TERMINAL="alacritty"
+export BROWSER="firefox"
+export BACKUP_BROWSER="chromium"
 
 export XDG_DOCUMENTS_DIR="$HOME/Documents"
 export XDG_DOWNLOAD_DIR="$HOME/Downloads"
@@ -24,9 +26,21 @@ export DOTFILES_DIR="$XDG_CONFIG_HOME/dotfiles"
 export PKGLIST_DIR="$DOTFILES_DIR/pkglists"
 export VIMWIKI_DIR="$DOTFILES_DIR/universal/Documents/VimWiki"
 
-bin_list=(
+case "$OS" in
+  Linux)
+    find_command="find"
+    ;;
+  Darwin)
+    find_command="gfind"
+    ;;
+esac
+
+local bin_list=(
   "$XDG_DATA_HOME/cargo/bin"
   "$XDG_DATA_HOME/npm/bin"
+  "${$($find_command $HOME/.yarn/bin -type d -printf %p:)%%:}"
+  "${$($find_command $HOME/.local/bin -type d -printf %p:)%%:}"
+  "${$($find_command $HOME/.local/bin -type d -printf %p:)%%:}"
   )
 
 for extra in "${bin_list[@]}"; do
