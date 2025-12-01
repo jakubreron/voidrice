@@ -41,9 +41,6 @@ export SUDO_EDITOR="/usr/bin/nvim"
 
 export CLI_FILE_EXPLORER="lf"
 export CLI_SYSTEM_MONITOR="btop"
-export CLI_STOCKS_APP="ticker"
-export CLI_GIT_APP="lazygit"
-export CLI_DOCKER_APP="lazydocker"
 
 export MANPAGER="$EDITOR +Man!"
 export MANWIDTH=999
@@ -54,3 +51,5 @@ export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 export GOPATH="$XDG_DATA_HOME/go"
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export NODE_OPTIONS="--max-old-space-size=16384"
+
+[ ! -f $XDG_CONFIG_HOME/zsh/shortcuts/shortcutrc ] && setsid shortcuts >/dev/null 2>&1

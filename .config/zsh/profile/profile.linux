@@ -22,7 +22,6 @@ export XMODIFIERS='@im=fcitx'
 
 export BROWSER="firefox"
 export BACKUP_BROWSER="google-chrome-stable"
-export PASSWORD_MANAGER="Bitwarden"
 
 export GUI_FILE_EXPLORER="nautilus"
 export GUI_IMAGE_VIEWER="loupe"
@@ -37,9 +36,6 @@ export PACKAGE_TYPE="primary"
 export PACKAGE_MANAGER="paru"
 
 export PARU_CONF="$XDG_CONFIG_HOME/paru/paru.conf"
-export AUTOGENERATE_EXCLUDED_PACKAGES="php|php-.*$|linux.*"
-
-[ ! -f $XDG_CONFIG_HOME/zsh/shortcuts/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
 
 if [[ "$STARTUP_DESKTOP" = 'Wayland' ]]; then
   export GDK_BACKEND="wayland,x11,*"
