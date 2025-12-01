@@ -7,10 +7,10 @@ case "$(readlink -f /sbin/init)" in
 esac
 
 case "$(printf "🔒 lock\n🚪 leave $WM\n♻️ renew $WM\n🔃 reboot\n🖥️shutdown\n💤 sleep\n📺 display off" | rofi -dmenu -p Action)" in
-	'🔒 lock') swaylock ;;
+	'🔒 lock') hyprlock ;;
 	"🚪 leave $WM") hyprctl dispatch exit ;;
 	"♻️ renew $WM") hyprctl reload;;
-	'💤 sleep') lock-and-suspend ;;
+	'💤 sleep') $ctl suspend -i ;;
 	'🔃 reboot') $ctl reboot -i ;;
 	'🖥️shutdown') $ctl poweroff -i ;;
 	*) exit 1 ;;
