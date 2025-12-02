@@ -11,7 +11,6 @@ fi
 bin_list=(
   "/opt/local/bin:/opt/local/sbin"
   "$(brew --prefix mysql-client)/bin"
-  "${$(gfind $HOME/.local/bin -type d -printf %p:)%%:}"
 )
 
 for extra in "${bin_list[@]}"; do
@@ -21,12 +20,7 @@ export PATH
 unset bin_list
 
 
-# NOTE: programs
-export BROWSER="zen-browser"
-export BACKUP_BROWSER="chrome"
-
 export GUI_FILE_EXPLORER="open"
 
-# NOTE: packages
 export PACKAGE_TYPE="work"
 export PACKAGE_MANAGER="brew"

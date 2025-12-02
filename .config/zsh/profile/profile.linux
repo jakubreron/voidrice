@@ -1,28 +1,9 @@
 #!/usr/bin/env zsh
 
-bin_list=(
-  "${$(find $HOME/.yarn/bin -type d -printf %p:)%%:}"
-  "${$(find $HOME/.local/bin -type d -printf %p:)%%:}"
-)
-
-for extra in "${bin_list[@]}"; do
-  PATH=$extra:$PATH
-done
-export PATH
-unset bin_list
-
-# NOTE: base settings
-export STARTUP_DESKTOP="Wayland"
-
-# NOTE: keyboard
 export INPUT_METHOD="fcitx5"
 export QT_IM_MODULE='fcitx'
 export SDL_IM_MODULE='fcitx'
 export XMODIFIERS='@im=fcitx'
-
-export BROWSER="firefox"
-export BACKUP_BROWSER="google-chrome-stable"
-export PASSWORD_MANAGER="Bitwarden"
 
 export GUI_FILE_EXPLORER="nautilus"
 export GUI_IMAGE_VIEWER="loupe"
@@ -35,29 +16,24 @@ export CLI_SOUND_MANAGER="pulsemixer"
 
 export PACKAGE_TYPE="primary"
 export PACKAGE_MANAGER="paru"
-
 export PARU_CONF="$XDG_CONFIG_HOME/paru/paru.conf"
-export AUTOGENERATE_EXCLUDED_PACKAGES="php|php-.*$|linux.*"
 
-[ ! -f $XDG_CONFIG_HOME/zsh/shortcuts/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
+# Wayland related
+export GDK_BACKEND="wayland,x11,*"
+export QT_QPA_PLATFORM="wayland;xcb"
+export SDL_VIDEODRIVER="wayland"
+export CLUTTER_BACKEND="wayland"
 
-if [[ "$STARTUP_DESKTOP" = 'Wayland' ]]; then
-  export GDK_BACKEND="wayland,x11,*"
-  export QT_QPA_PLATFORM="wayland;xcb"
-  export SDL_VIDEODRIVER="wayland"
-  export CLUTTER_BACKEND="wayland"
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export QT_QPA_PLATFORMTHEME='qt6ct'
+export DISABLE_QT5_COMPAT=1 # confirm qt6 compatibility
 
-  export QT_AUTO_SCREEN_SCALE_FACTOR=1
-  export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-  export QT_QPA_PLATFORMTHEME='qt6ct'
-  export DISABLE_QT5_COMPAT=1 # confirm qt6 compatibility
+export SDL_VIDEODRIVER="wayland"
+export MOZ_ENABLE_WAYLAND=1
 
-  export SDL_VIDEODRIVER="wayland"
-  export MOZ_ENABLE_WAYLAND=1
+export WLR_NO_HARDWARE_CURSORS=1
 
-  export WLR_NO_HARDWARE_CURSORS=1
-
-  if [ -z $DISPLAY ] && [ $(tty) = "/dev/tty1" ]; then
-    Hyprland
-  fi
+if [ -z $DISPLAY ] && [ $(tty) = "/dev/tty1" ]; then
+  Hyprland
 fi
