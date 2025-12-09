@@ -6,9 +6,9 @@ case "$(readlink -f /sbin/init)" in
 	*) ctl='loginctl' ;;
 esac
 
-case "$(printf "🔒 lock\n🚪 leave $WM\n♻️ renew $WM\n🔃 reboot\n🖥️shutdown\n💤 sleep\n📺 display off" | rofi -dmenu -p Action)" in
+case "$(printf "🔒 lock\n🚪 logout $WM\n♻️ renew $WM\n🔃 reboot\n🖥️shutdown\n💤 sleep\n📺 display off" | rofi -dmenu -p Action)" in
 	'🔒 lock') hyprlock ;;
-	"🚪 leave $WM") hyprctl dispatch exit ;;
+	"🚪 logout $WM") hyprctl dispatch exit ;;
 	"♻️ renew $WM") hyprctl reload;;
 	'💤 sleep') $ctl suspend -i ;;
 	'🔃 reboot') $ctl reboot -i ;;

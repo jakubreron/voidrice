@@ -55,6 +55,7 @@ export SUDO_EDITOR="/usr/bin/nvim"
 
 export CLI_FILE_EXPLORER="lf"
 export CLI_SYSTEM_MONITOR="btop"
+export CLI_MAIL_CLIENT="aerc"
 
 export MANPAGER="$EDITOR +Man!"
 export MANWIDTH=999
