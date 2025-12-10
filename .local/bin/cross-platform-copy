@@ -1,7 +1,18 @@
 #!/usr/bin/env bash
 
 if command -v pbcopy >/dev/null 2>&1; then
-  pbcopy "$@"
+  # On macOS, pbcopy reads from stdin
+  pbcopy
+elif command -v wl-copy >/dev/null 2>&1; then
+  # On Wayland, wl-copy reads from stdin
+  wl-copy
+elif command -v xclip >/dev/null 2>&1; then
+  # On X11, xclip reads from stdin for clipboard selection
+  xclip -selection clipboard
+elif command -v xsel >/dev/null 2>&1; then
+  # On X11, xsel reads from stdin for clipboard selection
+  xsel -b
 else
-  wl-copy "$@"
+  # Fallback: if no recognized clipboard tool, just discard the input
+  cat > /dev/null
 fi
