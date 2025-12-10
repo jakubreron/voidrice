@@ -22,3 +22,18 @@ user_pref("browser.startup.page", 3); // default 0
 // PREF: use native title bar buttons [LINUX]
 // [1] https://github.com/yokoffing/Betterfox/issues/320
 user_pref("widget.gtk.non-native-titlebar-buttons.enabled", true);
+
+// PREF: default permission for Location Requests
+// 0=always ask (default), 1=allow, 2=block
+user_pref("permissions.default.geo", 0);
+
+// PREF: default permission for Web Notifications
+// To add site exceptions: Page Info>Permissions>Receive Notifications
+// To manage site exceptions: Options>Privacy & Security>Permissions>Notifications>Settings
+// 0=always ask (default), 1=allow, 2=block
+// [1] https://easylinuxtipsproject.blogspot.com/p/security.html#ID5
+// [2] https://github.com/yokoffing/Betterfox/wiki/Common-Overrides#site-notifications
+user_pref("permissions.default.desktop-notification", 0);
+
+// PREF: show weather on New Tab page
+user_pref("browser.newtabpage.activity-stream.showWeather", true);
