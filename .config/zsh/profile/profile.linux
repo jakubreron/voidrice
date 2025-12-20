@@ -10,7 +10,7 @@ export GUI_IMAGE_VIEWER="loupe"
 export GUI_MAIL_CLIENT="geary"
 
 export CLI_MUSIC_PLAYER="ncmpcpp"
-export CLI_NETWORK_MANAGER="nmtui"
+export CLI_NETWORK_MANAGER="wifitui"
 export CLI_TORRENTS_MANAGER="tremc"
 export CLI_SOUND_MANAGER="pulsemixer"
 

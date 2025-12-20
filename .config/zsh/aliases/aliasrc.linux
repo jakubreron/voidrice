@@ -7,18 +7,18 @@ alias update-mirrors="sudo reflector -f 100 -l 100 --number 10 --verbose --save 
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 if laptop-detect > /dev/null; then
-	alias battery-health="upower -i /org/freedesktop/UPower/devices/battery_BAT0; acpi -i"
+  alias battery-health="upower -i /org/freedesktop/UPower/devices/battery_BAT0; acpi -i"
 
-	alias charge-to-100="echo 100 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold"
-	alias charge-to-80="echo 81 | sudo tee  /sys/class/power_supply/BAT0/charge_stop_threshold"
+  alias charge-to-100="echo 100 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold"
+  alias charge-to-80="echo 81 | sudo tee  /sys/class/power_supply/BAT0/charge_stop_threshold"
 
-		# NOTE: for older thinkpad
-		# alias charge-to-100="echo 99 | sudo tee /sys/devices/platform/smapi/BAT0/stop_charge_thresh"
-		# alias charge-to-80="echo 80 | sudo tee /sys/devices/platform/smapi/BAT0/stop_charge_thresh"
+    # NOTE: for older thinkpad
+    # alias charge-to-100="echo 99 | sudo tee /sys/devices/platform/smapi/BAT0/stop_charge_thresh"
+    # alias charge-to-80="echo 80 | sudo tee /sys/devices/platform/smapi/BAT0/stop_charge_thresh"
 
-		if command -v auto-cpufreq >/dev/null 2>&1; then
-			alias set-performance="sudo auto-cpufreq --force=performance"
-			alias set-reset="sudo auto-cpufreq --force=reset"
-			alias set-powersave="sudo auto-cpufreq --force=powersave"
-		fi
+    if command -v auto-cpufreq >/dev/null 2>&1; then
+      alias set-performance="sudo auto-cpufreq --force=performance"
+      alias set-reset="sudo auto-cpufreq --force=reset"
+      alias set-powersave="sudo auto-cpufreq --force=powersave"
+    fi
 fi

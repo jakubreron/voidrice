@@ -13,6 +13,8 @@ alias rm="rm -iv"
 # Colorize commands when possible.
 alias ip="ip -color=auto"
 alias grep="grep --color=auto"
+alias ls='eza --group-directories-first --icons --no-git'
+alias df="duf"
 
 if command -v delta >/dev/null 2>&1; then
   alias diff="delta"
@@ -20,22 +22,15 @@ else
   alias diff="diff --color=auto"
 fi
 
-alias ls='eza --group-directories-first --icons --no-git'
-alias df="duf"
-
 # general
 alias p="$PACKAGE_MANAGER"
-alias t="tmux"
 alias v="$EDITOR"
-alias vs="$EDITOR -S"
 alias vw="$EDITOR $VIMWIKI_DIR/index.md"
 alias git="noglob git"
-alias se="sudoedit"
 alias c="tmux clear-history; clear"
 alias lg="lazygit"
 alias ld="lazydocker"
 alias ti="ticker"
-alias nv="nordvpn"
 
 # misc
 alias nohup="nohup >/dev/null 2>&1"

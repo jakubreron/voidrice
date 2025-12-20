@@ -1,12 +1,11 @@
 cfp      $HOME/.zprofile
 cfz      $ZDOTDIR/.zshrc
-cfa      $ZDOTDIR/aliases/aliasrc.all
-cfbf     $ZDOTDIR/bookmarks/files
-cfbd     $ZDOTDIR/bookmarks/dirs
+cfa      $ZDOTDIR/aliases
+cfb      $ZDOTDIR/bookmarks
 
 cfA      $XDG_CONFIG_HOME/alacritty/alacritty.toml
-cfh      $XDG_CONFIG_HOME/hypr/hyprland.conf
-cflf     $XDG_CONFIG_HOME/lf/lfrc
+cfh      $XDG_CONFIG_HOME/hypr
+cflf     $XDG_CONFIG_HOME/lf
 cftm     $XDG_CONFIG_HOME/tmux/tmux.conf
 cfti     $XDG_CONFIG_HOME/ticker/.ticker.yaml
 cfg      $DOTFILES_DIR/universal/.config/git/config
