@@ -13,9 +13,7 @@ set incfilter
 set hidden
 set drawbox
 set roundbox
-set ignorecase
 set info size
-set autoquit
 set number
 set relativenumber
 
@@ -32,14 +30,13 @@ cmd on-redraw %{{
 cmd open ${{
   case $(file --mime-type "$(readlink -f $f)" -b) in
     application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
-    image/vnd.djvu|application/pdf|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
+    image/vnd.djvu|application/pdf|application/epub*|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
     text/*|application/json|inode/x-empty|application/x-subrip) $EDITOR $fx;;
     image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
     image/svg+xml) display -- $f ;;
     image/*) setsid -f $GUI_IMAGE_VIEWER $f >/dev/null 2>&1 ;;
     audio/*|video/x-ms-asf) mpv --audio-display=no $f ;;
     video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
-    application/pdf|application/vnd.djvu|application/epub*) setsid -f zathura $fx >/dev/null 2>&1 ;;
     application/vnd*) setsid -f libreoffice $fx >/dev/null 2>&1 ;; # NOTE: office formats
     application/pgp-encrypted) $EDITOR $fx ;;
     application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/vnd.oasis.opendocument.text|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|application/octet-stream|application/vnd.oasis.opendocument.spreadsheet|application/vnd.oasis.opendocument.spreadsheet-template|application/vnd.openxmlformats-officedocument.presentationml.presentation|application/vnd.oasis.opendocument.presentation-template|application/vnd.oasis.opendocument.presentation|application/vnd.ms-powerpoint|application/vnd.oasis.opendocument.graphics|application/vnd.oasis.opendocument.graphics-template|application/vnd.oasis.opendocument.formula|application/vnd.oasis.opendocument.database) setsid -f libreoffice $fx >/dev/null 2>&1 ;;
@@ -55,9 +52,7 @@ cmd delete ${{
   printf "$fx \n"
   printf "❌ Delete? [y/n] "
   read ans
-  if [ -z "$ans" ]; then
-    ans="y"
-  fi
+  ans="${ans:-y}"
   [ $ans = "y" ] && rm -rf -- $fx
 }}
 
@@ -71,10 +66,8 @@ cmd extract ${{
   printf "$fx \n"
   printf "📦 Extract? [y/n] "
   read ans
-  if [ -z "$ans" ]; then
-    ans="y"
-  fi
-  if [[ $ans = "y" ]]; then
+  ans="${ans:-y}"
+  if [ $ans = "y" ]; then
   case $fx in
     *.tar.bz2)   tar xjf $fx     ;;
     *.tar.gz)    tar xzf $fx     ;;
@@ -115,7 +108,7 @@ cmd copyto ${{
   done &&
   dest_path=$(eval echo "$dest")
   lf -remote "send $id cd $dest_path"
-  notify-send " File(s) copied." "File(s) copies to $dest."
+  notify-send " File(s) copied." "File(s) copied to $dest."
 }}
 
 cmd share ${{
@@ -124,9 +117,7 @@ cmd share ${{
   printf "$fx \n"
   printf "🌐 Share? [y/n] "
   read ans
-  if [ -z "$ans" ]; then
-    ans="y"
-  fi
+  ans="${ans:-y}"
   [ $ans = "y" ] && curl -F"file=@$fx" https://0x0.st | wl-copy
 }}
 
@@ -148,7 +139,7 @@ cmd zip ${{
   printf "$fx \n"
   printf "📦 Zip to: "
   read name
-  mkdir $name
+  mkdir -p $name
   cp -r $fx $name
   zip -r $name.zip $name
   rm -rf $name
@@ -227,7 +218,7 @@ nmap <c-f> fzf_search
 nmap <c-n> push :mkdir<space>""<left>
 map <c-o> dragon
 
-map Z zip $f
+map Z zip
 
 nmap x $$f # execute
 nmap X $chmod +x "$f" && lf -remote "send reload"
