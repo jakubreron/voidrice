@@ -1,4 +1,7 @@
 #!/usr/bin/env zsh
+#
+# GPG auth for git, gpg encryption, etc...
+export GPG_TTY=$(tty)
 
 export TERMINAL="alacritty"
 export BROWSER="firefox"
