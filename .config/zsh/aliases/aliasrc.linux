@@ -9,7 +9,7 @@ alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 if laptop-detect > /dev/null; then
   alias battery-health="upower -i /org/freedesktop/UPower/devices/battery_BAT0; acpi -i"
 
-  alias charge-to-100="echo 100 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold"
+  alias charge-to-100="echo 101 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold"
   alias charge-to-80="echo 81 | sudo tee  /sys/class/power_supply/BAT0/charge_stop_threshold"
 
     # NOTE: for older thinkpad
