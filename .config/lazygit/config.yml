@@ -1,15 +1,11 @@
 disableStartupPopups: true
-notARepository: "skip"
 os:
   editPreset: "nvim-remote"
   edit: '[ -z "$NVIM" ] && (nvim -- {{filename}}) || (nvim --server "$NVIM" --remote-send "<CMD>LazyGitToggle<CR>" && nvim --server "$NVIM" --remote-tab {{filename}})'
   editAtLine: '[ -z "$NVIM" ] && (nvim +{{line}} -- {{filename}}) || (nvim --server "$NVIM" --remote-send "<CMD>LazyGitToggle<CR>" &&  nvim --server "$NVIM" --remote-tab {{filename}} && nvim --server "$NVIM" --remote-send ":{{line}}<CR>")'
-promptToReturnFromSubprocess: false
 gui:
   nerdFontsVersion: "3"
   expandFocusedSidePanel: true
-  showBottomLine: false # for hiding the bottom information line (unless it has important information to tell you)
-  showRandomTip: true
   authorColors:
     "Jakub Reroń": "green"
     "Jakub Reron": "green"
