@@ -20,6 +20,8 @@ export XDG_SRC_HOME="$HOME/.local/src"
 export XDG_BIN_HOME="$HOME/.local/bin"
 export XDG_CACHE_HOME="$HOME/.cache"
 
+export PNPM_HOME="$HOME/.local/share/pnpm"
+
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
 export CLOUD_DIR="$HOME/Cloud"
@@ -41,8 +43,8 @@ esac
 local bin_list=(
   "$XDG_DATA_HOME/cargo/bin"
   "$XDG_DATA_HOME/npm/bin"
+  "$PNPM_HOME"
   "${$($find_command $HOME/.yarn/bin -type d -printf %p:)%%:}"
-  "${$($find_command $HOME/.local/bin -type d -printf %p:)%%:}"
   "${$($find_command $HOME/.local/bin -type d -printf %p:)%%:}"
   )
 
