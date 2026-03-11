@@ -11,6 +11,8 @@ fi
 bin_list=(
   "/opt/local/bin:/opt/local/sbin"
   "$(brew --prefix mysql-client)/bin"
+      "$(brew --prefix postgresql@18)/bin"
+
 )
 
 for extra in "${bin_list[@]}"; do
@@ -19,8 +21,9 @@ done
 export PATH
 unset bin_list
 
-
 export GUI_FILE_EXPLORER="open"
 
 export PACKAGE_TYPE="work"
 export PACKAGE_MANAGER="brew"
+
+export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"                         
