@@ -1,0 +1,25 @@
+#!/bin/bash
+
+template="# {date}, Week {week}
+
+## To do
+
+* [ ]
+
+## Notes
+
+* ...
+
+"
+
+if [ $# -lt 1 ]; then
+    date=$(date +%Y-%m-%d)
+    week=$(date +%V)
+else
+    # Extract YYYY-MM-DD from YYYY-MM-DD.foo format
+    date="$(basename "${1%.*}")"
+    week=$(date -j -f "%Y-%m-%d" "$date" +%V)
+fi
+
+output="${template//\{date\}/$date}"
+echo "${output//\{week\}/$week}"
