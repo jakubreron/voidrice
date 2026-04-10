@@ -25,6 +25,7 @@ fi
 # general
 alias p="$PACKAGE_MANAGER"
 alias v="$EDITOR"
+alias vs="$EDITOR -S"
 alias vw="$EDITOR $VIMWIKI_DIR/index.md"
 alias git="noglob git"
 alias c="tmux clear-history; clear"

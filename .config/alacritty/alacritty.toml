@@ -18,3 +18,8 @@ y = -2
 [window]
 decorations = "Buttonless"
 option_as_alt = "Both"
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
