@@ -28,20 +28,32 @@ cmd on-redraw %{{
 }}
 
 cmd open ${{
-  case $(file --mime-type "$(readlink -f $f)" -b) in
-    application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
-    image/vnd.djvu|application/pdf|application/epub*|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
-    text/*|application/json|inode/x-empty|application/x-subrip) $EDITOR $fx;;
-    image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
-    image/svg+xml) display -- $f ;;
-    image/*) setsid -f $GUI_IMAGE_VIEWER $f >/dev/null 2>&1 ;;
-    audio/*|video/x-ms-asf) mpv --audio-display=no $f ;;
-    video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
-    application/vnd*) setsid -f libreoffice $fx >/dev/null 2>&1 ;; # NOTE: office formats
-    application/pgp-encrypted) $EDITOR $fx ;;
-    application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/vnd.oasis.opendocument.text|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|application/octet-stream|application/vnd.oasis.opendocument.spreadsheet|application/vnd.oasis.opendocument.spreadsheet-template|application/vnd.openxmlformats-officedocument.presentationml.presentation|application/vnd.oasis.opendocument.presentation-template|application/vnd.oasis.opendocument.presentation|application/vnd.ms-powerpoint|application/vnd.oasis.opendocument.graphics|application/vnd.oasis.opendocument.graphics-template|application/vnd.oasis.opendocument.formula|application/vnd.oasis.opendocument.database) setsid -f libreoffice $fx >/dev/null 2>&1 ;;
-        *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
-  esac
+  os="$(uname)"
+  filepath="$(realpath "$f" 2>/dev/null || readlink -f "$f" 2>/dev/null || echo "$f")"
+  mime="$(file --mime-type "$filepath" -b)"
+  if [ "$os" = "Darwin" ]; then
+    case "$mime" in
+      text/*|application/json|inode/x-empty|application/x-subrip) $EDITOR $fx ;;
+      application/pgp-encrypted) $EDITOR $fx ;;
+      audio/*|video/x-ms-asf) mpv --audio-display=no $f ;;
+      *) open $fx >/dev/null 2>&1 ;;
+    esac
+  else
+    case "$mime" in
+      application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
+      image/vnd.djvu|application/pdf|application/epub*|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
+      text/*|application/json|inode/x-empty|application/x-subrip) $EDITOR $fx ;;
+      image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
+      image/svg+xml) display -- $f ;;
+      image/*) setsid -f $GUI_IMAGE_VIEWER $f >/dev/null 2>&1 ;;
+      audio/*|video/x-ms-asf) mpv --audio-display=no $f ;;
+      video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
+      application/vnd*) setsid -f libreoffice $fx >/dev/null 2>&1 ;;
+      application/pgp-encrypted) $EDITOR $fx ;;
+      application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/vnd.oasis.opendocument.text|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|application/octet-stream|application/vnd.oasis.opendocument.spreadsheet|application/vnd.oasis.opendocument.spreadsheet-template|application/vnd.openxmlformats-officedocument.presentationml.presentation|application/vnd.oasis.opendocument.presentation-template|application/vnd.oasis.opendocument.presentation|application/vnd.ms-powerpoint|application/vnd.oasis.opendocument.graphics|application/vnd.oasis.opendocument.graphics-template|application/vnd.oasis.opendocument.formula|application/vnd.oasis.opendocument.database) setsid -f libreoffice $fx >/dev/null 2>&1 ;;
+      *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done ;;
+    esac
+  fi
 }}
 
 cmd fzf_jump $lf -remote "send $id cd $(awk '{ gsub(/#.*/, ""); } !/^$/ { print $2 }' $XDG_CONFIG_HOME/zsh/bookmarks/dirs | fzf | sed "s/\${.*-// ; s/}//" | envsubst)"
