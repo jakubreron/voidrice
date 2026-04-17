@@ -118,7 +118,7 @@ cmd share ${{
   printf "🌐 Share? [y/n] "
   read ans
   ans="${ans:-y}"
-  [ $ans = "y" ] && curl -F"file=@$fx" https://0x0.st | wl-copy
+  [ $ans = "y" ] && curl -F"file=@$fx" https://0x0.st | cross-platform-copy
 }}
 
 cmd fzf_search $lf -remote "send $id select \"$(fzf)\""
@@ -222,8 +222,18 @@ map Z zip
 
 nmap x $$f # execute
 nmap X $chmod +x "$f" && lf -remote "send reload"
-nmap o &mimeopen "$f"
-nmap O $mimeopen --ask "$f"
+nmap o ${{
+  case "$(uname)" in
+    Darwin) open "$f" ;;
+    *) mimeopen "$f" ;;
+  esac
+}}
+nmap O ${{
+  case "$(uname)" in
+    Darwin) open -a "$(osascript -e 'choose application' 2>/dev/null)" "$f" ;;
+    *) mimeopen --ask "$f" ;;
+  esac
+}}
 
 # Renames
 nmap r push A<c-u> # new rename
