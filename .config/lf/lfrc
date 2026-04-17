@@ -203,7 +203,12 @@ cmd bulk_rename ${{
   lf -remote "send $id unselect"
 }}
 
-cmd open_in_new_terminal $setsid -f $TERMINAL >/dev/null 2>&1
+cmd open_in_new_terminal ${{
+  case "$(uname)" in
+    Darwin) $TERMINAL --working-directory "$PWD" >/dev/null 2>&1 & ;;
+    *) setsid -f $TERMINAL >/dev/null 2>&1 ;;
+  esac
+}}
 
 cmd follow_link %{{
   lf -remote "send $id select \"$(readlink -- "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
