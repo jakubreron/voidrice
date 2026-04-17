@@ -28,23 +28,42 @@ cmd on-redraw %{{
 }}
 
 cmd open ${{
-  case $(file --mime-type "$(readlink -f $f)" -b) in
-    application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
-    image/vnd.djvu|application/pdf|application/epub*|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
-    text/*|application/json|inode/x-empty|application/x-subrip) $EDITOR $fx;;
-    image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
-    image/svg+xml) display -- $f ;;
-    image/*) setsid -f $GUI_IMAGE_VIEWER $f >/dev/null 2>&1 ;;
-    audio/*|video/x-ms-asf) mpv --audio-display=no $f ;;
-    video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
-    application/vnd*) setsid -f libreoffice $fx >/dev/null 2>&1 ;; # NOTE: office formats
-    application/pgp-encrypted) $EDITOR $fx ;;
-    application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/vnd.oasis.opendocument.text|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|application/octet-stream|application/vnd.oasis.opendocument.spreadsheet|application/vnd.oasis.opendocument.spreadsheet-template|application/vnd.openxmlformats-officedocument.presentationml.presentation|application/vnd.oasis.opendocument.presentation-template|application/vnd.oasis.opendocument.presentation|application/vnd.ms-powerpoint|application/vnd.oasis.opendocument.graphics|application/vnd.oasis.opendocument.graphics-template|application/vnd.oasis.opendocument.formula|application/vnd.oasis.opendocument.database) setsid -f libreoffice $fx >/dev/null 2>&1 ;;
-        *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done;;
-  esac
+  os="$(uname)"
+  filepath="$(realpath "$f" 2>/dev/null || readlink -f "$f" 2>/dev/null || echo "$f")"
+  mime="$(file --mime-type "$filepath" -b)"
+  if [ "$os" = "Darwin" ]; then
+    case "$mime" in
+      text/*|application/json|inode/x-empty|application/x-subrip) $EDITOR $fx ;;
+      application/pgp-encrypted) $EDITOR $fx ;;
+      audio/*|video/x-ms-asf) mpv --audio-display=no $f ;;
+      *) open $fx >/dev/null 2>&1 ;;
+    esac
+  else
+    case "$mime" in
+      application/vnd.openxmlformats-officedocument.spreadsheetml.sheet) localc $fx ;;
+      image/vnd.djvu|application/pdf|application/epub*|application/octet-stream|application/postscript) setsid -f zathura $fx >/dev/null 2>&1 ;;
+      text/*|application/json|inode/x-empty|application/x-subrip) $EDITOR $fx ;;
+      image/x-xcf) setsid -f gimp $f >/dev/null 2>&1 ;;
+      image/svg+xml) display -- $f ;;
+      image/*) setsid -f $GUI_IMAGE_VIEWER $f >/dev/null 2>&1 ;;
+      audio/*|video/x-ms-asf) mpv --audio-display=no $f ;;
+      video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
+      application/vnd*) setsid -f libreoffice $fx >/dev/null 2>&1 ;;
+      application/pgp-encrypted) $EDITOR $fx ;;
+      application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/vnd.oasis.opendocument.text|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|application/octet-stream|application/vnd.oasis.opendocument.spreadsheet|application/vnd.oasis.opendocument.spreadsheet-template|application/vnd.openxmlformats-officedocument.presentationml.presentation|application/vnd.oasis.opendocument.presentation-template|application/vnd.oasis.opendocument.presentation|application/vnd.ms-powerpoint|application/vnd.oasis.opendocument.graphics|application/vnd.oasis.opendocument.graphics-template|application/vnd.oasis.opendocument.formula|application/vnd.oasis.opendocument.database) setsid -f libreoffice $fx >/dev/null 2>&1 ;;
+      *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done ;;
+    esac
+  fi
 }}
 
 cmd fzf_jump $lf -remote "send $id cd $(awk '{ gsub(/#.*/, ""); } !/^$/ { print $2 }' $XDG_CONFIG_HOME/zsh/bookmarks/dirs | fzf | sed "s/\${.*-// ; s/}//" | envsubst)"
+
+cmd notify %{{
+  case "$(uname)" in
+    Darwin) osascript -e "display notification \"$2\" with title \"$1\"" ;;
+    *) notify-send "$1" "$2" ;;
+  esac
+}}
 
 cmd delete ${{
   clear; tput cup $(($(tput lines)/3)); tput bold
@@ -89,26 +108,26 @@ cmd moveto ${{
   clear; tput cup $(($(tput lines)/3)); tput bold
   set -f
   clear; echo "Move to where?"
-  dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' $XDG_CONFIG_HOME/zsh/bookmarks/dirs | fzf | sed 's|~|$HOME|')" &&
+  dest="$(sed -e 's/[[:space:]]*#.*//' -e '/^$/d' -e 's/^[^[:space:]]*[[:space:]]*//' $XDG_CONFIG_HOME/zsh/bookmarks/dirs | fzf | sed 's|~|$HOME|')" &&
   for x in $fx; do
     eval mv -iv \"$x\" \"$dest\"
   done &&
   dest_path=$(eval echo "$dest")
   lf -remote "send $id cd $dest_path"
-  notify-send " File(s) moved." "File(s) moved to $dest."
+  lf -remote "send $id notify \" File(s) moved.\" \"File(s) moved to $dest.\""
 }}
 
 cmd copyto ${{
   clear; tput cup $(($(tput lines)/3)); tput bold
   set -f
   clear; echo "Copy to where?"
-  dest="$(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' $XDG_CONFIG_HOME/zsh/bookmarks/dirs | fzf | sed 's|~|$HOME|')" &&
+  dest="$(sed -e 's/[[:space:]]*#.*//' -e '/^$/d' -e 's/^[^[:space:]]*[[:space:]]*//' $XDG_CONFIG_HOME/zsh/bookmarks/dirs | fzf | sed 's|~|$HOME|')" &&
   for x in $fx; do
     eval cp -ivr \"$x\" \"$dest\"
   done &&
   dest_path=$(eval echo "$dest")
   lf -remote "send $id cd $dest_path"
-  notify-send " File(s) copied." "File(s) copied to $dest."
+  lf -remote "send $id notify \" File(s) copied.\" \"File(s) copied to $dest.\""
 }}
 
 cmd share ${{
@@ -118,7 +137,7 @@ cmd share ${{
   printf "🌐 Share? [y/n] "
   read ans
   ans="${ans:-y}"
-  [ $ans = "y" ] && curl -F"file=@$fx" https://0x0.st | wl-copy
+  [ $ans = "y" ] && curl -F"file=@$fx" https://0x0.st | cross-platform-copy
 }}
 
 cmd fzf_search $lf -remote "send $id select \"$(fzf)\""
@@ -153,7 +172,7 @@ cmd kdeconnect ${{
   for x in $fx; do
     eval kdeconnect-cli --share=\"$x\" --name=\"$dest\"
   done &&
-  notify-send " Sending file(s)" "Sending file(s) to $dest."
+  lf -remote "send $id notify \" Sending file(s)\" \"Sending file(s) to $dest.\""
 }}
 
 cmd dragon %dragon-drop -a -x $fx
@@ -171,7 +190,7 @@ cmd bulk_rename ${{
   old="$(mktemp)"
   new="$(mktemp)"
   if [ -n "$fs" ]; then
-    fs="$(basename -a -- $fs)"
+    fs="$(printf '%s\n' $fs | while IFS= read -r filepath; do basename -- "$filepath"; done)"
   else
     fs="$(ls)"
   fi
@@ -191,7 +210,12 @@ cmd bulk_rename ${{
   lf -remote "send $id unselect"
 }}
 
-cmd open_in_new_terminal $setsid -f $TERMINAL >/dev/null 2>&1
+cmd open_in_new_terminal ${{
+  case "$(uname)" in
+    Darwin) $TERMINAL --working-directory "$PWD" >/dev/null 2>&1 & ;;
+    *) setsid -f $TERMINAL >/dev/null 2>&1 ;;
+  esac
+}}
 
 cmd follow_link %{{
   lf -remote "send $id select \"$(readlink -- "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
@@ -222,8 +246,18 @@ map Z zip
 
 nmap x $$f # execute
 nmap X $chmod +x "$f" && lf -remote "send reload"
-nmap o &mimeopen "$f"
-nmap O $mimeopen --ask "$f"
+nmap o ${{
+  case "$(uname)" in
+    Darwin) open "$f" ;;
+    *) mimeopen "$f" ;;
+  esac
+}}
+nmap O ${{
+  case "$(uname)" in
+    Darwin) open -a "$(osascript -e 'choose application' 2>/dev/null)" "$f" ;;
+    *) mimeopen --ask "$f" ;;
+  esac
+}}
 
 # Renames
 nmap r push A<c-u> # new rename
