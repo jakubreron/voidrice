@@ -183,7 +183,7 @@ cmd bulk_rename ${{
   old="$(mktemp)"
   new="$(mktemp)"
   if [ -n "$fs" ]; then
-    fs="$(basename -a -- $fs)"
+    fs="$(printf '%s\n' $fs | while IFS= read -r filepath; do basename -- "$filepath"; done)"
   else
     fs="$(ls)"
   fi
