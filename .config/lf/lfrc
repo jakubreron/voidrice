@@ -58,6 +58,13 @@ cmd open ${{
 
 cmd fzf_jump $lf -remote "send $id cd $(awk '{ gsub(/#.*/, ""); } !/^$/ { print $2 }' $XDG_CONFIG_HOME/zsh/bookmarks/dirs | fzf | sed "s/\${.*-// ; s/}//" | envsubst)"
 
+cmd notify %{{
+  case "$(uname)" in
+    Darwin) osascript -e "display notification \"$2\" with title \"$1\"" ;;
+    *) notify-send "$1" "$2" ;;
+  esac
+}}
+
 cmd delete ${{
   clear; tput cup $(($(tput lines)/3)); tput bold
   set -f
@@ -107,7 +114,7 @@ cmd moveto ${{
   done &&
   dest_path=$(eval echo "$dest")
   lf -remote "send $id cd $dest_path"
-  notify-send " File(s) moved." "File(s) moved to $dest."
+  lf -remote "send $id notify \" File(s) moved.\" \"File(s) moved to $dest.\""
 }}
 
 cmd copyto ${{
@@ -120,7 +127,7 @@ cmd copyto ${{
   done &&
   dest_path=$(eval echo "$dest")
   lf -remote "send $id cd $dest_path"
-  notify-send " File(s) copied." "File(s) copied to $dest."
+  lf -remote "send $id notify \" File(s) copied.\" \"File(s) copied to $dest.\""
 }}
 
 cmd share ${{
@@ -165,7 +172,7 @@ cmd kdeconnect ${{
   for x in $fx; do
     eval kdeconnect-cli --share=\"$x\" --name=\"$dest\"
   done &&
-  notify-send " Sending file(s)" "Sending file(s) to $dest."
+  lf -remote "send $id notify \" Sending file(s)\" \"Sending file(s) to $dest.\""
 }}
 
 cmd dragon %dragon-drop -a -x $fx
