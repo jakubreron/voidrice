@@ -1,6 +1,9 @@
 #!/usr/bin/env sh
-HYPR_POWER_SAVING=$(hyprctl getoption animations:enabled | awk 'NR==1{print $2}')
-if [ "$HYPR_POWER_SAVING" = 1 ] ; then
+
+# Read the current status of the AC adapter
+STATUS=$(cat /sys/class/power_supply/AC/online)
+
+if [ "$STATUS" -eq 0 ]; then
     hyprctl --batch "\
         keyword animations:enabled 0;\
         keyword animation borderangle,0; \
@@ -10,11 +13,16 @@ if [ "$HYPR_POWER_SAVING" = 1 ] ; then
         keyword general:gaps_in 0;\
         keyword general:gaps_out 0;\
         keyword decoration:rounding 0"
+    hyprctl hyprpaper wallpaper ", $XDG_PICTURES_DIR/Wallpapers/arch_minimal.png"
+    # run darkman if not running and set to dark
+    pgrep -x darkman >/dev/null || darkman run &
+    darkman set dark
     notify-send "Powersave [ON]"
     exit
 else
     notify-send "Powersave [OFF]"
+    hyprctl hyprpaper wallpaper ", $XDG_PICTURES_DIR/Wallpapers/default.png"
+    # reset darkman even if it was runinng, and run again for automatic theme detection (don't assume light theme, it might be night)
+    killall darkman; nohup darkman run &
     hyprctl reload
-    exit 0
 fi
-exit 1

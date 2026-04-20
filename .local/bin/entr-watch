@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+ls /sys/class/power_supply/AC/online | entr -r $XDG_BIN_HOME/set-powersave
