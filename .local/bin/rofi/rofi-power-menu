@@ -6,13 +6,12 @@ case "$(readlink -f /sbin/init)" in
 	*) ctl='loginctl' ;;
 esac
 
-case "$(printf "🔒 lock\n🚪 logout $WM\n♻️ renew $WM\n🔃 reboot\n🖥️shutdown\n⏸️ suspend\n💤 hibernate\n📺 display off" | rofi -dmenu -p Action)" in
+case "$(printf "🔒 lock\n🚪 logout $WM\n♻️ renew $WM\n🔃 reboot\n🖥️ shutdown\n⏸️ suspend\n📺 display off" | rofi -dmenu -p Action)" in
 	'🔒 lock') hyprlock ;;
 	"🚪 logout $WM") hyprshutdown ;;
 	"♻️ renew $WM") hyprctl reload;;
 	'⏸️ suspend') $ctl suspend-then-hibernate -i ;;
-	'💤 hibernate') $ctl hibernate -i ;;
 	'🔃 reboot') hyprshutdown -t 'Restarting...' --post-cmd 'reboot' ;;
-	'🖥️shutdown') hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0' ;;
+	'🖥️ shutdown') hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0' ;;
 	*) exit 1 ;;
 esac
