@@ -29,4 +29,4 @@ export PACKAGE_MANAGER="brew"
 
 export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"                         
 export NODE_TLS_REJECT_UNAUTHORIZED=0 # disables SSL verification — only acceptable on a trusted corporate network, fixes SSL plugin auth issues for claude.
-
+export CHROME_PATH="/opt/homebrew/bin/chromium"
