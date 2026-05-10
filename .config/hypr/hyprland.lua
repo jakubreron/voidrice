@@ -9,17 +9,19 @@ hl.monitor(INTERNAL_MONITOR_SETTINGS)
 hl.monitor(EXTERNAL_MONITOR_SETTINGS)
 
 local function set_monitor(s)
-	return hl.dsp.exec_cmd(string.format(
-		"hyprctl eval 'hl.monitor({ output = \"%s\", mode = \"%s\", position = \"%s\", scale = \"%s\" })'",
-		s.output, s.mode, s.position, s.scale
-	))
+	return hl.dsp.exec_cmd(
+		string.format(
+			'hyprctl eval \'hl.monitor({ output = "%s", mode = "%s", position = "%s", scale = "%s" })\'',
+			s.output,
+			s.mode,
+			s.position,
+			s.scale
+		)
+	)
 end
 
 local function disable_monitor(output)
-	return hl.dsp.exec_cmd(string.format(
-		"hyprctl eval 'hl.monitor({ output = \"%s\", disabled = true })'",
-		output
-	))
+	return hl.dsp.exec_cmd(string.format("hyprctl eval 'hl.monitor({ output = \"%s\", disabled = true })'", output))
 end
 
 hl.bind("switch:on:Lid Switch", disable_monitor(INTERNAL_MONITOR), { locked = true })
@@ -234,8 +236,12 @@ hl.window_rule({
 local MOD = "SUPER"
 local MODS = "SUPER + SHIFT"
 
-local function mod(key) return MOD .. " + " .. key end
-local function mods(key) return MODS .. " + " .. key end
+local function mod(key)
+	return MOD .. " + " .. key
+end
+local function mods(key)
+	return MODS .. " + " .. key
+end
 
 local TERMINAL = os.getenv("TERMINAL") or "daemonable-terminal-instance"
 local BROWSER = os.getenv("BROWSER") or ""
@@ -342,10 +348,7 @@ hl.bind(mods("z"), hl.dsp.exec_cmd("mpc prev"))
 hl.bind(mod("x"), hl.dsp.exec_cmd("playerctl next"))
 hl.bind(mods("x"), hl.dsp.exec_cmd("mpc next"))
 
-hl.bind(
-	mod("c"),
-	hl.dsp.exec_cmd('cliphist list | rofi -dmenu -p "Clipboard history" | cliphist decode | wl-copy')
-)
+hl.bind(mod("c"), hl.dsp.exec_cmd('cliphist list | rofi -dmenu -p "Clipboard history" | cliphist decode | wl-copy'))
 hl.bind(mods("c"), hl.dsp.exec_cmd("gnome-calculator"))
 
 hl.bind(mod("b"), hl.dsp.exec_cmd("rofi-bluetooth"))
