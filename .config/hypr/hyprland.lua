@@ -1,12 +1,14 @@
 local INTERNAL_MONITOR = "desc:Samsung Display Corp. 0x4193"
 local EXTERNAL_MONITOR = "desc:LG Electronics LG Monitor 0x01010101"
 
+---@type HL.MonitorSpec
 local INTERNAL_MONITOR_SETTINGS = {
 	output = INTERNAL_MONITOR,
 	mode = "highrr",
 	position = "auto-down",
 	scale = "1.8",
 }
+---@type HL.MonitorSpec
 local EXTERNAL_MONITOR_SETTINGS = {
 	output = EXTERNAL_MONITOR,
 	mode = "highres",
@@ -14,7 +16,6 @@ local EXTERNAL_MONITOR_SETTINGS = {
 	scale = "1.5",
 }
 
-hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "auto" })
 hl.monitor(INTERNAL_MONITOR_SETTINGS)
 hl.monitor(EXTERNAL_MONITOR_SETTINGS)
 
@@ -74,7 +75,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("darkman run")
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("dunst")
-	hl.exec_cmd(os.getenv("INPUT_METHOD"))
+	hl.exec_cmd(os.getenv("INPUT_METHOD") or "")
 	hl.exec_cmd("keyd-application-mapper -d")
 
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
@@ -245,153 +246,159 @@ hl.window_rule({
 local MOD = "SUPER"
 local MODS = "SUPER + SHIFT"
 
-local function mod(key)
+local function small_keymap(key)
 	return MOD .. " + " .. key
 end
-local function mods(key)
+local function combo_keymap(key)
 	return MODS .. " + " .. key
 end
 
-local TERMINAL = os.getenv("TERMINAL")
-local BROWSER = os.getenv("BROWSER")
-local BACKUP_BROWSER = os.getenv("BACKUP_BROWSER")
-local EDITOR = os.getenv("EDITOR")
-local VIMWIKI_DIR = os.getenv("VIMWIKI_DIR")
-local CLI_MAIL_CLIENT = os.getenv("CLI_MAIL_CLIENT")
-local GUI_MAIL_CLIENT = os.getenv("GUI_MAIL_CLIENT")
-local CLI_FILE_EXPLORER = os.getenv("CLI_FILE_EXPLORER")
-local GUI_FILE_EXPLORER = os.getenv("GUI_FILE_EXPLORER")
-local CLI_SOUND_MANAGER = os.getenv("CLI_SOUND_MANAGER")
-local CLI_MUSIC_PLAYER = os.getenv("CLI_MUSIC_PLAYER")
+local TERMINAL = os.getenv("TERMINAL") or ""
+local BROWSER = os.getenv("BROWSER") or ""
+local BACKUP_BROWSER = os.getenv("BACKUP_BROWSER") or ""
+local EDITOR = os.getenv("EDITOR") or ""
+local VIMWIKI_DIR = os.getenv("VIMWIKI_DIR") or ""
+local CLI_MAIL_CLIENT = os.getenv("CLI_MAIL_CLIENT") or ""
+local GUI_MAIL_CLIENT = os.getenv("GUI_MAIL_CLIENT") or ""
+local CLI_FILE_EXPLORER = os.getenv("CLI_FILE_EXPLORER") or ""
+local GUI_FILE_EXPLORER = os.getenv("GUI_FILE_EXPLORER") or ""
+local CLI_SOUND_MANAGER = os.getenv("CLI_SOUND_MANAGER") or ""
+local CLI_MUSIC_PLAYER = os.getenv("CLI_MUSIC_PLAYER") or ""
 
-hl.bind(mod("grave"), hl.dsp.exec_cmd("mute-audio"))
-hl.bind(mods("grave"), hl.dsp.exec_cmd("mute-microphone"))
+hl.bind(small_keymap("grave"), hl.dsp.exec_cmd("mute-audio"))
+hl.bind(combo_keymap("grave"), hl.dsp.exec_cmd("mute-microphone"))
 
-hl.bind(mod("j"), hl.dsp.layout("cyclenext"))
-hl.bind(mods("j"), hl.dsp.layout("swapnext"))
-hl.bind(mod("k"), hl.dsp.layout("cycleprev"))
-hl.bind(mods("k"), hl.dsp.layout("swapprev"))
+hl.bind(small_keymap("j"), hl.dsp.layout("cyclenext"))
+hl.bind(combo_keymap("j"), hl.dsp.layout("swapnext"))
+hl.bind(small_keymap("k"), hl.dsp.layout("cycleprev"))
+hl.bind(combo_keymap("k"), hl.dsp.layout("swapprev"))
 
-hl.bind(mod("a"), hl.dsp.layout("addmaster"))
-hl.bind(mods("a"), hl.dsp.layout("removemaster"))
+hl.bind(small_keymap("a"), hl.dsp.layout("addmaster"))
+hl.bind(combo_keymap("a"), hl.dsp.layout("removemaster"))
 
-hl.bind(mod("h"), hl.dsp.layout("mfact -0.04"), { repeating = true })
-hl.bind(mods("h"), hl.dsp.layout("mfact -0.08"), { repeating = true })
-hl.bind(mod("l"), hl.dsp.layout("mfact +0.04"), { repeating = true })
-hl.bind(mods("l"), hl.dsp.layout("mfact +0.08"), { repeating = true })
+hl.bind(small_keymap("h"), hl.dsp.layout("mfact -0.04"), { repeating = true })
+hl.bind(combo_keymap("h"), hl.dsp.layout("mfact -0.08"), { repeating = true })
+hl.bind(small_keymap("l"), hl.dsp.layout("mfact +0.04"), { repeating = true })
+hl.bind(combo_keymap("l"), hl.dsp.layout("mfact +0.08"), { repeating = true })
 
-hl.bind(mod("q"), hl.dsp.window.close())
-hl.bind(mods("q"), hl.dsp.exec_cmd("rofi-killall"))
+hl.bind(small_keymap("q"), hl.dsp.window.close())
+hl.bind(combo_keymap("q"), hl.dsp.exec_cmd("rofi-killall"))
 
-hl.bind(mod("comma"), hl.dsp.focus({ monitor = "+1" }))
-hl.bind(mods("comma"), hl.dsp.window.move({ monitor = "+1" }))
-hl.bind(mod("period"), hl.dsp.focus({ monitor = "-1" }))
-hl.bind(mods("period"), hl.dsp.window.move({ monitor = "-1" }))
+hl.bind(small_keymap("comma"), hl.dsp.focus({ monitor = "+1" }))
+hl.bind(combo_keymap("comma"), hl.dsp.window.move({ monitor = "+1" }))
+hl.bind(small_keymap("period"), hl.dsp.focus({ monitor = "-1" }))
+hl.bind(combo_keymap("period"), hl.dsp.window.move({ monitor = "-1" }))
 
-hl.bind(mod("minus"), hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { repeating = true })
-hl.bind(mods("minus"), hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%-"), { repeating = true })
-hl.bind(mod("equal"), hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })
-hl.bind(mods("equal"), hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%+"), { repeating = true })
+hl.bind(small_keymap("minus"), hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { repeating = true })
+hl.bind(combo_keymap("minus"), hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%-"), { repeating = true })
+hl.bind(small_keymap("equal"), hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })
+hl.bind(combo_keymap("equal"), hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%+"), { repeating = true })
 
-hl.bind(mod("backspace"), hl.dsp.exec_cmd("rofi-power-menu"))
-hl.bind(mods("backspace"), hl.dsp.exec_cmd("systemctl suspend -i"))
+hl.bind(small_keymap("backspace"), hl.dsp.exec_cmd("rofi-power-menu"))
+hl.bind(combo_keymap("backspace"), hl.dsp.exec_cmd("systemctl suspend -i"))
 
-hl.bind(mod("Return"), hl.dsp.exec_cmd(TERMINAL))
+hl.bind(small_keymap("Return"), hl.dsp.exec_cmd(TERMINAL))
 
-hl.bind(mod("w"), hl.dsp.exec_cmd(BROWSER))
-hl.bind(mods("w"), hl.dsp.exec_cmd(BACKUP_BROWSER))
+hl.bind(small_keymap("w"), hl.dsp.exec_cmd(BROWSER))
+hl.bind(combo_keymap("w"), hl.dsp.exec_cmd(BACKUP_BROWSER))
 
-hl.bind(mod("t"), hl.dsp.layout("orientationleft"))
-hl.bind(mods("t"), hl.dsp.layout("orientationright"))
+hl.bind(small_keymap("t"), hl.dsp.layout("orientationleft"))
+hl.bind(combo_keymap("t"), hl.dsp.layout("orientationright"))
 
-hl.bind(mod("y"), hl.dsp.layout("orientationtop"))
-hl.bind(mods("y"), hl.dsp.layout("orientationbottom"))
+hl.bind(small_keymap("y"), hl.dsp.layout("orientationtop"))
+hl.bind(combo_keymap("y"), hl.dsp.layout("orientationbottom"))
 
-hl.bind(mod("u"), hl.dsp.layout("orientationcenter"))
-hl.bind(mods("u"), hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
+hl.bind(small_keymap("u"), hl.dsp.layout("orientationcenter"))
+hl.bind(combo_keymap("u"), hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
 
-hl.bind(mod("i"), hl.dsp.exec_cmd("light -A 10; ddcutil --display 1 setvcp 10 + 15"), { repeating = true })
-hl.bind(mods("i"), hl.dsp.exec_cmd("light -U 10; ddcutil --display 1 setvcp 10 - 15"), { repeating = true })
+hl.bind(small_keymap("i"), hl.dsp.exec_cmd("light -A 10; ddcutil --display 1 setvcp 10 + 15"), { repeating = true })
+hl.bind(combo_keymap("i"), hl.dsp.exec_cmd("light -U 10; ddcutil --display 1 setvcp 10 - 15"), { repeating = true })
 
-hl.bind(mod("e"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_mail_client --command " .. CLI_MAIL_CLIENT))
-hl.bind(mods("e"), hl.dsp.exec_cmd(GUI_MAIL_CLIENT))
+hl.bind(small_keymap("e"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_mail_client --command " .. CLI_MAIL_CLIENT))
+hl.bind(combo_keymap("e"), hl.dsp.exec_cmd(GUI_MAIL_CLIENT))
 
-hl.bind(mod("o"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_file_explorer --command " .. CLI_FILE_EXPLORER))
-hl.bind(mods("o"), hl.dsp.exec_cmd(GUI_FILE_EXPLORER))
+hl.bind(small_keymap("o"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_file_explorer --command " .. CLI_FILE_EXPLORER))
+hl.bind(combo_keymap("o"), hl.dsp.exec_cmd(GUI_FILE_EXPLORER))
 
-hl.bind(mod("p"), hl.dsp.exec_cmd("playerctl play-pause"))
-hl.bind(mods("p"), hl.dsp.exec_cmd("mpc toggle"))
+hl.bind(small_keymap("p"), hl.dsp.exec_cmd("playerctl play-pause"))
+hl.bind(combo_keymap("p"), hl.dsp.exec_cmd("mpc toggle"))
 
-hl.bind(mod("bracketleft"), hl.dsp.exec_cmd("mpc seek -10"), { repeating = true })
-hl.bind(mods("bracketleft"), hl.dsp.exec_cmd("mpc seek -60"), { repeating = true })
-hl.bind(mod("bracketright"), hl.dsp.exec_cmd("mpc seek +10"), { repeating = true })
-hl.bind(mods("bracketright"), hl.dsp.exec_cmd("mpc seek +60"), { repeating = true })
+hl.bind(small_keymap("bracketleft"), hl.dsp.exec_cmd("mpc seek -10"), { repeating = true })
+hl.bind(combo_keymap("bracketleft"), hl.dsp.exec_cmd("mpc seek -60"), { repeating = true })
+hl.bind(small_keymap("bracketright"), hl.dsp.exec_cmd("mpc seek +10"), { repeating = true })
+hl.bind(combo_keymap("bracketright"), hl.dsp.exec_cmd("mpc seek +60"), { repeating = true })
 
-hl.bind(mod("backslash"), hl.dsp.exec_cmd("dunstctl close"))
-hl.bind(mods("backslash"), hl.dsp.exec_cmd("dunstctl history-pop"))
+hl.bind(small_keymap("backslash"), hl.dsp.exec_cmd("dunstctl close"))
+hl.bind(combo_keymap("backslash"), hl.dsp.exec_cmd("dunstctl history-pop"))
 
-hl.bind(mod("slash"), hl.dsp.exec_cmd("rofi-website-bookmarks"))
-hl.bind(mods("slash"), hl.dsp.exec_cmd("rofi-websearch"))
+hl.bind(small_keymap("slash"), hl.dsp.exec_cmd("rofi-website-bookmarks"))
+hl.bind(combo_keymap("slash"), hl.dsp.exec_cmd("rofi-websearch"))
 
 -- TODO: Add recordings to this script
-hl.bind(mod("s"), hl.dsp.exec_cmd("rofi-screenshot"))
-hl.bind(mods("s"), hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
+hl.bind(small_keymap("s"), hl.dsp.exec_cmd("rofi-screenshot"))
+hl.bind(combo_keymap("s"), hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
 
-hl.bind(mod("r"), hl.dsp.exec_cmd('rofi -show combi -modes combi -combi-modes "window,drun,run"'))
-hl.bind(mods("r"), hl.dsp.exec_cmd("rofi-restart"))
+hl.bind(small_keymap("r"), hl.dsp.exec_cmd('rofi -show combi -modes combi -combi-modes "window,drun,run"'))
+hl.bind(combo_keymap("r"), hl.dsp.exec_cmd("rofi-restart"))
 
-hl.bind(mod("d"), disable_monitor(EXTERNAL_MONITOR))
-hl.bind(mod("d"), set_monitor(INTERNAL_MONITOR_SETTINGS))
-hl.bind(mods("d"), set_monitor(EXTERNAL_MONITOR_SETTINGS))
-hl.bind(mods("d"), disable_monitor(INTERNAL_MONITOR))
+hl.bind(small_keymap("d"), disable_monitor(EXTERNAL_MONITOR))
+hl.bind(small_keymap("d"), set_monitor(INTERNAL_MONITOR_SETTINGS))
+hl.bind(combo_keymap("d"), set_monitor(EXTERNAL_MONITOR_SETTINGS))
+hl.bind(combo_keymap("d"), disable_monitor(INTERNAL_MONITOR))
 
-hl.bind(mod("f"), hl.dsp.window.fullscreen())
+hl.bind(small_keymap("f"), hl.dsp.window.fullscreen())
 
-hl.bind(mod("apostrophe"), hl.dsp.workspace.toggle_special())
-hl.bind(mods("apostrophe"), hl.dsp.window.move({ workspace = "special" }))
+hl.bind(small_keymap("apostrophe"), hl.dsp.workspace.toggle_special())
+hl.bind(combo_keymap("apostrophe"), hl.dsp.window.move({ workspace = "special" }))
 
-hl.bind(mod("z"), hl.dsp.exec_cmd("playerctl previous"))
-hl.bind(mods("z"), hl.dsp.exec_cmd("mpc prev"))
-hl.bind(mod("x"), hl.dsp.exec_cmd("playerctl next"))
-hl.bind(mods("x"), hl.dsp.exec_cmd("mpc next"))
+hl.bind(small_keymap("z"), hl.dsp.exec_cmd("playerctl previous"))
+hl.bind(combo_keymap("z"), hl.dsp.exec_cmd("mpc prev"))
+hl.bind(small_keymap("x"), hl.dsp.exec_cmd("playerctl next"))
+hl.bind(combo_keymap("x"), hl.dsp.exec_cmd("mpc next"))
 
-hl.bind(mod("c"), hl.dsp.exec_cmd('cliphist list | rofi -dmenu -p "Clipboard history" | cliphist decode | wl-copy'))
-hl.bind(mods("c"), hl.dsp.exec_cmd("gnome-calculator"))
+hl.bind(
+	small_keymap("c"),
+	hl.dsp.exec_cmd('cliphist list | rofi -dmenu -p "Clipboard history" | cliphist decode | wl-copy')
+)
+hl.bind(combo_keymap("c"), hl.dsp.exec_cmd("gnome-calculator"))
 
-hl.bind(mod("b"), hl.dsp.exec_cmd("rofi-bluetooth"))
-hl.bind(mods("b"), hl.dsp.exec_cmd("blueberry"))
+hl.bind(small_keymap("b"), hl.dsp.exec_cmd("rofi-bluetooth"))
+hl.bind(combo_keymap("b"), hl.dsp.exec_cmd("blueberry"))
 
-hl.bind(mod("n"), hl.dsp.exec_cmd(TERMINAL .. " --command " .. EDITOR .. " -c VimwikiIndex"))
-hl.bind(mods("n"), hl.dsp.exec_cmd(TERMINAL .. " --command " .. EDITOR .. " " .. VIMWIKI_DIR .. "/Scratchpad.md"))
+hl.bind(small_keymap("n"), hl.dsp.exec_cmd(TERMINAL .. " --command " .. EDITOR .. " -c VimwikiIndex"))
+hl.bind(
+	combo_keymap("n"),
+	hl.dsp.exec_cmd(TERMINAL .. " --command " .. EDITOR .. " " .. VIMWIKI_DIR .. "/Scratchpad.md")
+)
 
-hl.bind(mod("m"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_sound_manager --command " .. CLI_SOUND_MANAGER))
-hl.bind(mods("m"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_music_player --command " .. CLI_MUSIC_PLAYER))
+hl.bind(small_keymap("m"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_sound_manager --command " .. CLI_SOUND_MANAGER))
+hl.bind(combo_keymap("m"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_music_player --command " .. CLI_MUSIC_PLAYER))
 
-hl.bind(mod("space"), hl.dsp.layout("swapwithmaster"))
-hl.bind(mods("space"), hl.dsp.window.float())
+hl.bind(small_keymap("space"), hl.dsp.layout("swapwithmaster"))
+hl.bind(combo_keymap("space"), hl.dsp.window.float())
 
-hl.bind(mod("v"), hl.dsp.layout("focusmaster master"))
-hl.bind(mods("v"), hl.dsp.window.float())
-hl.bind(mods("v"), hl.dsp.window.pin())
+hl.bind(small_keymap("v"), hl.dsp.layout("focusmaster master"))
+hl.bind(combo_keymap("v"), hl.dsp.window.float())
+hl.bind(combo_keymap("v"), hl.dsp.window.pin())
 
-hl.bind(mod("tab"), hl.dsp.focus({ urgent_or_last = true })) -- focuscurrentorlast
+hl.bind(small_keymap("tab"), hl.dsp.focus({ urgent_or_last = true })) -- focuscurrentorlast
 
 hl.bind("print", hl.dsp.exec_cmd("grim ~/Pictures/Screenshots/pic-full-$(date '+%y%m%d-%H%M-%S').png"))
 
 -- Switch workspaces
 for i = 1, 9 do
-	hl.bind(mod(i), hl.dsp.focus({ workspace = i }))
-	hl.bind(mods(i), hl.dsp.window.move({ workspace = i }))
+	hl.bind(small_keymap(i), hl.dsp.focus({ workspace = i }))
+	hl.bind(combo_keymap(i), hl.dsp.window.move({ workspace = i }))
 end
 
-hl.bind(mod("g"), hl.dsp.focus({ workspace = "e-1" }))
-hl.bind(mods("g"), hl.dsp.window.move({ workspace = "e-1" }))
-hl.bind(mod("semicolon"), hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mods("semicolon"), hl.dsp.window.move({ workspace = "e+1" }))
+hl.bind(small_keymap("g"), hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(combo_keymap("g"), hl.dsp.window.move({ workspace = "e-1" }))
+hl.bind(small_keymap("semicolon"), hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(combo_keymap("semicolon"), hl.dsp.window.move({ workspace = "e+1" }))
 
 -- Move/resize windows with mouse
-hl.bind(mod("mouse:272"), hl.dsp.window.drag(), { mouse = true })
-hl.bind(mod("mouse:273"), hl.dsp.window.resize(), { mouse = true })
+hl.bind(small_keymap("mouse:272"), hl.dsp.window.drag(), { mouse = true })
+hl.bind(small_keymap("mouse:273"), hl.dsp.window.resize(), { mouse = true })
 
 -- Media / function keys
 hl.bind("xf86audiomicmute", hl.dsp.exec_cmd("mute-microphone"), { locked = true })
