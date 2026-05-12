@@ -4,12 +4,6 @@
 [submodule ".config/mpv/scripts/autosubsync-mpv"]
 	path = .config/mpv/scripts/autosubsync-mpv
 	url = git@github.com:joaquintorres/autosubsync-mpv.git
-[submodule ".config/zathura/themes/catppuccin"]
-	path = .config/zathura/themes/catppuccin
-	url = https://github.com/catppuccin/zathura.git
-[submodule ".config/fcitx5/themes/catppuccin"]
-	path = .config/fcitx5/themes/catppuccin
-	url = https://github.com/catppuccin/fcitx5.git
 [submodule ".config/alacritty/themes/alacritty-theme"]
 	path = .config/alacritty/themes/alacritty-theme
 	url = https://github.com/alacritty/alacritty-theme
@@ -19,3 +13,6 @@
 [submodule ".local/bin/lfimg"]
 	path = .local/bin/lfimg
 	url = https://github.com/jakubreron/lfimg
+[submodule ".config/fcitx5/themes/fcitx5-gruvbox"]
+	path = .config/fcitx5/themes/fcitx5-gruvbox
+	url = https://github.com/ayamir/fcitx5-gruvbox.git

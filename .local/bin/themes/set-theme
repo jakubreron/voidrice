@@ -21,7 +21,7 @@ case "$OS" in
 esac
 
 declare -a cli_theme_paths=(
-"$HOME/.config/alacritty/alacritty.toml"
+"$HOME/.config/alacritty/colorscheme.toml"
 "$HOME/.config/nvim/plugin/colorscheme.lua"
 "$HOME/.config/btop/btop.conf"
 "$HOME/.config/tmux/tmux.conf"
@@ -29,6 +29,7 @@ declare -a cli_theme_paths=(
 "$HOME/.config/git/theme"
 "$HOME/.config/waybar/colorscheme.css"
 "$HOME/.config/rofi/colorscheme.rasi"
+"$HOME/.config/zathura/colorscheme"
 )
 
 for path in "${cli_theme_paths[@]}"; do
