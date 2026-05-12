@@ -1,14 +1,13 @@
--- Catppuccin Mocha
-local blueA = "0xee89b4fa"
-local skyA = "0xee89dceb"
-local overlay2A = "0xee9399b2"
+-- Gruvbox Dark Medium
+local yellowA = "0xeefabd2f"
+local orangeA = "0xeefe8019"
+local bg1A = "0xee3c3836"
 
 hl.config({
 	general = {
 		col = {
-			active_border = { colors = { blueA, skyA }, angle = 90 },
-			inactive_border = overlay2A,
+			active_border = { colors = { yellowA, orangeA }, angle = 90 },
+			inactive_border = bg1A,
 		},
 	},
 })
-
