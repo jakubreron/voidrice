@@ -1,8 +1,18 @@
 local INTERNAL_MONITOR = "desc:Samsung Display Corp. 0x4193"
 local EXTERNAL_MONITOR = "desc:LG Electronics LG Monitor 0x01010101"
 
-local INTERNAL_MONITOR_SETTINGS = { output = INTERNAL_MONITOR, mode = "highrr", position = "auto-down", scale = "1.8" }
-local EXTERNAL_MONITOR_SETTINGS = { output = EXTERNAL_MONITOR, mode = "highres", position = "auto-up", scale = "1.5" }
+local INTERNAL_MONITOR_SETTINGS = {
+	output = INTERNAL_MONITOR,
+	mode = "highrr",
+	position = "auto-down",
+	scale = "1.8",
+}
+local EXTERNAL_MONITOR_SETTINGS = {
+	output = EXTERNAL_MONITOR,
+	mode = "highres",
+	position = "auto-up",
+	scale = "1.5",
+}
 
 hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "auto" })
 hl.monitor(INTERNAL_MONITOR_SETTINGS)
@@ -24,8 +34,8 @@ local function disable_monitor(output)
 	return hl.dsp.exec_cmd(string.format("hyprctl eval 'hl.monitor({ output = \"%s\", disabled = true })'", output))
 end
 
-hl.bind("switch:on:Lid Switch", disable_monitor(INTERNAL_MONITOR), { locked = true })
-hl.bind("switch:off:Lid Switch", set_monitor(INTERNAL_MONITOR_SETTINGS), { locked = true })
+-- hl.bind("switch:on:Lid Switch", disable_monitor(INTERNAL_MONITOR), { locked = true })
+-- hl.bind("switch:off:Lid Switch", set_monitor(INTERNAL_MONITOR_SETTINGS), { locked = true })
 
 require("theme")
 
@@ -64,7 +74,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("darkman run")
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("dunst")
-	hl.exec_cmd(os.getenv("INPUT_METHOD") or "")
+	hl.exec_cmd(os.getenv("INPUT_METHOD"))
 	hl.exec_cmd("keyd-application-mapper -d")
 
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
@@ -84,7 +94,6 @@ hl.config({
 	general = {
 		gaps_in = 2,
 		gaps_out = 4,
-		border_size = 2,
 		layout = "master",
 	},
 
@@ -191,7 +200,7 @@ hl.window_rule({
 	workspace = "4",
 })
 hl.window_rule({
-	name = "slack-ws",
+	name = "line-ws",
 	match = { class = "^(.*)(chrome-ophjlpahpchlmihnnnihgmmeilfjmjjc-Default)(.*)$" },
 	workspace = "4",
 })
@@ -243,20 +252,17 @@ local function mods(key)
 	return MODS .. " + " .. key
 end
 
-local TERMINAL = os.getenv("TERMINAL") or "daemonable-terminal-instance"
-local BROWSER = os.getenv("BROWSER") or ""
-local BACKUP_BROWSER = os.getenv("BACKUP_BROWSER") or ""
-local EDITOR = os.getenv("EDITOR") or ""
-local VIMWIKI_DIR = os.getenv("VIMWIKI_DIR") or ""
-local CLI_MAIL_CLIENT = os.getenv("CLI_MAIL_CLIENT") or ""
-local GUI_MAIL_CLIENT = os.getenv("GUI_MAIL_CLIENT") or ""
-local CLI_FILE_EXPLORER = os.getenv("CLI_FILE_EXPLORER") or ""
-local GUI_FILE_EXPLORER = os.getenv("GUI_FILE_EXPLORER") or ""
-local CLI_SOUND_MANAGER = os.getenv("CLI_SOUND_MANAGER") or ""
-local CLI_MUSIC_PLAYER = os.getenv("CLI_MUSIC_PLAYER") or ""
-
--- NOTE: cannot use CTRL + space due to completion conflicts in IDEs
-hl.bind("CTRL + semicolon", hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
+local TERMINAL = os.getenv("TERMINAL")
+local BROWSER = os.getenv("BROWSER")
+local BACKUP_BROWSER = os.getenv("BACKUP_BROWSER")
+local EDITOR = os.getenv("EDITOR")
+local VIMWIKI_DIR = os.getenv("VIMWIKI_DIR")
+local CLI_MAIL_CLIENT = os.getenv("CLI_MAIL_CLIENT")
+local GUI_MAIL_CLIENT = os.getenv("GUI_MAIL_CLIENT")
+local CLI_FILE_EXPLORER = os.getenv("CLI_FILE_EXPLORER")
+local GUI_FILE_EXPLORER = os.getenv("GUI_FILE_EXPLORER")
+local CLI_SOUND_MANAGER = os.getenv("CLI_SOUND_MANAGER")
+local CLI_MUSIC_PLAYER = os.getenv("CLI_MUSIC_PLAYER")
 
 hl.bind(mod("grave"), hl.dsp.exec_cmd("mute-audio"))
 hl.bind(mods("grave"), hl.dsp.exec_cmd("mute-microphone"))
@@ -288,7 +294,7 @@ hl.bind(mod("equal"), hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 hl.bind(mods("equal"), hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%+"), { repeating = true })
 
 hl.bind(mod("backspace"), hl.dsp.exec_cmd("rofi-power-menu"))
-hl.bind(mods("backspace"), hl.dsp.exec_cmd("systemctl suspend-then-hibernate -i"))
+hl.bind(mods("backspace"), hl.dsp.exec_cmd("systemctl suspend -i"))
 
 hl.bind(mod("Return"), hl.dsp.exec_cmd(TERMINAL))
 
@@ -302,6 +308,7 @@ hl.bind(mod("y"), hl.dsp.layout("orientationtop"))
 hl.bind(mods("y"), hl.dsp.layout("orientationbottom"))
 
 hl.bind(mod("u"), hl.dsp.layout("orientationcenter"))
+hl.bind(mods("u"), hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
 
 hl.bind(mod("i"), hl.dsp.exec_cmd("light -A 10; ddcutil --display 1 setvcp 10 + 15"), { repeating = true })
 hl.bind(mods("i"), hl.dsp.exec_cmd("light -U 10; ddcutil --display 1 setvcp 10 - 15"), { repeating = true })
@@ -364,6 +371,7 @@ hl.bind(mod("space"), hl.dsp.layout("swapwithmaster"))
 hl.bind(mods("space"), hl.dsp.window.float())
 
 hl.bind(mod("v"), hl.dsp.layout("focusmaster master"))
+hl.bind(mods("v"), hl.dsp.window.float())
 hl.bind(mods("v"), hl.dsp.window.pin())
 
 hl.bind(mod("tab"), hl.dsp.focus({ urgent_or_last = true })) -- focuscurrentorlast

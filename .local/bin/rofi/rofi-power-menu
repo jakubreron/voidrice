@@ -10,7 +10,7 @@ case "$(printf "🔒 lock\n🚪 logout $WM\n♻️ renew $WM\n🔃 reboot\n🖥�
 	'🔒 lock') hyprlock ;;
 	"🚪 logout $WM") hyprshutdown ;;
 	"♻️ renew $WM") hyprctl reload;;
-	'⏸️ suspend') $ctl suspend-then-hibernate -i ;;
+	'⏸️ suspend') $ctl suspend -i ;;
 	'🔃 reboot') hyprshutdown -t 'Restarting...' --post-cmd 'reboot' ;;
 	'🖥️ shutdown') hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0' ;;
 	*) exit 1 ;;
