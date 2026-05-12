@@ -53,20 +53,20 @@ hl.workspace_rule({ workspace = "9", monitor = INTERNAL_MONITOR, default = true 
 ---- ENV VARIABLES ----
 --------------------------
 
+-- Recommended variables: https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/#xdg-specifications
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
+
 hl.env("GSK_RENDERER", "ngl")
 hl.env("HYPRCURSOR_SIZE", "24")
--- hl.env("QT_QPA_PLATFORMTHEME", "hyprqt6engine")
+hl.env("QT_QPA_PLATFORMTHEME", "hyprqt6engine")
 
 -------------------
 ---- AUTOSTART ----
 -------------------
 
 hl.on("hyprland.start", function()
-	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-	hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
 
 	hl.exec_cmd("hyprpaper")
