@@ -1,0 +1,43 @@
+* {
+    /* Gruvbox Dark Palette */
+    bg-base:      #282828;
+    bg-mantle:    #3c3836;
+    fg-text:      #ebdbb2;
+    gruv-yellow:  #fabd2f;
+    gruv-orange:  #fe8019;
+    gruv-blue:    #83a598;
+    gruv-red:     #fb4934;
+    gruv-gray:    #928374;
+
+    /* Theme Mapping */
+    background:                  @bg-base;
+    foreground:                  @fg-text;
+    lightbg:                     @bg-mantle;
+    lightfg:                     @fg-text;
+    
+    normal-background:           @background;
+    normal-foreground:           @foreground;
+    alternate-normal-background: @lightbg;
+    alternate-normal-foreground: @foreground;
+    selected-normal-background:  @gruv-yellow;
+    selected-normal-foreground:  @bg-mantle;
+
+    active-background:           @background;
+    active-foreground:           @gruv-blue;
+    alternate-active-background: @lightbg;
+    alternate-active-foreground: @gruv-blue;
+    selected-active-background:  @gruv-blue;
+    selected-active-foreground:  @bg-base;
+
+    urgent-background:           @background;
+    urgent-foreground:           @gruv-red;
+    alternate-urgent-background: @lightbg;
+    alternate-urgent-foreground: @gruv-red;
+    selected-urgent-background:  @gruv-red;
+    selected-urgent-foreground:  @bg-base;
+
+    border-color:                @gruv-orange;
+    separatorcolor:              @gruv-gray;
+    background-color:            transparent;
+    spacing:                     2;
+}

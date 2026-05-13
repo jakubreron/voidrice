@@ -4,27 +4,6 @@
 [submodule ".config/mpv/scripts/autosubsync-mpv"]
 	path = .config/mpv/scripts/autosubsync-mpv
 	url = git@github.com:joaquintorres/autosubsync-mpv.git
-[submodule ".config/rofi/themes/rofi"]
-	path = .config/rofi/themes/rofi
-	url = https://github.com/catppuccin/rofi
-[submodule ".config/waybar/themes/catppuccin"]
-	path = .config/waybar/themes/catppuccin
-	url = https://github.com/catppuccin/waybar.git
-[submodule ".config/dunst/themes/catppuccin"]
-	path = .config/dunst/themes/catppuccin
-	url = https://github.com/catppuccin/dunst.git
-[submodule ".config/zathura/themes/catppuccin"]
-	path = .config/zathura/themes/catppuccin
-	url = https://github.com/catppuccin/zathura.git
-[submodule ".local/share/sddm/themes/catppuccin"]
-	path = .local/share/sddm/themes/catppuccin
-	url = https://github.com/catppuccin/sddm.git
-[submodule ".config/hypr/themes/catppuccin"]
-	path = .config/hypr/themes/catppuccin
-	url = https://github.com/catppuccin/hyprland
-[submodule ".config/fcitx5/themes/catppuccin"]
-	path = .config/fcitx5/themes/catppuccin
-	url = https://github.com/catppuccin/fcitx5.git
 [submodule ".config/alacritty/themes/alacritty-theme"]
 	path = .config/alacritty/themes/alacritty-theme
 	url = https://github.com/alacritty/alacritty-theme
@@ -34,3 +13,6 @@
 [submodule ".local/bin/lfimg"]
 	path = .local/bin/lfimg
 	url = https://github.com/jakubreron/lfimg
+[submodule ".config/fcitx5/themes/fcitx5-gruvbox"]
+	path = .config/fcitx5/themes/fcitx5-gruvbox
+	url = https://github.com/ayamir/fcitx5-gruvbox.git

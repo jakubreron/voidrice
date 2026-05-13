@@ -6,14 +6,8 @@ cli_theme_to="${1:-light}"
 
 if [[ $cli_theme_to = "light" ]]; then
   cli_theme_from="dark"
-
-  other_theme_from="mocha"
-  other_theme_to="latte"
 else
   cli_theme_from="light"
-
-  other_theme_from="latte"
-  other_theme_to="mocha"
 fi
 
 
@@ -27,28 +21,19 @@ case "$OS" in
 esac
 
 declare -a cli_theme_paths=(
-"$HOME/.config/alacritty/alacritty.toml"
+"$HOME/.config/alacritty/colorscheme.toml"
 "$HOME/.config/nvim/plugin/colorscheme.lua"
 "$HOME/.config/btop/btop.conf"
 "$HOME/.config/tmux/tmux.conf"
 "$HOME/.config/bat/config"
 "$HOME/.config/git/theme"
-)
-
-declare -a other_theme_paths=(
-"$HOME/.config/rofi/themes/catppuccin-default.rasi"
 "$HOME/.config/waybar/colorscheme.css"
-"$HOME/.config/hypr/theme.conf"
+"$HOME/.config/rofi/colorscheme.rasi"
+"$HOME/.config/zathura/colorscheme"
 )
-
 
 for path in "${cli_theme_paths[@]}"; do
   $sed_or_gsed --in-place --follow-symlinks "0,/$cli_theme_from/s//$cli_theme_to/" "$path"
-  git-ignore-changes-for-file "$path"
-done
-
-for path in "${other_theme_paths[@]}"; do
-  $sed_or_gsed --in-place --follow-symlinks "0,/$other_theme_from/s//$other_theme_to/" "$path"
   git-ignore-changes-for-file "$path"
 done
 
@@ -65,7 +50,7 @@ fi
 
 if command -v dunst >/dev/null 2>&1; then
   dunst_path="$HOME/.config/dunst/dunstrc.d/99-theme.conf"
-  ln -fs ~/.config/dunst/themes/catppuccin/themes/$other_theme_to.conf "$dunst_path"
+  ln -fs ~/.config/dunst/$cli_theme_to.conf "$dunst_path"
   git-ignore-changes-for-file "$dunst_path"
 
   if pgrep -f "dunst" >/dev/null; then

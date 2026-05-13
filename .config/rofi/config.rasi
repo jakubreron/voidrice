@@ -1,4 +1,4 @@
-@theme "catppuccin-default"
+@import "colorscheme.rasi"
 
 configuration{
   modi: "run,drun,window";
