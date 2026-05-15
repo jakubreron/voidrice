@@ -1,3 +1,15 @@
+local TERMINAL = os.getenv("TERMINAL") or ""
+local BROWSER = os.getenv("BROWSER") or ""
+local BACKUP_BROWSER = os.getenv("BACKUP_BROWSER") or ""
+local EDITOR = os.getenv("EDITOR") or ""
+local VIMWIKI_DIR = os.getenv("VIMWIKI_DIR") or ""
+local CLI_MAIL_CLIENT = os.getenv("CLI_MAIL_CLIENT") or ""
+local GUI_MAIL_CLIENT = os.getenv("GUI_MAIL_CLIENT") or ""
+local CLI_FILE_EXPLORER = os.getenv("CLI_FILE_EXPLORER") or ""
+local GUI_FILE_EXPLORER = os.getenv("GUI_FILE_EXPLORER") or ""
+local CLI_SOUND_MANAGER = os.getenv("CLI_SOUND_MANAGER") or ""
+local CLI_MUSIC_PLAYER = os.getenv("CLI_MUSIC_PLAYER") or ""
+
 local INTERNAL_MONITOR = "desc:Samsung Display Corp. 0x4193"
 local EXTERNAL_MONITOR = "desc:LG Electronics LG Monitor 0x01010101"
 
@@ -102,7 +114,7 @@ hl.config({
 		shadow = {
 			enabled = false,
 			range = 10,
-			offset = "1 2",
+			offset = { 1, 2 },
 		},
 		dim_special = 0.5,
 		inactive_opacity = 0.96,
@@ -187,10 +199,9 @@ hl.window_rule({ name = "cli-files-ws", match = { title = "^(.*)(cli_file_explor
 
 -- Mail Clients
 hl.window_rule({ name = "cli-mail-ws", match = { title = "^(.*)(cli_mail_client)(.*)$" }, workspace = "3" })
--- NOTE: $GUI_MAIL_CLIENT is resolved at runtime; read from env
 hl.window_rule({
 	name = "gui-mail-ws",
-	match = { class = "^(.*)(" .. (os.getenv("GUI_MAIL_CLIENT") or "") .. ")(.*)$" },
+	match = { class = "^(.*)(" .. GUI_MAIL_CLIENT .. ")(.*)$" },
 	workspace = "3",
 })
 
@@ -223,8 +234,8 @@ hl.window_rule({
 	match = { title = "Picture-in-Picture" },
 	float = true,
 	pin = true,
-	move = "70% 72%",
-	size = "30% 28%",
+	size = { 360, 220 },
+	move = { 50, 50 },
 	no_initial_focus = true,
 })
 
@@ -235,7 +246,7 @@ hl.window_rule({
 	no_focus = true,
 	no_anim = true,
 	no_blur = true,
-	max_size = "1 1",
+	max_size = { 1, 1 },
 	opacity = 0.0,
 })
 
@@ -252,18 +263,6 @@ end
 local function combo_keymap(key)
 	return MODS .. " + " .. key
 end
-
-local TERMINAL = os.getenv("TERMINAL") or ""
-local BROWSER = os.getenv("BROWSER") or ""
-local BACKUP_BROWSER = os.getenv("BACKUP_BROWSER") or ""
-local EDITOR = os.getenv("EDITOR") or ""
-local VIMWIKI_DIR = os.getenv("VIMWIKI_DIR") or ""
-local CLI_MAIL_CLIENT = os.getenv("CLI_MAIL_CLIENT") or ""
-local GUI_MAIL_CLIENT = os.getenv("GUI_MAIL_CLIENT") or ""
-local CLI_FILE_EXPLORER = os.getenv("CLI_FILE_EXPLORER") or ""
-local GUI_FILE_EXPLORER = os.getenv("GUI_FILE_EXPLORER") or ""
-local CLI_SOUND_MANAGER = os.getenv("CLI_SOUND_MANAGER") or ""
-local CLI_MUSIC_PLAYER = os.getenv("CLI_MUSIC_PLAYER") or ""
 
 hl.bind(small_keymap("grave"), hl.dsp.exec_cmd("mute-audio"))
 hl.bind(combo_keymap("grave"), hl.dsp.exec_cmd("mute-microphone"))
