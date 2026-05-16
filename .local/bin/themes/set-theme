@@ -42,6 +42,9 @@ for s in $(nvr --serverlist); do
   nvr --nostart --servername "$s" --remote-send ":set background=$cli_theme_to<CR>"
 done
 
+# NOTE: refresh theme
+touch "$HOME/.config/alacritty/alacritty.toml"
+
 if command -v tmux >/dev/null 2>&1; then
   if pgrep -f "tmux" >/dev/null; then
     tmux source-file ~/.config/tmux/tmux.conf
@@ -57,8 +60,3 @@ if command -v dunst >/dev/null 2>&1; then
     killall dunst && sleep 1 && nohup dunst &
   fi
 fi
-
-# NOTE: it reloads the border colors, but also refreshes the layouts
-# if command -v hyprctl >/dev/null 2>&1; then
-#   hyprctl reload
-# fi
