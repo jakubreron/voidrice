@@ -9,6 +9,7 @@ if command -v pyenv >/dev/null 2>&1; then
 fi
 
 bin_list=(
+  "${$($find_command $HOME/.yarn/bin -type d -printf %p:)%%:}"
   "/opt/local/bin:/opt/local/sbin"
   "$(brew --prefix mysql-client)/bin"
       "$(brew --prefix postgresql@18)/bin"

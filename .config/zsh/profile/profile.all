@@ -44,7 +44,6 @@ local bin_list=(
   "$XDG_DATA_HOME/cargo/bin"
   "$XDG_DATA_HOME/npm/bin"
   "$PNPM_HOME"
-  "${$($find_command $HOME/.yarn/bin -type d -printf %p:)%%:}"
   "${$($find_command $HOME/.local/bin -type d -printf %p:)%%:}"
   )
 
