@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+
+set -e
+
+show_usage() {
+    echo "Usage: $(basename "$0") [-i|--iphone] <video-url>"
+    echo "  Default: High-efficiency formats (AV1/VP9/Opus) in MKV/WebM (Best for Linux/Android)"
+    echo "  -i, --iphone: Force H.264/AAC in MP4 container (Required for iOS Photos App)"
+    exit 1
+}
+
+# Parse options
+IPHONE_MODE=false
+URL=""
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -i|--iphone)
+            IPHONE_MODE=true
+            shift
+            ;;
+        -h|--help)
+            show_usage
+            ;;
+        *)
+            if [ -z "$URL" ]; then
+                URL="$1"
+                shift
+            else
+                show_usage
+            fi
+            ;;
+    esac
+done
+
+if [ -z "$URL" ]; then
+    show_usage
+fi
+
+# Define format selection profiles
+if [ "$IPHONE_MODE" = true ]; then
+    echo "--> Profile: iPhone/iOS Gallery Compatible (H.264 + AAC -> MP4)"
+    FORMAT_STR="bv*[ext=mp4][vcodec^=avc1]+ba[ext=m4a]/b[ext=mp4]"
+    MERGE_FORMAT="mp4"
+else
+    echo "--> Profile: Maximum Efficiency & Quality (AV1/VP9 + Opus/AAC)"
+    # yt-dlp native behavior targets absolute best quality and modern codecs
+    FORMAT_STR="bv*+ba/b"
+    MERGE_FORMAT="mkv"
+fi
+
+# Run yt-dlp
+yt-dlp \
+    -f "$FORMAT_STR" \
+    --merge-output-format "$MERGE_FORMAT" \
+    --embed-metadata \
+    --embed-thumbnail \
+    -o "%(title)s.%(ext)s" \
+    "$URL"
+
+echo "--> Download complete."

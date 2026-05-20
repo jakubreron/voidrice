@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Exit on error
+set -e
+
+# Check if URL is provided
+if [ -z "$1" ]; then
+    echo "Usage: $(basename "$0") <youtube-url>"
+    exit 1
+fi
+
+URL="$1"
+
+# Target layout: H.264 (avc1) video + AAC (m4a) audio merged into MP4
+# This guarantees native iOS hardware decoding and Photos app (Gallery) import.
+FORMAT_STR="bv*[ext=mp4][vcodec^=avc1]+ba[ext=m4a]/b[ext=mp4]"
+
+echo "--> Fetching video in iOS-compatible format..."
+
+yt-dlp \
+    -f "$FORMAT_STR" \
+    --merge-output-format mp4 \
+    --embed-metadata \
+    --embed-thumbnail \
+    -o "%(title)s.%(ext)s" \
+    "$URL"
+
+echo "--> Done. File is ready for iOS transfer."
