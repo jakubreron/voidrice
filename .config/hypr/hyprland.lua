@@ -47,8 +47,24 @@ local function disable_monitor(output)
 	return hl.dsp.exec_cmd(string.format("hyprctl eval 'hl.monitor({ output = \"%s\", disabled = true })'", output))
 end
 
--- hl.bind("switch:on:Lid Switch", disable_monitor(INTERNAL_MONITOR), { locked = true })
--- hl.bind("switch:off:Lid Switch", set_monitor(INTERNAL_MONITOR_SETTINGS), { locked = true })
+-- 1. Automatic Display Switching
+hl.on("monitor.added", function()
+	set_monitor(EXTERNAL_MONITOR_SETTINGS)
+	disable_monitor(INTERNAL_MONITOR)
+end)
+
+hl.on("monitor.removed", function()
+	set_monitor(INTERNAL_MONITOR_SETTINGS)
+end)
+
+-- 2. Hardware Lid Switch Bindings
+hl.bind("switch:on:Lid Switch", function()
+	disable_monitor(INTERNAL_MONITOR)
+end, { locked = true })
+
+hl.bind("switch:off:Lid Switch", function()
+	set_monitor(INTERNAL_MONITOR_SETTINGS)
+end, { locked = true })
 
 require("theme")
 
