@@ -9,9 +9,6 @@
   "modules-right": [
     "mpd",
     "pulseaudio",
-    "custom/weather-precip-chance",
-    "custom/weather-low",
-    "custom/weather-high",
     "cpu",
     "memory",
     "temperature",
@@ -162,20 +159,5 @@
       ]
     },
     "on-click": "daemonable-terminal-instance --title cli_sound_manager --command $CLI_SOUND_MANAGER"
-  },
-  "custom/weather-low": {
-    "exec": "get-weather low",
-    "format": "  {}",
-    "interval": 43200
-  },
-  "custom/weather-high": {
-    "exec": "get-weather high",
-    "format": "  {}",
-    "interval": 43200
-  },
-  "custom/weather-precip-chance": {
-    "exec": "get-weather precip",
-    "format": "  {}",
-    "interval": 43200
   }
 }
