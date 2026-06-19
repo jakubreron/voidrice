@@ -31,39 +31,29 @@ local EXTERNAL_MONITOR_SETTINGS = {
 hl.monitor(INTERNAL_MONITOR_SETTINGS)
 hl.monitor(EXTERNAL_MONITOR_SETTINGS)
 
-local function set_monitor(s)
-	return hl.dsp.exec_cmd(
-		string.format(
-			'hyprctl eval \'hl.monitor({ output = "%s", mode = "%s", position = "%s", scale = "%s" })\'',
-			s.output,
-			s.mode,
-			s.position,
-			s.scale
-		)
-	)
-end
+---------------------------
+---- DISPLAY MANAGEMENT ---
+---------------------------
 
-local function disable_monitor(output)
-	return hl.dsp.exec_cmd(string.format("hyprctl eval 'hl.monitor({ output = \"%s\", disabled = true })'", output))
-end
-
--- 1. Automatic Display Switching
+-- 1. Automatic Display Switching (Handles wake from suspend disconnects)
 hl.on("monitor.added", function()
-	set_monitor(EXTERNAL_MONITOR_SETTINGS)
-	disable_monitor(INTERNAL_MONITOR)
+	-- When the external monitor is connected, switch visibility
+	hl.dispatch(hl.dsp.dpms({ action = "on", monitor = EXTERNAL_MONITOR }))
+	hl.dispatch(hl.dsp.dpms({ action = "off", monitor = INTERNAL_MONITOR }))
 end)
 
 hl.on("monitor.removed", function()
-	set_monitor(INTERNAL_MONITOR_SETTINGS)
+	-- Force restore internal panel if external monitor vanishes
+	hl.dispatch(hl.dsp.dpms({ action = "on", monitor = INTERNAL_MONITOR }))
 end)
 
 -- 2. Hardware Lid Switch Bindings
 hl.bind("switch:on:Lid Switch", function()
-	disable_monitor(INTERNAL_MONITOR)
+	hl.dispatch(hl.dsp.dpms({ action = "off", monitor = INTERNAL_MONITOR }))
 end, { locked = true })
 
 hl.bind("switch:off:Lid Switch", function()
-	set_monitor(INTERNAL_MONITOR_SETTINGS)
+	hl.dispatch(hl.dsp.dpms({ action = "on", monitor = INTERNAL_MONITOR }))
 end, { locked = true })
 
 require("theme")
@@ -356,10 +346,15 @@ hl.bind(combo_keymap("s"), hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
 hl.bind(small_keymap("r"), hl.dsp.exec_cmd('rofi -show combi -modes combi -combi-modes "window,drun,run"'))
 hl.bind(combo_keymap("r"), hl.dsp.exec_cmd("rofi-restart"))
 
-hl.bind(small_keymap("d"), disable_monitor(EXTERNAL_MONITOR))
-hl.bind(small_keymap("d"), set_monitor(INTERNAL_MONITOR_SETTINGS))
-hl.bind(combo_keymap("d"), set_monitor(EXTERNAL_MONITOR_SETTINGS))
-hl.bind(combo_keymap("d"), disable_monitor(INTERNAL_MONITOR))
+hl.bind(small_keymap("d"), function()
+	hl.dispatch(hl.dsp.dpms({ action = "off", monitor = EXTERNAL_MONITOR }))
+	hl.dispatch(hl.dsp.dpms({ action = "on", monitor = INTERNAL_MONITOR }))
+end)
+
+hl.bind(combo_keymap("d"), function()
+	hl.dispatch(hl.dsp.dpms({ action = "off", monitor = INTERNAL_MONITOR }))
+	hl.dispatch(hl.dsp.dpms({ action = "on", monitor = EXTERNAL_MONITOR }))
+end)
 
 hl.bind(small_keymap("f"), hl.dsp.window.fullscreen())
 
