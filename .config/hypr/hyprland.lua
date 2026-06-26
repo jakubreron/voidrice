@@ -62,10 +62,9 @@ require("theme")
 ---- WORKSPACES ----
 --------------------
 
-for i = 1, 8 do
-	hl.workspace_rule({ workspace = tostring(i), monitor = EXTERNAL_MONITOR, default = (i == 1) })
+for i = 1, 9 do
+	hl.workspace_rule({ workspace = tostring(i), default = (i == 1) })
 end
-hl.workspace_rule({ workspace = "9", monitor = INTERNAL_MONITOR, default = true })
 
 --------------------------
 ---- ENV VARIABLES ----
@@ -139,6 +138,7 @@ hl.config({
 
 	cursor = {
 		inactive_timeout = 3,
+		no_hardware_cursors = 0,
 	},
 
 	animations = {
@@ -407,8 +407,8 @@ hl.bind(small_keymap("semicolon"), hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(combo_keymap("semicolon"), hl.dsp.window.move({ workspace = "e+1" }))
 
 -- Move/resize windows with mouse
-hl.bind(small_keymap("mouse:272"), hl.dsp.window.drag(), { mouse = true })
-hl.bind(small_keymap("mouse:273"), hl.dsp.window.resize(), { mouse = true })
+-- hl.bind(small_keymap("mouse:272"), hl.dsp.window.drag(), { mouse = true })
+-- hl.bind(small_keymap("mouse:273"), hl.dsp.window.resize(), { mouse = true })
 
 -- Media / function keys
 hl.bind("xf86audiomicmute", hl.dsp.exec_cmd("mute-microphone"), { locked = true })
