@@ -1,4 +1,5 @@
-@define-color bg0      #282828;
+/* @define-color bg0      #282828; */
+@define-color bg0      #000000;
 @define-color bg1      #3c3836;
 @define-color fg1      #ebdbb2;
 @define-color gray     #928374;

@@ -15,8 +15,9 @@
 
 /* Restored original padding/margin logic */
 #waybar > * {
-  margin-top: 2px;
-  margin-bottom: 2px;
+  /* screen has a few px top offset (physical screen) */
+  /* margin-top: 2px; */ 
+  margin-bottom: 4px;
   margin-left: 4px;
 }
 

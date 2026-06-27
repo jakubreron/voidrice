@@ -1,0 +1,5 @@
+[general]
+import = ["~/.config/alacritty/themes/alacritty-theme/themes/gruvbox_dark.toml"]
+
+[colors.primary]
+background = '#000000'
