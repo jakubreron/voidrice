@@ -5,6 +5,7 @@ cfb      $ZDOTDIR/bookmarks
 
 cfA      $XDG_CONFIG_HOME/alacritty/alacritty.toml
 cfh      $XDG_CONFIG_HOME/hypr
+cfw      $XDG_CONFIG_HOME/waybar
 cflf     $XDG_CONFIG_HOME/lf
 cftm     $XDG_CONFIG_HOME/tmux/tmux.conf
 cfti     $XDG_CONFIG_HOME/ticker/.ticker.yaml

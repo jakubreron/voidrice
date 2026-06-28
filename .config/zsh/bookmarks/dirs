@@ -32,6 +32,3 @@ Lsh $XDG_DATA_HOME
 Lshnv $XDG_DATA_HOME/nvim
 
 Ca $XDG_CACHE_HOME
-
-Php /etc/php/
-Phpc /etc/php/conf.d
