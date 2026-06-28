@@ -407,8 +407,8 @@ hl.bind(small_keymap("semicolon"), hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(combo_keymap("semicolon"), hl.dsp.window.move({ workspace = "e+1" }))
 
 -- Move/resize windows with mouse
--- hl.bind(small_keymap("mouse:272"), hl.dsp.window.drag(), { mouse = true })
--- hl.bind(small_keymap("mouse:273"), hl.dsp.window.resize(), { mouse = true })
+hl.bind(small_keymap("mouse:272"), hl.dsp.window.drag(), { mouse = true })
+hl.bind(small_keymap("mouse:273"), hl.dsp.window.resize(), { mouse = true })
 
 -- Media / function keys
 hl.bind("xf86audiomicmute", hl.dsp.exec_cmd("mute-microphone"), { locked = true })
