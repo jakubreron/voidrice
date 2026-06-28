@@ -13,3 +13,7 @@
 /* Specific highlight for workspaces */
 @define-color act_bg   #3c3836;
 @define-color act_fg   #fabd2f;
+
+#waybar > * {
+	margin-bottom: 4px;
+}

@@ -12,3 +12,8 @@
 /* Specific highlight for workspaces (Deeper tones for light bg) */
 @define-color act_bg   #ebdbb2;
 @define-color act_fg   #af3a03;
+
+#waybar > * {
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
