@@ -35,19 +35,6 @@ hl.monitor(EXTERNAL_MONITOR_SETTINGS)
 ---- DISPLAY MANAGEMENT ---
 ---------------------------
 
--- 1. Automatic Display Switching (Handles wake from suspend disconnects)
-hl.on("monitor.added", function()
-	-- When the external monitor is connected, switch visibility
-	hl.dispatch(hl.dsp.dpms({ action = "on", monitor = EXTERNAL_MONITOR }))
-	hl.dispatch(hl.dsp.dpms({ action = "off", monitor = INTERNAL_MONITOR }))
-end)
-
-hl.on("monitor.removed", function()
-	-- Force restore internal panel if external monitor vanishes
-	hl.dispatch(hl.dsp.dpms({ action = "on", monitor = INTERNAL_MONITOR }))
-end)
-
--- 2. Hardware Lid Switch Bindings
 hl.bind("switch:on:Lid Switch", function()
 	hl.dispatch(hl.dsp.dpms({ action = "off", monitor = INTERNAL_MONITOR }))
 end, { locked = true })
@@ -62,8 +49,20 @@ require("theme")
 ---- WORKSPACES ----
 --------------------
 
-for i = 1, 9 do
-	hl.workspace_rule({ workspace = tostring(i), default = (i == 1) })
+-- Assign workspace 9 strictly to the internal panel
+hl.workspace_rule({
+	workspace = "9",
+	monitor = INTERNAL_MONITOR,
+	default = true,
+})
+
+-- Map workspaces 1 through 8 to the external display by default
+for i = 1, 8 do
+	hl.workspace_rule({
+		workspace = tostring(i),
+		monitor = EXTERNAL_MONITOR,
+		default = (i == 1), -- Sets workspace 1 as the primary focus target
+	})
 end
 
 --------------------------
@@ -85,15 +84,16 @@ hl.env("QT_QPA_PLATFORMTHEME", "hyprqt6engine")
 
 hl.on("hyprland.start", function()
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
-
-	hl.exec_cmd("hyprpaper")
-	hl.exec_cmd("hypridle")
-	hl.exec_cmd("hyprsunset")
-	hl.exec_cmd("darkman run")
-	hl.exec_cmd("waybar")
-	hl.exec_cmd("dunst")
-	hl.exec_cmd(os.getenv("INPUT_METHOD") or "")
 	hl.exec_cmd("keyd-application-mapper -d")
+	hl.exec_cmd("darkman run")
+
+	hl.exec_cmd("dunst")
+	hl.exec_cmd("hyprpaper")
+	hl.exec_cmd("waybar")
+	hl.exec_cmd("hyprsunset")
+	hl.exec_cmd("hypridle")
+
+	hl.exec_cmd(os.getenv("INPUT_METHOD") or "")
 
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
 	hl.exec_cmd("wl-paste --type image --watch cliphist store")
@@ -347,7 +347,7 @@ hl.bind(small_keymap("r"), hl.dsp.exec_cmd('rofi -show combi -modes combi -combi
 hl.bind(combo_keymap("r"), hl.dsp.exec_cmd("rofi-restart"))
 
 hl.bind(small_keymap("d"), function()
-	hl.dispatch(hl.dsp.dpms({ action = "off", monitor = EXTERNAL_MONITOR }))
+	hl.dispatch(hl.dsp.dpms({ action = "on", monitor = EXTERNAL_MONITOR }))
 	hl.dispatch(hl.dsp.dpms({ action = "on", monitor = INTERNAL_MONITOR }))
 end)
 
