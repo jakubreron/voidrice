@@ -13,10 +13,9 @@
   color: @fg1;
 }
 
-/* Restored original padding/margin logic */
-#waybar > * {
-  margin-left: 4px;
-}
+/* #waybar > * { */
+/*   margin-left: 4px; */
+/* } */
 
 #waybar > :last-child {
   margin-right: 4px;
@@ -27,7 +26,8 @@ tooltip {
   opacity: 0.9;
   background: @bg0;
   border: 2px solid @act_fg;
-  border-radius: 10px;
+  /* border-radius: 10px; */
+  border-radius: 0;
 }
 
 tooltip * {
@@ -41,8 +41,9 @@ tooltip * {
 }
 
 #workspaces button {
-  border-radius: 4px;
-  margin-right: 2px;
+  /* border-radius: 4px; */
+  /* margin-right: 2px; */
+  border-radius: 0;
 }
 
 #workspaces button.active {
@@ -118,7 +119,8 @@ tooltip * {
   font-weight: bold;
   background-color: @red;
   color: @bg0;
-  border-radius: 4px;
+  /* border-radius: 4px; */
+  border-radius: 0;
 }
 
 #backlight {
