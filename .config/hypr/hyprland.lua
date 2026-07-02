@@ -74,9 +74,25 @@ hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 
-hl.env("GSK_RENDERER", "ngl")
+-- TODO check if there are no issues with gtk apps without this (they will use vulkan by default instead of opengl)
+-- hl.env("GSK_RENDERER", "ngl")
+-- TODO: check if cursors still work
+-- hl.env("WLR_NO_HARDWARE_CURSORS", "1")
+
 hl.env("HYPRCURSOR_SIZE", "24")
+
+hl.env("GDK_BACKEND", "wayland,x11,*")
+hl.env("SDL_VIDEODRIVER", "wayland")
+hl.env("CLUTTER_BACKEND", "wayland")
+hl.env("SDL_VIDEODRIVER", "wayland")
+hl.env("MOZ_ENABLE_WAYLAND", "1")
+
+hl.env("QT_QPA_PLATFORM", "wayland;xcb")
+hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
+hl.env("QT_WAYLAND_DISABLE_WINDOWDECORATION", "1")
 hl.env("QT_QPA_PLATFORMTHEME", "hyprqt6engine")
+hl.env("QT_STYLE_OVERRIDE", "kvantum")
+hl.env("DISABLE_QT5_COMPAT", "1")
 
 -------------------
 ---- AUTOSTART ----
