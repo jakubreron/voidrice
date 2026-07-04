@@ -62,6 +62,12 @@ if command -v dunst >/dev/null 2>&1; then
   fi
 fi
 
+if command -v waybar >/dev/null 2>&1; then
+  if pgrep -f "waybar" >/dev/null; then
+    killall waybar && sleep 1 && nohup waybar &
+  fi
+fi
+
 if command -v hyprpaper >/dev/null 2>&1; then
   if pgrep -f "hyprpaper" >/dev/null; then
     killall hyprpaper && sleep 1 && nohup hyprpaper &
