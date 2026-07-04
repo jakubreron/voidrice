@@ -74,11 +74,6 @@ hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 hl.env("XDG_SESSION_TYPE", "wayland")
 hl.env("XDG_SESSION_DESKTOP", "Hyprland")
 
--- TODO check if there are no issues with gtk apps without this (they will use vulkan by default instead of opengl)
--- hl.env("GSK_RENDERER", "ngl")
--- TODO: check if cursors still work
--- hl.env("WLR_NO_HARDWARE_CURSORS", "1")
-
 hl.env("HYPRCURSOR_SIZE", "24")
 
 hl.env("GDK_BACKEND", "wayland,x11,*")
