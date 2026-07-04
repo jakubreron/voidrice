@@ -61,3 +61,9 @@ if command -v dunst >/dev/null 2>&1; then
     killall dunst && sleep 1 && nohup dunst &
   fi
 fi
+
+if command -v hyprpaper >/dev/null 2>&1; then
+  if pgrep -f "hyprpaper" >/dev/null; then
+    killall hyprpaper && sleep 1 && nohup hyprpaper &
+  fi
+fi
