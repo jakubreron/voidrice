@@ -134,6 +134,12 @@ cmd share ${{
   clear; tput cup $(($(tput lines)/3)); tput bold
   set -f
   printf "$fx \n"
+  for x in $fx; do
+    case "$x" in
+      *.gpg) ;;
+      *) echo "❌ Not encrypted: $x" && sleep 3 && exit 1 ;;
+    esac
+  done
   printf "🌐 Share? [y/n] "
   read ans
   ans="${ans:-y}"
