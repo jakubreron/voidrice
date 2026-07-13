@@ -145,7 +145,7 @@ cmd share ${{
   ans="${ans:-y}"
   if [ $ans = "y" ]; then
     for x in $fx; do
-      curl -F"file=@$x" https://0x0.st | cross-platform-copy
+      curl -F"reqtype=fileupload" -F"time=12h" -F"fileToUpload=@$x" https://litterbox.catbox.moe/resources/internals/api.php | cross-platform-copy
     done
   fi
 }}
