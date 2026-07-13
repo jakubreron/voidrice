@@ -137,7 +137,11 @@ cmd share ${{
   printf "🌐 Share? [y/n] "
   read ans
   ans="${ans:-y}"
-  [ $ans = "y" ] && curl -F"file=@$fx" https://0x0.st | cross-platform-copy
+  if [ $ans = "y" ]; then
+    for x in $fx; do
+      curl -F"file=@$x" https://0x0.st | cross-platform-copy
+    done
+  fi
 }}
 
 cmd fzf_search $lf -remote "send $id select \"$(fzf)\""
@@ -149,8 +153,16 @@ cmd mkdir %{{
   lf -remote "send $id select \"$(printf '%s' "$file" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
 }}
 
-cmd encrypt $gpg -c --pinentry-mode loopback --s2k-mode 3 --s2k-count 65011712 --s2k-digest-algo SHA512 --cipher-algo AES256 $f
-cmd decrypt $gpg -d -o "${f%.gpg}" $f
+cmd encrypt ${{
+  for x in $fx; do
+    gpg -c --pinentry-mode loopback --s2k-mode 3 --s2k-count 65011712 --s2k-digest-algo SHA512 --cipher-algo AES256 "$x"
+  done
+}}
+cmd decrypt ${{
+  for x in $fx; do
+    gpg -d -o "${x%.gpg}" "$x"
+  done
+}}
 
 cmd zip ${{
   clear; tput cup $(($(tput lines)/3)); tput bold
@@ -233,10 +245,9 @@ nmap U set hidden!
 nmap gl follow_link
 map ge encrypt
 map gd decrypt
-nmap gc convert
-
-map Sw share
-map Sk kdeconnect
+map gc convert
+map gs share
+map gk kdeconnect
 
 nmap <c-f> fzf_search
 nmap <c-n> push :mkdir<space>""<left>
