@@ -98,7 +98,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("darkman run")
 
 	hl.exec_cmd("dunst")
-	hl.exec_cmd("hyprpaper")
+	-- hl.exec_cmd("hyprpaper")
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("hyprsunset")
 	hl.exec_cmd("hypridle")
@@ -144,6 +144,9 @@ hl.config({
 		mouse_move_enables_dpms = true,
 		key_press_enables_dpms = true,
 		swallow_regex = "^(Alacritty)$",
+		force_default_wallpaper = 0,
+		disable_hyprland_logo = true,
+		background_color = 0x000000,
 	},
 
 	cursor = {
@@ -197,6 +200,7 @@ for _, device_name in ipairs({
 	"tpps/1-ibm-trackpoint",
 	"tpps/2-ibm-trackpoint",
 	"tpps/2-elan-trackpoint",
+	"usb-hid-keyboard-mouse",
 }) do
 	hl.device({ name = device_name, sensitivity = -0.45 })
 end
