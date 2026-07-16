@@ -57,19 +57,25 @@ if command -v dunst >/dev/null 2>&1; then
   ln -fs ~/.config/dunst/$cli_theme_to.conf "$dunst_path"
   git-ignore-changes-for-file "$dunst_path"
 
-  if pgrep -f "dunst" >/dev/null; then
+  if pgrep -f dunst >/dev/null; then
     killall dunst && sleep 1 && nohup dunst &
+  else
+    nohup dunst & 
   fi
 fi
 
 if command -v waybar >/dev/null 2>&1; then
-  if pgrep -f "waybar" >/dev/null; then
+  if pgrep -f waybar >/dev/null; then
     killall waybar && sleep 1 && nohup waybar &
+  else
+    nohup waybar & 
   fi
 fi
 
 if command -v hyprpaper >/dev/null 2>&1; then
-  if pgrep -f "hyprpaper" >/dev/null; then
-    killall hyprpaper && sleep 1 && nohup hyprpaper &
+  if pgrep -f hyprpaper >/dev/null; then
+    killall hyprpaper && sleep 2 && nohup hyprpaper &
+  else 
+    nohup hyprpaper &
   fi
 fi
