@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-export TERMINAL="daemonable-terminal-instance"
+export TERMINAL="open-daemon-terminal"
 
 export INPUT_METHOD="fcitx5"
 export QT_IM_MODULE='fcitx'

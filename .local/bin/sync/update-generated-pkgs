@@ -27,16 +27,15 @@ if [ -d "$path" ]; then
     fi
 
     log-pretty-message "Generating $manager packages" "📦"
-    $manager -Qqe >"$path/pacman.txt"
-    $manager -Qqe | grep 'php' | sed -r "s/\b('phpstorm|phpstorm-jre')//g" >"$path/php.txt"
+    "$manager" -Qqe >"$path/pacman.txt"
+    "$manager" -Qqe | grep 'php' | sed -r "s/\b('phpstorm|phpstorm-jre')//g" >"$path/php.txt"
   }
 
   generate_macos_pkgs() {
     if command -v brew >/dev/null 2>&1; then
       log-pretty-message "Generating brew packages" "🍺"
 
-      rm "$path/Brewfile"
-      brew bundle dump --file "$path/Brewfile"
+      brew bundle dump --force --file "$path/Brewfile"
     fi
   }
 

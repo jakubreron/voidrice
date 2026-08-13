@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # Restart a running process using rofi
 
-process_name=`ps -e | awk '{ print $4 }' | sort -u | rofi -dmenu -matching fuzzy -i -p "Restart process"`
-if [ ! -z $process_name ]; then
+process_name=$(ps -e | awk '{ print $4 }' | sort -u | rofi -dmenu -matching fuzzy -i -p "Restart process")
+if [ -n "$process_name" ]; then
   for process in $(ps -e | grep " $process_name$" | awk '{ print $1 }');
   do
-    if [ ! -z $process ]; then
-      kill -9 $process
+    if [ -n "$process" ]; then
+      kill -9 "$process"
     fi
   done
 

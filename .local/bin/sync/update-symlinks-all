@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 replace_dotfiles_symlinks() {
-  for dir in $DOTFILES_DIR/voidrice/.local/bin/*/; do
+  for dir in "$DOTFILES_DIR"/voidrice/.local/bin/*/; do
     dir_name=$(basename "$dir")
-    mkdir -p $HOME/.local/bin/$dir_name
+    mkdir -p "$HOME/.local/bin/$dir_name"
   done
 
-  for dir in $DOTFILES_DIR/macos/.local/bin/*/; do
+  for dir in "$DOTFILES_DIR"/macos/.local/bin/*/; do
     dir_name=$(basename "$dir")
-    mkdir -p $HOME/.local/bin/$dir_name
+    mkdir -p "$HOME/.local/bin/$dir_name"
   done
 
   log-pretty-message "Updating dotfiles symlinks"

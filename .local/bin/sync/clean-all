@@ -4,12 +4,15 @@ case "$(uname -s)" in
   Linux*)
     if command -v "$PACKAGE_MANAGER" >/dev/null 2>&1; then
       log-pretty-message "Cleaning the $PACKAGE_MANAGER cache" "🧹📦"
-      $PACKAGE_MANAGER -Sc --noconfirm
+      "$PACKAGE_MANAGER" -Sc --noconfirm
     fi
 
     if command -v pacman >/dev/null 2>&1; then
-      log-pretty-message "Cleaning unused pacman dependencies" "🧹📦"
-      sudo pacman -Rns --noconfirm "$(pacman -Qtdq)"
+      orphans=$(pacman -Qtdq)
+      if [ -n "$orphans" ]; then
+        log-pretty-message "Cleaning unused pacman dependencies" "🧹📦"
+        sudo pacman -Rns --noconfirm $orphans
+      fi
     fi
 
     if command -v profile-cleaner >/dev/null 2>&1; then

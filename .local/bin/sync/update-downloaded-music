@@ -2,12 +2,10 @@
 # NOTE: synchronizes local music to playlist.txt file music
 
 download_playlist() {
-  path=$1
-  playlist=$2
+  path="$1"
+  playlist="$2"
 
-  command="yt-dlp --add-metadata -i --cookies-from-browser chrome -x -f bestaudio/best --download-archive ${path}/playlist.txt -P $path $playlist"
-
-  eval "${command}"
+  yt-dlp --add-metadata -i --cookies-from-browser chrome -x -f bestaudio/best --download-archive "$path/playlist.txt" -P "$path" "$playlist"
 }
 
 download_playlist "$XDG_MUSIC_DIR/osts" 'https://www.youtube.com/playlist?list=PLqQefq-YNypOhI67WpGJVJyXyBem_VOYZ'

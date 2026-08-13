@@ -30,6 +30,7 @@ export PROJECTS_DIR="$XDG_DOCUMENTS_DIR/Projects"
 export DOTFILES_DIR="$XDG_CONFIG_HOME/dotfiles"
 export PKGLIST_DIR="$DOTFILES_DIR/pkglists"
 export VIMWIKI_DIR="$DOTFILES_DIR/universal/Documents/VimWiki"
+export AGENTS_DIR="$DOTFILES_DIR/universal/.agents"
 
 case "$OS" in
   Linux)
@@ -72,4 +73,4 @@ export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export NODE_OPTIONS="--max-old-space-size=16384"
 export GLAMOUR_STYLE="light" # "gh" command theme fix
 
-[ ! -f $XDG_CONFIG_HOME/zsh/shortcuts/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
+[ ! -f $XDG_CONFIG_HOME/zsh/shortcuts/shortcutrc ] && setsid generate-shell-shortcuts >/dev/null 2>&1
