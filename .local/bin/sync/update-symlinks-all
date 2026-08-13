@@ -3,12 +3,12 @@
 replace_dotfiles_symlinks() {
   for dir in "$DOTFILES_DIR"/voidrice/.local/bin/*/; do
     dir_name=$(basename "$dir")
-    mkdir -p "$HOME/.local/bin/$dir_name"
+    mkdir -p "$XDG_BIN_HOME/$dir_name"
   done
 
   for dir in "$DOTFILES_DIR"/macos/.local/bin/*/; do
     dir_name=$(basename "$dir")
-    mkdir -p "$HOME/.local/bin/$dir_name"
+    mkdir -p "$XDG_BIN_HOME/$dir_name"
   done
 
   log-pretty-message "Updating dotfiles symlinks"
@@ -18,7 +18,7 @@ replace_dotfiles_symlinks() {
     xargs -0 -I {} basename {} |
     xargs stow --adopt --target="$HOME" --dir="$DOTFILES_DIR"
 
-  ln -sf "$DOTFILES_DIR/voidrice/.local/bin/lfimg/"{cleaner,preview} "$HOME/.config/lf"
+  ln -sf "$DOTFILES_DIR/voidrice/.local/bin/lfimg/"{cleaner,preview} "$XDG_CONFIG_HOME/lf"
 }
 
 replace_firefox_symlinks() {

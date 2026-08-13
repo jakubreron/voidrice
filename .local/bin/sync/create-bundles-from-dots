@@ -7,7 +7,8 @@ repos=(
   "$DOTFILES_DIR/pkglists"
   "$DOTFILES_DIR/universal"
   "$DOTFILES_DIR/voidrice"
-  "$HOME/.config/nvim"
+  "$XDG_CONFIG_HOME/nvim"
+  "$PROJECTS_DIR/personal/dotfiles-install"
 )
 
 bundle_dir=$(mktemp -d)
