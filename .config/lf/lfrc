@@ -2,6 +2,7 @@
 set ratios 1:2:3
 set previewer ~/.config/lf/preview
 set cleaner ~/.config/lf/cleaner
+set rulerfile ~/.config/lf/ruler.tmpl
 set shell zsh
 set shellopts '-euy'
 set ifs "\n"
@@ -73,10 +74,6 @@ cmd delete ${{
   read ans
   ans="${ans:-y}"
   [ $ans = "y" ] && rm -rf -- $fx
-}}
-
-cmd on-select &{{
-    lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f" | sed 's/\\/\\\\/g;s/"/\\"/g')\""
 }}
 
 cmd extract ${{
