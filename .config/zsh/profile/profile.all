@@ -30,6 +30,7 @@ export PROJECTS_DIR="$XDG_DOCUMENTS_DIR/Projects"
 export DOTFILES_DIR="$XDG_CONFIG_HOME/dotfiles"
 export PKGLIST_DIR="$DOTFILES_DIR/pkglists"
 export VIMWIKI_DIR="$DOTFILES_DIR/universal/Documents/VimWiki"
+export AGENTS_DIR="$DOTFILES_DIR/universal/.agents"
 
 case "$OS" in
   Linux)
