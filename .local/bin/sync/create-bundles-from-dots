@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+repos=(
+  "$DOTFILES_DIR/macos"
+  "$DOTFILES_DIR/pkglists"
+  "$DOTFILES_DIR/universal"
+  "$DOTFILES_DIR/voidrice"
+  "$HOME/.config/nvim"
+)
+
+bundle_dir=$(mktemp -d)
+
+for repo in "${repos[@]}"; do
+  name=$(basename "$repo")
+  branch=$(git -C "$repo" rev-parse --abbrev-ref HEAD)
+
+  log-pretty-message "Bundling $name on $branch" "📦"
+  git -C "$repo" bundle create "$bundle_dir/$name.bundle" "$branch"
+done
+
+mv "$bundle_dir"/*.bundle "$XDG_DOWNLOAD_DIR"
+rmdir "$bundle_dir"
+
+log-pretty-message "Zipping bundles" "🗜️"
+zip -j "$XDG_DOWNLOAD_DIR/bundles.zip" "$XDG_DOWNLOAD_DIR"/*.bundle
+rm "$XDG_DOWNLOAD_DIR"/*.bundle
+
+log-pretty-message "Encrypting bundles.zip (enter password when prompted)" "🔐"
+gpg -c --pinentry-mode loopback --s2k-mode 3 --s2k-count 65011712 --s2k-digest-algo SHA512 --cipher-algo AES256 "$XDG_DOWNLOAD_DIR/bundles.zip"
+
+rm "$XDG_DOWNLOAD_DIR/bundles.zip"
