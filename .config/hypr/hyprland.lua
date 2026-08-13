@@ -217,8 +217,8 @@ hl.window_rule({ match = { float = false, workspace = "w[tv1]" }, border_size = 
 hl.window_rule({ match = { float = false, workspace = "f[1]" }, border_size = 0, rounding = 0 })
 
 -- Browser
-hl.window_rule({ name = "browser-ws", match = { class = "^(.*)(firefox)(.*)$" }, workspace = "1" })
-hl.window_rule({ name = "chromium-ws", match = { class = "^(.*)(chromium)(.*)$" }, workspace = "1" })
+hl.window_rule({ name = "browser-ws", match = { class = "^(.*)(" .. BROWSER .. ")(.*)$" }, workspace = "1" })
+hl.window_rule({ name = "chromium-ws", match = { class = "^(.*)(" .. BACKUP_BROWSER .. ")(.*)$" }, workspace = "1" })
 
 -- Terminal & CLI Explorer
 hl.window_rule({ name = "terminal-ws", match = { class = "^(.*)(Alacritty)(.*)$" }, workspace = "2" })
