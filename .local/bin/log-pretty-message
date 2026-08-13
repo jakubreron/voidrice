@@ -7,4 +7,4 @@ BOLD=$(tput bold)
 BLUE=$(tput setaf 4)
 RESET=$(tput sgr0)
 
-printf "%s${BLUE}${BOLD}$emoji $message...${RESET}\n"
+printf "%s%s%s %s...%s\n" "$BLUE" "$BOLD" "$emoji" "$message" "$RESET"

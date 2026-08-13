@@ -11,7 +11,7 @@ case "$choice" in *❔*)
 	xdg-open "https://duckduckgo.com"
 	exit ;;
 http*)
-	xdg-open "$(echo $choice | awk '{print $1}')"
+	xdg-open "$(echo "$choice" | awk '{print $1}')"
 	exit ;;
 *) xdg-open "https://duckduckgo.com/?q=$choice"
 	exit ;;
