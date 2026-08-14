@@ -73,4 +73,4 @@ export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export NODE_OPTIONS="--max-old-space-size=16384"
 export GLAMOUR_STYLE="light" # "gh" command theme fix
 
-[ ! -f $XDG_CONFIG_HOME/zsh/shortcuts/shortcutrc ] && setsid shortcuts >/dev/null 2>&1
+[ ! -f $XDG_CONFIG_HOME/zsh/shortcuts/shortcutrc ] && setsid generate-shell-shortcuts >/dev/null 2>&1
