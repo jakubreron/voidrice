@@ -253,7 +253,7 @@ hl.window_rule({ name = "nostale-ws", match = { title = "^(.*)(NosTale)(.*)$" },
 hl.window_rule({ name = "steam-ws", match = { title = "^(.*)(Steam)(.*)$" }, workspace = "6", float = true })
 
 -- Audio
-hl.window_rule({ name = "easyeffects-ws", match = { class = "^(.*)(easyeffects)(.*)$" }, workspace = "9" })
+hl.window_rule({ name = "easyeffects-ws", match = { class = "^(.*)(easyeffects)(.*)$" }, workspace = "8" })
 hl.window_rule({ name = "calculator", match = { title = "^(.*)(Calculator)(.*)$" }, float = true, size = "20% 50%" })
 
 hl.window_rule({
