@@ -136,7 +136,7 @@
     "tooltip-format": "{ipaddr}/{cidr}, {ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
-    "on-click": "$TERMINAL --title cli_network_manager --command $CLI_SYSTEM_MONITOR"
+    "on-click": "$TERMINAL --title cli_network_manager --command $CLI_NETWORK_MANAGER"
   },
   "pulseaudio": {
     "ignored-sinks": [
