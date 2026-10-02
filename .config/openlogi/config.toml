@@ -1,10 +1,33 @@
 schema_version = 4
 selected_device = "receiver:d49a57134a2252f3:slot:2"
 
+[devices."receiver:d49a57134a2252f3:slot:1"]
+scroll_resolution = "low"
+
 [devices."receiver:d49a57134a2252f3:slot:1".identity]
 display_name = "MX Master 3S"
 codename = "MX Master 3S"
 kind = "mouse"
+
+[devices."receiver:5b9b9316:slot:1".identity]
+display_name = "MX Vertical"
+codename = "MX Vertical"
+kind = "mouse"
+
+[devices."receiver:5b9b9316:slot:1".identity.model_info]
+entity_count = 3
+unit_id = [
+    0,
+    0,
+    0,
+    0,
+]
+model_ids = [
+    45088,
+    16507,
+    49290,
+]
+extended_model_id = 0
 
 [app_settings]
 launch_at_login = true
@@ -33,11 +56,32 @@ model_ids = [
 ]
 extended_model_id = 0
 
+[devices."receiver:5b9b9316:slot:1".bindings]
+Back = "VolumeDown"
+Forward = "VolumeUp"
+DpiToggle = "CaptureRegion"
+
+[devices."receiver:5b9b9316:slot:1".identity.model_info.transports]
+usb = true
+equad = true
+btle = true
+bluetooth = false
+
 [devices."receiver:d49a57134a2252f3:slot:1".identity.model_info.transports]
 usb = false
 equad = false
 btle = true
 bluetooth = false
+
+[devices."receiver:5b9b9316:slot:1".identity.capabilities]
+buttons = true
+pointer = true
+lighting = false
+scroll_inversion = false
+hires_wheel = false
+thumbwheel = false
+haptic_feedback = false
+haptic_panel = false
 
 [devices."receiver:d49a57134a2252f3:slot:1".identity.capabilities]
 buttons = true
@@ -59,5 +103,10 @@ Down = "ShowDesktop"
 Left = "NextDesktop"
 Right = "PreviousDesktop"
 Click = "MissionControl"
+
+[devices."receiver:d49a57134a2252f3:slot:1".smartshift]
+mode = "ratchet"
+auto_disengage = 10
+tunable_torque = 0
 
 [keyboard]
