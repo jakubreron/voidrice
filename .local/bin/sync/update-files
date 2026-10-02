@@ -6,6 +6,9 @@ if command -v git-sync-repos >/dev/null 2>&1; then
   git-sync-repos 'projects'
 fi
 
+log-pretty-message "Updating voidrice submodules" "🧩"
+git -C "$DOTFILES_DIR/voidrice" submodule update --init --remote --recursive
+
 case "$(uname -s)" in
   Linux*)
     if command -v grive >/dev/null 2>&1; then
