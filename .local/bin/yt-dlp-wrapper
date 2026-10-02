@@ -39,11 +39,11 @@ fi
 
 # Define format selection profiles
 if [ "$IPHONE_MODE" = true ]; then
-    echo "--> Profile: iPhone/iOS Gallery Compatible (H.264 + AAC -> MP4)"
+    log-pretty-message "Profile: iPhone/iOS Gallery Compatible (H.264 + AAC -> MP4)" "📱"
     FORMAT_STR="bv*[ext=mp4][vcodec^=avc1]+ba[ext=m4a]/b[ext=mp4]"
     MERGE_FORMAT="mp4"
 else
-    echo "--> Profile: Maximum Efficiency & Quality (AV1/VP9 + Opus/AAC)"
+    log-pretty-message "Profile: Maximum Efficiency & Quality (AV1/VP9 + Opus/AAC)" "🎞️"
     # yt-dlp native behavior targets absolute best quality and modern codecs
     FORMAT_STR="bv*+ba/b"
     MERGE_FORMAT="mkv"
@@ -58,4 +58,4 @@ yt-dlp \
     -o "%(title)s.%(ext)s" \
     "$URL"
 
-echo "--> Download complete."
+log-pretty-message "Download complete" "✅"

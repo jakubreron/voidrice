@@ -15,7 +15,7 @@ URL="$1"
 # This guarantees native iOS hardware decoding and Photos app (Gallery) import.
 FORMAT_STR="bv*[ext=mp4][vcodec^=avc1]+ba[ext=m4a]/b[ext=mp4]"
 
-echo "--> Fetching video in iOS-compatible format..."
+log-pretty-message "Fetching video in iOS-compatible format" "⬇️"
 
 yt-dlp \
     -f "$FORMAT_STR" \
@@ -25,4 +25,4 @@ yt-dlp \
     -o "%(title)s.%(ext)s" \
     "$URL"
 
-echo "--> Done. File is ready for iOS transfer."
+log-pretty-message "File is ready for iOS transfer" "✅"
