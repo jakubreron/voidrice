@@ -30,33 +30,20 @@ replace_firefox_symlinks() {
     log-pretty-message "Updating firefox symlinks"
 
     case "$(uname -s)" in
-    Linux*)
-      browser_dir="$HOME/.mozilla/firefox"
-      browser_profiles_ini_dir="$browser_dir/profiles.ini"
-      profile="$(sed -n "/Default=.*.default-release/ s/.*=//p" "$browser_profiles_ini_dir")"
-      browser_profile_dir="$browser_dir/$profile"
-
-      if [ -d "$browser_profile_dir" ]; then
-        ln -sf "$dotfiles_userchrome_path" "$browser_profile_dir"
-
-        ln -sf "$dotfiles_userjs_overrides_path" "$browser_profile_dir/user-overrides.js"
-        ln -sf "$dotfiles_userjs_path" "$browser_profile_dir/user.js"
-      fi
-      ;;
-    Darwin)
-      browser_dir="$HOME/Library/Application Support/Firefox"
-      browser_profiles_ini_dir="$browser_dir/profiles.ini"
-      profile="$(sed -n "/Default=.*.default-release/ s/.*=//p" "$browser_profiles_ini_dir")"
-      browser_profile_dir="$browser_dir/$profile"
-
-      if [ -d "$browser_profile_dir" ]; then
-        ln -sf "$dotfiles_userchrome_path" "$browser_profile_dir"
-
-        ln -sf "$dotfiles_userjs_overrides_path" "$browser_profile_dir/user-overrides.js"
-        ln -sf "$dotfiles_userjs_path" "$browser_profile_dir/user.js"
-      fi
-      ;;
+    Linux*) browser_dir="$HOME/.mozilla/firefox" ;;
+    Darwin) browser_dir="$HOME/Library/Application Support/Firefox" ;;
     esac
+
+    browser_profiles_ini_dir="$browser_dir/profiles.ini"
+    profile="$(sed -n "/Default=.*.default-release/ s/.*=//p" "$browser_profiles_ini_dir")"
+    browser_profile_dir="$browser_dir/$profile"
+
+    if [ -d "$browser_profile_dir" ]; then
+      ln -sf "$dotfiles_userchrome_path" "$browser_profile_dir"
+
+      ln -sf "$dotfiles_userjs_overrides_path" "$browser_profile_dir/user-overrides.js"
+      ln -sf "$dotfiles_userjs_path" "$browser_profile_dir/user.js"
+    fi
   fi
 }
 

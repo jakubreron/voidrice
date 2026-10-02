@@ -12,6 +12,7 @@ repos=(
 )
 
 bundle_dir=$(mktemp -d)
+trap 'rm -rf "$bundle_dir"' EXIT
 
 for repo in "${repos[@]}"; do
   name=$(basename "$repo")
@@ -21,14 +22,8 @@ for repo in "${repos[@]}"; do
   git -C "$repo" bundle create "$bundle_dir/$name.bundle" "$branch"
 done
 
-mv "$bundle_dir"/*.bundle "$XDG_DOWNLOAD_DIR"
-rmdir "$bundle_dir"
-
 log-pretty-message "Zipping bundles" "🗜️"
-zip -j "$XDG_DOWNLOAD_DIR/bundles.zip" "$XDG_DOWNLOAD_DIR"/*.bundle
-rm "$XDG_DOWNLOAD_DIR"/*.bundle
+zip -j "$bundle_dir/bundles.zip" "$bundle_dir"/*.bundle
 
 log-pretty-message "Encrypting bundles.zip (enter password when prompted)" "🔐"
-gpg -c --pinentry-mode loopback --s2k-mode 3 --s2k-count 65011712 --s2k-digest-algo SHA512 --cipher-algo AES256 "$XDG_DOWNLOAD_DIR/bundles.zip"
-
-rm "$XDG_DOWNLOAD_DIR/bundles.zip"
+gpg -c --pinentry-mode loopback --s2k-mode 3 --s2k-count 65011712 --s2k-digest-algo SHA512 --cipher-algo AES256 --output "$XDG_DOWNLOAD_DIR/bundles.zip.gpg" "$bundle_dir/bundles.zip"

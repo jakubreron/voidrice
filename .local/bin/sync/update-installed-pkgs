@@ -2,6 +2,7 @@
 
 update_npm_pkgs() {
   if command -v npm >/dev/null 2>&1; then
+    log-pretty-message "Updating npm packages" "📦"
     npm install npm -g
     npm upgrade -g
   fi
@@ -9,6 +10,7 @@ update_npm_pkgs() {
 
 update_yarn_pkgs() {
   if command -v yarn >/dev/null 2>&1; then
+    log-pretty-message "Updating yarn packages" "🧶"
     yarn global upgrade
   fi
 }
@@ -17,16 +19,20 @@ case "$(uname -s)" in
   Linux*)
     update_pacman_pkgs() {
       if command -v "$PACKAGE_MANAGER" >/dev/null 2>&1; then
+        log-pretty-message "Updating $PACKAGE_MANAGER packages" "📦"
         "$PACKAGE_MANAGER" -Syu --noconfirm
       fi
 
+      log-pretty-message "Rebuilding bat cache" "🦇"
       bat cache --build
     }
 
     update_compiled_pkgs() {
       compile() {
         path="$1"
-        [ -d "$path" ] && sudo make -C "$path" && sudo make install -C "$path"
+        [ -d "$path" ] || return 0
+        log-pretty-message "Compiling $(basename "$path")" "🔨"
+        sudo make -C "$path" && sudo make install -C "$path"
       }
 
       compile "$XDG_SRC_HOME/dwm"
@@ -41,6 +47,7 @@ case "$(uname -s)" in
   Darwin)
     update_brew_pkgs() {
       if command -v brew >/dev/null 2>&1; then
+        log-pretty-message "Updating brew packages" "🍺"
         brew update
         brew upgrade
         brew cleanup
@@ -49,6 +56,7 @@ case "$(uname -s)" in
 
     update_gem_pkgs() {
       if command -v gem >/dev/null 2>&1; then
+        log-pretty-message "Updating gem packages" "💎"
         sudo gem update --system
         sudo gem update
         sudo gem cleanup

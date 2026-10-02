@@ -8,8 +8,8 @@ fi
 
 case "$(uname -s)" in
   Linux*)
-    log-pretty-message "Synchronizing google drive in the background"
     if command -v grive >/dev/null 2>&1; then
+      log-pretty-message "Synchronizing google drive in the background"
       nohup >/dev/null 2>&1 grive --progress-bar --path "$CLOUD_DIR" &
     fi
     ;;
