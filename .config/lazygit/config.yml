@@ -7,19 +7,19 @@ os:
 gui:
   nerdFontsVersion: "3"
   expandFocusedSidePanel: true
-  authorColors:
-    "Jakub Reroń": "green"
-    "Jakub Reron": "green"
-    "jakubreron": "green"
-    "jakub.reron": "green"
-    "jr": "green"
-    "JR": "green"
-    "ヤ": "green"
   theme:
     selectedLineBgColor:
       - reverse
     selectedRangeBgColor:
       - reverse
+    authorColors:
+      "Jakub Reroń": "green"
+      "Jakub Reron": "green"
+      "jakubreron": "green"
+      "jakub.reron": "green"
+      "jr": "green"
+      "JR": "green"
+      "ヤ": "green"
 git:
   diffRenderers:
     - colorArg: always
