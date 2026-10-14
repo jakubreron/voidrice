@@ -18,7 +18,7 @@ local INTERNAL_MONITOR_SETTINGS = {
 	output = INTERNAL_MONITOR,
 	mode = "highrr",
 	position = "auto-down",
-	scale = "1.5",
+	scale = "1.8",
 }
 ---@type HL.MonitorSpec
 local EXTERNAL_MONITOR_SETTINGS = {
@@ -98,7 +98,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("darkman run")
 
 	hl.exec_cmd("dunst")
-	-- hl.exec_cmd("hyprpaper")
+	hl.exec_cmd("hyprpaper")
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("hyprsunset")
 	hl.exec_cmd("hypridle")
@@ -108,7 +108,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
 	hl.exec_cmd("wl-paste --type image --watch cliphist store")
 
-	-- hl.exec_cmd("easyeffects --gapplication-service")
+	hl.exec_cmd("easyeffects --gapplication-service")
 	hl.exec_cmd("/usr/bin/kdeconnectd")
 	hl.exec_cmd("kdeconnect-indicator")
 	hl.exec_cmd("transmission-daemon")
