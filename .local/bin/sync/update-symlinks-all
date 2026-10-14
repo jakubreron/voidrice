@@ -42,7 +42,8 @@ replace_firefox_symlinks() {
       ln -sf "$dotfiles_userchrome_path" "$browser_profile_dir"
 
       ln -sf "$dotfiles_userjs_overrides_path" "$browser_profile_dir/user-overrides.js"
-      ln -sf "$dotfiles_userjs_path" "$browser_profile_dir/user.js"
+      rm -f "$browser_profile_dir/user.js"
+      cat "$dotfiles_userjs_path" "$dotfiles_userjs_overrides_path" >"$browser_profile_dir/user.js"
     fi
   fi
 }
