@@ -96,6 +96,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
 	hl.exec_cmd("keyd-application-mapper -d")
 	hl.exec_cmd("darkman run")
+	hl.exec_cmd("bitwarden")
 
 	hl.exec_cmd("dunst")
 	-- hl.exec_cmd("hyprpaper")
