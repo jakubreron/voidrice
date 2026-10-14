@@ -4,7 +4,7 @@ bmdirs="$XDG_CONFIG_HOME/zsh/bookmarks/dirs"
 bmfiles="$XDG_CONFIG_HOME/zsh/bookmarks/files"
 
 # Output locations. Unactivated progs should go to /dev/null.
-shortcuts_path="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/shortcuts"
+shortcuts_path="$XDG_CONFIG_HOME/zsh/shortcuts"
 
 mkdir -p "$shortcuts_path"
 
@@ -24,4 +24,5 @@ awk "!/^\s*#/ && !/^\s*\$/ {gsub(\"\\\s*#.*$\",\"\");
 eval "echo \"$(cat "$bmfiles")\"" | \
 awk "!/^\s*#/ && !/^\s*\$/ {gsub(\"\\\s*#.*$\",\"\");
 	printf(\"%s=\42\$EDITOR %s\42 \\\\\n\",\$1,\$2)  >> \"$shell_shortcuts\" ;
-	printf(\"hash -d %s=%s \n\",\$1,\$2)             >> \"$zsh_named_dirs\"  } "
+	printf(\"hash -d %s=%s \n\",\$1,\$2)             >> \"$zsh_named_dirs\"  } " && \
+	log-pretty-message "Shell shortcuts generated" "✅"

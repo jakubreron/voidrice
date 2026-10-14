@@ -21,61 +21,72 @@ case "$OS" in
 esac
 
 declare -a cli_theme_paths=(
-"$HOME/.config/alacritty/colorscheme.toml"
-"$HOME/.config/nvim/plugin/colorscheme.lua"
-"$HOME/.config/hypr/hyprpaper.conf"
-"$HOME/.config/btop/btop.conf"
-"$HOME/.config/tmux/tmux.conf"
-"$HOME/.config/bat/config"
-"$HOME/.config/git/theme"
-"$HOME/.config/waybar/colorscheme.css"
-"$HOME/.config/rofi/colorscheme.rasi"
-"$HOME/.config/zathura/colorscheme"
+"$XDG_CONFIG_HOME/alacritty/colorscheme.toml"
+"$XDG_CONFIG_HOME/nvim/plugin/colorscheme.lua"
+"$XDG_CONFIG_HOME/hypr/hyprpaper.conf"
+"$XDG_CONFIG_HOME/btop/btop.conf"
+"$XDG_CONFIG_HOME/tmux/tmux.conf"
+"$XDG_CONFIG_HOME/bat/config"
+"$XDG_CONFIG_HOME/git/theme"
+"$XDG_CONFIG_HOME/waybar/colorscheme.css"
+"$XDG_CONFIG_HOME/rofi/colorscheme.rasi"
+"$XDG_CONFIG_HOME/zathura/colorscheme"
 )
 
 for path in "${cli_theme_paths[@]}"; do
+  log-pretty-message "Switching $path from $cli_theme_from to $cli_theme_to" "🎨"
   $sed_or_gsed --in-place --follow-symlinks "0,/$cli_theme_from/s//$cli_theme_to/" "$path"
   git-ignore-changes-for-file "$path"
 done
 
 for s in $(nvr --serverlist); do
   test ! -S "$s" && continue
+  log-pretty-message "Setting nvim background to $cli_theme_to for $s" "📝"
   nvr --nostart --servername "$s" --remote-send ":set background=$cli_theme_to<CR>"
 done
 
 # NOTE: refresh theme
-touch "$HOME/.config/alacritty/alacritty.toml"
+log-pretty-message "Refreshing alacritty" "🔄"
+touch "$XDG_CONFIG_HOME/alacritty/alacritty.toml"
 
 if command -v tmux >/dev/null 2>&1; then
   if pgrep -f "tmux" >/dev/null; then
-    tmux source-file ~/.config/tmux/tmux.conf
+    log-pretty-message "Reloading tmux config" "🔄"
+    tmux source-file "$XDG_CONFIG_HOME/tmux/tmux.conf"
   fi
 fi
 
 if command -v dunst >/dev/null 2>&1; then
-  dunst_path="$HOME/.config/dunst/dunstrc.d/99-theme.conf"
-  ln -fs "$HOME/.config/dunst/$cli_theme_to.conf" "$dunst_path"
+  dunst_path="$XDG_CONFIG_HOME/dunst/dunstrc.d/99-theme.conf"
+  log-pretty-message "Linking dunst theme $cli_theme_to" "🔗"
+  ln -fs "$XDG_CONFIG_HOME/dunst/$cli_theme_to.conf" "$dunst_path"
   git-ignore-changes-for-file "$dunst_path"
 
   if pgrep -f dunst >/dev/null; then
+    log-pretty-message "Restarting dunst" "🔄"
     killall dunst && sleep 1 && nohup dunst &
   else
-    nohup dunst & 
+    log-pretty-message "Starting dunst" "🚀"
+    nohup dunst &
   fi
 fi
 
 if command -v waybar >/dev/null 2>&1; then
   if pgrep -f waybar >/dev/null; then
+    log-pretty-message "Restarting waybar" "🔄"
     killall waybar && sleep 1 && nohup waybar &
   else
-    nohup waybar & 
+    log-pretty-message "Starting waybar" "🚀"
+    nohup waybar &
   fi
 fi
 
 if command -v hyprpaper >/dev/null 2>&1; then
   if pgrep -f hyprpaper >/dev/null; then
+    log-pretty-message "Restarting hyprpaper" "🔄"
     killall hyprpaper && sleep 2 && nohup hyprpaper &
-  else 
+  else
+    log-pretty-message "Starting hyprpaper" "🚀"
     nohup hyprpaper &
   fi
 fi

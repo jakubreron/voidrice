@@ -5,6 +5,7 @@
 .config/zsh/.chpwd-recent-dirs
 .config/zsh/shortcuts/zshnameddirrc
 .config/zsh/.zshenv
+.config/zsh/.zsh_sessions/
 
 .config/tmux/plugins/*
 !.config/tmux/plugins/tpm/

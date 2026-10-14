@@ -6,3 +6,5 @@ update-generated-pkgs
 update-symlinks-all
 
 clean-all
+
+log-pretty-message "All updates finished" "✅"

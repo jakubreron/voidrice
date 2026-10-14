@@ -63,7 +63,7 @@ local bin_list=(
   "$XDG_DATA_HOME/cargo/bin"
   "$XDG_DATA_HOME/npm/bin"
   "$PNPM_HOME"
-  "${$($find_command $HOME/.local/bin -type d -printf %p:)%%:}"
+  "${$($find_command $XDG_BIN_HOME -type d -printf %p:)%%:}"
   )
 
 for extra in "${bin_list[@]}"; do

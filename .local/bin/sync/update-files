@@ -6,10 +6,13 @@ if command -v git-sync-repos >/dev/null 2>&1; then
   git-sync-repos 'projects'
 fi
 
+log-pretty-message "Updating voidrice submodules" "🧩"
+git -C "$DOTFILES_DIR/voidrice" submodule update --init --remote --recursive
+
 case "$(uname -s)" in
   Linux*)
-    log-pretty-message "Synchronizing google drive in the background"
     if command -v grive >/dev/null 2>&1; then
+      log-pretty-message "Synchronizing google drive in the background"
       nohup >/dev/null 2>&1 grive --progress-bar --path "$CLOUD_DIR" &
     fi
     ;;

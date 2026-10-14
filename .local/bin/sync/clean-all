@@ -27,4 +27,5 @@ case "$(uname -s)" in
     ;;
 esac
 
+log-pretty-message "Cleaning nohup.out files" "🧹"
 find "$HOME" -type f -name 'nohup.out' -ls -delete
