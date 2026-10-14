@@ -3,7 +3,7 @@
 	url = https://github.com/wis/mpvSockets.git
 [submodule ".config/mpv/scripts/autosubsync-mpv"]
 	path = .config/mpv/scripts/autosubsync-mpv
-	url = git@github.com:joaquintorres/autosubsync-mpv.git
+	url = https://github.com/joaquintorres/autosubsync-mpv.git
 [submodule ".config/alacritty/themes/alacritty-theme"]
 	path = .config/alacritty/themes/alacritty-theme
 	url = https://github.com/alacritty/alacritty-theme
