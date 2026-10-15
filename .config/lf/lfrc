@@ -102,27 +102,39 @@ fi
 }}
 
 cmd moveto ${{
-  clear; tput cup $(($(tput lines)/3)); tput bold
   set -f
-  clear; echo "Move to where?"
-  dest="$(sed -e 's/[[:space:]]*#.*//' -e '/^$/d' -e 's/^[^[:space:]]*[[:space:]]*//' $XDG_CONFIG_HOME/zsh/bookmarks/dirs | fzf | sed 's|~|$HOME|')" &&
+  clear; tput cup $(($(tput lines)/3))
+  dest="$(sed -e 's/[[:space:]]*#.*//' -e '/^$/d' -e 's/^[^[:space:]]*[[:space:]]*//' $XDG_CONFIG_HOME/zsh/bookmarks/dirs | fzf --layout=reverse --height 40% --prompt 'Move to where? ' | sed 's|~|$HOME|')"
+  [ -z "$dest" ] && exit
+  dest_path=$(eval printf '%s' \"$dest\")
+  clear; tput cup $(($(tput lines)/3)); tput bold
+  echo "From:"
+  echo "$fx" | sed 's/^/   /'
+  printf "To:\n   %s\n\n\tmove?[y/N]" "$dest_path"
+  read -r ans
+  [ "$ans" != "y" ] && exit
   for x in $fx; do
-    eval mv -iv \"$x\" \"$dest\"
-  done &&
-  dest_path=$(eval echo "$dest")
+    mv -iv -- "$x" "$dest_path"
+  done
   lf -remote "send $id cd $dest_path"
   lf -remote "send $id notify \" File(s) moved.\" \"File(s) moved to $dest.\""
 }}
 
 cmd copyto ${{
-  clear; tput cup $(($(tput lines)/3)); tput bold
   set -f
-  clear; echo "Copy to where?"
-  dest="$(sed -e 's/[[:space:]]*#.*//' -e '/^$/d' -e 's/^[^[:space:]]*[[:space:]]*//' $XDG_CONFIG_HOME/zsh/bookmarks/dirs | fzf | sed 's|~|$HOME|')" &&
+  clear; tput cup $(($(tput lines)/3))
+  dest="$(sed -e 's/[[:space:]]*#.*//' -e '/^$/d' -e 's/^[^[:space:]]*[[:space:]]*//' $XDG_CONFIG_HOME/zsh/bookmarks/dirs | fzf --layout=reverse --height 40% --prompt 'Copy to where? ' | sed 's|~|$HOME|')"
+  [ -z "$dest" ] && exit
+  dest_path=$(eval printf '%s' \"$dest\")
+  clear; tput cup $(($(tput lines)/3)); tput bold
+  echo "From:"
+  echo "$fx" | sed 's/^/   /'
+  printf "To:\n   %s\n\n\tcopy?[y/N]" "$dest_path"
+  read -r ans
+  [ "$ans" != "y" ] && exit
   for x in $fx; do
-    eval cp -ivr \"$x\" \"$dest\"
-  done &&
-  dest_path=$(eval echo "$dest")
+    cp -ivr -- "$x" "$dest_path"
+  done
   lf -remote "send $id cd $dest_path"
   lf -remote "send $id notify \" File(s) copied.\" \"File(s) copied to $dest.\""
 }}
