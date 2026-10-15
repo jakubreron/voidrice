@@ -154,7 +154,7 @@ cmd share ${{
   ans="${ans:-y}"
   if [ $ans = "y" ]; then
     for x in $fx; do
-      curl -F"reqtype=fileupload" -F"time=12h" -F"fileToUpload=@$x" https://litterbox.catbox.moe/resources/internals/api.php | cross-platform-copy
+      curl -sS -F"file=@$x" https://tmpfiles.org/api/v1/upload | sed -n 's/.*"url": *"\([^"]*\)".*/\1/p' | sed 's#\\##g; s#^http://#https://#; s#tmpfiles.org/#tmpfiles.org/dl/#' | cross-platform-copy
     done
   fi
 }}
