@@ -7,20 +7,6 @@ export TERMINAL="alacritty"
 export BROWSER="firefox"
 export BACKUP_BROWSER="chromium"
 
-export PNPM_HOME="$HOME/.local/share/pnpm"
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-export GOPATH="$XDG_DATA_HOME/go"
-export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
-
-export CLOUD_DIR="$HOME/Cloud"
-export TORRENTS_DIR="$XDG_DOCUMENTS_DIR/Torrents"
-export PROJECTS_DIR="$XDG_DOCUMENTS_DIR/Projects"
-export DOTFILES_DIR="$XDG_CONFIG_HOME/dotfiles"
-export PKGLIST_DIR="$DOTFILES_DIR/pkglists"
-export VIMWIKI_DIR="$DOTFILES_DIR/universal/Documents/VimWiki"
-export AGENTS_DIR="$DOTFILES_DIR/universal/.agents"
-
 export EDITOR="nvim"
 export GIT_EDITOR="$EDITOR"
 export SUDO_EDITOR="/usr/bin/nvim"
@@ -33,7 +19,6 @@ export MANPAGER="$EDITOR +Man!"
 export MANWIDTH=999
 
 export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
-export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
 export NODE_OPTIONS="--max-old-space-size=16384"
 export GLAMOUR_STYLE="light" # "gh" command theme fix
 
