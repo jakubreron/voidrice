@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+# GPG auth for git, gpg encryption, etc...
+export GPG_TTY=$(tty)
+
 # source all settings first
 source "$ZDOTDIR/zsh-settings"
 
