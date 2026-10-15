@@ -4,6 +4,7 @@
 
 OS="$(uname -s)"
 
+source $HOME/.config/zsh/profile/profile.xdg
 source $HOME/.config/zsh/profile/profile.all
 
 case "$OS" in
