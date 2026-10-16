@@ -3,6 +3,9 @@
 case "$(uname -s)" in
   Linux*)
     if command -v "$PACKAGE_MANAGER" >/dev/null 2>&1; then
+      log-pretty-message "Removing leftovers of interrupted pacman downloads" "🧹📦"
+      sudo find /var/cache/pacman/pkg -maxdepth 1 -name 'download-*' -exec rm -rf {} +
+
       log-pretty-message "Cleaning the $PACKAGE_MANAGER cache" "🧹📦"
       "$PACKAGE_MANAGER" -Sc --noconfirm
     fi
