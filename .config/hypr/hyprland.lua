@@ -336,7 +336,7 @@ hl.bind(small_keymap("y"), hl.dsp.layout("orientationtop"))
 hl.bind(combo_keymap("y"), hl.dsp.layout("orientationbottom"))
 
 hl.bind(small_keymap("u"), hl.dsp.layout("orientationcenter"))
-hl.bind(combo_keymap("u"), hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
+hl.bind(combo_keymap("u"), hl.dsp.layout("orientationcycle"))
 
 hl.bind(small_keymap("i"), hl.dsp.exec_cmd("light -A 10; ddcutil --display 1 setvcp 10 + 15"), { repeating = true })
 hl.bind(combo_keymap("i"), hl.dsp.exec_cmd("light -U 10; ddcutil --display 1 setvcp 10 - 15"), { repeating = true })
@@ -379,7 +379,8 @@ hl.bind(combo_keymap("d"), function()
 end)
 
 hl.bind(small_keymap("f"), hl.dsp.window.fullscreen())
--- hl.bind(combo_keymap("f"), hl.dsp.window.fullscreen())
+hl.bind(combo_keymap("f"), hl.dsp.window.float())
+hl.bind(combo_keymap("f"), hl.dsp.window.pin())
 
 hl.bind(small_keymap("apostrophe"), hl.dsp.workspace.toggle_special())
 hl.bind(combo_keymap("apostrophe"), hl.dsp.window.move({ workspace = "special" }))
@@ -393,13 +394,13 @@ hl.bind(
 	small_keymap("c"),
 	hl.dsp.exec_cmd('cliphist list | rofi -dmenu -p "Clipboard history" | cliphist decode | wl-copy')
 )
-hl.bind(combo_keymap("c"), hl.dsp.exec_cmd("gnome-calculator"))
+hl.bind(combo_keymap("c"), hl.dsp.exec_cmd("rofi -modi emoji -show emoji"))
 
 hl.bind(small_keymap("b"), hl.dsp.exec_cmd("rofi-bluetooth"))
 hl.bind(combo_keymap("b"), hl.dsp.exec_cmd("blueberry"))
 
-hl.bind(small_keymap("n"), hl.dsp.exec_cmd("toggle-dnd"))
-hl.bind(combo_keymap("n"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_wifi --command wifitui"))
+hl.bind(small_keymap("n"), hl.dsp.exec_cmd("dunstctl action"))
+hl.bind(combo_keymap("n"), hl.dsp.exec_cmd("toggle-dnd"))
 
 hl.bind(small_keymap("m"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_sound_manager --command " .. CLI_SOUND_MANAGER))
 hl.bind(combo_keymap("m"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_music_player --command " .. CLI_MUSIC_PLAYER))
@@ -408,8 +409,7 @@ hl.bind(small_keymap("space"), hl.dsp.layout("swapwithmaster"))
 hl.bind(combo_keymap("space"), hl.dsp.window.float())
 
 hl.bind(small_keymap("v"), hl.dsp.layout("focusmaster master"))
-hl.bind(combo_keymap("v"), hl.dsp.window.float())
-hl.bind(combo_keymap("v"), hl.dsp.window.pin())
+-- hl.bind(combo_keymap("v"), hl.dsp.layout("rollnext"))
 
 hl.bind(small_keymap("tab"), hl.dsp.focus({ urgent_or_last = true })) -- focuscurrentorlast
 
