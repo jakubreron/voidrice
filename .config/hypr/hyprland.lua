@@ -362,8 +362,8 @@ hl.bind(small_keymap("slash"), hl.dsp.exec_cmd("rofi-website-bookmarks"))
 hl.bind(combo_keymap("slash"), hl.dsp.exec_cmd("rofi-websearch"))
 
 -- TODO: Add recordings to this script
-hl.bind(small_keymap("s"), hl.dsp.exec_cmd("rofi-screenshot"))
-hl.bind(combo_keymap("s"), hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
+hl.bind(small_keymap("s"), hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
+hl.bind(combo_keymap("s"), hl.dsp.exec_cmd("rofi-screenshot"))
 
 hl.bind(small_keymap("r"), hl.dsp.exec_cmd('rofi -show combi -modes combi -combi-modes "window,drun,run"'))
 hl.bind(combo_keymap("r"), hl.dsp.exec_cmd("rofi-restart"))
