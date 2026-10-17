@@ -15,6 +15,7 @@
     "backlight",
     "battery",
     "tray",
+    "custom/dnd",
     "clock",
     "network"
   ],
@@ -137,6 +138,14 @@
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
     "on-click": "$TERMINAL --title cli_network_manager --command $CLI_NETWORK_MANAGER"
+  },
+  "custom/dnd": {
+    "exec": "if [ \"$(dunstctl is-paused)\" = true ]; then echo '{\"text\":\"󰂛\",\"class\":\"dnd\"}'; else echo '{\"text\":\"󰂚\",\"class\":\"idle\"}'; fi",
+    "return-type": "json",
+    "interval": "once",
+    "signal": 8,
+    "tooltip": false,
+    "on-click": "dunstctl set-paused toggle && pkill -SIGRTMIN+8 waybar"
   },
   "pulseaudio": {
     "ignored-sinks": [

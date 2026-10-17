@@ -324,6 +324,7 @@ hl.bind(small_keymap("backspace"), hl.dsp.exec_cmd("rofi-power-menu"))
 hl.bind(combo_keymap("backspace"), hl.dsp.exec_cmd("systemctl suspend -i"))
 
 hl.bind(small_keymap("Return"), hl.dsp.exec_cmd(TERMINAL))
+hl.bind(combo_keymap("Return"), hl.dsp.exec_cmd(TERMINAL .. " --command " .. EDITOR .. " -c VimwikiIndex"))
 
 hl.bind(small_keymap("w"), hl.dsp.exec_cmd(BROWSER))
 hl.bind(combo_keymap("w"), hl.dsp.exec_cmd(BACKUP_BROWSER))
@@ -378,6 +379,7 @@ hl.bind(combo_keymap("d"), function()
 end)
 
 hl.bind(small_keymap("f"), hl.dsp.window.fullscreen())
+-- hl.bind(combo_keymap("f"), hl.dsp.window.fullscreen())
 
 hl.bind(small_keymap("apostrophe"), hl.dsp.workspace.toggle_special())
 hl.bind(combo_keymap("apostrophe"), hl.dsp.window.move({ workspace = "special" }))
@@ -396,11 +398,8 @@ hl.bind(combo_keymap("c"), hl.dsp.exec_cmd("gnome-calculator"))
 hl.bind(small_keymap("b"), hl.dsp.exec_cmd("rofi-bluetooth"))
 hl.bind(combo_keymap("b"), hl.dsp.exec_cmd("blueberry"))
 
-hl.bind(small_keymap("n"), hl.dsp.exec_cmd(TERMINAL .. " --command " .. EDITOR .. " -c VimwikiIndex"))
-hl.bind(
-	combo_keymap("n"),
-	hl.dsp.exec_cmd(TERMINAL .. " --command " .. EDITOR .. " " .. VIMWIKI_DIR .. "/Scratchpad.md")
-)
+hl.bind(small_keymap("n"), hl.dsp.exec_cmd("toggle-dnd"))
+hl.bind(combo_keymap("n"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_wifi --command wifitui"))
 
 hl.bind(small_keymap("m"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_sound_manager --command " .. CLI_SOUND_MANAGER))
 hl.bind(combo_keymap("m"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_music_player --command " .. CLI_MUSIC_PLAYER))

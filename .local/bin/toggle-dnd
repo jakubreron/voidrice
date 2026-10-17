@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Toggle dunst do-not-disturb and refresh the waybar custom/dnd module (signal 8).
+
+refresh_waybar() {
+	pkill -SIGRTMIN+8 waybar
+}
+
+if [ "$(dunstctl is-paused)" = "true" ]; then
+	dunstctl set-paused false
+	refresh_waybar
+	notify-send --app-name=dnd -t 1000 "🔔 Do not disturb: off"
+else
+	# Notify first: once paused, new notifications are queued instead of shown.
+	notify-send --app-name=dnd -t 1000 "🔕 Do not disturb: on"
+	sleep 1
+	dunstctl set-paused true
+	refresh_waybar
+fi
