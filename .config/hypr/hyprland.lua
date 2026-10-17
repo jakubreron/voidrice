@@ -348,7 +348,8 @@ hl.bind(small_keymap("o"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_file_explor
 hl.bind(combo_keymap("o"), hl.dsp.exec_cmd(GUI_FILE_EXPLORER))
 
 hl.bind(small_keymap("p"), hl.dsp.exec_cmd("playerctl play-pause"))
-hl.bind(combo_keymap("p"), hl.dsp.exec_cmd("mpc toggle"))
+-- TODO: change to mpv + mpc toggle
+-- hl.bind(combo_keymap("p"), hl.dsp.exec_cmd("mpc toggle"))
 
 hl.bind(small_keymap("bracketleft"), hl.dsp.exec_cmd("mpc seek -10"), { repeating = true })
 hl.bind(combo_keymap("bracketleft"), hl.dsp.exec_cmd("mpc seek -60"), { repeating = true })
