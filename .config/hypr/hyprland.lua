@@ -95,13 +95,13 @@ hl.env("DISABLE_QT5_COMPAT", "1")
 hl.on("hyprland.start", function()
 	hl.exec_cmd("systemctl --user start hyprpolkitagent")
 	hl.exec_cmd("keyd-application-mapper -d")
-	hl.exec_cmd("darkman run")
 
-	hl.exec_cmd("dunst")
 	hl.exec_cmd("hyprpaper")
+	hl.exec_cmd("dunst")
 	hl.exec_cmd("waybar")
 	hl.exec_cmd("hyprsunset")
 	hl.exec_cmd("hypridle")
+	hl.exec_cmd("darkman run")
 
 	hl.exec_cmd(os.getenv("INPUT_METHOD") or "")
 
