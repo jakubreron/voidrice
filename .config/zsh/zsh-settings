@@ -41,7 +41,3 @@ HISTSIZE=100000
 SAVEHIST=100000
 
 eval "$(fnm env --use-on-cd --shell zsh)"
-
-if command -v kubectl >/dev/null 2>&1; then
-  source <(kubectl completion zsh)
-fi
