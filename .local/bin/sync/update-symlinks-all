@@ -6,13 +6,14 @@ replace_dotfiles_symlinks() {
     mkdir -p "$XDG_BIN_HOME/$dir_name"
   done
 
-  for dir in "$DOTFILES_DIR"/macos/.local/bin/*/; do
-    dir_name=$(basename "$dir")
-    mkdir -p "$XDG_BIN_HOME/$dir_name"
-  done
+  ignore_args=()
+  case "$(uname -s)" in
+  Darwin) ;;
+  *) ignore_args=(--ignore=Library) ;;
+  esac
 
   log-pretty-message "Updating dotfiles symlinks"
-  stow --adopt --target="$HOME" --dir="$DOTFILES_DIR" universal voidrice macos
+  stow --adopt "${ignore_args[@]}" --target="$HOME" --dir="$DOTFILES_DIR" universal voidrice
 
   ln -sf "$DOTFILES_DIR/voidrice/.local/bin/lfimg/"{cleaner,preview} "$XDG_CONFIG_HOME/lf"
 }
