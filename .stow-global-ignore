@@ -15,3 +15,9 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 \.DS_Store
+\.idea
+\.gitkeep
+^/pkglist.*
+tags
+Session.*
+^/\.markdownlintrc
