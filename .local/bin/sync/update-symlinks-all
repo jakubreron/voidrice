@@ -12,11 +12,7 @@ replace_dotfiles_symlinks() {
   done
 
   log-pretty-message "Updating dotfiles symlinks"
-  find "$DOTFILES_DIR" -type d \
-    -exec test -e '{}/.stow-local-ignore' ';' \
-    -print0 -prune |
-    xargs -0 -I {} basename {} |
-    xargs stow --adopt --target="$HOME" --dir="$DOTFILES_DIR"
+  stow --adopt --target="$HOME" --dir="$DOTFILES_DIR" universal voidrice macos
 
   ln -sf "$DOTFILES_DIR/voidrice/.local/bin/lfimg/"{cleaner,preview} "$XDG_CONFIG_HOME/lf"
 }
