@@ -1,0 +1,8 @@
+JsComputedMemberExpression(object = $object, member = JsNumberLiteralExpression()) as $access where {
+	$object <: r"[A-Z][A-Z0-9_]*|mock[A-Z][A-Za-z0-9]*|fixture[A-Z][A-Za-z0-9]*",
+	register_diagnostic(
+		span = $access,
+		message = "Name the fixture for what it represents, `const ITEM_WITH_ADMIN_ROLE = { ... }`, not a magic index like `MOCK_ITEMS[0]`.",
+		severity = "error"
+	)
+}

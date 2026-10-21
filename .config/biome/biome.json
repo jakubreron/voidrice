@@ -40,7 +40,8 @@
 				"./rules/no-test-id-queries.grit",
 				"./rules/no-mock-called-assertions.grit",
 				"./rules/no-literal-text-queries.grit",
-				"./rules/no-literal-role-name-queries.grit"
+				"./rules/no-literal-role-name-queries.grit",
+				"./rules/no-indexed-fixture-constants.grit"
 			]
 		}
 	],
