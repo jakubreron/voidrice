@@ -1,0 +1,8 @@
+JsIdentifierBinding() as $binding where {
+	$binding <: or { r"handle[A-Z].*", `onSettle`, `onScroll` },
+	register_diagnostic(
+		span = $binding,
+		message = "Name callbacks after their intent, not the event that triggers them: `performLogin`, `scrollBackToFirst`, `markComplete`, not `handleClick`, `onScroll`.",
+		severity = "error"
+	)
+}

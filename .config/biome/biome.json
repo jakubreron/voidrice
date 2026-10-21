@@ -6,7 +6,23 @@
 		"./rules/images-need-lazy-loading.grit",
 		"./rules/no-type-assertion.grit",
 		"./rules/no-undefined-union-on-optional-property.grit",
-		"./rules/no-inline-object-parameter-type.grit"
+		"./rules/no-inline-object-parameter-type.grit",
+		"./rules/no-boolean-parameter.grit",
+		"./rules/no-event-named-callbacks.grit"
+	],
+	"overrides": [
+		{
+			"includes": [
+				"**",
+				"!**/utils/**",
+				"!**/lib/**",
+				"!**/helpers/**",
+				"!**/*.spec.*",
+				"!**/*.test.*",
+				"!**/__tests__/**"
+			],
+			"plugins": ["./rules/no-array-reduce.grit"]
+		}
 	],
 	"linter": {
 		"enabled": true,
