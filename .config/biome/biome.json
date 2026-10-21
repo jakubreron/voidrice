@@ -1,6 +1,10 @@
 {
-	"root": false,
+	"root": true,
 	"$schema": "https://biomejs.dev/schemas/2.5.8/schema.json",
+	"plugins": [
+		"./rules/images-need-srcset.grit",
+		"./rules/images-need-lazy-loading.grit"
+	],
 	"linter": {
 		"enabled": true,
 		"rules": {

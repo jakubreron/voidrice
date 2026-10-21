@@ -1,0 +1,9 @@
+`<img $props />` as $element where {
+	$props <: not contains `loading="lazy"`,
+	$props <: not contains `fetchPriority="high"`,
+	register_diagnostic(
+		span = $element,
+		message = "Images must set loading='lazy', except the LCP image marked fetchPriority='high'.",
+		severity = "error"
+	)
+}

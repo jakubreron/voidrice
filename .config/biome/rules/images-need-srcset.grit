@@ -1,0 +1,8 @@
+`<img $props />` as $element where {
+	$props <: not contains JsxAttribute(name = `srcSet`),
+	register_diagnostic(
+		span = $element,
+		message = "Images must set srcSet with 1x, 2x and 3x sizes.",
+		severity = "error"
+	)
+}
