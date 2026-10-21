@@ -1,0 +1,7 @@
+JsFormalParameter(type_annotation = TsTypeAnnotation(ty = TsObjectType())) as $parameter where {
+	register_diagnostic(
+		span = $parameter,
+		message = "Extract the inline object type into a named interface: `interface FooProps { a: string }` then `function foo({ a }: FooProps)`.",
+		severity = "error"
+	)
+}

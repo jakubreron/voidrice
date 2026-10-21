@@ -3,7 +3,10 @@
 	"$schema": "https://biomejs.dev/schemas/2.5.8/schema.json",
 	"plugins": [
 		"./rules/images-need-srcset.grit",
-		"./rules/images-need-lazy-loading.grit"
+		"./rules/images-need-lazy-loading.grit",
+		"./rules/no-type-assertion.grit",
+		"./rules/no-undefined-union-on-optional-property.grit",
+		"./rules/no-inline-object-parameter-type.grit"
 	],
 	"linter": {
 		"enabled": true,
