@@ -1,0 +1,20 @@
+or {
+	JsFunctionDeclaration(parameters = $parameters),
+	JsVariableDeclarator(initializer = JsInitializerClause(expression = or {
+		JsArrowFunctionExpression(parameters = $parameters),
+		JsFunctionExpression(parameters = $parameters)
+	})),
+	JsMethodClassMember(parameters = $parameters),
+	JsMethodObjectMember(parameters = $parameters),
+	JsPropertyObjectMember(value = or {
+		JsArrowFunctionExpression(parameters = $parameters),
+		JsFunctionExpression(parameters = $parameters)
+	})
+} where {
+	$parameters <: JsParameters(items = [$_, $_, ...]),
+	register_diagnostic(
+		span = $parameters,
+		message = "Take one named options object instead of several parameters: `function foo({ bar, baz })`.",
+		severity = "error"
+	)
+}

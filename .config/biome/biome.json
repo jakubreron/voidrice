@@ -7,6 +7,7 @@
 		"./rules/no-type-assertion.grit",
 		"./rules/no-undefined-union-on-optional-property.grit",
 		"./rules/no-inline-object-parameter-type.grit",
+		"./rules/own-functions-take-one-options-object.grit",
 		"./rules/no-boolean-parameter.grit",
 		"./rules/no-event-named-callbacks.grit"
 	],
@@ -59,12 +60,6 @@
 			},
 			"complexity": {
 				"noImportantStyles": "error",
-				"useMaxParams": {
-					"level": "error",
-					"options": {
-						"max": 2
-					}
-				},
 				"noImplicitCoercions": "error"
 			},
 			"style": {
