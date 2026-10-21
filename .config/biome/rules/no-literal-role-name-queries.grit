@@ -1,0 +1,11 @@
+`$object.$method($role, $options)` where {
+	$method <: r"(?:get|getAll|query|queryAll|find|findAll)ByRole",
+	$options <: contains JsPropertyObjectMember(name = $key, value = $text),
+	$key <: `name`,
+	$text <: or { JsStringLiteralExpression(), JsTemplateExpression() },
+	register_diagnostic(
+		span = $text,
+		message = "Never query a role by a literal name: use the translation key, `getByRole('button', { name: t('common.submit') })`.",
+		severity = "error"
+	)
+}

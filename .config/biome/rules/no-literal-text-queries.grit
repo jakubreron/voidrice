@@ -1,0 +1,9 @@
+`$object.$method($text, $...)` where {
+	$method <: r"(?:get|getAll|query|queryAll|find|findAll)By(?:Text|LabelText|PlaceholderText|DisplayValue|AltText|Title)",
+	$text <: or { JsStringLiteralExpression(), JsTemplateExpression() },
+	register_diagnostic(
+		span = $text,
+		message = "Never query by a literal string: use the translation key, `getByText(t('feature.label'))`.",
+		severity = "error"
+	)
+}

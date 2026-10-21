@@ -1,0 +1,8 @@
+`$mock.$matcher($...)` where {
+	$matcher <: r"toHaveBeenCalled.*|toHaveBeenLastCalledWith|toHaveBeenNthCalledWith",
+	register_diagnostic(
+		span = $matcher,
+		message = "Assert on what users see, not on whether a mock was called: `expect(screen.queryByRole('dialog')).not.toBeInTheDocument()` or `expect(screen.getByText(t('feature.actionSuccessful'))).toBeInTheDocument()`.",
+		severity = "error"
+	)
+}

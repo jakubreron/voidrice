@@ -22,6 +22,25 @@
 				"!**/__tests__/**"
 			],
 			"plugins": ["./rules/no-array-reduce.grit"]
+		},
+		{
+			"includes": [
+				"**/*.spec.ts",
+				"**/*.spec.tsx",
+				"**/*.spec.js",
+				"**/*.spec.jsx",
+				"**/*.test.ts",
+				"**/*.test.tsx",
+				"**/*.test.js",
+				"**/*.test.jsx",
+				"**/__tests__/**"
+			],
+			"plugins": [
+				"./rules/no-test-id-queries.grit",
+				"./rules/no-mock-called-assertions.grit",
+				"./rules/no-literal-text-queries.grit",
+				"./rules/no-literal-role-name-queries.grit"
+			]
 		}
 	],
 	"linter": {
