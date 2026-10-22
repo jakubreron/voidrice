@@ -31,14 +31,6 @@ alias lg="lazygit"
 alias ld="lazydocker"
 alias ti="ticker"
 
-# claude: the provider settings and tokens (untracked file, template provider.example.sh) reach the claude process only, not the whole shell
-claude() {
-  (
-    [ -f "$CLAUDE_CONFIG_DIR/provider.sh" ] && . "$CLAUDE_CONFIG_DIR/provider.sh"
-    exec command claude "$@"
-  )
-}
-
 # misc
 alias nohup="nohup >/dev/null 2>&1"
 alias encrypt="gpg -c --no-symkey-cache --cipher-algo AES256"
