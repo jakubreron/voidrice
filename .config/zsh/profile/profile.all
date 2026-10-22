@@ -21,6 +21,7 @@ export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 [ -f "$CLAUDE_CONFIG_DIR/provider.sh" ] && . "$CLAUDE_CONFIG_DIR/provider.sh"
 export NODE_OPTIONS="--max-old-space-size=16384"
 export GLAMOUR_STYLE="light" # "gh" command theme fix
+export SHELL_SESSIONS_DISABLE=1 # stops macOS Terminal creating ~/.zsh_sessions
 
 case "$OS" in
   Linux)
@@ -33,6 +34,7 @@ esac
 
 local bin_list=(
   "$CARGO_HOME/bin"
+  "$BUN_INSTALL/bin"
   "$XDG_DATA_HOME/npm/bin"
   "$PNPM_HOME"
   "${$($find_command $XDG_BIN_HOME -type d -printf %p:)%%:}"
