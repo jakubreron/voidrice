@@ -301,7 +301,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -n -a 'Alacritty' --args -e /opt/homebrew/bin/nvim -c VimwikiIndex"
+                    "shell_command": "open -n -a 'Alacritty' --args -e /bin/zsh -l -c '/opt/homebrew/bin/nvim -c VimwikiIndex'"
                   }
                 ],
                 "type": "basic"
