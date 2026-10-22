@@ -3,7 +3,6 @@
 set -euo pipefail
 
 repos=(
-  "$DOTFILES_DIR/macos"
   "$DOTFILES_DIR/pkglists"
   "$DOTFILES_DIR/universal"
   "$DOTFILES_DIR/voidrice"
