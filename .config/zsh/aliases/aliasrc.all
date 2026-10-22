@@ -33,4 +33,5 @@ alias ti="ticker"
 
 # misc
 alias nohup="nohup >/dev/null 2>&1"
+alias wget='wget --hsts-file="$XDG_DATA_HOME/wget-hsts"'
 alias encrypt="gpg -c --no-symkey-cache --cipher-algo AES256"

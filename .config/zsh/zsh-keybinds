@@ -1,12 +1,6 @@
 #!/usr/bin/env zsh
 
-fzf-select-history() {
-  BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER" --reverse)
-  CURSOR=$#BUFFER
-  zle reset-prompt
-}
-zle -N fzf-select-history
-bindkey '^r' fzf-select-history
+eval "$(fzf --zsh)"
 
 bindkey -s '^o' '^u${CLI_FILE_EXPLORER}\n'
 bindkey -s '^b' '^u${GUI_FILE_EXPLORER} .\n'

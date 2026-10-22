@@ -1,0 +1,8 @@
+TsPropertySignatureTypeMember(type_annotation = TsTypeAnnotation(ty = TsUnionType(types = $types))) as $property where {
+	$types <: contains `undefined`,
+	register_diagnostic(
+		span = $property,
+		message = "Write an optional property as `name?: T`, not `name: T | undefined`. Keep `| undefined` only in return types.",
+		severity = "error"
+	)
+}

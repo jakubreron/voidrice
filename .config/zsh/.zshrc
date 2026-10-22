@@ -8,14 +8,14 @@ source "$ZDOTDIR/zsh-settings"
 
 OS="$(uname -s)"
 
-source $HOME/.config/zsh/aliases/aliasrc.all
+source $ZDOTDIR/aliases/aliasrc.all
 
 case "$OS" in
   Linux)
-    source $HOME/.config/zsh/aliases/aliasrc.linux
+    source $ZDOTDIR/aliases/aliasrc.linux
     ;;
   Darwin)
-    source $HOME/.config/zsh/aliases/aliasrc.osx
+    source $ZDOTDIR/aliases/aliasrc.osx
     ;;
 esac
 

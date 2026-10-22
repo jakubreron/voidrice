@@ -1,0 +1,8 @@
+`$object.$method($...)` where {
+	$method <: r"(?:get|getAll|query|queryAll|find|findAll)ByTestId",
+	register_diagnostic(
+		span = $method,
+		message = "Never query by test id: use accessible role and name, `getByRole('button', { name: t('common.submit') })` or `getByLabelText(t('feature.fieldLabel'))`; lists with `getAllByRole('option')` then `.toHaveLength(n)`.",
+		severity = "error"
+	)
+}

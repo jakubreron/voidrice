@@ -1,0 +1,75 @@
+{
+	"root": true,
+	"$schema": "https://biomejs.dev/schemas/2.5.8/schema.json",
+	"plugins": [
+		"./rules/images-need-srcset.grit",
+		"./rules/images-need-lazy-loading.grit",
+		"./rules/no-type-assertion.grit",
+		"./rules/no-undefined-union-on-optional-property.grit",
+		"./rules/no-inline-object-parameter-type.grit",
+		"./rules/own-functions-take-one-options-object.grit",
+		"./rules/no-boolean-parameter.grit",
+		"./rules/no-event-named-callbacks.grit"
+	],
+	"overrides": [
+		{
+			"includes": [
+				"**",
+				"!**/utils/**",
+				"!**/lib/**",
+				"!**/helpers/**",
+				"!**/*.spec.*",
+				"!**/*.test.*",
+				"!**/__tests__/**"
+			],
+			"plugins": ["./rules/no-array-reduce.grit"]
+		},
+		{
+			"includes": [
+				"**/*.spec.ts",
+				"**/*.spec.tsx",
+				"**/*.spec.js",
+				"**/*.spec.jsx",
+				"**/*.test.ts",
+				"**/*.test.tsx",
+				"**/*.test.js",
+				"**/*.test.jsx",
+				"**/__tests__/**"
+			],
+			"plugins": [
+				"./rules/no-test-id-queries.grit",
+				"./rules/no-mock-called-assertions.grit",
+				"./rules/no-literal-text-queries.grit",
+				"./rules/no-literal-role-name-queries.grit",
+				"./rules/no-indexed-fixture-constants.grit"
+			]
+		}
+	],
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"preset": "recommended",
+			"performance": {
+				"noAccumulatingSpread": "error"
+			},
+			"suspicious": {
+				"noExplicitAny": "error",
+				"noTsIgnore": "error"
+			},
+			"nursery": {
+				"noDuplicateSelectors": "error"
+			},
+			"complexity": {
+				"noImportantStyles": "error",
+				"noImplicitCoercions": "error"
+			},
+			"style": {
+				"noParameterAssign": "error",
+				"noNonNullAssertion": "error",
+				"useAsConstAssertion": "error",
+				"noNestedTernary": "error",
+				"noHexColors": "error"
+			}
+		}
+	}
+}

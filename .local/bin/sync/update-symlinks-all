@@ -6,17 +6,18 @@ replace_dotfiles_symlinks() {
     mkdir -p "$XDG_BIN_HOME/$dir_name"
   done
 
-  for dir in "$DOTFILES_DIR"/macos/.local/bin/*/; do
-    dir_name=$(basename "$dir")
-    mkdir -p "$XDG_BIN_HOME/$dir_name"
-  done
+  ignore_args=()
+  case "$(uname -s)" in
+  Darwin) ;;
+  *) ignore_args=(--ignore=Library) ;;
+  esac
+
+  # Stow folds a missing target folder into one symlink to the repo. The Claude Code config folder
+  # holds runtime data and .claude.json (tokens), so it must exist first: stow then links its entries one by one.
+  mkdir -p "$XDG_CONFIG_HOME/claude"
 
   log-pretty-message "Updating dotfiles symlinks"
-  find "$DOTFILES_DIR" -type d \
-    -exec test -e '{}/.stow-local-ignore' ';' \
-    -print0 -prune |
-    xargs -0 -I {} basename {} |
-    xargs stow --adopt --target="$HOME" --dir="$DOTFILES_DIR"
+  stow --adopt "${ignore_args[@]}" --target="$HOME" --dir="$DOTFILES_DIR" universal voidrice
 
   ln -sf "$DOTFILES_DIR/voidrice/.local/bin/lfimg/"{cleaner,preview} "$XDG_CONFIG_HOME/lf"
 }
@@ -32,7 +33,7 @@ replace_firefox_symlinks() {
     case "$(uname -s)" in
     Linux*)
       browser_dir="$HOME/.mozilla/firefox"
-      xdg_browser_dir="${XDG_CONFIG_HOME:-$HOME/.config}/mozilla/firefox"
+      xdg_browser_dir="$XDG_CONFIG_HOME/mozilla/firefox"
       [ -f "$xdg_browser_dir/profiles.ini" ] && browser_dir="$xdg_browser_dir"
       ;;
     Darwin) browser_dir="$HOME/Library/Application Support/Firefox" ;;

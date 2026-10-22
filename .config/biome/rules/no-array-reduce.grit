@@ -1,0 +1,7 @@
+`$array.reduce($...)` as $call where {
+	register_diagnostic(
+		span = $call,
+		message = "Do not use Array.reduce in application code: transform with `map`, join with `join`, group or partition with a named utility, or chain separate iterations. Reusable utilities are exempt.",
+		severity = "error"
+	)
+}

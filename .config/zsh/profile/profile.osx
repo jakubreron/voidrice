@@ -10,9 +10,8 @@ fi
 
 bin_list=(
   "/opt/local/bin:/opt/local/sbin"
-  "$(brew --prefix mysql-client)/bin"
-      "$(brew --prefix postgresql@18)/bin"
-
+  "$HOMEBREW_PREFIX/opt/mysql-client/bin"
+  "$HOMEBREW_PREFIX/opt/postgresql@18/bin"
 )
 
 for extra in "${bin_list[@]}"; do
@@ -27,6 +26,6 @@ export GUI_IMAGE_VIEWER=""
 export PACKAGE_TYPE="work"
 export PACKAGE_MANAGER="brew"
 
-export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"                         
+export DOCKER_HOST="unix://$COLIMA_HOME/default/docker.sock"                         
 export NODE_TLS_REJECT_UNAUTHORIZED=0 # disables SSL verification — only acceptable on a trusted corporate network, fixes SSL plugin auth issues for claude.
-export CHROME_PATH="/opt/homebrew/bin/chromium"
+export CHROME_PATH="$HOMEBREW_PREFIX/bin/chromium"

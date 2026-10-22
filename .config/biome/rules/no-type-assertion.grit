@@ -1,0 +1,13 @@
+`$value as $type` as $expression where {
+	$expression <: not `$_ as const`,
+	$expression <: not within or {
+		JsFunctionDeclaration(return_type_annotation = TsReturnTypeAnnotation(ty = TsPredicateReturnType())),
+		JsArrowFunctionExpression(return_type_annotation = TsReturnTypeAnnotation(ty = TsPredicateReturnType())),
+		JsMethodClassMember(return_type_annotation = TsReturnTypeAnnotation(ty = TsPredicateReturnType()))
+	},
+	register_diagnostic(
+		span = $expression,
+		message = "Do not use `as`: narrow with a type guard (`value is T`) or verify with `satisfies`. `as` is allowed only inside a type guard body.",
+		severity = "error"
+	)
+}

@@ -22,7 +22,8 @@ export PARU_CONF="$XDG_CONFIG_HOME/paru/paru.conf"
 
 export WLR_NO_HARDWARE_CURSORS=1
 
-export PATH="/opt/android-sdk/platform-tools:$PATH"
+export ANDROID_HOME="/opt/android-sdk"
+export PATH="$ANDROID_HOME/platform-tools:$PATH"
 
 if [ -z $DISPLAY ] && [ $(tty) = "/dev/tty1" ]; then
   start-hyprland

@@ -1,0 +1,11 @@
+or {
+	JsFormalParameter(binding = $name, type_annotation = TsTypeAnnotation(ty = TsBooleanType())),
+	JsFormalParameter(binding = $name, initializer = JsInitializerClause(expression = JsBooleanLiteralExpression()))
+} as $parameter where {
+	$name <: not or { `checked`, `disabled`, `readOnly`, `required` },
+	register_diagnostic(
+		span = $parameter,
+		message = "Do not select behavior with a boolean parameter: split the function, or take a discriminated union such as `variant: 'percent' | 'currency'`. `disabled`, `readOnly`, `required` and `checked` are fine.",
+		severity = "error"
+	)
+}
