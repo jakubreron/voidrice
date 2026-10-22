@@ -12,6 +12,10 @@ replace_dotfiles_symlinks() {
   *) ignore_args=(--ignore=Library) ;;
   esac
 
+  # Stow folds a missing target folder into one symlink to the repo. The Claude Code config folder
+  # holds runtime data and .claude.json (tokens), so it must exist first: stow then links its entries one by one.
+  mkdir -p "$XDG_CONFIG_HOME/claude"
+
   log-pretty-message "Updating dotfiles symlinks"
   stow --adopt "${ignore_args[@]}" --target="$HOME" --dir="$DOTFILES_DIR" universal voidrice
 
