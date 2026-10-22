@@ -259,7 +259,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -n -a 'Alacritty' --args -e /opt/homebrew/bin/lf"
+                    "shell_command": "open -n -a 'Alacritty' --args -e /bin/zsh -l -c '/opt/homebrew/bin/lf'"
                   }
                 ],
                 "type": "basic"
