@@ -21,6 +21,7 @@ gui:
       "JR": "green"
       "ヤ": "green"
 git:
+  overrideGpg: true
   diffRenderers:
     - colorArg: always
       command: delta --paging=never
