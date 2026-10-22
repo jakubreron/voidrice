@@ -1,0 +1,121 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+bundles_file="$XDG_DOWNLOAD_DIR/bundles.zip.gpg"
+
+repos=(
+  "$DOTFILES_DIR/pkglists"
+  "$DOTFILES_DIR/universal"
+  "$DOTFILES_DIR/voidrice"
+  "$XDG_CONFIG_HOME/nvim"
+  "$DOTFILES_INSTALL_DIR"
+)
+
+if [[ ! -f "$bundles_file" ]]; then
+  log-pretty-message "$bundles_file not found" "⚠️"
+  exit 1
+fi
+
+work_dir=$(mktemp -d)
+trap 'rm -rf "$work_dir"' EXIT
+
+log-pretty-message "Decrypting bundles.zip.gpg (enter password when prompted)" "🔐"
+gpg --pinentry-mode loopback --decrypt --output "$work_dir/bundles.zip" "$bundles_file"
+
+log-pretty-message "Unzipping bundles" "🗜️"
+unzip -q -j "$work_dir/bundles.zip" -d "$work_dir"
+
+updated=()
+current=()
+skipped=()
+failed=()
+
+restore_stash() {
+  local repo="$1" stashed="$2"
+  if [[ "$stashed" == true ]]; then
+    git -C "$repo" stash pop -q
+  fi
+}
+
+update_repo() {
+  local repo="$1" bundle="$2"
+  local bundle_branch current_branch head_before stashed=false
+
+  if ! git -C "$repo" bundle verify -q "$bundle" >/dev/null 2>&1; then
+    result="bundle is invalid"
+    return 1
+  fi
+
+  bundle_branch=$(git -C "$repo" bundle list-heads "$bundle" | awk 'NR==1 {sub("refs/heads/", "", $2); print $2}')
+  current_branch=$(git -C "$repo" rev-parse --abbrev-ref HEAD)
+  if [[ "$bundle_branch" != "$current_branch" ]]; then
+    result="on $current_branch but the bundle has $bundle_branch"
+    return 1
+  fi
+
+  head_before=$(git -C "$repo" rev-parse HEAD)
+
+  if [[ -n "$(git -C "$repo" status --porcelain)" ]]; then
+    git -C "$repo" stash push -u -q -m "update-dots-from-bundles"
+    stashed=true
+  fi
+
+  if ! git -C "$repo" pull --ff-only -q "$bundle" "$bundle_branch" >/dev/null 2>&1; then
+    if ! git -C "$repo" pull --no-rebase --no-edit -q "$bundle" "$bundle_branch"; then
+      git -C "$repo" merge --abort
+      restore_stash "$repo" "$stashed"
+      result="merge conflicts, nothing changed"
+      return 1
+    fi
+  fi
+
+  if ! restore_stash "$repo" "$stashed"; then
+    result="merged, but your local changes conflict, they are in git stash"
+    return 1
+  fi
+
+  if [[ "$(git -C "$repo" rev-parse HEAD)" == "$head_before" ]]; then
+    result="current"
+  else
+    result="updated"
+  fi
+}
+
+for repo in "${repos[@]}"; do
+  name=$(basename "$repo")
+  bundle="$work_dir/$name.bundle"
+  result=""
+
+  if [[ ! -d "$repo/.git" ]]; then
+    skipped+=("$name (no repo at $repo)")
+    continue
+  fi
+
+  if [[ ! -f "$bundle" ]]; then
+    skipped+=("$name (not in the bundles)")
+    continue
+  fi
+
+  log-pretty-message "Updating $name" "📦"
+  if update_repo "$repo" "$bundle"; then
+    case "$result" in
+    current) current+=("$name") ;;
+    *) updated+=("$name") ;;
+    esac
+  else
+    failed+=("$name ($result)")
+  fi
+done
+
+if [[ ${#updated[@]} -gt 0 ]]; then
+  update-symlinks-all || failed+=("symlinks (update-symlinks-all failed)")
+fi
+
+log-pretty-message "Updated: ${updated[*]:-none}" "✅"
+log-pretty-message "Already up to date: ${current[*]:-none}" "✅"
+[[ ${#skipped[@]} -eq 0 ]] || log-pretty-message "Skipped: ${skipped[*]}" "⚠️"
+[[ ${#failed[@]} -eq 0 ]] || {
+  log-pretty-message "Failed: ${failed[*]}" "❌"
+  exit 1
+}
