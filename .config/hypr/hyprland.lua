@@ -414,7 +414,7 @@ hl.bind(small_keymap("v"), hl.dsp.layout("focusmaster master"))
 
 hl.bind(small_keymap("tab"), hl.dsp.focus({ urgent_or_last = true })) -- focuscurrentorlast
 
-hl.bind("print", hl.dsp.exec_cmd("grim ~/Pictures/Screenshots/pic-full-$(date '+%y%m%d-%H%M-%S').png"))
+hl.bind("print", hl.dsp.exec_cmd("grim $SCREENSHOTS_DIR/pic-full-$(date '+%y%m%d-%H%M-%S').png"))
 
 -- Switch workspaces
 for i = 1, 9 do

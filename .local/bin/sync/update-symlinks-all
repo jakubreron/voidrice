@@ -33,7 +33,7 @@ replace_firefox_symlinks() {
     case "$(uname -s)" in
     Linux*)
       browser_dir="$HOME/.mozilla/firefox"
-      xdg_browser_dir="${XDG_CONFIG_HOME:-$HOME/.config}/mozilla/firefox"
+      xdg_browser_dir="$XDG_CONFIG_HOME/mozilla/firefox"
       [ -f "$xdg_browser_dir/profiles.ini" ] && browser_dir="$xdg_browser_dir"
       ;;
     Darwin) browser_dir="$HOME/Library/Application Support/Firefox" ;;
