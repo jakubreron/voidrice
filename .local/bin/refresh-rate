@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+# Waybar status module and toggle for the internal panel refresh rate (90 Hz / 60 Hz).
+#   refresh-rate          print waybar JSON for the current rate
+#   refresh-rate toggle   switch between 90 Hz and 60 Hz, then refresh the module (signal 9)
+
+INTERNAL_DESC="Samsung Display Corp. 0x4193"
+
+current_rate() {
+	hyprctl monitors -j | jq -r --arg d "$INTERNAL_DESC" \
+		'[.[] | select(.description == $d)][0].refreshRate // empty | round'
+}
+
+status() {
+	local rate
+	rate="$(current_rate)"
+	if [ -z "$rate" ]; then
+		# Panel disabled (e.g. lid closed): empty text hides the module.
+		echo '{"text":""}'
+	elif [ "$rate" -gt 60 ]; then
+		printf '{"text":"%sHz","class":"high"}\n' "$rate"
+	else
+		printf '{"text":"%sHz","class":"low"}\n' "$rate"
+	fi
+}
+
+toggle() {
+	local target label result
+	if [ "$(current_rate)" -gt 60 ]; then
+		target="2880x1800@60"
+		label="🔋 Powersave: on (60 Hz)"
+	else
+		target="highrr"
+		label="🔋 Powersave: off (90 Hz)"
+	fi
+
+	result="$(hyprctl eval "hl.monitor({ output = 'desc:$INTERNAL_DESC', mode = '$target', position = 'auto-down', scale = '1.8' })" 2>&1)"
+	if [ "$result" = "ok" ]; then
+		notify-send --app-name=display -t 1500 "$label"
+	else
+		notify-send --app-name=display -u critical "Refresh rate change failed" "$result"
+	fi
+
+	# Give the mode switch a moment to show up in hyprctl before waybar re-reads it.
+	sleep 0.5
+	pkill -SIGRTMIN+9 waybar
+}
+
+case "${1:-status}" in
+	toggle) toggle ;;
+	*) status ;;
+esac

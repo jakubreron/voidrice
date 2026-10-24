@@ -13,6 +13,7 @@
     "memory",
     "temperature",
     "backlight",
+    "custom/refresh",
     "battery",
     "tray",
     "custom/dnd",
@@ -146,6 +147,14 @@
     "signal": 8,
     "tooltip": false,
     "on-click": "dunstctl set-paused toggle && pkill -SIGRTMIN+8 waybar"
+  },
+  "custom/refresh": {
+    "exec": "refresh-rate",
+    "return-type": "json",
+    "interval": "once",
+    "signal": 9,
+    "tooltip": false,
+    "on-click": "refresh-rate toggle"
   },
   "pulseaudio": {
     "ignored-sinks": [

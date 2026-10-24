@@ -6,38 +6,16 @@ case "$(readlink -f /sbin/init)" in
 	*) ctl='loginctl' ;;
 esac
 
-INTERNAL_DESC="Samsung Display Corp. 0x4193"
-
-current_rate() {
-	hyprctl monitors -j | jq -r --arg d "$INTERNAL_DESC" \
-		'.[] | select(.description == $d) | .refreshRate | round'
-}
-
-set_mode() {
-	hyprctl eval "hl.monitor({ output = 'desc:$INTERNAL_DESC', mode = '$1', position = 'auto-down', scale = '1.8' })"
-}
-
-toggle_powersave() {
-	local target label result
-	if [ "$(current_rate)" -gt 60 ]; then
-		target="2880x1800@60"; label="on (60 Hz)"
-	else
-		target="highrr"; label="off (90 Hz)"
-	fi
-
-	result="$(set_mode "$target" 2>&1)"
-	if [ "$result" = "ok" ]; then
-		notify-send --app-name=display -t 1500 "🔋 Powersave: $label"
-	else
-		notify-send --app-name=display -u critical "🔋 Powersave failed" "$result"
-	fi
-}
-
 case "$(printf "🔒 lock\n🚪 leave $WM\n♻️ renew $WM\n🔋 powersave\n🔃 reboot\n🖥️ shutdown\n⏸️ suspend" | rofi -dmenu -p Action)" in
 	'🔒 lock') hyprlock ;;
 	"🚪 leave $WM") hyprshutdown ;;
-	"♻️ renew $WM") hyprctl reload ;;
-	'🔋 powersave') toggle_powersave ;;
+	"♻️ renew $WM")
+		hyprctl reload
+		# reload re-applies the startup refresh rate; let waybar re-read it
+		sleep 1
+		pkill -SIGRTMIN+9 waybar
+		;;
+	'🔋 powersave') refresh-rate toggle ;;
 	'🔃 reboot') hyprshutdown -t 'Restarting...' --post-cmd 'reboot' ;;
 	'🖥️ shutdown') hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0' ;;
 	'⏸️ suspend') $ctl suspend -i ;;

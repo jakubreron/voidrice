@@ -80,6 +80,7 @@ tooltip * {
 #tray,
 #backlight,
 #custom-dnd,
+#custom-refresh,
 #clock {
   transition: 0.25s;
   transition-property: color, background-color;
@@ -162,4 +163,11 @@ tooltip * {
 #custom-dnd.dnd {
   color: @orange;
   font-weight: bold;
+}
+
+#custom-refresh.low {
+  color: @aqua;
+}
+#custom-refresh.high {
+  color: @orange;
 }
