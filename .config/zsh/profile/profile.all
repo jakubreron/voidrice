@@ -35,7 +35,7 @@ esac
 local bin_list=(
   "$CARGO_HOME/bin"
   "$BUN_INSTALL/bin"
-  "$XDG_DATA_HOME/npm/bin"
+  "$NPM_CONFIG_PREFIX/bin"
   "$PNPM_HOME"
   "${$($find_command $XDG_BIN_HOME -type d -printf %p:)%%:}"
   )

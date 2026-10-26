@@ -1,10 +1,10 @@
 #!/bin/sh
 
-bmdirs="$XDG_CONFIG_HOME/zsh/bookmarks/dirs"
-bmfiles="$XDG_CONFIG_HOME/zsh/bookmarks/files"
+bmdirs="$ZDOTDIR/bookmarks/dirs"
+bmfiles="$ZDOTDIR/bookmarks/files"
 
 # Output locations. Unactivated progs should go to /dev/null.
-shortcuts_path="$XDG_CONFIG_HOME/zsh/shortcuts"
+shortcuts_path="$ZDOTDIR/shortcuts"
 
 mkdir -p "$shortcuts_path"
 

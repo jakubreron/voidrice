@@ -57,7 +57,7 @@ cmd open ${{
   fi
 }}
 
-cmd fzf_jump $lf -remote "send $id cd $(awk '{ gsub(/#.*/, ""); } !/^$/ { print $2 }' $XDG_CONFIG_HOME/zsh/bookmarks/dirs | fzf | sed "s/\${.*-// ; s/}//" | envsubst)"
+cmd fzf_jump $lf -remote "send $id cd $(awk '{ gsub(/#.*/, ""); } !/^$/ { print $2 }' $ZDOTDIR/bookmarks/dirs | fzf | sed "s/\${.*-// ; s/}//" | envsubst)"
 
 cmd notify %{{
   case "$(uname)" in
@@ -104,7 +104,7 @@ fi
 cmd moveto ${{
   set -f
   clear; tput cup $(($(tput lines)/3))
-  dest="$(sed -e 's/[[:space:]]*#.*//' -e '/^$/d' -e 's/^[^[:space:]]*[[:space:]]*//' $XDG_CONFIG_HOME/zsh/bookmarks/dirs | fzf --layout=reverse --height 40% --prompt 'Move to where? ' | sed 's|~|$HOME|')"
+  dest="$(sed -e 's/[[:space:]]*#.*//' -e '/^$/d' -e 's/^[^[:space:]]*[[:space:]]*//' $ZDOTDIR/bookmarks/dirs | fzf --layout=reverse --height 40% --prompt 'Move to where? ' | sed 's|~|$HOME|')"
   [ -z "$dest" ] && exit
   dest_path=$(eval printf '%s' \"$dest\")
   clear; tput cup $(($(tput lines)/3)); tput bold
@@ -123,7 +123,7 @@ cmd moveto ${{
 cmd copyto ${{
   set -f
   clear; tput cup $(($(tput lines)/3))
-  dest="$(sed -e 's/[[:space:]]*#.*//' -e '/^$/d' -e 's/^[^[:space:]]*[[:space:]]*//' $XDG_CONFIG_HOME/zsh/bookmarks/dirs | fzf --layout=reverse --height 40% --prompt 'Copy to where? ' | sed 's|~|$HOME|')"
+  dest="$(sed -e 's/[[:space:]]*#.*//' -e '/^$/d' -e 's/^[^[:space:]]*[[:space:]]*//' $ZDOTDIR/bookmarks/dirs | fzf --layout=reverse --height 40% --prompt 'Copy to where? ' | sed 's|~|$HOME|')"
   [ -z "$dest" ] && exit
   dest_path=$(eval printf '%s' \"$dest\")
   clear; tput cup $(($(tput lines)/3)); tput bold
