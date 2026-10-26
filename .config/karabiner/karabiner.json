@@ -163,7 +163,7 @@
                   "modifiers": { "mandatory": ["left_control", "left_option"] }
                 },
                 "to": [
-                  { "shell_command": "/bin/zsh -l -c 'open-daemon-terminal'" }
+                  { "shell_command": "/bin/zsh -l -c '$TERMINAL'" }
                 ],
                 "type": "basic"
               },
@@ -261,7 +261,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/bin/zsh -l -c 'open-daemon-terminal -e /bin/zsh -l -c lf'"
+                    "shell_command": "/bin/zsh -l -c '$TERMINAL -e /bin/zsh -l -c lf'"
                   }
                 ],
                 "type": "basic"
@@ -303,7 +303,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "/bin/zsh -l -c 'open-daemon-terminal -e /bin/zsh -l -c \"nvim -c VimwikiIndex\"'"
+                    "shell_command": "/bin/zsh -l -c '$TERMINAL -e /bin/zsh -l -c \"nvim -c VimwikiIndex\"'"
                   }
                 ],
                 "type": "basic"
