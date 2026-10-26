@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-export TERMINAL="open-daemon-terminal"
-
 export INPUT_METHOD="fcitx5"
 export QT_IM_MODULE='fcitx'
 export SDL_IM_MODULE='fcitx'

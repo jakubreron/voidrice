@@ -162,7 +162,9 @@
                   "key_code": "return_or_enter",
                   "modifiers": { "mandatory": ["left_control", "left_option"] }
                 },
-                "to": [{ "shell_command": "open -n -a 'Alacritty'" }],
+                "to": [
+                  { "shell_command": "/bin/zsh -l -c 'open-daemon-terminal'" }
+                ],
                 "type": "basic"
               },
               {
@@ -259,7 +261,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -n -a 'Alacritty' --args -e /bin/zsh -l -c '/opt/homebrew/bin/lf'"
+                    "shell_command": "/bin/zsh -l -c 'open-daemon-terminal -e /bin/zsh -l -c lf'"
                   }
                 ],
                 "type": "basic"
@@ -301,7 +303,7 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -n -a 'Alacritty' --args -e /bin/zsh -l -c '/opt/homebrew/bin/nvim -c VimwikiIndex'"
+                    "shell_command": "/bin/zsh -l -c 'open-daemon-terminal -e /bin/zsh -l -c \"nvim -c VimwikiIndex\"'"
                   }
                 ],
                 "type": "basic"
