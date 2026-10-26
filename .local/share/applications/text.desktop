@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Text editor
-Exec=/home/jakub/.local/bin/daemons/open-daemon-terminal -e nvim %u
+Exec=open-daemon-terminal -e nvim %u
