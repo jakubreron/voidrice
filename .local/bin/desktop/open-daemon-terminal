@@ -1,9 +1,17 @@
 #!/usr/bin/env bash
-socket_path="/run/user/1000/Alacritty-wayland-1-50274.sock"
-command="alacritty --socket $socket_path"
 
-if [ -e "$socket_path" ]; then
-  $command msg create-window "$@"
-else
-  $command "$@"
+socket="${XDG_RUNTIME_DIR:-/tmp}/alacritty-$(id -u).sock"
+os="$(uname -s)"
+
+if alacritty msg --socket "$socket" create-window "$@" 2>/dev/null; then
+  [ "$os" = "Darwin" ] && open -a Alacritty
+  exit 0
 fi
+
+rm -f "$socket"
+
+if [ "$os" = "Darwin" ]; then
+  exec open -n -a Alacritty --args --socket "$socket" "$@"
+fi
+
+exec alacritty --socket "$socket" "$@"
