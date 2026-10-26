@@ -1,49 +1,63 @@
 #!/usr/bin/env sh
 
+# XDG base directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_SRC_HOME="$HOME/.local/src"
 export XDG_BIN_HOME="$HOME/.local/bin"
-export XDG_CACHE_HOME="$HOME/.cache"
 
 # XDG_{DOCUMENTS,DOWNLOAD,MUSIC,PICTURES,VIDEOS}_DIR live in user-dirs.dirs
 set -a
 . "$XDG_CONFIG_HOME/user-dirs.dirs"
 set +a
 
-export PNPM_HOME="$XDG_DATA_HOME/pnpm"
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
+# Tool config in XDG_CONFIG_HOME
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export CLAUDE_CONFIG_DIR="$XDG_CONFIG_HOME/claude"
 export GEMINI_CONFIG_DIR="$XDG_CONFIG_HOME/gemini"
+export CODEX_HOME="$XDG_CONFIG_HOME/codex"
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
 export COLIMA_HOME="$XDG_CONFIG_HOME/colima"
-export CODEX_HOME="$XDG_CONFIG_HOME/codex"
+export PARALLEL_HOME="$XDG_CONFIG_HOME/parallel"
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
+
+# Tool data in XDG_DATA_HOME
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export PNPM_HOME="$XDG_DATA_HOME/pnpm"
 export BUN_INSTALL="$XDG_DATA_HOME/bun"
+export NPM_CONFIG_PREFIX="$XDG_DATA_HOME/npm"
 export GOPATH="$XDG_DATA_HOME/go"
-export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
 export ANDROID_USER_HOME="$XDG_DATA_HOME/android"
-export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export W3M_DIR="$XDG_DATA_HOME/w3m"
 export TERMINFO="$XDG_DATA_HOME/terminfo"
 export TERMINFO_DIRS="$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
-export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
-export NPM_CONFIG_PREFIX="$XDG_DATA_HOME/npm"
-export TLDR_CACHE_DIR="$XDG_CACHE_HOME/tldr"
-export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
-export PARALLEL_HOME="$XDG_CONFIG_HOME/parallel"
-export W3M_DIR="$XDG_DATA_HOME/w3m"
-export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
 
+# Tool caches in XDG_CACHE_HOME
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
+export NUGET_PACKAGES="$XDG_CACHE_HOME/NuGetPackages"
+export TLDR_CACHE_DIR="$XDG_CACHE_HOME/tldr"
+
+# Tool state in XDG_STATE_HOME
+export PSQL_HISTORY="$XDG_STATE_HOME/psql_history"
+
+# Personal folders
 export CLOUD_DIR="$HOME/Cloud"
 export TORRENTS_DIR="$XDG_DOCUMENTS_DIR/Torrents"
+export SCREENSHOTS_DIR="$XDG_PICTURES_DIR/Screenshots"
+
+# Projects
 export PROJECTS_DIR="$XDG_DOCUMENTS_DIR/Projects"
 export WORK_PROJECTS_DIR="$PROJECTS_DIR/work"
 export PERSONAL_PROJECTS_DIR="$PROJECTS_DIR/personal"
 export DOTFILES_INSTALL_DIR="$PERSONAL_PROJECTS_DIR/dotfiles-install"
-export SCREENSHOTS_DIR="$XDG_PICTURES_DIR/Screenshots"
+
+# Dotfiles and what lives in them
 export DOTFILES_DIR="$XDG_CONFIG_HOME/dotfiles"
 export DOTFILES_VOIDRICE_DIR="$DOTFILES_DIR/voidrice"
 export DOTFILES_UNIVERSAL_DIR="$DOTFILES_DIR/universal"
@@ -51,5 +65,3 @@ export DOTFILES_PKGLIST_DIR="$DOTFILES_DIR/pkglists"
 export NVIM_DIR="$XDG_CONFIG_HOME/nvim"
 export VIMWIKI_DIR="$DOTFILES_UNIVERSAL_DIR/Documents/VimWiki"
 export AGENTS_DIR="$DOTFILES_UNIVERSAL_DIR/.agents"
-
-export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME/ripgrep/ripgreprc"
