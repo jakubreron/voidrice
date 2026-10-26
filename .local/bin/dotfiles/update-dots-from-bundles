@@ -5,10 +5,10 @@ set -euo pipefail
 bundles_file="$XDG_DOWNLOAD_DIR/bundles.zip.gpg"
 
 repos=(
-  "$DOTFILES_DIR/pkglists"
-  "$DOTFILES_DIR/universal"
-  "$DOTFILES_DIR/voidrice"
-  "$XDG_CONFIG_HOME/nvim"
+  "$DOTFILES_PKGLIST_DIR"
+  "$DOTFILES_UNIVERSAL_DIR"
+  "$DOTFILES_VOIDRICE_DIR"
+  "$NVIM_DIR"
   "$DOTFILES_INSTALL_DIR"
 )
 

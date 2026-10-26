@@ -7,7 +7,7 @@ if command -v git-sync-repos >/dev/null 2>&1; then
 fi
 
 log-pretty-message "Updating voidrice submodules" "🧩"
-git -C "$DOTFILES_DIR/voidrice" submodule update --init --remote --recursive
+git -C "$DOTFILES_VOIDRICE_DIR" submodule update --init --remote --recursive
 
 case "$(uname -s)" in
   Linux*)

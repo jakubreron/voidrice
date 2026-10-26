@@ -8,7 +8,7 @@ local_repos() {
 
 dotfiles_repos() {
   # NOTE: single folders with echo
-  echo "$XDG_CONFIG_HOME/nvim"
+  echo "$NVIM_DIR"
   find "$XDG_SRC_HOME" "$DOTFILES_DIR" -type d -exec test -e '{}/.git' ';' -print -prune
 }
 

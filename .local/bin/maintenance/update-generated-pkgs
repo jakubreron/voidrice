@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-path="$PKGLIST_DIR/$PACKAGE_TYPE"
+path="$DOTFILES_PKGLIST_DIR/$PACKAGE_TYPE"
 
 if [ -d "$path" ]; then
   if command -v yarn >/dev/null 2>&1; then
@@ -48,12 +48,12 @@ if [ -d "$path" ]; then
     ;;
   esac
 
-  if [ -d "$PKGLIST_DIR/.git" ] && [ -d "$HOME/.ssh" ]; then
-    git -C "$PKGLIST_DIR" add "$path"
-    if ! git -C "$PKGLIST_DIR" diff --cached --quiet; then
+  if [ -d "$DOTFILES_PKGLIST_DIR/.git" ] && [ -d "$HOME/.ssh" ]; then
+    git -C "$DOTFILES_PKGLIST_DIR" add "$path"
+    if ! git -C "$DOTFILES_PKGLIST_DIR" diff --cached --quiet; then
       log-pretty-message "Committing package lists" "📝"
-      git -C "$PKGLIST_DIR" commit -m "docs($PACKAGE_TYPE): auto-commit-changes" &&
-        git -C "$PKGLIST_DIR" push
+      git -C "$DOTFILES_PKGLIST_DIR" commit -m "docs($PACKAGE_TYPE): auto-commit-changes" &&
+        git -C "$DOTFILES_PKGLIST_DIR" push
     fi
   fi
 else

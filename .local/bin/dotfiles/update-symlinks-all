@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 replace_dotfiles_symlinks() {
-  for dir in "$DOTFILES_DIR"/voidrice/.local/bin/*/; do
+  for dir in "$DOTFILES_VOIDRICE_DIR"/.local/bin/*/; do
     dir_name=$(basename "$dir")
     mkdir -p "$XDG_BIN_HOME/$dir_name"
   done
@@ -19,13 +19,13 @@ replace_dotfiles_symlinks() {
   log-pretty-message "Updating dotfiles symlinks"
   stow --adopt "${ignore_args[@]}" --target="$HOME" --dir="$DOTFILES_DIR" universal voidrice
 
-  ln -sf "$DOTFILES_DIR/voidrice/.local/bin/lfimg/"{cleaner,preview} "$XDG_CONFIG_HOME/lf"
+  ln -sf "$DOTFILES_VOIDRICE_DIR/.local/bin/lfimg/"{cleaner,preview} "$XDG_CONFIG_HOME/lf"
 }
 
 replace_firefox_symlinks() {
-  dotfiles_userchrome_path="$DOTFILES_DIR/voidrice/.config/firefox/chrome"
-  dotfiles_userjs_overrides_path="$DOTFILES_DIR/voidrice/.config/firefox/user-overrides.js"
-  dotfiles_userjs_path="$DOTFILES_DIR/voidrice/.config/firefox/betterfox/user.js"
+  dotfiles_userchrome_path="$DOTFILES_VOIDRICE_DIR/.config/firefox/chrome"
+  dotfiles_userjs_overrides_path="$DOTFILES_VOIDRICE_DIR/.config/firefox/user-overrides.js"
+  dotfiles_userjs_path="$DOTFILES_VOIDRICE_DIR/.config/firefox/betterfox/user.js"
 
   if [ -f "$dotfiles_userjs_overrides_path" ]; then
     log-pretty-message "Updating firefox symlinks"

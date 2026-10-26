@@ -22,7 +22,7 @@ esac
 
 declare -a cli_theme_paths=(
 "$XDG_CONFIG_HOME/alacritty/colorscheme.toml"
-"$XDG_CONFIG_HOME/nvim/plugin/colorscheme.lua"
+"$NVIM_DIR/plugin/colorscheme.lua"
 "$XDG_CONFIG_HOME/hypr/hyprpaper.conf"
 "$XDG_CONFIG_HOME/btop/btop.conf"
 "$XDG_CONFIG_HOME/tmux/tmux.conf"
