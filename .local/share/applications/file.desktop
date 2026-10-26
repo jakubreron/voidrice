@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=File Manager
-Exec=open-daemon-terminal -e $CLI_FILE_EXPLORER %u
+Exec=open-terminal -e $CLI_FILE_EXPLORER %u

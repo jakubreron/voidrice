@@ -4,7 +4,7 @@ configuration{
   modi: "run,drun,window";
   icon-theme: "Adwaita";
   show-icons: true;
-  terminal: "open-daemon-terminal";
+  terminal: "open-terminal";
   display-drun: " App  ";
   display-run: " Run  ";
   display-window: " Win ";

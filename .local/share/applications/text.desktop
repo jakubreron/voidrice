@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Text editor
-Exec=open-daemon-terminal -e nvim %u
+Exec=open-terminal -e nvim %u

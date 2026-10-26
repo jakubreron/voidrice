@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 #
-export TERMINAL="open-daemon-terminal"
+export TERMINAL="open-terminal"
 export BROWSER="firefox"
 export BACKUP_BROWSER="chromium"
 
