@@ -16,7 +16,7 @@ export CLI_NETWORK_MANAGER="wifitui"
 export CLI_TORRENTS_MANAGER="tremc"
 export CLI_SOUND_MANAGER="pulsemixer"
 
-export PACKAGE_TYPE="primary"
+export PACKAGE_TYPE="personal"
 export PACKAGE_MANAGER="paru"
 export PARU_CONF="$XDG_CONFIG_HOME/paru/paru.conf"
 
