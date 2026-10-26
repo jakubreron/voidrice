@@ -1,5 +1,4 @@
 #!/bin/sh
-repo="$DOTFILES_UNIVERSAL_DIR"
-git -C "$repo" add -- Documents/VimWiki
-git -C "$repo" diff --cached --quiet -- Documents/VimWiki || git -C "$repo" -c commit.gpgsign=false commit -m "docs(vimwiki): daily backup $(date +%F)" -- Documents/VimWiki
-git -C "$repo" push
+git -C "$VIMWIKI_DIR" add -- .
+git -C "$VIMWIKI_DIR" diff --cached --quiet -- . || git -C "$VIMWIKI_DIR" -c commit.gpgsign=false commit -m "docs(vimwiki): daily backup $(date +%F)" -- .
+git -C "$VIMWIKI_DIR" push
