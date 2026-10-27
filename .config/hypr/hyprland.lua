@@ -139,10 +139,8 @@ hl.config({
 	},
 
 	misc = {
-		enable_swallow = true,
 		mouse_move_enables_dpms = true,
 		key_press_enables_dpms = true,
-		swallow_regex = "^(Alacritty)$",
 		force_default_wallpaper = 0,
 		disable_hyprland_logo = true,
 		background_color = 0x000000,
@@ -269,6 +267,18 @@ hl.window_rule({
 	no_blur = true,
 	max_size = { 1, 1 },
 	opacity = 0.0,
+})
+
+hl.window_rule({
+	name = "ueberzugpp-overlay",
+	match = { class = "^(ueberzugpp.*)$" },
+	float = true,
+	no_focus = true,
+	no_initial_focus = true,
+	no_anim = true,
+	no_blur = true,
+	border_size = 0,
+	rounding = 0,
 })
 
 ---------------------
@@ -447,7 +457,11 @@ hl.bind("xf86audioforward", hl.dsp.exec_cmd("playerctl position +10"), { locked 
 hl.bind("xf86poweroff", hl.dsp.exec_cmd("rofi-power-menu"), { locked = true })
 hl.bind("xf86calculator", hl.dsp.exec_cmd("gnome-calculator"), { locked = true })
 hl.bind("xf86sleep", hl.dsp.exec_cmd("sudo -A zzz"), { locked = true })
-hl.bind("xf86mail", hl.dsp.exec_cmd(TERMINAL .. " --title cli_mail_client --command " .. CLI_MAIL_CLIENT), { locked = true })
+hl.bind(
+	"xf86mail",
+	hl.dsp.exec_cmd(TERMINAL .. " --title cli_mail_client --command " .. CLI_MAIL_CLIENT),
+	{ locked = true }
+)
 hl.bind(
 	"xf86mycomputer",
 	hl.dsp.exec_cmd(TERMINAL .. " --title cli_file_explorer --command " .. CLI_FILE_EXPLORER),
