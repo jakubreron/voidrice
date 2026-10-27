@@ -1,7 +1,6 @@
 #!/bin/sh
 set ratios 1:2:3
 set previewer ~/.config/lf/preview
-set cleaner ~/.config/lf/cleaner
 set rulerfile ~/.config/lf/ruler.tmpl
 set shell zsh
 set shellopts '-euy'
