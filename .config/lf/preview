@@ -1,6 +1,8 @@
 #!/bin/sh
-CACHE="$HOME/.cache/lf/thumbnail.$(stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' \
-  -- "$(readlink -f "$1")" | sha256sum | awk '{print $1}'))"
+cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/lf"
+mkdir -p "$cache_dir"
+# path + size + mtime from ls, works on both GNU and BSD
+CACHE="$cache_dir/thumbnail.$(printf '%s\n%s' "$(readlink -f "$1")" "$(ls -ldn "$1")" | cksum | cut -d' ' -f1)"
 
 image() {
   chafa "$1" -s "$4x"
