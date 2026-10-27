@@ -8,17 +8,14 @@ if command -v pyenv >/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-bin_list=(
-  "/opt/local/bin:/opt/local/sbin"
-  "$HOMEBREW_PREFIX/opt/mysql-client/bin"
-  "$HOMEBREW_PREFIX/opt/postgresql@18/bin"
+path=(
+  $HOMEBREW_PREFIX/opt/postgresql@18/bin
+  $HOMEBREW_PREFIX/opt/mysql-client/bin
+  /opt/local/bin
+  /opt/local/sbin
+  $path
 )
-
-for extra in "${bin_list[@]}"; do
-  PATH=$extra:$PATH
-done
 export PATH
-unset bin_list
 
 export GUI_FILE_EXPLORER="open"
 export GUI_IMAGE_VIEWER=""

@@ -23,27 +23,15 @@ export NODE_OPTIONS="--max-old-space-size=16384"
 export GLAMOUR_STYLE="light" # "gh" command theme fix
 export SHELL_SESSIONS_DISABLE=1 # stops macOS Terminal creating ~/.zsh_sessions
 
-case "$OS" in
-  Linux)
-    find_command="find"
-    ;;
-  Darwin)
-    find_command="gfind"
-    ;;
-esac
-
-local bin_list=(
-  "$CARGO_HOME/bin"
-  "$BUN_INSTALL/bin"
-  "$NPM_CONFIG_PREFIX/bin"
-  "$PNPM_HOME"
-  "${$($find_command $XDG_BIN_HOME -type d -printf %p:)%%:}"
-  )
-
-for extra in "${bin_list[@]}"; do
-  PATH=$extra:$PATH
-done
+typeset -U path
+path=(
+  $XDG_BIN_HOME $XDG_BIN_HOME/**/*(/N)
+  $PNPM_HOME
+  $NPM_CONFIG_PREFIX/bin
+  $BUN_INSTALL/bin
+  $CARGO_HOME/bin
+  $path
+)
 export PATH
-unset bin_list
 
 [ ! -f $ZDOTDIR/shortcuts/shortcutrc ] && setsid generate-shell-shortcuts >/dev/null 2>&1
