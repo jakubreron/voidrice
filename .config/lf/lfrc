@@ -294,7 +294,6 @@ nmap A :rename; cmd-end # at the very end
 
 nmap W open_in_new_terminal
 
-# TODO: @Jakub check if it sill works on Linux
 map Y $printf "%s" "$fx" | cross-platform-copy
 map . $printf "%s" "$fx" | sed 's/.*\///' | cross-platform-copy
 
