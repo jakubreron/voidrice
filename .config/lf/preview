@@ -5,7 +5,7 @@ mkdir -p "$cache_dir"
 CACHE="$cache_dir/thumbnail.$(printf '%s\n%s' "$(readlink -f "$1")" "$(ls -ldn "$1")" | cksum | cut -d' ' -f1)"
 
 image() {
-  chafa "$1" -s "$4x"
+  chafa "$1" -s "${2}x${3}"
 }
 
 batorcat() {
