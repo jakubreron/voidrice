@@ -3,6 +3,8 @@
 set -euo pipefail
 
 bundles_file="$XDG_DOWNLOAD_DIR/bundles.zip.gpg"
+bundles_zip="$XDG_DOWNLOAD_DIR/bundles.zip"
+bundles_dir="$XDG_DOWNLOAD_DIR/bundles"
 
 repos=(
   "$DOTFILES_PKGLIST_DIR"
@@ -12,19 +14,26 @@ repos=(
   "$DOTFILES_INSTALL_DIR"
 )
 
-if [[ ! -f "$bundles_file" ]]; then
+# NOTE: every input file is removed as soon as the next step worked, a bundle stays in $bundles_dir only when its repo failed
+if [[ -f "$bundles_file" ]]; then
+  mkdir -p "$bundles_dir"
+
+  log-pretty-message "Decrypting bundles.zip.gpg (enter password when prompted)" "🔐"
+  if ! gpg --yes --pinentry-mode loopback --decrypt --output "$bundles_zip" "$bundles_file"; then
+    rm -f "$bundles_zip"
+    exit 1
+  fi
+  rm -f "$bundles_file"
+
+  log-pretty-message "Unzipping bundles" "🗜️"
+  unzip -q -o -j "$bundles_zip" -d "$bundles_dir"
+  rm -f "$bundles_zip"
+elif compgen -G "$bundles_dir/*.bundle" >/dev/null; then
+  log-pretty-message "$bundles_file not found, retrying the bundles left in $bundles_dir" "⚠️"
+else
   log-pretty-message "$bundles_file not found" "⚠️"
   exit 1
 fi
-
-work_dir=$(mktemp -d)
-trap 'rm -rf "$work_dir"' EXIT
-
-log-pretty-message "Decrypting bundles.zip.gpg (enter password when prompted)" "🔐"
-gpg --pinentry-mode loopback --decrypt --output "$work_dir/bundles.zip" "$bundles_file"
-
-log-pretty-message "Unzipping bundles" "🗜️"
-unzip -q -j "$work_dir/bundles.zip" -d "$work_dir"
 
 updated=()
 current=()
@@ -84,7 +93,7 @@ update_repo() {
 
 for repo in "${repos[@]}"; do
   name=$(basename "$repo")
-  bundle="$work_dir/$name.bundle"
+  bundle="$bundles_dir/$name.bundle"
   result=""
 
   if [[ ! -d "$repo/.git" ]]; then
@@ -99,6 +108,7 @@ for repo in "${repos[@]}"; do
 
   log-pretty-message "Updating $name" "📦"
   if update_repo "$repo" "$bundle"; then
+    rm -f "$bundle"
     case "$result" in
     current) current+=("$name") ;;
     *) updated+=("$name") ;;
@@ -107,6 +117,9 @@ for repo in "${repos[@]}"; do
     failed+=("$name ($result)")
   fi
 done
+
+# NOTE: rmdir only removes the folder when every bundle was used
+rmdir "$bundles_dir" 2>/dev/null || true
 
 if [[ ${#updated[@]} -gt 0 ]]; then
   update-symlinks-all || failed+=("symlinks (update-symlinks-all failed)")
