@@ -15,8 +15,6 @@ export CLI_MAIL_CLIENT="aerc"
 export MANPAGER="$EDITOR +Man!"
 export MANWIDTH=999
 
-export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
-
 # Claude Code provider settings and tokens (untracked file, template provider.example.sh): exported to the whole shell, so nvim and every other launcher see them
 [ -f "$CLAUDE_CONFIG_DIR/provider.sh" ] && . "$CLAUDE_CONFIG_DIR/provider.sh"
 export NODE_OPTIONS="--max-old-space-size=16384"

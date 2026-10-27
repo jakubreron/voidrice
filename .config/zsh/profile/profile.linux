@@ -18,6 +18,8 @@ export PACKAGE_TYPE="personal"
 export PACKAGE_MANAGER="paru"
 export PARU_CONF="$XDG_CONFIG_HOME/paru/paru.conf"
 
+export TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+
 export WLR_NO_HARDWARE_CURSORS=1
 
 export ANDROID_HOME="/opt/android-sdk"
