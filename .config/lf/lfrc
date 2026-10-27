@@ -184,11 +184,8 @@ cmd zip ${{
   set -f
   printf "$fx \n"
   printf "📦 Zip to: "
-  read name
-  mkdir -p $name
-  cp -r $fx $name
-  zip -r $name.zip $name
-  rm -rf $name
+  read -r name
+  zip -r -- "$name.zip" $fx
 }}
 
 cmd kdeconnect ${{
