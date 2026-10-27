@@ -10,9 +10,6 @@ fi
 
 path=(
   $HOMEBREW_PREFIX/opt/postgresql@18/bin
-  $HOMEBREW_PREFIX/opt/mysql-client/bin
-  /opt/local/bin
-  /opt/local/sbin
   $path
 )
 export PATH
