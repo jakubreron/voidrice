@@ -86,7 +86,7 @@ cmd extract ${{
     *.tar.bz2)   tar xjf $fx     ;;
     *.tar.gz)    tar xzf $fx     ;;
     *.bz2)       bunzip2 $fx     ;;
-    *.rar)       unrar e $fx     ;;
+    *.rar)       unrar x $fx     ;;
     *.gz)        gunzip $fx      ;;
     *.tar)       tar xf $fx      ;;
     *.tbz2)      tar xjf $fx     ;;
@@ -95,6 +95,8 @@ cmd extract ${{
     *.Z)         uncompress $fx  ;;
     *.7z)        7z x $fx        ;;
     *.tar.xz)    tar xf $fx      ;;
+    *.tar.zst|*.tzst) tar xf $fx ;;
+    *.xz)        unxz $fx        ;;
   esac
 fi
 }}
