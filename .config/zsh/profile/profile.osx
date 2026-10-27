@@ -23,6 +23,7 @@ export GUI_IMAGE_VIEWER=""
 export PACKAGE_TYPE="work"
 export PACKAGE_MANAGER="brew"
 
+export SUDO_EDITOR="$HOMEBREW_PREFIX/bin/nvim"
 export SHELL_SESSIONS_DISABLE=1 # stops macOS Terminal creating ~/.zsh_sessions
 
 export DOCKER_HOST="unix://$COLIMA_HOME/default/docker.sock"                         

@@ -9,6 +9,8 @@ export GUI_FILE_EXPLORER="nautilus"
 export GUI_IMAGE_VIEWER="loupe"
 export GUI_MAIL_CLIENT="geary"
 
+export SUDO_EDITOR="/usr/bin/nvim"
+
 export CLI_MUSIC_PLAYER="ncmpcpp"
 export CLI_NETWORK_MANAGER="wifitui"
 export CLI_TORRENTS_MANAGER="tremc"
