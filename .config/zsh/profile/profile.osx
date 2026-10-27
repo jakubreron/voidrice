@@ -23,6 +23,8 @@ export GUI_IMAGE_VIEWER=""
 export PACKAGE_TYPE="work"
 export PACKAGE_MANAGER="brew"
 
+export SHELL_SESSIONS_DISABLE=1 # stops macOS Terminal creating ~/.zsh_sessions
+
 export DOCKER_HOST="unix://$COLIMA_HOME/default/docker.sock"                         
 export NETSKOPE_CA_BUNDLE="/Library/Application Support/Netskope/STAgent/data/nscacert_combined.pem"
 export NODE_EXTRA_CA_CERTS="$NETSKOPE_CA_BUNDLE" # trusts the corporate Netskope certificate while SSL verification stays on, replaces NODE_TLS_REJECT_UNAUTHORIZED=0

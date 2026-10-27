@@ -17,7 +17,6 @@ export MANWIDTH=999
 
 export NODE_OPTIONS="--max-old-space-size=16384"
 export GLAMOUR_STYLE="light" # "gh" command theme fix
-export SHELL_SESSIONS_DISABLE=1 # stops macOS Terminal creating ~/.zsh_sessions
 
 typeset -U path
 path=(
