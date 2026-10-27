@@ -3,13 +3,6 @@
 path="$DOTFILES_PKGLIST_DIR/$PACKAGE_TYPE"
 
 if [ -d "$path" ]; then
-  if command -v yarn >/dev/null 2>&1; then
-    log-pretty-message "Generating yarn packages" "🧶"
-    yarn global list --depth=0 | awk '/info/{print $2}' | sed -e 's/\"//g' >"$path/yarn.txt"
-  else
-    log-pretty-message "Skipping yarn packages (yarn not installed)" "⚠"
-  fi
-
   if command -v npm >/dev/null 2>&1; then
     log-pretty-message "Generating npm packages" "📦"
     npm -g ls --parseable | tail -n +2 | sed 's/.*node_modules\///' >"$path/npm.txt"

@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-ffplay -f v4l2 -input_format mjpeg -window_title webcam -i "$(ls /dev/video[02468] | tail -n 1)"
