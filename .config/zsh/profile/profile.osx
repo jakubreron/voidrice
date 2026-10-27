@@ -22,6 +22,7 @@ export PACKAGE_MANAGER="brew"
 
 export SUDO_EDITOR="$HOMEBREW_PREFIX/bin/nvim"
 export SHELL_SESSIONS_DISABLE=1 # stops macOS Terminal creating ~/.zsh_sessions
+export GLAMOUR_STYLE="light" # "gh" command theme fix
 
 export DOCKER_HOST="unix://$COLIMA_HOME/default/docker.sock"                         
 export NETSKOPE_CA_BUNDLE="/Library/Application Support/Netskope/STAgent/data/nscacert_combined.pem"
