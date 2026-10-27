@@ -25,4 +25,4 @@ log-pretty-message "Zipping bundles" "🗜️"
 zip -j "$bundle_dir/bundles.zip" "$bundle_dir"/*.bundle
 
 log-pretty-message "Encrypting bundles.zip (enter password when prompted)" "🔐"
-gpg -c --pinentry-mode loopback --s2k-mode 3 --s2k-count 65011712 --s2k-digest-algo SHA512 --cipher-algo AES256 --output "$XDG_DOWNLOAD_DIR/bundles.zip.gpg" "$bundle_dir/bundles.zip"
+gpg -c --yes --pinentry-mode loopback --s2k-mode 3 --s2k-count 65011712 --s2k-digest-algo SHA512 --cipher-algo AES256 --output "$XDG_DOWNLOAD_DIR/bundles.zip.gpg" "$bundle_dir/bundles.zip"

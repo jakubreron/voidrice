@@ -1,7 +1,6 @@
 #!/bin/sh
 set ratios 1:2:3
 set previewer ~/.config/lf/preview
-set cleaner ~/.config/lf/cleaner
 set rulerfile ~/.config/lf/ruler.tmpl
 set shell zsh
 set shellopts '-euy'
@@ -51,7 +50,6 @@ cmd open ${{
       video/*) setsid -f mpv $f -quiet >/dev/null 2>&1 ;;
       application/vnd*) setsid -f libreoffice $fx >/dev/null 2>&1 ;;
       application/pgp-encrypted) $EDITOR $fx ;;
-      application/vnd.openxmlformats-officedocument.wordprocessingml.document|application/vnd.oasis.opendocument.text|application/vnd.openxmlformats-officedocument.spreadsheetml.sheet|application/octet-stream|application/vnd.oasis.opendocument.spreadsheet|application/vnd.oasis.opendocument.spreadsheet-template|application/vnd.openxmlformats-officedocument.presentationml.presentation|application/vnd.oasis.opendocument.presentation-template|application/vnd.oasis.opendocument.presentation|application/vnd.ms-powerpoint|application/vnd.oasis.opendocument.graphics|application/vnd.oasis.opendocument.graphics-template|application/vnd.oasis.opendocument.formula|application/vnd.oasis.opendocument.database) setsid -f libreoffice $fx >/dev/null 2>&1 ;;
       *) for f in $fx; do setsid -f $OPENER $f >/dev/null 2>&1; done ;;
     esac
   fi
@@ -88,7 +86,7 @@ cmd extract ${{
     *.tar.bz2)   tar xjf $fx     ;;
     *.tar.gz)    tar xzf $fx     ;;
     *.bz2)       bunzip2 $fx     ;;
-    *.rar)       unrar e $fx     ;;
+    *.rar)       unrar x $fx     ;;
     *.gz)        gunzip $fx      ;;
     *.tar)       tar xf $fx      ;;
     *.tbz2)      tar xjf $fx     ;;
@@ -97,6 +95,8 @@ cmd extract ${{
     *.Z)         uncompress $fx  ;;
     *.7z)        7z x $fx        ;;
     *.tar.xz)    tar xf $fx      ;;
+    *.tar.zst|*.tzst) tar xf $fx ;;
+    *.xz)        unxz $fx        ;;
   esac
 fi
 }}
@@ -184,11 +184,8 @@ cmd zip ${{
   set -f
   printf "$fx \n"
   printf "📦 Zip to: "
-  read name
-  mkdir -p $name
-  cp -r $fx $name
-  zip -r $name.zip $name
-  rm -rf $name
+  read -r name
+  zip -r -- "$name.zip" $fx
 }}
 
 cmd kdeconnect ${{
@@ -197,7 +194,7 @@ cmd kdeconnect ${{
   clear; echo "Send to which device?"
   dest="$(kdeconnect-cli -a | cut -f1 -d ':' | cut -c 3- | fzf)" &&
   for x in $fx; do
-    eval kdeconnect-cli --share=\"$x\" --name=\"$dest\"
+    kdeconnect-cli --share="$x" --name="$dest"
   done &&
   lf -remote "send $id notify \" Sending file(s)\" \"Sending file(s) to $dest.\""
 }}
@@ -209,8 +206,8 @@ cmd convert ${{
   set -f
   printf "$fx \n"
   printf "💱 Convert to: "
-  read name
-  convert $fx $name
+  read -r name
+  magick "$f" "$name"
 }}
 
 cmd bulk_rename ${{
@@ -297,7 +294,6 @@ nmap A :rename; cmd-end # at the very end
 
 nmap W open_in_new_terminal
 
-# TODO: @Jakub check if it sill works on Linux
 map Y $printf "%s" "$fx" | cross-platform-copy
 map . $printf "%s" "$fx" | sed 's/.*\///' | cross-platform-copy
 

@@ -18,8 +18,6 @@ replace_dotfiles_symlinks() {
 
   log-pretty-message "Updating dotfiles symlinks"
   stow --adopt "${ignore_args[@]}" --target="$HOME" --dir="$DOTFILES_DIR" universal voidrice
-
-  ln -sf "$DOTFILES_VOIDRICE_DIR/.local/bin/lfimg/"{cleaner,preview} "$XDG_CONFIG_HOME/lf"
 }
 
 replace_firefox_symlinks() {
