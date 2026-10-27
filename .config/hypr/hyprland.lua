@@ -4,7 +4,6 @@ local BACKUP_BROWSER = os.getenv("BACKUP_BROWSER") or ""
 local EDITOR = os.getenv("EDITOR") or ""
 local VIMWIKI_DIR = os.getenv("VIMWIKI_DIR") or ""
 local CLI_MAIL_CLIENT = os.getenv("CLI_MAIL_CLIENT") or ""
-local GUI_MAIL_CLIENT = os.getenv("GUI_MAIL_CLIENT") or ""
 local CLI_FILE_EXPLORER = os.getenv("CLI_FILE_EXPLORER") or ""
 local GUI_FILE_EXPLORER = os.getenv("GUI_FILE_EXPLORER") or ""
 local CLI_SOUND_MANAGER = os.getenv("CLI_SOUND_MANAGER") or ""
@@ -226,11 +225,6 @@ hl.window_rule({ name = "cli-files-ws", match = { title = "^(.*)(cli_file_explor
 
 -- Mail Clients
 hl.window_rule({ name = "cli-mail-ws", match = { title = "^(.*)(cli_mail_client)(.*)$" }, workspace = "3" })
-hl.window_rule({
-	name = "gui-mail-ws",
-	match = { class = "^(.*)(" .. GUI_MAIL_CLIENT .. ")(.*)$" },
-	workspace = "3",
-})
 
 -- Social
 hl.window_rule({
@@ -342,7 +336,6 @@ hl.bind(small_keymap("i"), hl.dsp.exec_cmd("light -A 10; ddcutil --display 1 set
 hl.bind(combo_keymap("i"), hl.dsp.exec_cmd("light -U 10; ddcutil --display 1 setvcp 10 - 15"), { repeating = true })
 
 hl.bind(small_keymap("e"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_mail_client --command " .. CLI_MAIL_CLIENT))
-hl.bind(combo_keymap("e"), hl.dsp.exec_cmd(GUI_MAIL_CLIENT))
 
 hl.bind(small_keymap("o"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_file_explorer --command " .. CLI_FILE_EXPLORER))
 hl.bind(combo_keymap("o"), hl.dsp.exec_cmd(GUI_FILE_EXPLORER))
@@ -454,7 +447,7 @@ hl.bind("xf86audioforward", hl.dsp.exec_cmd("playerctl position +10"), { locked 
 hl.bind("xf86poweroff", hl.dsp.exec_cmd("rofi-power-menu"), { locked = true })
 hl.bind("xf86calculator", hl.dsp.exec_cmd("gnome-calculator"), { locked = true })
 hl.bind("xf86sleep", hl.dsp.exec_cmd("sudo -A zzz"), { locked = true })
-hl.bind("xf86mail", hl.dsp.exec_cmd(GUI_MAIL_CLIENT), { locked = true })
+hl.bind("xf86mail", hl.dsp.exec_cmd(TERMINAL .. " --title cli_mail_client --command " .. CLI_MAIL_CLIENT), { locked = true })
 hl.bind(
 	"xf86mycomputer",
 	hl.dsp.exec_cmd(TERMINAL .. " --title cli_file_explorer --command " .. CLI_FILE_EXPLORER),

@@ -7,7 +7,6 @@ export XMODIFIERS='@im=fcitx'
 
 export GUI_FILE_EXPLORER="nautilus"
 export GUI_IMAGE_VIEWER="loupe"
-export GUI_MAIL_CLIENT="geary"
 
 export SUDO_EDITOR="/usr/bin/nvim"
 
