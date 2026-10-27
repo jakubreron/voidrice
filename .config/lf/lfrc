@@ -206,8 +206,8 @@ cmd convert ${{
   set -f
   printf "$fx \n"
   printf "💱 Convert to: "
-  read name
-  convert $fx $name
+  read -r name
+  magick "$f" "$name"
 }}
 
 cmd bulk_rename ${{
