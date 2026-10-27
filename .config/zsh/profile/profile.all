@@ -14,7 +14,6 @@ export CLI_MAIL_CLIENT="aerc"
 export MANPAGER="$EDITOR +Man!"
 export MANWIDTH=999
 
-
 typeset -U path
 path=(
   $XDG_BIN_HOME $XDG_BIN_HOME/**/*(/N)
