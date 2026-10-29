@@ -185,7 +185,7 @@ cmd zip ${{
   printf "$fx \n"
   printf "📦 Zip to: "
   read -r name
-  zip -r -- "$name.zip" $fx
+  zip -r "$name.zip" $fx
 }}
 
 cmd kdeconnect ${{
