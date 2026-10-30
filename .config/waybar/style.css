@@ -5,7 +5,6 @@
   font-size: 12.5px;
   font-weight: 600;
   background: @bg0;
-  /* border-bottom: 1px solid @bg1; */
 }
 
 #waybar,
@@ -26,7 +25,6 @@ tooltip {
   opacity: 0.9;
   background: @bg0;
   border: 2px solid @act_fg;
-  /* border-radius: 10px; */
   border-radius: 0;
 }
 
@@ -41,8 +39,6 @@ tooltip * {
 }
 
 #workspaces button {
-  /* border-radius: 4px; */
-  /* margin-right: 2px; */
   border-radius: 0;
 }
 
@@ -57,17 +53,6 @@ tooltip * {
   background-color: @red;
 }
 
-/* Restored weather specific padding */
-#custom-weather-precip-chance {
-  padding-left: 6px;
-}
-#custom-weather-low {
-  padding: 0 4px;
-}
-#custom-weather-high {
-  padding-right: 6px;
-}
-
 /* Restored unified transitions and module padding */
 #workspaces button,
 #mpd,
@@ -80,11 +65,22 @@ tooltip * {
 #tray,
 #backlight,
 #custom-dnd,
-#custom-refresh,
+#custom-powersave,
 #clock {
   transition: 0.25s;
   transition-property: color, background-color;
   padding: 0 6px;
+}
+
+#tray {
+  border-left: 1px solid @bg1;
+  border-right: 1px solid @bg1;
+  margin: 6px 0;
+  padding: 0 6px;
+}
+
+#tray * {
+  margin: 0 -3px;
 }
 
 #battery,
@@ -121,7 +117,6 @@ tooltip * {
   font-weight: bold;
   background-color: @red;
   color: @bg0;
-  /* border-radius: 4px; */
   border-radius: 0;
 }
 
@@ -144,18 +139,8 @@ tooltip * {
   color: @blue;
 }
 
-#custom-weather-precip-chance {
-  color: @blue;
-}
-#custom-weather-low {
-  color: @aqua;
-}
-#custom-weather-high {
-  color: @orange;
-}
-
 #custom-dnd {
-  padding: 2px 6px 0 6px;
+  padding: 2px 2px 0 0;
 }
 #custom-dnd.idle {
   color: @gray;
@@ -165,9 +150,17 @@ tooltip * {
   font-weight: bold;
 }
 
-#custom-refresh.low {
-  color: @aqua;
+/* make it closer to the battery */
+#battery {
+  padding-right: 3px;
 }
-#custom-refresh.high {
+#custom-powersave {
+  padding: 0 3px 0 0;
+}
+#custom-powersave.performance {
   color: @orange;
+  margin-bottom: -1px;
+}
+#custom-powersave.powersave {
+  color: @green;
 }

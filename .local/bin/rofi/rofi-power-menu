@@ -15,7 +15,7 @@ case "$(printf "🔒 lock\n🚪 leave $WM\n♻️ renew $WM\n🔋 powersave\n�
 		sleep 1
 		pkill -SIGRTMIN+9 waybar
 		;;
-	'🔋 powersave') refresh-rate toggle ;;
+	'🔋 powersave') set-powersave toggle ;;
 	'🔃 reboot') hyprshutdown -t 'Restarting...' --post-cmd 'reboot' ;;
 	'🖥️ shutdown') hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0' ;;
 	'⏸️ suspend') $ctl suspend -i ;;

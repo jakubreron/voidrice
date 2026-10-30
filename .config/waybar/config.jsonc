@@ -8,16 +8,14 @@
   "modules-center": [],
   "modules-right": [
     // "mpd",
+    "tray",
     "pulseaudio",
     "cpu",
     "memory",
     "temperature",
     "backlight",
-    "custom/refresh",
-    "battery",
-    "tray",
-    "custom/dnd",
-    "clock",
+    "group/power",
+    "group/clock",
     "network"
   ],
   "hyprland/workspaces": {
@@ -130,15 +128,16 @@
       " "
     ]
   },
-  "network": {
-    "interval": 10,
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{signalStrength}% ",
-    "format-ethernet": "{ifname} 󰈀",
-    "tooltip-format": "{ipaddr}/{cidr}, {ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected ⚠",
-    "on-click": "$TERMINAL --title cli_network_manager --command $CLI_NETWORK_MANAGER"
+  "custom/powersave": {
+    "exec": "set-powersave",
+    "return-type": "json",
+    "interval": "once",
+    "signal": 9,
+    "on-click": "set-powersave toggle"
+  },
+  "group/power": {
+    "orientation": "inherit",
+    "modules": ["battery", "custom/powersave"]
   },
   "custom/dnd": {
     "exec": "if [ \"$(dunstctl is-paused)\" = true ]; then echo '{\"text\":\"󰂛\",\"class\":\"dnd\"}'; else echo '{\"text\":\"󰂚\",\"class\":\"idle\"}'; fi",
@@ -148,13 +147,19 @@
     "tooltip": false,
     "on-click": "dunstctl set-paused toggle && pkill -SIGRTMIN+8 waybar"
   },
-  "custom/refresh": {
-    "exec": "refresh-rate",
-    "return-type": "json",
-    "interval": "once",
-    "signal": 9,
-    "tooltip": false,
-    "on-click": "refresh-rate toggle"
+  "group/clock": {
+    "orientation": "inherit",
+    "modules": ["clock", "custom/dnd"]
+  },
+  "network": {
+    "interval": 10,
+    // "interface": "wlp2*", // (Optional) To force the use of this interface
+    "format-wifi": "{signalStrength}% ",
+    "format-ethernet": "{ifname} 󰈀",
+    "tooltip-format": "{ipaddr}/{cidr}, {ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "on-click": "$TERMINAL --title cli_network_manager --command $CLI_NETWORK_MANAGER"
   },
   "pulseaudio": {
     "ignored-sinks": [

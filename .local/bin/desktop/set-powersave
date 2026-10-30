@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+
+# Powersave toggle for the internal panel, plus a waybar status module.
+#   set-powersave          print waybar JSON for the current refresh rate
+#   set-powersave toggle   powersave on:  60 Hz + dark theme (remembers the current theme)
+#                          powersave off: 90 Hz + restores the remembered theme
+# Waybar is refreshed through signal 9.
+
+INTERNAL_DESC="Samsung Display Corp. 0x4193"
+STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/set-powersave"
+PREV_THEME_FILE="$STATE_DIR/previous-theme"
+# darkman's theme scripts restart dunst and waybar, so wait for them before notifying
+SETTLE_SECONDS=4
+
+# Waybar glyphs, written as code points so they survive copy and paste.
+# nf-md-leaf and nf-md-speedometer; swap for any Nerd Font glyph you prefer.
+ICON_POWERSAVE=$'\U000f032a'
+ICON_PERFORMANCE=$'\U000f04c5'
+
+current_rate() {
+	hyprctl monitors -j | jq -r --arg d "$INTERNAL_DESC" \
+		'[.[] | select(.description == $d)][0].refreshRate // empty | round'
+}
+
+current_theme() {
+	darkman get 2>/dev/null
+}
+
+# Switch theme only when it differs. Succeeds only if a switch was actually made.
+set_theme() {
+	[ "$(current_theme)" = "$1" ] && return 1
+	darkman set "$1"
+}
+
+status() {
+	local rate
+	rate="$(current_rate)"
+	if [ -z "$rate" ]; then
+		# Panel disabled (e.g. lid closed): empty text hides the module.
+		echo '{"text":""}'
+	elif [ "$rate" -gt 60 ]; then
+		printf '{"text":"%s","class":"performance","tooltip":"Performance (%s Hz)"}\n' "$ICON_PERFORMANCE" "$rate"
+	else
+		printf '{"text":"%s","class":"powersave","tooltip":"Powersave (%s Hz)"}\n' "$ICON_POWERSAVE" "$rate"
+	fi
+}
+
+toggle() {
+	local entering target label result prev
+	local theme_changed=1 # shell convention: 0 = true
+
+	if [ "$(current_rate)" -gt 60 ]; then
+		entering=1
+		target="2880x1800@60"
+	else
+		entering=0
+		target="highrr"
+	fi
+
+	result="$(hyprctl eval "hl.monitor({ output = 'desc:$INTERNAL_DESC', mode = '$target', position = 'auto-down', scale = '1.8' })" 2>&1)"
+	if [ "$result" != "ok" ]; then
+		notify-send --app-name=display -u critical "Powersave switch failed" "$result"
+		return 1
+	fi
+
+	# Let the mode switch show up in hyprctl before anything re-reads it.
+	sleep 0.5
+
+	if [ "$entering" = 1 ]; then
+		# Remember the theme to restore later. Keep an older value if one exists and
+		# we are already on dark (we probably set that ourselves, e.g. after a reload
+		# reset the refresh rate without leaving powersave).
+		mkdir -p "$STATE_DIR"
+		if [ ! -f "$PREV_THEME_FILE" ] || [ "$(current_theme)" = "light" ]; then
+			current_theme >"$PREV_THEME_FILE"
+		fi
+		set_theme dark && theme_changed=0
+		label="🔋 Powersave: on (60 Hz, dark theme)"
+	else
+		label="🔋 Powersave: off (90 Hz)"
+		if [ -f "$PREV_THEME_FILE" ]; then
+			prev="$(cat "$PREV_THEME_FILE")"
+			rm -f "$PREV_THEME_FILE"
+			case "$prev" in
+				light | dark)
+					set_theme "$prev" && theme_changed=0
+					label="🔋 Powersave: off (90 Hz, $prev theme restored)"
+					;;
+			esac
+		fi
+	fi
+
+	if [ "$theme_changed" = 0 ]; then
+		# The theme scripts restart waybar (it re-reads the rate on start) and dunst.
+		# Signalling waybar mid-restart could kill it, so just wait and notify.
+		sleep "$SETTLE_SECONDS"
+	else
+		pkill -SIGRTMIN+9 waybar
+	fi
+
+	notify-send --app-name=display -t 2000 "$label"
+}
+
+case "${1:-status}" in
+	toggle) toggle ;;
+	*) status ;;
+esac
