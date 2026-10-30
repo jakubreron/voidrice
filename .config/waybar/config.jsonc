@@ -37,7 +37,7 @@
   },
   "tray": {
     "icon-size": 14,
-    "spacing": 8
+    "spacing": 5
   },
   // "mpd": {
   //   "interval": 5,
@@ -69,7 +69,7 @@
   "clock": {
     // "timezone": "America/New_York",
     "interval": 60,
-    "format": "{:%Y-%m-%d 󰃭   %I:%M} 󰥔",
+    "format": "{:%Y-%m-%d 󰃭  %I:%M} 󰥔",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
   },
   "cpu": {

@@ -3,6 +3,7 @@ local BROWSER = os.getenv("BROWSER") or ""
 local BACKUP_BROWSER = os.getenv("BACKUP_BROWSER") or ""
 local EDITOR = os.getenv("EDITOR") or ""
 local VIMWIKI_DIR = os.getenv("VIMWIKI_DIR") or ""
+local INPUT_METHOD = os.getenv("INPUT_METHOD") or ""
 local CLI_MAIL_CLIENT = os.getenv("CLI_MAIL_CLIENT") or ""
 local CLI_FILE_EXPLORER = os.getenv("CLI_FILE_EXPLORER") or ""
 local GUI_FILE_EXPLORER = os.getenv("GUI_FILE_EXPLORER") or ""
@@ -102,13 +103,12 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("hypridle")
 	hl.exec_cmd("darkman run")
 
-	hl.exec_cmd(os.getenv("INPUT_METHOD") or "")
+	hl.exec_cmd(INPUT_METHOD)
 
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
 	hl.exec_cmd("wl-paste --type image --watch cliphist store")
 
 	hl.exec_cmd("QT_QUICK_BACKEND=software easyeffects --gapplication-service")
-	hl.exec_cmd("/usr/bin/kdeconnectd")
 	hl.exec_cmd("kdeconnect-indicator")
 	hl.exec_cmd("transmission-daemon")
 end)

@@ -1,38 +1,45 @@
-@import "colorscheme.css"; 
+@import "colorscheme.css";
 
-#waybar {
+/* ==========================================================================
+   Notes (Waybar uses GTK3 CSS, not browser CSS)
+   - No var()/custom properties, no flexbox/grid/gap, no @media. Colours come
+     from @define-color (colorscheme.css); spacing is plain px.
+   - Spacing model: every module is padded "0 6px". Modules that share a group
+     keep 6px on their outer edges and use 2px on the edge they share.
+   - A group's CSS id is the part after "group/", so never name a group after a
+     module ("group/clock" would make #clock match the group AND the clock).
+     The config uses group/power and group/datetime.
+   ========================================================================== */
+
+/* ---------- Bar ---------- */
+
+window#waybar {
+  background: @bg0;
+  color: @fg1;
   font-family: sans-serif;
   font-size: 12.5px;
   font-weight: 600;
-  background: @bg0;
 }
-
-#waybar,
-#workspaces button {
-  color: @fg1;
-}
-
-/* #waybar > * { */
-/*   margin-left: 4px; */
-/* } */
 
 #waybar > :last-child {
   margin-right: 4px;
 }
 
 tooltip {
-  font-size: 13.5px;
-  opacity: 0.9;
   background: @bg0;
   border: 2px solid @act_fg;
   border-radius: 0;
+  font-size: 13.5px;
+  opacity: 0.9;
 }
 
 tooltip * {
-  font-family: monospace;
   color: @fg1;
+  font-family: monospace;
   text-shadow: none;
 }
+
+/* ---------- Workspaces ---------- */
 
 #workspaces {
   margin-right: 8px;
@@ -40,6 +47,7 @@ tooltip * {
 
 #workspaces button {
   border-radius: 0;
+  color: @fg1;
 }
 
 #workspaces button.active {
@@ -48,119 +56,124 @@ tooltip * {
 }
 
 #workspaces button.urgent {
-  font-weight: bold;
-  color: @bg0;
   background-color: @red;
+  color: @bg0;
+  font-weight: bold;
 }
 
-/* Restored unified transitions and module padding */
+/* ---------- Shared module metrics ---------- */
+
 #workspaces button,
-#mpd,
 #pulseaudio,
-#network,
 #cpu,
 #memory,
 #temperature,
-#battery,
-#tray,
 #backlight,
-#custom-dnd,
+#battery,
 #custom-powersave,
-#clock {
+#custom-dnd,
+#clock,
+#network {
+  padding: 0 6px;
   transition: 0.25s;
   transition-property: color, background-color;
-  padding: 0 6px;
 }
+
+/* Pairs that share a group: tight inner edge, normal outer edges */
+#cpu,
+#battery,
+#clock {
+  padding-right: 3px;
+}
+
+#memory,
+#custom-powersave,
+#custom-dnd {
+  padding-left: 3px;
+}
+
+/* Material glyphs sit high next to text; nudge them down.
+   Tweak this one value (or add a per-state override) if a glyph looks off. */
+#custom-powersave,
+#custom-dnd {
+  padding-top: 2px;
+}
+
+/* ---------- Tray ---------- */
 
 #tray {
   border-left: 1px solid @bg1;
   border-right: 1px solid @bg1;
   margin: 6px 0;
-  padding: 0 6px;
+  padding: 0 3px;
 }
 
-#tray * {
-  margin: 0 -3px;
+/* ---------- Colours ---------- */
+
+#pulseaudio {
+  color: @purple;
 }
 
-#battery,
-#battery.charging {
-  color: @green;
-}
-
-#battery.warning:not(.charging),
-#battery.critical:not(.charging) {
-  font-weight: bold;
-}
-
-#battery.warning:not(.charging) {
-  color: @orange;
-}
-
-#battery.critical:not(.charging) {
-  color: @red;
-}
-
-#network.disconnected {
-  color: @red;
-}
-
-#memory,
-#cpu {
+#cpu,
+#memory {
   color: @blue;
 }
 
 #temperature {
   color: @red;
 }
-#temperature.critical {
-  font-weight: bold;
-  background-color: @red;
-  color: @bg0;
-  border-radius: 0;
-}
 
 #backlight {
   color: @yellow;
 }
 
-#mpd.disconnected {
-  color: @red;
-}
-#mpd.paused,
-#pulseaudio.muted {
-  color: @gray;
+#battery {
+  color: @green;
 }
 
-#pulseaudio {
-  color: @purple;
-}
+/* ---------- States ---------- */
+
 #pulseaudio.bluetooth:not(.muted) {
   color: @blue;
 }
 
-#custom-dnd {
-  padding: 2px 2px 0 0;
-}
-#custom-dnd.idle {
+#pulseaudio.muted {
   color: @gray;
 }
-#custom-dnd.dnd {
+
+#battery.warning:not(.charging) {
   color: @orange;
   font-weight: bold;
 }
 
-/* make it closer to the battery */
-#battery {
-  padding-right: 3px;
+#battery.critical:not(.charging) {
+  color: @red;
+  font-weight: bold;
 }
-#custom-powersave {
-  padding: 0 3px 0 0;
+
+#temperature.critical {
+  background-color: @red;
+  color: @bg0;
+  font-weight: bold;
 }
+
+#network.disconnected {
+  color: @red;
+}
+
 #custom-powersave.performance {
   color: @orange;
-  margin-bottom: -1px;
 }
+
 #custom-powersave.powersave {
   color: @green;
+}
+
+#custom-dnd.idle {
+  color: @gray;
+}
+
+#custom-dnd.dnd {
+  color: @orange;
+  font-weight: bold;
 }
