@@ -1,3 +1,3 @@
-usegeoclue: true
+usegeoclue: false # automatic dark mode
 dbusserver: true
 portal: true
