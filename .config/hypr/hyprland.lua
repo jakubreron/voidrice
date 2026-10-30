@@ -238,11 +238,11 @@ hl.window_rule({
 
 -- Learning & Media
 hl.window_rule({ name = "anki-ws", match = { class = "^(.*)(anki)(.*)$" }, workspace = "5" })
-hl.window_rule({ name = "mpv-ws", match = { class = "^(.*)(mpv)(.*)$" }, workspace = "5" })
+hl.window_rule({ name = "mpv-ws", match = { class = "^(.*)(mpv)(.*)$" }, workspace = "6" })
 
 -- Games
-hl.window_rule({ name = "nostale-ws", match = { title = "^(.*)(NosTale)(.*)$" }, workspace = "6", float = true })
-hl.window_rule({ name = "steam-ws", match = { title = "^(.*)(Steam)(.*)$" }, workspace = "6", float = true })
+hl.window_rule({ name = "nostale-ws", match = { title = "^(.*)(NosTale)(.*)$" }, workspace = "7", float = true })
+hl.window_rule({ name = "steam-ws", match = { title = "^(.*)(Steam)(.*)$" }, workspace = "7", float = true })
 
 -- Audio
 hl.window_rule({ name = "easyeffects-ws", match = { class = "^(.*)(easyeffects)(.*)$" }, workspace = "8" })
