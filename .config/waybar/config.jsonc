@@ -15,7 +15,7 @@
     "temperature",
     "backlight",
     "group/power",
-    "group/clock",
+    "group/datetime",
     "network"
   ],
   "hyprland/workspaces": {
@@ -148,7 +148,7 @@
     "tooltip": false,
     "on-click": "dunstctl set-paused toggle && pkill -SIGRTMIN+8 waybar"
   },
-  "group/clock": {
+  "group/datetime": {
     "orientation": "inherit",
     "modules": ["clock", "custom/dnd"]
   },
