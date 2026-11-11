@@ -1,0 +1,4 @@
+#!/bin/sh
+# clear kitty-protocol images drawn by chafa in the preview pane
+[ -n "$KITTY_WINDOW_ID" ] && kitten icat --clear --stdin=no --silent </dev/null >/dev/tty 2>/dev/null
+exit 0

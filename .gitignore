@@ -33,3 +33,6 @@ shortcuts.vim
 /.config/easyeffects/db/easyeffectsrc
 .config/karabiner/automatic_backups/
 .config/homebrew/trust.json.lock
+
+.local/share/npm/*
+!.local/share/npm/.gitkeep

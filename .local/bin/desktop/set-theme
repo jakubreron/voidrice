@@ -22,6 +22,7 @@ esac
 
 declare -a cli_theme_paths=(
 "$XDG_CONFIG_HOME/alacritty/colorscheme.toml"
+"$XDG_CONFIG_HOME/kitty/colorscheme.conf"
 "$NVIM_DIR/plugin/colorscheme.lua"
 "$XDG_CONFIG_HOME/hypr/hyprpaper.conf"
 "$XDG_CONFIG_HOME/btop/btop.conf"
@@ -48,6 +49,11 @@ done
 # NOTE: refresh theme
 log-pretty-message "Refreshing alacritty" "🔄"
 touch "$XDG_CONFIG_HOME/alacritty/alacritty.toml"
+
+if pgrep -x kitty >/dev/null; then
+  log-pretty-message "Refreshing kitty" "🔄"
+  pkill -USR1 -x kitty
+fi
 
 if command -v tmux >/dev/null 2>&1; then
   if pgrep -f "tmux" >/dev/null; then

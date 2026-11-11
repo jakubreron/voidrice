@@ -5,7 +5,12 @@ mkdir -p "$cache_dir"
 CACHE="$cache_dir/thumbnail.$(printf '%s\n%s' "$(readlink -f "$1")" "$(ls -ldn "$1")" | cksum | cut -d' ' -f1)"
 
 image() {
-  chafa "$1" -s "${2}x${3}"
+  # lf can't render kitty graphics from stdout, so draw straight to the tty at the pane position
+  if [ -n "$KITTY_WINDOW_ID" ] && [ -z "$TMUX" ]; then
+    kitten icat --silent --stdin=no --transfer-mode=file --place "${2}x${3}@${4}x${5}" "$1" </dev/null >/dev/tty
+  else
+    chafa "$1" -s "${2}x${3}"
+  fi
 }
 
 batorcat() {

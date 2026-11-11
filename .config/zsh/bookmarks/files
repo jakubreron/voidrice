@@ -1,9 +1,9 @@
 cfp      $HOME/.zprofile
 cfz      $ZDOTDIR/.zshrc
-cfa      $ZDOTDIR/aliases
+cfa      $HOME/.agents/
+cfA      $ZDOTDIR/aliases
 cfb      $ZDOTDIR/bookmarks
 
-cfA      $XDG_CONFIG_HOME/alacritty/alacritty.toml
 cfh      $XDG_CONFIG_HOME/hypr
 cfw      $XDG_CONFIG_HOME/waybar
 cflf     $XDG_CONFIG_HOME/lf
