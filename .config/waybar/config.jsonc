@@ -20,7 +20,7 @@
   ],
   "hyprland/workspaces": {
     "sort-by-name": true,
-    "format": "{name}: {icon} ",
+    "format": "{name}: {icon}",
     "format-icons": {
       "1": "󰈹",
       "2": "",
@@ -70,7 +70,7 @@
   "clock": {
     // "timezone": "America/New_York",
     "interval": 60,
-    "format": "{:%Y-%m-%d 󰃭  %I:%M} 󰥔",
+    "format": "{:%Y-%m-%d 󰃭 %I:%M} 󰥔",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
   },
   "cpu": {
@@ -89,7 +89,7 @@
     // "thermal-zone": 2,
     // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     "critical-threshold": 85,
-    "format-critical": "{temperatureC}°C {icon}",
+    "format-critical": "{temperatureC}°C  {icon}",
     "format": "{temperatureC}°C {icon}",
     "format-icons": [
       "",
@@ -119,14 +119,14 @@
     "format-alt": "{time} {icon}",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
-    // "format-warning": "{capacity}% {icon}",
-    // "format-critical": "{capacity}% {icon}", 
+    // "format-warning": "{capacity}%  {icon}",
+    // "format-critical": "{capacity}%  {icon}", 
     "format-icons": [
-      " ",
-      " ",
-      " ",
-      " ",
-      " "
+      "",
+      "",
+      "",
+      "",
+      ""
     ]
   },
   "custom/powersave": {
@@ -168,9 +168,9 @@
       "Easy Effects Source",
       "Monitor of Easy Effects Sink"
     ],
-    "format": "{volume}% {icon}  {format_source}",
-    "format-bluetooth": "{volume}% {icon}   {format_source}",
-    "format-bluetooth-muted": "0% {icon}   {format_source}",
+    "format": "{volume}% {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon}  {format_source}",
+    "format-bluetooth-muted": "0% {icon}  {format_source}",
     "format-source": "{volume}% ",
     "format-source-muted": "0% ",
     "format-muted": "0% 󰝟",
