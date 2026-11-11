@@ -11,13 +11,11 @@
      The config uses group/system, group/power and group/datetime.
    ========================================================================== */
 
-/* ---------- Bar ---------- */
-
 window#waybar {
   background: @bg0;
   color: @fg1;
   font-family: sans-serif, "JetBrainsMono Nerd Font Propo";
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 600;
 }
 
@@ -39,10 +37,25 @@ tooltip * {
   text-shadow: none;
 }
 
-/* ---------- Workspaces ---------- */
+/* ---------- Shared module metrics ---------- */
 
-#workspaces {
-  margin-right: 8px;
+#window,
+#workspaces button,
+#pulseaudio,
+#custom-bluetooth-battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#battery,
+#custom-powersave,
+#custom-dnd,
+#tray,
+#clock,
+#network {
+  padding: 0 6px;
+  transition: 0.25s;
+  transition-property: color, background-color;
 }
 
 #workspaces button {
@@ -61,49 +74,10 @@ tooltip * {
   font-weight: bold;
 }
 
-/* ---------- Shared module metrics ---------- */
-
-#workspaces button,
-#pulseaudio,
-#custom-bluetooth-battery,
-#cpu,
-#memory,
-#temperature,
-#backlight,
-#battery,
-#custom-powersave,
-#custom-dnd,
-#clock,
-#network {
-  padding: 0 6px;
-  transition: 0.25s;
-  transition-property: color, background-color;
+.low,
+.critical {
+  font-weight: bold;
 }
-
-/* Modules inside a group: the group box and each module take 3px per side, which adds up to the
-   same 6px outer edge and 6px between the two modules. */
-#system,
-#power,
-#datetime,
-#cpu,
-#memory,
-#battery,
-#custom-powersave,
-#clock,
-#custom-dnd {
-  padding: 0 3px;
-}
-
-/* ---------- Tray ---------- */
-
-#tray {
-  border-left: 1px solid @bg1;
-  border-right: 1px solid @bg1;
-  margin: 6px 0;
-  padding: 0 3px;
-}
-
-/* ---------- Colours ---------- */
 
 #pulseaudio {
   color: @purple;
@@ -127,8 +101,6 @@ tooltip * {
   color: @green;
 }
 
-/* ---------- States ---------- */
-
 #pulseaudio.bluetooth:not(.muted) {
   color: @blue;
 }
@@ -139,7 +111,6 @@ tooltip * {
 
 #custom-bluetooth-battery.low {
   color: @red;
-  font-weight: bold;
 }
 
 #battery.warning:not(.charging) {
@@ -149,13 +120,11 @@ tooltip * {
 
 #battery.critical:not(.charging) {
   color: @red;
-  font-weight: bold;
 }
 
 #temperature.critical {
   background-color: @red;
   color: @bg0;
-  font-weight: bold;
 }
 
 #network.disconnected {
@@ -163,18 +132,17 @@ tooltip * {
 }
 
 #custom-powersave.performance {
-  color: @orange;
+  color: @red;
 }
 
 #custom-powersave.powersave {
   color: @green;
 }
 
-#custom-dnd.idle {
-  color: @gray;
-}
+/* #custom-dnd.idle { */
+/*   color: @gray; */
+/* } */
 
 #custom-dnd.dnd {
   color: @orange;
-  font-weight: bold;
 }

@@ -1,5 +1,5 @@
 {
-  "layer": "top", // Waybar at top layer
+  "layer": "top",
   "position": "top", // Waybar position (top|bottom|left|right)
   "modules-left": [
     "hyprland/workspaces",
@@ -7,20 +7,22 @@
   ],
   "modules-center": [],
   "modules-right": [
-    // "mpd",
     "tray",
     "pulseaudio",
     "custom/bluetooth-battery",
-    "group/system",
+    "cpu",
+    "memory",
     "temperature",
     "backlight",
-    "group/power",
-    "group/datetime",
+    "battery", 
+    "custom/powersave",
+    "clock", 
+    "custom/dnd",
     "network"
   ],
   "hyprland/workspaces": {
     "sort-by-name": true,
-    "format": "{name}: {icon}",
+    "format": "{name} {icon}",
     "format-icons": {
       "1": "󰈹",
       "2": "",
@@ -38,37 +40,9 @@
   },
   "tray": {
     "icon-size": 14,
-    "spacing": 5
+    "spacing": 6
   },
-  // "mpd": {
-  //   "interval": 5,
-  //   "format": "{stateIcon}{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} {title}  ",
-  //   "format-disconnected": "Disconnected  ",
-  //   "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon} Stopped  ",
-  //   "title-len": 50,
-  //   "consume-icons": {
-  //     "on": ""
-  //   },
-  //   "random-icons": {
-  //     "off": " ",
-  //     "on": "<span color=\"#40a02b\"></span> "
-  //   },
-  //   "repeat-icons": {
-  //     "on": "<span color=\"#40a02b\"></span> "
-  //   },
-  //   "single-icons": {
-  //     "on": "<span color=\"#40a02b\">1 </span> "
-  //   },
-  //   "state-icons": {
-  //     "paused": " ",
-  //     "playing": "<span color=\"#40a02b\"></span> "
-  //   },
-  //   "tooltip-format": "{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}%",
-  //   "tooltip-format-disconnected": "MPD (disconnected)",
-  //   "on-click": "$TERMINAL --title cli_music_player --command $CLI_MUSIC_PLAYER"
-  // },
   "clock": {
-    // "timezone": "America/New_York",
     "interval": 60,
     "format": "{:%Y-%m-%d 󰃭 %I:%M} 󰥔",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
@@ -86,8 +60,6 @@
   },
   "temperature": {
     "interval": 10,
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
     "critical-threshold": 85,
     "format-critical": "{temperatureC}°C  {icon}",
     "format": "{temperatureC}°C {icon}",
@@ -141,14 +113,6 @@
     "return-type": "json",
     "interval": 60
   },
-  "group/system": {
-    "orientation": "inherit",
-    "modules": ["cpu", "memory"]
-  },
-  "group/power": {
-    "orientation": "inherit",
-    "modules": ["battery", "custom/powersave"]
-  },
   "custom/dnd": {
     "exec": "if [ \"$(dunstctl is-paused)\" = true ]; then echo '{\"text\":\"󰂛\",\"class\":\"dnd\"}'; else echo '{\"text\":\"󰂚\",\"class\":\"idle\"}'; fi",
     "return-type": "json",
@@ -157,13 +121,8 @@
     "tooltip": false,
     "on-click": "dunstctl set-paused toggle && pkill -SIGRTMIN+8 waybar"
   },
-  "group/datetime": {
-    "orientation": "inherit",
-    "modules": ["clock", "custom/dnd"]
-  },
   "network": {
     "interval": 10,
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "{signalStrength}% ",
     "format-ethernet": "{ifname} 󰈀",
     "tooltip-format": "{ipaddr}/{cidr}, {ifname} via {gwaddr} ",

@@ -77,16 +77,6 @@ if command -v dunst >/dev/null 2>&1; then
   fi
 fi
 
-if command -v waybar >/dev/null 2>&1; then
-  if pgrep -f waybar >/dev/null; then
-    log-pretty-message "Restarting waybar" "🔄"
-    killall waybar && sleep 1 && nohup waybar &
-  else
-    log-pretty-message "Starting waybar" "🚀"
-    nohup waybar &
-  fi
-fi
-
 if command -v hyprpaper >/dev/null 2>&1; then
   log-pretty-message "Restarting hyprpaper" "🔄"
   pkill -x hyprpaper
