@@ -13,6 +13,11 @@ user_pref("ui.key.menuAccessKey", 0); // disable alt key toggling the menu bar [
 user_pref("browser.ctrlTab.sortByRecentlyUsed", true);
 user_pref("xpinstall.signatures.required", false);
 
+/* TRANSLATIONS ***/
+user_pref("browser.translations.enable", true); // on-device page translation
+user_pref("browser.translations.automaticallyPopup", true); // offer to translate pages in other languages
+user_pref("browser.translations.neverTranslateLanguages", "en,pl"); // never offer to translate English and Polish
+
 /* WARNINGS ***/
 user_pref("full-screen-api.warning.timeout", 0); // disable "... is now fullscreen" warning
 
