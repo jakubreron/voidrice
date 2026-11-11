@@ -10,6 +10,7 @@
     // "mpd",
     "tray",
     "pulseaudio",
+    "custom/bluetooth-battery",
     "group/system",
     "temperature",
     "backlight",
@@ -134,6 +135,11 @@
     "interval": "once",
     "signal": 9,
     "on-click": "set-powersave toggle"
+  },
+  "custom/bluetooth-battery": {
+    "exec": "bluetooth-battery",
+    "return-type": "json",
+    "interval": 60
   },
   "group/system": {
     "orientation": "inherit",

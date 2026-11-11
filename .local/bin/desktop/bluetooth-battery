@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+
+# Battery level of connected bluetooth devices, as a waybar status module.
+#   bluetooth-battery   print waybar JSON: the lowest level in the text, every device in the tooltip
+# Devices come from upower, which reads the battery BlueZ reports. A device that reports none is not
+# listed, and the text stays empty (the module is hidden) when no device is left.
+
+LOW_LEVEL=20
+
+# Waybar glyphs, written as code points so they survive copy and paste.
+# nf-md-headphones, nf-md-mouse, nf-md-keyboard and nf-md-bluetooth.
+ICON_HEADSET=$'\U000f02cb'
+ICON_MOUSE=$'\U000f037d'
+ICON_KEYBOARD=$'\U000f030c'
+ICON_OTHER=$'\U000f00af'
+
+icon_for() {
+	case "$1" in
+		headset | headphones) printf '%s' "$ICON_HEADSET" ;;
+		mouse) printf '%s' "$ICON_MOUSE" ;;
+		keyboard) printf '%s' "$ICON_KEYBOARD" ;;
+		*) printf '%s' "$ICON_OTHER" ;;
+	esac
+}
+
+hide() {
+	echo '{"text":""}'
+	exit 0
+}
+
+command -v upower >/dev/null 2>&1 || hide
+
+lowest=101
+lowest_icon=""
+tooltip=""
+
+while read -r path; do
+	info="$(upower -i "$path" 2>/dev/null)"
+
+	# Only bluetooth devices that run on a battery, not the laptop battery or the mains.
+	grep -q '/org/bluez/' <<<"$info" || continue
+	grep -q 'power supply: *no' <<<"$info" || continue
+
+	level="$(awk '/percentage:/ {gsub("%", "", $2); print $2; exit}' <<<"$info")"
+	[ -n "$level" ] || continue
+
+	name="$(awk -F': *' '/model:/ {print $2; exit}' <<<"$info")"
+	kind="$(awk '/^  [a-z-]+$/ {print $1; exit}' <<<"$info")"
+	icon="$(icon_for "$kind")"
+
+	tooltip+="${tooltip:+$'\n'}$icon ${name:-$kind} $level%"
+	if [ "$level" -lt "$lowest" ]; then
+		lowest="$level"
+		lowest_icon="$icon"
+	fi
+done < <(upower -e 2>/dev/null)
+
+[ "$lowest" -le 100 ] || hide
+
+class="normal"
+[ "$lowest" -le "$LOW_LEVEL" ] && class="low"
+
+jq -nc --arg text "$lowest_icon $lowest%" --arg tooltip "$tooltip" --arg class "$class" \
+	'{text: $text, tooltip: $tooltip, class: $class}'
