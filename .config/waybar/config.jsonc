@@ -10,8 +10,7 @@
     // "mpd",
     "tray",
     "pulseaudio",
-    "cpu",
-    "memory",
+    "group/system",
     "temperature",
     "backlight",
     "group/power",
@@ -135,6 +134,10 @@
     "interval": "once",
     "signal": 9,
     "on-click": "set-powersave toggle"
+  },
+  "group/system": {
+    "orientation": "inherit",
+    "modules": ["cpu", "memory"]
   },
   "group/power": {
     "orientation": "inherit",

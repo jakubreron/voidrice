@@ -8,7 +8,7 @@
      keep 6px on their outer edges and use 2px on the edge they share.
    - A group's CSS id is the part after "group/", so never name a group after a
      module ("group/clock" would make #clock match the group AND the clock).
-     The config uses group/power and group/datetime.
+     The config uses group/system, group/power and group/datetime.
    ========================================================================== */
 
 /* ---------- Bar ---------- */
@@ -79,24 +79,18 @@ tooltip * {
   transition-property: color, background-color;
 }
 
-/* Pairs that share a group: tight inner edge, normal outer edges */
+/* Modules inside a group: the group box and each module take 3px per side, which adds up to the
+   same 6px outer edge and 6px between the two modules. */
+#system,
+#power,
+#datetime,
 #cpu,
-#battery,
-#clock {
-  padding-right: 3px;
-}
-
 #memory,
+#battery,
 #custom-powersave,
+#clock,
 #custom-dnd {
-  padding-left: 3px;
-}
-
-/* Material glyphs sit high next to text; nudge them down.
-   Tweak this one value (or add a per-state override) if a glyph looks off. */
-#custom-powersave,
-#custom-dnd {
-  padding-top: 2px;
+  padding: 0 3px;
 }
 
 /* ---------- Tray ---------- */
