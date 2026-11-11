@@ -11,6 +11,9 @@ STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/set-powersave"
 PREV_THEME_FILE="$STATE_DIR/previous-theme"
 # darkman's theme scripts restart dunst and waybar, so wait for them before notifying
 SETTLE_SECONDS=4
+# Own state file, because hypridle also saves and restores this light with light -O and light -I
+KBD_BACKLIGHT="sysfs/leds/tpacpi::kbd_backlight"
+PREV_KBD_FILE="$STATE_DIR/previous-kbd-backlight"
 
 # Waybar glyphs, written as code points so they survive copy and paste.
 # nf-md-leaf and nf-md-speedometer; swap for any Nerd Font glyph you prefer.
@@ -30,6 +33,23 @@ current_theme() {
 set_theme() {
 	[ "$(current_theme)" = "$1" ] && return 1
 	darkman set "$1"
+}
+
+kbd_backlight_off() {
+	local level
+	level="$(light -G -s "$KBD_BACKLIGHT" 2>/dev/null)" || return 0 # no keyboard backlight on this machine
+	mkdir -p "$STATE_DIR"
+	# Keep an older value if one exists and the light is already off (we probably turned it off ourselves).
+	if [ ! -f "$PREV_KBD_FILE" ] || [ "${level%%.*}" -gt 0 ]; then
+		echo "$level" >"$PREV_KBD_FILE"
+	fi
+	light -S 0 -s "$KBD_BACKLIGHT"
+}
+
+kbd_backlight_restore() {
+	[ -f "$PREV_KBD_FILE" ] || return 0
+	light -S "$(cat "$PREV_KBD_FILE")" -s "$KBD_BACKLIGHT"
+	rm -f "$PREV_KBD_FILE"
 }
 
 status() {
@@ -75,8 +95,10 @@ toggle() {
 			current_theme >"$PREV_THEME_FILE"
 		fi
 		set_theme dark && theme_changed=0
-		label="🔋 Powersave: on (60 Hz, dark theme)"
+		kbd_backlight_off
+		label="🔋 Powersave: on (60 Hz, dark theme, keyboard light off)"
 	else
+		kbd_backlight_restore
 		label="🔋 Powersave: off (90 Hz)"
 		if [ -f "$PREV_THEME_FILE" ]; then
 			prev="$(cat "$PREV_THEME_FILE")"
