@@ -4,7 +4,7 @@ local BACKUP_BROWSER = os.getenv("BACKUP_BROWSER") or ""
 local EDITOR = os.getenv("EDITOR") or ""
 local VIMWIKI_DIR = os.getenv("VIMWIKI_DIR") or ""
 local INPUT_METHOD = os.getenv("INPUT_METHOD") or ""
-local CLI_MAIL_CLIENT = os.getenv("CLI_MAIL_CLIENT") or ""
+local GUI_MAIL_CLIENT = os.getenv("GUI_MAIL_CLIENT") or ""
 local CLI_FILE_EXPLORER = os.getenv("CLI_FILE_EXPLORER") or ""
 local GUI_FILE_EXPLORER = os.getenv("GUI_FILE_EXPLORER") or ""
 local CLI_SOUND_MANAGER = os.getenv("CLI_SOUND_MANAGER") or ""
@@ -223,7 +223,7 @@ hl.window_rule({ name = "terminal-ws", match = { class = "^(.*)(Alacritty)(.*)$"
 hl.window_rule({ name = "cli-files-ws", match = { title = "^(.*)(cli_file_explorer)(.*)$" }, workspace = "2" })
 
 -- Mail Clients
-hl.window_rule({ name = "cli-mail-ws", match = { title = "^(.*)(cli_mail_client)(.*)$" }, workspace = "3" })
+hl.window_rule({ name = "gui-mail-ws", match = { title = "^(.*)(gui_mail_client)(.*)$" }, workspace = "3" })
 
 -- Social
 hl.window_rule({
@@ -346,7 +346,7 @@ hl.bind(combo_keymap("u"), hl.dsp.layout("orientationcycle"))
 hl.bind(small_keymap("i"), hl.dsp.exec_cmd("light -A 10; ddcutil --display 1 setvcp 10 + 15"), { repeating = true })
 hl.bind(combo_keymap("i"), hl.dsp.exec_cmd("light -U 10; ddcutil --display 1 setvcp 10 - 15"), { repeating = true })
 
-hl.bind(small_keymap("e"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_mail_client --command " .. CLI_MAIL_CLIENT))
+hl.bind(small_keymap("e"), hl.dsp.exec_cmd(TERMINAL .. " --title gui_mail_client --command " .. GUI_MAIL_CLIENT))
 
 hl.bind(small_keymap("o"), hl.dsp.exec_cmd(TERMINAL .. " --title cli_file_explorer --command " .. CLI_FILE_EXPLORER))
 hl.bind(combo_keymap("o"), hl.dsp.exec_cmd(GUI_FILE_EXPLORER))
@@ -460,7 +460,7 @@ hl.bind("xf86calculator", hl.dsp.exec_cmd("gnome-calculator"), { locked = true }
 hl.bind("xf86sleep", hl.dsp.exec_cmd("sudo -A zzz"), { locked = true })
 hl.bind(
 	"xf86mail",
-	hl.dsp.exec_cmd(TERMINAL .. " --title cli_mail_client --command " .. CLI_MAIL_CLIENT),
+	hl.dsp.exec_cmd(TERMINAL .. " --title gui_mail_client --command " .. GUI_MAIL_CLIENT),
 	{ locked = true }
 )
 hl.bind(
