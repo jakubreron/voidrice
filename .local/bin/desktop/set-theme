@@ -81,5 +81,6 @@ fi
 for s in $(nvr --serverlist); do
   test ! -S "$s" && continue
   log-pretty-message "Setting nvim background to $cli_theme_to for $s" "📝"
-  nvr --nostart --servername "$s" --remote-send ":set background=$cli_theme_to<CR>"
+  # -c runs an Ex command through the API; --remote-send would type it into a shell in a :terminal buffer
+  nvr --nostart --servername "$s" -c "set background=$cli_theme_to"
 done
