@@ -39,13 +39,9 @@
 }
 
 #waybar > box {
-  margin: 3px;
   background-color: @m_bg_0;
 }
 
-.module {
-  margin-bottom: -1px; /* Vertically align modules */
-}
 
 .modules-center {
   padding-left: 14px; /* Re-center the center modules */
@@ -228,8 +224,7 @@ tooltip * {
 
 #custom-left,
 #custom-right,
-#custom-left_inverse,
-#custom-right_inverse {
+#custom-center_divider {
   font-size: 19.5px;
 }
 
@@ -250,7 +245,6 @@ tooltip * {
   color: @m_bg_3;
 }
 
-#custom-left_inverse.bg_3,
-#custom-right_inverse.bg_3 {
+#custom-center_divider.bg_3 {
   color: @m_bg_3;
 }

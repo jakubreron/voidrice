@@ -19,8 +19,7 @@
     "memory",
     "custom/left#bg_3",
     "cpu",
-    "custom/left_inverse#bg_3",
-    "custom/right_inverse#bg_3",
+    "custom/center_divider#bg_3",
     "custom/dnd",
     "clock#time",
     "custom/right#bg_3",
@@ -64,17 +63,13 @@
     "format": "",
     "tooltip": false
   },
-  "custom/left_inverse#bg_3": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/right_inverse#bg_3": {
-    "format": "",
+  "custom/center_divider#bg_3": {
+    "format": "|",
     "tooltip": false
   },
   "hyprland/workspaces": {
     "sort-by-name": true,
-    "format": "{icon}",
+    "format": "{name} {icon}",
     "format-icons": {
       "1": "󰈹",
       "2": "",
