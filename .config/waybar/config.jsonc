@@ -1,27 +1,80 @@
+// Layout and pill shapes adapted from mechabar by sejjy (MIT, https://github.com/sejjy/mechabar)
 {
   "layer": "top",
-  "position": "top", // Waybar position (top|bottom|left|right)
+  "position": "top",
+  "mode": "dock",
+  "height": 0,
+  "margin": 0,
+  "spacing": 0,
+  "reload_style_on_change": true,
   "modules-left": [
     "hyprland/workspaces",
+    "custom/right#bg_1",
     "hyprland/window"
   ],
-  "modules-center": [],
+  "modules-center": [
+    "custom/left#bg_1",
+    "temperature",
+    "custom/left#bg_2",
+    "memory",
+    "custom/left#bg_3",
+    "cpu",
+    "custom/left_inverse#bg_3",
+    "custom/right_inverse#bg_3",
+    "custom/dnd",
+    "clock#time",
+    "custom/right#bg_3",
+    "clock#date",
+    "custom/right#bg_2",
+    "network",
+    "bluetooth",
+    "custom/right#bg_1"
+  ],
   "modules-right": [
     "tray",
-    "pulseaudio",
-    "cpu",
-    "memory",
-    "temperature",
+    "custom/left#bg_1",
+    "group/pulseaudio",
+    "custom/left#bg_2",
     "backlight",
-    "battery", 
-    "custom/powersave",
-    "clock", 
-    "custom/dnd",
-    "network"
+    "custom/left#bg_3",
+    "battery",
+    "custom/powersave"
   ],
+  "custom/left#bg_1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left#bg_2": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left#bg_3": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right#bg_1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right#bg_2": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right#bg_3": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left_inverse#bg_3": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right_inverse#bg_3": {
+    "format": "",
+    "tooltip": false
+  },
   "hyprland/workspaces": {
     "sort-by-name": true,
-    "format": "{name} {icon}",
+    "format": "{icon}",
     "format-icons": {
       "1": "󰈹",
       "2": "",
@@ -30,82 +83,66 @@
       "5": "󱍁",
       "6": "󰿎",
       "default": ""
-    }
+    },
+    "on-scroll-up": "hyprctl dispatch \"hl.dsp.focus({ workspace = 'r+1' })\"",
+    "on-scroll-down": "hyprctl dispatch \"hl.dsp.focus({ workspace = 'r-1' })\"",
+    "cursor": true
   },
   "hyprland/window": {
     "separate-outputs": true,
     "icon": true,
-    "icon-size": 14
+    "icon-size": 16,
+    "rewrite": {
+      "": "Desktop"
+    }
   },
   "tray": {
-    "icon-size": 14,
-    "spacing": 6
+    "icon-size": 16,
+    "spacing": 12,
+    "cursor": true
   },
-  "clock": {
-    "interval": 60,
-    "format": "{:%Y-%m-%d 󰃭 %I:%M} 󰥔",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>"
-  },
-  "cpu": {
+  "temperature": {
     "interval": 10,
-    "format": "{usage}% ",
-    "tooltip": true,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": [
+      "󱃃",
+      "󰔏",
+      "󱃂"
+    ],
+    "critical-threshold": 85,
+    "format-critical": "󰀦 {temperatureC}°C",
+    "min-length": 9,
+    "max-length": 9,
+    "tooltip-format": "In Fahrenheit: {temperatureF}°F",
     "on-click": "$TERMINAL --title cli_system_monitor --command $CLI_SYSTEM_MONITOR"
   },
   "memory": {
     "interval": 10,
-    "format": "{used:0.1f}G ",
-    "on-click": "$TERMINAL --title cli_system_monitor --command $CLI_SYSTEM_MONITOR"
-  },
-  "temperature": {
-    "interval": 10,
-    "critical-threshold": 85,
-    "format-critical": "{temperatureC}°C  {icon}",
-    "format": "{temperatureC}°C {icon}",
-    "format-icons": [
-      "",
-      "",
-      ""
-    ],
-    "on-click": "$TERMINAL --title cli_system_monitor --command $CLI_SYSTEM_MONITOR"
-  },
-  "backlight": {
-    "format": "{percent}% {icon}",
-    "format-icons": [
-      "󰃞",
-      "󰃟",
-      "󰃠"
-    ]
-  },
-  "battery": {
-    "interval": 20,
+    "format": "󰘚 {percentage}%",
     "states": {
-      "good": 80,
-      "warning": 40,
-      "critical": 20
+      "warning": 75,
+      "critical": 90
     },
-    "format": "{capacity}% {icon}",
-    "format-charging": "{capacity}% 󱐋",
-    "format-plugged": "{capacity}% ",
-    "format-alt": "{time} {icon}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
-    // "format-warning": "{capacity}%  {icon}",
-    // "format-critical": "{capacity}%  {icon}", 
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
+    "format-warning": "󰀧 {percentage}%",
+    "format-critical": "󰀧 {percentage}%",
+    "min-length": 8,
+    "max-length": 8,
+    "tooltip-format": "Memory Used: {used:0.2f} GiB / {total:0.2f} GiB",
+    "on-click": "$TERMINAL --title cli_system_monitor --command $CLI_SYSTEM_MONITOR"
   },
-  "custom/powersave": {
-    "exec": "set-powersave",
-    "return-type": "json",
-    "interval": "once",
-    "signal": 9,
-    "on-click": "set-powersave toggle"
+  "cpu": {
+    "interval": 10,
+    "format": "󰍛 {usage}%",
+    "states": {
+      "warning": 75,
+      "critical": 90
+    },
+    "format-warning": "󰀨 {usage}%",
+    "format-critical": "󰀨 {usage}%",
+    "min-length": 8,
+    "max-length": 8,
+    "tooltip": false,
+    "on-click": "$TERMINAL --title cli_system_monitor --command $CLI_SYSTEM_MONITOR"
   },
   "custom/dnd": {
     "exec": "if [ \"$(dunstctl is-paused)\" = true ]; then echo '{\"text\":\"󰂛\",\"class\":\"dnd\"}'; else echo '{\"text\":\"󰂚\",\"class\":\"idle\"}'; fi",
@@ -115,40 +152,169 @@
     "tooltip": false,
     "on-click": "dunstctl set-paused toggle && pkill -SIGRTMIN+8 waybar"
   },
+  "clock#time": {
+    "interval": 60,
+    "format": "{:%I:%M}",
+    "min-length": 5,
+    "max-length": 5,
+    "tooltip-format": "24-hour time: {:%H:%M}"
+  },
+  "clock#date": {
+    "interval": 60,
+    "format": "󰸗 {:%Y-%m-%d}",
+    "actions": {
+      "on-click": "mode"
+    },
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "format": {
+        "months": "<span alpha='100%'>{}</span>",
+        "days": "<span alpha='85%'>{}</span>",
+        "weekdays": "<span alpha='60%'><i>{}</i></span>",
+        "today": "<span alpha='100%'><u>{}</u></span>"
+      }
+    },
+    "tooltip-format": "{calendar}"
+  },
   "network": {
     "interval": 10,
-    "format-wifi": "{signalStrength}% ",
-    "format-ethernet": "{ifname} 󰈀",
-    "tooltip-format": "{ipaddr}/{cidr}, {ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected ⚠",
-    "on-click": "$TERMINAL --title cli_network_manager --command $CLI_NETWORK_MANAGER"
+    "format": "󰤨",
+    "format-wifi": "{icon}",
+    "format-icons": [
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "format-disconnected": "󰤯",
+    "format-disabled": "󰤮",
+    "format-ethernet": "󰈀",
+    "min-length": 2,
+    "max-length": 2,
+    "on-click": "$TERMINAL --title cli_network_manager --command $CLI_NETWORK_MANAGER",
+    "tooltip-format": "Gateway: {gwaddr}",
+    "tooltip-format-wifi": "Network: {essid}\nIP Addr: {ipaddr}/{cidr}\nStrength: {signalStrength}%\nFrequency: {frequency} GHz",
+    "tooltip-format-disconnected": "Wi-Fi Disconnected",
+    "tooltip-format-disabled": "Wi-Fi Off",
+    "tooltip-format-ethernet": "Interface: {ifname}"
   },
-  "pulseaudio": {
+  "bluetooth": {
+    "format": "󰂯",
+    "format-on": "󰂰",
+    "format-connected": "󰂱",
+    "format-connected-battery": "󰂱 {device_battery_percentage}%",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "tooltip-format": "Device Addr: {device_address}",
+    "tooltip-format-on": "Bluetooth Disconnected",
+    "tooltip-format-connected": "Device: {device_alias}",
+    "tooltip-format-off": "Bluetooth Off",
+    "tooltip-format-disabled": "Bluetooth Disabled",
+    "tooltip-format-connected-battery": "Device: {device_alias}\nBattery: {device_battery_percentage}%",
+    "tooltip-format-enumerate-connected": "Device: {device_alias}",
+    "tooltip-format-enumerate-connected-battery": "Device: {device_alias}\nBattery: {device_battery_percentage}%"
+  },
+  "group/pulseaudio": {
+    "modules": [
+      "pulseaudio#output",
+      "pulseaudio#input"
+    ],
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-left-to-right": false
+    }
+  },
+  "pulseaudio#output": {
     "ignored-sinks": [
       "Easy Effects Sink",
       "Easy Effects Source",
       "Monitor of Easy Effects Sink"
     ],
-    "format": "{volume}% {icon} {format_source}",
-    "format-bluetooth": "{volume}% {icon}  {format_source}",
-    "format-bluetooth-muted": "0% {icon}  {format_source}",
-    "format-source": "{volume}% ",
-    "format-source-muted": "0% ",
-    "format-muted": "0% 󰝟",
+    "format": "{icon} {volume}%",
+    "format-muted": "{icon} {volume}%",
     "format-icons": {
-      "headphone": "",
-      "hands-free": "󱡏",
-      "headset": "󱡏",
-      "phone": "",
-      "portable": "",
-      "car": "",
       "default": [
-        "",
-        "",
-        ""
-      ]
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ],
+      "default-muted": "󰝟",
+      "headphone": "󰋋",
+      "headphone-muted": "󰟎",
+      "headset": "󰋎",
+      "headset-muted": "󰋐"
     },
-    "on-click": "$TERMINAL --title cli_sound_manager --command $CLI_SOUND_MANAGER"
+    "min-length": 8,
+    "max-length": 8,
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "$TERMINAL --title cli_sound_manager --command $CLI_SOUND_MANAGER",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+    "tooltip-format": "Output Device: {desc}"
+  },
+  "pulseaudio#input": {
+    "format": "{format_source}",
+    "format-source": "󰍬 {volume}%",
+    "format-source-muted": "󰍭 {volume}%",
+    "min-length": 8,
+    "max-length": 8,
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+    "tooltip-format": "Input Device: {desc}"
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "min-length": 8,
+    "max-length": 8,
+    "on-scroll-up": "light -A 5",
+    "on-scroll-down": "light -U 5",
+    "tooltip-format": "Screen Brightness"
+  },
+  "battery": {
+    "interval": 20,
+    "format": "{icon} {capacity}%",
+    "format-icons": [
+      "󰂎",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
+    "format-charging": "󰉁 {capacity}%",
+    "states": {
+      "warning": 40,
+      "critical": 20
+    },
+    "min-length": 8,
+    "max-length": 8,
+    "tooltip-format": "Battery Discharging: {time}",
+    "tooltip-format-charging": "Battery Charging: {time}",
+    "tooltip-format-full": "Battery Full",
+    "format-time": "{H}h {M}m"
+  },
+  "custom/powersave": {
+    "exec": "set-powersave",
+    "return-type": "json",
+    "interval": "once",
+    "signal": 9,
+    "on-click": "set-powersave toggle"
   }
 }
