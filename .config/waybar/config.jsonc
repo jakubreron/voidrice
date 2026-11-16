@@ -9,7 +9,6 @@
   "modules-right": [
     "tray",
     "pulseaudio",
-    "custom/bluetooth-battery",
     "cpu",
     "memory",
     "temperature",
@@ -107,11 +106,6 @@
     "interval": "once",
     "signal": 9,
     "on-click": "set-powersave toggle"
-  },
-  "custom/bluetooth-battery": {
-    "exec": "bluetooth-battery",
-    "return-type": "json",
-    "interval": 60
   },
   "custom/dnd": {
     "exec": "if [ \"$(dunstctl is-paused)\" = true ]; then echo '{\"text\":\"󰂛\",\"class\":\"dnd\"}'; else echo '{\"text\":\"󰂚\",\"class\":\"idle\"}'; fi",

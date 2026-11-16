@@ -42,7 +42,6 @@ tooltip * {
 #window,
 #workspaces button,
 #pulseaudio,
-#custom-bluetooth-battery,
 #cpu,
 #memory,
 #temperature,
@@ -83,7 +82,6 @@ tooltip * {
   color: @purple;
 }
 
-#custom-bluetooth-battery,
 #cpu,
 #memory {
   color: @blue;
@@ -107,10 +105,6 @@ tooltip * {
 
 #pulseaudio.muted {
   color: @gray;
-}
-
-#custom-bluetooth-battery.low {
-  color: @red;
 }
 
 #battery.warning:not(.charging) {
