@@ -4,13 +4,13 @@
 @define-color bg3      #bdae93;
 @define-color fg1      #3c3836;
 @define-color fg2      #665c54;
-@define-color gray     #7c6f64;
+@define-color gray     #776a60;
 @define-color red      #9d0006;
-@define-color green    #79740e;
-@define-color yellow   #b57614;
+@define-color green    #746f0d;
+@define-color yellow   #956110;
 @define-color blue     #076678;
 @define-color purple   #8f3f71;
-@define-color aqua     #427b58;
+@define-color aqua     #407755;
 @define-color orange   #af3a03;
 /* Specific highlight for workspaces (Deeper tones for light bg) */
 @define-color act_bg   #ebdbb2;

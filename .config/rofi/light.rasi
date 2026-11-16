@@ -3,11 +3,11 @@
     bg-base:      #fbf1c7;
     bg-mantle:    #ebdbb2;
     fg-text:      #3c3836;
-    gruv-yellow:  #b57614;
+    gruv-yellow:  #956110;
     gruv-orange:  #af3a03;
     gruv-blue:    #076678;
     gruv-red:     #9d0006;
-    gruv-gray:    #7c6f64;
+    gruv-gray:    #776a60;
 
     /* Theme Mapping */
     background:                  @bg-base;
