@@ -34,7 +34,18 @@ declare -a cli_theme_paths=(
 "$XDG_CONFIG_HOME/zathura/colorscheme"
 )
 
+# The sed below swaps only the first "dark" or "light" in a file, so a file that already says the target
+# theme must be skipped: swapping would hit a later word instead (a palette key like dark0 became light0).
+first_theme_word_in() {
+  grep -m1 -o -E "$cli_theme_from|$cli_theme_to" "$1"
+}
+
 for path in "${cli_theme_paths[@]}"; do
+  if [[ "$(first_theme_word_in "$path")" != "$cli_theme_from" ]]; then
+    log-pretty-message "$path does not start with $cli_theme_from, skipping" "⏭️"
+    continue
+  fi
+
   log-pretty-message "Switching $path from $cli_theme_from to $cli_theme_to" "🎨"
   $sed_or_gsed --in-place --follow-symlinks "0,/$cli_theme_from/s//$cli_theme_to/" "$path"
   git-ignore-changes-for-file "$path"
