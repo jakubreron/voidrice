@@ -3,15 +3,11 @@
  * [SETTING] Privacy & Security>Logins and Passwords>Ask to save logins and passwords for websites ***/
 user_pref("signon.rememberSignons", false);
 
-/* APPEARANCE ***/
-user_pref("browser.download.autohideButton", true); // [FF57+]
-
 /* UX BEHAVIOR ***/
 user_pref("ui.key.menuAccessKey", 0); // disable alt key toggling the menu bar [RESTART]
 
 /* UX FEATURES ***/
 user_pref("browser.ctrlTab.sortByRecentlyUsed", true);
-user_pref("xpinstall.signatures.required", false);
 
 /* TRANSLATIONS ***/
 user_pref("browser.translations.enable", true); // on-device page translation
@@ -42,6 +38,3 @@ user_pref("permissions.default.desktop-notification", 0);
 
 // PREF: show weather on New Tab page
 user_pref("browser.newtabpage.activity-stream.showWeather", true);
-
-// PERF: GPU acceleration everywhere
-user_pref("gfx.webrender.all", true);
