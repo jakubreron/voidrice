@@ -1,0 +1,9 @@
+{
+  "custom/powersave": {
+    "exec": "set-powersave",
+    "return-type": "json",
+    "interval": "once",
+    "signal": 9,
+    "on-click": "set-powersave toggle"
+  }
+}

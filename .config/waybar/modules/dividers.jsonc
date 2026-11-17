@@ -1,0 +1,30 @@
+{
+  "custom/left#bg_1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left#bg_2": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left#bg_3": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right#bg_1": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right#bg_2": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/right#bg_3": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/center_divider#bg_3": {
+    "format": "|",
+    "tooltip": false
+  }
+}

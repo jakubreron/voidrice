@@ -1,0 +1,7 @@
+{
+  "systemd-failed-units": {
+    "format": "󰀦 {nr_failed}",
+    "hide-on-ok": true,
+    "tooltip-format": "Failed units ({nr_failed}):\n{failed_units_list}"
+  }
+}

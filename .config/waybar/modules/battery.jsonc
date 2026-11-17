@@ -1,0 +1,32 @@
+{
+  "battery": {
+    "interval": 20,
+    "format": "{icon} {capacity}%",
+    "format-icons": [
+      "󰂎",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
+    "format-charging": "󰉁 {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-full": "󰁹 {capacity}%",
+    "format-alt": "{icon} {time}",
+    "states": {
+      "warning": 40,
+      "critical": 20
+    },
+    "min-length": 8,
+    "max-length": 8,
+    "tooltip-format": "Battery Discharging: {time}",
+    "tooltip-format-charging": "Battery Charging: {time}",
+    "tooltip-format-full": "Battery Full",
+    "format-time": "{H}h {M}m"
+  }
+}

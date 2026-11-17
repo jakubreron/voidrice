@@ -1,0 +1,55 @@
+{
+  "group/pulseaudio": {
+    "modules": [
+      "pulseaudio#output",
+      "pulseaudio#input"
+    ],
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-left-to-right": false
+    }
+  },
+  "pulseaudio#output": {
+    "ignored-sinks": [
+      "Easy Effects Sink",
+      "Easy Effects Source",
+      "Monitor of Easy Effects Sink"
+    ],
+    "format": "{icon} {volume}%",
+    "format-muted": "{icon} {volume}%",
+    "format-icons": {
+      "default": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+      ],
+      "default-muted": "󰝟",
+      "headphone": "󰋋",
+      "headphone-muted": "󰟎",
+      "headset": "󰋎",
+      "headset-muted": "󰋐",
+      "hands-free": "󱡏",
+      "phone": "",
+      "portable": "",
+      "car": ""
+    },
+    "min-length": 8,
+    "max-length": 8,
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "$TERMINAL --title cli_sound_manager --command $CLI_SOUND_MANAGER",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+    "tooltip-format": "Output Device: {desc}"
+  },
+  "pulseaudio#input": {
+    "format": "{format_source}",
+    "format-source": "󰍬 {volume}%",
+    "format-source-muted": "󰍭 {volume}%",
+    "min-length": 8,
+    "max-length": 8,
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+    "tooltip-format": "Input Device: {desc}"
+  }
+}

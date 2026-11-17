@@ -1,0 +1,21 @@
+{
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "min-length": 8,
+    "max-length": 8,
+    "on-scroll-up": "light -A 5",
+    "on-scroll-down": "light -U 5",
+    "tooltip-format": "Screen Brightness"
+  }
+}
