@@ -1,5 +1,8 @@
 #!/usr/bin/env zsh
 
+alias free="free -m"
+alias ip="ip -color=auto"
+
 # For when keys break
 alias fix-pkg-keys="sudo rm -fr /etc/pacman.d/gnupg && sudo pacman-key --init && sudo pacman-key --populate archlinux && sudo pacman-key --refresh-keys"
 
