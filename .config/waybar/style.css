@@ -248,6 +248,20 @@ tooltip * {
   color: @m_charging;
 }
 
+/* CPU power profile from tlp-pd, set-powersave switches it together with the display */
+#power-profiles-daemon {
+  padding: 0 4px;
+  background-color: @m_bg_3;
+}
+
+#power-profiles-daemon.performance {
+  color: @m_warning;
+}
+
+#power-profiles-daemon.power-saver {
+  color: @m_charging;
+}
+
 #custom-powersave {
   padding: 0 10px 0 4px;
   background-color: @m_bg_3;

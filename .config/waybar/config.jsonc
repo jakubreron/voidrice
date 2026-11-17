@@ -39,6 +39,7 @@
     "backlight",
     "custom/left#bg_3",
     "battery",
+    "power-profiles-daemon",
     "custom/powersave"
   ],
   "custom/left#bg_1": {
@@ -332,6 +333,16 @@
     "tooltip-format-charging": "Battery Charging: {time}",
     "tooltip-format-full": "Battery Full",
     "format-time": "{H}h {M}m"
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nCPU driver: {cpu_driver}\nPlatform driver: {platform_driver}",
+    "format-icons": {
+      "default": "󰗑",
+      "performance": "󱓞",
+      "balanced": "󰗑",
+      "power-saver": "󱈑"
+    }
   },
   "custom/powersave": {
     "exec": "set-powersave",
