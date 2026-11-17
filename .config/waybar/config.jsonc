@@ -264,7 +264,11 @@
       "headphone": "󰋋",
       "headphone-muted": "󰟎",
       "headset": "󰋎",
-      "headset-muted": "󰋐"
+      "headset-muted": "󰋐",
+      "hands-free": "󱡏",
+      "phone": "",
+      "portable": "",
+      "car": ""
     },
     "min-length": 8,
     "max-length": 8,
