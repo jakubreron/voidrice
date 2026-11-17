@@ -30,6 +30,7 @@
     "custom/right#bg_1"
   ],
   "modules-right": [
+    "privacy",
     "tray",
     "custom/left#bg_1",
     "group/pulseaudio",
@@ -90,6 +91,22 @@
     "rewrite": {
       "": "Desktop"
     }
+  },
+  "privacy": {
+    "icon-size": 16,
+    "icon-spacing": 8,
+    "modules": [
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 16
+      },
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 16
+      }
+    ]
   },
   "tray": {
     "icon-size": 16,

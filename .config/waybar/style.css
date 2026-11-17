@@ -185,6 +185,19 @@ tooltip * {
 
 /* ---------- Right ---------- */
 
+/* Only visible while an app records the microphone or shares the screen */
+#privacy {
+  padding: 0 6px;
+}
+
+#privacy-item.audio-in {
+  color: @m_warning;
+}
+
+#privacy-item.screenshare {
+  color: @m_critical;
+}
+
 #tray {
   padding: 0 12px;
 }
