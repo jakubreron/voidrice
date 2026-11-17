@@ -128,12 +128,9 @@ hl.config({
 	decoration = {
 		shadow = {
 			enabled = false,
-			range = 10,
-			offset = { 1, 2 },
 		},
 		dim_special = 0.5,
 		inactive_opacity = 0.96,
-		rounding = 0,
 		blur = {
 			enabled = false,
 		},
@@ -149,7 +146,6 @@ hl.config({
 
 	cursor = {
 		inactive_timeout = 3,
-		no_hardware_cursors = 0,
 	},
 
 	animations = {
@@ -206,10 +202,6 @@ end
 ----------------------
 ---- WINDOW RULES ----
 ----------------------
--- Smart Gaps: Remove gaps if there is only 1 visible tiled window, or when maximized
-hl.workspace_rule({ workspace = "w[tv1]s[false]", gaps_out = 0, gaps_in = 0 })
-hl.workspace_rule({ workspace = "f[1]s[false]", gaps_out = 0, gaps_in = 0 })
-
 -- Smart Borders: Remove borders and rounding under the same conditions
 hl.window_rule({ match = { float = false, workspace = "w[tv1]" }, border_size = 0, rounding = 0 })
 hl.window_rule({ match = { float = false, workspace = "f[1]" }, border_size = 0, rounding = 0 })
