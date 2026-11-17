@@ -8,7 +8,6 @@ configuration{
   display-drun: " App  ";
   display-run: " Run  ";
   display-window: " Win ";
-  display-Network: " Net 󰤨 ";
 }
 
 window {

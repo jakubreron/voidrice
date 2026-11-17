@@ -1,6 +1,6 @@
 * {
     /* Gruvbox Dark Palette */
-    bg-base:      #282828;
+    bg-base:      #1d2021;
     bg-mantle:    #3c3836;
     fg-text:      #ebdbb2;
     gruv-yellow:  #fabd2f;
