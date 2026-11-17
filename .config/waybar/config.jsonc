@@ -313,6 +313,9 @@
       "󰁹"
     ],
     "format-charging": "󰉁 {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-full": "󰁹 {capacity}%",
+    "format-alt": "{icon} {time}",
     "states": {
       "warning": 40,
       "critical": 20

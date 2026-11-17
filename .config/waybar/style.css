@@ -237,7 +237,8 @@ tooltip * {
   color: @m_critical;
 }
 
-#battery.charging {
+#battery.charging,
+#battery.plugged {
   color: @m_charging;
 }
 
