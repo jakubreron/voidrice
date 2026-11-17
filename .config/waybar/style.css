@@ -190,6 +190,12 @@ tooltip * {
 
 /* ---------- Right ---------- */
 
+/* Only visible while a system or user service has failed */
+#systemd-failed-units {
+  padding: 0 6px;
+  color: @m_critical;
+}
+
 /* Only visible while an app records the microphone or shares the screen */
 #privacy {
   padding: 0 6px;

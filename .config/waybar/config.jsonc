@@ -30,6 +30,7 @@
     "custom/right#bg_1"
   ],
   "modules-right": [
+    "systemd-failed-units",
     "privacy",
     "tray",
     "custom/left#bg_1",
@@ -91,6 +92,11 @@
     "rewrite": {
       "": "Desktop"
     }
+  },
+  "systemd-failed-units": {
+    "format": "󰀦 {nr_failed}",
+    "hide-on-ok": true,
+    "tooltip-format": "Failed units ({nr_failed}):\n{failed_units_list}"
   },
   "privacy": {
     "icon-size": 16,
