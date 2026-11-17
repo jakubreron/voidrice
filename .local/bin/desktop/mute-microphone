@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
 
+if [ "$(uname -s)" = "Darwin" ]; then
+  # macOS has no input mute, so set the input volume to 0 and remember the old one
+  previous_volume_file="${XDG_STATE_HOME:-$HOME/.local/state}/mute-microphone-volume"
+  volume="$(osascript -e 'input volume of (get volume settings)')"
+  if [ "$volume" -gt 0 ]; then
+    mkdir -p "$(dirname "$previous_volume_file")"
+    echo "$volume" >"$previous_volume_file"
+    osascript -e 'set volume input volume 0'
+  else
+    osascript -e "set volume input volume $(cat "$previous_volume_file" 2>/dev/null || echo 75)"
+  fi
+  exit 0
+fi
+
 # NOTE: this command does the job
 # pactl set-source-mute @DEFAULT_SOURCE@ toggle 
 
