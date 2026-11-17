@@ -213,6 +213,16 @@ tooltip * {
   padding: 0 12px;
 }
 
+/* Idle apps fade, apps that ask for attention get a highlight and an underline */
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  border-bottom: 2px solid @m_warning;
+}
+
 #pulseaudio {
   background-color: @m_bg_1;
 }
