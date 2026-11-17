@@ -130,7 +130,6 @@ hl.config({
 			enabled = false,
 		},
 		dim_special = 0.5,
-		inactive_opacity = 0.96,
 		blur = {
 			enabled = false,
 		},
