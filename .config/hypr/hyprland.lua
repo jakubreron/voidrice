@@ -334,8 +334,8 @@ hl.bind(combo_keymap("y"), hl.dsp.layout("orientationbottom"))
 hl.bind(small_keymap("u"), hl.dsp.layout("orientationcenter"))
 hl.bind(combo_keymap("u"), hl.dsp.layout("orientationcycle"))
 
-hl.bind(small_keymap("i"), hl.dsp.exec_cmd("light -A 10; ddcutil --display 1 setvcp 10 + 15"), { repeating = true })
-hl.bind(combo_keymap("i"), hl.dsp.exec_cmd("light -U 10; ddcutil --display 1 setvcp 10 - 15"), { repeating = true })
+hl.bind(small_keymap("i"), hl.dsp.exec_cmd("brightnessctl set +10%; ddcutil --display 1 setvcp 10 + 15"), { repeating = true })
+hl.bind(combo_keymap("i"), hl.dsp.exec_cmd("brightnessctl set 10%-; ddcutil --display 1 setvcp 10 - 15"), { repeating = true })
 
 hl.bind(small_keymap("e"), hl.dsp.exec_cmd(GUI_MAIL_CLIENT))
 
@@ -457,11 +457,11 @@ hl.bind(
 )
 hl.bind(
 	"xf86monbrightnessup",
-	hl.dsp.exec_cmd("light -A 10; ddcutil --display 1 setvcp 10 + 15"),
+	hl.dsp.exec_cmd("brightnessctl set +10%; ddcutil --display 1 setvcp 10 + 15"),
 	{ locked = true, repeating = true }
 )
 hl.bind(
 	"xf86monbrightnessdown",
-	hl.dsp.exec_cmd("light -U 10; ddcutil --display 1 setvcp 10 - 15"),
+	hl.dsp.exec_cmd("brightnessctl set 10%-; ddcutil --display 1 setvcp 10 - 15"),
 	{ locked = true, repeating = true }
 )
