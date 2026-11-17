@@ -3,11 +3,11 @@
 alias sudo='sudo '
 
 # Verbosity and settings that you pretty much just always are going to want.
-alias cp="cp -iv"
-alias mv="mv -iv"
+alias cp="cp -v"
+alias mv="mv -v"
 alias bc="bc -ql"
 alias free="free -m"
-alias rm="rm -iv" 
+alias rm="rm -v"
 
 # Colorize commands when possible.
 alias ip="ip -color=auto"
