@@ -11,6 +11,9 @@
 		"./rules/no-boolean-parameter.grit",
 		"./rules/no-event-named-callbacks.grit"
 	],
+	"files": {
+		"includes": ["**", "!**/waybar/**/*.css"]
+	},
 	"overrides": [
 		{
 			"includes": [
