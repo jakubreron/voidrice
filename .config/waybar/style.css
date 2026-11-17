@@ -25,6 +25,7 @@
 @define-color m_warning @orange;
 @define-color m_critical @red;
 @define-color m_charging @green;
+@define-color m_connected @blue;
 @define-color m_border @act_fg;
 
 * {
@@ -171,6 +172,17 @@ tooltip * {
   background-color: @m_bg_1;
 }
 
+/* Gray while nothing is connected, blue once a device is */
+#bluetooth.on,
+#bluetooth.off,
+#bluetooth.disabled {
+  color: @m_fg_alt;
+}
+
+#bluetooth.connected {
+  color: @m_connected;
+}
+
 /* ---------- Right ---------- */
 
 #tray {
@@ -185,6 +197,10 @@ tooltip * {
 #pulseaudio.output.muted,
 #pulseaudio.input.source-muted {
   color: @m_fg_alt;
+}
+
+#pulseaudio.output.bluetooth:not(.muted) {
+  color: @m_connected;
 }
 
 #backlight {
