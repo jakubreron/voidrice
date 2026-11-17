@@ -975,6 +975,16 @@
                 },
                 "to": [{ "shell_command": "open 'x-apple.systempreferences:com.apple.BluetoothSettings'" }],
                 "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_option", "shift"]
+                  }
+                },
+                "to": [{ "shell_command": "shortcuts run 'Toggle DND'" }],
+                "type": "basic"
               }
             ]
           },
