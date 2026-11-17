@@ -945,6 +945,36 @@
                   { "key_code": "right_arrow", "modifiers": ["left_control"] }
                 ],
                 "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "grave_accent_and_tilde",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_option", "shift"]
+                  }
+                },
+                "to": [{ "shell_command": "/bin/zsh -l -c 'mute-microphone'" }],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "delete_or_backspace",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_option"]
+                  }
+                },
+                "to": [{ "shell_command": "pmset displaysleepnow" }],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "b",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_option"]
+                  }
+                },
+                "to": [{ "shell_command": "open 'x-apple.systempreferences:com.apple.BluetoothSettings'" }],
+                "type": "basic"
               }
             ]
           },
