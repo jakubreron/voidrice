@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+# Nothing else shows the microphone state, unlike the volume keys
+notify_microphone() {
+  if [ "$(uname -s)" = "Darwin" ]; then
+    osascript -e "display notification \"$1\" with title \"Microphone\""
+  else
+    notify-send --app-name=audio -t 1500 "Microphone" "$1"
+  fi
+}
+
 if [ "$(uname -s)" = "Darwin" ]; then
   # macOS has no input mute, so set the input volume to 0 and remember the old one
   previous_volume_file="${XDG_STATE_HOME:-$HOME/.local/state}/mute-microphone-volume"
@@ -8,8 +17,10 @@ if [ "$(uname -s)" = "Darwin" ]; then
     mkdir -p "$(dirname "$previous_volume_file")"
     echo "$volume" >"$previous_volume_file"
     osascript -e 'set volume input volume 0'
+    notify_microphone "Muted"
   else
     osascript -e "set volume input volume $(cat "$previous_volume_file" 2>/dev/null || echo 75)"
+    notify_microphone "Unmuted"
   fi
   exit 0
 fi
@@ -24,9 +35,11 @@ case ${state} in
   yes)
     # WARNING: one needs to have permissions to this file
     echo 0 | tee /sys/devices/platform/thinkpad_acpi/leds/platform::micmute/brightness
-    pactl set-source-mute @DEFAULT_SOURCE@ 0 ;;
+    pactl set-source-mute @DEFAULT_SOURCE@ 0
+    notify_microphone "Unmuted" ;;
   no)
     echo 1 | tee /sys/devices/platform/thinkpad_acpi/leds/platform::micmute/brightness
-    pactl set-source-mute @DEFAULT_SOURCE@ 1 ;;
+    pactl set-source-mute @DEFAULT_SOURCE@ 1
+    notify_microphone "Muted" ;;
 esac
 
