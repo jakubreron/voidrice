@@ -9,8 +9,8 @@
 INTERNAL_DESC="Samsung Display Corp. 0x4193"
 STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/set-powersave"
 PREV_THEME_FILE="$STATE_DIR/previous-theme"
-# Own state file, because hypridle also saves and restores this light with light -O and light -I
-KBD_BACKLIGHT="sysfs/leds/tpacpi::kbd_backlight"
+# Own state file, because hypridle also saves and restores this light with brightnessctl -s and -r
+KBD_BACKLIGHT="tpacpi::kbd_backlight"
 PREV_KBD_FILE="$STATE_DIR/previous-kbd-backlight"
 # CPU power profile, tlpctl comes with tlp-pd and powerprofilesctl with power-profiles-daemon
 POWER_PROFILE_SAVING="power-saver"
@@ -39,18 +39,18 @@ set_theme() {
 
 kbd_backlight_off() {
 	local level
-	level="$(light -G -s "$KBD_BACKLIGHT" 2>/dev/null)" || return 0 # no keyboard backlight on this machine
+	level="$(brightnessctl -d "$KBD_BACKLIGHT" get 2>/dev/null)" || return 0 # no keyboard backlight on this machine
 	mkdir -p "$STATE_DIR"
 	# Keep an older value if one exists and the light is already off (we probably turned it off ourselves).
-	if [ ! -f "$PREV_KBD_FILE" ] || [ "${level%%.*}" -gt 0 ]; then
+	if [ ! -f "$PREV_KBD_FILE" ] || [ "$level" -gt 0 ]; then
 		echo "$level" >"$PREV_KBD_FILE"
 	fi
-	light -S 0 -s "$KBD_BACKLIGHT"
+	brightnessctl -d "$KBD_BACKLIGHT" set 0 >/dev/null
 }
 
 kbd_backlight_restore() {
 	[ -f "$PREV_KBD_FILE" ] || return 0
-	light -S "$(cat "$PREV_KBD_FILE")" -s "$KBD_BACKLIGHT"
+	brightnessctl -d "$KBD_BACKLIGHT" set "$(cat "$PREV_KBD_FILE")" >/dev/null
 	rm -f "$PREV_KBD_FILE"
 }
 
