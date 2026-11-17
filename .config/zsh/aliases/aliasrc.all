@@ -15,11 +15,7 @@ alias grep="grep --color=auto"
 alias ls='eza --group-directories-first --icons --no-git'
 alias df="duf"
 
-if command -v delta >/dev/null 2>&1; then
-  alias diff="delta"
-else
-  alias diff="diff --color=auto"
-fi
+alias diff="diff --color=auto"
 
 # general
 alias p="$PACKAGE_MANAGER"
