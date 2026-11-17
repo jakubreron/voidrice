@@ -167,6 +167,11 @@ tooltip * {
   color: @m_critical;
 }
 
+/* Linked to the network but without an IP address, so nothing works */
+#network.linked {
+  color: @m_warning;
+}
+
 #bluetooth {
   padding: 0 4px;
   background-color: @m_bg_1;

@@ -201,6 +201,8 @@
     ],
     "format-disconnected": "󰤯",
     "format-disabled": "󰤮",
+    "format-linked": "󱚵",
+    "tooltip-format-linked": "Linked without an IP address: {ifname}",
     "format-ethernet": "󰈀",
     "min-length": 2,
     "max-length": 2,
