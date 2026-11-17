@@ -2,9 +2,9 @@
 
 # Powersave toggle for the internal panel, plus a waybar status module.
 #   set-powersave          print waybar JSON for the current refresh rate
-#   set-powersave toggle   powersave on:  60 Hz + dark theme (remembers the current theme)
-#                          powersave off: 90 Hz + restores the remembered theme
-# Waybar is refreshed through signal 9.
+#   set-powersave toggle   powersave on:  60 Hz + dark theme + keyboard light off + power-saver profile
+#                          powersave off: 90 Hz + restores the remembered theme, light and power profile
+# Waybar is refreshed through signal 9. Its power-profiles-daemon module follows the profile by itself.
 
 INTERNAL_DESC="Samsung Display Corp. 0x4193"
 STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/set-powersave"
@@ -12,6 +12,10 @@ PREV_THEME_FILE="$STATE_DIR/previous-theme"
 # Own state file, because hypridle also saves and restores this light with light -O and light -I
 KBD_BACKLIGHT="sysfs/leds/tpacpi::kbd_backlight"
 PREV_KBD_FILE="$STATE_DIR/previous-kbd-backlight"
+# CPU power profile, tlpctl comes with tlp-pd and powerprofilesctl with power-profiles-daemon
+POWER_PROFILE_SAVING="power-saver"
+POWER_PROFILE_FALLBACK="balanced"
+PREV_PROFILE_FILE="$STATE_DIR/previous-power-profile"
 
 # Waybar glyphs, written as code points so they survive copy and paste.
 # nf-md-leaf and nf-md-speedometer; swap for any Nerd Font glyph you prefer.
@@ -48,6 +52,34 @@ kbd_backlight_restore() {
 	[ -f "$PREV_KBD_FILE" ] || return 0
 	light -S "$(cat "$PREV_KBD_FILE")" -s "$KBD_BACKLIGHT"
 	rm -f "$PREV_KBD_FILE"
+}
+
+profile_ctl() {
+	if command -v tlpctl >/dev/null 2>&1; then
+		tlpctl "$@"
+	elif command -v powerprofilesctl >/dev/null 2>&1; then
+		powerprofilesctl "$@"
+	else
+		return 127
+	fi
+}
+
+power_profile_save() {
+	local profile
+	profile="$(profile_ctl get 2>/dev/null)" || return 0 # no profile daemon on this machine
+	mkdir -p "$STATE_DIR"
+	# Keep an older value if one exists, we are probably already in powersave and would remember power-saver.
+	if [ ! -f "$PREV_PROFILE_FILE" ]; then
+		[ "$profile" = "$POWER_PROFILE_SAVING" ] && profile="$POWER_PROFILE_FALLBACK"
+		echo "$profile" >"$PREV_PROFILE_FILE"
+	fi
+	profile_ctl set "$POWER_PROFILE_SAVING"
+}
+
+power_profile_restore() {
+	[ -f "$PREV_PROFILE_FILE" ] || return 0
+	profile_ctl set "$(cat "$PREV_PROFILE_FILE")"
+	rm -f "$PREV_PROFILE_FILE"
 }
 
 status() {
@@ -93,9 +125,11 @@ toggle() {
 		fi
 		set_theme dark
 		kbd_backlight_off
-		label="🔋 Powersave: on (60 Hz, dark theme, keyboard light off)"
+		power_profile_save
+		label="🔋 Powersave: on (60 Hz, dark theme, keyboard light off, power-saver profile)"
 	else
 		kbd_backlight_restore
+		power_profile_restore
 		label="🔋 Powersave: off (90 Hz)"
 		if [ -f "$PREV_THEME_FILE" ]; then
 			prev="$(cat "$PREV_THEME_FILE")"
