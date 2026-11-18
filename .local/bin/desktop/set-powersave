@@ -19,8 +19,8 @@ PREV_PROFILE_FILE="$STATE_DIR/previous-power-profile"
 
 # Waybar glyphs, written as code points so they survive copy and paste.
 # nf-md-leaf and nf-md-speedometer; swap for any Nerd Font glyph you prefer.
-ICON_POWERSAVE=$'\U000f032a'
-ICON_PERFORMANCE=$'\U000f04c5'
+ICON_POWERSAVE="󰌪"
+ICON_PERFORMANCE="󱓞"
 
 current_rate() {
 	hyprctl monitors -j | jq -r --arg d "$INTERNAL_DESC" \

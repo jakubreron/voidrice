@@ -278,6 +278,7 @@ tooltip * {
 #power-profiles-daemon {
   padding: 0 4px;
   background-color: @m_bg_1;
+  font-size: 16px;
 }
 
 #power-profiles-daemon.performance {
@@ -286,6 +287,7 @@ tooltip * {
 
 #power-profiles-daemon.balanced {
   color: @m_balanced;
+  margin-top: -1px;
 }
 
 #power-profiles-daemon.power-saver {
