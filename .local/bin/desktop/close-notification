@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Closes the notification that is on screen.
+# On macOS it presses the "Close" action of the banner through System Events, which needs the
+# Accessibility permission for the app that runs it (Karabiner's console user server for the keybind).
+
+if [ "$(uname -s)" != "Darwin" ]; then
+	exec dunstctl close
+fi
+
+osascript <<'APPLESCRIPT' 2>/dev/null
+tell application "System Events"
+	tell process "NotificationCenter"
+		if (count of windows) is 0 then return
+		set banner to group 1 of scroll area 1 of group 1 of group 1 of window 1
+		repeat with banner_action in (actions of banner)
+			if description of banner_action is "Close" then
+				perform banner_action
+				exit repeat
+			end if
+		end repeat
+	end tell
+end tell
+APPLESCRIPT
+exit 0
