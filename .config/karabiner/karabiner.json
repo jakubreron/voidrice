@@ -1005,6 +1005,16 @@
                 },
                 "to": [{ "key_code": "n", "modifiers": ["fn"] }],
                 "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "backslash",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_option"]
+                  }
+                },
+                "to": [{ "shell_command": "/bin/zsh -l -c 'close-notification'" }],
+                "type": "basic"
               }
             ]
           },
