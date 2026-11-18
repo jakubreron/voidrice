@@ -995,6 +995,16 @@
                   }
                 ],
                 "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "backslash",
+                  "modifiers": {
+                    "mandatory": ["left_control", "left_option", "shift"]
+                  }
+                },
+                "to": [{ "key_code": "n", "modifiers": ["fn"] }],
+                "type": "basic"
               }
             ]
           },
