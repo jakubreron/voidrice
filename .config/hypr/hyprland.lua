@@ -2,7 +2,6 @@ local TERMINAL = os.getenv("TERMINAL") or ""
 local BROWSER = os.getenv("BROWSER") or ""
 local BACKUP_BROWSER = os.getenv("BACKUP_BROWSER") or ""
 local EDITOR = os.getenv("EDITOR") or ""
-local VIMWIKI_DIR = os.getenv("VIMWIKI_DIR") or ""
 local INPUT_METHOD = os.getenv("INPUT_METHOD") or ""
 local GUI_MAIL_CLIENT = os.getenv("GUI_MAIL_CLIENT") or ""
 local CLI_FILE_EXPLORER = os.getenv("CLI_FILE_EXPLORER") or ""
@@ -109,9 +108,12 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("wl-paste --type text --watch cliphist store")
 	hl.exec_cmd("wl-paste --type image --watch cliphist store")
 
-	-- hl.exec_cmd("easyeffects --gapplication-service")
 	hl.exec_cmd("kdeconnect-indicator")
 	hl.exec_cmd("transmission-daemon")
+
+	hl.exec_cmd(BROWSER, { workspace = "silent" })
+	hl.exec_cmd(TERMINAL, { workspace = "silent" })
+	hl.exec_cmd(GUI_MAIL_CLIENT, { workspace = "silent" })
 end)
 
 ---------------------
@@ -334,8 +336,16 @@ hl.bind(combo_keymap("y"), hl.dsp.layout("orientationbottom"))
 hl.bind(small_keymap("u"), hl.dsp.layout("orientationcenter"))
 hl.bind(combo_keymap("u"), hl.dsp.layout("orientationcycle"))
 
-hl.bind(small_keymap("i"), hl.dsp.exec_cmd("brightnessctl set +10%; ddcutil --display 1 setvcp 10 + 15"), { repeating = true })
-hl.bind(combo_keymap("i"), hl.dsp.exec_cmd("brightnessctl set 10%-; ddcutil --display 1 setvcp 10 - 15"), { repeating = true })
+hl.bind(
+	small_keymap("i"),
+	hl.dsp.exec_cmd("brightnessctl set +10%; ddcutil --display 1 setvcp 10 + 15"),
+	{ repeating = true }
+)
+hl.bind(
+	combo_keymap("i"),
+	hl.dsp.exec_cmd("brightnessctl set 10%-; ddcutil --display 1 setvcp 10 - 15"),
+	{ repeating = true }
+)
 
 hl.bind(small_keymap("e"), hl.dsp.exec_cmd(GUI_MAIL_CLIENT))
 
