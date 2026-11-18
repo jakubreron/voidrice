@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 
 # Toggle dunst do-not-disturb and refresh the waybar custom/dnd module (signal 8).
-# On macOS it runs the "Toggle DND" shortcut, which has to be created once in the Shortcuts app.
-
-if [ "$(uname -s)" = "Darwin" ]; then
-	exec shortcuts run "Toggle DND"
-fi
 
 refresh_waybar() {
 	pkill -SIGRTMIN+8 waybar
