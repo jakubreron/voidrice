@@ -7,6 +7,8 @@
       "󰔏",
       "󱃂"
     ],
+    "warning-threshold": 70,
+    "format-warning": "{icon} {temperatureC}°C",
     "critical-threshold": 85,
     "format-critical": "󰀦 {temperatureC}°C",
     "min-length": 9,

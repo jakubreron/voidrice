@@ -26,5 +26,17 @@
   "custom/center_divider#bg_3": {
     "format": "|",
     "tooltip": false
+  },
+  "custom/left#rev_3": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left#rev_2": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/left#rev_1": {
+    "format": "",
+    "tooltip": false
   }
 }

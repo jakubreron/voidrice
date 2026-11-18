@@ -26,6 +26,9 @@
 @define-color m_critical @red;
 @define-color m_charging @green;
 @define-color m_connected @blue;
+@define-color m_good @green;
+@define-color m_balanced @blue;
+@define-color m_brightness @yellow;
 @define-color m_border @act_fg;
 
 * {
@@ -100,8 +103,13 @@ tooltip * {
   background-color: @m_bg_1;
 }
 
+#temperature.warning {
+  color: @m_warning;
+}
+
 #temperature.critical {
-  color: @m_critical;
+  background-color: @m_critical;
+  color: @m_bg_0;
 }
 
 #memory {
@@ -109,11 +117,13 @@ tooltip * {
 }
 
 #memory.warning {
-  color: @m_warning;
+  background-color: @m_warning;
+  color: @m_bg_0;
 }
 
 #memory.critical {
-  color: @m_critical;
+  background-color: @m_critical;
+  color: @m_bg_0;
 }
 
 #cpu {
@@ -121,11 +131,13 @@ tooltip * {
 }
 
 #cpu.warning {
-  color: @m_warning;
+  background-color: @m_warning;
+  color: @m_bg_0;
 }
 
 #cpu.critical {
-  color: @m_critical;
+  background-color: @m_critical;
+  color: @m_bg_0;
 }
 
 #custom-dnd {
@@ -223,8 +235,9 @@ tooltip * {
   border-bottom: 2px solid @m_warning;
 }
 
+/* The right side steps the other way: the pills with colored states are the darkest, they read best */
 #pulseaudio {
-  background-color: @m_bg_1;
+  background-color: @m_bg_3;
 }
 
 #pulseaudio:hover,
@@ -239,10 +252,12 @@ tooltip * {
 
 #backlight {
   background-color: @m_bg_2;
+  color: @m_brightness;
 }
 
 #battery {
-  background-color: @m_bg_3;
+  background-color: @m_bg_1;
+  color: @m_good;
 }
 
 #battery.warning:not(.charging) {
@@ -250,7 +265,8 @@ tooltip * {
 }
 
 #battery.critical:not(.charging) {
-  color: @m_critical;
+  background-color: @m_critical;
+  color: @m_bg_0;
 }
 
 #battery.charging,
@@ -261,20 +277,24 @@ tooltip * {
 /* CPU power profile from tlp-pd, set-powersave switches it together with the display */
 #power-profiles-daemon {
   padding: 0 4px;
-  background-color: @m_bg_3;
+  background-color: @m_bg_1;
 }
 
 #power-profiles-daemon.performance {
   color: @m_warning;
 }
 
+#power-profiles-daemon.balanced {
+  color: @m_balanced;
+}
+
 #power-profiles-daemon.power-saver {
-  color: @m_charging;
+  color: @m_good;
 }
 
 #custom-powersave {
   padding: 0 10px 0 4px;
-  background-color: @m_bg_3;
+  background-color: @m_bg_1;
 }
 
 #custom-powersave.performance {
@@ -282,7 +302,7 @@ tooltip * {
 }
 
 #custom-powersave.powersave {
-  color: @m_charging;
+  color: @m_good;
 }
 
 /* ---------- Dividers ---------- */
@@ -312,4 +332,19 @@ tooltip * {
 
 #custom-center_divider.bg_3 {
   color: @m_bg_3;
+}
+
+/* Arrows for the right side, stepping from the lightest pill down to the darkest */
+#custom-left.rev_3 {
+  color: @m_bg_3;
+}
+
+#custom-left.rev_2 {
+  background-color: @m_bg_3;
+  color: @m_bg_2;
+}
+
+#custom-left.rev_1 {
+  background-color: @m_bg_2;
+  color: @m_bg_1;
 }
