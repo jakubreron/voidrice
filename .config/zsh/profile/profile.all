@@ -24,9 +24,6 @@ path=(
 )
 export PATH
 
-# Claude Code provider settings and tokens (untracked file, template provider.example.sh): exported to the whole shell, so nvim and every other launcher see them
-[ -f "$CLAUDE_CONFIG_DIR/provider.sh" ] && . "$CLAUDE_CONFIG_DIR/provider.sh"
-
 if [ ! -f "$ZDOTDIR/shortcuts/shortcutrc" ]; then
   ( generate-shell-shortcuts >/dev/null 2>&1 & )
 fi

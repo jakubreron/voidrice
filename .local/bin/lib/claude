@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+# Runs the real claude with the provider settings and tokens from provider.sh, so they exist only in the
+# claude process and what it starts, not in the shell. It sits first on the PATH, so Neovim and every
+# other launcher get it too.
+
+provider_file="${CLAUDE_CONFIG_DIR:-$HOME/.claude}/provider.sh"
+
+real_claude=""
+IFS=: read -ra path_entries <<<"$PATH"
+for entry in "${path_entries[@]}"; do
+  candidate="$entry/claude"
+  # NOTE: skip this wrapper itself, whichever way it is linked
+  if [[ -x "$candidate" && ! "$candidate" -ef "$0" ]]; then
+    real_claude="$candidate"
+    break
+  fi
+done
+
+if [[ -z "$real_claude" ]]; then
+  echo "claude: the real claude command was not found in PATH" >&2
+  exit 127
+fi
+
+if [[ -f "$provider_file" ]]; then
+  set -a
+  # shellcheck source=/dev/null
+  . "$provider_file"
+  set +a
+fi
+
+exec "$real_claude" "$@"
