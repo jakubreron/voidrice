@@ -6,7 +6,8 @@
     "max-length": 5,
     "timezones": [
       "",
-      "Europe/Warsaw"
+      "Europe/Warsaw",
+    "Asia/Tokyo"
     ],
     "timezone-tooltip-format": "{:%H:%M %Z}",
     "tooltip-format": "{tz_list}"
