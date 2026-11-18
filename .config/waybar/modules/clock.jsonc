@@ -4,7 +4,12 @@
     "format": "{:%I:%M}",
     "min-length": 5,
     "max-length": 5,
-    "tooltip-format": "24-hour time: {:%H:%M}"
+    "timezones": [
+      "",
+      "Europe/Warsaw"
+    ],
+    "timezone-tooltip-format": "{:%H:%M %Z}",
+    "tooltip-format": "{tz_list}"
   },
   "clock#date": {
     "interval": 60,
