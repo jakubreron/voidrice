@@ -983,7 +983,17 @@
                     "mandatory": ["left_control", "left_option", "shift"]
                   }
                 },
-                "to": [{ "shell_command": "/bin/zsh -l -c 'toggle-dnd'" }],
+                "to": [
+                  {
+                    "key_code": "n",
+                    "modifiers": [
+                      "left_control",
+                      "left_option",
+                      "left_command",
+                      "left_shift"
+                    ]
+                  }
+                ],
                 "type": "basic"
               }
             ]
