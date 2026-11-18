@@ -51,6 +51,16 @@ for path in "${cli_theme_paths[@]}"; do
   git-ignore-changes-for-file "$path"
 done
 
+# Qt apps take their colors from a Breeze scheme file, whose name is capitalized, so the sed above misses it
+qt_theme_config="$XDG_CONFIG_HOME/hypr/hyprqt6engine.conf"
+if [[ -f "$qt_theme_config" ]]; then
+  qt_color_scheme="BreezeDark"
+  [[ "$cli_theme_to" = "light" ]] && qt_color_scheme="BreezeLight"
+  log-pretty-message "Switching the Qt color scheme to $qt_color_scheme" "🎨"
+  $sed_or_gsed --in-place --follow-symlinks -E "s/Breeze(Dark|Light)\.colors/$qt_color_scheme.colors/" "$qt_theme_config"
+  git-ignore-changes-for-file "$qt_theme_config"
+fi
+
 # NOTE: refresh theme
 log-pretty-message "Refreshing alacritty" "🔄"
 touch "$XDG_CONFIG_HOME/alacritty/alacritty.toml"
