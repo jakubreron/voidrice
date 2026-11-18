@@ -16,4 +16,6 @@ case "$OS" in
     ;;
 esac
 
+source $HOME/.config/zsh/profile/profile.bin
+
 unsetopt PROMPT_SP

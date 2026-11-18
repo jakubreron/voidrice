@@ -13,16 +13,7 @@ export CLI_SYSTEM_MONITOR="btop"
 export MANPAGER="$EDITOR +Man!"
 export MANWIDTH=999
 
-typeset -U path
-path=(
-  $XDG_BIN_HOME $XDG_BIN_HOME/**/*(/N)
-  $PNPM_HOME
-  $NPM_CONFIG_PREFIX/bin
-  $BUN_INSTALL/bin
-  $CARGO_HOME/bin
-  $path
-)
-export PATH
+source $HOME/.config/zsh/profile/profile.bin
 
 if [ ! -f "$ZDOTDIR/shortcuts/shortcutrc" ]; then
   ( generate-shell-shortcuts >/dev/null 2>&1 & )
