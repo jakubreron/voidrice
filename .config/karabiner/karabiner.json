@@ -1013,7 +1013,7 @@
                     "mandatory": ["left_control", "left_option"]
                   }
                 },
-                "to": [{ "shell_command": "/bin/zsh -l -c 'close-notification'" }],
+                "to": [{ "shell_command": "$HOME/.local/bin/desktop/close-notification" }],
                 "type": "basic"
               }
             ]
