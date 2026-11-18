@@ -983,7 +983,7 @@
                     "mandatory": ["left_control", "left_option", "shift"]
                   }
                 },
-                "to": [{ "shell_command": "shortcuts run 'Toggle DND'" }],
+                "to": [{ "shell_command": "/bin/zsh -l -c 'toggle-dnd'" }],
                 "type": "basic"
               }
             ]
