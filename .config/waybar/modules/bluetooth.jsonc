@@ -6,6 +6,8 @@
     "format-connected-battery": "󰂱 {device_battery_percentage}%",
     "format-off": "󰂲",
     "format-disabled": "󰂲",
+    "on-click": "rofi-bluetooth",
+    "on-click-right": "blueberry",
     "tooltip-format": "Device Addr: {device_address}",
     "tooltip-format-on": "Bluetooth Disconnected",
     "tooltip-format-connected": "Device: {device_alias}",
