@@ -45,6 +45,10 @@
 }
 
 
+.modules-center {
+  padding-left: 14px; /* Re-center the center modules */
+}
+
 button {
   border: none;
   border-radius: 16px;
@@ -57,21 +61,6 @@ button:hover {
   background-color: @m_bg_2;
   background-image: none;
   color: @m_fg_alt;
-}
-
-/* Every module with a click action dims on hover, over any state colour */
-#clock.date:hover,
-#network:hover,
-#bluetooth:hover,
-#pulseaudio:hover,
-#cpu:hover,
-#memory:hover,
-#temperature:hover,
-#battery:hover,
-#power-profiles-daemon:hover,
-#custom-powersave:hover,
-#custom-dnd:hover {
-  opacity: 0.7;
 }
 
 tooltip {
@@ -172,6 +161,12 @@ tooltip * {
   background-color: @m_bg_2;
 }
 
+#clock.date:hover,
+#network:hover,
+#bluetooth:hover {
+  color: @m_fg_alt;
+}
+
 #network {
   padding: 0 6px 0 4px;
   background-color: @m_bg_1;
@@ -188,11 +183,17 @@ tooltip * {
 }
 
 #bluetooth {
-  padding: 0 6px;
+  padding: 0 4px;
   background-color: @m_bg_1;
 }
 
-/* Same colour as the other icons while nothing is connected, blue once a device is */
+/* Gray while nothing is connected, blue once a device is */
+#bluetooth.on,
+#bluetooth.off,
+#bluetooth.disabled {
+  color: @m_fg_alt;
+}
+
 #bluetooth.connected {
   color: @m_connected;
 }
@@ -202,14 +203,12 @@ tooltip * {
 /* Only visible while a system or user service has failed */
 #systemd-failed-units {
   padding: 0 6px;
-  background-color: @m_bg_3;
   color: @m_critical;
 }
 
 /* Only visible while an app records the microphone or shares the screen */
 #privacy {
   padding: 0 6px;
-  background-color: @m_bg_3;
 }
 
 #privacy-item.audio-in {
@@ -222,7 +221,6 @@ tooltip * {
 
 #tray {
   padding: 0 12px;
-  background-color: @m_bg_3;
 }
 
 /* Idle apps fade, apps that ask for attention get a highlight and an underline */
@@ -240,6 +238,7 @@ tooltip * {
   background-color: @m_bg_3;
 }
 
+#pulseaudio:hover,
 #pulseaudio.output.muted,
 #pulseaudio.input.source-muted {
   color: @m_fg_alt;
@@ -275,8 +274,9 @@ tooltip * {
 
 /* CPU power profile from tlp-pd, set-powersave switches it together with the display */
 #power-profiles-daemon {
-  padding: 0 8px 0 6px;
+  padding: 0 4px;
   background-color: @m_bg_1;
+  font-size: 16px;
 }
 
 #power-profiles-daemon.performance {
@@ -285,6 +285,7 @@ tooltip * {
 
 #power-profiles-daemon.balanced {
   color: @m_balanced;
+  margin-top: -1px;
 }
 
 #power-profiles-daemon.power-saver {
@@ -302,4 +303,48 @@ tooltip * {
 
 #custom-powersave.powersave {
   color: @m_good;
+}
+
+/* ---------- Dividers ---------- */
+
+#custom-left,
+#custom-right,
+#custom-center_divider {
+  font-size: 19.5px;
+}
+
+#custom-left.bg_1,
+#custom-right.bg_1 {
+  color: @m_bg_1;
+}
+
+#custom-left.bg_2,
+#custom-right.bg_2 {
+  background-color: @m_bg_1;
+  color: @m_bg_2;
+}
+
+#custom-left.bg_3,
+#custom-right.bg_3 {
+  background-color: @m_bg_2;
+  color: @m_bg_3;
+}
+
+#custom-center_divider.bg_3 {
+  color: @m_bg_3;
+}
+
+/* Arrows for the right side, stepping from the lightest pill down to the darkest */
+#custom-left.rev_3 {
+  color: @m_bg_3;
+}
+
+#custom-left.rev_2 {
+  background-color: @m_bg_3;
+  color: @m_bg_2;
+}
+
+#custom-left.rev_1 {
+  background-color: @m_bg_2;
+  color: @m_bg_1;
 }
