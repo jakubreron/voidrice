@@ -13,35 +13,24 @@
   ],
   "modules-left": [
     "hyprland/workspaces",
-    "custom/right#bg_1",
     "hyprland/window"
   ],
   "modules-center": [
-    "custom/left#bg_1",
     "temperature",
-    "custom/left#bg_2",
     "memory",
-    "custom/left#bg_3",
     "cpu",
-    "custom/center_divider#bg_3",
     "custom/dnd",
     "clock#time",
-    "custom/right#bg_3",
     "clock#date",
-    "custom/right#bg_2",
     "network",
-    "bluetooth",
-    "custom/right#bg_1"
+    "bluetooth"
   ],
   "modules-right": [
     "systemd-failed-units",
     "privacy",
     "tray",
-    "custom/left#rev_3",
     "group/pulseaudio",
-    "custom/left#rev_2",
     "backlight",
-    "custom/left#rev_1",
     "battery",
     "power-profiles-daemon",
     "custom/powersave"

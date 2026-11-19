@@ -23,7 +23,6 @@
       "critical": 20
     },
     "min-length": 8,
-    "max-length": 8,
     "tooltip-format": "Battery Discharging: {time}",
     "tooltip-format-charging": "Battery Charging: {time}",
     "tooltip-format-full": "Battery Full",

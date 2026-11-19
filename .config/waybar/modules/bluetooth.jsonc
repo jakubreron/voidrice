@@ -2,8 +2,8 @@
   "bluetooth": {
     "format": "󰂯",
     "format-on": "󰂰",
-    "format-connected": "󰂱",
-    "format-connected-battery": "󰂱 {device_battery_percentage}%",
+    "format-connected": "󰂱 {device_alias}",
+    "format-connected-battery": "󰂱 {device_alias} {device_battery_percentage}%",
     "format-off": "󰂲",
     "format-disabled": "󰂲",
     "on-click": "rofi-bluetooth",
