@@ -263,18 +263,6 @@ hl.window_rule({
 	opacity = 0.0,
 })
 
-hl.window_rule({
-	name = "ueberzugpp-overlay",
-	match = { class = "^(ueberzugpp.*)$" },
-	float = true,
-	no_focus = true,
-	no_initial_focus = true,
-	no_anim = true,
-	no_blur = true,
-	border_size = 0,
-	rounding = 0,
-})
-
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
