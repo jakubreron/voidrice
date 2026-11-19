@@ -18,6 +18,7 @@ y = -2
 decorations = "Buttonless"
 option_as_alt = "Both"
 opacity = 0.92
+dynamic_padding = true
 
 [[keyboard.bindings]]
 key = "Return"
