@@ -267,9 +267,8 @@ tooltip * {
 
 /* CPU power profile from tlp-pd, set-powersave switches it together with the display */
 #power-profiles-daemon {
-  padding: 0 4px;
+  padding: 0 8px 0 6px;
   background-color: @m_bg_1;
-  font-size: 16px;
 }
 
 #power-profiles-daemon.performance {
@@ -278,7 +277,6 @@ tooltip * {
 
 #power-profiles-daemon.balanced {
   color: @m_balanced;
-  margin-top: -1px;
 }
 
 #power-profiles-daemon.power-saver {
