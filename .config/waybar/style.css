@@ -217,8 +217,8 @@ tooltip * {
 }
 
 #tray {
-  padding: 0 12px;
-  background-color: @m_bg_3;
+  padding: 0 4px;
+  margin-right: 8px;
 }
 
 /* Idle apps fade, apps that ask for attention get a highlight and an underline */
