@@ -1,14 +1,2 @@
 #!/usr/bin/env zsh
 
-# Our own folders go in front of PATH. It runs again after the OS profile, because that one
-# puts Homebrew in front and a command of ours (the claude wrapper) would lose to the real one.
-typeset -U path
-path=(
-  $XDG_BIN_HOME $XDG_BIN_HOME/**/*(/N)
-  $PNPM_HOME
-  $NPM_CONFIG_PREFIX/bin
-  $BUN_INSTALL/bin
-  $CARGO_HOME/bin
-  $path
-)
-export PATH

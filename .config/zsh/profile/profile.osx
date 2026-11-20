@@ -28,3 +28,10 @@ export DOCKER_HOST="unix://$COLIMA_HOME/default/docker.sock"
 export NETSKOPE_CA_BUNDLE="/Library/Application Support/Netskope/STAgent/data/nscacert_combined.pem"
 export NODE_EXTRA_CA_CERTS="$NETSKOPE_CA_BUNDLE" # trusts the corporate Netskope certificate while SSL verification stays on, replaces NODE_TLS_REJECT_UNAUTHORIZED=0
 export CHROME_PATH="$HOMEBREW_PREFIX/bin/chromium"
+
+typeset -U path
+path=(
+  $XDG_BIN_HOME $XDG_BIN_HOME/**/*(/N)
+  $path
+)
+export PATH
