@@ -198,12 +198,14 @@ tooltip * {
 /* Only visible while a system or user service has failed */
 #systemd-failed-units {
   padding: 0 6px;
+  background-color: @m_bg_3;
   color: @m_critical;
 }
 
 /* Only visible while an app records the microphone or shares the screen */
 #privacy {
   padding: 0 6px;
+  background-color: @m_bg_3;
 }
 
 #privacy-item.audio-in {
@@ -216,6 +218,7 @@ tooltip * {
 
 #tray {
   padding: 0 12px;
+  background-color: @m_bg_3;
 }
 
 /* Idle apps fade, apps that ask for attention get a highlight and an underline */
