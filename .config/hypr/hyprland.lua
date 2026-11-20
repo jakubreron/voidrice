@@ -111,9 +111,8 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("kdeconnect-indicator")
 	hl.exec_cmd("transmission-daemon")
 
-	hl.exec_cmd(BROWSER, { workspace = "silent" })
-	hl.exec_cmd(TERMINAL, { workspace = "silent" })
-	hl.exec_cmd(GUI_MAIL_CLIENT, { workspace = "silent" })
+	hl.exec_cmd(BROWSER)
+	hl.exec_cmd(GUI_MAIL_CLIENT)
 end)
 
 ---------------------
