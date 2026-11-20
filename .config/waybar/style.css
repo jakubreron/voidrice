@@ -31,6 +31,16 @@
 @define-color m_brightness @yellow;
 @define-color m_border @act_fg;
 
+/* Hover colours: the same role made darker, so hovering keeps the hue of the current state */
+@define-color m_fg_hover shade(@m_fg, 0.7);
+@define-color m_fg_alt_hover shade(@m_fg_alt, 0.7);
+@define-color m_warning_hover shade(@m_warning, 0.7);
+@define-color m_critical_hover shade(@m_critical, 0.7);
+@define-color m_charging_hover shade(@m_charging, 0.7);
+@define-color m_connected_hover shade(@m_connected, 0.7);
+@define-color m_good_hover shade(@m_good, 0.7);
+@define-color m_balanced_hover shade(@m_balanced, 0.7);
+
 * {
   font-family: sans-serif, "JetBrainsMono Nerd Font Propo";
   font-size: 13px;
@@ -158,12 +168,6 @@ tooltip * {
   background-color: @m_bg_2;
 }
 
-#clock.date:hover,
-#network:hover,
-#bluetooth:hover {
-  color: @m_fg_alt;
-}
-
 #network {
   padding: 0 6px 0 4px;
   background-color: @m_bg_1;
@@ -235,7 +239,6 @@ tooltip * {
   background-color: @m_bg_3;
 }
 
-#pulseaudio:hover,
 #pulseaudio.output.muted,
 #pulseaudio.input.source-muted {
   color: @m_fg_alt;
@@ -299,6 +302,70 @@ tooltip * {
 
 #custom-powersave.powersave {
   color: @m_good;
+}
+
+/* ---------- Hover ---------- */
+
+/* Every module with a click action darkens its current text colour on hover.
+   Each state has its own rule because a state rule is as specific as a plain hover rule. */
+#clock.date:hover,
+#network:hover,
+#bluetooth:hover,
+#pulseaudio:hover,
+#cpu:hover,
+#memory:hover,
+#temperature:hover,
+#power-profiles-daemon:hover {
+  color: @m_fg_hover;
+}
+
+#battery:hover {
+  color: @m_good_hover;
+}
+
+#temperature.warning:hover,
+#memory.warning:hover,
+#cpu.warning:hover,
+#network.linked:hover,
+#battery.warning:not(.charging):hover,
+#power-profiles-daemon.performance:hover,
+#custom-powersave.performance:hover,
+#custom-dnd.dnd:hover {
+  color: @m_warning_hover;
+}
+
+#temperature.critical:hover,
+#memory.critical:hover,
+#cpu.critical:hover,
+#network.disconnected:hover,
+#network.disabled:hover,
+#battery.critical:not(.charging):hover {
+  color: @m_critical_hover;
+}
+
+#pulseaudio.output.muted:hover,
+#pulseaudio.input.source-muted:hover,
+#custom-dnd.idle:hover {
+  color: @m_fg_alt_hover;
+}
+
+#bluetooth.connected:hover,
+#pulseaudio.output.bluetooth:not(.muted):hover {
+  color: @m_connected_hover;
+}
+
+#battery.charging:hover,
+#battery.plugged:hover {
+  color: @m_charging_hover;
+}
+
+#power-profiles-daemon.balanced:hover {
+  color: @m_balanced_hover;
+}
+
+#power-profiles-daemon.power-saver:hover,
+#custom-powersave.powersave:hover {
+  color: @m_good_hover;
 }
 
 /* ---------- Dividers ---------- */
