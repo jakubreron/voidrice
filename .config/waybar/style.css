@@ -184,17 +184,11 @@ tooltip * {
 }
 
 #bluetooth {
-  padding: 0 4px;
+  padding: 0 6px;
   background-color: @m_bg_1;
 }
 
-/* Gray while nothing is connected, blue once a device is */
-#bluetooth.on,
-#bluetooth.off,
-#bluetooth.disabled {
-  color: @m_fg_alt;
-}
-
+/* Same colour as the other icons while nothing is connected, blue once a device is */
 #bluetooth.connected {
   color: @m_connected;
 }
