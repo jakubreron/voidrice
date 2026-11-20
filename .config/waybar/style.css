@@ -6,8 +6,10 @@
    Notes (Waybar uses GTK3 CSS, not browser CSS)
    - No var()/custom properties, no flexbox/grid/gap, no @media. Colours come
      from @define-color (colorscheme.css), so dark and light themes both work.
-   - Pills are flat stepped backgrounds: bg1 (darkest), bg2, bg3, with no dividers
-     between them, so a pill that turns red for a critical state needs nothing else to change.
+   - Pills are stepped backgrounds: bg1 (darkest), bg2, bg3. The custom/left and
+     custom/right modules are powerline arrows that join two neighbouring pills:
+     the arrow's text colour is the pill it points to, its background the pill
+     behind it. States (warning, critical) and hover change the text colour only, so the arrows stay as they are.
    - A module "name#suffix" in the config has the CSS id "name" and the class
      "suffix", for example clock#time is "#clock.time".
    ========================================================================== */
@@ -106,8 +108,7 @@ tooltip * {
 }
 
 #temperature.critical {
-  background-color: @m_critical;
-  color: @m_bg_0;
+  color: @m_critical;
 }
 
 #memory {
@@ -115,13 +116,11 @@ tooltip * {
 }
 
 #memory.warning {
-  background-color: @m_warning;
-  color: @m_bg_0;
+  color: @m_warning;
 }
 
 #memory.critical {
-  background-color: @m_critical;
-  color: @m_bg_0;
+  color: @m_critical;
 }
 
 #cpu {
@@ -129,13 +128,11 @@ tooltip * {
 }
 
 #cpu.warning {
-  background-color: @m_warning;
-  color: @m_bg_0;
+  color: @m_warning;
 }
 
 #cpu.critical {
-  background-color: @m_critical;
-  color: @m_bg_0;
+  color: @m_critical;
 }
 
 #custom-dnd {
@@ -263,8 +260,7 @@ tooltip * {
 }
 
 #battery.critical:not(.charging) {
-  background-color: @m_critical;
-  color: @m_bg_0;
+  color: @m_critical;
 }
 
 #battery.charging,
